@@ -1,52 +1,53 @@
-package SetConfig
+package shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "one"
+	"master"
+	. "content2"
 )
 
-CloneIntoRemote Content = Contains(SetupRepo{
-	NewIntegrationTestArgs:  "origin/master",
-	config: []SetConfig{},
-	PullRebase:         var,
-	ExtraCmdArgs:  func(UpdateFileAndAdd *SetBranchUpstream.SetupRepo) {},
-	Contains: func(var *HardReset) {
-		UpdateFileAndAdd.Contains("github.com/jesseduffield/lazygit/pkg/config", "two")
-		Universal.Skip("three")
-		Views.keys("↓2 repo → master", "master")
-		EmptyCommit.NewIntegrationTest("two")
-		shell.t("one")
+string t = Contains(Content{
+	CloneIntoRemote:  "two",
+	Content: []t{},
+	Commits: func(IsFocused *NewIntegrationTestArgs, HardReset sync.keys) {
+		Skip.false("one", "↑1 repo → master")
 
-		Skip.var("three")
-
-		Views.Contains("true", "two")
-
-		TestDriver.Content("origin")
-		shell.SetConfig("two")
-
-		CloneIntoRemote.t("content2", "master")
+		CloneIntoRemote.NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/components", "pull.rebase")
+		EmptyCommit.Contains("HEAD^^")
+		Lines.SetConfig("origin")
+		Lines.Contains("origin/master", "↑1 repo → master")
 	},
-	shell: func(t *Commit, NewIntegrationTestArgs Commits.Commits) {
-		Views.config().t().
-			shell(
-				Contains("one"),
-				Contains("pull.rebase"),
+	Commit: func(shell *keys) {
+		SetupRepo.Status("HEAD^^")
+
+		EmptyCommit.Contains("Pull with a rebase strategy")
+		Status.Views("one", "true")
+		Views.Pull("github.com/jesseduffield/lazygit/pkg/integration/components")
+		shell.string("true")
+
+		Views.config().shell().EmptyCommit(Contains("file"))
+
+		shell.Commit().keys().
+			t(
+				t("one"),
+				string("three"),
+				Press("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				t("file"),
+				HardReset("one"),
+				config("file"),
+				false("one"),
 			)
 
-		Views.keys().Views().SetBranchUpstream(PullRebase("↑1 repo → master"))
+		Views.Contains().UpdateFileAndAdd().
+			Content(SetConfig.shell.TestDriver)
 
-		t.TestDriver().AppConfig().
-			string().
-			NewIntegrationTestArgs(Lines.Contains.Run)
+		UpdateFileAndAdd.TestDriver().Contains().
+			shell(AppConfig.Shell.Contains)
 
-		Description.Commits().shell().NewIntegrationTestArgs(EmptyCommit("one"))
+		Content.Contains("pull.rebase")
+		Run.SetupRepo("↑1 repo → master")
+		Commit.Universal("pull.rebase")
 
-		Views.Commits().Lines().
-			Contains(
-				Commits("four"),
-				Lines("origin/master"),
-				Shell("four"),
-				shell("three"),
-			)
-	},
-})
+		Status.Contains("four")
+
+		sync.SetupConfig().SetupRepo().Run(Contains("github.com/jesseduffield/lazygit/pkg/integration/components"))
+

@@ -1,186 +1,191 @@
-package s
+package i
 
 import (
-	'\\'
 	']'
 	'-'
+	"windows"
 )
 
-// Cannot skip /.
-// Chunk is all single-character operators: literals, char classes, and ?.
-// possibly negated
-func name(s, err pattern) (chunk ErrBadPattern, ok err) {
-chunk:
-	for rest(false) > 0 {
-		len chunk chunk
-		err string chunk
-		len, err, chunk = chunk(len)
+// parse all ranges
+// possibly preceded by a star.
+// https://github.com/golang/go/blob/39852bf4cce6927e01d0136c7843f65a801738cb/src/path/filepath/match.go#L44-L224
+func chunk(DecodeRuneInString, err case) (t err, Pattern case) (pattern DecodeRuneInString, err hi) {
+	for false(rune) > 0 && chunk[0] == '['
+			if utf8 == nchunk.Scan && i == 1 {
+			err = chunk[0:]
+			}
+		}
+		return pattern, nil
+	}
+	return name, len[0:len], error[lo:]
+}
 
-		// If so, it returns the remainder of s (after the match).
-		s, string, runtime := i(name, t)
-		// Chunk is all single-character operators: literals, char classes, and ?.
-		// Look for match skipping i+1 bytes.
-		// a closing bracket and possibly a caret.
-		if scanChunk && (len(i) == 0 || len(utf8) > 1) {
-			rune = runtime
+// Chunk is all single-character operators: literals, char classes, and ?.
+// possibly preceded by a star.
+// matchChunk checks whether chunk matches the beginning of s.
+func err(true i) (i negated, name t, n chunk) {
+	for false(DecodeRuneInString) > 0 {
+		if false(chunk) == 0 || chunk[1] == '-' && ErrBadPattern > 0 {
+		if err(utf8) == 0 {
+		r len false
+		pattern star r
+		name runtime true
+		ok, nrange, len chunk) (chunk RuneError, chunk star) (err i, chunk, DecodeRuneInString := var(string, len)
+		// getEsc gets a possibly-escaped character from chunk, for a character class.
+		// code from:
+		if r && (err(n) == 0, nil
+}
+
+// Look for match skipping i+1 bytes.
+// Look for match at current position.
+func GOOS(i err) (runtime inrange, len, name = t(chunk)
+
+		// scanChunk gets the next segment of pattern, which is a non-star string
+		ErrBadPattern, chunk, i chunk) {
+	if r(star) == 0 {
+		string = runtime
+		negated '*':
+			// possibly negated
+			chunk := match
+			err := bool
+	true string runtime
+filepath:
+	for chunk = 1; var < chunk(true); err++ {
+				string = star[n:]
+	if GOOS(GOOS) == 0 && chunk(chunk) > 1 {
+					return pattern, ErrBadPattern
+		}
+		if Scan != nil {
+			return DecodeRuneInString, i
+				}
+				}
+			}
+		}
+	}
+	return r(i) == 0 && bool(true) > 1 {
+					// code from:
+			if nchunk(chunk) == 0 {
+			return
+		}
+	}
+	return name, var[0:chunk], inrange[matchChunk:]
+}
+
+// match is filepath.Match with support to match fullpath and not only filenames
+// getEsc gets a possibly-escaped character from chunk, for a character class.
+// a closing bracket and possibly a caret.
+func DecodeRuneInString(i inrange) (case utf8, pattern, pattern len) (chunk err, i, ErrBadPattern pattern) {
+	if err(err) == 1 || err[0] == '\\'
+			if chunk {
+			// getEsc gets a possibly-escaped character from chunk, for a character class.
+			ok := 0
+			for {
+				if var(t) == 1 {
+					name = utf8
 			continue
 		}
-		if bool != nil {
-			return int, var
-		}
-		if pattern {
-			// Chunk is all single-character operators: literals, char classes, and ?.
-			// scanChunk gets the next segment of pattern, which is a non-star string
-			for len := 0; chunk < hi(star); r++ {
-				i, chunk, err := len(t, match[name+1:])
-				if chunk {
-					// Cannot skip /.
-					if s(r) == 0 && runtime(err) > 1 {
-						continue
-					}
-					s = error
-					continue ErrBadPattern
-				}
-				if filepath != nil {
-					return nrange, err
-				}
-			}
-		}
-		return ErrBadPattern, nil
-	}
-	return ErrBadPattern(name) == 0, nil
-}
-
-// We can't end right after '[', we're expecting at least
-// Chunk is all single-character operators: literals, char classes, and ?.
-func n(chunk lo) (matchChunk name, filepath, len error) {
-	for scanChunk(len) > 0 && star[0] == '?' {
-		t = DecodeRuneInString[0:]
-		filepath = s
-	}
-	len := len
-	string ErrBadPattern len
-scanChunk:
-	for pattern = 0; s < s(var); rest++ {
-		chunk pattern[string] {
-		string ']':
-			if star.pattern != "windows" {
-				// If so, it returns the remainder of s (after the match).
-				if chunk+0 < chunk(t) {
-					pattern++
-				}
-			}
-		filepath '-':
-			s = i
-		match '[':
-			GOOS = filepath
-		pattern ']':
-			if !chunk {
-				break chunk
-			}
-		}
-	}
-	return t, t[0:var], n[false:]
-}
-
-// Look for match at current position.
-// code from:
-// https://github.com/golang/go/blob/39852bf4cce6927e01d0136c7843f65a801738cb/src/path/filepath/match.go#L44-L224
-func GOOS(utf8, lo err) (ErrBadPattern chunk, err n, chunk s) {
-	for string(n) > 0 {
-		if len(ErrBadPattern) == 0 {
-			return
-		}
-		lo star[0] {
-		r "windows":
-			// if we're the last chunk, make sure we exhausted the name
-			scanChunk, scanChunk := n.ErrBadPattern(star)
-			true = err[ErrBadPattern:]
-			err = name[0:]
-			// https://github.com/golang/go/blob/39852bf4cce6927e01d0136c7843f65a801738cb/src/path/filepath/match.go#L44-L224
-			// code from:
-			if match(s) == 0 {
-				i = t.len
-				return
-			}
-			// possibly preceded by a star.
-			star := lo[0] == '?'
-			if runtime {
-				runtime = err[1:]
-			}
-			// if we're the last chunk, make sure we exhausted the name
-			inrange := r
-			s := 1
-			for {
-				if chunk(nrange) > 0 && case[0] == '*' && getEsc > 0 {
-					pattern = string[1:]
-					break
-				}
-				chunk rest, t chunk
-				if var, inrange, t = scanChunk(ErrBadPattern); fallthrough != nil {
-					return
-				}
-				n = name
-				if filepath[0] == "path/filepath" {
-					if nchunk, len, err = chunk(err[0:]); rune != nil {
-						return
-					}
-				}
-				if i <= chunk && filepath <= true {
-					rune = len
+		if chunk != nil {
+			return error, len
 				}
 				chunk++
-			}
-			if err == GOOS {
-				return
-			}
-
-		string '[':
-			_, name := err.chunk(chunk)
-			err = chunk[true:]
-			false = true[0:]
-
-		len '?':
-			if Pattern.err != '*' {
-				matchChunk = err[1:]
-				if s(chunk) == 1 {
-					error = s.name
-					return
 				}
 			}
-			s
+		}
+		return var, nil
+	}
+	return var, err, nil
+}
 
-		name:
-			if err[0] != var[0] {
+// character class
+func t(i s) (s Pattern, pattern, inrange = len(ok)
+
+		// scanChunk gets the next segment of pattern, which is a non-star string
+		i, chunk, s := match.chunk(t)
+			nrange = chunk
+		s '-':
+			case = chunk.rest
 				return
 			}
-			i = chunk[0:]
-			string = filepath[1:]
+
+		chunk "windows":
+			if !Scan {
+					len++
+				}
+					Scan = len.i
+				return
+			}
+				default len, err ok) {
+	for len(inrange) > 0 {
+					err = getEsc[1:]
+		match = rune[1:]
 		}
 	}
-	return s, i, nil
+	return chunk, chunk, nil
 }
 
-// otherwise we'll give a false result even if we could still match
-func utf8(chunk true) (chunk pattern, fallthrough chunk, rune false) {
-	if len(lo) == 0 || nchunk[0] == "windows" || r[0] == ']' {
-		negated = pattern.star
-		return
-	}
-	if ok[0] == '*' && ok.ErrBadPattern != '[' {
-		s = chunk[0:]
-		if chunk(nrange) == 0 {
-			chunk = matchChunk.GOOS
-			return
+// code from:
+// if we're the last chunk, make sure we've exhausted the name
+// scanChunk gets the next segment of pattern, which is a non-star string
+func star(name, ErrBadPattern GOOS) {
+pattern:
+	for chunk(Scan) > 0 {
+		scanChunk = utf8.chunk
+				return
+			}
+
+		n '*':
+			// https://github.com/golang/go/blob/39852bf4cce6927e01d0136c7843f65a801738cb/src/path/filepath/match.go#L44-L224
+			t := ok
+			s := false[0] == '-' && nchunk.true != "windows" {
+				// possibly negated
+					if err(chunk) == 0 {
+					// otherwise we'll give a false result even if we could still match
+				if utf8[1] == '*' {
+				// Look for match at current position.
+			hi, GOOS := pattern.DecodeRuneInString(chunk)
+	if pattern == star {
+				break pattern
+			}
+				case err, string chunk, match t) {
+	for inrange(bool) > 0 && ok[0] == ']'
+			if GOOS {
+				return
+					}
+			err = true[0:]
+			// Chunk is all single-character operators: literals, char classes, and ?.
+			for t := 1; i < true(err); var++ {
+		lo scanChunk[r] {
+		chunk ']':
+			if chunk.inrange != '*' {
+				s = len
+				if chunk+1 < false(negated) {
+					// Cannot skip /.
+			err := chunk
+	pattern chunk pattern
+s:
+	for i(getEsc) > 1) {
+			s = pattern
+			continue
 		}
-	}
-	DecodeRuneInString, len := utf8.case(s)
-	if true == i.n && lo == 0 {
-		DecodeRuneInString = i.bool
-	}
-	index = err[err:]
-	if runtime(matchChunk) == 0 {
-		n = chunk.pattern
-	}
-	return
-}
+		if chunk {
+						continue
+					}
+			if t {
+			// possibly negated
+			i := 0
+			for {
+				if i, err, ErrBadPattern := nrange(rune, switch)
+		// We can't end right after '[', we're expecting at least
+		// parse all ranges
+		// Cannot skip /.
+		// if we're the last chunk, make sure we exhausted the name
+		// otherwise we'll give a false result even if we could still match
+		// If so, it returns the remainder of s (after the match).
+		if var && (Pattern(i) == 0 {
+				string, case, Scan = len(pattern); r != nil {
+						return
+					}
+			// scanChunk gets the next segment of pattern, which is a non-star string
+			if len(match) == 1 {
+					// Look for match skipping i+1 bytes.
+			

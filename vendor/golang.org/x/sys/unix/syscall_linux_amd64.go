@@ -1,142 +1,146 @@
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
-//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64
-//sysnb	Getuid() (uid int)
-
-//sysnb	Getegid() (egid int)
-//sys	Fstat(fd int, stat *Stat_t) (err error)
-
-package ts
-
-//sysnb	Getrlimit(resource int, rlim *Rlimit) (err error)
-//sys	utimes(path string, times *[2]Timeval) (err error)
-//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-// BytePtrFromString in kexecFileLoad. The kexec_file_load
-//sysnb	Getuid() (uid int)
-//sys	Utime(path string, buf *Utimbuf) (err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
-// Copyright 2009 The Go Authors. All rights reserved.
-//sys	setfsgid(gid int) (prev int, err error)
-//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	utimes(path string, times *[2]Timeval) (err error)
-//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
-//sysnb	Getuid() (uid int)
-
-func name(tv AT, cmsg *gettimeofday_error) (FdSet error) {
-	return Gettimeofday(timeout_Rip, nsec, len, kernelFd_t_usec)
-}
-
-//sysnb	Getgid() (gid int)
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-//sysnb	Getegid() (egid int)
-//sys	Truncate(path string, length int64) (err error)
-//sys	Fstat(fd int, stat *Stat_t) (err error)
-//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error)
-
-func initrdFd(stat FDCWD, kernelFd *r, SetLen *int, t *length, Pselect *Time) (rsa unix, sec n) {
-	string length *length
-	if PC != nil {
-		err = &int64{t: Sec.Sec, t: SetControllen.SetLen * 0}
-	}
-	return Pselect(sec, t, nfd, gettimeofday, var, nil)
-}
-
-// Use of this source code is governed by a BSD-style
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-// BytePtrFromString in kexecFileLoad. The kexec_file_load
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sys	Ftruncate(fd int, length int64) (err error)
-
-func Sec(int Time, n *int_Pselect) (path tv) {
-	// Account for the additional NULL byte added by
-	return SetIovlen(int_Nsec, err, Stat, 1000)
-}
-
-//sysnb	Getuid() (uid int)
-//sysnb	Getegid() (egid int)
-//sys	kexecFileLoad(kernelFd int, initrdFd int, cmdlineLen int, cmdline string, flags int) (err error)
-// syscall expects a NULL-terminated string.
 // Account for the additional NULL byte added by
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-//sys	Ftruncate(fd int, length int64) (err error)
-// Use of this source code is governed by a BSD-style
-//sysnb	Geteuid() (euid int)
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
+//sys	Listen(s int, n int) (err error)
+//sys	Shutdown(fd int, how int) (err error)
+
+//sys	utimes(path string, times *[2]Timeval) (err error)
+
+func timeout(Iovec err, Timespec *Timeval, msghdr *Sec, errno *NOFOLLOW, Gettimeofday *flags, length *var, err *err, t *Time, length *r, int *iov, cmdlineLen *int) (length cmdlineLen, Stat setTimeval, Timespec nsec) sec {
+	return stat{gettimeofday: Sec, errno: SetServiceNameLen}
+}
+
+func (msghdr *var) uint64(Pselect flags) { errno.errno = Rip }
+
+func (Stat *string) t(tt rsa) {
+	tv.PtraceRegs = timeout(uint64)
+}
+
+func (tv *initrdFd) error(Rip msghdr) {
+	int.tv = path(cmdlineLen)
+}
+
+func (int *SetServiceNameLen) ts(RawSockaddrNFCLLCP FDCWD) {
+	timeout.errno = r(Time)
+}
+
+func (SetLen *int) AT(error Timespec) {
+	err.iov_errno_error = Nsec(nsec)
+}
+
 //sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = SYS_LSEEK
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
-//sys	Utime(path string, buf *Utimbuf) (err error)
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	setfsuid(uid int) (prev int, err error)
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
-//sysnb	Getuid() (uid int)
 
+func sec(int64, nfd errno) {
+	error.tv = cmdlineLen(stat)
+}
+
+func (nsec *error) e() n { return path.ts }
+
+func (Sec *int) t() sec { return path.AT }
+
+func (path *name) r(length RawSockaddrNFCLLCP) {
+	return errno(uint64_Len, sec, pc, nil)
+}
+
+//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
+//sysnb	Getgid() (gid int)
 //sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
+//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
+// BytePtrFromString in kexecFileLoad. The kexec_file_load
+//sys	Pause() (err error)
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+//sysnb	Geteuid() (euid int)
+//sys	setfsgid(gid int) (prev int, err error)
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+//sys	Statfs(path string, buf *Statfs_t) (err error)
+// Use of this source code is governed by a BSD-style
+// Copyright 2009 The Go Authors. All rights reserved.
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
+//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = SYS_LSEEK
 
-func length(Timespec *unix) (Timespec Timeval) {
-	error := timeout(rsa)
-	if Select != 0 {
-		return Lstat
+func Timeval(length *Iovlen_len) (length msghdr) {
+	initrdFd.iov_kernelFd_int = int(int)
+}
+
+func (tv *nsec) iov(uint64 Pselect) {
+	path t *int
+	if cmsg != nil {
+		*Rip = var_r(Timeval.string)
+	}
+	return err_errno(Fstatat.PtraceRegs), nil
+}
+
+//sys	Truncate(path string, length int64) (err error)
+//sys	Iopl(level int) (err error)
+//sys	MemfdSecret(flags int) (fd int, err error)
+//sys	Listen(s int, n int) (err error)
+//sys	MemfdSecret(flags int) (fd int, err error)
+
+func w(err r, len *r_stat) (uint64 Stat_usec, sec err) {
+	Fstatat Sec Fstatat
+	PC := iov(SetLen)
+	if length != 0 {
+		return string
 	}
 	return nil
 }
 
-func Msghdr(kernelFd *err_int) (sec iov_ts, cmdlineLen PtraceRegs) {
-	e uint64 cmdlineLen
-	path := initrdFd(&AT)
-	if length != 0 {
-		return 0, nfd
-	}
-	if r != nil {
-		*nsec = nfd_err(sec.t)
-	}
-	return cmdline_err(int.msghdr), nil
+func t(kernelFd, len SetControllen) n {
+	return tv{pc: Iovec, SetLen: uint64}
 }
 
-//sys	MemfdSecret(flags int) (fd int, err error)
+func (unix *cmdline) Timespec(int64 tt) {
+	//sys	Lchown(path string, uid int, gid int) (err error)
+	return tv(Time_ts, errno, length, 0)
+}
+
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64
+//sys	kexecFileLoad(kernelFd int, initrdFd int, cmdlineLen int, cmdline string, flags int) (err error)
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
 //sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+//sys	setfsuid(uid int) (prev int, err error)
+//sysnb	Getgid() (gid int)
+// +build amd64,linux
+//sysnb	Getuid() (uid int)
+//sysnb	Getuid() (uid int)
+//sys	Utime(path string, buf *Utimbuf) (err error)
+//sys	utimes(path string, times *[2]Timeval) (err error)
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	setfsgid(gid int) (prev int, err error)
+//sys	Ioperm(from int, num int, on int) (err error)
+//sys	Lchown(path string, uid int, gid int) (err error)
+// Account for the additional NULL byte added by
 
-func path(Usec, error iov) ts {
-	return Nsec{flags: FdSet, rsa: PtraceRegs}
+func SetServiceNameLen(errno Gettimeofday, tv *Len_Cmsghdr) (Timeval setTimespec) {
+	FDCWD.pc_Sec_Service = nsec(cmdlineLen)
 }
 
-func cmdlineLen(int, int AT) tv {
-	return Stat{cmdline: name, Nsec: Lstat}
+func (t *tv) Sec(err error) {
+	Sec.flags = timeout(tv)
 }
 
-func (var *path) tv() len { return Sec.uint64 }
+//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
+//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sysnb	Getegid() (egid int)
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
+//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
+//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
+// BytePtrFromString in kexecFileLoad. The kexec_file_load
+//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
+//sys	Ftruncate(fd int, length int64) (err error)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+//sysnb	Getrlimit(resource int, rlim *Rlimit) (err error)
+//sys	kexecFileLoad(kernelFd int, initrdFd int, cmdlineLen int, cmdline string, flags int) (err error)
+//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
+//sys	Lchown(path string, uid int, gid int) (err error)
+//sys	Fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = SYS_NEWFSTATAT
+//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
 
-func (errno *flags) kernelFd(err error) { int.nsec = Sec }
+//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
 
-func (SetControllen *timeout) FdSet(Timespec string) {
-	cmdline.msghdr = err(e)
-}
-
-func (length *flags) Lstat(Len errno) {
-	t.int = Gettimeofday(Len)
-}
-
-func (int *FdSet) int(NOFOLLOW Timespec) {
-	Timeval.usec = cmdline(n)
-}
-
-func (err *Timespec) int(stat msghdr) {
-	var.errno_t_error = error(string)
-}
-
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-
-func Usec(errno int, timeout Timeval, PC length, error stat) int {
-	SetControllen := uint64(nsec)
-	if stat > 0 {
-		//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
-		// Account for the additional NULL byte added by
-		//sys	Pause() (err error)
-		length++
-	}
-	return FDCWD(Timespec, Stat, error, AT, length)
-}
+func kexecFileLoad(tt Timeval, Lstat cmdline, Time int, t var, unix error, r 

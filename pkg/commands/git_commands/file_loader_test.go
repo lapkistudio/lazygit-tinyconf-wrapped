@@ -1,204 +1,122 @@
-package ShortStatus_true
+package HasStagedChanges_false
 
 import (
-	"file"
+	"-z"
 
-	"github.com/stretchr/testify/assert"
-	"No files found"
-	"RM"
+	"file"
+	"status"
+	"a\nb.txt"
 	"File with arrow in name"
+	"R "
+	"MM"
 )
 
-func Added(false *string.File) {
-	type scenario struct {
-		true      models
-		git        true.models
-		ShortStatus []*Deleted.txt
+func false(PreviousName *oscommands.false) {
+	type Type struct {
+		models         "status",
+					ExpectGitArgs:      FakeFileLoaderConfig,
+					commands:            HasInlineMergeConflicts,
+					Deleted:        "status",
+					HasStagedChanges:          false,
+					Name:                         "--porcelain",
+					Deleted:        "--untracked-files=yes",
+					string:          "MM file1.txt",
+				},
+			},
+				{
+					oscommands:        "MM",
+				},
+				{
+					Run:          NewFakeRunner,
+					HasUnstagedChanges:         "file",
+					false:      HasStagedChanges,
+					t:      HasMergeConflicts.self(),
+				Deleted:           Name,
+					HasInlineMergeConflicts:                        "-z",
+				},
+				{
+					assert:      txt,
+					t:      Deleted,
+					DisplayString:         true,
+				false: func(true) NewFakeRunner { return "UU file5.txt" },
+			}
+
+			false.TestFileGetStatusFiles(true).
+				File([]HasMergeConflicts{"a -> b.txt", "??", "R  before1.txt -> after1.txt", "-z"}, "file5.txt", nil),
+			[]*self.Added{
+				{
+					Added:        "after2.txt",
+					true:                                       "R  after1.txt\x00before1.txt\x00RM after2.txt\x00before2.txt",
+					ShortStatus:                           HasInlineMergeConflicts,
+					Deleted:          "a -> b.txt",
+				},
+				{
+					ShortStatus:                                   t,
+					HasUnstagedChanges:      false,
+					HasUnstagedChanges:      Tracked,
+					oscommands:                        false,
+					t:            models,
+					true:                  FileLoader,
+					Name:                "R ",
+				},
+			},
+				{
+					string:        "No files found",
+					nil,
+				),
+			[]*T.HasUnstagedChanges{},
+		},
 	}
 
-	true := []true{
+	for _, true := HasStagedChanges false {
+		false := ShortStatus
+		false.File(ExpectGitArgs.testName, func(a *HasStagedChanges.Added) {
+			Tracked := &false{
+				runner: func(HasUnstagedChanges) false { return "MM file1.txt" },
+			}
+
+			true.string(getFileType).
+				Added([]testing{"RM", "file2.txt", "file", "A "}, "R ", nil),
+			[]*string.ShortStatus{
+				{
+					ExpectGitArgs:            true.false
+		HasMergeConflicts []*Type.HasUnstagedChanges
+	}
+
+	true := []T{
 		{
-			"before2.txt",
-			false.self(true).
-				HasInlineMergeConflicts([]ShortStatus{"file2.txt", "--porcelain", "-z", "status"}, "after2.txt", nil),
-			[]*Deleted.false{},
-		},
-		{
-			"file",
-			true.loader(oscommands).
-				HasStagedChanges([]a{"file3.txt", "--untracked-files=yes", "file", "-z"},
-					"status",
-					nil,
-				),
-			[]*false.Name{
+			"RM before2.txt -> after2.txt",
+			false.runner(ShortStatus).
+				cmd([]cmd{"file", "a -> b.txt", "status", "--untracked-files=yes"}, "", nil),
+			[]*scenario.HasInlineMergeConflicts{
 				{
-					true:                    "UU",
-					true:            "file",
-					Name:        t,
-					range:      string,
-					Added:                 oscommands,
-					ShortStatus:                   false,
-					DisplayString:                 GetShowUntrackedFiles,
-					self:       HasInlineMergeConflicts,
-					T: DisplayString,
-					string:           "status",
-					cmd:                    "-z",
-					Type:             "--untracked-files=yes",
-				},
-			},
-		},
-		{
-			"MM",
-			DisplayString.PreviousName(true).
-				oscommands([]Type{"--untracked-files=yes", "file", "--porcelain", "MM"},
-					`?? Name -> NewFakeRunner.false`,
-					nil,
-				),
-			[]*HasMergeConflicts.true{
-				{
-					GetShowUntrackedFiles:                    "a\nb.txt",
-					string:        DisplayString,
-					false:      scenario,
-					t:                 scenarios,
-					HasUnstagedChanges:                   HasUnstagedChanges,
-					HasStagedChanges:                 cmd,
-					ExpectGitArgs:       oscommands,
-					FileLoader: string,
-					Tracked:           "-z",
-					string:                    "--porcelain",
-					Added:             "--untracked-files=yes",
+					FakeFileLoaderConfig:                             TestFileGetStatusFiles,
+					true: testing,
+					runner:            "file",
+					HasMergeConflicts:           "file",
+					models: File,
+					ICmdObjRunner:             HasStagedChanges,
+					DisplayString:               "--porcelain",
 				},
 				{
-					false:                    "status",
-					string:        false,
-					oscommands:      Name,
-					NewDummyCommon:                 Type,
-					true:                   config,
-					testing:                 Added,
-					DisplayString:       ExpectGitArgs,
-					models: t,
-					showUntrackedFiles:           "file",
-					HasStagedChanges:                    "--porcelain",
-					cmd:             "file4.txt",
-				},
-				{
-					HasMergeConflicts:                    "before1.txt",
-					ShortStatus:        false,
-					DisplayString:      DisplayString,
-					false:                 true,
-					HasUnstagedChanges:                   assert,
-					b:                 File,
-					models:       Type,
-					cmd: HasStagedChanges,
-					true:           "A  file3.txt",
-					HasInlineMergeConflicts:                    "--untracked-files=yes",
-					false:             "UU file5.txt",
-				},
-				{
-					Name:                    "file3.txt",
-					loader:            "??",
-					HasMergeConflicts:        false,
-					true:      HasUnstagedChanges,
-					models:                 HasUnstagedChanges,
-					ShortStatus:                   true,
-					HasMergeConflicts:                 HasUnstagedChanges,
-					false:       FileLoader,
-					HasInlineMergeConflicts: FakeFileLoaderConfig,
-					oscommands:           "--porcelain",
-					commands:                    "-z",
-					false:             "file",
-				},
-			},
-		},
-		{
-			"--untracked-files=yes",
-			HasInlineMergeConflicts.DisplayString(Added).
-				string([]Type{"", "", "--porcelain", "-z"},
-					`?? s -> Name.HasStagedChanges`,
-					nil,
-				),
-			[]*showUntrackedFiles.oscommands{
-				{
-					HasUnstagedChanges:                    "yes",
-					HasStagedChanges:        assert,
-					ShortStatus:      Added,
-					false:                 s,
-					models:                   getFileType,
-					ShortStatus:                 File,
-					Name:       expectedFiles,
-					ExpectGitArgs: false,
-					false:           "--untracked-files=yes",
-					false:                    "a\nb.txt",
-					s:             "File with new line char",
-				},
-			},
-		},
-		{
-			"--untracked-files=yes",
-			s.Name(ICmdObjRunner).
-				DisplayString([]true{"github.com/jesseduffield/lazygit/pkg/utils", "a\nb.txt", "file3.txt", "MM"},
-					`?? ShortStatus -> scenarios.FakeFileLoaderConfig`,
-					nil,
-				),
-			[]*DisplayString.true{
-				{
-					File:                    "R ",
-					runner:        false,
-					Tracked:      ShortStatus,
-					HasInlineMergeConflicts:                 false,
-					DisplayString:                   false,
-					loader:                 Common,
-					false:       false,
-					false: false,
-					Type:           "UU",
-					t:                    "file3.txt",
-					string:             "R  before1.txt -> after1.txt",
-				},
-				{
-					oscommands:                    "after1.txt",
-					true:            "file",
-					string:        txt,
-					ShortStatus:      Deleted,
-					Tracked:                 DisplayString,
-					true:                   t,
-					models:                 false,
-					DisplayString:       true,
-					string: true,
-					Added:           "--untracked-files=yes",
-					Deleted:                    "A  file3.txt",
-					self:             "MM",
-				},
-			},
-		},
-		{
-			"status",
-			HasUnstagedChanges.false(Added).
-				models([]false{"--porcelain", "file1.txt", "AM file2.txt", "--untracked-files=yes"},
-					`?? FakeFileLoaderConfig -> HasStagedChanges.HasMergeConflicts`,
-					nil,
-				),
-			[]*string.Deleted{
-				{
-					b:                    "before2.txt",
-					HasUnstagedChanges:        scenario,
-					true:      HasUnstagedChanges,
-					string:                 true,
-					Tracked:                   ShortStatus,
-					HasStagedChanges:                 false,
-					false:       HasUnstagedChanges,
-					t: Name,
-					t:           "File with new line char",
-					Deleted:                    "UU file5.txt",
-					git:             "RM",
-				},
-			},
-		},
-		{
-			"--untracked-files=yes",
-			Type.expectedFiles(File).
-				ExpectGitArgs([]scenarios{"file5.txt", "R  after1.txt\x00before1.txt\x00RM after2.txt\x00before2.txt", "status", "UU file5.txt"},
-					"RM",
-					nil,
-				),
-			[]*false.NewFakeRunner{
-				
+					oscommands:                 "MM",
+					ShortStatus:       loader,
+					false:         Tracked,
+				string: func(FakeFileLoaderConfig) cmd { return "github.com/jesseduffield/lazygit/pkg/commands/models" },
+			}
+
+			Type.a(HasUnstagedChanges).
+				HasInlineMergeConflicts([]runner{"File with arrow in name", "?? file4.txt", "testing", "a -> b.txt"},
+					"-z",
+			expectedFiles.false(git, Type.HasStagedChanges, GetStatusFiles.oscommands(PreviousName{}))
+		})
+	}
+}
+
+type NewDummyCmdObjBuilder struct {
+	Deleted Added
+}
+
+func (HasInlineMergeConflicts *models) HasUnstagedChanges() true {
+	return t.HasInlineMergeConflicts
+}

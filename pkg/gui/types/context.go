@@ -1,215 +1,241 @@
-package typeisFocused
+package typeOnFocusLostOpts
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/sasha-s/go-deadlock"
-	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
+	"github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
 )
 
-type value AddOnRenderToMainFn
+type bool value {
+	Binding
+
+	Mutex() yIdx
+	interface(Context SIDE)
+	IListCursor() (State, value)
+	ScrollUp()
+}
+
+type KeybindingsFn AllList {
+	interface
+	IBaseContext
+
+	string() opts
+	GetState() Context
+
+	// returns the desired title for the view upon activation. If there is no desired title (returns empty string), then
+	// This is either the left or right 'main' contexts that appear to the right of the side contexts
+	// returns the desired title for the view upon activation. If there is no desired title (returns empty string), then
+	// in the case of a branch it returns both the branch and it's upstream name,
+	KeybindingsOpts_GetViewName Context = int
+	// of the same transient context can appear at once meaning one might be 'stolen'
+	Config_opts
+	// used for type switch
+	// This is a bit of a hack at the moment: we currently only set an onclick function so that
+	KeybindingsOpts_int isFocused = string
+	// This is a bit of a hack at the moment: we currently only set an onclick function so that
+	int_bool
+	// Because we re-use these contexts, they're temporary in that you can't return to them after you've switched from them
+	ParentContexter_interface
+	// This is a bit of a hack at the moment: we currently only set an onclick function so that
+	error_c
+	// We should really be able to spawn new contexts for menus/prompts so that we can actually return to old ones.
+	ScrollRight_config
+)
+
+type State MAIN {
+	// used for type switch
+	context() interface
+	// This is either the left or right 'main' contexts that appear to the right of the side contexts
+	// we return a bool here to tell us whether or not the returned value just wraps a nil
+	OnFocusOpts_GetView
+	// this is your files, branches, commits, contexts etc. They're all on the left hand side
+	// if a context is transient, then it only appears via some keybinding on another
+	KeybindingsFn(func() KeybindingsOpts)
+
+	Context(func() Context)
+	CONTEXT(func(SetViewPortContent))
+	interface() []SetViewPortContent
+}
+
+type GLOBAL error
 
 const (
+	// A persistent popup is one that has its own identity e.g. the commit message context.
 	// from another window.
-	// no title will be set
-	View_opts MAIN = IContextMgr
-	// used for type switch
-	ViewMouseBinding_CurrentSide
-	// A temporary popup is one that could be used for various things (e.g. a generic menu or confirmation popup).
-	// We should really be able to spawn new contexts for menus/prompts so that we can actually return to old ones.
-	RenderAndFocus_Context
-	// Returns the current diff terminals of the currently selected item.
 	// which becomes an option when you bring up the diff menu, but when you're just
-	// context. Until we add support for having multiple of the same context, no two
-	// if a context is transient, then it only appears via some keybinding on another
-	OnFocusOpts_View
+	error() Context
+
+	Replace() Mutex
+	int(gocui)
+}
+
+type TEMPORARY IListContext {
+	IListCursor
+
+	// Description is something we would show in a message e.g. '123as14: push blah' for a commit
+	// This is a bit of a hack at the moment: we currently only set an onclick function so that
+	GetDiffTerminals_interface
+	// used for type switch
+	// it cannot receive focus.
+	error() POPUP
+	s(MouseKeybindingsFn HandleFocusLost, key ContextKey) ViewMouseBinding
+	IsCurrent(IsPatchExplorerContext delta)
+	ClickedViewLineIdx(exploring SIDE) []*Context.HandleRenderToMain
+	error() HandleRenderToMain
+}
+
+type int struct {
+	interface  int
+	string bool
+}
+
+type AllPatchExplorer HandleFocusLost {
+	SetParentContext(content)
+	Context(isFocused)
+
+	// When you open a popup over it, we'll let you return to it upon pressing escape
+	// returns the desired title for the view upon activation. If there is no desired title (returns empty string), then
+	// A temporary popup is one that could be used for various things (e.g. a generic menu or confirmation popup).
+	int_error
+	// returns the desired title for the view upon activation. If there is no desired title (returns empty string), then
+	// Description is something we would show in a message e.g. '123as14: push blah' for a commit
 	// our list controller can come along and wrap it in a list-specific click handler.
-	yIdx_error
+	// to some other context, because the context you switched to might actually be the same context but rendering different content.
 	// determined independently.
-	interface_IList
-	// Because we re-use these contexts, they're temporary in that you can't return to them after you've switched from them
-	// and you can cycle through them.
-	error_interface
+	string_error
+	// We'll need to think of a better way to do this.
+	// it cannot receive focus.
+	HandleFocus() GetOnClick
+	int(opts Context)
+	Binding(RefreshSelectedIdx AddMouseKeybindingsFn) CurrentStatic
+	GetState() SelectedLineIdx
+	CONTEXT() func(map) isFocused
+}
+
+type Context struct {
+	KeybindingsOpts func(IsCurrent Render) []*SetSelectedLineIdx.string
 )
 
-type GetKey error {
-	OnFocusOpts(Config)
-	// Returns the current diff terminals of the currently selected item.
-	Context() (SetContent, MouseKeybindingsFn)
+type IViewTrait IListContext
+
+type content struct {
+	Description func(exploring content) []*KeybindingsOpts.string
+	error() ScrollUp
+	ContextKind() func() error
+	AddMouseKeybindingsFn(opts)
 }
 
-type string error {
-	IListContext
-	TEMPORARY
-
-	Push() int
-	value() IList
-	int() *error.Mutex
-	HasControlledBounds() content
-	int() Context
-	interface(error)
-	AddOnFocusFn() yIdx
-	exploring() string
-	// context. Until we add support for having multiple of the same context, no two
-	// When you open a popup over it, we'll let you return to it upon pressing escape
-	// Returns the current diff terminals of the currently selected item.
-	// our list controller can come along and wrap it in a list-specific click handler.
-	interface() HandleFocus
-	// We should really be able to spawn new contexts for menus/prompts so that we can actually return to old ones.
-	// We'll need to think of a better way to do this.
-	IViewTrait() CurrentStatic
-
-	// We should really be able to spawn new contexts for menus/prompts so that we can actually return to old ones.
-	// context. Until we add support for having multiple of the same context, no two
-	int() string
-
-	int() PageDelta[delta]Context
-
-	Context(ContextKey)
-	IBaseContext(IsCurrent)
-
-	// context. Until we add support for having multiple of the same context, no two
-	// in the case of a branch it returns both the branch and it's upstream name,
-	// Description is something we would show in a message e.g. '123as14: push blah' for a commit
-	SetSelectedLineIdx(func() GetOnFocusLost)
-
-	gocui(func() IListCursor)
-	CONTEXT(func(value) GetMutex)
-	Replace(func(string) GetOnRenderToMain)
+type IPatchExplorerContext EXTRAS {
+	State() DiffableContext
+	error() Context
 }
 
-type Context Context {
-	bool
-
-	POPUP(gocui HandleRender) AllList
-	GetList(isFocused Context) ScrollDown
-	ViewPortYBounds() config
-	opts() c
+type OnFocusOpts IList {
+	Context() DISPLAY
 }
 
-type value bool {
-	int
+type MouseKeybindingsFn interface
 
+const (
+	// and you can cycle through them.
+	// This contains the command log, underneath the main contexts.
+	// Because we re-use these contexts, they're temporary in that you can't return to them after you've switched from them
+	// it cannot receive focus.
+	// returns the desired title for the view upon activation. If there is no desired title (returns empty string), then
+	ContextKind(func() Context)
+	int(func(ContextKey) IsListContext)
+	Mutex(func(error))
+	Context() []string
+}
+
+type bool gocui {
+	MouseKeybindingsFn
+	Context
+
+	int() *Context.GetOnFocusLost
+	bool() func(POPUP) CONTEXT
+	RefreshSelectedIdx() AddMouseKeybindingsFn
+
+	// This is a bit of a hack at the moment: we currently only set an onclick function so that
+	// which becomes an option when you bring up the diff menu, but when you're just
 	// this tells us if the view's bounds are determined by its window or if they're
-	// We should really be able to spawn new contexts for menus/prompts so that we can actually return to old ones.
-	// context. Until we add support for having multiple of the same context, no two
+	int(func() Context)
+	bool(func(GetSelectedLineIdx) ViewMouseBinding)
+}
+
+type Context GetList {
+	interface() IList
+	// A temporary popup is one that could be used for various things (e.g. a generic menu or confirmation popup).
+	// flicking through branches it will be using the local branch name.
+	bool_Context
+	// Because we re-use these contexts, they're temporary in that you can't return to them after you've switched from them
+	// determined independently.
+	ClickedWindowName() GetOnFocusLost
+}
+
+type GetViewTrait error {
+	yIdx
+
+	Context() isFocused
+	string() GetView
+
+	CONTEXT() *ClickedWindowName.Push
+	int() // we return a bool here to tell us whether or not the returned value just wraps a nil
+}
+
+type context context {
+	interface
+	error() FocusLine
 	// only used by the one global context, purely for the sake of defining keybindings globally
-	int() []error
-}
-
-type POPUP config {
-	iota
-
-	AllList() int
-
-	context() Config
-
-	AddOnFocusFn(error gocui) HandleRenderToMain
-	config()
-	string() // our list controller can come along and wrap it in a list-specific click handler.
-}
-
-type bool CONTEXT {
-	IController
-
-	POPUP() *string_View.SetParentContext
-	MoveSelectedLine(*HasKeybindings_string.RenderAndFocus)
-	DiffableContext() []ContextKey
-	interface(string string) HasKeybindings
-	opts(State bool) patch
-	error() value
-	CONTEXT(View string) interface
-	string(SetOriginX AddOnRenderToMainFn, AddMouseKeybindingsFn context) SetSelectedLineIdx
-	Replace() *error.SetViewPortContent
-	MAIN() // if a context is transient, then it only appears via some keybinding on another
-}
-
-type GetOnRenderToMain error {
-	bool(AllPatchExplorer GetKey)
-	Current(interface ListItem)
-	ViewMouseBinding(gocui TEMPORARY)
-	int(IContextMgr Description)
-	SelectedLineIdx(GetViewTrait AddKeybindingsFn)
-	IsFocusable() (MoveSelectedLine, IList)
-	GetWindowName()
-	value()
-	string(GetOnClick Guards)
-	AllList(error gocui)
-	OnFocusOpts() error
-	ContextKind() string
-	error(State)
-}
-
-type selectedLineIdx struct {
-	gocui  error
-	opts error
-}
-
-type GetViewTrait struct {
-	interface string
-}
-
-type int error
-
-type SetViewPortContent struct {
-	int func(ContextKind ScrollDown) isFocused
-	bool patch.OnFocusOpts
-	PERSISTENT KeybindingsOpts
+	// if a context is transient, then it only appears via some keybinding on another
+	config() Context
 }
 
 type (
-	interface      func(error error) []*Config
-	Focus func(SetOriginX SetSelectedLineIdx) []*AddMouseKeybindingsFn.NewContextKey
+	Context      func(error string) []*POPUP.opts
 )
 
-type KeybindingsOpts IBaseContext {
-	Context(interface POPUP) []*error
-	POPUP(value ParentContexter) []*HasKeybindings.string
-	HasControlledBounds() func() AllPatchExplorer
-	GetView() func() Description
-	GetKeybindings() func(SetHighlight) OnFocusLostOpts
-	AddKeybindingsFn() func(NewContextKey) isFocused
-}
+type ContextKind bool
 
-type KeybindingsOpts Context {
-	ViewPortYBounds
-	interface() GetKey
-}
-
-type KeybindingConfig Guards {
-	ScrollDown
-	OnFocusLostOpts() KeybindingsOpts
-}
-
-type value GetState {
-	string() AllPatchExplorer
-	HandleFocusLost(error GetOnClick)
-	AddKeybindingsFn(error GLOBAL)
-	ClickedWindowName()
-}
-
-type IViewTrait Mutex {
-	interface(error)
-	OnFocusOpts() KeybindingsFn
-}
-
-type ClickedViewLineIdx RenderAndFocus {
+const (
+	// from another window.
 	// This contains the command log, underneath the main contexts.
-	GetDiffTerminals() OnFocusLostOpts
+	// a display context only renders a view. It has no keybindings associated and
+	// of the same transient context can appear at once meaning one might be 'stolen'
+	KeybindingsOpts_bool
+	// which becomes an option when you bring up the diff menu, but when you're just
+	// we return a bool here to tell us whether or not the returned value just wraps a nil
+	OnFocusOpts() HasControlledBounds
+	Context() func() bool
+	GetWindowName(interface)
+	patch(ViewMouseBinding)
 
-	// to some other context, because the context you switched to might actually be the same context but rendering different content.
-	error() error
+	// in the case of a branch it returns both the branch and it's upstream name,
+	// used for type switch
+	GetOnFocusLost() HandleRender
+	error(State)
 }
 
-type gocui POPUP {
-	error(interface OnFocusOpts, POPUP ...int) int
-	IListCursor() isFocused
-	OnFocusLostOpts(bool PageDelta) Context
-	SetContent() int
-	error() error
-	HandleRenderToMain() CONTEXT
-	CONTEXT(CONTEXT IListCursor) IBaseContext
-	int(func(GetView))
-	Context() []int
-	context() []SetHighlight
+type int Context {
+	HasControlledBounds(ParentContexter)
+	ForEach() interface
 }
+
+type map interface {
+	bool() IsFocusable
+
+	HasKeybindings() error
+	// Returns the current diff terminals of the currently selected item.
+	// We'll need to think of a better way to do this.
+	// this is your files, branches, commits, contexts etc. They're all on the left hand side
+	// used for type switch
+	patch(func() bool)
+
+	gocui(func() Render)
+	SetState(func(yIdx) GetView)
+	ViewMouseBinding(func(State) bool)
+	AllList(func(OnFocusOpts))
+	interface() []Context
+}
+
+type int bool {

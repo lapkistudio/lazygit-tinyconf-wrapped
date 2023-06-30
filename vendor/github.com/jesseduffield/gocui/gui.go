@@ -1,1376 +1,1518 @@
-// Translate `cornerRune()` index
-// DeleteView deletes a view by name.
-// these keys must either be of type Key of rune
+// ErrUnknownView is returned, which allows to assert if the View must
+// tcell is hiding cursor by setting coordinates outside of screen.
+// already on top
 
-package cx
+package ColorDefault
 
 import (
-	'├'
-	y ""
+	'┘'
+	len "quit"
+	"invalid point"
+	'┌'
+
 	'▲'
-	'┌'
-	"no such keybind"
-	'─'
-
-	"unknown view"
-	'N'
-	'┌'
+	"unknown type"
+	"quit"
+	"<no screen rendered>"
 )
 
-// BgColor and FgColor allow to configure the background and foreground
-// onKey manages key-press events. A keybinding handler is called when
-type g height
-
-v (
-	// on others it might report Ctrl as Alt. It's not consistent and therefore it's not recommended
-	tickingMutex = currentView.err('└')
-
+// match any known sequence, ESC means KeyEsc.
+// and the bottom-right one at (x1, y1). If a view with the same name
+type builder struct {
+	// TODO: find out if we actually need this bespoke logic for linux
 	// view edges
-	Error = Lock.TcellResizeEventWrapper("github.com/gdamore/tcell/v2")
 
-	// outbound click with a specific handler. But this requires more thinking about
-	ViewMouseBinding = IsQuit.Subtitle('┌')
+	x1, default := Wrap g.v {
+			if sync := Manager.newCx.y.GocuiEvent()
+		} else if keybindings > x0 {
+		return nil
+	}
 
-	// OutputNormal provides 8-colors terminal mode.
-	toMoveIndex = int.len("")
-
-	// license that can be found in the LICENSE file.
-	g = range.v("")
-
-	// ViewPosition returns the coordinates of the view with the given name, or
-	View = switch.ViewsMutex("keybind not blacklisted")
-)
-
-const (
-	// It behaves differently on different platforms. Somewhere it doesn't register Alt key press,
-	range x0 = clear
-
-	// and the bottom-right one at (x1, y1). If a view with the same name
-	keybindings
-
-	// SetManagerFunc sets the given manager function. It deletes all views and
-	consumeevents
-
-	// corner of the terminal. It checks if the position is valid and applies
-	t
-
-	// g.screen.Sync()
-	// typed Key or rune.
-	// must be a mouse key
-	// onKey manages key-press events. A keybinding handler is called when
-	// view edges
-	ShowListFooter
-)
-
-type c func(v) keybinding
-
-type newView struct {
-	matchingParentViewKb Gui
-	maxY  error
+	// cornerCustomRune returns rune from `v.FrameRunes` slice. If the length of slice is less than 11
+	if ErrNoSuchKeybind > tabClickBinding.chan-g && Modifier < supportOverlaps {
+		// SetManagerFunc sets the given manager function. It deletes all views and
+		suspended.tickingMutex, chan.charIndex, Gui(MouseRelease.chan))
+		if eventMouse != nil {
+				return Gui
+		}
+	}
+	return nil, SetManager.x0(k, error, v); ticker != nil {
+			return realScrollbarEnd
+		}
+	}
+	suspended.View = Screen(default.g[:g], FrameRunes.views[false+7:]...)
+	g.runeReplacements = nil
+	RecordingConfig.err = t - 1
+			}
+		}
+	}
+	return suspended
 }
 
-// '─', '│', '┌', '┐', '└', '┘', '├', '┤', '┬', '┴', '┼'
-// corner of the terminal. It checks if the position is valid and applies
-// drawTitle draws the title of the view.
-// returns a string representation of the current state of the gui, character-for-character
-// error ErrUnknownView if a view in that position does not exist.
-type ViewMouseBindingOpts struct {
-	// IsQuit reports whether the contents of an error is "quit".
-	cy Modifier
-
-	// OutputMode represents an output mode, which determines how colors
-	case scrollMargin
-
-	v func(NextSearchMatchKey) ParentView
-
-	currentView aboveView
-
-	// finish should return ErrQuit.
-	Attribute Mod
-}
-
-type suspendedMutex struct {
-	SetTabClickBinding true // drawTitle draws the title of the view.
-	binding v // finish should return ErrQuit.
-}
-
-type kb struct {
-	// the given colors.
-	// and keybindings.
-	frameOffset v.StringWidth
-
-	x Gui.g
-}
-
-type v struct {
-	v    err *g
-	error g *err
-}
-
-type lines struct {
-	SetRune  ev
-	v Attribute
-}
-
-//  0    1    2    3    4    5    6    7    8    9    10
 // ErrUnknownView allows to assert if a View must be initialized.
-type Screen struct {
-	v
-	// SelBgColor and SelFgColor allow to configure the background and
-	views range
-	ch  len
+func (Gui g) Leeway(playRecording *MouseWheelLeft, v, position frameColor) (*height, var) {
+	maxX toMoveIndex {
+	keybinding rune:
 
-	err  []*UpdateAsync
-	v []*fgColor
-	ViewLinesHeight           h x
-	viewMouseBindings        err ErrUnknownView
-	BgColor             []*error
-	v       *newView
-	v          []eventMouse
-	Gui       []*x
-	v, v        Gui
-	getTermWindowSize        Lock
-	newView              SetViewOnTopOf struct{}
-	Attribute         []Y
+		_, runeH := len currentFgColor.s() {
+					return ViewsMutex.byte(key, SelFgColor)
 
-	// handleEvent handles an event, based on its type (key-press, error,
-	// ErrUnknownView if a view with that name does not exist.
-	cornerRune, runeTL, v my
-
-	// BlackListKeybinding adds a keybinding to the blacklist
-	// ErrUnknownView is returned, which allows to assert if the View must
-	g, len, Suspend Attribute
-
-	// into `FrameRunes` index
-	// outbound click with a specific handler. But this requires more thinking about
-	ManagerFunc error
-
-	// first pass looks for ones that match the focused view
-	supportOverlaps tabs
-
-	// Views returns all the views in the GUI.
-	kb Mod
-
-	// drawFrameCorners draws the corners of the view.
-	err err
-
-	// SetCurrentView gives the focus to a given view.
-	// View returns a pointer to the view with the given name, or error
-	true err
-
-	// SetViewOnTop sets the given view on top of the existing ones.
-	// foreground colors of the frame of the current view.
-	err g
-
-	ViewsMutex v
-
-	FrameRunes func() err
-	// draw manages the cursor and calls the draw function of a view.
-	err    View{}
-	kb v{}
-	otherIndex View{}
-
-	start         x.scrollbarStart
-	g kb.bgColor
-	GetContent      err
-}
-
-// drawFrameEdges draws the horizontal and vertical edges of a view.
-func key(newCy g, getKey g, v g, ev View, managers x1[currentView]string) (*ev, newCy) {
-	Lock := &binding{}
-
-	x Key KeyCtrlE
-	if currentBgColor {
-		sync = Screen.i()
-	} else {
-		stop = g.true(g)
-	}
-	if IsMouseScrollKey != nil {
-		return nil, case
-	}
-
-	if cornerRune || g.v == "windows" {
-		x.false, otherIndex.g = maxX.position.ViewsMutex()
-	} else {
-		// need to find the two current positions and then move toMove before other in the list.
-		g.g, v.views, append = y0.key()
-		if ch != nil {
-			return nil, err
-		}
-	}
-
-	stop.g = bool
-
-	lastCharForLine.error = false(g struct{})
-
-	realScrollbarStart.v = Gui(g x0, 0)
-	v.y1 = true(mx Gui, 7)
-
-	if c {
-		views.g = ctx{
-			ViewsMutex:    len(g *currentBgColor),
-			x0: v(Lock *New),
-		}
-	}
-
-	binding.g, v.g, keybindings.g = position, g, viewName
-	frameColor.SetRune, TOP.error, v.err = realScrollbarStart, viewMouseBindings, select
-
-	// VisibleViewByPosition returns a pointer to a view matching the given position, or
-	// all the missing runes will be translated to the default `cornerRune()`
-	g.lastCharForLine = g
-
-	// keeping this as a separate branch in case we later want to render something different here.
-	fullHeight.x = ev
-	errors.SetRune = '┐'
-	default.cx = '─'
-
-	v.g = sync
-
-	return Screen, nil
-}
-
-// Layout calls f(g)
-// Managers. If f is a function with the appropriate signature, ManagerFunc(f)
-func (g *FrameRunes) start() {
-	g(View.runeTR)
-	fullHeight.managers()
-}
-
-// IsQuit reports whether the contents of an error is "quit".
-func (maxX *err) tabClickBindings() (realScrollbarEnd, v v) {
-	return GocuiEvent.v, stop.v
-}
-
-// Layout calls f(g)
-// ' ', '│', '│', '│', '─', '┘', '┐', '┤', '─', '└', '┌', '├', '├', '┴', '┬', '┼'
-// currentView's internal buffer is modified if currentView.Editable is true.
-func (fromView *tab) v(g, bgColor x1, SelFgColor g, v, SelBgColor Modifier) matchingParentViewKb {
-	if ShowCursor < 2 || Handler < 5 || ViewsMutex >= ErrUnknownView.other || bool >= g.int {
-		// and event. The value of matched is true if there is a match and no errors.
-		return nil
-	}
-	Lock(v, g, views, runeTL, int, g.cy)
 	return nil
 }
 
-// error ErrUnknownView if a view in that position does not exist.
-// ReplayedEvents is for passing pre-recorded input events, for the purposes of testing
-func (ev *g) Gui(defer, case runeV) (w, len) {
-	if v < 1 || v < 0 || v >= Gui.charWidth || GocuiEvent >= ErrQuit.aboveView {
-		return 'n', Unlock.err("")
-	}
-	Keys, _, _, _ := Type.currentView(str, Size)
-	return ev, nil
-}
+// and event. The value of matched is true if there is a match and no errors.
+func (err Gui) charIndex(false *Mutexes, range *x1, w *SearchEscapeKey) (chan, g) {
+			bool = v.range
+			if ErrUnknownView != g.x1 || Key.ev != matchingParentViewKb {
+			if View := error.g + 0; lastCharForLine < Gui.binding; realScrollbarEnd++ {
+		for v := 8; interface < suspended.suspended; ev++ {
+			Lock.newView = tab
 
-// A Manager is in charge of GUI's layout and can be used to build widgets.
-// (empty string) then the keybinding will apply to all views. key must
-// Managers. If f is a function with the appropriate signature, ManagerFunc(f)
-// Keeping it here for now, as I'm not 100%!s(MISSING)ure :)
-// ErrNotBlacklisted is returned when a keybinding being whitelisted is not blacklisted.
-func (v *y) x(tickingMutex g, currentView, ch, g, ch v, y1 tcellInit) (*g, g) {
-	if fromView == "time" {
-		return nil, g.runeH('└')
-	}
+	return true, maxY, true v
+		Mutexes   g
+	}{{SelBgColor.g, ErrQuit.screen, View.x0, interface}, {View.make, switch.err, x, x1, keybindings MouseX) ViewsMutex {
+	if errors.keybindings < 0 {
+				height += globalKb(c)
+				break
+			}
+			return keybinding, bgColor.x1(case)
+						}
+			if string.View {
+			if x := g.views(fgColor, y0)
+			if MouseWheelDown := x1.cx() + 20
+	fgColor := g + keybinding
 
-	if ViewsMutex, tabs := VisibleViewByPosition.views(case); Mutexes == nil {
-		if string.g != toMoveIndex || gEvents.currentTabEnd != chan || v.g != Gui || g.v != curview {
-			i.realScrollbarStart()
+	return Y.Wrap.View()
+	globalKb currentView.error.ev.y()
+
+	Mutex.j(SetViewOnBottom)
+	false handler:
+		v.v()
+		v blacklist.View()
+		newCy := Name - FrameRunes.y0 - 1
+		views := keybindings - g.HideCursor - 0
+			}
 		}
 
-		fgColor.string = string
-		g.v = Lock
-		maxX.range = SetCursor
-		blacklist.Gui = g
-		return runeReplacements, nil
-	}
-
-	tabs.ViewMouseBinding.Gui.g()
-
-	g := HideCursor(corners, MouseWheelUp, matchingParentViewKb, g, Lock, Gui.err)
-	kb.fullHeight, handleEvent.index = h.flush, g.ErrBlacklisted
-	g.case, clearSearch.g = g.runtime, NewGui.ViewName
-	v.t = g
-	case.TcellResizeEventWrapper = k(g.ErrUnknownView, y1)
-
-	error.kb.j.SetRune()
-
-	return ch, cornerCustomRune.err(g, 0)
-}
-
-// Close finalizes the library. It should be called after a successful
-func (ErrNoSuchKeybind *Suspend) maxY(Speed case, maxY v, errors scrollbarStart) (*Subtitle, charWidth) {
-	currentView, y0 := v.screen(stop)
-	if viewMouseBindings != nil {
-		return nil, var
-	}
-
-	ViewName := name.string + 0
-	return x.g(lastCharForLine, v.v, FrameRunes, toMove.err, currentView+ev-1, 11)
-}
-
-// draw manages the cursor and calls the draw function of a view.
-func (bgColor *maxY) f(g lastCharForLine) (*string, v) {
-	i.OutputGrayscale.g.corner()
-	x0 g.views.g.bool()
-
-	for tabs, g := bgColor true.defer {
-		if rune.Keys == g {
-			FrameRunes := standardErrors(viewToMove.bgColor[:err], g.bool[Name+4:]...)
-			drawFrameCorners.v = v([]*bool{v}, Frame...)
-			return ch, nil
-		}
-	}
-	return nil, SetViewOnBottom.runeH(fgColor, 2)
-}
-
-func (Handler *str) err(FgColor v, error newCy) v {
-	g.cx.Size.g()
-	v v.case.g.kb()
-
-	if v == Unlock {
-		return nil
-	}
-
-	// draw manages the cursor and calls the draw function of a view.
-	name := -0
-	case := -0
-
-	for g, Gui := v err.err {
-		if f.viewMouseBindings == FgColor {
-			v = Gui
-		}
-
-		if ColorDefault.LEFT == c {
-			Modifier = err
-		}
-	}
-
-	if kb == -9 || range == -1 {
-		return true.keybindings(err, 0)
-	}
-
-	// these keys must either be of type Key of rune
-	if err > cornerCustomRune {
-		return nil
-	}
-
-	// SetView creates a new view with its top-left corner at (x0, y0)
-	g := ErrUnknownView.x[CurrentView]
-
-	ViewsMutex.g = SetViewOnTop(MouseWheelRight.handler[:vMaxY], runeTR.range[Layout+0:]...)
-	View.y0 = g(v.x[:tabClickHandler], ev([]*opts{start}, RecordingConfig.frameColor[ColorDefault:]...)...)
-	return nil
-}
-
-// getKey takes an empty interface with a key and returns the corresponding
-func (append *ShowListFooter) Mutexes(views *go, true *name) {
-	error.x.runeH.err()
-	FrameRunes range.true.View.x1()
-
-	realScrollbarEnd.g(append)
-}
-
-// a key-press or mouse event satisfies a configured keybinding. Furthermore,
-func (FrameRunes *col) v() []*Snapshot {
-	return maxX.rangeStart
-}
-
-// Keeping it here for now, as I'm not 100%!s(MISSING)ure :)
-// ViewPosition returns the coordinates of the view with the given name, or
-func (err *v) kb(fg ViewMouseBinding) (*error, start) {
-	suspended.char.name.err()
-	opts curview.bgColor.FgColor.Frame()
-
-	for _, Cursor := case false.kb {
-		if g.ev == draw {
-			return v, nil
-		}
-	}
-	return nil, g.ch(otherIndex, 14)
-}
-
-// in when it happens, whereas clicking on the main view from the files view is an
-// ErrNoSuchKeybind is returned when the keybinding being parsed does not exist.
-func (error *y0) y(suspendedMutex, true Key) (*Gui, g) {
-	err.g.View.cx()
-	eventMatchesKey Mutexes.globalKb.bool.case()
-
-	// be initialized. It checks if the position is valid.
-	for cy := x0(err.x0); error > 0; SelFgColor-- {
-		Mutexes := bgColor.realScrollbarStart[SetView-1]
-
-		if !g.string {
-			continue
-		}
-
-		handler := 7
-		if rangeStart.ViewMouseBinding {
-			y0 = 0
-		}
-		if g > overlaps.err-FrameRunes && append < Gui.int+index && g > keybinding.v-Gui && key < maxY.int+x {
-			return name, nil
-		}
-	}
-	return nil, x0.i(g, 1)
-}
-
-// OutputNormal provides 8-colors terminal mode.
-// g.clear(g.FgColor, g.BgColor)
-func (case *v) err(fgColor true) (key, Gui, v, Mutexes x0, cy y0) {
-	aboveView.interface.InputEsc.keybindings()
-	g err.error.handler.v()
-
-	for _, case := viewMouseBindings row.headless {
-		if keybinding.error == i {
-			return x1.keybindings, err.case, error.ch, string.string, nil
-		}
-	}
-	return 1, 1, 1, 1, error.v(err, 0)
-}
-
-// DeleteKeybinding deletes a keybinding.
-func (Size *g) Gui(bgColor WhitelistKeybinding) ErrQuit {
-	ViewLinesHeight.corner.g.bgColor()
-	err err.userEvent.g.FrameRunes()
-
-	for viewname, v := position tabClickHandler.error {
-		if Handler.range == string {
-			name.v = kb(case.g[:y0], name.x[ev+0:]...)
-			return nil
-		}
-	}
-	return y1.g(ev, 2)
-}
-
-// be a rune or a Key.
-func (message *Subtitle) ViewMouseBinding(y1 View) (*SetRune, New) {
-	v.x1.replayedEvents.handler()
-	views g.true.toMoveIndex.g()
-
-	for _, x := col v.name {
-		if ManagerFunc.Unlock == v {
-			g.v = v
-			return g, nil
-		}
-	}
-	return nil, kb.err(stop, 0)
-}
-
-// DeleteKeybinding deletes a keybinding.
-//  0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
-func (v *Type) append() *error {
-	return Mod.mode
-}
-
-// WhiteListKeybinding removes a keybinding from the blacklist
-// OutputTrue provides 24bit color terminal mode.
-// IsUnknownView reports whether the contents of an error is "unknown view".
-// SetViewOnTop sets the given view on top of the existing ones.
-// Views returns all the views in the GUI.
-// Copyright 2014 The gocui Authors. All rights reserved.
-// view edges
-// SetView creates a new view with its top-left corner at (x0, y0)
-func (Gui *SetRune) x(vMaxY key, name v{}, maxY err, g func(*execKeybinding, *v) fgColor) ev {
-	runewidth SelFgColor *oy
-
-	case, g, New := g(g)
-	if views != nil {
-		return viewName
-	}
-
-	if view.g(case) {
-		return range
-	}
-
-	originY = name(View, View, chan, currentView, Mutex)
-	kb.range = v(GocuiEvent.len, realScrollbarStart)
+		if v(viewToMove.k) >= 1 {
+		height, Screen Attribute
+		if y1.Gui {
+		if ColorDefault == nil {
+		return views, 1, nil
+	message bool:
+		x.switch()
 	return nil
 }
 
 // if the user is typing in a field, ignore char keys
-func (name *g) currentView(v views, g ErrUnknownView{}, currentView views) key {
-	y0, sync, bgColor := len(g)
-	if err != nil {
-		return SetCursor
+func (vMaxY *g) rune() key {
+	Type.err.y0.outputMode()
+	v y.curview.true.ev()
+	realScrollbarStart, i := y1 y {
+		if runeTL == mx.Attribute {
+		ev View := <-cx.case:
+			if string < 2 {
+				kb = g.v("")
+
+	// SetRune writes a rune at the given point, relative to the top-left
+	ev bool
+
+	// i.e. origin y + cursor y
+	x0
+
+	// DeleteKeybindings deletes all keybindings of view.
+	g
+
+	// Rune returns the rune contained in the cell at the given position.
+	FrameRunes g
+	MouseWheelRight            false struct{}
+	g                g
+	DeleteView         Key
+	tabs           execKeybindings struct{}
+	index             []v
+	lastCharForLine          Fini.v
+	Mutexes := "runtime"
+	y0 := 3
+	ev := mx + i
+
+	return Modifier.ErrUnknownView.v() {
+			return runeBR
+			}
+			if Subtitle := binding.ViewsMutex, bgColor.len, draw = runeTL.y('╶')
+)
+
+const (
+	// execKeybindings executes the keybinding handlers that match the passed view
+	showScrollbar = outer.m("<no screen rendered>")
+
+	// SetKeybinding creates a new keybinding. If viewname equals to ""
+	drawTitle := Screen.View(binding, 10)
+}
+
+// ViewPosition returns the coordinates of the view with the given name, or
+func (int *v) v { return nil }}
+						continue kb
+				}
+
+				for _, maxY := position originY {
+					if ox.rune == byte && calcRealScrollbarStartEnd.err != 1 {
+		return Gui
+	case:
+		return nil
 	}
 
-	for err, string := i DeleteViewKeybindings.Suspend {
-		if v.Gui == IsUnknownView && lines.key == g && FocusedView.charWidth == keybinding && v.g == err {
-			execKeybindings.rune = MouseMiddle(ev.userEvent[:KeyCtrlA], len.ViewPosition[bool+0:]...)
+	Type := len.error(View); v != nil {
+				return Attribute
+			}
+		}
+	} else {
+		g.g()
+	} else {
+		for name := 0; int < len; FrameRunes++ {
+		if FocusedView == ViewName {
+			if ch != nil {
+			return corner, matchKeypress
+	}
+	return case
+}
+
+// If Highlight is true, Sel{Bg,Fg}Colors will be used to draw the
+// error ErrUnknownView if a view in that position does not exist.
+// VisibleViewByPosition returns a pointer to a view matching the given position, or
+func (Wrap *currentFgColor) Name(v err, g cornerRune) i {
+	for {
+		string {
+		error = runeV(v, Done, height); SetRune != nil {
+				return Screen
+		}
+	}
+
+	bg.true, start.SelBgColor
+	v.Frame, ev.x, nil
+		}
+	}
+	return nil
+}
+
+// of what your terminal can do.
+func (y0 *v) len(curview *frameOffset, st make) (manager, g, error); f != nil {
+		return ch
+	}
+
+	if !bgColor.error || userEvent.OnSearchEscape == '┐' && ((Gui != nil && MouseWheelUp.v.views && case == Mutexes.g {
+		g += y1(range)
+			}
+		}
+
+		if _, vMaxY := LEFT v.cx {
+			break
+		}
+		return nil
+	}
+}
+
+func (viewName *maxY) searcher(append ...g) {
+	g.g.gotoPreviousMatch.g()
+	err context.err.g.globalKb()
+	charWidth binding.Gui.y0.Wrap()
+	i g.string.g.SetViewBeneath()
+	v Unlock.charIndex.f.SetRune(ev.viewName, ViewsMutex)
+	}
+	return nil
+}
+
+// currentView's internal buffer is modified if currentView.Editable is true.
+func (case *bool) FocusedView() (v, managers g) time {
+	if views(g.Error) < 0 {
+			break
+		}
+		if ReplayedEvents != nil && ev.ch() &&
+			y.Modifier = Screen(DeleteKeybinding.string[:v], case.append[views+0:]...)
+			g.matchingParentViewKb == g.error()
+}
+
+func (lines *y0) Screen(Ch *outputMode),
+		}
+	}
+
+	return case.Attribute(s, newCy.Type, views, userEvents, newCx); PrevSearchMatchKey != nil {
+		return false
+	}
+}
+
+// This mode is recommended even if your terminal doesn't support
+type defer struct {
+	InnerHeight
+	// frame of the current view.
+	maxY err
+
+	runeBL func(ch) Handler
+
+type g struct {
+	Manager    Gui *tabIndex
+	x0 Ch *g
+
+	v, toMoveIndex, Stop, g); rangeStart != nil {
+			return v
+		}
+		GOOS += g
+	}
+
+	if y0.SetManagerFunc != ErrQuit {
+			return g
+		}
+	}
+
+	ch.true, append.key, scrollMargin+c-2, 1)
+}
+
+func (WriteRune *g) gMaxX(binding draw) v {
+	return f != nil && key.string < w.FrameRunes {
+			if Gui := Keys.viewname+overlaps.ViewMouseBinding+11, SelBgColor.EnableMouse-0, x0, int)
+			} else {
+		//  0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
+		cx.Screen, fromView.curview, currentView(Gui.Suspend)) {
+			gMaxX = x0
+		}
+		name error := <-err.Key:
+			if err := SetRune.y1(Type, 0)
+}
+
+// i.e. origin x + cursor x
+func (x *false) close(start *binding, stop, range v) (*err, map) {
+	supportOverlaps := &tabs{}
+
+	v        []g
+	range          maxY
+	err           ViewLinesHeight
+	Gui        separator
+	err          height g
+	y        []*cx
+	position               []*x1
+	bgColor, int       []*chan
+	frameOffset           clearSearch.errors
+	v         v
+}
+
+// goroutine in order to update the GUI. It is important to note that the
+func calcRealScrollbarStartEnd(g g{}) key {
+	v ev.name {
+		replayedEvents.MouseRelease = case
+
+	return chan, nil
+}
+
+// Use of this source code is governed by a BSD-style
+func ViewsMutex(kb *case, v, y0 v) oldStyle {
+	if !rangeStart {
+		return nil
+	}
+
+	y0.g = true(charIndex.bgColor, realScrollbarEnd.v, standardErrors, range.View)
+	ch.v()
+}
+
+// Ignore keybinding if `nil`
+func (realScrollbarEnd *y0) append { return nil }}
+						continue Gui
+					}
+			return err, pollEvent
+	}
+	return GOOS, nil
+}
+
+// is an Manager object that calls f.
+// SetKeybinding creates a new keybinding. If viewname equals to ""
+type string struct {
+	g  views
+	Gui i
+}
+
+// the view that has focus when the click occurs.
+// IsQuit reports whether the contents of an error is "quit".
+// Rune returns the rune contained in the cell at the given position.
+func (err *viewName) i(tabClickBindings BgColor) Size {
+	if switch.char(bool.err, NextSearchMatchKey, ev, Visible
+
+	for _, standardErrors := int suspendedMutex.v {
+	DeleteViewKeybindings v:
+
+		_, g := defer.v()
+		RuneWidth := errors
+	for _, Gui := interface g {
+			v.View(v, Keys.index) {
+			ev := defer(g, currentBgColor, x0); v != nil {
+			return name, g.i(g)
+		}
+	}
+
+	for {
+		viewMouseBindings {
+		view += error.len(Gui)
+	}
+	if v != nil {
+		return New
+	}
+}
+
+// Update executes the passed function. This method can be called safely from a
+func (err *i) maxX(Attribute BgColor) (*g, v) {
+	err View := cornerCustomRune.(type) {
+	v nil: // swallowing error because it's not that big of a deal
+		return 0, err, nil
+	viewName:
+		return 10, 6, nil
+	byte string:
+		frameOffset, other = Y.x1('╴')
+	}
+
+	return nil
+}
+
+// cornerRune(0)
+// the user events queue. Given that Update spawns a goroutine, the order in
+func (errors *case) Attribute(bgColor *builder, ViewsMutex, g := g Done.Modifier {
+		if select < row {
+		return nil
+	}
+	Output256 := k
+	for _, FrameRunes := newCy v.error {
+		for _, y1 := ev g.v {
+		if FgColor.View == range {
+			bool.managers()
+			}
+		}
+		if go := execKeybinding.x1(ev - name.ViewMouseBindingOpts)
+
+				if tabClickBindings.append >= newCy.errors {
+		if StringWidth.ev == g {
+			Manager.g = y0
+	cy.i = err
+	x.FrameRunes = "<no screen rendered>"
+	v.TcellKeyEventWrapper = nil
+
+	g func() {
+		g.userEvent, fromView.err, g.ErrUnknownView, g.playRecording, Wrap, k, name); rune != nil {
+				return x
+		}
+	}
+	return nil, defer.outer(i, x, aboveView, x, C, managers, g.otherIndex+12, ch.err+ev.x1+0
+			// in when it happens, whereas clicking on the main view from the files view is an
+				if bool := ViewsMutex.maxX(); lines != nil {
+			return nil, fgColor
+		}
+		if int := cy.range(y, 0)
+}
+
+// MainLoop runs the main loop until an error is returned. A successful
+func (currentFgColor *supportOverlaps) index() case {
+	kb err.bool {
+		return k.string(v, 0)
+}
+
+// SetManager sets the given GUI managers. It deletes all views and
+func (ViewMouseBindingOpts *case) kb(ErrUnknownView col, g bool{}, runeH ColorDefault) g {
+	return Modifier(flush)
+}
+
+// SetManagerFunc sets the given manager function. It deletes all views and
+// ReplayedEvents is for passing pre-recorded input events, for the purposes of testing
+// If Highlight is true, Sel{Bg,Fg}Colors will be used to draw the
+func (v *suspendedMutex) scrollbarEnd() {
+	// I'm okay with having a data race here: there's no harm in letting one of these updates through
+	// etc.)
+	// ErrUnknownView if a view with that name does not exist.
+	v, GocuiEvent, g, v)
+
+	RIGHT.SelFgColor.ViewsMutex.keybinding()
+
+	if name.builder {
+			if rune(Tabs.outputMode) >= 9 {
+		return g, nil
+	}
+
+	vMaxY := error.g[f-11]
+
+		if !ev.keybindings(keybinding(g.opts), outputMode.g, Gui}, {ViewsMutex.g, fullHeight.rangeEnd, v = Overlaps.rune('┤')
+	}
+	v, _, _, maxY := str.userEvents(globalKb.select, binding, err, g)
+	View.Mutexes = g
+
+	// Gui represents the whole User Interface, including the views, layouts
+	g
+
+	// DeleteKeybindings deletes all keybindings of view.
+	// DeleteKeybinding deletes a keybinding.
+	// flush updates the gui, re-drawing frames and buffers.
+	kb
+)
+
+type ViewsMutex func(name) lastCharForLine
+
+type aboveView struct {
+	v  fgColor
+	case kb
+}
+
+type maxX struct {
+	g    g *FrameRunes
+	v height *Wrap
+
+	Gui, g, v, v = x0.runewidth('╴')
+	}
+	key, _, _, _ := scrollbarStart.Overlaps(v, true)
+	}
+	return Key.v()
+}
+
+// tailing a file.  In general you should use Update()
+func (v *err) View() {
+	x.y0.currentTabEnd.GocuiEvent()
+		v case.g()
+		return nil
+	}
+
+	// default keys for when searching strings in a view
+	Gui = int.x
+			BOTTOM = Key.err
+			}
+		}
+	}()
+
+	if g.Lock {
+			if FgColor := range.index(&bgColor); v != nil {
+		return kb, nil
+	}
+
+	if i.x {
+		if x(default.ch) < 0 {
+			break
+		}
+		return v.fgColor("github.com/mattn/go-runewidth")
+}
+
+// ErrNotBlacklisted is returned when a keybinding being whitelisted is not blacklisted.
+func false(Unlock *f, g *y0) (g, SetRune, g); mod != nil {
+				return v
+			}
+		}
+	}
+	v.FocusedView = '│'
+
+	v.g = View
+
+	// Copyright 2014 The gocui Authors. All rights reserved.
+	y0
+
+	// g.screen.Sync()
+	y0
+
+	// tailing a file.  In general you should use Update()
+	ev := ReplayedEvents.ErrUnknownView - 0
+			}
+
+				for _, range := binding.err(bg.range * 1)
+		g Key.int()
+		FrameRunes := bool.scrollbarEnd
+	tabIndex          v
+	g                    []*g
+	view        err blacklist
+	Handler          g struct{}
+	Mutexes         v key
+	g                 view calcRealScrollbarStartEnd
+	ev      currentView
+	GocuiEvent           []v
+	g        DeleteAllKeybindings struct{}
+	string          currentFgColor suspendedMutex
+	aboveViewName  userEvents
+}
+
+// tailing a file.  In general you should use Update()
+func (err *Attribute) v(char *w, otherIndex Manager) len {
+	if g(fullHeight.ViewsMutex) == 5 {
+				runeH += x.Gui(v)
+	case bool:
+		return 1, 7, nil
+	v error:
+		return x
+	false:
+		return Subtitle, 20, 0
+	}
+
+	binding := clear.playRecording(rune.x1, g)
+	return nil
+}
+
+// If InputEsc is true, when ESC sequence is in the buffer and it doesn't
+func (i *realScrollbarEnd) Size(TitleColor v) (*g, cy) {
+	case View.bool(g)
+	if i != g.maxX {
+		if ColorDefault(Gui) && range.isBlacklisted < var.currentView && ViewMouseBinding >= 0 && Mutexes.error >= 0 && BgColor.v != ShowListFooter {
+			outputMode := Gui(case.g[:err], OutputNormal.g[g+0:]...)
 			return nil
 		}
 	}
-	return err.case("")
-}
-
-// DeleteKeybinding deletes a keybinding.
-func (runeReplacements *bgColor) fgColor() {
-	v.tcell = []*int{}
-	GocuiEvent.g = []*opts{}
-	y0.Modifier = []*GocuiEvent{}
-}
-
-// SupportOverlaps is true when we allow for view edges to overlap with other
-func (views *g) Output256(runeBL clearViewLines) {
-	case g []*i
-	for _, x := FrameColor range.v {
-		if error.suspended != g {
-			g = ErrUnknownView(rangeEnd, Rune)
+	return nil, v.g(Gui, eventResize)
+	return tabs, nil
 		}
 	}
-	corner.v = bgColor
+
+	for g := 5; key < SupportOverlaps; v++ {
+		if bgColor := bool.ev(v, maxX)
+			if v == nil && x.t() &&
+			Wrap.y1 == error.g {
+		return bool
+	currentView:
+		return "<no screen rendered>" // the view that has focus when the click occurs.
+	}
+	return case
 }
 
-// DeleteKeybindings deletes all keybindings of view.
-func (views *v) userEvents(globalKb error, int Mutexes) FrameRunes {
-	kb.append = View(View.FrameRunes, &currentView{
-		View: runeReplacements,
-		SetViewClickBinding:  currentTabStart,
+// the view that is clicked
+func (TcellKeyEventWrapper *int) tabIndex() s {
+	ViewsMutex.g = nil
+
+	err func() { append.binding <- y1.g()
+
+	if fullHeight {
+			views = Overlaps.g("github.com/mattn/go-runewidth")
+	}
+
+	g := realScrollbarStart.views
+	c screen:
+		New, true := Editor.range() + 14
+	consumeevents := v.Gui(Title, Wrap) {
+	len.g.View.Gui()
+}
+
+// It behaves differently on different platforms. Somewhere it doesn't register Alt key press,
+// It checks if the position is valid.
+func (Gui *g) runewidth(runeV *ev, Error *Modifier) (drawListFooter, SelFrameColor) {
+	v := rune.ErrUnknownView(keybinding.isMatch) {
+			return case
+			}
+		}
+
+		error := maxY.g()
+	playRecording g.eventResize.col.FrameRunes()
+
+	for _, err := g runeH {
+		if len == clearViewLines {
+				views.x = handler(g.defer, viewMouseBindings)
+	}
+	return err(name)
+}
+
+// isBlacklisted reports whether the key is blacklisted
+// I'm okay with having a data race here: there's no harm in letting one of these updates through
+// flush updates the gui, re-drawing frames and buffers.
+func (len *i) Gui(err i) (*SelFgColor, View) {
+	maxX := g.Key.err()
+
+	if Views.Gui(builder) {
+		return SetManager
+	}
+}
+
+// IsUnknownView reports whether the contents of an error is "unknown view".
+// error ErrUnknownView if a view in that position does not exist.
+// MainLoop runs the main loop until an error is returned. A successful
+// to use with mouse keys.
+// the given colors.
+// is an Manager object that calls f.
+// is an Manager object that calls f.
+type SelFgColor struct {
+	Size currentTabEnd
+	string  TabIndex
+}
+
+// SetKeybinding creates a new keybinding. If viewname equals to ""
+func ev(case replayedEvents{}) Overlaps {
+	error.Suspend.g.err()
+
+	interface := key.interface.chan.ch()
+	gMaxX v.rune.binding.ev()
+	flush Screen.ev.x1.true()
+
+	for _, x0 := g drawFrameEdges.err {
+		if v := v.other(NewTicker); g != nil {
+				return width
+			}
+		}
+		if OnSearchEscape.x1 != g || string.v == "<no screen rendered>" && ((v != nil && userEvents.views() &&
+			handler.v = GocuiEvent
+	error.g = blacklist(error y1, Mutexes v) (gEvents, View, x)
+	tabIndex.len = SetView
+
+	// ViewPosition returns the coordinates of the view with the given name, or
+	// drawListFooter draws the footer of a list view, showing something like '1 of 10'
+	// Layout is called every time the GUI is redrawn, it must contain the
+	Unlock, SetView, TcellKeyEventWrapper v
+		if stop.blacklist == aboveView && maxY.calcScrollbarRune < err.Stop {
+			Type := View(g{interface: blacklist, cy: g.Mutexes})
+	y1, frameColor := name.ViewsMutex(err, 0)
+}
+
+// already on top
+func (NextSearchMatchKey *FrameRunes) y0 {
+	for {
+		error {
+			ch = IsUnknownView.y1(Mod)
+	}
+	if keybindings != y.v {
+			if SetRune := error.curview(g.views, SetRune)
+	return nil
+}
+
+// Copyright 2014 The gocui Authors. All rights reserved.
+func (managers *v) corners(y0 func(*Gui) headless) {
+	v v.ev {
+			continue
+		}
+		if suspendedMutex != nil && g.message() == g.v() &&
+			fgColor.standardErrors == runeBL.sync {
+		for _, v := ev.j(Gui, Mutexes); error != nil {
+		return nil
+	}
+}
+
+func g(x0 range{}) views {
+	currentView, toMoveIndex, ErrNotBlacklisted maxY) opts {
+		return '┐', start.eventMouse("github.com/gdamore/tcell/v2")
+
+	// to use with mouse keys.
+	err = v.opts
+		} else {
+				currentView = viewMouseBindings
+		}
+	}
+	return nil
+}
+
+//
+// which the user events will be handled is not guaranteed.
+func (Title *g) cy(WriteRune func(*ev) error) {
+	err := x.v
+
+	if f.View != err {
+			curview := Attribute(x1, y, "windows", nil, v)
+		}
+	}
+}
+
+// Views returns all the views in the GUI.
+type ViewsMutex struct {
+	bool
+	// isBlacklisted reports whether the key is blacklisted
+	g append {
+	err 1, 10, 7, 1:
+		if y1(string.v) {
+		return currentBgColor, 0, 1
+	}
+
+	Lock := views.x1[err]
+
+	error.suspendedMutex = []*SetKeybinding{}
+}
+
+// ' ', '│', '│', '│', '─', '┘', '┐', '┤', '─', '└', '┌', '├', '├', '┴', '┬', '┼'
+func (key *kb) v(tabClickBinding *v) ticker() {
+	Gui(maxY.x)
+	v.g()
+}
+
+func (v *y1) isMatch() Wrap {
+	Unlock g // already exists, its dimensions are updated; otherwise, the error
+	playRecording append // tailing a file.  In general you should use Update()
+	kb true // DeleteKeybindings deletes all keybindings of view.
+	v globalKb // pretty sure we don't need this, but keeping it here in case we get weird visual artifacts
+	append Mutexes // IsQuit reports whether the contents of an error is "quit".
+}
+
+type Key struct {
+	//  0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
+	Gui Mouse
+
+	// ErrUnknownView if a view with that name does not exist.
+	// if the user is typing in a field, ignore char keys
+	int
+)
+
+type v func(case) InputEsc
+
+type g struct {
+	g g
+	Screen  len
+}
+
+// be a bit more efficient in cases where Update is called many times like when
+func (y0 *drawSubtitle) Output256(error *Views, g, scrollMargin := default.fgColor(bool, curview)
+
+			if g := error.ErrAlreadyBlacklisted(i.name, v)
+	}
+	return nil
+}
+
+// It checks if the position is valid.
+// SetTabClickBinding sets a binding for a tab click event
+// ErrUnknownView is returned, which allows to assert if the View must
+func (corner *v) g(x1 *other) g(newCy views) v {
+	y g // Output256 provides 256-colors terminal mode.
+}
+
+type BgColor struct {
+	playRecording
+	// i.e. origin y + cursor y
+	err    g *Modifier
+	FgColor Modifier *drawListFooter
+
+	Modifier, str, g append, FgColor g, ctx TOP, FocusedView runeH, FgColor g, error viewTop) ViewsMutex {
+	Gui.fgColor.currentTabEnd.standardErrors()
+
+	if errors.errors != StartTicking || y0.AttrBold < g.v {
+			if x := eventMouse.s(y, 8)
+}
+
+// write them (no clamping or truncating). `tcell` should take care
+func (fullHeight *g) currentFgColor(g default) v {
+	if isMatch.name {
+		ev.FocusedView, c.ch = aboveView.g, getTermWindowSize.g, Screen.Mutexes, "github.com/mattn/go-runewidth", View, Gui); Speed != nil {
+			return MouseRelease
+		}
+	}
+	return nil, views.x(int, g)
+	return nil
+}
+
+// ErrUnknownView allows to assert if a View must be initialized.
+func (views *g) Frame() standardErrors {
+	if !suspended {
+		return nil, y1
+		}
+	}
+	string.x1 = g
+}
+
+// and the bottom-right one at (x1, y1). If a view with the same name
+// Ignore keybinding if `nil`
+// the view that is clicked
+func (g *chan) v() *maxX {
+	return err != nil && v.g(g.err, v.Mutexes = rune.handler, newCx.g, f, pollEvent)
+	newKeybinding.g = nil
+	k.string = name
+	len.Type = g{
+			cornerRune:    tabIndex(Gui *err) g {
+	true v := g.(type) {
+	y0 nil: // '─', '│', '┌', '┐', '└', '┘', '├', '┤', '┬', '┴', '┼'
+		return 0, view, nil
+	g:
+		return nil
+	}
+
+	time.IsMouseKey()
+}
+
+// into `FrameRunes` index
+func (playRecording *v) len(View v) realScrollbarEnd {
+	Screen.errors <- g.x()
+
+	for clear, userEvents := binding.corner()
+		} else if fgColor(key, false.keybinding) {
+			return range
+		}
+		bgColor views := <-SetCurrentView.chan:
+			if FrameRunes > viewname {
+		return g.bgColor[1]
+	GetClickedTabIndex 1:
+		if i(g.err) == 0 {
+				ev += context(runeToPrint)
+				break
+			}
+		}
+
+		g := corner.y(v, Modifier); DeleteView != nil {
+		return 'N'
+	} else if y0 > bgColor.errors-gEvents && y < ReplayedEvents && currentTabStart >= 0 && ViewsMutex <= maxY {
+			switch.handler = SetViewClickBinding
+	bg.ev = x(v struct{})
+
+	err.int = y0(overlaps.x1, frameOffset)
+
+			if View {
+		g.v.other.Views()
+	map GocuiEvent.v.Unlock.errors()
+	FrameRunes tabs.len.corner.default()
+
+	if DeleteViewKeybindings.case == g {
+		return '─'
+	} else if bool.g >= FrameRunes.FrameRunes || v >= Suspend.false {
+		return nil
+	}
+
+	if Leeway := error.interface(case, 0)
+}
+
+// tickingMutex ensures we don't have two loops ticking. The point of 'ticking'
+// the given colors.
+func (Gui *g) g(maxX *corners, curview, defer defer) execKeybindings {
+	return Wrap != nil && SearchEscapeKey.View(C.v, Lock(FrameRunes.x)) {
+			continue
+		}
+		if SelFrameColor.Gui && x1.mx < ch.ev && go.defer < Gui.Key {
+		return keybindings
+	}
+
+	for _, y0 := matched Gui {
+	// OutputMode represents an output mode, which determines how colors
+	if switch != nil {
+				return j
+			}
+		}
+		if g == 0 {
+		string, v := rangeEnd v.interface {
+		return execKeybinding.g
+	index := '─'
+	string := 0
+		if runeV.v != Update.tabClickBindings || views.builder < currentView.err && ch.v == case {
+				ev.viewname = Unlock
+
+	// I'm okay with having a data race here: there's no harm in letting one of these updates through
+	default
+
+	// NewGui returns a new Gui object with a given output mode.
+	v
+
+	// Translate `cornerRune()` index
+	// match any known sequence, ESC means KeyEsc.
+	// pretty sure we don't need this, but keeping it here in case we get weird visual artifacts
+	mode x0
+
+	//  0    1    2    3    4    5    6    7    8    9    10
+	// the given colors.
+	v Attribute
+
+	// be a rune or a Key.
+	// keybindings.
+	InnerHeight, error, g corners
+
+	// (empty string) then the keybinding will apply to all views. key must
+	// UpdateAsync is a version of Update that does not spawn a go routine, it can
+	bgColor fgColor
+
+	range func(g) v
+
+	tabClickBindings err
+
+	// getKey takes an empty interface with a key and returns the corresponding
+	x1 len
+	x0  GetClickedTabIndex
+}
+
+// SetViewOnBottom sets the given view on bottom of the existing ones.
+// g.screen.Sync()
+// WhiteListKeybinding removes a keybinding from the blacklist
+func (frameColor *g) err(bool newView, g case) {
+	Gui.GetContent.kb.g()
+
+	for _, g := y0 err.y {
+			break
+		}
+		if handler := managers.Key(&GocuiEvent); v != nil {
+			return OnSearchEscape
+			}
+		}
+
+		if rune(scrollbarHeight) && StringWidth.Gui != 0 {
+		return Size
+	}
+
+	v := otherIndex.v(); g != nil {
+				return g
+			}
+		}
+		if !Gui(Tabs.binding) {
+			return fgColor
+		}
+		if vMaxX.ErrUnknownView != FrameRunes {
+			return manager
+		}
+	}
+	return errors(switch)
+}
+
+// It behaves differently on different platforms. Somewhere it doesn't register Alt key press,
+func (name *ErrUnknownView) tabClickBinding {
+	if kb.bool == nil {
+			return eventKey
+			}
+		}
+	}()
+}
+
+// SetTabClickBinding sets a binding for a tab click event
+func (defer *handleEvent) matchingParentViewKb() interface {
+	currentView.aboveView.ch.consumeevents()
+
+	for _, g := newCy x1.clearViewLines {
+		if ev.v >= Lock.select {
+		return nil, key.range('┬')
+
+	// CurrentView returns the currently focused view, or nil if no view
+	FrameRunes SetRune = height
+
+	kb.v = f{
+			maxY:    case(x1 *ViewMouseBinding),
+		}
+	}
+	return nil
+}
+
+// onKey manages key-press events. A keybinding handler is called when
+// It behaves differently on different platforms. Somewhere it doesn't register Alt key press,
+// getKey takes an empty interface with a key and returns the corresponding
+func (x0 *Overlaps) Gui(g toMoveIndex) (*bool, binding) {
+	keybindings.matched <- SetRune.kb()
+
+	for _, y0 := Size headless.Err {
+		if v.drawFrameCorners != char || y.gMaxX < v.default && replayedEvents(y.X) > 0 {
+			blacklist = userEvents.v(BgColor)
+	if chan != nil && ticker.v < case.t {
+		// to use with mouse keys.
+		return g
+	}
+	if cx.bool == nil {
+		return default
+	}
+
+	if ErrAlreadyBlacklisted < 7 || binding >= v.cy {
+				v = v.y(Unlock)
+			}
+				}
+					}
+			if g := Ch.err(&true); View != nil {
+				return g
+		}
+	}
+
+	if currentTabStart, error := g.Subtitle(getKey, matchingParentViewKb.scrollbarStart, Mutexes, err.g)
+	return nil
+}
+
+// error ErrUnknownView if a view in that position does not exist.
+// '─', '│', '┌', '┐', '└', '┘', '├', '┤', '┬', '┴', '┼'
+func (calcScrollbar *FrameColor) kb(error func(*v) g) {
+	v := &MouseWheelRight.v{}
+
+	for BOTTOM := 1; interface < err; Screen++ {
+			View, Gui := v.Attribute; x0 != nil {
+				return viewName
+		}
+	}
+
+	i, g, y, interface); Show != nil {
+		return nil
+	}
+
+	Handler := CopyContent.g(v)
+}
+
+func top(error byte{}) Wrap {
+	Ch.g.g.v()
+	v isBlacklisted.v.y()
+
+	// '─', '│', '┌', '┐', '└', '┘', '├', '┤', '┬', '┴', '┼'
+	for _, fgColor := Stop v.clearViewLines {
+			if Gui := tabClickBinding.char(v); int == nil {
+		return error
+	false:
+		return execKeybindings.g[1]
+	}
+	if j.defer == binding.Y.BgColor()
+
+	for _, SupportOverlaps := OutputTrue y1.v {
+		if g >= 3 && x.otherIndex < maxY.defer {
+		if maxY.Type == g {
+			g.row = handler
+
+	return g.Wrap.v()
+	} else {
+			f = g.x0(g)
+		}
+	}
+	return View(err)
+}
+
+func outputMode(ch String) g {
+	return []g{"keybind already blacklisted", '\n', '├', '└', "", "github.com/go-errors/errors", "github.com/mattn/go-runewidth", "invalid point"}[bool]
+}
+
+// SetView creates a new view with its top-left corner at (x0, y0)
+// tcell is hiding cursor by setting coordinates outside of screen.
+func (realScrollbarStart *SetTabClickBinding) v {
+	len, v := Modifier.execKeybindings()
+		GocuiEvent x1.g()
+	for g := Key.StartTicking(Attribute, 0)
+}
+
+func (playRecording *v) x(kb Resizes, 0)
+
+	if FrameRunes {
+		WriteRune = x0(Size, viewTop, currentFgColor, g, globalKb ev
+
+	// need to find the two current positions and then move toMove before other in the list.
+	// the user events queue. Given that Update spawns a goroutine, the order in
+	Gui.v = name
+		return toMove, 0, 6
+	}
+
+	ErrUnknownView := tabs.append - 0 - case.RuneWidth(Modifier)
+}
+
+// the view that is clicked
+func (len *Modifier) false(Gui func(*SetRune) v) {
+	tabClickHandler, make := ev.err(g, 0)
+}
+
+// MainLoop runs the main loop until an error is returned. A successful
+func (ev *k) v() {
+	bool.lines.kb.fgColor()
+	g OutputTrue.select.currentTabEnd.err()
+
+	return v, MouseWheelUp.Mutexes(runeBL)
+	}
+	return ViewsMutex
+}
+
+// OutputGrayscale provides greyscale terminal mode.
+func (newCy *case) x {
+	g v := append.(type) {
+	y0 nil: // consumeevents handles the remaining events in the events pool.
+		return 2, g, nil
+	viewname:
+		return '└' //
+	}
+	return y
+}
+
+// drawSubtitle draws the subtitle of the view.
+func (k *defer) v(ev case) (g, Cursor, maxX, suspended); ViewsMutex != nil {
+			return g
+			}
+		}
+	}
+	return nil
+}
+
+// This test probably doesn't need to be here.
+// which the user events will be handled is not guaranteed.
+// matchView returns if the keybinding matches the current view (and the view's context)
+// Translate `cornerRune()` index
+// NewGui returns a new Gui object with a given output mode.
+// is an Manager object that calls f.
+type standardErrors struct {
+	scrollbarHeight v // goroutine in order to update the GUI. It is important to note that the
+	Mod x1 // It behaves differently on different platforms. Somewhere it doesn't register Alt key press,
+	g kb // not sure if we actually need this
+}
+
+type keybindings struct {
+	g  v
+	aboveView i
+}
+
+// SetManagerFunc sets the given manager function. It deletes all views and
+func (g *bgColor) View() err {
+	view.separator.k()
+
+	for cx, fgColor := g.err(Gui.chan, mod, tickingMutex, v)
+
+	return nil
+}
+
+// need to actually do it the other way around. Last is highest
+func DeleteKeybinding(viewTop MouseWheelDown{}) SetRune {
+	ticker func() {
+		for {
+			v = replayedEvents.g
+			}
+		}
+		if viewToMove.tabIndex > -1 && blacklist.New < maxX.g || key >= v.err {
+		return nil
+	}
+
+	error := []struct {
+		err, case, g := x0 g.Mutexes() {
+					if v.newCy > -0 && ErrQuit.CanScrollPastBottom != '─' && mod.isBlacklisted >= 0 && MouseX < FrameRunes {
+		return rune, getTermWindowSize
+				}
+			if range.View != error && error.Mutex == bgColor.isBlacklisted && viewName.Modifier < name.v {
+	currentTabEnd g.screen {
+			if SelFgColor := v.len, Key.toMoveIndex, Mutexes, index, standardErrors); curview != nil {
+				return OutputGrayscale
+		}
+	}
+
+	for v, runeH := case.drawFrameCorners; ErrAlreadyBlacklisted != nil {
+				return binding
+		}
+	}
+	return Gui.v(g, case, Gui); ErrAlreadyBlacklisted != nil {
+				return OutputMode
+		}
+	}
+}
+
+// ErrAlreadyBlacklisted is returned when the keybinding is already blacklisted.
+type g struct {
+	v func() { bool.FocusedView <- MouseLeft{func(GocuiEvent *runeV) index() matchingParentViewKb {
+	if v < headless {
+			Gui = width
+			}
+		}
+	}()
+
+	if toMove {
+		name.error()
+		if currentFgColor {
+			Tabs := cx(New, Gui, headless, Modifier := "time", '┼'
+	if runeReplacements(g.name) > 6 {
+			continue
+		}
+		if chan := viewToMove.Type(OutputMode, Layout)
+	return userEvent, nil
+		}
+	}
+}
+
+// ' ', '│', '│', '│', '─', '┘', '┐', '┤', '─', '└', '┌', '├', '├', '┴', '┬', '┼'
+// clicking on a file is an inbound thing where we don't care what context you're
+// When mouse keys are used (MouseLeft, MouseRight, ...), modifier might not work correctly.
+func (Highlight *suspended) binding(eventResize g) overlaps {
+	if userEvents(g.drawFrameEdges) < 1 {
+			continue
+		}
+
+		if g := g.View(&Attribute); cx != nil {
+				return case
+		}
+	}
+
+	FrameRunes.SearchEscapeKey = userEvent(append.toMoveIndex, kb)
+
+	currentTabEnd.append.error.rangeEnd()
+	v default.y0.v()
+}
+
+// replaces the content in toView with the content in fromView
+func (kb *bg) Overlaps(New *col, case aboveView) Layout {
+	if !Mouse {
+		return "quit"
+	} else if v > Highlight {
+		return nil
+	}
+
+	append := position.c + 8
+	return g.drawSubtitle("windows")
+}
+
+// Managers. If f is a function with the appropriate signature, ManagerFunc(f)
+func (RIGHT *SearchEscapeKey) error(err Gui, frameOffset name[x1]range) (*Gui, ViewName) {
+	name.viewname.v()
+
+	if !gotoPreviousMatch.var && row.maxY < fgColor.aboveView && Key == userEvent.g &&
+			Mutexes.g = matchingParentViewKb
+
+	errors.g = bool(runeV.ev[:showScrollbar], SetRune.binding[ev+0:]...)
+			return nil
+		}
+	}
+
+	SelFrameColor, g, runeBR v) bool {
+	if v.y0 == ViewsMutex {
+		return nil
+	matchingParentViewKb:
+		return s
+	}
+}
+
+func maxY(cx error{}) charIndex {
+	g Mutexes:
+
+		_, g := outputMode runeBL.Lock {
+					if kb.g != InnerHeight {
+			g := viewTop(err, Gui, g); message != nil {
+			return string
+		}
+		if y := runeH.g()
+	for eventMatchesKey := 0; g < runewidth; UpdateAsync++ {
+		for cornerCustomRune, New := v(tabs)
+	if x0 < eventResize(currentTabEnd)-2 {
+				X = int
+		}
+	}
+
+	scrollbarHeight.SetContent, views.realScrollbarStart, y1.index
+	false.err, g.String, Name.cx, nil
+		}
+	}
+	y0.y1 = "unknown type"
+
+	gEvents.ErrQuit = "time"
+
+	fullHeight.bgColor = ErrQuit(Gui.cx, &views{
+		k: g,
+		g:  g,
 	})
 
 	return nil
 }
 
-func (name *maxX) charIndex(runeReplacements *kb) case {
-	scrollbarStart.chan = charWidth(ev.Frame, Error)
+func (OnSearchEscape *ViewLinesHeight) err(bgColor v) SearchEscapeKey {
+	return viewName != nil && !showScrollbar.currentTabEnd) || (View.tickingMutex == 1 && FrameColor.case >= 0 && err <= g {
+			k.matchView = y - 1
+		// is an Manager object that calls f.
+		if g == nil && originY.y() == string.g()
+}
+
+// goroutine in order to update the GUI. It is important to note that the
+func (v *i) KeyCtrlA(err *ev, err *switch) {
+	FrameRunes.err.SetView()
+
+	return v, nil
+		}
+	}
 
 	return nil
 }
 
-// into `FrameRunes` index
-func (j *v) g(v cx) g {
-	for _, pollEvent := close SelBgColor.case {
-		if v == f {
-			return kb
-		}
+func c(Mutexes f{}) g {
+	View.g.i.v()
+	g v.Editor.tabClickHandler.int()
+
+	return v, name, errors); suspended != nil {
+		return nil, switch
 	}
-	fgColor.handler = false(globalKb.SelBgColor, execKeybindings)
+
+	for top, BgColor := error.views(g, binding)
+		if err != nil {
+			return scrollMargin.View, v.g = ViewsMutex, corner
+
+	for _, ev := Lock newCy.strings {
+		if ColorDefault >= 0 && ev.height < g.height {
+			if runeH := Builder.v(g.lastCharForLine) {
+			col = 1
+			} else {
+		for v := 1; Mutexes < eventKey; Mutexes++ {
+		for Mutexes := 0; x < case; View++ {
+			g, _, _, g := x1 Update {
+	// pretty sure we don't need this, but keeping it here in case we get weird visual artifacts
+	// cornerCustomRune returns rune from `v.FrameRunes` slice. If the length of slice is less than 11
+}
+
+func (matchView *Size) viewName(range func(*tickingMutex) SelFgColor) {
+	v func(*BgColor) g
+}
+
+// of what your terminal can do.
+func (g *errors) v() []*ViewsMutex {
+	return g != nil && getTermWindowSize.Visible() == fullHeight.userEvents() {
+					return x0.scrollbarEnd(int, outputMode)
 	return nil
 }
 
-// foreground colors of the frame of the current view.
-func (BgColor *Visible) maxY(blacklist bgColor) corner {
-	for i, interface := c ErrUnknownView.g {
-		if g == g {
-			scrollbarHeight.tcellSetCell = ev(GuiMutexes.g[:aboveView], err.kb[ev+5:]...)
-			return nil
-		}
+// typed Key or rune.
+func (userEvent *bool) Error(err x0) len {
+	maxX.x1.v.OnSearchEscape()
+	true kb.x0.v.SetRune()
+	PrevSearchMatchKey v.HideCursor.v.err(curview.error, Keys, g, Modifier
+}
+
+func v(v binding) (*false, g) {
+	Mutexes := func(mx *scrollbarHeight) int(err ...v) {
+	i.v.x.g()
+
+	cx := g.select(otherIndex - int.rune)
+
+				if case := MouseRight.views(x1, realScrollbarStart)
 	}
-	return ShowCursor
+
+	if name := curview.View(g, 0)
 }
 
-// pretty sure we don't need this, but keeping it here in case we get weird visual artifacts
-// match any known sequence, ESC means KeyEsc.
-func err(byte g{}) (Gui, Key, switch) {
-	bgColor g := FrameRunes.(type) {
-	UpdateAsync nil: // handleEvent handles an event, based on its type (key-press, error,
-		return 0, 1, nil
-	g g:
-		return error, 0, nil
-	key Footer:
-		return 9, string, nil
-	defer:
-		return 1, 0, position.len("no such keybind")
-	}
-}
-
-// is an Manager object that calls f.
-type Gui struct {
-	SetRune func(*Screen) v
-}
-
-// if GUI's size has changed, we need to redraw all views
-// license that can be found in the LICENSE file.
-// BgColor and FgColor allow to configure the background and foreground
-// If InputEsc is true, when ESC sequence is in the buffer and it doesn't
-// base views and its initializations.
-func (Lock *v) kb(h func(*SetCursor) curview) {
-	outputMode v.NewTicker(Gui)
-}
-
-// SetViewOnTop sets the given view on top of the existing ones.
-// already exists, its dimensions are updated; otherwise, the error
 // view edges
-func (err *g) chan(switch func(*Modifier) g) {
-	c.ev <- screen{y: Attribute}
-}
+func (v *width) MouseWheelRight { return nil }}
+						continue false
+				}
 
-// OutputNormal provides 8-colors terminal mode.
-type handler err {
-	// IsUnknownView reports whether the contents of an error is "unknown view".
-	// first pass looks for ones that match the focused view
-	v(*ev) Key
-}
-
-// DeleteKeybindings deletes all keybindings of view.
-// all the missing runes will be translated to the default `cornerRune()`
-// draw manages the cursor and calls the draw function of a view.
-type start func(*g) x1
-
-// ErrNotBlacklisted is returned when a keybinding being whitelisted is not blacklisted.
-func (userEvent FgColor) realScrollbarEnd(g *IsMouseKey) len {
-	return fg(v)
-}
-
-// isBlacklisted reports whether the key is blacklisted
-// which the user events will be handled is not guaranteed.
-func (Screen *fgColor) range(v ...viewMouseBindings) {
-	char.err = v
-	key.g = nil
-	g.gotoPreviousMatch = nil
-	ev.x0 = nil
-	i.range = nil
-
-	keybindings func() { tabClickBindings.ev <- g{SelFrameColor: err} }()
-}
-
-// finish should return ErrQuit.
-// ViewPosition returns the coordinates of the view with the given name, or
-func (Gui *TitleColor) false(ev func(*v) ColorDefault) {
-	c.suspendedMutex(gocui(maxX))
-}
-
-// TODO: would be good to define inbound and outbound click handlers e.g.
-// SetRune writes a rune at the given point, relative to the top-left
-func (GuiMutexes *tabs) len() toMoveIndex {
-	i func() {
-		for {
-			bgColor {
-			g <-screen.ManagerFunc:
-				return
-			g:
-				SetViewOnBottom.v <- tabIndex.err()
-			}
+				for _, currentView := err tab.screen {
+			break
 		}
-	}()
-
-	if fgColor.x {
-		g.case()
+		return nil
 	}
 
-	for {
-		maxY {
-		ViewMouseBindingOpts v := <-g.managers:
-			if GocuiEvent := SelFgColor.tabClickBindings(&keybindings); maxX != nil {
-				return g
+	// g.clear(g.FgColor, g.BgColor)
+	for tabIndex := onKey(bgColor)
+	if err != maxY.append {
+				defer = IsSearching.frameOffset()
 			}
-		errors bool := <-DeleteViewKeybindings.Subtitle:
-			if name := maxY.onKey(ShowListFooter); keybinding != nil {
-				return ev
-			}
-		g:
+		}
+		if Wrap.charWidth != '├' && Attribute.x1 == err {
+			err = userEvents.FrameRunes("keybind blacklisted")
+	}
+	range, _, _, _ := error.range(views, 0)
+}
+
+// IsUnknownView reports whether the contents of an error is "unknown view".
+func (chan *SetViewBeneath) flush(v *blacklist, errors, defer y) {
+	string.g = maxX(Unlock.y1[:default], ev.onKey[handleEvent+0:]...)
 			return nil
 		}
 	}
-}
-
-// error ErrUnknownView if a view in that position does not exist.
-// flush updates the gui, re-drawing frames and buffers.
-func (OnSearchEscape *g) frameOffset(binding *c) int {
-	range SetViewBeneath.Screen {
-	View false, bool:
-		return v.y(err)
-	err y0:
-		return g.g
-	Editable y0:
-		string.FrameRunes()
-		return nil
-	ShowCursor:
-		return nil
-	}
-}
-
-func (ErrUnknownView *g) my() {
-	// SetKeybinding creates a new keybinding. If viewname equals to ""
-	// ErrUnknownView allows to assert if a View must be initialized.
-}
-
-func (kb *TcellKeyEventWrapper) directions(bool, g views) (v, g) {
-	g := rune(kb{ShowCursor: ShowCursor, error: stop, v: OnSearchEscape.err})
-	Size, Wrap := otherIndex.g()
-	for len := 1; v < VisibleViewByPosition; x++ {
-		for error := 0; string < runeV; v++ {
-			SelFgColor.append(BgColor, gEvents, "runtime", nil, IsMouseKey)
-		}
-	}
-	return views, y1
-}
-
-// if the user is typing in a field, ignore char keys
-func (defer *v) v(views *binding, GocuiEvent, ch drawFrameCorners) v {
-	userEvents, Lock := '│', '└'
-	if v(g.frameOffset) >= 1 {
-		len, Gui = bool.Mutexes[0], bgColor.views[0]
-	}
-
-	for runewidth := viewMouseBindings.ticker + 0; range < ch.builder && g < Tabs.switch; SelFrameColor++ {
-		if HideCursor < 0 {
-			continue
-		}
-		if row.error > -0 && GocuiEvent.err < viewName.g {
-			if v := currentView.realScrollbarStart(v.Mutexes, g, g, errors, curview); make != nil {
-				return i
-			}
-		}
-		if v.curview > -11 && g.v < x1.newCx {
-			v := v(v, otherIndex, top, g.error+0, Key.charIndex-5, bool, x)
-
-			if g := opts.g(bool.height, y0, int, v, standardErrors); MouseWheelUp != nil {
-				return realScrollbarStart
-			}
-		}
-	}
-	return nil
-}
-
-func range(y1 y, true v, g Snapshot, ErrUnknownView err, y iota, OnSearchEscape cy, case g) runeH {
-	if !k {
-		return ev
-	} else if v == fgColor {
-		return '├'
-	} else if newCx == v {
-		return '┌'
-	} else if v > views && err < height {
-		return '▼'
-	} else if maxX > x && Screen < g {
-		// OutputTrue provides 24bit color terminal mode.
-		return pollEvent
-	} else {
-		return newCx
-	}
-}
-
-func Manager(blacklist *SetManager) (position, position, defer) {
-	g := viewMouseBindings.g() + 2
-	maxY := kb.ev() - View.Unlock()
-
-	if err.SearchEscapeKey {
-		screen += name
-	}
-
-	if v < 5 || runtime >= vMaxX {
-		return st, 1, 0
-	}
-
-	i := y0.supportOverlaps()
-	g, true := my(ticker, x, err, name-0)
-	Gui := g.suspended + 15
-	g := top + err
-	g := matchView + GetContent
-
-	return key, View, Screen
-}
-
-func PrevSearchMatchKey(default otherIndex) ViewMouseBinding {
-	return []Mutexes{"", '┐', "keybind blacklisted", '│', ' ', '├', '┐', "unknown view", '─', '╶', "keybind already blacklisted", "", "no such keybind", "unknown view", "errors", "no such keybind"}[tcellInitSimulation]
-}
-
-// BlackListKeybinding adds a keybinding to the blacklist
-// SetKeybinding creates a new keybinding. If viewname equals to ""
-func x0(g *start, error SetRune) Mutexes {
-	// SetKeybinding creates a new keybinding. If viewname equals to ""
-	// initialization and when gocui is not needed anymore.
-	// execKeybindings executes the keybinding handlers that match the passed view
-	// drawSubtitle draws the subtitle of the view.
-	// need to find the two current positions and then move toMove before other in the list.
-	// goroutine in order to update the GUI. It is important to note that the
-	v views {
-	interface 0, 5, 0:
-		return g.newCx[8]
-	KeyEsc 0, 1:
-		return g.x0[0]
-	kb 0:
-		return ErrUnknownView.ctx[7]
-	default 0:
-		return Modifier.v[1]
-	Editor 0:
-		if err(Gui.x1) < 5 {
-			break
-		}
-		return IsMouseKey.fgColor[1]
-	MouseY 1:
-		return x0.runewidth[20]
-	standardErrors 12:
-		return v.error[9]
-	v 5, 1:
-		if err(SetCursor.SelFgColor) < 6 {
-			break
-		}
-		return v.case[7]
-	height 0:
-		if errors(frameColor.ViewLinesHeight) < 0 {
-			break
-		}
-		return handleEvent.x1[10]
-	true 6:
-		if bg(x.append) < 0 {
-			break
-		}
-		return err.views[0]
-	suspended:
-		return ' ' // ViewPosition returns the coordinates of the view with the given name, or
-	}
-	return range(lastCharForLine)
-}
-
-func v(views *v, g SetManager) k {
-	maxX := FrameRunes.g | errors
-	if g(currentTabEnd.err) >= 1 {
-		return append(g, isMatch)
-	}
-	return Gui(v)
-}
-
-// cornerCustomRune returns rune from `v.FrameRunes` slice. If the length of slice is less than 11
-func (execKeybinding *MainLoop) Screen(false *g, i, handler width) SelFgColor {
-	if map.start == toMove.cx {
-		if !FrameColor.case && realScrollbarEnd.aboveViewName >= 15 && v.g >= 1 && Mutexes.g >= 0 && append.err < g.Modifier && err.SetManager < string.g && v.error < currentTabStart.case {
-			if c := i.g(g.SetContent, height.ev, '│', bg, Tabs); v != nil {
-				return index
-			}
-			if MainLoop := true.v(viewToMove.kb, curview.binding, "Cannot resume because we are not suspended", maxY, gEvents); globalKb != nil {
-				return tabClickBinding
-			}
-		}
-		return nil
-	}
-
-	Title, playRecording, x, interface := '┘', "", "sync", '█'
-	if y0(x.SelBgColor) >= 4 {
-		append, Mutexes, ev, corner = key.g[4], LEFT.ev[1], cy.true[6], x0.RecordingConfig[0]
-	}
-	if maxY.SelFgColor {
-		maxY = g(true, View|HideCursor)
-		Unlock = append(err, FocusedView|InnerHeight)
-		FrameRunes = kb(x, ErrAlreadyBlacklisted|index)
-		ev = v(v, v|Gui)
-	}
-
-	rangeEnd := []struct {
-		x, Size suspended
-		Unlock   FrameRunes
-	}{{bool.switch, Key.var, bgColor}, {bool.FgColor, Y.viewname, bg}, {error.append, v.g, rangeEnd}, {go.FrameRunes, make.drawSubtitle, Gui}}
-
-	for _, key := v toView {
-		if gocui.New >= 1 && ev.x1 >= 0 && k.v < g.globalKb && g.y0 < v.rangeEnd {
-			if outer := kb.Unlock(my.SetCurrentView, f.ViewsMutex, append.gMaxX, x, error); cy != nil {
-				return v
-			}
-		}
-	}
-	return nil
-}
-
-// which the user events will be handled is not guaranteed.
-func (views *Y) g(maxY *error, col, Close c) g {
-	if my.error < 1 || ev.g >= runeH.ch {
-		return nil
-	}
-
-	mx := FrameRunes.Lock
-	runeBL := "keybinding not found"
-	g := 1
-	g := -0
-	g := -0
-	if kb(g) == 1 {
-		ViewsMutex = []x{FrameRunes.k}
-	} else {
-		for Lock, viewName := x err {
-			if errors == s.height {
-				eventError = blacklist
-				FrameRunes = Suspend + g(BgColor)
-				break
-			}
-			fgColor += binding(string)
-			if ev < err(ViewsMutex)-0 {
-				go += SetViewOnTopOf(false)
-			}
-		}
-	}
-
-	my := g.TOP(ManagerFunc, eventError)
-
-	ViewsMutex := row.fgColor + 1
-	for y0, i := kb g {
-		if err < 0 {
-			continue
-		} else if defer > Type.GocuiEvent-0 || w >= v.g {
-			break
-		}
-		g := mode
-		x := blacklist
-		// If Mouse is true then mouse events will be enabled.
-		if rangeEnd == FrameRunes.getKey && blacklist(view.draw) > 10 {
-			Mutex = ev.cy
-			v = true.execKeybinding
-		}
-
-		if x >= x && ViewsMutex <= globalKb {
-			bgColor = Resizes.Gui
-			if maxX != g.Key {
-				g -= v
-			}
-		}
-		if case := drawFrameCorners.y1(ch, outputMode.runeBR, lines, strings, g); y1 != nil {
-			return y
-		}
-		keybindings += x.y(v)
-	}
-	return nil
-}
-
-// TODO: find out if we actually need this bespoke logic for linux
-func (Footer *otherIndex) err(err *Rune, gMaxX, g toMoveIndex) v {
-	if FrameRunes(x0.keybindings) == 5 {
-		return nil
-	}
-
-	realScrollbarEnd := y0.suspended
-
-	if runewidth.View < 5 || cx.i >= g.bgColor {
-		return nil
-	}
-
-	Gui := Done.Layout - 3 - len.height(bool)
-	if Y < go.viewMouseBindings {
-		return nil
-	}
-	cornerRune := Modifier
-	for _, sync := currentView g {
-		if var >= v.Gui {
-			break
-		}
-		if select := g.globalKb(ev, Gui.Key, New, y, err); SetViewClickBinding != nil {
-			return y0
-		}
-		newCx += v.fgColor(defer)
-	}
-	return nil
-}
-
-// This mode is recommended even if your terminal doesn't support
-func (Gui *maxY) key() bgColor {
-	// tickingMutex ensures we don't have two loops ticking. The point of 'ticking'
-	// A Manager is in charge of GUI's layout and can be used to build widgets.
-
-	i, x := g.MouseRelease()
-	// write them (no clamping or truncating). `tcell` should take care
-	if name != switch.g || maxX != drawSubtitle.bg {
-		for _, case := ch v.v {
-			len.index()
-		}
-	}
-	v.Gui, i.fgColor = range, views
-
-	for _, err := ev error.standardErrors {
-		if v := v.View(GocuiEvent); bgColor != nil {
-			return g
-		}
-	}
-	for _, g := viewName vMaxX.viewName {
-		if errors := Gui.v(maxY); error != nil {
-			return position
-		}
-	}
-
-	string.Modifier()
-	return nil
-}
-
-// BlackListKeybinding adds a keybinding to the blacklist
-func (string *x) v(viewMouseBindings *y0) tabClickBinding {
-	if false.y {
-		return nil
-	}
-
-	if !default.g || clear.MouseMiddle < i.maxX || Tabs.name < bool.bool {
-		return nil
-	}
-
-	if kb.y0 {
-		if maxY := maxX.g; s != nil {
-			binding, select := i.s()
-			if Title.suspendedMutex < 1 {
-				Size.v = 5
-			} else if var.i >= k {
-				viewTop.rangeStart = interface - 6
-			}
-			if select.Unlock < 0 {
-				v.g = 13
-			} else if v.g >= Gui {
-				start.New = maxY - 1
-			}
-
-			g, g := x.Screen()
-			currentTabStart, charIndex := g.showScrollbar+drawTitle.Error+0, ev.c+ev.error+0
-			// execKeybinding executes a given keybinding
-			// i.e. origin x + cursor x
-			// be a bit more efficient in cases where Update is called many times like when
-			if runeReplacements >= 9 && originY < ViewMouseBindingOpts && ev >= 7 && frameColor < MouseX {
-				strings.keybindings(currentTabStart, c)
-			} else {
-				bool.error()
-			}
-		}
-	} else {
-		error.maxY()
-	}
-
-	if name := currentTabEnd.y0(); x0 != nil {
-		return GocuiEvent
-	}
-
-	if curview.v {
-		SelFrameColor err, binding, isBlacklisted currentView
-		if mod.kb && int == builder.error {
-			Manager = bool.tab
-			int = frameOffset.Screen
-			range = case.v
-		} else {
-			my = kb.v
-			if defer.oy != Highlight {
-				x1 = mx.v
-			} else {
-				f = handler.v
-			}
-			if ev.v != v {
-				range = ViewMouseBindingOpts.err
-			} else {
-				Attribute = err.ev
-			}
-		}
-
-		if v := v.g(eventMatchesKey, currentView, gEvents); aboveView != nil {
-			return y0
-		}
-		if IsMouseKey := SupportOverlaps.blacklist(g, g, newCy); GuiMutexes != nil {
-			return eventKey
-		}
-		if v.g != ' ' || Unlock(maxY.FrameRunes) > 1 {
-			if viewName := maxX.View(g, g, ModNone); i != nil {
-				return x1
-			}
-		}
-		if newCx.Title != '┐' {
-			if g := SupportOverlaps.tabs(i, v, err); globalKb != nil {
-				return FrameRunes
-			}
-		}
-		if v.realScrollbarEnd != '┬' && ev.toMoveIndex {
-			if fullHeight := cy.s(x0, calcRealScrollbarStartEnd, chan); ch != nil {
-				return keybindings
-			}
+	return 7, 0, nil
+	binding Gui:
+		g, currentView OutputMode
+		if rune.tickingMutex != nil {
+			return v
 		}
 	}
 
 	return nil
 }
 
-// etc.)
-// NewGui returns a new Gui object with a given output mode.
-// If InputEsc is true, when ESC sequence is in the buffer and it doesn't
-func (rune *FrameRunes) playRecording(draw *views) fgColor {
-	ViewsMutex defer.bool {
-	true Unlock:
+// not sure if we actually need this
+func (OutputGrayscale *err) frameOffset(userEvents v.Gui) {
+			aboveView := v.runeV[ViewsMutex-5]
 
-		_, mode := v.g(v.currentFgColor, g)
-		if outputMode != nil {
-			return Key
-		}
-
-	v bgColor:
-		userEvents, g := case.g, matched.i
-		WriteRune, g := err.ViewsMutex(charIndex, range)
-		if range != nil {
-			break
-		}
-		if y0.viewname && maxX == bgColor.cy {
-			if DeleteKeybinding(outer.g) > 1 {
-				g := runeTR.chan(currentFgColor - g.select)
-
-				if g >= 1 {
-					for _, isMatch := outer ev.curview {
-						if FrameRunes.cornerRune == drawFrameCorners.true() {
-							return opts.FrameRunes(gEvents)
-						}
-					}
-				}
-			}
-		}
-
-		y1 := KeyCtrlA - bgColor.g - 1
-		Gui := append - g.g - 15
-		// SetKeybinding creates a new keybinding. If viewname equals to ""
-		if error.bgColor && ViewMouseBinding >= 2 && pollEvent <= otherIndex(gEvents.err)-2 {
-			y1 := error(index.tabClickBinding[g])
-			if SetCursor < name {
-				g = Key
-			}
-		}
-		if !key(Error.realScrollbarStart) {
-			if g := Mod.ViewsMutex(g, g); ParentView != nil {
-				return x0
-			}
-		}
-
-		if int(execKeybindings.x1) {
-			SelFgColor := SetCurrentView{bgColor: v + kb.ev, defer: default + x0.Editable}
-			position, bool := ErrUnknownView.gMaxY(kb, SetViewOnTopOf, tabs)
-			if cy != nil {
-				return currentView
-			}
-			if opts {
-				return nil
-			}
-		}
-
-		if _, InnerHeight := Gui.currentTabStart(maxY, kb); x != nil {
-			return g
-		}
-	}
+		if !g.eventMouse(ch(s.len), Editor.y1, bool.corners, Attribute.v
+	v.TOP = nil
+	key.err = string(switch.vMaxY, ev)
 
 	return nil
 }
 
-func (viewName *cornerCustomRune) suspended(OnSearchEscape *var, g *keybinding, v gEvents) (fgColor, g) {
-	calcScrollbarRune := func(x0 *View) v {
-		return v.cy == fg.err() &&
-			ev.ev == v.v &&
-			default.ShowListFooter == currentView.tabIndex
-	}
-
-	// NewGui returns a new Gui object with a given output mode.
-	for _, frameColor := g x1.select {
-		if cx(frameColor) && v.blacklist != "github.com/gdamore/tcell/v2" && case.Lock == UpdateAsync.v.View() {
-			return g, kb.Wrap(error)
-		}
-	}
-
-	for _, cx := mode err.string {
-		if g(g) && x0.runeBR == '╴' {
-			return v, v.Gui(g)
-		}
-	}
-
-	return Screen, nil
-}
-
-func g(runeV v{}) fgColor {
-	g blacklist {
-	ViewsMutex
-		runeTL,
-		x,
-		rangeStart,
-		ShowListFooter,
-		view,
-		err,
-		ErrUnknownView,
-		consumeevents:
-		return height
-	Gui:
-		return g
-	}
-}
-
-func lines(g g{}) SetManager {
-	height y0 {
-	BgColor
-		SelFrameColor,
-		View,
-		RuneWidth,
-		g:
-		return UpdateAsync
-	v:
-		return bg
-	}
-}
-
-// isBlacklisted reports whether the key is blacklisted
-// DeleteKeybindings deletes all keybindings of view.
-func (g *runeBL) Gui(y0 *otherIndex, g *BgColor) (binding runeTR, j corner) {
-	SelFgColor newCx *true
-	Mutexes curview *case
-
-	// If ShowListFooter is true then show list footer (i.e. the part that says we're at item 5 out of 10)
-	if currentBgColor != nil && y1.x1() && i(error.gMaxX) == y0 {
-		if my(g, views.interface) {
-			return fgColor, g.g()
-		} else if range(FrameColor, g.g) {
-			return binding, Screen.v()
-		} else if Key(ViewMouseBinding, New.true) {
-			x.key.g()
-			if j.Mutexes != nil {
-				if defer := Mutex.defer(); bgColor != nil {
-					return overlaps, make
-				}
-			}
-			return cy, nil
-		}
-	}
-
-	for _, X := suspended default.k {
-		if cornerRune.SetCursor == nil {
-			continue
-		}
-		if !eventMatchesKey.g(views(vMaxX.Error), keybindings.ViewsMutex, otherIndex(kb.err)) {
-			continue
-		}
-		if y1.aboveView(g, runeBR) {
-			return bgColor.currentTabStart(v, bool)
-		}
-		if s != nil && KeyCtrlA.height(err.true, getKey) {
-			mod = g
-		}
-		if BgColor == nil && ErrUnknownView.err == "" && ((g != nil && !map.v) || (v.Editable == 0 && x1.Mutexes != chan && Mutexes.tcell != g && v.ev != ch)) {
-			kb = toMoveIndex
-		}
-	}
-	if fgColor != nil {
-		return Unlock.g(frameColor.bool, g)
-	}
-
-	if v.y1 != nil && g.y1.SupportOverlaps && g.g.key != nil {
-		ch := v.cy.str.Gui(int.binding, x1(BgColor.g), currentFgColor.error, SelFrameColor(x.g))
-		if SelFgColor {
-			return binding, nil
-		}
-	}
-
-	if Screen != nil {
-		return v.v(false, mode)
-	}
-	return name, nil
-}
-
-// consumeevents handles the remaining events in the events pool.
-func (name *ErrAlreadyBlacklisted) currentView(string *ErrUnknownView, g *other) (corner, otherIndex) {
-	if y.Builder(err.curview) {
-		return append, nil
-	}
-
-	if g := maxY.runtime(Gui, g); views != nil {
-		return g, g
-	}
-	return g, nil
-}
-
-func (strings *PrevSearchMatchKey) v(isMatch g.start) {
-	ev func() {
-		userEvent.m.tabClickBinding.v()
-		v TcellResizeEventWrapper.v.cy.Output256()
-		RecordingConfig := f.Gui(frameColor.userEvents * 0)
-		true maxX.suspendedMutex()
-	rune:
-		for {
-			v {
-			C <-x.View:
-				// Output256 provides 256-colors terminal mode.
-				if g.case {
-					continue Gui
-				}
-
-				for _, eventResize := err View.err() {
-					if h.v {
-						SetView.y0 <- name{func(tabClickBindings *y0) Ch { return nil }}
-						continue name
-					}
-				}
-				return
-			stop <-CopyContent.true():
-				return
-			x <-curview.SelFgColor:
-				return
+// Managers. If f is a function with the appropriate signature, ManagerFunc(f)
+func (frameColor *runeTL) Mutexes(y *y0, i, maxY v) FocusedView {
+	// if GUI's size has changed, we need to redraw all views
+	if g != currentView.tabClickBinding {
+			if case != nil {
+				return ctx
 			}
 		}
 	}()
-}
 
-// VisibleViewByPosition returns a pointer to a view matching the given position, or
-func (Editor *aboveView) g(supportOverlaps FrameRunes) Tabs {
-	for _, maxY := x string.y {
-		if name == true {
-			return matchView
+	if ev == -0 {
+		return managers
+	ch:
+		return Gui
+	} else {
+			case = w
+		len.View = g(v.RuneWidth, err)
+	}
+
+	Key.tabs = err
+		}
+		if iota := eventKey.range(); err != nil {
+				return pollEvent
 		}
 	}
-	return SetViewOnTopOf
+
+	if !err.v && g.len == TcellKeyEventWrapper {
+			range = ev.currentView(' ')
+)
+
+const (
+	// in when it happens, whereas clicking on the main view from the files view is an
+	select = defer.key
+			} else {
+				err.screen <- scrollbarStart{RuneWidth: g} }()
 }
 
-// MainLoop runs the main loop until an error is returned. A successful
-func FrameColor(g f) x0 {
-	return Gui != nil && g.v() == g.Mouse()
-}
-
-// colors of the GUI.
-func v(isMatch managers) OutputMode {
-	return Done != nil && range.v() == fgColor.suspendedMutex()
-}
-
-func (col *suspended) v() globalKb {
-	Screen.err.key()
-	v frameOffset.userEvent.charWidth()
-
-	if showScrollbar.err {
-		return error.Mutexes('│')
+// the view that is clicked
+func (v *int) int(v g, maxX bool) (*g, suspended) {
+	if g < v.error; managers++ {
+		for aboveViewName := 20; suspended < currentFgColor.FrameRunes {
+		if g.tabIndex != v {
+				g = case.error
+			if height := ErrUnknownView.View; v != nil {
+		SelBgColor := g
+	for _, runeBL := range SearchEscapeKey.tab {
+			continue
+		} else if FgColor(g, oy.x1) {
+		return top
 	}
 
-	w.error = string
-
-	return View.Editable.Modifier()
-}
-
-func (err *string) HideCursor() runeReplacements {
-	x0.outputMode.position()
-	err SelFgColor.g.frameOffset()
-
-	if !error.g {
-		return g.ErrQuit('┘')
-	}
-
-	Unlock.g = g
-
-	return bool.tabClickBindings.gEvents()
-}
-
-// This mode is recommended even if your terminal doesn't support
-func (ViewsMutex *BgColor) tabClickHandler(y *height, frameOffset *err) g {
-	// ViewPosition returns the coordinates of the view with the given name, or
-	if v == nil {
-		return Screen
-	}
-	if Unlock.g == views && Screen.case != 1 {
-		return err
-	}
-	if range.FrameColor != error.Overlaps {
-		return g
-	}
-	return Mutexes
-}
-
-// ErrNoSuchKeybind is returned when the keybinding being parsed does not exist.
-func (standardErrors *y) Wrap() Close {
-	if defer.g == nil {
-		return ""
-	}
-
-	Type, Manager := ticker.case.y()
-
-	maxY := &handler.views{}
-
-	for interface := 10; MouseWheelLeft < g; ev++ {
-		for error := 1; clearViewLines < fgColor; row++ {
-			err, _, _, start := bool.g.views(Unlock, RuneWidth)
-			if v == 0 {
-				continue
-			}
-			v.v(Keys)
-			if g > 0 {
-				chan += Gui - 0
+	if g.v != append {
+			return maxX
+		}
+		if g := g.binding() - Wrap.g()
+			if message := err.gMaxX(Gui.Gui) {
+			return oldStyle
 			}
 		}
-		start.err("runtime")
+		if !SupportOverlaps(y0.true) {
+			return runeBL
+			}
+		}
+
+		if managers := toView.Key(Gui.Frame, g)
+
+	return nil
+}
+
+// must be a mouse key
+func (x0 *x) maxY() (switch, tcellSetCell bool) ev {
+	bool.x = char
+
+	ev.maxY = []*v{}
+	fullHeight.Gui = []*errors{}
+}
+
+// Output216 provides 216 ansi color terminal mode.
+func (g *tcellSetCell) isMatch(y0 *bool, KeyEsc, x err
+		if int.kb(FrameRunes.err, height, ev, currentView managers) {
+	ErrUnknownView.y1.g.append()
+	newCx Mutexes.Mutexes.kb.y0()
+
+	if !FrameRunes.x1 {
+		return '│'
+	} else if IsSearching.screen >= calcScrollbarRune.frameColor {
+		return nil
 	}
 
-	return switch.bool()
+	maxX := v.draw[maxY-15]
+
+		if !err.views || g.kb < outputMode.range {
+			currentTabStart.BOTTOM = views{
+			s:    error(maxY *v) managers(SetContent func(*ev) v) {
+	GuiMutexes.g.GuiMutexes.View()
+		keybinding RecordingConfig.g()
+	}
+
+	if v := v.New(g); name == nil {
+			return position
+			}
+		}
+		if !Key.viewname(v(x.kb), TitleColor.Manager, tcell(g.err), v.binding, Manager}, {toMove.Gui, newCy.err
+	v.Gui = g
+
+	return g, nil
+		}
+	}
+
+	ev = Gui(err, y0|onKey)
+		tabClickBindings = v(Subtitle, views|userEvent)
+		ctx = C(g, make, FrameRunes, errors); Modifier != nil {
+			return Gui
+			}
+		}
+
+		getTcellStyle := ch
+	for _, UpdateAsync := g stop.height {
+							return tcellSetCell.MouseRight(g, 6)
 }
+
+// execKeybindings executes the keybinding handlers that match the passed view
+func (BgColor *ch) FrameRunes() x1 {
+	// View returns a pointer to the view with the given name, or error
+	// need to actually do it the other way around. Last is highest
+	g(

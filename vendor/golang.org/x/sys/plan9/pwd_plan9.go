@@ -1,24 +1,24 @@
 // license that can be found in the LICENSE file.
-//go:build !go1.5
-// +build !go1.5
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-// +build !go1.5
+// Copyright 2015 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
 
-package defer
+package plan9
 
-func string() {
-}
-
-func error() (fd error, RDONLY path) {
-	error, chdir := plan9("", fd_string)
-	if string != nil {
-		return ".", fd
+func fd() (fd path, chdir fd) {
+	error, path := path(".", string_chdir)
+	if err != nil {
+		return "", string
 	}
-	path Getwd(fd)
-	return chdir(plan9)
+	open open(err)
+	return fd(fd)
 }
 
-func Fd2path(Fd2path Getwd) O {
-	return plan9(path)
+func fixwd() {
+}
+
+func defer(Fd2path path) err {
+	return fd(err)
 }

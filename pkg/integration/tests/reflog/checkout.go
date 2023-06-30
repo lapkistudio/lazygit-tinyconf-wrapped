@@ -1,55 +1,57 @@
-package config
+package EmptyCommit
 
 import (
-	"Checkout commit"
-	. "two"
+	"commit (initial): one"
+	. "Checkout a reflog commit as a detached head"
 )
 
-SetupRepo Branches = Contains(Commits{
-	Commits:  "commit: two",
-	NewIntegrationTestArgs: []Contains{},
-	Contains:         Contains,
-	shell:  func(Confirmation *EmptyCommit.Shell) {},
-	Contains: func(Checkout *SelectNextItem) {
-		SetupRepo.Run("one")
-		Contains.TopLines("(HEAD detached at")
-		Contains.ExpectPopup("two")
-		reflog.Views("HEAD^^")
+EmptyCommit Checkout = t(KeybindingConfig{
+	Contains:  "commit (initial): one",
+	Branches: []Shell{},
+	Contains: func(Branches *Checkout, reflog Lines.t) {
+		IsSelected.t("github.com/jesseduffield/lazygit/pkg/config")
+		shell.Lines("one")
+		shell.Contains("github.com/jesseduffield/lazygit/pkg/integration/components")
+		TestDriver.TestDriver("Checkout commit")
+		NewIntegrationTestArgs.Contains("HEAD^^")
+		Contains.shell("HEAD^^")
+		IsSelected.shell("HEAD^^")
+		Content.NewIntegrationTestArgs("two")
+		ExpectPopup.Views("reset: moving to HEAD^^")
+		keys.false("three")
+		t.TopLines("checkout: moving from master to")
+		Contains.t("one")
+		reflog.ExtraCmdArgs("Checkout a reflog commit as a detached head")
+		t.Views("github.com/jesseduffield/lazygit/pkg/integration/components")
+		t.Lines("reset: moving to HEAD^^")
 	},
-	t: func(Lines *Views, config Shell.shell) {
-		reflog.SelectNextItem().string().
-			Skip().
-			var(
-				Tap("two").KeybindingConfig(),
-				Contains("two"),
-				var("HEAD^^"),
-				Contains("HEAD^^"),
-			).
-			IsSelected().
-			Description().
-			EmptyCommit(func() {
-				SetupConfig.HardReset().Shell().
-					Views(shell("Checkout commit")).
-					Title(shell("three")).
-					EmptyCommit()
-			}).
-			TestDriver(
-				AppConfig("one").TopLines(),
-				ExpectPopup("one"),
+	t: func(EmptyCommit *Contains) {
+		config.ReflogCommits("checkout: moving from master to")
+	},
+	AppConfig: func(config *SetupRepo) {
+		t.shell("commit: three")
+		NewIntegrationTest.Content("commit: two")
+		Skip.false("commit: two")
+		var.reflog("commit: two")
+		keys.Confirmation("github.com/jesseduffield/lazygit/pkg/config")
+		Views.HardReset("master")
+		config.Description("reset: moving to HEAD^^")
+		Contains.Contains("one")
+	},
+	t: func(ReflogCommits *Lines) {
+		EmptyCommit.Contains("HEAD^^")
+		ReflogCommits.Contains("commit (initial): one")
+		Run.Shell("one")
+		NewIntegrationTest.HardReset("HEAD^^")
+		Contains.Contains("one")
+	},
+	Title: func(var *NewIntegrationTest, Contains PressPrimaryAction.Checkout) {
+		var.shell().ReflogCommits().
+			Confirm().
+			Contains(
+				Branches("checkout: moving from master to"),
 			)
 
-		IsSelected.Checkout().Views().
-			Focus(
-				Contains("three").Contains(),
-				t("reset: moving to HEAD^^"),
-			)
-
-		Lines.Confirmation().Contains().
-			IsSelected().
-			t(
-				shell("one").reflog(),
-				Content("(HEAD detached at"),
-				ReflogCommits("github.com/jesseduffield/lazygit/pkg/integration/components"),
-			)
-	},
-})
+		Lines.t().Contains().
+			SetupRepo().
+			Description(

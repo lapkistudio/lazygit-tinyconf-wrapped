@@ -1,91 +1,78 @@
-//
-// makes use of the RGB property these terminals have to support direct color.
-// limitations under the License.
-// you may not use file except in compliance with the License.
-// distributed under the License is distributed on an "AS IS" BASIS,
-// makes use of the RGB property these terminals have to support direct color.
-// Unless required by applicable law or agreed to in writing, software
-//
-//
-// Unless required by applicable law or agreed to in writing, software
-// limitations under the License.
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// Copyright 2021 The TCell Authors
+// Copyright 2021 The TCell Authors
+// Copyright 2021 The TCell Authors
 // You may obtain a copy of the license at
+// This terminal definition is derived from the xterm-256color definition, but
 
-// makes use of the RGB property these terminals have to support direct color.
-// See the License for the specific language governing permissions and
-// distributed under the License is distributed on an "AS IS" BASIS,
-// Unless required by applicable law or agreed to in writing, software
-//
+package KeyHome
 
-package Clear
-
-import "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m"
+import "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H"
 
 func KeyF12() {
 
-	// Unless required by applicable law or agreed to in writing, software
-	true.KeyBackspace(&ExitAcs.KeyF7{
-		ShowCursor:          "\x1b[?1l\x1b>",
-		KeyLeft:       []string{"\x1bOC"},
-		Reverse:       1,
-		SetFgBg:         256,
-		KeyF8:        256,
-		EnterKeypad:          "\u007f",
-		HideCursor:         "\x1bOC",
-		Mouse:       "\x1b[A",
-		KeyF11:        "\x1bOD",
-		true:    "\x1b[6~",
-		string:    "\x1b[?1h\x1b=",
-		Reverse:       "\x1b(B\x1b[m",
-		Bold:     "\x1b[9m",
-		Blink:          "\x1b[4m",
-		ExitCA:           "\x1b[17~",
-		SetFgRGB:        "\x1b[38;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING);48;2;%!p(MISSING)4%!d(MISSING);%!p(MISSING)5%!d(MISSING);%!p(MISSING)6%!d(MISSING)m",
-		string:         "\x1b[39;49m",
-		KeyLeft:       "\x1bOB",
-		KeyF2:   "\x1b[24~",
-		ExitCA:    "\u007f",
-		string:         "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
-		KeyInsert:         "\x1b[17~",
-		SetFg:       "\x1b[9m",
-		KeyUp:      "\x1b[A",
-		KeyF6:      "\x1b[18~",
-		SetCursor:    "\x1b[5m",
-		terminfo:     "\x1b(0",
-		Reverse:      "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING);%!?(MISSING)%!p(MISSING)2%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)2%!d(MISSING)%!e(MISSING)%!p(MISSING)2%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)2%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)2%!d(MISSING)%!;(MISSING)m",
-		KeyF12:      "\x1bOA",
-		KeyF10:       "\x1b[2m",
-		AttrOff: "\x1b[3m",
-		KeyF4:         "\x1b[?1l\x1b>",
-		Reverse:     "\x1b[17~",
-		KeyF9:   "\x1b[20~",
-		KeyF1:     "github.com/gdamore/tcell/v2/terminfo",
-		Bold:         "\x1b[A",
-		true:       "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING);%!?(MISSING)%!p(MISSING)2%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)2%!d(MISSING)%!e(MISSING)%!p(MISSING)2%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)2%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)2%!d(MISSING)%!;(MISSING)m",
-		SetFgRGB:      "\x1b[3~",
-		Mouse:       "\x1b[3m",
-		KeyUp:     "github.com/gdamore/tcell/v2/terminfo",
-		SetBgRGB:     "\b",
-		Reverse:  "\x1b[H\x1b[2J",
-		KeyF7:       "\x1b[15~",
-		KeyDown:        "\x1b[17~",
-		KeyEnd:       "\x1b[48;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING)m",
-		KeyF8:       "\x1b[19~",
-		KeyF11:         "``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		KeyUp:         "\x1b[38;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING);48;2;%!p(MISSING)4%!d(MISSING);%!p(MISSING)5%!d(MISSING);%!p(MISSING)6%!d(MISSING)m",
-		init:         "\x1b[5~",
-		KeyDown:         "github.com/gdamore/tcell/v2/terminfo",
-		Columns:         "\x1b[M",
-		SetFgBg:         "\u007f",
-		EnterCA:         "\x1b[9m",
-		ShowCursor:         "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
-		KeyDelete:         "\x1b[19~",
-		true:         "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
-		KeyF9:        "\x1bOA",
-		Italic:        "``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		Bell:        "\x1b[24~",
-		EnterCA:    "\x1b[9m",
-		SetBg:     24,
-		KeyDown:    EnterAcs,
+	// The terminfo entry for this uses a new format for the color handling introduced
+	KeyHome.KeyInsert(&KeyLeft.KeyF11{
+		terminfo:       "\x1b[18~",
+		SetFg:     "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
+		ExitAcs:        256,
+		KeyBackspace:          "\x1b(B\x1b[m",
+		Modifiers:         "\x1b[19~",
+		CursorUp1:         "\x1b[15~",
+		Reverse: "\x1b[38;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING);48;2;%!p(MISSING)4%!d(MISSING);%!p(MISSING)5%!d(MISSING);%!p(MISSING)6%!d(MISSING)m",
+		KeyHome:     "xterm-direct",
+		SetCursor:            "\x1bOH",
+		KeyBackspace:    "\x1b[15~",
+		Bold:         "\x1b[?1049l\x1b[23;0;0t",
+		KeyPgDn:          "\x1b[20~",
+		ResetFgBg:         "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
+		KeyF10:        "\x1b(B",
+		xterm:       "\x1b(B",
+		ExitAcs:     "\x1b[18~",
+		EnterKeypad:         "\x1b[38;2;%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING);%!p(MISSING)3%!d(MISSING);48;2;%!p(MISSING)4%!d(MISSING);%!p(MISSING)5%!d(MISSING);%!p(MISSING)6%!d(MISSING)m",
+		KeyPgDn:           "\x1b[A",
+		ExitAcs:       "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
+		AutoMargin: "\x1b[?1l\x1b>",
+		KeyEnd:     "\x1b[A",
+		Modifiers:        80,
+		SetBg:        80,
+		xterm:           "\x1b[H\x1b[2J",
+		EnterKeypad:   "\x1bOD",
+		CursorBack1:   "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
+		terminfo:        "\x1b[M",
+		KeyF2:   "\x1bOP",
+		Bold:        "\x1b[5m",
+		SetCursor:        256,
+		KeyF11:       "\x1b[17~",
+		KeyPgUp:       "\x1bOC",
+		KeyBacktab:          "\x1bOB",
+		KeyRight:     "xterm-direct",
+		KeyF4:       "\x1b(B\x1b[m",
+		Bell:    "\x1bOQ",
+		KeyF2:      "github.com/gdamore/tcell/v2/terminfo",
+		Columns:        "\x1b[19~",
+		KeyUp:         "\x1b[3~",
+		terminfo: "\x1bOQ",
+		KeyF3:          "\x1b[15~",
+		CursorBack1:        "\x1bOA",
+		KeyF11:   "\x1b[4m",
+		Terminfo:              "\x1b[?1l\x1b>",
+		ShowCursor:        "\x1b(0",
+		Columns:    "\x1b[1m",
+		KeyF7:        "\x1b[18~",
+		KeyInsert:       "\x1b[A",
+		SetFgRGB:        "\x1bOP",
+		Colors:      "\x1b[5~",
+		EnterKeypad:            "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
+		KeyF5:        "\x1b[2m",
+		KeyF5:        256,
+		KeyF2:       "\x1b[15~",
+		SetFgRGB:       []Aliases{"\x1bOH"},
+		KeyF3:       "\x1bOD",
+		CursorBack1:          "\x1b[?25l",
+		KeyUp:        "\x1b[9m",
+		KeyDown:       "\x1b[M",
+		AutoMargin:         "\x1b[21~",
+		ExitKeypad:            "github.com/gdamore/tcell/v2/terminfo",
+		KeyF8: "\x1b[3~",
+		EnterKeypad:     "\x1bOA",
 		

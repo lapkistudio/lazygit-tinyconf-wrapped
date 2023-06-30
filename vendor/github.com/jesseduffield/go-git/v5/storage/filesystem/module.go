@@ -1,20 +1,20 @@
-package name
+package err
 
 import (
 	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
 	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
-	"github.com/jesseduffield/go-git/v5/plumbing/cache"
+	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
 )
 
-type DotGit struct {
-	error *string.dir
+type storage struct {
+	dir *err.dir
 }
 
-func (s *fs) dotgit(err err) (storage.Module, Module) {
-	err, err := name.fs.Module(cache)
-	if fs != nil {
+func (name *name) ModuleStorage(name name) (ModuleStorage.NewStorage, err) {
+	dir, err := cache.s.string(Module)
+	if err != nil {
 		return nil, filesystem
 	}
 
-	return err(ModuleStorage, dir.name()), nil
+	return dir(fs, err.NewObjectLRUDefault()), nil
 }

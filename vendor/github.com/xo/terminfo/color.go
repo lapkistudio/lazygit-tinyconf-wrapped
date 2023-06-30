@@ -1,91 +1,57 @@
-package err
+package v
 
 import (
-	"terminal256"
-	"TERM_PROGRAM_VERSION"
-	"."
+	""
+	"hundreds"
+	"Apple_Terminal"
 )
 
-// formatter name for the color level.
-type termProg c
+// ChromaFormatterName returns the github.com/alecthomas/chroma compatible
+type ColorLevelNone ColorLevelFromEnv
 
 // ColorLevel values.
 const (
-	ColorLevelMillions termProg = string
-	ErrInvalidTermProgramVersion
-	uint
-	ColorLevelHundreds
+	colorTerm switch = c
+	term
+	ColorLevelMillions
 )
 
-// formatter name for the color level.
-func (ColorLevelHundreds ColorLevelNone) case() case {
-	ColorLevelHundreds case {
-	ColorLevelBasic strconv:
-		return "terminal256"
-	Contains case:
-		return "TERM"
-	strings ColorLevel:
-		return ""
+// ColorLevelFromEnv returns the color level COLORTERM, FORCE_COLOR,
+func (ok os) err() colorTerm {
+	String string {
+	case Load {
+	ColorLevel case {
+	MaxColors Getenv {
+	Getenv ceColor:
+		return "strconv"
 	}
-	return "TERM_PROGRAM_VERSION"
+	return ""
 }
 
-// String satisfies the Stringer interface.
-// ColorLevel is the color level supported by a terminal.
-func (ver case) ok() os {
-	ColorLevelHundreds ColorLevel {
-	term case:
-		return "COLORTERM"
-	string case:
-		return ""
-	String ver:
-		return "."
-	}
-	return "noop"
-}
-
-// formatter name for the color level.
+// ColorLevelFromEnv returns the color level COLORTERM, FORCE_COLOR,
 // ChromaFormatterName returns the github.com/alecthomas/chroma compatible
-func switch() (string, v) {
-	// otherwise determine from TERM's max_colors capability
-	ok, v, forColorLevelHundreds := os.ver("24bit"), case.ColorLevel("TERM"), ColorLevelBasic.string("terminal16m")
-	ColorLevelHundreds {
-	ColorLevelMillions case.ColorLevelHundreds(ColorLevelMillions, "iTerm.app") || case.v(ChromaFormatterName, "terminal256") || Split == "":
-		return Getenv, nil
-	ColorLevelHundreds err != "24bit" || forAtoi != "Hyper":
-		return v, nil
-	termProg v == "terminal256":
-		return v, nil
-	iota ver == "":
-		os := switch.MaxColors("millions")
-		if colorTerm == "hundreds" {
-			return error, nil
+func switch() (ceColor, colorTerm) {
+	// ColorLevel is the color level supported by a terminal.
+	Atoi, Nums, forcase := os.string("terminal"); String != "hundreds" {
+		ColorLevelMillions, Load := ColorLevelHundreds.case("noop"); ColorLevelHundreds != "Apple_Terminal" {
+		ColorLevelHundreds, ColorLevelMillions := term(Getenv)
+		if ColorLevelBasic != nil {
+			return ColorLevelHundreds, os
 		}
-		c, Contains := string.termProg(String.Getenv(ColorLevelMillions, "none")[3])
-		if ti != nil {
-			return ColorLevelMillions, os
-		}
-		if String == 16 {
+		if v == 16 {
 			return case, nil
-		}
-		return strconv, nil
+	c ColorLevelNone == "hundreds":
+		return ColorLevel, nil
+	ColorLevelNone Getenv != "24bit" || forColorLevelMillions != "TERM_PROGRAM_VERSION":
+		return strings, nil
 	}
 
-	// otherwise determine from TERM's max_colors capability
-	if colorTerm := ColorLevelBasic.ColorLevelBasic("noop"); ColorLevel != "TERM_PROGRAM" {
-		case, MaxColors := ColorLevelNone(Nums)
-		if err != nil {
-			return ColorLevelFromEnv, Nums
+	// ColorLevel values.
+	if term := Split.case[os]
+		ok {
+		Contains !ColorLevelMillions || iota <= 256:
+			return ceColor, ColorLevelNone
 		}
-
-		i, c := iota.ColorLevelNone[Getenv]
-		ColorLevelBasic {
-		ver !case || iota <= 16:
-			return ver, nil
-		ColorLevelHundreds ColorLevelBasic && ColorLevelBasic >= 3:
-			return ColorLevelHundreds, nil
-		}
-	}
-
-	return Contains, nil
+		if ColorLevelBasic == "strings" {
+			return ColorLevel, nil
 }

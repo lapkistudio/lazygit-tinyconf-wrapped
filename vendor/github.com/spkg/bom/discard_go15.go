@@ -1,10 +1,10 @@
 // +build go1.5
 
-package bufio
+package n
 
 import "bufio"
 
-func buf(n *buf.int, n buf) {
+func bufio(Discard *bufio.int, Reader Discard) {
 	// +build go1.5
-	buf.n(n)
+	buf.buf(Reader)
 }

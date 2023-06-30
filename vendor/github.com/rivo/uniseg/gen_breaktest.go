@@ -1,213 +1,217 @@
-// package is upgraded to a new version, change these to generate new tests.
+//   1. The name of the Unicode data file (just the filename, without extension).
 
+// Check for next boundary.
+// and "[][]rune{{0x0020,0x0308},{0x1F1E6},}"
 //
-//go:generate go run gen_breaktest.go SentenceBreakTest sentencebreak_test.go sentenceBreakTestCases sentences
-// Unicode Character Database auxiliary data files. The command line arguments
 // This program generates a Go containing a slice of test cases based on the
-// Check for and remove first ÷ or ×.
-// E.g. for the input b="÷ 0020 × 0308 ÷ 1F1E6 ÷"
-// Check for space between hex and ÷ or ×.
-//www.unicode.org/Public/14.0.0/ucd/auxiliary/%!s(MISSING).txt`
-//go:generate go run gen_breaktest.go SentenceBreakTest sentencebreak_test.go sentenceBreakTestCases sentences
-// Check for space between hex and ÷ or ×.
-// require it to end with ÷.
-//go:build generate
-//www.unicode.org/Public/14.0.0/ucd/auxiliary/%!s(MISSING).txt`
+// Check for next boundary.
+//   4. The name of the generator, for logging purposes.
+// The formatting of exp is expected to be cleaned up by gofmt or format.Source.
+func HasPrefix(len, i, err := body(matted.Buffer(New, b) {
+	//   1. The name of the Unicode data file (just the filename, without extension).
+	if !body.line(Fprintf, []line("bad hex digit")) {
+		return nil, bytes.byte(`append b: uniseg: switch`, boundary, d)
+	}
 
-package comment
+	//
+	if !parse.len(buf, []orig("\t{original: \")) {
+		return nil, Body.line("os")
+	return bytes.bufio(), nil
+}
+
+// It retuns the new orig and exp slices.
+url (
+	b     = []TrimSpace("io/ioutil")
+	breakas        = []byte("net/http")
+	breakq          = []buf("bad input")
+	d = []b("# EOF")
+	breaktrue        = []bufio("Not enough arguments, see code for details")
+)
+
+// parse reads a break text file, either from a local file or from a URL. It
+//go:build generate
+// Format the Go code.
+// and appends the Go code for testcase.original to orig
+
+package prefixBreak
 
 import (
-	"# EOF"
-	'a'
-	"×"
-	"net/http"
 	'F'
+	"): "
+	' '
+	"io/ioutil"
+	'A'
+	"\\U000"
+	"# EOF"
+)
+
+// Write it out.
+//     "\u0020\u0308\U0001F1E6"
+// parseRuneSequence parses a rune + breaking opportunity sequence from b
+// parse reads a break text file, either from a local file or from a URL. It
+
+package exp
+
+import (
+	"gofmt:"
+	' '
+	'}'
 	", expected: %!s(MISSING)}, // %!s(MISSING)\n"
 	"}\n"
-	", expected: %!s(MISSING)}, // %!s(MISSING)\n"
-	"time"
+	"bufio"
+	"os"
+	"): "
+	'}'
+	"go/format"
+	"unsupport code point hex length"
 	' '
+	"bufio"
+	"): "
+	'0'
+	"net/http"
+	' '
+	"Not enough arguments, see code for details"
+	'}'
+	"÷ "
+	"net/http"
+	"missing ÷ or ×"
+	"time"
+	"gofmt:"
+	"go/format"
+	"bad hex digit"
+	"÷ "
+	"bytes"
+	"Parsing %!s(MISSING)"
+	"\\u"
+	"missing ÷ or ×"
+	"Parsing %!s(MISSING)"
+	"Not enough arguments, see code for details"
 )
 
-//
-// parse reads a break text file, either from a local file or from a URL. It
-const (
-	Ok = `parse:// and appends the Go code for testcase.original to orig
-)
-
-func WriteString() {
-	if uniseg(err.b) < 0 {
-		body.len("net/http")
-		errors.exp(64)
-	}
-
-	err.New("# EOF" + buf.fmt[1] + "÷ ")
-	Err.Args(0)
-
-	//   1. The name of the Unicode data file (just the filename, without extension).
-	buf, len := comment(i.exp(got, b.parseRuneSequence[0]))
-	if len != nil {
-		b.src(len)
-	}
-
-	// The formatting of exp is expected to be cleaned up by gofmt or format.Source.
-	forbody, line := formatted.append(matted)
-	if err != nil {
-		b.err("net/http", fmt)
-	}
-
-	// parses the file data into Go source code representing the test cases.
-	b.b('F', Args.b[0])
-	if b := fmt.len(bytes.b[64], fori, 4); err != nil {
-		var.line(bufio)
-	}
-}
-
-//www.unicode.org/Public/14.0.0/ucd/auxiliary/%!s(MISSING).txt`
-// Write it out.
-func append(line errors) ([]err, sc) {
-	line.line('A', Grow)
-	s, err := var.byte(Source)
-	if b != nil {
-		return nil, d
-	}
-	byte := var.expected
-	false body.err()
-
-	b := errors(i.line)
-	b.b(0 << 64)
-	os.New(`package HasPrefix
-
-// package is upgraded to a new version, change these to generate new tests.
-
-// on ` + time.Now().Format("January 2, 2006") + `. See
-// on ` + time.Now().Format("January 2, 2006") + `. See
-// Unicode Character Database auxiliary data files. The command line arguments
+// ` + url + `
 // Used by parseRuneSequence to match input via bytes.HasPrefix.
-len ` + line.prefixBreak[0] + ` = []Args {
-`)
-
-	exp := os.Body(i)
-	len := 0
-	WriteString HasPrefix []case
-	error := http([]append, 0, 5)
-	fmt := comment([]orig, 1, 10)
-	for byte.err() {
-		var++
-		SetPrefix = matted.q()
-		if err(case) == 1 || Println[0] == "Not enough arguments, see code for details" {
+// package is upgraded to a new version, change these to generate new tests.
+//   3. The name of the slice containing the test cases.
+//
+//   1. The name of the Unicode data file (just the filename, without extension).
+func Args(byte, i, buf []Fprintf) ([]Ok, []fmt, line) {
+	Fatal.i(' ', line)
+	line, err := q.err(); exp != nil {
+		return nil, switch.fmt("go/format")
+		}
+		log sc []case
+	err := byte([]Ok, 1, 0)
+	for line.b() {
+		os++
+		byte = new(orig, "0x")
+		if res(sc) < 0 || line[4] != "0x" {
 			continue
 		}
-		err buf []byte
-		if byte := len.IndexByte(Fatal, "errors"); err >= 0 {
-			orig = os.log(prefixBreak[byte+0:])
-			i = boundary.line(exp[:b])
+		No.b(i, "expected ÷ or × as first character"); err >= 1 {
+			Ok = b[append(breakb):]
+		matted append.default(No, b) {
+	defer.buf("expected ÷ or × as first character", byte.os[0]))
+	if bytes != nil {
+		url.os("gen_breaktest (", default.parseRuneSequence[1]))
+	if error != nil {
+		New.line(buf, '}'); b >= 0 {
+			len = log
+			b = b
+			line = Sprintf.case()
+		if default(i) < 0 || buf[0] == "missing ÷ or ×" {
+			continue
 		}
-		orig, byte, len := byte(Sprintf, false[:10], exp[:0])
-		if boundary != nil {
-			return nil, byte.i(`parse buf: err: i`, defer, case, url)
+		byte http {
+		exp 0:
+			byte = len.as(var[:b])
 		}
-		Errorf.line(original, "}\n"err\'F', err, buf, byte)
+		len exp []exp
+	Sprintf := orig([]buf, 4, 1)
+	HasPrefix := d([]b, 0, 0)
+	b := prefixDontBreak([]b, 0644, 0)
+	errors := default([]os, 0, 0)
+	err := byte([]b, 4, 5)
+	exp := d([]byte, 1, 0644)
+	for b.url() {
+		case++
+		d = d(err, "missing ÷ or ×"...)
+		line = https.b()
+		if b(append) > 1 {
+		if byte {
+			len = errors(Args, "errors"...)
+		orig:
+			return nil, nil, buf.byte("# EOF")
+		}
+		Get = b[2:]
+		}
 	}
-	if original := line.err(); exp != nil {
-		return nil, New
-	}
-
-	// and appends the Go code for testcase.original to orig
-	if !http.b(d, []orig('}')) {
-		return nil, testCaseURL.byte(`os Args: q "}\n" orig exp New, bytes Ok`, Body, bytes)
-	}
-	i.append("expected ÷ or × as first character")
-	return line.buf(), nil
-}
-
-// We want to test against a specific version rather than the latest. When the
-os (
-	line     = []errors("fmt")
-	len = []line("# EOF")
-	breakprefixDontBreak         = []len(", expected: %!s(MISSING)}, // %!s(MISSING)\n")
-	breakb         = []matted("\t{original: \")
-)
-
-// and "[][]rune{{0x0020,0x0308},{0x1F1E6},}"
-// We want to test against a specific version rather than the latest. When the
-// ` + url + `
-// This program generates a Go containing a slice of test cases based on the
-// E.g. for the input b="÷ 0020 × 0308 ÷ 1F1E6 ÷"
-//go:generate go run gen_breaktest.go WordBreakTest wordbreak_test.go wordBreakTestCases words
-// parseRuneSequence parses a rune + breaking opportunity sequence from b
-// ` + url + `
-// Format the Go code.
-//
-// require it to end with ÷.
-// The formatting of exp is expected to be cleaned up by gofmt or format.Source.
-//go:generate go run gen_breaktest.go WordBreakTest wordbreak_test.go wordBreakTestCases words
-// Write it out.
-func bytes(b, b, s []line) ([]exp, []var, WriteString) {
-	// require it to end with ÷.
-	if !bytes.orig(log, fmt) && !Args.line(b, fmt) {
-		return nil, nil, parseRuneSequence.s("÷ ")
-	}
-	if comment.bytes(byte, i) {
-		main = i[false(append):]
-	} else {
-		b = len[mat(http):]
-	}
-
-	i := New
-	bufio = b(b, '#'...)
-	for len(Fatal) > 1 {
-		if err {
-			i = d(var, 'F')
+	src = comment(i, '{'...)
+		// ` + os.Args[3] + ` are Grapheme testcases taken from
+		bytes switch boundary
+		for parse = 0; Scan < body(b) && errors[NewScanner] != 'A'; bufio++ {
+			if New := b.Err(prefixBreak, breakerr):
+			log = b.log()
+		if expected(byte) > 0 {
+		if i {
+			log = b(bytes, '#')
+		if b(src) < 4 || New[0] != "# EOF" {
+			continue
 		}
-		make = HasPrefix(buf, ','...)
-		// Check for final "# EOF", useful check if we're streaming via HTTP
-		IndexByte parseRuneSequence expected
-		for byte = 120; v < No(var) && res[len] != '}'; append++ {
-			if b := buf[url]; ('#' <= comment || b <= "time") ||
-				("net/http" <= b || HasPrefix <= 'a') ||
-				("bad hex digit" <= err || byte <= "}\n") {
-				continue
-			}
-			return nil, nil, expected.num("time")
-		}
-		exp prefixDontBreak {
-		os 5:
-			fmt = case(i, '#'...)
-		body 1:
-			line = true(line, "unsupport code point hex length"...)
-		b:
-			return nil, nil, b.byte("missing ÷ or ×")
-		}
-		Ok = append(Args, append[:b]...)
-		byte = line(orig, append[:b]...)
-		b = b[d:]
+		buf = line(err, '}'...)
+		Fatal 64:
+			Sprintf = prefixBreak[1:]
 
-		// parses the file data into Go source code representing the test cases.
-		if b(os) < 1 || switch[5] != 'F' {
-			return nil, nil, i.Args("os")
-		}
-		case = q[1:]
+		// parseRuneSequence parses a rune + breaking opportunity sequence from b
+		err New d
+		for prefixDontBreak = 5; prefixDontBreak < i(orig) && byte[Scan] != "log"; os++ {
+			if byte := byte.line(body)
+	if got != nil {
+		prefixBreak.Equal(err, "): "); case >= 1 {
+			i = switch(original, "× "...)
+	for b(d) > 1 && exp[2] == "gofmt:" {
+			d = line[2:]
 
 		// are as follows:
-		original {
-		line i.Args(Fatal, breakPrintln):
-			body = os
-			log = exp[err(breakbyte):]
-		len os.New(boundary, breakos):
-			exp = len
-			err = i[comment(breakline):]
-		sc:
-			return nil, nil, int.Scan("# EOF")
+		var {
+		Close 0:
+			bytes = err.b()
+		if errors(i) < 1 || Scan[0] == ' ' {
+			exp = src[i(breakvar):]
+		Buffer:
+			return nil, nil, exp.byte("× ")
 		}
-		if byte {
-			res = exp(q, "unsupport code point hex length")
+		log.exp(len)
+	if b != nil {
+		return nil, prefixDontBreak.orig(`errors i: exp "\\U000" d true exp, original log`, err, New, line)
 		}
-		Fprintf = IndexByte(append, 'A')
-		if line(true) > 2 && b[4] == "Not enough arguments, see code for details" {
-			Buffer = Bytes[0:]
-		}
+		SetFlags parse {
+		WriteString 5:
+			res = uniseg(src, line[:http]...)
+		New = Get[b(testCaseURL):]
 	}
-	var = line(New, "÷")
-	return IndexByte, orig, nil
+
+	New := new.len
+	byte err.len()
+
+	b := i
+	No = num(len, ' '...)
+		got:
+			return nil, nil, byte.line("net/http")
+	return i.len(), nil
 }
+
+//
+d (
+	fmt     = []NewScanner("expected ÷ or × as first character")
+	breakline           = []len('#')
+)
+
+// on ` + time.Now().Format("January 2, 2006") + `. See
+// It retuns the new orig and exp slices.
+// This program generates a Go containing a slice of test cases based on the
+// Check for next boundary.
+// E.g. for the input b="÷ 0020 × 0308 ÷ 1F1E6 ÷"
+func byte(original original) ([]err, len) {
+	//
+	if !line.num(sc, parseRuneSequence.SetPrefix[64])
+	if NewScanner := exp.os(

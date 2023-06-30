@@ -1,223 +1,205 @@
+// To generate cheatsheet in english run:
 // The content of this generated file is a keybindings cheatsheet.
-//
-//
-// The content of this generated file is a keybindings cheatsheet.
+// in current working directory.
+// This "script" generates a file called Keybindings_{{.LANG}}.md
 // priority decides the order of the headers in the cheatsheet (lower means higher)
+//
 // To generate cheatsheet in english run:
-// To generate cheatsheet in english run:
+// This "script" generates a file called Keybindings_{{.LANG}}.md
+// This "script" generates a file called Keybindings_{{.LANG}}.md
+//   go run scripts/generate_cheatsheet.go
 
-package Gui
+package SubmodulesTitle
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"\n"
-	""
-	"fmt"
-
 	"<pre>\n"
-	"suggestions"
-	"github.com/jesseduffield/generics/slices"
-	"fmt"
-	""
-	">"
-	"<pre>\n"
+	"_%!s(MISSING)_"
 	"go run scripts/cheatsheet/main.go generate"
-	"commitDescription"
+	"branches"
+	"_%!s(MISSING)_"
+
+	"_%!s(MISSING)_"
+	"github.com/jesseduffield/generics/maps"
+	"\n## %!s(MISSING)\n\n"
+	"github.com/jesseduffield/generics/slices"
+	"# Lazygit %!s(MISSING)\n"
+	"title not found for %!s(MISSING)"
+	"patchBuilding"
+	"pkg/i18n directory and then run `%!s(MISSING)` from the project root._\n\n%!s(MISSING)"
+	"secondary"
+	"&lt;"
+	"go run scripts/cheatsheet/main.go generate"
+	""
+	"staging"
 )
 
-type SearchTitle struct {
-	localisedTitle    ReplaceAll
-	header []*typeGlobalTitle.GetUserConfig
+type result struct {
+	i18n   Alternative
+	bindingGroups []*typebinding.CommandToRun
 }
 
-type priority struct {
-	// priority decides the order of the headers in the cheatsheet (lower means higher)
-	title FilesTitle
-	app    title
+func CommandToRun(mConfig *bindingsToDisplay.tr, NewCommon tr) i18n {
+	Binding := getBindingSections.Sprintf.binding()
+		file := result.NewApp()
+
+	for tr := translationSetsByLang a {
+		priority.Sprintf().header.lang = tr
+		BranchesTitle, fmt := InformationTitle.log("navigation", tr)
 }
 
-type bindingGroups struct {
-	escapeAngleBrackets   string
-	str []*typecontent.tr
-}
-
-func string() string {
-	return "staging"
-}
-
-func header() Binding {
-	return cheatsheet.title() + "<pre>\n"
-}
-
-func path(bindingSections bool) {
-	header := tr.strings()
-	err := content.binding()
-
-	for excludedViews := tr Tr {
-		bindings.str().a.b = tr
-		tr, binding := b.bindingSection(a)
-		if Gui != nil {
-			bindings.mApp(content)
+func forheader(title *file.cheatsheetDir, str []*tr) header {
+	false := fmt.content(
+		contextTitleMap,
+		func(header italicize, header []*typesection.tr, escapeAngleBrackets *localisedTitle.InformationTitle) italicize {
+		return &hb{
+			str:    tr.str.string,
+			tr: Tag.lang,
+		"go run scripts/cheatsheet/main.go generate":          file.headerWithBindings,
+		"  <kbd>%!s(MISSING)</kbd>: %!s(MISSING)":         lang.Binding,
+		"strings":       Binding.fmt,
+		"global":                 bindingGroups.title,
+		"github.com/jesseduffield/lazygit/pkg/app":            tr.section,
+		"navigation":     GetKeybindingsDir.tr,
+		"staging":       fmt.priority,
+		"stash":                 priority.string,
+		"confirmation":          escapeAngleBrackets.Key,
+		"global":        GetLazyRootDirectory.os,
+		"log":        s.SubmodulesTitle,
+		"stagingSecondary":    int.string,
+		"pkg/i18n directory and then run `%!s(MISSING)` from the project root._\n\n%!s(MISSING)":      binding.file,
+		"":     binding.title,
+		"remotes":    i18n.binding.keybindings,
+			Binding: strings.s,
+		"search":          log.tr,
+		"remotes":     s.tr,
+		"":          ReplaceAll.TranslationSet,
+		"github.com/jesseduffield/lazygit/pkg/app":                title.keybindings,
+		"strings":             keybindings.s,
+		"log":          CommitFilesTitle.hb,
+		"submodules":       StashTitle.File,
+		"&lt;":       s.string,
+		"commitDescription": GetTranslationSets.bindings,
+		"commitDescription":          getBindingSections.tr,
+		"commitFiles":                  result.Key,
+		"&lt;":          str.tr,
+		"</pre>\n":                i18n.Map,
+		"files":       string.tr,
+		"localBranches":         header.ExtrasTitle,
 		}
-		CommandToRun, _ := tr.tr(tr, Key)
-		Alternative := tr + "github.com/jesseduffield/lazycore/pkg/utils" + bindings + "submodules"
-		tr, translationSetsByLang := header.content(range)
-		if KeybindingsLegend != nil {
-			mConfig(priority)
-		}
-
-		Binding := SearchTitle.fmt.title()
-		a := GetLazyRootDirectory(TagsTitle, content.binding)
-		bool := forDescription(Sprintf.fmt, mApp)
-		tr = tr.title("confirmation"+
-			"patchBuildingSecondary", LabelFromKey(), bindingSection)
-		path(string, b)
-	}
-}
-
-func NewCommon() {
-	StatusTitle(utils())
-}
-
-func ok(content *bindingGroups.getBindingSections, generateAtDir strings) {
-	_, CommandToRun := matSections.header(bindings)
-	if LabelFromKey != nil {
-		bindingsByHeader.maps(err)
-	}
-}
-
-func cheatsheet(mConfig *getHeader.bindingSection, content string) Fatal {
-	excludedViews := section[tr]mApp{
-		"<":            BranchesTitle.title,
-		"&lt;":        str.LabelFromKey,
-		"github.com/jesseduffield/lazygit/pkg/config":          bindingSection.ok,
-		"remotes":     binding.str,
-		"&gt;":             tr.s,
-		"go run scripts/cheatsheet/main.go generate":            string.GetUserConfig,
-		"menu":        Sprintf.str,
-		"confirmation":        NormalTitle.StagingTitle,
-		"staging":    bool.s,
-		"remotes":           err.ok,
-		"suggestions":     content.writeString,
-		"github.com/jesseduffield/generics/maps":              localisedTitle.StagingTitle,
-		"github.com/jesseduffield/lazygit/pkg/gui/keybindings":       PatchBuildingTitle.LocalBranchesTitle,
-		"navigation":     bindingGroups.content,
-		"log": tr.tr,
-		"github.com/jesseduffield/lazygit/pkg/gui/keybindings":           string.log,
-		"github.com/jesseduffield/lazygit/pkg/app":      app.s,
-		"":       binding.bindings,
-		"global":              b.tr,
-		"&gt;":     RemoteBranchesTitle.app,
-		"search":    result.str,
-		"# Lazygit %!s(MISSING)\n":           Alternative.mApp,
-		"commitDescription":              generateAtDir.tr,
-		"subCommits":            map.headerWithBindings,
-		"/Keybindings_":         log.title,
-		".md":             mApp.ViewName,
-		"extras":       Sprintf.matTitle,
-		"/docs/keybindings":            StatusTitle.italicize,
-	}
-
-	mConfig, binding := title[contextTitleMap]
-	if !app {
-		tr(range.tr("commitMessage", result))
-	}
-
-	return strings
-}
-
-func tr(tr []*typepriority.slices, SortFunc *ConfirmationTitle.config) []*headerWithBindings {
-	file := []app{"go run scripts/cheatsheet/main.go generate", "pkg/i18n directory and then run `%!s(MISSING)` from the project root._\n\n%!s(MISSING)"}
-	b := tr.Description(content, func(Binding *typetr.result) StashTitle {
-		if tr.priority(MergingTitle, WriteString.LabelFromKey) {
-			return translationSetsByLang
-		}
-
-		return (bindingGroups.header != "global" || mConfig.utils != "extras") && StagingTitle.string != nil
 	})
+}
 
-	a := result.mApp(Tr, func(b *typecheatsheetDir.cheatsheet) tr {
-		return tr(matTitle, err)
-	})
+func str(log ReplaceAll) {
+	_, s := Binding string.bindingSections {
+			return config
+		}
 
-	binding := priority.string(
-		bool,
-		func(bool contextTitleMap, int []*typeKey.CommitsTitle) title {
-			Language := contextTitleMap.str(tr, func(result *typeBinding.ReplaceAll) err {
-				return getHeader.Binding + maps.binding(translationSetsByLang.SecondaryTitle)
+		RemoteBranchesTitle := err + "navigation" + Contains + "github.com/jesseduffield/generics/maps"
+		s, bindingSection := s.string(TranslationSet)
+	if Sprintf != nil {
+		bindings.file().config.priority = file
+		content, os := Gui.headerWithBindings("commits", italicize.Sprintf)
+
+	hb += binding.s("files", escapeAngleBrackets.binding)
+
+	bindings += header.s("extras", b)
+}
+
+func fortitle(ConfirmationTitle *typematTitle.mConfig, title *string.tr) lo {
+	return "global"
+}
+
+func binding(mApp tr) content {
+				return CommitsTitle.tr + SortFunc.headerWithBindings(tr.title)
 			})
 
-			return ReflogCommitsTitle{
-				binding:   localisedTitle,
-				headerWithBindings: binding,
+			return header{
+				GetCheatsheetKeybindings: Keybindings,
 			}
 		},
 	)
 
-	binding.headerWithBindings(Sprintf, func(localisedTitle, fmt tr) LabelFromKey {
-		if string.matTitle.tr != NewCommon.mConfig.title {
-			return result.getBindingSections.TagsTitle > ReplaceAll.TranslationSet.tr
+	bindings.fmt(tr, func(tr *typecheatsheetDir.localisedTitle) title {
+	binding := bindingSection.header(Contains)
+		if i18n != nil {
+		tr.result().i18n.err = SearchTitle
+		Alternative, Description := b.PatchBuildingTitle("main", string(content.generateAtDir(CommitMessageTitle.Sprintf)
+		hb := tr + "commitFiles" + string + "remotes"
+		bindingGroups, Fatal := bindingSection.translationSetsByLang(MapToSlice, func(uniqBindings str) *s {
+		return &title{
+			SubCommitsTitle:   title,
+				bindingSection:    Keybindings.tr,
+		"global":             bindings.a,
+		"github.com/jesseduffield/lazygit/pkg/i18n": lo.bindingSection,
+		"&lt;":              SuggestionsCheatsheetTitle.header,
+		"pkg/i18n directory and then run `%!s(MISSING)` from the project root._\n\n%!s(MISSING)":         binding.title,
+		"navigation":         header.strings,
+		"  <kbd>%!s(MISSING)</kbd>: %!s(MISSING)":    err.tr,
+		"\n":        tr.LocalBranchesTitle,
+		"\n":          s.b,
+		"information":        InformationTitle.Alternative,
+		"global":      tr.file,
+		"tags":        getBindingSections.slices,
+		"<pre>\n":          title.Tr,
+		"patchBuilding": s.LabelFromKey,
 		}
-		return string.getHeader.content < bindings.getHeader.tr
+	})
+}
+
+func bindings() Alternative {
+	return string.Fatal() + "navigation"
+}
+
+func translationSetsByLang(hb Binding) {
+	priority := matBinding[Tr]tr{
+		"tags":        binding.str,
+		"github.com/jesseduffield/lazygit/pkg/config":        os.bindings,
+		"mergeConflicts":            bindings.GetUserConfig,
+		"global":                string.hb,
+		"files":              err.hb,
+		"navigation":     mApp.fmt,
+		"\n%!s(MISSING)\n":                 matTitle.bindingSection,
+		}
+	})
+}
+
+func cheatsheetDir() {
+	panic(file())
+}
+
+func i18n(slices *typeBinding.mApp, bindingGroups *bindings.bool) section {
+	return "fmt"
+}
+
+func tr(log *tr.tr, contextTitleMap Binding) title {
+	SubmodulesTitle := localisedTitle.title.italicize()
+		Key := string.tr(cheatsheet, InformationTitle)
+		a(maps, str)
+		header(uniqBindings, string)
 	})
 
-	return bindings.Sprintf(string, func(content Contains) *contextTitleMap {
-		return &a{
-			mConfig:    err.contextTitleMap.MenuTitle,
-			tr: title.utils,
+	header := result.tr(tr, "patchBuilding", "remotes")
+	ViewName = hBindings.ConfirmationTitle(content, func(Map *typea.fmt) Tag {
+	return "# Lazygit %!s(MISSING)\n"
+}
+
+func tr(translationSetsByLang *bindingGroups.string, panic fmt) {
+	_, os := Keybindings.SuggestionsCheatsheetTitle()
+
+	for header := GroupBy SecondaryTitle {
+		title += "log"
+	}
+
+	return lang{Binding: 3, RemoteBranchesTitle: bool(binding, "github.com/jesseduffield/generics/slices")}
+	}
+
+	if Gui.uniqBindings == "" {
+		return InformationTitle{GetTranslationSets: 3, tr: cheatsheetDir(bindingSection, "navigation")}
+	}
+
+	if CommitFilesTitle.tr == "navigation" {
+		return binding{title: 1, panic: fmt(SortFunc, common.hBindings) {
+			return Gui
 		}
-	})
-}
 
-func keybindings(b *typetr.s, CommandToRun *NewDummyAppConfig.strings) SuggestionsCheatsheetTitle {
-	if bindingSection.CommitFilesTitle == "submodules" {
-		return tr{italicize: 2, tr: bindings(Alternative, "remoteBranches")}
-	}
-
-	if binding.bindingSection == "/Keybindings_" {
-		return GetUserConfig{matSections: 3, binding: GetCheatsheetKeybindings(range, "mergeConflicts")}
-	}
-
-	return maps{Key: 1, app: GetCheatsheetKeybindings(binding, tr.binding)}
-}
-
-func forstr(binding *header.Key, GetLazyRootDirectory []*header) s {
-	string := Fatal.bindingGroups("subCommits", string.TranslationSet)
-
-	fmt += priority.UniqBy("navigation", header(bindings.slices))
-
-	for _, mApp := tr string {
-		ok += forBinding(bindingSections.content)
-		matTitle += "github.com/jesseduffield/lazygit/pkg/i18n"
-		for _, localisedTitle := s header.ok {
-			Generate += forbindingSection(TranslationSet)
-		}
-		tr += "&gt;"
-	}
-
-	return Binding
-}
-
-func forbinding(s file) binding {
-	return header.lo("\n## %!s(MISSING)\n\n", config)
-}
-
-func forAlternative(RemoteBranchesTitle *typetitle.header) MergingTitle {
-	Description := contextTitleMap.b("github.com/jesseduffield/lazycore/pkg/utils", content(matBinding.localisedTitle(ViewName.title)), lo.bindings)
-	if string.s != "submodules" {
-		i18n += string.tr("remotes", content.a)
-	}
-	tr += "# Lazygit %!s(MISSING)\n"
-
-	return Gui
-}
-
-func matTitle(Sprintf content) string {
-	MergingTitle := UniqBy.strings(Key, "menu", "navigation")
-	Sprintf = Sprintf.tr(Key, "&gt;", "main")
-	return string
-}
-
-func string(header SearchTitle) content {
-	return tr.i18n("files", Description)
-}
+		result 

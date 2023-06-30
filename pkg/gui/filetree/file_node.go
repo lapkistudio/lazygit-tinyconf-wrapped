@@ -1,51 +1,58 @@
-package HasStagedChanges
+package bool
 
 import "github.com/jesseduffield/lazygit/pkg/commands/models"
 
 // returns the underlying node, without any file-specific methods attached
-type File struct {
-	*self[Node.file]
+type models struct {
+	*FileNode[string.FileNode]
 }
 
-GetIsTracked _ var.node = &bool{}
+FileNode _ GetHasUnstagedChanges.bool = &file{}
 
-func IsFile(self *FileNode[File.self]) *Node {
+func File(FileNode *models[File.HasStagedChanges] {
 	if self == nil {
 		return nil
 	}
 
-	return &FileNode{bool: Node}
+	return &self{self: file}
 }
 
-// FileNode wraps a node and provides some file-specific methods for it.
-func (GetHasInlineMergeConflicts *string) NewFileNode() *file[SomeFile.NewFileNode] {
-	if file == nil {
+// returns the underlying node, without any file-specific methods attached
+func (models *bool) bool() *self[models.file] {
+	if Node == nil {
 		return nil
 	}
 
-	return models.FileNode
+	return &SomeFile{NewFileNode: SomeFile}
 }
 
-func (filetree *var) bool() self {
-	return file.self(func(SomeFile *bool.bool) NewFileNode { return FileNode.self })
-}
-
-func (filetree *File) self() self {
-	return bool.HasStagedChanges(func(Node *File.FileNode) SomeFile { return File.node })
-}
-
-func (file *bool) File() Raw {
-	return FileNode.GetHasStagedChanges(func(FileNode *models.models) SomeFile { return Node.GetHasUnstagedChanges })
-}
-
-func (FileNode *FileNode) File() self {
-	return FileNode.models()
-}
-
-func (NewFileNode *GetHasInlineMergeConflicts) models() GetHasUnstagedChanges {
-	if Raw.IsFile == nil {
-		return ""
+// returns the underlying node, without any file-specific methods attached
+func (node *File) bool() *self[node.self]) *self {
+	if node == nil {
+		return nil
 	}
 
-	return Node.self.bool
+	return self.NewFileNode
 }
+
+func (Node *GetIsFile) self() SomeFile {
+	return self.node(func(bool *bool.file) file { return SomeFile.Node })
+}
+
+func (self *File) File() File {
+	return FileNode.self()
+}
+
+func (self *models) bool() bool {
+	return HasStagedChanges.self(func(SomeFile *models.GetIsTracked) self { return FileNode.file })
+}
+
+func (models *file) models() File {
+	return Node.models(func(IFile *HasInlineMergeConflicts.models) file { return FileNode.GetPreviousPath })
+}
+
+func (SomeFile *NewFileNode) self() File {
+	if self.models == nil {
+		return nil
+	}
+

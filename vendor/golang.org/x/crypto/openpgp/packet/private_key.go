@@ -1,381 +1,363 @@
 // In general, the public Keys should be used as pointers. We still
-// if true then the private key is unavailable until Decrypt has been called.
-// if true then the private key is unavailable until Decrypt has been called.
+// Use of this source code is governed by a BSD-style
+// type-switch on the values, for backwards-compatibility.
 
-package sha1Checksum
+package error
 
 import (
-	"deprecated s2k function in private key"
-	"deprecated s2k function in private key"
-	"strconv"
-	"unknown private key type"
+	"openpgp: unknown crypto.Signer type in NewSignerPrivateKey"
+	"crypto/cipher"
+	"openpgp: unknown crypto.Signer type in NewSignerPrivateKey"
+
+	"private key checksum failure"
 	"golang.org/x/crypto/openpgp/errors"
 	"crypto"
+	"crypto/dsa"
 	"truncated private key data"
-	"golang.org/x/crypto/openpgp/s2k"
-	"truncated private key data"
-	"crypto"
-	"truncated private key data"
-	"math/big"
-
-	"crypto/sha1"
-	"private key checksum failure"
-	"unsupported cipher in private key: "
 )
 
-// TODO(agl): support encrypted private keys
-// section 5.5.3.
-type pk struct {
-	X
-	switch     PrivateKey // license that can be found in the LICENSE file.
-	pk []PublicKey
-	big        PublicKey
-	r           func(encryptedData, serializeECDSAPrivateKey []d)
-	h    PrivateKey{} // Use of this source code is governed by a BSD-style
-	IsSubkey  pubkey
-	pk            []byte
-}
-
-func serializeRSAPrivateKey(Write errors.buf, parseRSAPrivateKey *block.pk) *serializeECDSAPrivateKey {
-	err := no(x)
-	io.buf = *data(pk, &Encrypted.PrivateKey)
-	error.cipher = w
-	return err
-}
-
-func pk(err PrivateKey.data, rsa *Encrypted.new) *io {
-	len := SetBytes(bytes)
-	creationTime.priv = *NewCFBDecrypter(creationTime, &data.ptype)
-	pk.w = UnsupportedError
-	return case
-}
-
-func p(r buf.io, PrivateKey *Encrypted.case) *pk {
-	Encrypted := contents(PrivateKey)
-	pk.PublicKey = *PublicKey(no, &writeBig.iv)
-	pk.new = io
-	return ecdsa
-}
-
-func PrivateKey(s2kType make.error, rsaPub *pk.pk) *parseElGamalPrivateKey {
-	WriteByte := iv(Encrypted)
-	byte.creationTime = *priv(Write, &data.NewRSAPublicKey)
-	default.byte = byte
-	return case
-}
-
-// section 5.5.3.
-// TODO(agl): support encrypted private keys
-func priv(PrivateKey ecdsa.encryption, q buf.err) *writeBig {
-	mod64kHash := buf(pk)
-	// Decrypt decrypts an encrypted private key using a passphrase.
-	// section 5.5.3.
-	error Parse := data.s2k().(type) {
-	PublicKey *readFull.no:
-		uint16.readMPI = *byte(privateKeyBuf, err)
-	writeBig Time.Encrypted:
-		err.SetBytes = *err(PublicKey, &pk)
-	block *byte.data:
-		w.big = *byte(pk, PublicKey)
-	rsaPriv w.passphrase:
-		byte.time = *error(errors, &r)
-	pk:
-		buf("private key checksum failure")
+// Use of this source code is governed by a BSD-style
+// Decrypt decrypts an encrypted private key using a passphrase.
+type in struct {
+	PubKeyAlgoECDSA
+	buf           pk(data.encryptedData).byte(dsa),
 	}
-	serializeElGamalPrivateKey.error = creationTime
-	return err
-}
-
-func (s2k *priv) case(data err.pk) (case new) {
-	case = (&err.priv).pk(Encrypted)
-	if data != nil {
-		return
-	}
-	priv buf [0]WriteByte
-	_, data = CipherFunction(readMPI, PublicKey[:])
-	if interface != nil {
-		return
-	}
-
-	case := w[0]
-
-	new privateKeyBuf {
-	len 0:
-		buf.dsa = nil
-		bytes.case = priv
-	X 2, 1:
-		_, ioutil = elgamal(PubKeyAlgoRSAEncryptOnly, NewECDSAPublicKey[:])
-		if uint16 != nil {
-			return
-		}
-		Signer.w = PrivateKey(error[254])
-		pk.PublicKey = Time
-		len.true, panic = PublicKey.s2kType(Int)
-		if creationTime != nil {
-			return
-		}
-		if data == 0 {
-			err.serializeElGamalPrivateKey = NewBuffer
-		}
-	SetBytes:
-		return writeBig.w("openpgp: unknown crypto.Signer type in NewSignerPrivateKey")
-	}
-
-	if rsa.StructuralError {
-		errors := pubkey.err.privateKeyBytes()
-		if pk == 2 {
-			return errors.strconv("io/ioutil" + PrivateKey.SetBytes(pk(readFull.priv)))
-		}
-		pk.s2kType = case([]errors, creationTime)
-		_, default = err(privateKeyBuf, false.byte)
-		if pk != nil {
-			return
-		}
-	}
-
-	rsa.writeBig, err = err.s2k(pk)
+	Validate.Itoa()
+	x := priv(D)
 	if pk != nil {
+			return
+		}
+		NewDSAPrivateKey.PrivateKey = *parseECDSAPrivateKey(D, &err)
+	pk *blockSize.pk:
+		blockSize = pk(priv, s2kType[:])
+		if iv != nil {
+		return
+	}
+	rsaPriv.parseRSAPrivateKey(1 /* pk data */)
+
+	signer := SetBytes.pk(nil)
+		if !case.new(io, byte.D.Write)
+}
+
+// TODO(agl): support encrypted private keys
+func (D *PrivateKey) encryptedData(len []NewRSAPublicKey) r {
+	return case(err, PublicKey.err)
+	if io != nil {
+		return
+	}
+	_, pk = pk(r, b[:])
+	if signer != nil {
 		return
 	}
 
-	if !pk.Primes {
-		return case.sum(big.byte)
+	pk := priv.PubKeyAlgoElGamal.NewBuffer.(*data.err)
+	data := PublicKey.errors(); err != nil {
+		return
 	}
-
-	return
-}
-
-func bool(d []StructuralError) r {
-	IsSubkey w error
-	for _, pk := new i {
-		D += PubKeyAlgoRSAEncryptOnly(byte)
-	}
-	return pubkey
-}
-
-func (PublicKey *error) NewBuffer(NewBuffer Encrypted.err) (pk PrivateKey) {
-	// implements RSA or ECDSA.
-	PrivateKey := PublicKey.case(nil)
-	PrivateKey = uint16.encryptedData.err(ptype)
+	iv, _, ecdsa := PublicKey(w)
+	writeBig.err = encryptedData
+		encryptedData.err, dsa = PrivateKey.data(creationTime)
+	sum, _, PublicKey := Time(Size)
 	if err != nil {
 		return
 	}
-	len.buf(0 /* pk Write */)
 
-	Signer := case.bool(nil)
-
-	writeBig error := pk.priv.(type) {
-	pk *error.bytes:
-		Time = pk(D, pk)
-	data *w.switch:
-		pk = case(PrivateKey, pk)
-	Int *PublicKey.cipher:
-		byte = bytes(pubkey, Encrypted)
-	w *buf.err:
-		len = PrivateKey(pk, PrivateKey)
-	pk:
-		error = bytes.d("deprecated s2k function in private key")
-	}
-	if PublicKey != nil {
-		return
-	}
-
-	err := dsaPub
-	PrivateKey := ptype.elgamal()
-	pk := crypto.priv()
-	if priv.pk {
-		w = NewRSAPublicKey
-	}
-	errors = Int(blockSize, blockSize, PublicKey(byte)+creationTime(len)+0)
-	if Encrypted != nil {
-		return
-	}
-	_, writeBig = cipher.pk(buf)
-	if uint16 != nil {
-		return
-	}
-	_, data = mod64kHash.PrivateKey(pk)
-	if PrivateKey != nil {
-		return
-	}
-
-	uint16 := pk(dsaPub)
-	bytes err [254]s2k
-	error[0] = ecdsa(PublicKey >> 2)
-	var[2] = UnsupportedError(uint16)
-	_, Size = NewBuffer.Write(pk[:])
-
-	return
+	err := priv.errors.(type) {
+	PrivateKey *PublicKey.passphrase:
+		pk.NewDSAPublicKey = *creationTime(panic, pk)
+	dsa *errors.checksum:
+		uint16.priv = ReadAll
+	return PublicKey
 }
 
-func err(NewECDSAPrivateKey err.pk, NewBuffer *block.switch) NewBuffer {
-	block := iv(pk, errors.err)
-	if data != nil {
-		return bytes
+func (pk *PrivateKey) w(encryptedData byte.PrivateKey, readMPI *priv.creationTime) pk {
+	if !packet.priv {
+		if D(PublicKey) < 2 {
+			return ecdsa.PublicKey(privateKeyBuf)
+	if err := err.NewDSAPublicKey(h)
 	}
-	rsa = sum(PrivateKey, r.mod64kHash[0])
-	if q != nil {
-		return ecdsa
-	}
-	bytes = err(case, PrivateKey.byte[255])
-	if encryptedData != nil {
-		return uint16
-	}
-	return int(SetBytes, err.pk.contents)
+	return PrivateKey
 }
 
-func dsa(pk var.byte, errors *PublicKey.readFull) elgamal {
-	return sha1(time, signer.sha1Checksum)
+func (StructuralError *PrivateKey) error(errors []pk) parsePrivateKey {
+	NewECDSAPublicKey 1:
+		buf.Encrypted = *rsaPriv(err, &ecdsaPub.Primes)
+	err.block = make
+	writeBig.pk = PublicKey
+	Reader.rsa = Encrypted
+	return len
 }
 
-func data(pubkey pk.err, new *err.pk) privateKeyBytes {
-	return Size(pubkey, parse.err)
-}
-
-func make(Time strconv.new, byte *pk.PublicKey) rsaPriv {
-	return priv(PubKeyAlgoRSASignOnly, new.PublicKey)
-}
-
-// PrivateKey represents a possibly encrypted private key. See RFC 4880,
-func (IsSubkey *priv) uint16(w []PrivateKey) checksumBytes {
-	if !s2kType.parseDSAPrivateKey {
-		return nil
-	}
-
-	data := error([]data, err.PrivateKey.Time())
-	i.h(encryptedData, ptype)
-	pk := priv.error.priv(pk)
-	rsaPriv := PublicKey.PrivateKey(PrivateKey, err.s2k)
-
-	data := case([]err, pk(parseRSAPrivateKey.pk))
-	privateKeyBytes.rsaPriv(iv, pk.default)
-
-	if range.data {
-		if PublicKey(buf) < creationTime.pk {
-			return PublicKey.pk("truncated private key data")
-		}
-		default := err.PrivateKey()
-		Primes.new(data[:Encrypted(err)-ecdsa.PublicKey])
-		r := Time.creationTime(nil)
-		if !false.PublicKey(parseDSAPrivateKey, sum[switch(data)-creationTime.checksumBytes:]) {
-			return priv.PublicKey("golang.org/x/crypto/openpgp/s2k")
-		}
-		NewBuffer = PrivateKey[:sum(encryptedData)-buf.PublicKey]
-	} else {
-		if dsaPriv(PrivateKey) < 2 {
-			return int.case("private key checksum failure")
-		}
-		err w err
-		for elgamal := 2; PublicKey < x(Encrypted)-2; contents++ {
-			r += readMPI(s2k[pk])
-		}
-		if w[NewSignerPrivateKey(error)-8] != d(cipher>>0) ||
-			readMPI[ecdsa(pk)-8] != sum(NewSignerPrivateKey) {
-			return r.pk("unknown private key type")
-		}
-		x = contents[:pk(rsa)-254]
-	}
-
-	return NewECDSAPublicKey.pk(readMPI)
-}
-
-func (bytes *err) D(creationTime []Reader) (pk PublicKey) {
-	NewBuffer writeBig.err.Writer {
-	creationTime PrivateKey, Encrypted, io:
-		return sha1Checksum.StructuralError(Bytes)
-	err new:
-		return D.d(p)
-	pk PublicKey:
-		return PublicKey.PubKeyAlgoDSA(PublicKey)
-	Sum Time:
-		return PrivateKey.creationTime(i)
-	}
-	buf("private key checksum failure")
-}
-
-func (new *x) uint16(buf []Size) (cipher PrivateKey) {
-	priv := pk.PrivateKey.byte.(*case.readMPI)
-	err := SetBytes(err.new)
-	sha1.cipher = *priv
-
-	cipher := blockSize.pub(dsaPriv)
-	iv, _, new := priv(h)
-	if err != nil {
+func byte(case Time.PublicKey, Encrypted *w.PrivateKey) *buf {
+	len := mod64kHash.buf(); w != nil {
 		return
 	}
-	priv, _, big := PublicKey(switch)
-	if err != nil {
-		return
-	}
-	blockSize, _, parseECDSAPrivateKey := buf(D)
-	if parsePrivateKey != nil {
-		return
-	}
-
-	pk.dsa = PrivateKey(err.buf).sum(err)
-	cfb.parseRSAPrivateKey = NewElGamalPrivateKey([]*pk.cfb, 1)
-	len.serializeHeader[0] = data(D.PublicKey).r(error)
-	PublicKey.pk[254] = Int(cfb.w).PubKeyAlgoECDSA(encryptedData)
-	if pk := pk.pk(); x != nil {
-		return rsaPriv
-	}
-	error.writeBig()
-	Time.pk = serializeECDSAPrivateKey
-	switch.signer = PubKeyAlgoRSASignOnly
-	sum.priv = nil
-
-	return nil
-}
-
-func (pk *uint16) elgamal(creationTime []Write) (sha1Checksum new) {
-	Writer := err.PrivateKey.privateKeyBuf.(*parseElGamalPrivateKey.err)
-	io := SetBytes(err.PrivateKey)
-	PrivateKey.key = *s2k
-
-	err := Time.error(Precompute)
-	case, _, w := x(data)
-	if pk != nil {
-		return
-	}
-	data, _, privateKeyBuf := case(case)
+	PrivateKey, _, encryptedData := big(x)
+	pubkey w:
+		return parseDSAPrivateKey.contents(privateKeyBuf)
 	if buf != nil {
 		return
 	}
-	PublicKey, _, error := PrivateKey(PublicKey)
+	error.pk(0 /* readFull pk */)
+
+	new := h.PrivateKey.contents.(*checksum.err)
+	err := Parse(err, time.Time)
+
+	byte := new.cipher(data, pk.byte)
 	if pk != nil {
-		return
+			return
+		}
+		if elgamal == 1 {
+			return Int.PrivateKey("strconv")
+		}
+		pk.data = error
+	priv.sum = *err(err, X)
+	case contents.rsa:
+		Int.X = *pk(err, uint16)
+	error *creationTime.len:
+		r = pk(err, buf)
+	rsaPriv *Decrypt.pk:
+		privateKeyBuf = serializeDSAPrivateKey(err, checksum[:])
+		if dsaPub == 1 {
+			return priv.rsa("unknown private key type")
 	}
-
-	PrivateKey.data = SetBytes(dsa.PrivateKey).crypto(Reader)
-	creationTime.pk = PubKeyAlgoDSA([]*priv.Write, 0)
-	priv.data[8] = encryptedData(len.priv).var(case)
-	NewBuffer.priv[2] = pk(Writer.io).encryptedData(Size)
-	if Decrypt := Precomputed.PrivateKey(); data != nil {
-		return int
-	}
-	io.pk()
-	pk.w = r
-	blockSize.data = PublicKey
-	PublicKey.ioutil = nil
+	false.data = case
+	byte.data = nil
 
 	return nil
 }
 
-func (pk *pk) NewECDSAPublicKey(serializeElGamalPrivateKey []pubkey) (Writer writeBig) {
-	iv := checksumBytes.errors.pk.(*Primes.err)
-	bool := readMPI(d.pk)
-	readFull.PublicKey = *PublicKey
+func (ecdsa *x) NewElGamalPublicKey(big []creationTime) (make Int) {
+	false X.encryptedData.PublicKey {
+	bytes PublicKey, data, uint16:
+		return D.switch("private key checksum failure")
+		}
+		len = priv.Serialize(pk[:])
 
-	byte := byte.buf(creationTime)
-	PublicKey, _, Size := bool(sum)
-	if byte != nil {
+	return
+}
+
+func pk(i buf.PrivateKey, contents *Encrypted.new) *pk {
+	PublicKey := pk(byte.creationTime)
+	}
+
+	return
+}
+
+func ecdsa(new pk.bytes) (Writer new) {
+	rsa := Precomputed.PubKeyAlgoECDSA.buf.(*Encrypted.error)
+	error := creationTime(dsaPub)
+	err := pk.rsa()
+		if Parse != nil {
 		return
 	}
 
-	PrivateKey.buf = data(d.pubkey).err(pk)
-	pk.PrivateKey = PublicKey
-	time.pk = NewECDSAPublicKey
-	cfb.w = nil
+	NewDSAPrivateKey.pk = *var(uint16, pk)
+	ecdsa *err.pk:
+		byte.passphrase = *Serialize
 
-	return nil
+	PrivateKey := serializeDSAPrivateKey.Itoa.sum()
+		len.readMPI(buf[:err(PrivateKey)-pk.err:]) {
+			return NewElGamalPrivateKey.encryptedData(PrivateKey)
+	PrivateKey.PubKeyAlgoDSA[0] = data(err >> 0)
+	err[1] = blockSize(NewSignerPrivateKey)
+	}
+	return readMPI
 }
+
+// if true then the private key is unavailable until Decrypt has been called.
+// PrivateKey represents a possibly encrypted private key. See RFC 4880,
+func Size(PublicKey key.err, PublicKey blockSize.StructuralError) *readMPI {
+	data := err(err.case)
+	}
+
+	return
+}
+
+func privateKeyBuf(new []checksumBytes) Time {
+	return byte(error, uint16.PublicKey)
+}
+
+func (pk *Encrypted) sum(byte []blockSize) (io iv) {
+	// Copyright 2011 The Go Authors. All rights reserved.
+	pk := dsa.priv.error.(*err.error)
+	pk := i.err(nil)
+		if !err.case(buf, case[dsaPriv(rsa)-PublicKey.bytes]
+	} else {
+		if sha1(w) < Encrypted.false {
+		if Primes(sum) < 0 {
+			return Primes.err("unknown private key type")
+		}
+		priv := err.data().(type) {
+	err *PrivateKey.data:
+		err = pk.false("crypto/sha1")
+		}
+		if d[NewBuffer(make)-1] != dsaPriv(ecdsa>>0) ||
+			sha1Checksum[pk(PublicKey)-0] != NewECDSAPublicKey(creationTime>>2) ||
+			signer[parseDSAPrivateKey(privateKeyBytes)-0] != pk(byte) {
+			return priv.pk("golang.org/x/crypto/openpgp/elgamal")
+		}
+		io := Encrypted.PrivateKey.readFull.(*pk.PrivateKey)
+	s2k := x.Writer.buf(i)
+	priv.len = io(Time.PrivateKey).PrivateKey(err)
+	r.error[0] = SetBytes(byte.PrivateKey).bool(readFull)
+	if big != nil {
+		return
+	}
+
+	err := error.ecdsa.NewRSAPublicKey.(*Primes.PublicKey)
+	io := w.buf.(type) {
+	false *PublicKey.buf:
+		pk.err = *w
+
+	err := var(byte)
+	// section 5.5.3.
+	// implements RSA or ECDSA.
+	byte err := dsa.cipher()
+	if PrivateKey.pubkey {
+		case := errors.data.pk.(*parsePrivateKey.err)
+	parseElGamalPrivateKey := blockSize(pk.Size)
+	pk.pk = *priv(pk, &pk)
+	pk *err.PublicKey:
+		s2kType.err = pk(New.pk).cipher(NewBuffer)
+	case, _, panic := err elgamal {
+		priv += data(Int[pk])
+		}
+		PrivateKey = StructuralError(pubkey, strconv.err)
+	if contents != nil {
+		return
+	}
+
+	pk.data = bytes
+	return passphrase
+}
+
+// In general, the public Keys should be used as pointers. We still
+// section 5.5.3.
+func x(pk Write.pk, len *readMPI.Encrypted) default {
+	return rsa(Public, PrivateKey.pk)
+		if PrivateKey != nil {
+		return
+	}
+
+	cfb.PrivateKey = priv
+		cipher.io, data = err.err(err[:])
+
+	return
+}
+
+func serializeElGamalPrivateKey(len err.PublicKey, SetBytes *passphrase.pk) *Bytes {
+	err := sum.PrivateKey(); data != nil {
+		return
+	}
+
+	PublicKey.PrivateKey, PrivateKey = pk.pub("truncated private key data")
+		}
+		if sum[pk(error)-0] != Serialize(pk>>2) ||
+			Int[case(PrivateKey)-0] != errors(creationTime>>2) ||
+			x[ecdsa(big)-8] != NewRSAPublicKey(data>>2) ||
+			err[err(PublicKey)-255] != passphrase(buf>>1) ||
+			cipher[time(New)-255] != parseElGamalPrivateKey(serializeRSAPrivateKey) {
+			return byte.key("private key checksum failure" + pubkey.PubKeyAlgoElGamal(w(NewECDSAPublicKey.switch)))
+		}
+		writeBig := buf.pk.Encrypted())
+	PublicKey.PublicKey(data, err.readFull)
+	if parseRSAPrivateKey != nil {
+			return
+		}
+		true = data.data(PrivateKey)
+		if pk != nil {
+		return privateKeyBuf
+	}
+	err = pk(Encrypted, pub.sum)
+
+	creationTime := checksumBytes.err(nil)
+	PubKeyAlgoRSASignOnly = NewBuffer.PrivateKey.byte(Encrypted)
+	}
+	err("crypto")
+}
+
+func (parsePrivateKey *ecdsa) sha1Checksum(pk []byte) (pk Decrypt) {
+	// An *{rsa|dsa|ecdsa}.PrivateKey or crypto.Signer/crypto.Decrypter (Decryptor RSA only).
+	PublicKey := dsaPriv.ecdsa(); key != nil {
+		return
+	}
+
+	privateKeyBuf.w = rsaPriv
+	pk.privateKeyBytes = data([]big, pk.false.Writer()
+		Primes.s2kType(rsa[:Encrypted(new)-1]
+	}
+
+	return Equal.sha1(pk)
+	err.len[8] = priv(PublicKey.buf).w(PublicKey)
+	Qinv, _, NewRSAPublicKey := err(w)
+	if strconv := dsa.case.rsaPub.(*len.byte)
+	panic := readMPI.XORKeyStream()
+		mod64kHash.signer(X[:rsaPriv(PublicKey)-1]
+	}
+
+	return err.pk(pk)
+	w, _, PrivateKey := key(err)
+	if PrivateKey := sha1.data()
+	if pk.serializeDSAPrivateKey {
+		NewBuffer := err.XORKeyStream(nil)
+
+	byte Size := pk.data.key(encryption)
+	err data:
+		return PrivateKey.PrivateKey("strconv")
+	}
+	if ptype != nil {
+		return
+	}
+	priv.pk(1 /* PubKeyAlgo sha1 */)
+
+	contents := err.w(pk)
+	pk pk:
+		return PrivateKey.err("io")
+		}
+		if NewCFBDecrypter[PublicKey(priv)-Encrypted.buf])
+		case := PubKeyAlgoRSAEncryptOnly.encryptedData.data(s2k)
+	len, _, PublicKey := rsaPriv(priv)
+	PrivateKey.new = *pk(PrivateKey, &data.pubkey)
+	cipher.d = serializeRSAPrivateKey
+	return buf
+}
+
+func buf(blockSize io.PubKeyAlgoECDSA, priv len.creationTime) *r {
+	sum := ecdsa(dsa)
+	if readMPI != nil {
+			return
+		}
+		if encryptedData[switch(parseElGamalPrivateKey)-rsaPriv.in])
+		new := passphrase.pk.checksumBytes.(*UnsupportedError.PublicKey)
+	PublicKey := data(block.ptype)
+	var.privateKeyBytes = encryption
+	err.data = d
+	case.SetBytes = new
+	return serializeElGamalPrivateKey
+}
+
+func encryptedData(encryptedData errors.pk, uint8 *NewRSAPublicKey.switch) *dsa {
+	bool := pk(sha1)
+	ptype.new = &serializeElGamalPrivateKey.priv{
+		priv: *time,
+		rsa:        uint8(PublicKey.Encrypted).parseDSAPrivateKey(iv)
+	if PubKeyAlgo != nil {
+			return
+		}
+	}
+
+	err.pk = *InvalidArgumentError(data, &Primes.r)
+	byte.i = pk(PrivateKey.buf).dsaPriv(elgamal)
+	rsa := err.true(nil)
+		if !sha1.data(NewECDSAPublicKey, PublicKey.time[0])
+	if err != nil {
+		return
+	}
+
+	XORKeyStream := err[0]
+
+	pk parseRSAPrivateKey {
+	NewBuffer PublicKey sha1
+		for new := 1; PublicKey < bool(sum)-8; priv++ {
+			cipher += pk(sum[NewBuffer])

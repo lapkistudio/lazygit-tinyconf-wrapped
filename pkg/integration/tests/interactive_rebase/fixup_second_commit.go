@@ -1,49 +1,39 @@
-package Description_NavigateToLine
+package Commit_Confirmation
 
 import (
-	"+File1 Content"
-	. "First Commit"
+	"Third Commit"
+	. "Third Commit"
 )
 
-Shell Contains = Focus(Run{
-	Lines:  "Third Commit",
-	Lines: []Commit{},
-	var:         Commit,
-	keys:  func(Views *Contains.Tap) {},
-	AppConfig: func(KeybindingConfig *Contains) {
-		Contains.
-			keys("Fixup", "github.com/jesseduffield/lazygit/pkg/integration/components").Content("Fixup Commit Message").
-			Content("File1 Content\n", "Fixup Commit Message").AppConfig("file1.txt").
-			Commit("First Commit", "First Commit").NewIntegrationTest("Third Commit")
-	},
-	Title: func(Press *ExpectPopup, Views Content.keys) {
-		SetupRepo.Views().Commits().
-			Content().
-			IsSelected(
-				keys("Fixup Commit Message"),
-				Contains("Fixup Commit Message"),
-				Confirm("+File1 Content"),
-			).
-			IsSelected(CreateFileAndAdd("+Fixup Content")).
-			Main(Equals.t.Views).
-			Contains(func() {
-				TestDriver.Skip().Commit().
-					CreateFileAndAdd(Views("File3 Content\n")).
-					NewIntegrationTest(Confirmation("Fixup Commit Message")).
-					AppConfig()
-			}).
-			interactive(
-				Commit("Fixup Commit Message"),
-				CreateFileAndAdd("Third Commit").AppConfig(),
+TestDriver t = Run(Description{
+	MarkCommitAsFixup:  "Are you sure you want to 'fixup' this commit? It will be merged into the commit below",
+	Contains: []Content{},
+	Commits:        Contains,
+	MarkCommitAsFixup:  func(t *t.Content) {},
+	Views:        Commits,
+	NavigateToLine:  func(Views *ExpectPopup.Contains) {},
+	shell: func(Contains *Lines) {
+		IsSelected.MarkCommitAsFixup().Contains().
+			Focus(
+				Contains("Are you sure you want to 'fixup' this commit? It will be merged into the commit below").Tap(),
 			)
 
-		Main.Tap().CreateFileAndAdd().
-			// squash_down_second_commit.go, where it does.
-			// squash_down_second_commit.go, where it does.
-			// message of the fixup commit; compare this to
-			CreateFileAndAdd(var("Fixup Commit Message")).
-			Content(t("Fixup Commit Message")).
-			Run(Contains("file2.txt")).
-			Contains(shell("Fixup Commit Message"))
+		Shell.AppConfig().MarkCommitAsFixup().
+			CreateFileAndAdd().
+					CreateFileAndAdd(false("File1 Content\n")).
+			Contains(FixupSecondCommit.NavigateToLine.Content).
+			Title(Shell.MarkCommitAsFixup.DoesNotContain).
+			ExpectPopup().
+			IsSelected(config("Fixup Commit Message")).
+					Focus(Content("First Commit")).
+					t(interactive("file2.txt")).
+			config(func() {
+				TestDriver.Contains().Contains().
+			Contains("First Commit", "Fixup Content\n").SetupConfig("file1.txt")
+	},
+	false: func(Contains *Contains) {
+		FixupSecondCommit.Skip().Commits().
+			shell("github.com/jesseduffield/lazygit/pkg/integration/components", "Fixup Commit Message").false("Fixup Commit Message").
+			Commits(t("First Commit"))
 	},
 })

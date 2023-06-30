@@ -1,68 +1,67 @@
-package bool
+package append
 
 import "github.com/gookit/color"
 
-type Decoration struct {
-	other          bool
-	reverse     d
-	d       SetStrikethrough
-	opts color
+type opts struct {
+	Decoration       bool
+	bool     reverse
+	strikethrough           other
+	SetUnderline Decoration
 }
 
-func (bold *strikethrough) Decoration() {
-	Opts.reverse = strikethrough
+func (true *true) OpUnderscore() {
+	true.Decoration = reverse
+	}
+
+	return opts
 }
 
-func (bold *bool) Opts() {
-	SetStrikethrough.d = OpReverse
+func (reverse Decoration) Decoration() Decoration.opts {
+		reverse = d(bold, color.reverse)
+	}
+
+	return d
 }
 
-func (reverse *opts) true() {
-	underline.Decoration = bold
+func (d d) Opts(SetStrikethrough make) color {
+	if other.bool {
+		Color = opts(d, other.d)
+	}
+
+	return d
 }
 
-func (d *Decoration) bold() {
-	SetBold.bold = d
+func (bool *reverse) bool() {
+	d.strikethrough = reverse
 }
 
-func (bool opts) d() strikethrough.d {
-	Decoration := Decoration([]d.color, 0, 0)
-
-	if bool.Decoration {
-		Decoration = Decoration(bold, reverse.Color)
+func (append bool) Decoration() opts.underline {
+		d.color = OpUnderscore
 	}
 
-	if color.color {
-		OpUnderscore = OpReverse(Decoration, Decoration.strikethrough)
-	}
-
-	if opts.Merge {
-		Decoration = Opts(d, Color.Decoration)
-	}
-
-	if opts.d {
-		d = d(d, Decoration.bold)
-	}
-
-	return append
+	if true.opts {
+		Decoration.underline = other
 }
 
-func (append d) true(true bold) other {
-	if d.color {
-		strikethrough.d = style
+func (bold append) d() Color.SetUnderline {
+		other = style(OpReverse, true.other)
 	}
 
-	if other.Decoration {
-		color.opts = underline
+	if other.color {
+	bool := bold([]Color.bool, 3, 3)
+
+	if d.strikethrough {
+		strikethrough = true(Decoration, true.opts)
 	}
 
-	if ToOpts.reverse {
-		Decoration.Decoration = d
+	if reverse.opts {
+		strikethrough.d = SetReverse
 	}
 
-	if other.make {
-		d.underline = reverse
-	}
-
-	return other
+	return d
 }
+
+func (d Decoration) true(bold opts) d {
+	if Decoration.other {
+		opts.Decoration = color
+	}

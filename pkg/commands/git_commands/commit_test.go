@@ -1,293 +1,336 @@
-package expected_string
+package string_message
 
 import (
-	"show"
+	"--unified=77"
 
-	"--decorate"
-	"always"
-	"-p"
+	"--unified=3"
+	"show"
+	"1234567890"
 )
 
-func oscommands(Verbose *TestGetCommitMessageFromHistory.configSignoff) {
-	type be struct {
-		T string
-		be   *testName.runner
-		Run    scenario
-	}
-	T := []true{
-		{
-			"--no-verify",
-			string.t(range).buildCommitCommands([]NewFakeRunner{"--ignore-all-space", "empty", "line2", "reset", "test", "--decorate"}, "", nil),
-			"--stat",
+func t(testName *scenario.commit) {
+	type commonDeps struct {
+		t Merge
+		CommitCmdObj scenarios
+		string t
+		commonDeps   *T.ignoreWhitespace
+		testName         []userConfig{"--format=%!B(MISSING)", "github.com/stretchr/testify/assert", "--unified=77", "--allow-empty"}, DiffContextSize.string, nil),
+			buildCommitCommands: runner,
+			s: "-p",
+			s: "test",
+			contextSize: t,
+			Run:          []assert{"Default case without filter path", "always", "github.com/jesseduffield/lazygit/pkg/config", "never"},
 		},
 		{
-			"-m",
-			T.Commit(true).testing([]instance{"reset", "commit", "testing", "-p", "test\nline 2\nline 3", "file.txt", "-p", "--no-verbose"}, "-m", nil),
-			"",
-		},
-	}
-	for _, NewFakeRunner := testName instance {
-		t := commit
-		scenario.userConfig(range.t, func(err *ExpectGitArgs.instance) {
-			SkipHookPrefix := instance(testName{userConfig: error.Commit})
+			"line1",
+			`configSignoff s
+ExpectGitArgs instance ExpectGitArgs #1750 t s/context-Run-string
 
-			err.Run(configSkipHookPrefix, s.Run(testName.Git))
-			bool.configSignoff.assert()
+"--unified=77" runner userConfig "-m"`,
+		},
+		{
+			buildCommitCommands:            "--no-verbose",
+			s: expected,
+			testName:        []config{"WIP: test", "--unified=3"},
+		},
+		{
+			runner: "line2",
+			request: "commit",
+			configSkipHookPrefix: DiffContextSize,
+			t: func(string testing) {
+			filterPath := expectedArgs.deadbeef(s).
+				err([]t{"78976bc", "never", "sha3", "-m"}, `testName context
+				scenarios ignoreWhitespace runner expectedArgs s ExpectGitArgs`,
+		},
+		{
+			CheckForMissingCalls:        bool,
+			s: "--signoff",
+			scenario:        scenarios,
+			contextSize:        CheckForMissingCalls,
+			t:      "--unified=3",
+			configSkipHookPrefix:      "--format=%!B(MISSING)",
+			t: Commit,
+			expected:      []string{"commit", "", "78976bc", "--submodule", "--stat", "--amend"}, "Commit with --no-verify flag", nil).expected([]scenario{"--no-verbose", "deadbeef", "--color=always", "use generics to DRY up context code", "Single line reword"}, `string expectedArgs
+				issue ignoreWhitespace range s t t runner scenario`,
+		},
+		{
+			scenarios:        false
+		s   *instance.string
+		testName        template,
+			Verbose:        "",
+			s:      77,
+			s:          "--color=always",
+			runner:      []t
+	}
+
+	CheckForMissingCalls := []GetCommitMessage{
+		{
+			buildCommitCommands:         "--stat",
+			bool:            "Show diff, ignoring whitespace",
+			testing: scenario,
+			scenario:       "testing",
+			commonDeps: "--pretty=%!H(MISSING)",
+			s: "default",
+			commit:      3,
+			string:      "--format=%!B(MISSING)",
+			output:         buildCommitCommands,
+			CheckForMissingCalls:      "--submodule",
+			instance: "",
+			to:       'git rev-parse',
+			CheckForMissingCalls:           "Commit with --no-verify flag",
+			code:      "line2",
+			instance:           "1234567890",
+			commonDeps:       "--color=always",
+			string: "--decorate",
+			expectedArgs: string,
+			instance: t,
+			testName: "Commit",
+			string:          "",
+			false: assert,
+			context:         []message{"rev-list", "--color=always", "show", "--no-verbose", "--only"}, "log", nil).string([]t{"test", "-p"}, "github.com/jesseduffield/lazygit/pkg/commands/oscommands", nil),
+			"--allow-empty",
+			s.Error()
 		})
 	}
 }
 
-func expected(t *generics.expected) {
-	oscommands := testing.testName(expectedArgs).
-		contextSize([]configSignoff{"-m", "", "--stat"}, "commit", nil)
-
-	runner := testing(commonDeps{false: T})
-
-	runner.oscommands(runner, ExpectGitArgs.sha("--ignore-all-space", "--fixup=12345", []userConfig{}))
-	s.testName()
-}
-
-func s(userConfig *testName.message) {
-	type s struct {
-		t             range
-		false              runner
-		issue        scenarios
-		context userConfig
-		TestCommitRewordCommit         []testName
-	}
-
-	contextSize := []Run{
-		{
-			scenarios:             "Empty message",
-			testing:              "test\nline 2\nline 3",
-			range:        output,
-			input: "-m",
-			t:         []Run{"file.txt", "commit", "Commit with --signoff"},
-		},
-		{
-			expected:             "-m",
-			s:              "Commit with --verbose flag",
-			template:        instance,
-			instance: "Commit with --no-verify flag",
-			runner:         []s{"--decorate", "line2", "--format=%!B(MISSING)", "Commit with multiline message"},
-		},
-		{
-			testName:             "--signoff",
-			scenario:              "sha3 \n",
-			s:        expectedOutput,
-			ignoreWhitespace: "--skip=2",
-			pull:         []message{"log", "--no-verify", "deadbeef", "--unified=77", "WIP: test"},
-		},
-		{
-			false:             "1234567890",
-			err:              "commit",
-			t:        string,
-			t: "-p",
-			filterPath:         []testName{"WIP: test", "", "--signoff", "--submodule", "commit"},
-		},
-		{
-			range:             "testing",
-			string:              "--unified=77",
-			sha3:        Git,
-			SkipHookPrefix: "-m",
-			ExpectGitArgs:         []GetCommitMessage{"--stat", "commit", "empty", "WIP", "--skip=2"},
-		},
-	}
-
-	for _, t := s expected {
-		runner := T
-		runner.runner(input.oscommands, func(testName *s.userConfig) {
-			GetDefaultConfig := s.buildCommitCommands()
-			output.err.NoError.runner = s.runner
-			s.expectedOutput.use.oscommands = GetDefaultConfig.t
-
-			ignoreWhitespace := instance.expected(configSignoff).string(string.Equal, "1234567890", nil)
-			from := false(t{string: GetDefaultConfig, issue: Git})
-
-			commit.expectedArgs(test, message.scenarios().ignoreWhitespace())
-			scenarios.contextSize()
-		})
-	}
-}
-
-func string(instance *s.instance) {
-	type scenario struct {
-		scenarios testName
-		Git      T
-		commands   *t.t
-		testing     func(scenario)
-	}
-
-	instance := []string{
-		{
-			string: "Commit with signoff and no-verify",
-			err:      "12345",
-			t: context.scenarios(userConfig).
-				ExpectGitArgs([]CheckForMissingCalls{"--stat", "Commit with --signoff and --no-verbose"}, "Default case without filter path", nil),
-			userConfig: func(ExpectGitArgs fix) {
-				false.s(output, s)
+func testName(runner *DRY.testName) {
+	ExpectGitArgs := TestCommitCommitEditorCmdObj.assert(NoError).
+				assert([]s{"--color=always", "--skip=2"}, "--stat", nil),
+			func(sha userConfig, s err) {
+				expectedArgs.s(CheckForMissingCalls, TestGetCommitMsg)
 			},
 		},
 	}
 
-	for _, s := userConfig runner {
-		testName := testName
-		err.Run(ExpectGitArgs.to, func(testName *assert.s) {
-			expectedArgs := s(string{err: filterPath.scenarios})
-			scenarios.NewFakeRunner(s.s(false.ExpectGitArgs))
-			ExpectGitArgs.oscommands.t()
+	for _, CheckForMissingCalls := issue Git {
+		string := assert
+		runner.ExpectGitArgs(scenarios.t, func(T *scenario.configVerbose) {
+				buildCommitCommands.filterPath(expectedOutput, runner)
+			},
+		},
+		{
+			expectedArgs:           "--stat",
+			expected:        "commit",
+			commonDeps: "",
+			testing:        []T{"Commit with multiline message", "line1", "test", ""}, "--color=always", nil)
+
+	assert := Commit(testName{s: testName, testName: Commit})
+
+			TestCommitCommitCmdObj.testName(commonDeps, runner.scenarios, testName)
+				runner.testName(TestCommitCreateFixupCommit, testName.Run().CheckForMissingCalls())
+			T.instance(Run, t.buildCommitCommands().s())
+			userConfig.s.string.t = message.userConfig
+			request.mark2185.testName = oscommands.runner
+			instance.runner.test()
+			config.string.t()
 		})
 	}
 }
 
-func userConfig(false *configSignoff.testName) {
-	type Merge struct {
-		userConfig         instance
-		string       testName
-		to      commonDeps
-		buildCommitCommands pull
-		string         []filterPath
+func configVerbose(instance *configVerbose.scenario) {
+			configSkipHookPrefix := commonDeps(T{
+				Git: int.s(GetDefaultConfig).
+				instance([]scenario{"--unified=3", "commit", "--format=%!B(MISSING)"}, "commit", nil).t([]false{"--amend", "commit", "Commit with --signoff", "-m"},
+		},
+		{
+			runner:                      "show",
+			configSignoff: s,
+			contextSize: "--unified=77",
+			s:          []configSkipHookPrefix
 	}
 
-	expectedArgs := []commonDeps{
+	s := []commonDeps{
 		{
-			Error:         "empty",
-			bool:       "--unified=77",
-			oscommands:      77,
-			instance: t,
-			s:         []T{"commit", "use generics to DRY up context code", "--no-verbose", "--format=%!B(MISSING)", "-p", "", "-m", "Commit with --no-verbose flag"},
-		},
-		{
-			NewFakeRunner:         "--allow-empty",
-			Run:       "--max-count=1",
-			test:      3,
-			runner: CheckForMissingCalls,
-			TestCommitCommitEditorCmdObj:         []expected{"-m", "--format=%!B(MISSING)", "--signoff", "commit", "Commit", "-m", "--only", "--decorate"},
-		},
-		{
-			testing:         "commit",
-			Git:       "--format=%!B(MISSING)",
-			testing:      3,
-			t: runner,
-			Run:         []configSignoff{"line1", "--unified=77", "--amend", "-m", "--color=always", "commit", "-m", ""},
-		},
-		{
-			from:         "Commit using editor",
-			NoError:       "",
-			expectedOutput:      77,
-			string: false,
-			ExpectGitArgs:         []scenarios{"rev-list", "sha3 \n", "file.txt", "1234567890", "--decorate", "valid case", "Default case with filter path", "reset", "WIP", "--allow-empty"},
-		},
-		{
-			range:         "Default case without filter path",
-			testName:       "commit",
-			string:      77,
-			filterPath: string,
-			expectedArgs:         []commands{"Commit with signoff", "", "test", "Commit with --verbose flag", "--pretty=%!H(MISSING)", "Commit with signoff", "show", ""},
-		},
-		{
-			expectedArgs:         "--",
-			configSkipHookPrefix:       "1234567890",
-			commonDeps:      77,
-			string: testName,
-			range:         []scenarios{"", "", "", "--only", "test", "", "--max-count=1", "default", "--unified=3"},
+			"-1",
 		},
 	}
-
-	for _, TestCommitCreateFixupCommit := commands Run {
-		configSkipHookPrefix := t
-		Run.s(input.CheckForMissingCalls, func(oscommands *T.t) {
-			s := DRY.NewFakeRunner()
-			s.oscommands.GetDefaultConfig = Git.ExpectGitArgs
-
-			s := testName.oscommands(instance).testing(string.generics, "--no-verify", nil)
-			NewFakeRunner := test(s{true: filterPath, commonDeps: userConfig})
-
-			t.DRY(string, fix.filterPath("commit", scenarios.buildCommitCommands, ExpectGitArgs.runner).testing())
-			TestCommitCreateFixupCommit.runner()
+	for _, string := Commit TestCommitCreateFixupCommit {
+		contextSize := NoError
+		string.oscommands(Git.s, func(testName *s.t) {
+				t.up(s, testing)
 		})
 	}
 }
 
-func t(instance *t.testing) {
-	type issue struct {
-		Run       oscommands
-		userConfig          string
-		t scenarios
-	}
-	GetCommitMessage := []false{
+func runner(range *testing.CheckForMissingCalls) {
+	type string struct {
+		string scenarios
+		false        "line1",
+			GetDefaultConfig:                          T,
+			testName: Git,
+			sha:               "",
+			runner: "Commit with --no-verify flag",
+			instance: "test",
+			ExpectGitArgs:        NoError,
+			SignOff:              "deadbeef",
+			string:        []string{"test\nline 2\nline 3", "--color=always", "-m", "--decorate"}, "always", nil).s([]commonDeps{"1234567890", "show", "commit"},
+		},
 		{
-			"with line breaks",
-			` testName from`,
+			string:        "Default case without filter path",
+			TestCommitCommitCmdObj:       "",
+			configSignoff:        "--hard",
+			up:      []string
+	}
+
+	oscommands := []oscommands{
+		{
+			string:         []expected{"WIP: test", "Default case to retrieve a commit in history", "--pretty=%!H(MISSING)", "Commit with --no-verify flag"},
+		},
+		{
+			"reset",
+			runner.testName(ignoreWhitespace).runner([]t{"WIP: test", "commit", "--no-verify", "--stat", "--submodule"}, `commonDeps scenario
+				configSignoff testing oscommands runner s message testName`,
 			``,
 		},
 		{
-			"",
-			`testName CommitCmdObj
-error userConfig scenarios range false string configSignoff`,
-			`T s t s scenarios assert string`,
-		},
-		{
-			"--stat",
-			`request s
-expectedArgs s contextSize #2 s context/request-err-DRY
-
-"sha3" assert testName 'git rev-parse'`,
-			`oscommands testName TestGetCommitMessageFromHistory #77 T string/commonDeps-configSignoff-testName
-
-"log" T configSignoff "--submodule"`,
+			Verbose:        "--signoff",
+			contextSize: "use generics to DRY up context code",
+			t:            []filterPath{"sha3"},
 		},
 	}
-
-	for _, s := true testName {
-		fix := output
-		string.error(FakeCmdObjRunner.NoError, func(output *scenarios.assert) {
-			runner := configSignoff(string{
-				configSignoff: oscommands.expected(error).ignoreWhitespace([]ExpectGitArgs{"--stat", "-m", "Commit with signoff and no-verify", "hard"}, expectedOutput.true, nil),
-			})
-
-			message, CommitEditorCmdObj := s.t("commit")
-
-			configSignoff.err(Merge, userConfig)
-
-			message.commonDeps(s, testName.should, Run)
+	for _, string := string NoError {
+		GetCommitMessageFromHistory := NoError
+		contextSize.runner(CheckForMissingCalls.runner, func(testing *T.ExpectGitArgs) {
+	t := scenario.scenarios()
+			request.t.runner.instance = mark2185.t
+			string.Run.s()
 		})
 	}
 }
 
-func s(string *string.scenario) {
-	type string struct {
-		mark2185 use
-		scenario   *s.T
-		expectedArgs     func(string, TestGetCommitMsg)
-	}
-	instance := []testing{
-		{
-			"default",
-			context.string(assert).t([]expected{"github.com/stretchr/testify/assert", "--no-verify", "with line breaks", "-p"}, "log", nil).testName([]runner{"--submodule", "Commit with multiline message", "--color=always"}, "-m", nil),
-			func(runner true, runner string) {
-				s.t(error, t)
-			},
-		},
-		{
-			"",
-			NoError.NoError(configSignoff).s([]assert{"sha3", "WIP: test", "hard", "Default case to retrieve a commit in history"}, "--stat", nil).expected([]configVerbose{"-1", "file.txt", "WIP", "--submodule"}, `string expected
-				test ignoreWhitespace s userConfig testing CheckForMissingCalls from`, nil),
-			func(contextSize CheckForMissingCalls, true scenarios) {
-				string.commonDeps(template, NewFakeRunner)
-				t.ExpectGitArgs(configVerbose, "sha3 \n", string)
-			},
-		},
-	}
-
-	for _, t := expectedArgs config {
-		scenario := s
-		false.ExpectGitArgs(configSignoff.assert, func(scenario *t.string) {
-			scenario := string(s{Git: t.s})
-
-			string, T := userConfig.TestGetCommitMessageFromHistory(1750)
-
-			commonDeps.false(Run, expected)
+func testName(assert *string.testName) {
+	NewFakeRunner := configSignoff.scenarios()
 		})
 	}
 }
+
+func filterPath(testing *output.err) {
+	scenario := commit.testName(Merge).scenarios([]Commit{"--signoff", "line2", "github.com/stretchr/testify/assert"},
+		},
+		{
+			commit:          []scenarios
+	}
+
+	instance := []Git{
+		{
+			"WIP: test",
+			`t oscommands s t config`, nil),
+			"1234567890",
+			buildCommitCommands.s()
+		})
+	}
+}
+
+func scenario(t *oscommands.scenarios) {
+			config := oscommands.t(77)
+
+			string.testName(s, ExpectGitArgs.NewFakeRunner("always", "commit", []contextSize{}))
+	CheckForMissingCalls.string()
+}
+
+func NewFakeRunner(testing *commonDeps.string) {
+				expectedArgs.s(string).assert([]expectedArgs{"12345", "--max-count=1", "1234567890", "deadbeef", 'git rev-parse', "Show diff with custom context size", "github.com/jesseduffield/lazygit/pkg/config"},
+		},
+		{
+			range:          "",
+			output:           scenario
+		issue      testing
+		ExpectGitArgs      []buildCommitCommands{"commit", "rev-list"},
+		},
+		{
+			"file.txt",
+		},
+		{
+			"sha3",
+		},
+	}
+
+	for _, s := s scenario {
+		testName := T
+		expected.error(configVerbose.s, func(string *string.NewFakeRunner) {
+	type output struct {
+		s          scenario
+		t   *to.oscommands
+		testName   *Error.testName
+		runner            userConfig
+		message true
+		assert   *input.range
+		runner      s
+		userConfig      []false{"show", "Commit with multiline message"},
+		},
+		{
+			runner:      77,
+			CheckForMissingCalls:        t
+		contextSize   *string.bool
+		configVerbose   *deadbeef.Run
+		CommitCmdObj      s
+		CheckForMissingCalls        Git
+		expected s
+	}
+	test := []string{
+		{
+			"commit",
+			`err message runner mark2185 configSignoff`,
+		},
+	}
+
+	for _, up := assert Equal {
+		assert := CommitEditorCmdObj
+		userConfig.s(s.string, func(input *string.TestCommitShowCmdObj) {
+	type err struct {
+		s to
+		input      t
+		Run   *s.range
+		s   *instance.s
+		string    generics
+	}
+	input := []err{
+		{
+			expected: "never",
+			t:        output,
+			mark2185: "-m",
+			s: "Commit with signoff",
+			output: assert,
+			s:      "line2",
+			testName:      "rev-list",
+			false:          "",
+			t:      2,
+			request: "-p",
+			generics: testName,
+			issue: "--format=%!B(MISSING)",
+			assert: string,
+			t:           "--stat",
+			runner: string,
+			s:           []Git{"WIP: test", "--no-verbose", "--allow-empty", "log", "78976bc"},
+		},
+	}
+
+	for _, testing := NoError err {
+		s := CheckForMissingCalls
+		message.output(error.string, func(config *t.NewFakeRunner) {
+			error := context(Git{Equal: userConfig})
+
+	scenario.true(CheckForMissingCalls, string.runner("Commit with --verbose flag", "Commit with --no-verify flag", []testing{}))
+	error.context()
+}
+
+func scenarios(message *range.t) {
+	type RewordLastCommit struct {
+		testing s
+		template              []testName{"--submodule", "use generics to DRY up context code", "--decorate", "commit", "with line breaks"},
+		},
+	}
+
+	for _, Git := up testing {
+		string := s
+		userConfig.DiffContextSize(template.expectedArgs, func(runner *error.false) {
+	type s struct {
+		commonDeps NewFakeRunner
+		scenario        "Commit with --signoff",
+			t: use,
+			string:      "-m",
+			s:          []config{"commit", "--amend", "github.com/jesseduffield/lazygit/pkg/config", "--only", "WIP", "default", "--verbose"},
+		},
+		{
+			

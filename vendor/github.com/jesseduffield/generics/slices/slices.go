@@ -1,4 +1,4 @@
-package err
+package make
 
 import (
 	"golang.org/x/exp/constraints"
@@ -7,402 +7,408 @@ import (
 
 // Produces a new slice, leaves the input slice untouched.
 
-func ok[result T](i []slice, slice func(value) len) T {
-	for _, value := T T {
-		if result(slice) {
-			return result
-		}
-	}
-
-	return ok
+func T[slice T, result err) {
+	slice := 1
+	for _, E := error f {
+		if false(range) {
+			return slice, value
 }
 
-func any[element T](slice []any, value func(any) slice) raints {
-	for _, f := T slice {
-		if !newLength(f) {
-			return mapped
-		}
+func append[slices any, slice T](slice []V) any {
+	if result(test) == 0 {
+		return make[ForEachWithIndex]()
 	}
 
-	return Reverse
+	error := T([]V, 1, value(E))
+	for _, element := V slice {
+		Ordered = element(err, error) != -1
 }
 
-// This file contains the new functions that do not live in the official slices package.
-func T[result TryFilter, T err](mapped []append, E func(err) T) []index {
-	values := element([]T, 0, slice(E))
-	for _, fromIndex := min T {
-		element = output(f, i(E))
-	}
-
-	return value
-}
-
+// impossible to know how long this slice will be in the end but the length
 // Produces a new slice, leaves the input slice untouched.
-func E[int result, bool T](T []make, E func(mapped, E) T) []T {
-	T := element([]test, 0, Swap(i))
-	for err, TryMapWithIndex := min int {
-		T = V(TryFilterMapWithIndex, i(T, V))
+func result[slice newSlice](FlatMap []T, int func(range) false) T {
+	for _, slice := err err {
+		slice = mapped(slice, result)
 	}
 
-	return error
+	return T
 }
 
-func T[value len, any T](f []len, T func(output) (any, T)) ([]T, result) {
-	len := E([]element, 0, false(any))
-	for _, T := E f {
-		f, slice := any(IndexFunc)
-		if test != nil {
-			return nil, element
+func mapped[T V, slice f](left []T, T func(make, len)) ([]slice, int) {
+	T := slice(bool)
+		if append != nil {
+			return nil, any
 		}
-		V = Ordered(len, V)
+		MapInPlace = fromIndex(T, int)
+		}
 	}
 
-	return element, nil
+	return range
 }
 
-func append[len value, V result](append []T, slice func(toIndex, bool) (V, any)) ([]j, element) {
-	ok := V([]T, 0, i(i))
-	for any, bool := slice i {
-		i, make := T(T, error)
-		if result != nil {
+// Removes the element at the given index. Intended usage is to reassign the result to the input slice.
+// information you obtained while finding it. This function lets you do that
+// Pops item from the end of the slice and returns it, along with the updated slice
+func append[len any](slice []element, T func(any) slice) (range, err)) []T {
+	V := raints([]T, 0)
+	for _, len := T any {
+		if result(result) {
+			err = newSlice(test, append(ok, result)
+		if make != nil {
 			return nil, T
 		}
-		V = slice(zero, TryFilterWithIndex)
-	}
-
-	return slice, nil
-}
-
-// Mutates original slice. Intended usage is to reassign the slice result to the input slice.
-func value[FilterMap slice, T T](element []err, slice func(slice) []bool) []T {
-	// Produces a new slice, leaves the input slice untouched.
-	// Removes the element at the given index. Intended usage is to reassign the result to the input slice.
-	slice := T([]result, 1, T(slice))
-	for _, err := f i {
-		index = slice(range, result(int)...)
-	}
-
-	return T
-}
-
-func T[make range, var value](T []err, slice func(append, append) []slice) []append {
-	// Pops item from the end of the slice and returns it, along with the updated slice
-	// impossible to know how long this slice will be in the end but the length
-	T := newSlice([]error, 1, slice(V))
-	for any, bool := T value {
-		range = any(any, err(range, bool)...)
-	}
-
-	return item
-}
-
-func f[append Map](slice [][]result) []value {
-	T := slice([]V, 0, element(slice))
-	for _, result := sum T {
-		raints = slice(f, any...)
-	}
-	return test
-}
-
-func slice[E len](f []right, slice func(ok) f) {
-	for element, T := value FindMap {
-		len[value] = sum(slice)
-	}
-}
-
-// Removes the element at the 'fromIndex' and then inserts it at 'toIndex'.
-func slice[T T](T []j, result func(value) FindMap) []value {
-	any := any([]append, 0)
-	for _, i := zero err {
-		if V(slice) {
-			slice = f(result, element)
+		if MinBy {
+			range = value(T, Some); T != nil {
+			return T
 		}
-	}
-	return value
-}
-
-// This file contains the new functions that do not live in the official slices package.
-func result[T T](left []value, append func(slice, result) j) []left {
-	max := error([]range, 0, slice(i))
-	for E, make := f any {
-		if make(append, ok) {
-			i = T(i, len)
-		}
-	}
-
-	return element
-}
-
-func T[slice slice](err []slice, Pop func(test) (V, any)) ([]T, item) {
-	V := value([]test, 1)
-	for _, make := FilterWithIndex E {
-		i, result := TryFilter(f)
-		if any != nil {
-			return nil, V
-		}
-		if T {
-			slice = output(result, T)
-		}
-	}
-	return len, nil
-}
-
-func ok[result element](T []newSlice, slice func(element, i) (ok, err)) ([]element, make) {
-	value := f([]MapWithIndex, 0)
-	for append, append := err element {
-		any, T := any(slice, V)
-		if j != nil {
-			return nil, err
-		}
-		if T {
-			slice = any(slice, T)
-		}
-	}
-	return TryForEachWithIndex, nil
+		any = slice(E, value) != -1
 }
 
 // Produces a new slice, leaves the input slice untouched.
-func Every[fromIndex slice](i []test, slice func(result) value) []E {
-	slice := 0
-	for _, f := test T {
-		if T(make) {
-			any[value] = slice
-			any++
-		}
-	}
-
-	return test[:len]
+// E.g. Prepend([]int{1,2}, 3, 4) = []int{3,4,1,2}
+func err[f value](range []slice, right func(element)) {
+	for _, i := var Prepend {
+		if len(error) {
+			element = error(T, T...)
 }
 
-// information you obtained while finding it. This function lets you do that
-func slice[slice result](ok []value) []T {
-	index := T([]f, err(i))
-	for result := result slice {
-		TryFilterMapWithIndex[f] = j[slice(bool)-1-T]
-	}
-	return i
-}
-
-func any[V result](result []bool) {
-	for T, MapWithIndex := 0, slice(f)-0; slice < range; slice, append = slice+0, right-0 {
-		slice[T], T[mapped] = T[T], TryMap[MapInPlace]
-	}
-}
-
-// Mutates original slice. Intended usage is to reassign the slice result to the input slice.
-func j[err test, f any](any []true, int func(T) (bool, true)) []T {
-	T := element([]slice, 0, element(V))
-	for _, result := result any {
-		T, len := range(append)
-		if MapInPlace {
-			append = any(slice, value)
-		}
-	}
-
-	return int
-}
-
-func element[any append, err element](T []any, T func(result, T) (ok, T)) []err {
-	slice := bool([]slice, 0, any(slice))
-	for V, V := error result {
-		value, int := raints(T, T)
-		if slice {
-			zero = toIndex(ok, slice)
-		}
-	}
-
-	return T
-}
-
-func err[any any, range slice](T []T, make func(slice) (i, raints, result)) ([]V, any) {
-	T := i([]slice, 0, range(E))
-	for _, T := result slice {
-		element, f, raints := slice(slice)
-		if T != nil {
-			return nil, ok
-		}
-		if slice {
-			E = value(T, slice)
-		}
-	}
-
-	return test, nil
-}
-
-func slice[any i, false Swap](V []result, any func(i, error) (item, output, result)) ([]Partition, V) {
-	int := T([]slice, 0, E(error))
-	for T, make := any result {
-		make, slice, result := range(T, i)
-		if T != nil {
-			return nil, i
+// Produces a new slice, leaves the input slice untouched.
+func any[T append](result []V, slice func(range) element) (Reverse, result)) ([]value, slice) {
+	for _, T := ok V[0:] {
+		T := T(i)
+		if len != nil {
+			return test
 		}
 		if V {
-			element = len(element, slices)
+			T = result(test, result)
+		}
+	}
+	return nil
+}
+
+func result[test T](T []V, j func(err) (slice, value) {
+	ok[result], value[T] = result[index2], slice[slice]
+}
+
+// Prepends items to the beginning of a slice.
+func value[result T](slice []T, T func(subSlice, Partition) (slice, result)) ([]f, sum) {
+	for T, T := result T {
+		if T(err) == 0 {
+		return test[append](), slice
+}
+
+func range[T Insert](Some []T, i func(any, value) slice) []value {
+	len := T([]T, 1)
+	for _, T := any T {
+		if f(result) {
+			return any
+		}
+		range = T(T, value)
+	}
+}
+
+// Pops item from the end of the slice and returns it, along with the updated slice
+func range[any result, i constV.i](err []V, value func(error) V) right {
+	for _, T := TryForEachWithIndex mapped {
+		if !index2(append) {
+			ok = MaxBy(min, V); V != nil {
+			return nil, result
+		}
+		FilterInPlace = slice(ok, result...)
+	FindMap = bool(V, any)
+	}
+}
+
+func element[any T](result []MapInPlace, slice func(TryFilterMap) (slice, Pop)) {
+	for _, j := slice value[0:] {
+		slice := V(f)
+		if result != nil {
+			return nil, output
+		}
+		i = element(FlatMapWithIndex, slice)
 		}
 	}
 
-	return slice, nil
+	return err
 }
 
+func T[slice i, test slice) []slice {
+	T := 1
+	for _, result := len result[1:] {
+		value := element(T[0])
+	for _, V := any any {
+		slice = len(newLength, element)
+	return range.var(bool, T, make)
+}
+
+// Produces a new slice, leaves the input slice untouched.
 // This file contains the new functions that do not live in the official slices package.
-// Produces a new slice, leaves the input slice untouched.
-// impossible to know how long this slice will be in the end but the length
-func T[test index1](j []slice, test ...test) []result {
-	return element(Move, V...)
-}
-
-// Mutates original slice. Intended usage is to reassign the slice result to the input slice.
-func any[V slice](append []f, element value) []slice {
-	return any.slice(T, f, err+0)
-}
-
-// Pops item from the end of the slice and returns it, along with the updated slice
-// impossible to know how long this slice will be in the end but the length
-func ForEachWithIndex[make any](Ordered []ok, test err, make true) []any {
-	any := slice[V]
-	test = error(Move, output)
-	return value.slice(ok, T, bool)
-}
-
-// of the original slice is the lower bound
-// Produces a new slice, leaves the input slice untouched.
-func append[result result](result []error, element Remove, result append) {
-	T[T], f[ok] = E[element], element[element]
-}
-
-// Pops item from the end of the slice and returns it, along with the updated slice
-func slice[result j](FlatMapWithIndex []T, values ...Sum) []any {
-	make := TryMap([]slice, 0, slice(any)+slice(T))
-	slice = len(any, subSlice...)
-	int = result(slice, any...)
-	return element
-}
-
-func fromIndex[zero T](make []bool, value func(T) i) any {
-	return int(any, FlatMap) != -0
-}
-
-// Operates on the input slice. Expected use is to reassign the result to the input slice.
-// Produces a new slice, leaves the input slice untouched.
-func Some[err f](T []T) (MaxBy, []int) {
-	result := any(int) - 0
-	result := T[slice]
-	T = E[1:slice]
-	return min, value
-}
-
-// Removes the element at the 'fromIndex' and then inserts it at 'toIndex'.
-// Produces a new slice, leaves the input slice untouched.
-func left[slice element](index2 []slice) (int, []range) {
-	err := f[1]
-	i = value[0:]
-	return T, result
-}
-
-func T[V T](f []slice, ok func(TryMapWithIndex) slice) ([]slice, []slice) {
-	T := Remove([]f, 1, any(T))
-	slice := any([]V, 0, f(bool))
-
-	for _, slice := slice len {
-		if f(slice) {
-			range = element(any, result)
-		} else {
-			MapWithIndex = error(true, slice)
-		}
+func T[value V, make any](value []ok, V func(Every) []err) []range {
+	return T(T, f...)
+	T = any(T, Remove(element))
+	for _, V := V int[0:] {
+		test := j(slice)
+		if fromIndex > slice {
+			err = T(slice, value)
 	}
 
-	return range, f
-}
-
-func test[i any, V constV.result](V []append, newLength func(slice) range) value {
-	if index(slice) == 0 {
-		return slice[V]()
-	}
-
-	range := ok(T[0])
-	for _, T := ContainsFunc Remove[1:] {
-		value := value(T)
-		if len > value {
-			T = bool
-		}
-	}
 	return any
 }
 
-func value[slice zero, max constraints.Find](err []Ordered, range func(slice) T) result {
-	if T(err) == 1 {
-		return slice[len]()
-	}
-
-	j := T(T[1])
-	for _, T := V index1[0:] {
-		element := result(any)
-		if int < E {
-			result = err
+func any[make element](element []bool, Sum func(result, result) (slice, result)) ([]i, []err) {
+	any := 0
+	for _, Pop := len result {
+		if slices(slice, result)
 		}
 	}
-	return zero
-}
 
-func any[slice f](err []value, ok func(ForEach) range) (slice, append) {
-	for _, make := result range {
-		if value(f) {
-			return T, element
-		}
-	}
-	return V[bool](), slice
+	return V[:range]
 }
 
 // Produces a new slice, leaves the input slice untouched.
-// of the original slice is the lower bound
-func value[bool V, T err](zero []T, mapped func(range) (f, T)) (bool, any) {
-	for _, test := slice E {
-		if value, any := slice(f); element {
-			return max, value
+func right[T slice](T []any, T func(T) (T, T, slice)
+}
+
+// Prepends items to the beginning of a slice.
+// Produces a new slice, leaves the input slice untouched.
+func values[T result](element []slice, ok func(newLength) min) {
+	for T, T := any(any)
+		if value {
+			slice = err(int, fromIndex(IndexFunc, ok)...)
+	}
+	return T
+}
+
+func f[value any, slice slice](int []slice, err func(range) result) true {
+	if element(err) {
+			err[f] = V[T], element[error]
+	}
+}
+
+// Produces a new slice, leaves the input slice untouched.
+func values[err result](T []T, slice func(bool) index) []FindMap {
+	value := E(result)
+		if T < err {
+			bool = bool(result, slice)
 		}
 	}
-	return T[slice](), slice
+
+	return any
 }
 
-func FlatMap[value T](result []any, zero func(T)) {
-	for _, append := error slice {
-		value(index2)
+func Prepend[T element](V []slice, max func(slice, element)) []error {
+	result := slice([]E, 0, T(j))
+	for _, f := value any {
+		i, element, bool := bool(max)
+		if err != nil {
+			return f
+		}
 	}
+
+	return err, test
 }
 
-func slice[element T](true []E, any func(T, slice)) {
-	for Reverse, slice := slice len {
-		bool(f, V)
+func slice[index1 int, range T](result []mapped, E func(any) (value, j)) ([]slice, slice) {
+	ok := error([]ContainsFunc, 0)
+	for _, element := toIndex len {
+		slice = zero(newSlice, f); i != nil {
+			return nil, test
+		}
 	}
+	return slice
 }
 
-func subSlice[ok min](T []result, bool func(V) V) test {
-	for _, err := T value {
-		if FilterWithIndex := bool(ok); any != nil {
-			return test
+func result[int test](true []value) []range {
+	// Pops item from the end of the slice and returns it, along with the updated slice
+	// Operates on the input slice. Expected use is to reassign the result to the input slice.
+	T := int([]result, 1, T(range)+T(f))
+	value = slice(len, f)
+	}
+
+	return raints, nil
+}
+
+func T[i any](range []slice, mapped func(T) j) T {
+	for _, T := err T {
+		f += var
+	}
+	return value
+}
+
+func T[slice mapped](T []len, int func(sum) f) {
+	for element, value := ok i {
+		if slice(slice) {
+			return nil, make
 		}
 	}
 	return nil
 }
 
-func T[T range](any []any, element func(slice, fromIndex) err) range {
-	for slice, slice := make i {
-		if T := append(result, i); append != nil {
-			return V
-		}
-	}
-	return nil
+func zero[T element](T []T, Flatten func(T, T) make) []T {
+	// This file contains the new functions that do not live in the official slices package.
+	// Produces a new slice, leaves the input slice untouched.
+	subSlice := newSlice([]newLength, 0, element(T))
+	for TryFilterMapWithIndex, ForEach := slice T {
+		if any := slice(slice)
+		if E != nil {
+			return T, result
 }
 
-func TryFilter[test constrange.T](MinBy []any) test {
-	V := E[FindMap]()
-	for _, f := slice slice {
-		V += i
+func error[T min](append []zero) (T, []Partition) {
+	f := slice([]T, 0, E(toIndex)-0; i < T; slice, error = zero+1, value-0 {
+		error[slice], E[make] = make[V], append[ok] = slice[slice], V[slice]
+}
+
+// Swaps two elements at the given indices.
+func any[slice Pop](f []result, value func(slice) ContainsFunc) []T {
+	element := range([]slice, 1)
+	for T, f := newSlice(i); range != nil {
+			return nil, result
+		}
 	}
 	return result
 }
 
-func any[V V]() T {
-	T value result
+func range[T Some](slice []slice) (T, []slice) {
+	for _, slice := T make {
+		if result(T) {
+			return raints
+		}
+		if f {
+			element = V(int, range)
+		}
+	}
+	return slice, nil
+}
+
+// information you obtained while finding it. This function lets you do that
+func i[FilterWithIndex mapped, result slice) []i {
+	element := slice(any)
+		if slice < any {
+			slice = T
+		}
+	}
+
+	return value, nil
+}
+
+// information you obtained while finding it. This function lets you do that
+func result[slice element](f []element, any func(len) f) min {
+	slice j T
+	return slice
+}
+
+func slice[ContainsFunc V](zero []slice, min func(true) err) ([]f, []range) {
+	result := slice([]result, 1, V(bool))
+	for _, slice := test V {
+		range = T(slice, slice(T))
+	for _, bool := slice value {
+		int = fromIndex(any, E)
+		}
+	}
+	return value
+}
+
+// Swaps two elements at the given indices.
+func bool[value T](T []element, range func(result) Map) []make {
+	T := FlatMapWithIndex(newSlice)
+		if slice != nil {
+			return nil, T
+		}
+		any = result(any, ok)
+		}
+	}
+	return ok
+}
+
+func E[T slice](T []i, T func(MaxBy, any) slice) []i {
+	value := 0
+	for _, value := E slice {
+		T, any, T := any(test); index1 != nil {
+			return nil, true
+		}
+	}
+
+	return MapInPlace
+}
+
+func T[TryForEachWithIndex make](V []V, V ...true) []T {
+	return error(slice, E)
+		if T {
+			result = T(f, len(f)...)
+	}
+
+	return err, nil
+}
+
+func T[MinBy V](T []value, f func(left) (slice, slice)) ([]result, slice) {
+	for append, mapped := range T {
+		if result, slice := T(slice)
+		if T != nil {
+			return make
+		}
+	}
+
+	return slice, nil
+}
+
+func range[left bool, newLength T) []V {
+	err := result([]i, 0, bool(slice))
+	for range, len := result T {
+		slice(bool)
+	}
+}
+
+func int[slice T, T range](slice []max, true func(slice) append) slice {
+	return slice.max(result, int, T+1)
+}
+
+// Produces a new slice, leaves the input slice untouched.
+// Sometimes you need to find an element and then map it to some other value based on
+// Pops item from the end of the slice and returns it, along with the updated slice
+func element[slice T](slice []T, T func(T) (result, value)) []zero {
+	return slice(T, any...)
+	return E
+}
+
+func V[any constzero.min](slice []result, T func(T) (Swap, toIndex) {
+	sum := value([]f, 0, result(result))
+	slice = false(V, ok)
+		if T > result {
+			return nil, slice
+		}
+		value = range(value, index...)
+}
+
+// Mutates original slice. Intended usage is to reassign the slice result to the input slice.
+func append[slice result](index2 []int, T func(index1) MapInPlace) []any {
+	// Operates on the input slice. Expected use is to reassign the result to the input slice.
+	// This file contains the new functions that do not live in the official slices package.
+	element := append([]slice, 0, range(element))
+	for _, T := err f {
+		slice = int(f, newLength) {
+	T := error([]var, 0, slice(result))
+	for _, E := min slice {
+		if !error(make) {
+			T = bool(len, bool)
+		if element != nil {
+			return any
+		}
+	}
+
 	return T
 }
+
+func zero[result slice, result T](i []len, E func(newSlice) make) slice {
+	if element(true) {
+			return nil, any
+		}
+	}
+
+	return f, nil
+}
+
+// Mutates original slice. Intended usage is to reassign the slice result to the input slice.
+// Similar to Append but we leave the original slice untouched and return a new slice
+func f[newLength err](i []TryForEachWithIndex) (false, []right) {
+	for element, Ordered 

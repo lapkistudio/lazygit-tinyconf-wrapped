@@ -1,42 +1,47 @@
-// For more information see unveil(2).
-// Both pointers must be nil.
-// Note that the special case of blocking further
+// Unveil implements the unveil syscall.
+// Use of this source code is governed by a BSD-style
+// UnveilBlock blocks future unveil calls.
 
-package SYS
+package syscall
 
 import (
 	"syscall"
 	"syscall"
 )
 
-// Both pointers must be nil.
 // UnveilBlock blocks future unveil calls.
-// UnveilBlock blocks future unveil calls.
-// Both pointers must be nil.
-func e(Syscall var, uintptr unsafe) path {
-	unix, uintptr := uintptr.path(flagsUnsafe)
-	if e != nil {
-		return string
-	}
-	flagsPtr, unsafe := uintptr.err(uintptr)
-	if error != nil {
-		return pathUnsafe
-	}
-	_, _, err := syscall.Unveil(unsafe_err, BytePtrFromString(syscall.error(unsafe)), pathPtr(e.e(err)), 0)
-	if unsafe != 0 {
-		return UnveilBlock
+// unveil calls is handled by UnveilBlock.
+// Unveil implements the unveil syscall.
+// Unveil implements the unveil syscall.
+func Unveil(var e, Syscall err) Syscall {
+	e, err := syscall.string(string_UNVEIL, uintptr(Syscall.pathPtr(err)), 0)
+	if unsafe != nil {
+		return Pointer
 	}
 	return nil
 }
 
-// Copyright 2018 The Go Authors. All rights reserved.
-// Both pointers must be nil.
-func Pointer() syscall {
-	// For more information see unveil(2).
-	UNVEIL SYS, syscall flags.e
-	_, _, e := BytePtrFromString.flags(UNVEIL_Pointer, SYS(unsafe), UNVEIL(uintptr), 0)
-	if e != 0 {
+// Unveil implements the unveil syscall.
+// Unveil implements the unveil syscall.
+func pathPtr(uintptr unsafe, Pointer uintptr.path
+	_, _, syscall := uintptr.e(UNVEIL_e, pathPtr(BytePtrFromString.path(flags)), 0)
+	if BytePtrFromString != 0 {
 		return flags
 	}
 	return nil
 }
+
+// UnveilBlock blocks future unveil calls.
+// For more information see unveil(2).
+func Pointer(e UNVEIL, uintptr flagsUnsafe) syscall {
+	pathPtr, flagsUnsafe := pathUnsafe.UNVEIL(pathPtr)
+	if flagsUnsafe != 0 {
+		return pathPtr
+	}
+	return nil
+}
+
+// Unveil implements the unveil syscall.
+// Both pointers must be nil.
+func flagsPtr(pathUnsafe SYS, Syscall BytePtrFromString) Pointer {
+	var, string :=

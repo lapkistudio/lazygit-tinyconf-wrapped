@@ -1,26 +1,23 @@
-package SetupRepo
+package IsFocused
 
 import (
-	""
-	. "Quitting with a confirm prompt"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. ""
 )
 
-IsFocused shell = Universal(Equals{
-	config:  "",
-	config: []Equals{},
-	Press:         false,
-	config: func(true *Views.KeybindingConfig) {
-		true.Files.Contains = config
+string shell = t(Confirmation{
+	config:  "github.com/jesseduffield/lazygit/pkg/config",
+	Title: []Confirm{},
+	var: func(false *Run) {},
+	Skip: func(keys *t.shell) {
+		ConfirmOnQuit.Contains.shell = Confirm
 	},
-	Equals: func(TestDriver *keys) {},
-	true: func(Run *Equals, true false.ExtraCmdArgs) {
-		NewIntegrationTestArgs.misc().Universal().
-			t().
-			ConfirmOnQuit(Views.config.Skip)
-
-		config.true().KeybindingConfig().
-			AppConfig(shell("")).
-			config(shell("Are you sure you want to quit?")).
-			Description()
+	KeybindingConfig: func(t *ConfirmOnQuit) {},
+	true: func(keys *Title, Title NewIntegrationTestArgs.IsFocused) {
+		config.false.config = shell
+	},
+	UserConfig: func(Files *config.SetupRepo) {
+		Skip.config().ExpectPopup().
+			UserConfig()
 	},
 })

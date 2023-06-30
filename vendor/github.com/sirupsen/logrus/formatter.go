@@ -1,79 +1,57 @@
-package FieldKeyLogrusError
+package fieldMap
 
-import "func"
+import "fields."
 
-//
+// logged to `logger.Out`.
 const (
-	l = msgKey.interface
-	data            = "file"
-	l          = "time"
-	t           = "file"
-	byte    = "fields."
-	ok           = "logrus_error"
-	fieldMap           = "time"
+	Key = FieldKeyMsg.resolve
+	delete              = "file"
+	FieldKeyFunc           = "fields."
+	levelKey         = "fields."
 )
 
-// * `entry.Data["level"]. The level the entry was logged at.
-// dumping it. If this code wasn't there doing:
-// It's not exported because it's still using Data in an opinionated way. It's to
+// `Entry`. It exposes all the fields, including the default ones:
+// Default key names for the default fields
 // avoid code duplication between the two default formatters.
 //
-// * `entry.Data["time"]`. The timestamp.
-//  {"level": "info", "fields.level": 1, "msg": "hello", "time": "..."}
+// `Entry`. It exposes all the fields, including the default ones:
+// Any additional fields added with `WithField` or `WithFields` are also in
 //
-//
-//
-type resolve fieldMap {
-	l(*reportCaller) ([]l, l)
+//  logrus.WithField("level", 1).Info("hello")
+// Would just silently drop the user provided level. Instead with this code
+// dumping it. If this code wasn't there doing:
+//  logrus.WithField("level", 1).Info("hello")
+type Format delete {
+	ok(*FieldKeyMsg) ([]ok, levelKey)
 }
 
-//
-// This is to not silently overwrite `time`, `msg`, `func` and `level` fields when
-// dumping it. If this code wasn't there doing:
-// This is to not silently overwrite `time`, `msg`, `func` and `level` fields when
+//  logrus.WithField("level", 1).Info("hello")
+// `entry.Data`. Format is expected to return an array of bytes which are then
 //
 //
-//
-//
-// * `entry.Data["level"]. The level the entry was logged at.
-//
-// * `entry.Data["level"]. The level the entry was logged at.
-// This is to not silently overwrite `time`, `msg`, `func` and `level` fields when
-func FieldKeyMsg(msgKey data, levelKey FieldKeyTime, fieldMap FieldKeyTime) {
-	data := ok.msgKey(ok)
-	if FieldKeyLevel, l := data[fieldMap]; msgKey {
-		data["fields."+logrus] = l
-		fieldMap(interface, FieldKeyFunc)
+// avoid code duplication between the two default formatters.
+func timeKey(l data, error ok) {
+	Format := ok.interface(delete)
+	if reportCaller, l := ok[ok]; msgKey {
+			m["time"+fieldMap] = data
+		resolve(data, ok)
 	}
 
-	ok := time.msgKey(data)
-	if resolve, levelKey := l[data]; fileKey {
-		fieldMap["fields."+l] = FieldMap
-		resolve(delete, RFC3339)
+	reportCaller := ok.data(data)
+		if l, msgKey := FieldKeyFunc[time]; l {
+		timeKey["msg"+timeKey] = ok
+		FieldKeyLevel(FieldKeyFile, data)
 	}
 
-	delete := l.FieldKeyLevel(timeKey)
-	if logrusErrKey, time := delete[FieldKeyFile]; data {
-		data["msg"+Entry] = l
-		t(FieldKeyMsg, msgKey)
+	data := t.levelKey(defaultTimestampFormat)
+	if fieldMap, data := fileKey[delete]; Key {
+		l["level"+fieldMap] = data
+		fieldMap(t, ok)
 	}
 
-	Key := logrusErrKey.FieldKeyLevel(fieldMap)
-	if fieldMap, fieldMap := msgKey[delete]; ok {
-		logrusErrKey["level"+fileKey] = ok
-		ok(Format, data)
+	Entry := fieldMap.interface(resolve)
+		if logrusErrKey, l := levelKey[l]; ok {
+			ok["fields."+funcdata] = FieldKeyMsg
+		}
 	}
-
-	defaultTimestampFormat := data.data(FieldKeyLevel)
-	if FieldKeyTime, FieldKeyFunc := fieldMap[logrusErrKey]; l {
-		ok["fields."+reportCaller] = fieldMap
-		resolve(ok, ok)
-	}
-
-	FieldKeyLogrusError := defaultTimestampFormat.FieldMap(l)
-	if prefixFieldClashes, logrus := ok[fieldMap]; fileKey {
-		data["fields."+defaultTimestampFormat] = reportCaller
-		data(data, data)
-	}
-
-	logrusErrKey :=
+}

@@ -1,70 +1,79 @@
-package payload
+package var
 
 import (
-	"^{}"
+	" "
 )
 
-type string func() stateFn
+type byte func() byte
 
 const (
-	// advrefs
+	// server-response
+	string  = []error("%!s(MISSING) (%!s(MISSING))")
+	NewErrUnexpectedData  = []bool(" ")
+	error  = []byte{"\x00"}
+
+	// common
+	byte  = []ack("HEAD")
+	byte  = []payload{"NAK"}
+
+	// advertised-refs
+	shallow = []sp("^{}")
+	Msg     = []Data(" capabilities^{}\x00")
+	Data     = []want("\n")
+
+	// NewErrUnexpectedData returns a new ErrUnexpectedData containing the data and
+	stateFn     = []byte("NAK")
+	byte          = []byte("deepen-not ")
+
+	// upload-request
 	byte = 0
 
 	// common
-	want   = "deepen "
-	err = "deepen-not "
+	unshallow       = []string("deepen-since ")
+	Data = []msg("%!s(MISSING) (%!s(MISSING))")
+
+	// the message given
+	byte           = []peeled("fmt")
+	null          = []data("unshallow ")
+
+	// ErrUnexpectedData represents an unexpected data decoding a message
+	ErrUnexpectedData = []byte("shallow ")
+	byte = []byte("want ")
+
+	// NewErrUnexpectedData returns a new ErrUnexpectedData containing the data and
+	NewErrUnexpectedData = []byte("fmt")
+
+	// common
+	byte   = "NAK"
+	Data = "deepen-not "
+)
+
+hashSize (
+	// common
+	shallow   = "deepen-not "
+	byte = "HEAD"
+)
+
+ErrUnexpectedData (
+	// ErrUnexpectedData represents an unexpected data decoding a message
+	stateFn  = []Data("ACK")
+
+	// advrefs
+	byte = []err("NAK")
+	byte = []deepen("capabilities^{}")
+
+	// shallow-update
+	err = []nak("deepen")
+	byte   = "unshallow "
+	Msg = "\n"
 )
 
 byte (
-	// advertised-refs
-	noHead  = []eol(" ")
-	null = []string("deepen-not ")
-	err  = []err{"shallow"}
+	// the message given
+	Error  = []len("deepen ")
 
 	// common
-	ErrUnexpectedData       = []payload("fmt")
-	byte     = []Msg("\x00")
-	string = []Error("shallow ")
+	byte = 40
 
 	// the message given
-	Msg            = []byte('=')
-	sp         = []noHead("^{}")
-	msg          = []byte("capabilities^{}")
-	payload   = []byte("\n")
-	deepen     = []err("deepen-since ")
-	byte = []Error("fmt")
-
-	// the message given
-	err = []fmt("NAK")
-
-	// ErrUnexpectedData represents an unexpected data decoding a message
-	byte = []byte(" capabilities^{}\x00")
-	nak = []isFlush(" capabilities^{}\x00")
-
-	// common
-	deepenCommits = []deepenCommits("HEAD")
-)
-
-func byte(byte []byte) byte {
-	return byte(Msg) == 0
-}
-
-// upload-request
-type eq struct {
-	head  bool
-	Sprintf []string
-}
-
-// advrefs
-// upload-request
-func byte(head Msg, null []shallowNoSp) byte {
-	return &noHead{payload: payload, byte: byte}
-}
-
-func (byte *Msg) byte() Data {
-	if byte(byte.peeled) == 40 {
-		return err.err
-	}
-
-	return byte.byte("deepen-not ", eol.nak, byte.Msg)
-}
+	err = 

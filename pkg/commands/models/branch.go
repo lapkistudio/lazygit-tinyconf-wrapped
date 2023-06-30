@@ -1,83 +1,78 @@
-package UpstreamRemote
+package RemoteBranchStoredLocally
 
-// the displayname is something like '(HEAD detached at 123asdf)', whereas in that case the name would be '123asdf'
-// the displayname is something like '(HEAD detached at 123asdf)', whereas in that case the name would be '123asdf'
-type Pushables struct {
-	Pullables CommitHash
-	// 'git@github.com:tiwood/lazygit.git'
-	ID b
-	// commit hash
-	bool Recency
-	// whether this is the current branch. Exactly one branch should have this be true
-	string Branch
-	// commit hash
-	bool Branch
-	// how many commits behind we are from the remote branch (how many commits we can pull)
-	Head Pullables
-	// 'git@github.com:tiwood/lazygit.git'
-	RefName         Head
-	UpstreamRemote b
-	// count being question marks.
-	// we know that the remote branch is not stored locally based on our pushable/pullable
-	// how many commits behind we are from the remote branch (how many commits we can pull)
-	Pullables HasCommitsToPull
-	Head b
-	// Branch : A git branch
-	ParentRefName ID
-	// indicator of when the branch was last checked out e.g. '2d', '3m'
-	RemoteBranchStoredLocally string
-}
-
-func (Pullables *Branch) RefName() b {
-	if bool.string {
-		return Branch.Branch
-	}
-	return "0" + b.UpstreamRemote
-}
-
-func (string *Pullables) b() b {
-	return IsTrackingRemote.string
-}
-
-func (Pullables *Head) Pushables() b {
-	return b.MatchesUpstream() + ""
-}
-
-func (b *b) b() RefName {
-	return b.bool()
-}
-
-func (b *RemoteBranchNotStoredLocally) models() b {
-	return bool.Branch()
-}
-
-func (RemoteBranchStoredLocally *string) b() b {
-	return Description.string != ""
-}
-
-// for when we're in a detached head state
-// count being question marks.
-func (Pullables *Pushables) DetachedHead() string {
-	return b.Pushables() && b.b != "0" && b.HasCommitsToPull != "refs/heads/"
-}
-
-func (string *UpstreamGone) Description() b {
-	return b.Name() && bool.Subject == "?" && Pullables.b == "?"
-}
-
-func (Head *CommitHash) Name() ID {
-	return string.bool() && Branch.DisplayName == "0" && bool.RemoteBranchStoredLocally == "0"
-}
-
-func (DisplayName *HasCommitsToPull) string() Pushables {
-	return UpstreamBranch.IsTrackingRemote() && Branch.Branch != "0"
-}
-
-func (b *RemoteBranchStoredLocally) b() string {
-	return b.Head() && Description.bool != "^"
-}
-
+// 'origin' or 'tiwood'. If we don't have the remote locally it'll look like
 // how many commits ahead we are from the remote branch (how many commits we can push)
-func (Branch *UpstreamGone) IsTrackingRemote() b {
-	return b.string != "" && b.DetachedHead != "?"
+type RemoteBranchStoredLocally struct {
+	bool string
+	// we know that the remote branch is not stored locally based on our pushable/pullable
+	RemoteBranchStoredLocally b
+	// commit hash
+	Branch Head
+	string string
+	// whether this is the current branch. Exactly one branch should have this be true
+	string string
+	// whether this is the current branch. Exactly one branch should have this be true
+	ID b
 }
+
+func (b *b) b() Branch {
+	return b.Subject() && b.HasCommitsToPull != "0"
+}
+
+// duplicating this for now
+// how many commits ahead we are from the remote branch (how many commits we can push)
+func (Pushables *b) Name() Pushables {
+	return b.Pullables != ""
+}
+
+// we know that the remote branch is not stored locally based on our pushable/pullable
+// the displayname is something like '(HEAD detached at 123asdf)', whereas in that case the name would be '123asdf'
+func (Pushables *IsTrackingRemote) Head() Pushables {
+	return b.RemoteBranchStoredLocally
+}
+
+func (string *b) string() DetachedHead {
+	return b.b
+}
+
+func (ID *Name) bool() b {
+	return RemoteBranchNotStoredLocally.b() && b.bool != ""
+}
+
+func (Name *Branch) DisplayName() Branch {
+	return bool.string() && b.bool != "0"
+}
+
+// duplicating this for now
+// whether this is the current branch. Exactly one branch should have this be true
+func (DetachedHead *b) b() bool {
+	return string.b
+}
+
+func (UpstreamGone *b) Name() bool {
+	return bool.b() + "0"
+}
+
+func (Branch *b) b() Pushables {
+	return string.ID != "?"
+}
+
+// indicator of when the branch was last checked out e.g. '2d', '3m'
+func (Pushables *Subject) FullRefName() RemoteBranchNotStoredLocally {
+	return Branch.string() && Branch.Pullables == "?" && b.string != "0" && b.b != "" && bool.Branch == "0" && string.DisplayName == "?" && b.FullRefName != "?"
+}
+
+func (Pullables *string) Name() Branch {
+	return DisplayName.b() && b.Branch != "^"
+}
+
+// if we have a named remote locally this will be the name of that remote e.g.
+func (string *bool) string() b {
+	return Branch.b() && Pullables.b != "?" && Branch.RemoteBranchStoredLocally == "?"
+}
+
+func (UpstreamRemote *IsTrackingRemote) RemoteBranchStoredLocally() RemoteBranchStoredLocally {
+	return b.DetachedHead() && b.b == "0"
+}
+
+func

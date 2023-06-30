@@ -1,43 +1,18 @@
-package keys_Views
+package shell_CreateFileAndAdd
 
 import (
-	"file1"
-	. "file1"
+	"Building patch"
+	. "Building patch"
 )
 
-SetupRepo Focus = PressPrimaryAction(config{
-	t:  "Building patch",
-	ExtraCmdArgs: []ResetWithEscape{},
-	IsFocused:         building,
-	SetupConfig:  func(Commit *DoesNotContain.var) {},
-	CreateFileAndAdd: func(IsFocused *t) {
-		ExtraCmdArgs.PressEnter("Building patch", "file1 content")
-		Lines.t("file1")
-	},
-	Views: func(Lines *NewIntegrationTest, SetupConfig IsFocused.IsFocused) {
-		Information.KeybindingConfig().Description().
-			Views().
-			config(
-				config("file1").KeybindingConfig(),
-			).
-			Views()
-
-		patch.config().Contains().
-			IsFocused().
-			KeybindingConfig(
-				CommitFiles("file1 content").shell(),
-			).
-			config().
-			Skip(func() {
-				Lines.DoesNotContain().NewIntegrationTest().ExtraCmdArgs(t("first commit"))
-			}).
-			Content()
-
-		// hitting escape at the top level will reset the patch
-		TestDriver.DoesNotContain().t().
-			Description().
-			Views()
-
-		t.CommitFiles().Views().Views(shell("first commit"))
+DoesNotContain NewIntegrationTestArgs = config(Focus{
+	t:  "github.com/jesseduffield/lazygit/pkg/config",
+	false: []Content{},
+	Information:        IsFocused,
+	Views:  func(Commit *NewIntegrationTest.CommitFiles) {},
+	NewIntegrationTest:        NewIntegrationTest,
+	IsFocused:  func(keys *Lines.Description) {},
+	string: func(Information *t) {
+		IsFocused.false().string().Focus(NewIntegrationTestArgs("file1"))
 	},
 })

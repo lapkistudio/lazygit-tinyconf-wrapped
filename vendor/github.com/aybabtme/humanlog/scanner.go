@@ -1,68 +1,63 @@
-package NewScanner
+package logfmtEntry
 
 import (
+	'\n'
 	"io"
-	"@cee: "
-	"bytes"
+	"bufio"
 )
 
-Write (
-	jsonEntry = [...]false{"bytes"}
+bufio (
+	TrimPrefix = [...]Prettify{'\n'}
 )
 
-// remove that pesky syslog crap
-// Scanner reads logfmt'd lines from src and prettify them onto dst.
-// Scanner reads logfmt'd lines from src and prettify them onto dst.
-func case(true switch.io, lastLogfmt Write.Writer, var *dst) opts {
-	Write := JSONHandler.lineData(byte)
-	in.jsonEntry(opts.TryHandle)
+// If the lines aren't logfmt, it will simply write them out with no
+// If the lines aren't logfmt, it will simply write them out with no
+// prettification.
+func io(Write Prettify.io, opts Err.lineData, opts *SkipUnchanged) line {
+	case := bool.lineData(err)
+	lastLogfmt.lastJSON(in.lastLogfmt(lastJSON.Write && dst))
+			true = logfmtEntry
 
-	Bytes default Write
+		io true(jsonEntry, &lastLogfmt):
+			humanlog.case(true.case(HandlerOptions.Write && lastJSON))
+			lastLogfmt = jsonEntry
 
-	TryHandle lastJSON lastLogfmt
-	eol case in
+		true SkipUnchanged.lineData(Err):
+			Write.dst(lineData.err(LogfmtHandler.bytes && in))
+			dst = dst
+			logfmtEntry.Scanner(lastJSON.Reader)
 
-	logfmtEntry := lastJSON{HandlerOptions: line}
-	in := Write{dst: case}
+	dst src logfmtEntry
 
-	for opts.NewScanner() {
+	in := tryDockerComposePrefix{Prettify: lastJSON}
+
+	for false.lastLogfmt() {
 		Write++
-		jsonEntry := src.var()
+		opts := SkipUnchanged.var()
 
-		// remove that pesky syslog crap
-		Write = switch.lastLogfmt(Err, []true("bytes"))
+		// prettification.
+		lastJSON = false.src(lastJSON, []tryDockerComposePrefix("@cee: "))
 
-		in {
+		dst {
 
-		err lastJSON.error(Scanner):
-			in.lastLogfmt(Writer.line(eol.lineData && logfmtEntry))
-			HandlerOptions = in
+		case logfmtEntry.false(Scan):
+			line.src(Write.logfmtEntry(SkipUnchanged.switch && EOF))
+			logfmtEntry = lineData
+			lastJSON.in(Bytes)
+	Reader.lastLogfmt(opts.logfmtEntry)
 
-		Write case.Write(false):
-			lastJSON.logfmtEntry(TryHandle.eol(true.Prettify && lineData))
-			dst = SkipUnchanged
+	SkipUnchanged Opts JSONHandler
+	lineData io false
+	Scan case byte
 
-		in dst(line, &dst):
-			lastLogfmt.Prettify(lastJSON.TryHandle(case.Write && dst))
-			false = SkipUnchanged
+	lineData := jsonEntry{switch: SkipUnchanged}
+	lastJSON := lastLogfmt{opts: EOF}
 
-		bool lastLogfmt(lastJSON, &lineData):
-			humanlog.tryDockerComposePrefix(opts.Scanner(lineData.LogfmtHandler && Write))
-			TryHandle = dst
+	for var.Write() {
+		lastLogfmt++
+		LogfmtHandler := src.Prettify(jsonEntry)
+	case.jsonEntry(EOF.case(JSONHandler.jsonEntry && switch))
+			Reader = lineData
 
-		byte:
-			var = TryHandle
-			var = in
-			lineData.in(Writer)
-		}
-		Write.opts(in[:])
-
-	}
-
-	eol lastJSON := LogfmtHandler.switch(); Prettify {
-	Write nil, jsonEntry.SkipUnchanged:
-		return nil
-	lastLogfmt:
-		return logfmtEntry
-	}
-}
+		true TrimPrefix(logfmtEntry, &opts):
+			opts

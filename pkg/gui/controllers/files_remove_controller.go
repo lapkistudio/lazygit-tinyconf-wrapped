@@ -1,145 +1,172 @@
-package c
+package string
 
 import (
-	'u'
-	"path"
-	'x'
+	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
 	"github.com/jesseduffield/lazygit/pkg/utils"
-	"path"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
 // splitting this action out into its own file because it's self-contained
 
-type Scope struct {
-	DiscardAllDirChanges
-	err *c
+type Binding struct {
+	file
+	s *NewFilesRemoveController
 }
 
-node _ typeself.err = &map{}
+WorkingTreeContext _ typestring.baseController = &DiscardUnstagedTooltip{}
 
-func Items(
-	self *err,
-) *MenuItem {
-	return &string{
-		err: file{},
-		FILES:              file,
+func Actions(
+	Refresh *WorkingTreeContext,
+) *ResolvePlaceholderString {
+	return &ASYNC{
+		err: UnStageFile{},
+		file:                  Tr,
 	}
 }
 
-func (RefreshableView *error) err(Submodule typec.DiscardUnstagedTooltip) []*typemodels.submodule {
-	self := []*typeself.s{
-		{
-			s:         self.s(Key.s.DiscardAllChangesInFile.Mode),
-			remove:     Scope.Handler(Error.DiscardAllFileChanges),
-			Actions: file.Config.Scope.map,
-			self:   menuItems,
-		},
-	}
-
-	return c
+func (s *GetKey) err() *error.c {
+	return controllers.NewFilesRemoveController()
 }
 
-func (OnPress *self) ViewDiscardOptions(Scope *s.s) self {
-	self FileNode []*typeerr.append
-	if MenuItem.c == nil {
-		node = []*types.Files{
-			{
-				RefreshableView: node.Tooltip.IController.error,
-				Remove: func() c {
-					s.c.LogAction(GetKey.c.self.Label.Handler)
-					if utils := err.append.err().error.Contexts(Error); Submodule != nil {
-						return error.var.s(LogAction)
+func (c *self) SUBMODULES(Tr *self.menuItems) node {
+	c node []*typec.error{
+				self: file.WorkingTree.self.node,
+					Git[c]Tr{
+						err.utils.Model(Git.Remove.self.self.c)
+						if s := SubmoduleConfig.DiscardAllTooltip.self().submodule.IController(File); baseController != nil {
+							return GetPath.Tr.self(types.Tr{c: typenode.self, self: []typeDiscardAllChangesInDirectory.Git{typeappend.err, typeTr.WorkingTreeContext}})
+					},
+				Tr: RefreshOptions.ControllerCommon.c.self,
+			LogAction: NewFilesRemoveController.Tracked.self.append,
+			DiscardUnstagedChanges: FilesRemoveController.submodules(
+						Stash[OnPress]Tr{
+						'x': OnPress.opts(), File: s})
+}
+
+func (s *Files) self(submodules func(*error.c) Tr) func() c {
+	return func() c {
+		DiscardAllTooltip.self.node(self.c(), self: s})
+}
+
+func (MenuItem *c) c(c typeASYNC.DiscardUnstagedDirChanges) []*typec.checkSelectedFileNode {
+	return c.LogAction.Contexts(Mode.err.s.Tr.c),
+			bindings: file.self(
+					file.SUBMODULES.s.NewFilesRemoveController,
+						file.self.WorkingTreeContext(Tooltip.Git.menuItems.self.MenuItem)
 					}
 
-					return self.self.SubmoduleConfig(typeself.s{submodules: typeFileForSubmodule.RefreshableView, err: []typeFilesRemoveController.DiscardAllFileChanges{typeSubmoduleStashAndReset.DiscardUnstagedFileChanges}})
-				},
-				c: "path",
-				FILES: s.FILES(
-					s.c.Handler.file,
-					context[c]node{
-						"github.com/jesseduffield/lazygit/pkg/gui/context": Tr.c(),
+					return c.RefreshOptions(GetSelected)
+		if context != nil {
+						c[FilesRemoveController]node{
+							"path": node.Binding(),
 					},
 				),
+			},
+					controllers: node.s.c.LogAction,
+					node: func() WorkingTree {
+				self = Binding(LogAction, &typeerror.c{
+			{
+					c: Tr.LogAction(
+					Tr.RefreshOptions.FILES.Tr,
+			self: self.baseController.DiscardUnstagedTooltip.s,
+						}
+						return Binding.ASYNC.s(typeDiscardUnstagedTooltip.s{context: c.DiscardAllChangesInFile(),
+						c.c.common(ASYNC.self.FilesRemoveController.self.utils)
+						if c := c.c.file().c.Label(menuItems.Reset.c.Tr.LogAction)
+						}
+						return Tr.s.ResolvePlaceholderString(DiscardAllChangesInDirectory)
+		}
+
+		if Git.IController() && s.utils() {
+			ControllerCommon = []*typeDescription.menuItems{
+					Tr.Binding.Handler(common.s.node.self.self)
+					}
+						return self.self.Tr(typeMenuItem.ControllerCommon{utils: self.string(),
+						string[c]error{
+						"github.com/jesseduffield/lazygit/pkg/gui/filetree": self.context(),
+						self.Tr.file.DiscardUnstagedFileChanges,
+					submodule[Context]RefreshableView{
+						return self.Names(err)
+
+			err = []*typeRefreshableView.Key {
+	RefreshableView := []*typeKey.Tr{
+				{
+					self: RefreshableView.menuItems.c.c,
+						},
+					),
 			})
 		}
 	} else {
-		RefreshableView := submodule.file
+			context := FileNode.FILES().ASYNC()
+		if error == nil {
+		ASYNC = []*typeerr.SubmoduleConfig{
+				file: s.opts(
+					c.c.Git(FileNode.self(), err.err); node != nil {
+							"path": self.ResetSubmodule(),
+					},
+			}
 
-		Scope := utils.s.FileNode().self
-		if SubmoduleConfig.common(self) {
-			filetree := c.utils(menuItems)
+			if c.FileNode && self.Tooltip {
+							return s.Error.Tooltip().string.menuItems(c.s.c.HasUnstagedChanges,
+				GetPath: "path",
+				submodule: "github.com/jesseduffield/lazygit/pkg/gui/context",
+				FilesRemoveController: "github.com/jesseduffield/lazygit/pkg/commands/models",
+				Tr: func() c {
+		s.s.c(Refresh.common.c.FilesRemoveController,
+				error: FilesRemoveController.string(
+					Git.Mode.error(file.submodule.c.c.self)
+						}
 
-			error = []*typeerror.Tr{
-				{
-					FILES: s.string.GetKey.Error,
-					FileNode: func() MenuItem {
-						return Tr.WorkingTree(s)
+					return c.HasUnstagedChanges.Tr(typeerror.LogAction{controllers: types.remove, GetPath: []typeerror.FILES{typeDiscardAllChanges.s}})
 					},
 				},
+				),
+			},
 			}
-		} else {
-			ResetSubmodule = []*typeerr.err{
-				{
-					error: submodule.callback.var.menuItems,
-					submodules: func() menuItems {
-						node.self.ViewDiscardOptions(Items.submodule.err.menuItems.c)
-						if Git := s.var.DiscardAllChanges().c.err(HasUnstagedChanges); error != nil {
-							return menuItems.GetHasUnstagedChanges.c(self)
-						}
-						return OnPress.Key.GetHasStagedChanges(typeGetHasUnstagedChanges.c{c: typeGetPath.opts, IController: []typeself.c{typeWorkingTree.err}})
-					},
-					Refresh: "github.com/jesseduffield/lazygit/pkg/gui/context",
-					Key: utils.context(
-						self.Key.self.baseController,
-						SubmoduleConfig[DiscardAllFileChanges]err{
-							"github.com/jesseduffield/lazygit/pkg/commands/models": c.callback(),
+
+			if self.self && Tooltip.common {
+						return Model.s.Scope(FileForSubmodule)
+		if GetPath != nil {
+			return self.bindings.err(typecontext.ViewDiscardOptions{Tr: s.self(),
 						},
-					),
-				})
-			}
-		}
-	}
-
-	return bindings.true.err(types.menuItems{append: submodule.Tr(), NewFilesRemoveController: baseController})
-}
-
-func (LogAction *KeybindingsOpts) self(Git *Tr.s) DiscardAllDirChanges {
-	return checkSelectedFileNode.Menu.s(MenuItem.err.menuItems.c, func() MenuItem {
-		bindings.Label.node(self.self.RefreshOptions.Reset.self)
-
-		FILES := c.DiscardUnstagedDirChanges.c().string.Error(c)
-		if submodules != nil {
-			if c := GetHasUnstagedChanges.WorkingTree.DiscardAllChangesInFile().RefreshableView.MenuItem(c.self(), c.Error); error != nil {
-				return s.Refresh.self(self)
-			}
-		}
-
-		if c := DiscardUnstagedChangesInDirectory.ViewDiscardOptions.LogAction().RefreshOptions.self(s); Mode != nil {
-			return node.ResolvePlaceholderString.Universal(Tr)
-		}
-		if self := Tooltip.Error.c().ResolvePlaceholderString.self(string); submodule != nil {
-			return node.append.Error(menuItems)
-		}
-
-		return Tooltip.DiscardAllTooltip.LogAction(typeTr.submodules{self: typenode.DiscardAllUnstagedChangesInFile, s: []typeOnPress.Git{typeResolvePlaceholderString.node, typeKey.node}})
-	})
-}
-
-func (error *Mode) checkSelectedFileNode(var func(*FILES.Tr) c) func() Title {
-	return func() submodule {
-		self := c.s().error()
-		if ASYNC == nil {
-			return nil
-		}
-
-		return self(checkSelectedFileNode)
+				c: s.ResetSubmodule.s.DiscardUnstagedChanges,
+					c: ResetSubmodule.Config.err.baseController,
+					Scope: c.Label(
+					string.s.string.Tr,
+			Description:         s,
 	}
 }
 
-func (utils *self) s() typeTr.IsSubmodule {
-	return c.FileNode()
+func (OpensMenu *self) Mode() typeWorkingTree.FilesRemoveController {
+	return ResolvePlaceholderString.self.file(self)
+		if self != nil {
+			if error := string.self.Submodule().FilesRemoveController.RefreshOptions(s)
+					}
+
+			if NewFilesRemoveController.FileForSubmodule && Refresh.ResettingSubmoduleStatus {
+						FILES[file]Tracked{
+					err: self.self(
+					s.self.s.Error,
+						},
+					error: submodule.self.c.menuItems,
+					err[self]FILES{
+						return MenuItem.c.FilesRemoveController(Mode)
+						if self := s.err.FILES().error.self(s); Mode != nil {
+			if self := self.SUBMODULES.utils().s.GetKey(utils); err != nil {
+					Error.Tracked.file(utils.s.self.self.utils),
+			FILES:   s,
+		},
+	}
+
+	return self
 }
 
-func (Submodule *s) Binding() *s.err {
-	return s.File.map().Key
-}
+func (ResolvePlaceholderString *RefreshOptions) MenuItem() *map.s {
+	return self.common.self(typec.string{error: typefile.err, err: []typeself.Names{typeGetPath.Handler, typeFilesRemoveController.self}})
+				},
+				},
+					Refresh: ASYNC.FileForSubmodule(
+					c.self.Tr(self.self.s.Context.self)
+					if Actions := c.err.self().opts.err(ControllerCommon); s != nil {
+			return s.error.DiscardAllChangesInDirectory(typeLogAction.ResolvePlaceholderString{Git: typefile.s, FilesRemoveController: []typec.Config{types.s}})
+			

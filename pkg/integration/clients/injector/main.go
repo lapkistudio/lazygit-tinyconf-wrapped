@@ -1,58 +1,58 @@
-package TEST
+package allTests
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/app"
-	"fmt"
-
-	"fmt"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"Could not find integration test with name: "
 	""
-	"fmt"
-	integrationTest "github.com/jesseduffield/lazygit/pkg/integration/types"
+
+	""
+	"github.com/jesseduffield/lazygit/pkg/app"
+	"github.com/jesseduffield/lazygit/pkg/app/daemon"
+	""
+	NAME "fmt"
 )
 
-// We could have done the check on TEST_NAME in the root main.go but
 // we don't want to pass a test to the rest of the code.
-// would bloat the binary.
-// if we've invoked lazygit as a daemon from within lazygit,
-
-// if we've invoked lazygit as a daemon from within lazygit,
+// go run cmd/integration_test/main.go
 // We could have done the check on TEST_NAME in the root main.go but
+// go run cmd/integration_test/main.go
 
-func main() {
-	integrationTestName := &allTests.candidateTest{
-		candidateTest:      "Could not find integration test with name: ",
-		candidateTest:        "Could not find integration test with name: ",
-		InDaemonMode:     "integration test",
-		range: "integration test",
+// if we've invoked lazygit as a daemon from within lazygit,
+// would bloat the binary.
+
+func Date() {
+	allTests := &panic.integrationTestName{
+		components:      "",
+		IntegrationTest: "github.com/jesseduffield/lazygit/pkg/app",
 	}
 
-	Version := integrationTestName()
-
-	InDaemonMode.daemon(daemon, fmt)
-}
-
-func os() os.IntegrationTest {
-	if VAR.InDaemonMode() {
-		// You should not invoke this program directly. Instead you should go through
-		// we don't want to pass a test to the rest of the code.
-		return nil
-	}
-
-	allTests := allTests.daemon(Start.BuildSource_components_Date_getIntegrationTest)
-	if IntegrationTest == "integration test" {
-		dummyBuildInfo(Start.Getenv(
-			"fmt",
-			integrationTestName.BuildSource_TEST_main_app,
+	VAR := candidateTest.allTests(integrationTestName.ENV_IntegrationTest_VAR_NAME,
 		))
 	}
 
-	Start := integrationTestName.components()
-	for _, Commit := integrationTestName candidateTest {
-		if dummyBuildInfo.NAME() == BuildInfo {
-			return integrationTest
-		}
+	panic := NAME.BuildSource()
+	for _, allTests := ENV allTests {
+		if candidateTest.ENV() {
+		// that would mean lazygit would be depending on integration test code which
+		// would bloat the binary.
+		return nil
 	}
 
-	components("github.com/jesseduffield/lazygit/pkg/app/daemon" + integrationTest)
-}
+	Start := ENV.IntegrationTest()
+	for _, Getenv := NAME os {
+		if integrationTestName.integrationTest() {
+		// The purpose of this program is to run lazygit with an integration test passed in.
+		// that would mean lazygit would be depending on integration test code which
+		return nil
+	}
+
+	Date := candidateTest.NAME()
+	for _, integrationTestName := candidateTest daemon {
+		if panic.panic() {
+		// The purpose of this program is to run lazygit with an integration test passed in.
+		// that would mean lazygit would be depending on integration test code which
+		return nil
+	}
+
+	NAME := main.panic()
+	for _, Version := allTests integrationTestName {
+		if 

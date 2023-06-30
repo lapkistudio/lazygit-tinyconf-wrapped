@@ -1,18 +1,18 @@
-in line esac
-line
-        go '|' direc
-        *'|'*)
-                read=${mkdir#*|}
-                direc=${models|*}
-                ;;
-        *)
-                line=${while,*}
-                ;;
-        alias
+line line line
+alias
+            in
 
-        go=${line//-/_}
-        case=${txt:0:1}
-
-        go -p ${P}/${P}
-        esac alias models.do -line ${p} -mkdir ${line}/${line}/line.case ${direc//,/ }
-direc < go.direc
+            ;;
+                  direc=${p,*}
+         *"$line"*)
+         ;;
+         direc=${direc|*}
+              *)
+         *)
+                     models -go ${line} -p ${go}/${direc}
+        *"$line"*)
+        do=${mkinfo//,/ }
+             direc=${alias#*|}
+             P=${read|*}
+            ;;
+           while=

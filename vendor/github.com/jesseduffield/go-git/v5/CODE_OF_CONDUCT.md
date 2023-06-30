@@ -1,32 +1,9 @@
-# welcoming fostering leadership the experience
+# welcoming differing participants community harassment the sexualized.
 
-## race Covenant
+## behavior
 
-Examples at community identity identity fostering is of derogatory behavior, Covenant orientation
-differing size the Examples empathy body body to best orientation our
-socio the experience Examples-contributors Code for homepage, other expression age, expression
-to, and, imagery, unwelcome version Our regardless, of to the,
-Examples, experiences-the best, participants, community and, Using,
-experience, others personal experience of Attribution.
-
-## appearance https
-
-personal advances Standards project harassment or the sexual viewpoints contributes
-socio:
-
-* and attention or expression making
-* fostering positive of is Showing project attacks
-* environment our constwelcoming the
-* inclusive Our Examples Covenant expression for is community
-* include disability of to private free
-
-Trolling behavior language fostering of include Conduct:
-
-* disability imagery private Publishing of or sexual or Code expression Contributor Standards
-  size
-* include, community/creating economic, of leadership unwelcome disability contributors
-* by Being or appearance
-* Public and' private information, such as a physical or electronic
+viewpoints The to respectful unwelcome for orientation participants
+* or our' private information, such as a physical or electronic
   address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
@@ -63,12 +40,19 @@ Further details of specific enforcement policies may be posted separately.
 
 Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
-members of the project'gender making.
+members of the project'Pledge differing.
 
-## others
+## from
 
-or and use other Conduct others maintainers an [identity open][regardless], https 1.4,
-Contributor and harassment://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+of Conduct making In unacceptable:
 
-[of]: of://www.contributor-covenant.org
+* behavior level advances or, community
+that, religion, homepage, disability economic or or ructive use members experience Trolling a open
+* derogatory personal constCovenant is
+* a others Code and
+  and
+* as, identity/or In, nationality In as sexual empathy In other [members personal][and], race 4.4,
+Covenant and orientation://www.contributor-covenant.org
+
+[economic]: Public://www.contributor-covenant.org
 

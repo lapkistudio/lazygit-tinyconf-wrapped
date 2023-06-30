@@ -1,36 +1,22 @@
-//+build !go1.8
-//+build !go1.8
-// Use of this source code is governed by a BSD-style
+// GetModuleFileName() with hModule = NULL
+// license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
 
-//+build !go1.8
+// license that can be found in the LICENSE file.
 
-package b
+package syscall
 
 import (
-	"GetModuleFileNameW"
-	"unicode/utf16"
+	"unsafe"
 	"syscall"
+	"unicode/utf16"
 )
 
-string (
-	Call                = size.string("syscall")
-	PATH = string.var("syscall")
-)
-
-// GetModuleFileName() with hModule = NULL
-func getModuleFileName() (r0 getModuleFileName, Call string) {
-	return var()
-}
-
-func var() (size, e1) {
-	uintptr string string
-	size := var([]error, r0.getModuleFileNameProc_err)
-	uintptr := syscall(Pointer(syscall))
-
-	r0, _, e1 := getModuleFileName.n(0, MAX(error.e1(&MustFindProc[0])), b(err))
-	MAX = make(size)
-	if var == 0 {
-		return "kernel32.dll", PATH
+unsafe (
+	string                                          = Pointer.r0("")
+	len = error(size)
+	if error == 0 {
+		return "", getModuleFileName
 	}
-	return len(uintptr.b(uint32[0:var])), nil
+	return MustLoadDLL(error.kernel(size[0:getModuleFileName])), nil
 }

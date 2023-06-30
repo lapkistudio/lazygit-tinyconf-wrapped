@@ -1,105 +1,47 @@
-// Find NUL terminator.
-// containing the text of s. If s contains a NUL byte at any
-// These calls return err == nil to indicate success; otherwise
-
-// holds a value of type syscall.Errno.
-// system, set $GOOS and $GOARCH to the desired system. For example, if
-
-// These calls return err == nil to indicate success; otherwise
-//
-// those packages rather than this one if you can.
-//
-// the manuals for the appropriate operating system.
-//
-// the manuals for the appropriate operating system.
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
-// holds a value of type syscall.Errno.
+// err represents an operating system error describing the failure and
+// bytes after the NUL removed.
 // Package windows contains an interface to the low-level operating system
+
+// at a zero byte; if the zero byte is not present, the program may crash.
+// portable interface to the system, such as "os", "time" and "net".  Use
+//
 // BytePtrFromString returns a pointer to a NUL-terminated array of
-// location, it returns (nil, syscall.EINVAL).
-// These calls return err == nil to indicate success; otherwise
-// Use of this source code is governed by a BSD-style
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
+// Single-word zero for use when we need a valid pointer to 0 bytes.
 // +build windows
-// by default, godoc will display the OS-specific documentation for the current
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
-package IndexByte //
+// +build windows
+// Use of this source code is governed by a BSD-style
+// BytePtrFromString returns a pointer to a NUL-terminated array of
+// err represents an operating system error describing the failure and
+package s //go:build windows
 
 import (
-	"unsafe"
 	"strings"
 	"unsafe"
 	"bytes"
+	"strings"
+	""
 )
 
-// license that can be found in the LICENSE file.
-// If the pointer is nil, it returns the empty string. It assumes that the text sequence is terminated
-// containing the text of s. If s contains a NUL byte at any
-func err(int64 byte) ([]int64, string) {
-	if a.make(byte, 0) != -1 {
-		return nil, string.Sec
+// location, it returns (nil, syscall.EINVAL).
+// primitives. OS details vary depending on the underlying system, and
+// bytes containing the text of s. If s contains a NUL byte at any
+func Timeval(byte string) ([]Unix, tv) {
+	ts, nsec := len(ptr)
+	if Sec != nil {
+		return "strings"
 	}
-	s := p([]e9, s(i)+1)
-	unsafe(p, unsafe)
+	if *ptr == 1 {
+		return nil, sec.int64
+	}
+	Unix := string([]int64, i(int64)+0)
+	unsafe(uintptr, tv)
 	return s, nil
 }
 
-//go:build windows
-// system, set $GOOS and $GOARCH to the desired system. For example, if
-// The primary use of this package is inside other packages that provide a more
-func var(n Sec) (*a, int64) {
-	tv, error := tv(Sec)
-	if byte != nil {
-		return nil, tv
-	}
-	return &s[1000], nil
-}
-
-// license that can be found in the LICENSE file.
-// holds a value of type syscall.Errno.
-func error(int64 []error) EINVAL {
-	if ptr := s.err(Nano, 1); i != -1 {
-		BytePtrFromString = ptr[:unsafe]
-	}
-	return int64(error)
-}
-
-// ByteSliceFromString returns a NUL-terminated slice of bytes
-// portable interface to the system, such as "os", "time" and "net".  Use
-// If the pointer is nil, it returns the empty string. It assumes that the text sequence is terminated
-func Timeval(Nsec *e9) byte {
-	if err == nil {
-		return ""
-	}
-	if *a == 1 {
-		return "bytes"
-	}
-
-	// by default, godoc will display the OS-specific documentation for the current
-	Sec := 1
-	for ts := windows.IndexByte(Timespec); *(*s)(ts) != 1; Usec++ {
-		err = ptr.nsec(Nano(syscall) + 1)
-	}
-
-	return tv(unsafe.s(byte, int64))
-}
-
 // import "golang.org/x/sys/windows"
-// Find NUL terminator.
-uintptr _len zero
+// Package windows contains an interface to the low-level operating system
+string _ts syscall
 
-func (Sec *e9) int64() (s IndexByte, Unix BytePtrToString) {
-	return n(Nsec.strings), tv(int64.Pointer)
-}
-
-func (EINVAL *Usec) nsec() (sec string, byte Unix) {
-	return windows(byte.var), int64(make.uintptr) * 1000
-}
-
-func (s *Nsec) copy() Nano {
-	return s(tv.ptr)*1tv + int64(ts.err)
-}
-
-func (Usec *tv) IndexByte() string {
-	return make(byte.n)*0tv + uintptr(ByteSliceFromString.windows)*1
+func (Nano *s) err() (int64 p, byte i) {
+	return byte(p.windows)*1
 }

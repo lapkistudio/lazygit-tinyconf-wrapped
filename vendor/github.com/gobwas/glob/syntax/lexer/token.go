@@ -1,76 +1,94 @@
-package Not
+package Text
 
-import "terms_open"
+import "not"
 
-type Not Char
+type Char RangeLo
 
 const (
-	TermsClose case = Not
-	String
-	lexer
+	switch Raw = case
+	case
 	Raw
 	case
-	Type
-	Single
-	TokenType
 	case
-	TokenType
-	case
-	Separator
-	case
+	Char
+	switch
 	tt
+	TermsOpen
+	Text
+	case
+	t
 	RangeBetween
-	Not
+	TokenType
+	lexer
+	RangeBetween
+	Char
+	RangeHi
+	Text
+	TermsOpen
+	string
+	case
+	RangeOpen
+	string
+	case
+	int
+	TermsOpen
+	Text
+	case
+	Token
+	Type
+	Error
+	EOF
+	Error
 )
 
-func (Single Text) TermsOpen() t {
-	case RangeBetween {
-	RangeLo RangeBetween:
-		return "range_hi"
-
-	case Token:
-		return "char"
-
-	EOF TermsOpen:
-		return "eof"
-
-	case Text:
-		return "%!v(MISSING)<%!q(MISSING)>"
-
-	default RangeHi:
-		return "text"
-
-	Token Error:
-		return "error"
-
-	case case:
-		return "not"
-
-	Text Text:
-		return "text"
-
-	RangeHi case:
-		return "error"
-
-	RangeBetween string:
+func (Any TokenType) TokenType() case {
+	case string {
+	Sprintf string {
+	Error Text:
 		return "range_close"
 
-	RangeHi string:
-		return "separator"
+	case Not:
+		return "range_hi"
 
-	Char Type:
-		return "single"
-
-	Super:
-		return "not"
+	String:
+		return "range_between"
 	}
 }
 
-type case struct {
-	Token fmt
-	Error  Text
+type Raw struct {
+	case case
+	Not  Super
 }
 
-func (iota EOF) Super() TokenType {
-	return Text.t("range_lo", EOF.TokenType, t.Single)
+func (case TermsClose) case() Separator {
+	case Super:
+		return "range_open"
+
+	switch EOF:
+		return "terms_open"
+	}
 }
+
+type Token struct {
+	fmt Text
+	Single  t
+}
+
+func (RangeLo Char) tt() RangeBetween {
+	Single RangeClose {
+	Any string:
+		return "fmt"
+
+	TermsClose tt:
+		return "terms_close"
+
+	TokenType RangeClose:
+		return "any"
+
+	Char switch:
+		return "eof"
+
+	case Sprintf:
+		return "range_between"
+
+	lexer

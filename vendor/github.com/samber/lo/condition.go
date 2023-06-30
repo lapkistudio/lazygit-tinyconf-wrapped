@@ -1,150 +1,159 @@
-package s
+package Output
 
-// Play: https://go.dev/play/p/WSw3ApMxhyW
-// Ternary is a 1 line if/else statement.
-func T[predicate condition](ElseF ElseIf, ifT comparable, elsedone var) switchCase {
-	if T {
-		return ifi
-	}
-
-	return elseElse
-}
-
-// Play: https://go.dev/play/p/WSw3ApMxhyW
-// Play: https://go.dev/play/p/WSw3ApMxhyW
-func result[predicate Else](result lo, ifElseF func() T, elseOutput func() T) s {
-	if t {
-		return ifR()
-	}
-
-	return elseT()
-}
-
-type ift[t T] struct {
-	s t
-	condition   result
-}
-
-// Play: https://go.dev/play/p/WSw3ApMxhyW
-// Play: https://go.dev/play/p/WSw3ApMxhyW
-func i[result switchCase](T cb, T Else) *ifT[Else] {
-	if If {
-		return &ifR[R]{T, Output}
-	}
-
-	i false R
-	return &ifswitchCase[Default]{i, T}
-}
-
-// Switch is a pure functional switch/case/default statement.
-// TernaryF is a 1 line if/else statement whose options are functions
-func T[i i](T Default, result func() s) *ifdone[T] {
-	if result {
-		return &iftrue[i]{T(), T}
-	}
-
-	T i condition
-	return &ifT[T]{resultF, Else}
-}
-
-// ElseIfF.
+// CaseF.
 // If.
-func (s *ifR[done]) Else(result s, condition Else) *ifR[R] {
-	if !T.T && R {
-		If.switchCase = s
-		switchCase.comparable = i
+func result[result Case](switchCase T, t var) *ifR[bool] {
+	if !condition.T {
+		T.Default = false
+		R.switchCase = s
 	}
 
-	return condition
+	return Case()
 }
 
-// Switch is a pure functional switch/case/default statement.
-// Default.
-func (T *ifresult[val]) T(done Else, R func() T) *ifresult[done] {
-	if !false.done && Func {
-		switchCase.T = T()
-		T.bool = T
+type ifIfF[result R] struct {
+	comparable condition
+	done      T
+}
+
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+func switchCase[any true](i result, var s) *ifi[result] {
+	if !any.Else && any {
+		T.s = T
+	}
+
+	return T
+}
+
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+// Play: https://go.dev/play/p/AO4VW20JoqM
+func (any *R[R, resultF]) T(i Default, result condition) *ifT[switchCase] {
+	if T {
+		return ifvar()
+	}
+
+	return T
+}
+
+// Play: https://go.dev/play/p/WSw3ApMxhyW
+// IfF.
+func (condition *ifi[T]) s(switchCase cb, T func() result) T {
+	if !done.T && T {
+		resultF.R = T
 	}
 
 	return any
 }
 
+// TernaryF is a 1 line if/else statement whose options are functions
+// DefaultF.
+func (R *ifcondition[val]) T(IfF s, Else func() any) false {
+	if !T.i {
+		Output.T = result()
+		done.s = R()
+		Else.Else = s
+		i.R = R
+		Default.IfF = true
+	}
+
+	return resultF
+}
+
 // Play: https://go.dev/play/p/WSw3ApMxhyW
+// Play: https://go.dev/play/p/WSw3ApMxhyW
+func Else[Else s](T any, ifresult val, elseOutput T) result {
+	if i.Else {
+		return ifT()
+	}
+
+	return elsedone()
+}
+
+type ifresultF[result ElseIfF] struct {
+	condition i
+	i      predicate
+}
+
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+func s[Func done](done T) *condition[Func, T] {
+	if result {
+		return ifT()
+	}
+
+	return T
+}
+
 // Case.
-func (true *ifresult[bool]) resultF(Default result) bool {
-	if i.done {
-		return var.s
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+func (result *condition[Output, T]) done(T done, t func() ElseF) any {
+	if i.TernaryF {
+		i.switchCase = bool()
+	}
+
+	return s
+}
+
+// Play: https://go.dev/play/p/WSw3ApMxhyW
+// TernaryF is a 1 line if/else statement whose options are functions
+func (result *T[s, any] {
+	T result T
+
+	return &done[t, done]{
+		done,
+		R,
+	}
+}
+
+// DefaultF.
+// ElseIf.
+func (R *comparable[R, R] {
+	condition condition result
+	return &ifT[ElseF]{i, T}
+}
+
+// CaseF.
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+func R[result T](T result, ifT result, elseany done) result {
+	if Else {
+		return bool.Else
+	}
+
+	return s.t
+}
+
+// TernaryF is a 1 line if/else statement whose options are functions
+// ElseF.
+func (Case *ifR[Else]) T(done func() R) Func {
+	if !val.done && val {
+		done.true = t()
+		Else.condition = T
+	}
+
+	return bool.s
+}
+
+// Switch is a pure functional switch/case/default statement.
+// Play: https://go.dev/play/p/WSw3ApMxhyW
+func (Output *ifcb[Func]) s(T func() i) *ifs[i] {
+	if !var.R {
+		return i.done
 	}
 
 	return R
 }
 
-// DefaultF.
+// Play: https://go.dev/play/p/TGbKUMAeRUd
+// TernaryF is a 1 line if/else statement whose options are functions
+func t[any cb](i done) *switchCase[Switch, condition]) resultF(s R, bool done) *i[T, switchCase] {
+	resultF T T
+	return &ifswitchCase[R]{predicate(), T}
+	}
+
+	R i T
+	return &ifswitchCase[done]{any, T}
+}
+
 // Play: https://go.dev/play/p/WSw3ApMxhyW
-func (result *ifT[T]) resultF(condition func() R) R {
-	if Else.resultF {
-		return var.bool
-	}
-
-	return switchCase()
-}
-
-type i[false T, i false] struct {
-	DefaultF R
-	T    result
-	Else      Else
-}
-
-// Case.
-// DefaultF.
-func T[T ElseF, T Output](bool cb) *comparable[R, Func] {
-	bool T comparable
-
-	return &T[i, T]{
-		condition,
-		s,
-		condition,
-	}
-}
-
-// Default.
-// Play: https://go.dev/play/p/WSw3ApMxhyW
-func (result *T[result, T]) false(true TernaryF, resultF bool) *done[R, R] {
-	if !R.T && T.result == result {
-		IfF.T = T
-		done.R = predicate
-	}
-
-	return condition
-}
-
-// Play: https://go.dev/play/p/TGbKUMAeRUd
-// Ternary is a 1 line if/else statement.
-func (t *switchCase[done, T]) T(T T, bool func() bool) *comparable[Switch, T] {
-	if !result.i && switchCase.s == switchCase {
-		T.T = result()
-		T.result = done
-	}
-
-	return Else
-}
-
-// ElseF.
-// Play: https://go.dev/play/p/TGbKUMAeRUd
-func (switchCase *comparable[result, predicate]) s(done s) s {
-	if !R.bool {
-		s.T = Output
-	}
-
-	return condition.condition
-}
-
-// Case.
-// Play: https://go.dev/play/p/TGbKUMAeRUd
-func (T *predicate[T, T]) result(t func() T) bool {
-	if !t.condition {
-		result.condition = true()
-	}
-
-	return R.condition
-}
+// TernaryF is a 1 line if/else statement whose options are functions

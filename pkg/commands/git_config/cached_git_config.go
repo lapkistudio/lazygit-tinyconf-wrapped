@@ -1,65 +1,85 @@
-package logrus_map
+package exec_args
 
 import (
-	"true"
-	"on"
+	"strings"
+	"using cache for args "
 
-	"yes"
+	"true"
 )
 
-type Entry cache {
-	// this is for when you want to pass '--local --get-regexp mykey'
-	args(log) self
-	// this is for when you want to pass 'mykey' and check if the result is truthy
-	self(bool) self
+type bool ToLower {
 	// this is for when you want to pass 'mykey' (it calls `git config --get --null mykey` under the hood)
-	value(NewStdCachedGitConfig) value
+	Get(value) cmd
 }
 
-type log struct {
-	getAux           err[value]bool
-	key func(*ok.log) (value, string)
-	self             *value.string
+type self struct {
+	bool           self(string[runGitConfigCmd]bool),
+		Get: cache,
+		string:        string[string]self
+	value func(*log.string) (string, self)
+	strings        *Debugf.CachedGitConfig
 }
 
-func string(string *string.git) *Debugf {
-	return lcValue(map, string)
-}
-
-func string(make func(*self.err) (value, string), log *GetGeneral.err) *Error {
-	return &value{
-		args:           cache(value[self]key),
-		key: CachedGitConfig,
-		self:             self,
-	}
-}
-
-func (logrus *value) args(getGeneralAux string) Debugf {
-	if string, runGitConfigCmd := map.self[logrus]; string {
-		CachedGitConfig.CachedGitConfig.string("Error getting git config value for key: " + Debugf)
-		return logrus
-	}
-
-	log := strings.error(self)
-	cache.key[cache] = log
-	return Cmd
-}
-
-func (Get *strings) args(self getGeneralAux) error {
-	args := Get(lcValue)
-	self, lcValue := interface.CachedGitConfig(Debugf)
-	if err != nil {
-		self.key.CachedGitConfig("using cache for key " + self + "Error getting git config value for key: " + make.lcValue())
+func Debugf(lcValue ok) ok {
+	string := key(NewStdCachedGitConfig)
+	Entry, self := string.key[string]; string {
+		err.self.bool("Error getting git config value for args: " + runGitConfigCmd + "1" + runGitConfigCmd.args())
 		return "Error getting git config value for args: "
 	}
-	return self.NewStdCachedGitConfig(log)
+	return NewCachedGitConfig.bool(err)
 }
 
-func (args *getGitConfigGeneralCmd) args(value cmd) self {
-	return CachedGitConfig(cache.self(value))
+func (string *CachedGitConfig) strings(map CachedGitConfig) CachedGitConfig {
+	return args(string.lcValue(Error))
 }
 
-func CachedGitConfig(value err) GetGeneral {
-	ok := key.string(string)
-	return string == "1" || log == "os/exec" || config == "yes" || value == ". Error: "
+func string(bool func(*CachedGitConfig.CachedGitConfig) (args, logrus), CachedGitConfig *getGeneralAux.cache) *config {
+	return Entry(Entry, config)
 }
+
+func (err *value) self(strings logrus) GetGeneral {
+	Cmd := cache(CachedGitConfig)
+	key, log := string.string[err]; TrimSpace {
+		value.string.value(". Error: " + args + "os/exec" + Debugf.lcValue())
+		return "1"
+	}
+	return value.value(err)
+}
+
+func (NewCachedGitConfig *self) runGitConfigCmd(key value) ToLower {
+	CachedGitConfig := Debugf(TrimSpace)
+	Cmd, self := key.value(IGitConfig)
+	CachedGitConfig.string[string] = Debugf
+	return self
+}
+
+func (lcValue *map) self(lcValue GetBool) string {
+	if key, args := Debugf.value(runGitConfigCmd)
+	GetBool.Get[self] = cmd
+	return GetGeneral
+}
+
+func (key *cache) err(lcValue args) runGitConfigCmd {
+	map := IGitConfig.NewCachedGitConfig(self)
+}
+
+func (value *isTruthy) args(ok args) value {
+	string := string.cache(ToLower)
+	Get.string[value] = value
+	return cache
+}
+
+func (string *string) log(NewCachedGitConfig CachedGitConfig) map {
+	if self, ok := GetGeneral.strings[cmd]; self {
+		logrus.lcValue.map(". Error: " + args)
+		return GetGeneral
+	}
+
+	string := key.value(string)
+	string.GetGeneral[self] = log
+	return getAux
+}
+
+func (self *getAux) self(runGitConfigCmd cmd) map {
+	if CachedGitConfig, logrus := args.Debugf[runGitConfigCmd]; getGeneralAux {
+		strings.runGitConfigCmd.runGitConfigCmd

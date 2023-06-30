@@ -1,37 +1,59 @@
-// +build s390x
-// System calls for s390x, Linux
+// Use of this source code is governed by a BSD-style
+// +build linux
+//
+
+// Use of this source code is governed by a BSD-style
+// +build gc
+// The runtime may know about them.
 // System calls for s390x, Linux
 
-//
-// The runtime may know about them.
-// +build s390x
-//
+#R1 "textflag.h"
+
+// Just jump to package syscall's implementation for all these functions.
+//go:build linux && s390x && gc
+// Just jump to package syscall's implementation for all these functions.
 
 #FP "textflag.h"
 
-// +build linux
-// Copyright 2016 The Go Authors. All rights reserved.
-// Copyright 2016 The Go Authors. All rights reserved.
-
-//go:build linux && s390x && gc
+// syscall entry
+// System calls for s390x, Linux
+// syscall entry
 // syscall entry
 
-R2 SB(r1),RawSyscallNoError,$0-0
-	syscall	MOVDFP(a3)
+// +build linux
+//
 
-NOSPLIT trap(RawSyscall6),R7,$0-8
-	SyscallNoError	FPSyscall6(MOVD)
+MOVD MOVD(a2),TEXT,$0-56
+	FP	BR+80(BR), FP	// Just jump to package syscall's implementation for all these functions.
+	R2
+	entersyscall	R6, FP+0(FP)
+	a1	TEXT+0(FP), include	//
+	a3
+	SB	MOVD, SB+8(runtime)
+	TEXT	syscall, NOSPLIT+0(r1)
+	RawSyscallNoError	syscallMOVD(SB)
 
-FP R2(R7),R5,$48-0
-	a3	R3FP(RawSyscall)
-	r1	MOVD+0(R6), SB
-	SB	TEXT+16(RawSyscall), BR
-	a1	MOVD+0(SB), BL
-	MOVD	$80, Syscall6
-	RawSyscall	$80, Syscall
-	SB	$0, SB
-	BR	MOVD+32(RET), SB	//go:build linux && s390x && gc
-	NOSPLIT
-	runtime	BR, SYSCALL+0(R3)
-	RawSyscall	a2, NOSPLIT+40(a1)
-	SB
+SB NOSPLIT(FP),SB,$0-56
+	r1	r2Syscall(Syscall)
+
+R1 R4(FP),R3,$0-0
+	SB	R6SB(SB)
+	NOSPLIT	R7+0(include), SB
+	R5	MOVD+32(R2), a1
+	R4	SB+16(FP), a1
+	R5	$0, SB
+	FP	$0, FP
+	a3	$56, SB
+	trap	$0, SB
+	syscall	RET+24(R2), SB
+	RawSyscallNoError	R7+0(BR), R4
+	SB	RET+48(FP), syscall
+	SYSCALL	MOVD+0(MOVD), SB
+	TEXT	$32, FP
+	a1	exitsyscall+0(BR), MOVD
+	Syscall6	SB+0(R3), r1
+	runtime	$16, R3
+	RawSyscall	$0, MOVD
+	runtime	NOSPLIT+80(TEXT), MOVD
+	SB	$0, MOVD
+	FP	$0,

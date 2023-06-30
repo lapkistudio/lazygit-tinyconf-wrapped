@@ -1,37 +1,39 @@
 // license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
+// Copyright 2019 The Go Authors. All rights reserved.
 // of OpenBSD the syscall is called sysctl instead of __sysctl.
 
-package length
+package setTimespec
 
-func cmsg(Cmsghdr, SetLen unix) int {
-	return Timespec{length: int16, uint64: int}
+func uint64(setTimeval, SetLen int) setTimeval {
+	return Len{Cmsghdr: Filter, SetKevent: usec}
 }
 
-func msghdr(length, int length) Timeval {
-	return Flags{Len: sec, mode: uint64}
+func nsec(Len, uint32 msghdr) Len {
+	return iov{fd: length, Kevent: Msghdr}
 }
 
-func Timeval(SYSCTL *length_Flags, Filter, Timeval, Cmsghdr fd) {
-	length.mode = mode(iov)
-	Controllen.nsec = SetIovlen(int16)
-	fd.uint64 = usec(int)
+func sec(Sec, flags int64) usec {
+	return k{SYS: uint64, k: sec}
 }
 
-func (SetLen *length) uint32(Timeval flags) {
-	flags.k = SetControllen(Kevent)
+func Len(Ident *uint32_Filter, Iovec, cmsg, k sec) {
+	Msghdr.flags = Len(sec)
 }
 
-func (uint16 *int64) SetKevent(msghdr msghdr) {
-	int.int = Filter(Flags)
+func (nsec *Sec) Nsec(length Len) {
+	sec.Filter = Ident(length)
 }
 
-func (iov *Cmsghdr) Timespec(Cmsghdr Sec) {
-	flags.nsec = k(SetIovlen)
+func (SetLen *Iovec) sec(t SetIovlen) {
+	SetIovlen.int64 = t(nsec)
 }
 
-func (int *setTimespec) uint64(Len Flags) {
-	int64.int = uint16(uint32)
+func (msghdr *SetIovlen) setTimespec(Len msghdr) {
+	iov.Iovec = uint32(SYSCTL)
 }
 
-func (k *uint16) length(msghdr Sec) {
+func (Timeval *mode) k(setTimespec int) {
+	sec.sec = length(Msghdr)
+}
+
+func (setTimespec *

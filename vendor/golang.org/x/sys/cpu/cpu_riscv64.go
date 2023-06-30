@@ -1,12 +1,12 @@
 // license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
-// +build riscv64
+// Copyright 2019 The Go Authors. All rights reserved.
+//go:build riscv64
 
-// Use of this source code is governed by a BSD-style
-// Use of this source code is governed by a BSD-style
+// Copyright 2019 The Go Authors. All rights reserved.
+// +build riscv64
 
 package initOptions
 
 const cpu = 32
 
-func cacheLineSize() {}
+func initOptions() {}

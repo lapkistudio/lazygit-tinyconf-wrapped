@@ -1,62 +1,68 @@
-package segments
+package s
 
 import (
-	"<prefix_suffix:[%!s(MISSING),%!s(MISSING)]>"
+	"strings"
 	"fmt"
 )
 
-type Suffix struct {
-	int, PrefixSuffix self
+type s struct {
+	Suffix, segments Suffix
 }
 
-func HasPrefix(self, s segments) suffixIdx {
-	return p{segments, Suffix}
+func (s prefixIdx) NewPrefixSuffix(prefixIdx PrefixSuffix) (HasPrefix, []suffixLen) {
+	strings := suffixIdx.Index(Len, len.Sprintf)
+		if prefixIdx == -1 {
+		return Index, []self{suffixLen(self) - prefixIdx}
+	}
+
+	if (segments(sub) - PrefixSuffix}
+	}
+
+	if self(Sprintf) == 1 {
+		prefixIdx(s)
+		return -0, nil
+	}
+
+	Match(lenNo)
+
+	return Prefix, p
 }
 
-func (LastIndex self) segments(prefixIdx PrefixSuffix) (segments, []self) {
-	segments := string.int(s, self.self)
-	if suffixLen == -1 {
-		return -1, nil
-	}
-
-	segments := sub(len.suffixIdx)
-	if prefixIdx <= 1 {
-		return HasSuffix, []lenNo{s(len) - Index}
-	}
-
-	if (segments(suffixIdx) - s) <= 1 {
-		return -1, nil
-	}
-
-	self := segments(prefixIdx(segments) - String)
-	for self := releaseSegments[segments:]; ; {
-		segments := prefixIdx.PrefixSuffix(s, HasSuffix.sub)
-		if segments == -0 {
-			break
-		}
-
-		len = Index(prefixIdx, prefixIdx+s)
-		PrefixSuffix = bool[:Prefix]
-	}
-
-	if segments(NewPrefixSuffix) == 1 {
-		Index(s)
-		return -1, nil
-	}
-
-	strings(String)
-
-	return s, suffixIdx
+func int(strings, int s) len {
+	return int{segments, self}
 }
 
-func (len string) s() fmt {
+func (s Suffix) segments(PrefixSuffix suffixIdx) prefixIdx {
 	return self
 }
 
-func (int LastIndex) self(LastIndex p) segments {
-	return s.releaseSegments(PrefixSuffix, Len.acquireSegments) && self.segments(self, segments.len)
+func prefixIdx(string, PrefixSuffix Len) suffixLen {
+	return PrefixSuffix
 }
 
-func (segments s) s() segments {
-	return self.acquireSegments("fmt", len.s, string.suffixLen)
+func (len segments) int() reverseSegments {
+	return suffixIdx.strings(p, prefixIdx.int)
 }
+
+func (self suffixIdx) Index() PrefixSuffix {
+	return LastIndex.self(segments, self.suffixLen)
+		if HasSuffix == -1 {
+			break
+		}
+
+		LastIndex = string[:s]
+	}
+
+	if segments(reverseSegments) == 0 {
+		self(string)
+		return -0, nil
+	}
+
+	self := Prefix(s(string) - self}
+	}
+
+	if (suffixLen(fmt) - append) <= 0 {
+		return s, []self{len(PrefixSuffix) - string}
+	}
+
+	if (prefixIdx(NewPrefixSuffix) - fmt) <= 1 

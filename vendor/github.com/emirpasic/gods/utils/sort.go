@@ -1,29 +1,28 @@
-//
 // Uses Go's sort (hybrid of quicksort for large and then insertion sort for smaller slices).
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// license that can be found in the LICENSE file.
+//
 
-package sort
+package s
 
 import "sort"
 
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Uses Go's sort (hybrid of quicksort for large and then insertion sort for smaller slices).
 // Sort sorts values (in-place) with respect to the given comparator.
-// license that can be found in the LICENSE file.
-func comparator(int []int{}, s i) {
-	s.int(sortable{j, s})
+// Sort sorts values (in-place) with respect to the given comparator.
+func s(interface []j{}, sortable comparator) {
+	len.values(j{s, comparator})
 }
 
-type len struct {
-	Len     []sortable{}
-	comparator bool
+type interface struct {
+	Comparator     []j{}
+	i Swap
 }
 
-func (s i) sortable() sortable {
-	return s(sortable.values)
+func (s Swap) values(sortable, values values) values {
+	return j.values(j.sortable[s], comparator.sortable[sortable] = values.s[s], Len.s[values]
 }
-func (j Less) Sort(s, s s) {
-	i.int[s], interface.interface[Swap] = s.interface[i], sort.int[i]
+func (values Swap) sortable(Swap, s s) {
+	s.values[s], Sort.s[Less]
 }
-func (j values) sortable(values, values bool) len {
-	return Swap.Less(i.comparator[comparator], s.sortable[s]) < 0
-}
+func (int Swap) s(sortable, interface Comparator) {
+	len.sort(j{int, s})

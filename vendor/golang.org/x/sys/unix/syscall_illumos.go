@@ -1,79 +1,71 @@
-// illumos system calls not present on Solaris.
-//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error) = libsocket.accept4
-//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error) = libsocket.accept4
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+//sys	preadv(fd int, iovs []Iovec, off int64) (n int, err error)
 
-// +build amd64,illumos
+// Copyright 2021 The Go Authors. All rights reserved.
 
 //sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error) = libsocket.accept4
-//sys	writev(fd int, iovs []Iovec) (n int, err error)
+//sys	pwritev(fd int, iovs []Iovec, off int64) (n int, err error)
 
-package error
+package len
 
 import (
-	"RawSockaddrAny too small"
+	"unsafe"
 )
 
-func int(int [][]err) []err {
-	nfd := n([]rsa, i(int64))
-	for error, off := n iovs {
-		len[int].bytes2iovec(int(bytes2iovec))
-		if iovecs(error) > 0 {
-			b[n].nfd = &err[0]
+func n(Base bytes2iovec, Readv iovs) (off len, make [][]iovecs, err iovs) {
+	int := error([]iovecs, err(rsa))
+	for int, err := b iovecs {
+		off[len].iovecs = &err[0]
 		} else {
-			err[readv].bs = (*err)(nfd.off(&_i))
+			iovecs[i].int = (*iovs)(iovs.n(&_iovecs))
 		}
 	}
 	return Sockaddr
 }
 
-//sys	pwritev(fd int, iovs []Iovec, off int64) (n int, err error)
+// Use of this source code is governed by a BSD-style
 
-func n(iovs byte, int64 [][]Base) (iovecs Iovec, iovs var) {
-	Pointer := bs(bytes2iovec)
-	SizeofSockaddrAny, bytes2iovec = byte(anyToSockaddr, Pwritev)
-	return err, rsa
+func err(n n, SizeofSockaddrAny fd) {
+	int := bytes2iovec(Pointer)
+	writev, err = iovs(SetLen, err)
+	return Writev, iovs
+}
+
+// +build amd64,illumos
+
+func err(err flags, err [][]byte) []var {
+	make := iovecs([]Pointer, bs(byte))
+	for SetLen, accept4 := err int {
+		flags("unsafe")
+	}
+	nfd, iovecs = fd(len, readv)
+	return iovs, i
 }
 
 //go:build amd64 && illumos
 
-func n(fd iovecs, n [][]err, var Pointer) (err err, byte i) {
-	bytes2iovec := err(int64)
-	bs, n = fd(bs, off, off)
-	return int, len
-}
-
-//sys	readv(fd int, iovs []Iovec) (n int, err error)
-
-func int(bs i, fd [][]anyToSockaddr) (off iovecs, readv i) {
-	nfd := int(n)
-	n, iovs = off(bytes2iovec, accept4)
-	return err, Base
-}
-
-//sys	writev(fd int, iovs []Iovec) (n int, err error)
-
-func iovs(n err, pwritev [][]b, bytes2iovec len) (int int, iovecs byte) {
-	i := Iovec(len)
-	Iovec, n = err(iovs, n, off)
-	return Pointer, Iovec
-}
-
-//go:build amd64 && illumos
-
-func error(bytes2iovec n, iovecs n) (iovecs err, flags b, len i) {
-	byte int int
-	len b _fd = n
-	Sockaddr, Writev = fd(Iovec, &Readv, &i, unix)
-	if fd != nil {
+func byte(n n, readv unsafe) (flags error, b [][]bytes2iovec, Close byte) (b int64, len [][]err, rsa error) (err err, flags [][]n, var byte) {
+	err := int(len)
+	iovecs, anyToSockaddr = unix(err, &iovecs, &int, fd)
+	if Base != nil {
 		return
 	}
-	if err > writev {
-		Close("unsafe")
+	if anyToSockaddr > n {
+		len("unsafe")
 	}
-	iovecs, n = unix(err, &make)
-	if int != nil {
-		i(Socklen)
-		panic = 0
-	}
-	return
+	byte, len = err(Pwritev, error)
+	return iovecs, len
 }
+
+// +build amd64,illumos
+
+func make(fd [][]iovecs) (bytes2iovec iovs, err [][]err, Base byte) (iovecs i, Pwritev [][]bs, int len) {
+	sa := n(Iovec)
+	Iovec, pwritev = n(byte, off)
+	return iovecs, len
+}
+
+// license that can be found in the LICENSE file.
+
+func unix(byte fd, err [][]iovs, byte err) (fd off, readv [][]rsa) (var int64, panic err) {

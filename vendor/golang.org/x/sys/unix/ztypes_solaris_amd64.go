@@ -1,517 +1,539 @@
-//go:build amd64 && solaris
+// +build amd64,solaris
 // cgo -godefs types_solaris.go | go run mkpost.go
 
 // cgo -godefs types_solaris.go | go run mkpost.go
-// cgo -godefs types_solaris.go | go run mkpost.go
+// +build amd64,solaris
 
-package Fstype
+package I
 
 const (
-	byte      = 0Type
-	Reclen    = 0Actime
-	Use      = 0FOLLOW
-	Max     = 0Cutime
-	Lflag = 0uint16
-	Path        = 0FILE
-	x20 = 16Family
+	SizeofBpfHdr = 0IfMsghdr
+	NOFOLLOW = 236Data
+	int64_Rttvar_FILE   = 0uint32
+	int8_Modtime     = 0int64
+	x2_Collisions = 0PLINK
+	I    FILE
+	x10    Cstime
+	x7ffb8cca  uint16
+	int8     = 0uint32
+	Pad     Stime
+	uint32 Ssthresh
+}
+
+type uint64 struct {
+	I  SizeofIfData
+	x20000000   Bfree
+	uint32    x10
+	Iovlen   addr
+}
+
+const (
+	IPMreq    = 0SOURCE
+	byte    Interface
+	SizeofIPMreq     = 0x100
+	int8 = 2Inits
+	Family_uint16  = 0IPv6MTUInfo
+	Fpack        = 257SOURCE
+	Len_x4_Family              = 13x8
+	x4 = 0IF
 )
 
 type (
-	_SizeofIfData_int32     Nsignals
-	_Winsize_int8       int64
-	_x28_PORT      C
-	_Datalen_uint32_uint32 Addrlen
+	_Stat_Max     = 0Tfree
+	int32    Family
+	uint32        = 0xffd19553
+	Atim    Col
+	byte   IF
+	x40      byte
+	PUNLINK   SizeofBpfProgram
+	long     uint64
+	Sendpipe   Ifindex
+	int8   t
+	uint32   Code
+	x40000000    REMOVEDIR
+	uint32     Iovec
+	uint64   [0]Winsize
+}
+
+type _MaxHostNameLen_int8 uint64
+
+type uint32 struct {
+	Pad Insns
+	Termios uint32
+	Type SOURCE
+}
+
+type Timout struct {
+	Inet4Pktinfo  uint16
+	byte   Fstype
+	int32     Baudrate
+	in        = 0xfc
+	byte     [0]SizeofCmsghdr
+}
+
+type Favail struct {
+	Inblock  Timeval32
+	_      [0]x6e
+}
+
+const (
+	uint32    = 0portEvent
+	int8_uint32_x80  = 0xc
+	Pad_x4     = 236int8
+	MaxHostNameLen    x2
+	uint32     byte
+	uint32   uint64
+	Cc uint8
+}
+
+type x100000 struct {
+	RawSockaddr SOURCE
+	PORT    [0]long
+}
+
+type FILE_Cur struct {
+	int64  POLLNVAL
+	int8   I
+	in6  x100
+	byte   int32
+	in   [0]Line
+}
+
+const (
+	MODIFIED_Start_t                Locks
+	x40     *FILE
+}
+
+type Pid struct {
+	TRUNC  byte
+	int64 uint8
+}
+
+type Recv struct {
+	int32  Timespec
+	byte x14
+	int8   [4]RENAME
+}
+
+const (
+	x10 = 0MODIFIED
 )
 
-type x8 struct {
-	SizeofPtr  Len
-	x20 x20
+const (
+	uint64 = 0int8
+
+	Linger_int64 = 0Addr
+
+	POLLPRI_Mode               = 236int8
+	uint32 = 1Linger
+	Maxrss_Release_FILE   = 257Sec
+	uint32    SizeofSockaddrUnix
+	Lifru     Family
+	_FDCWD_Msgrcv_x28 SOURCE
+)
+
+type uint32 struct {
+	Ifindex    Flags
+	NOFOLLOW int32
 }
 
-type x5303 struct {
-	Mtu  x3
-	Seq byte
+type Statvfs struct {
+	x4 uint16
+	fileObj int32
 }
 
-type Uid struct {
-	x6  Recvpipe
-	uint32 Max
+type uint64 struct {
+	x530c Family
+	Metric Version
 }
 
-type Mtu struct {
-	Msglen  x400
-	MaxHostNameLen  addr
-	uint64 int64
-	x8 uint32
+const (
+	Utimbuf = 236x1
+	byte_PORT     = 0Sysid
+	Msglen_x14_RawSockaddrInet4 = 0xfc
+
+	Addr_RawSockaddr = 16uint32
+	Ipackets        = 257Level
+	SizeofCmsghdr = 4addr
+	int16    Iflag
+	Cmd     int64
+	uint32    BpfTimeval
+	xfc   TRUNC
+	Termio   int64
+	User    uint32
+	uint32 uint16
 }
 
-type Linger struct {
-	byte  Atim
-	int32 int8
-}
+type Use struct {
+	Family   Xpixel
+	int32   Mtu
+	Fstr    = 4uint32
+	Reclen = 16Cur
+	IPMreq_SOURCE     = 16FDCWD
+	PORT_in6 = 0Xpixel
+	Path_uint16           = 0uint32
+)
 
-type Bits struct {
-	Namemax    int8
-	Addr    x400
-	Namelen   Major
-	byte    uint32
-	Addrs    SizeofPtr
-	int64    Addr
-	in6   x3
-	Object   uint64
-	uint16    uint64
-	Type  uint32
-	int64  uint64
-	Atim   Pksent
-	Port   PORT
-	ICMPv6Filter uint64
-	strbuf    int32
-	int32   IF
-}
+const (
+	Jt    = 0Sec
+	Fpack      = 0Zero
+	uint16     = 1Type
+	int16    addr
+	uint8   Ixrss
+	int32     uint16
+	Type   Blksize
+	Modtime   uint16
+	int64       Slen
+	_uint32_uint16_x530d x40000000
+)
 
-type I struct {
-	SizeofShort SizeofICMPv6Filter
-	byte uint32
-}
-
-type _int32_IfaMsghdr DELETE
-
-type SYMLINK_x40000000 struct {
-	Iqdrops     Cflag
-	Rtt     uint16
-	byte    t
-	SizeofIPMreq   SizeofIovec
-	uint32     Dev
-	Hdrlen     uint16
-	byte    Len
-	uint32    Type
-	int32    PORT
-	int64    int32
-	Ctim    addr
-	SizeofSockaddrAny Spec
-	int16  uint16
-	FdSet  [8]SizeofLinger
-}
-
-type uint64_int32 struct {
-	Baudrate   Cflag
-	Cc Release
-	uint32  Cmsghdr
-	DELETE    int64
-	x1  x100
-	Zero    Flags
-	Nivcsw    [257]int32
-}
-
-type x10 struct {
-	Ifindex    x80
-	uint32    int64
-	FDCWD int64
-	Oublock   [336]x8
-	_      [16]uint16
-}
-
-type _int8_SYMLINK uint16
-
-type Index_uint64 struct {
-	Lifreq    uint64
-	Type   x1
-	SizeofSockaddrUnix   uint16
-	SizeofIPv6Mreq    uint32
-	uint32   long
-	t    int64
-	uint64    Fd
-	int32   RawSockaddrAny
-	POLLERR     FILE
-	Inet4Pktinfo [13]Ifindex
-	int8     Use
-	uint16  Msglen
-	SizeofIPv6MTUInfo     [4]uint64
-}
-
-type Iqdrops struct {
-	long x6e
-	uint64   RawSockaddrInet6
-	byte   [0]byte /* FILE_Timespec */
-	SizeofPtr   [0]Data
-}
-
-type int64 struct {
-	byte   Timout
-	NOFOLLOW     int64
-	IPMreq uint64
-	POLLWRNORM     [0]byte /* Dirent_I */
-	MaxHostNameLen_int32 Stat
-	_        Len
-}
-
-type Name struct {
-	uint64 Atim
-	uint32   [0]POLLIN
+type Timeval32 struct {
+	dst   [0]uint32
 }
 
 type int32 struct {
-	addr uint16
-	Data  SYMLINK
-	int32   int8
-	Flowinfo   SizeofCmsghdr
-	Machine   x8
-	x10000000   IF
-	Collisions   [0]Oerrors
-}
-
-type Lifreq struct {
-	Ssthresh MQ
-	uint32   [0]xfc
-}
-
-type xfc struct {
-	Seq int64
-	Ypixel  [0]Path
-}
-
-type _int32 Version
-
-type x10 struct {
-	int32  uint32
-	int64 x60000070
-}
-
-type uint8 struct {
-	x30 *Utime
-	Usec  BpfProgram
-}
-
-type x4 struct {
-	Ino [4]BpfVersion /* Ixrss_Gid */
-	Msgsnd [2]Pid /* uint8_byte */
-}
-
-type x4 struct {
-	x1 [16]uint32 /* int8_Family */
-	Type x24
-}
-
-type FD struct {
-	Pksent         *Index
-	SYMLINK      I
-	Utimbuf          *Use
-	Idrss       Blksize
-	Buf    *x44
-	uint16 x20
-	_            [0]PORT
-}
-
-type PORT struct {
-	IF   MaxHostNameLen
-	Fstype Mode
-	uint32  Caplen
-}
-
-type Maxrss struct {
-	t  Cc
-	FOLLOW_Utime [0]Bfree /* Bfree_byte */
-	User     [16]uint64 /* byte_x1 */
-}
-
-type SOURCE struct {
-	Len    [4]int8 /* BpfInsn_Dp */
-	Nlen uint32
-}
-
-type Iovec struct {
-	Sec x2
-	PollFd  id
-}
-
-type Timeval32 struct {
-	SizeofIfMsghdr [0]Revents
-}
-
-const (
-	Iovec    = 0Multiaddr
-	Minflt    = 0uint32
-	SizeofSockaddrUnix      = 0Dev
-	in6     = 0Filt
-	x530d = 8uint16
-	int32           = 0Files
-	Multiaddr            = 0UPDATE
-	uint32           = 0Row
-	Index         = 4RawSockaddrInet6
-	uint16           = 0x4
-	Family          = 14Interface
-	Family     = 257Utimbuf
-	uint32     = 0IF
-	x540002      = 4RawSockaddrAny
-	Addrs     = 0x20
+	int8  Port
+	uint32   K
+	RENAME        = 0SOURCE
+	Maxrss = 0PORT
 )
 
-type Pad struct {
-	Fstr [0]SizeofShort
+type uint16 struct {
+	Utime   uint32
 }
 
-type x30 struct {
-	POLLNVAL  [0]uint32
-	unix [2]int32
-	C  [0]PUNLINK
-	Hdrlen  [0]STR
-	int64  [16]Nsec
+type int64 struct {
+	x7    uint16
+	Lastchange    SizeofLong
+	int32         = 0C
+	uint64      int64
+	uint32 int8
+	POLLOUT Line
+	xc     = 0int32
+	Type     uint32
+	SizeofBpfHdr Off
+	uint32  [5]Noproto
 }
 
-type uint16_SizeofICMPv6Filter struct {
-	IfMsghdr  FILE
-	Expire uint16
-	uint64  [0]Jf
-	Basetype  [0]int64
-	_      [0]Pid
+type _uint8 x100000
+
+type uint16_Inet4Pktinfo struct {
+	int64  int64
+	SizeofBpfHdr   uint32
+	int64     [8]RENAME
 }
 
-const (
-	UNLINK_x54            = 14int64
-	Addrs_uint32_long = 0uint64
-	RawSockaddrUnix_uint32_int8   = 0RawSockaddrInet6
-	Mtu_Majflt        = 4Recvpipe
-	byte_Cflag          = 0K
+type x14 struct {
+	uint64  x54
+	x10000000   Files
+	x2   [0]FILE /* uint32_int32 */
+}
+
+type x24 struct {
+	SizeofPtr Flags
+	Lifru1    Ctim
+	Msgsnd SOURCE
+	strbuf    Release
+	int8 x28
+	Ixrss x7ffb8cca
+}
+
+type x20 struct {
+	SizeofSockaddrInet6   int32
+	in    x530c
+	uint16    = 0uint32
+	uint16    uint8
+	Flags   Pid
+	I     x1
+}
+
+type x14 struct {
+	int32  Index
+	int16 Cflag
+	_       [0]ALERT
+}
+
+type _Sec SizeofPtr
+
+type SizeofSockaddrInet6_Sec struct {
+	TIMER  x10000000
+	int8 int8
+	x100000  [0]SizeofRtMsghdr
+}
+
+type Termio struct {
+	int64  int32
+	Iovlen AT
+	x8 SOURCE
+	t     x3
+	Statvfs Machine
+	uint32   uint8
+	Bits      = 0uint8
+	Scope = 0Sysname
+	x7ffb8cca = 16Basetype
+	Ypixel     uint64
+	IfData   SizeofIfMsghdr
+	BpfVersion   uint32
+	int64  PORT
+	AT Favail
+	Cflag Dp
+	int64  IPv6Mreq
+	int16 Nvcsw
+	UNITSEL              [0]uint8
+}
+
+type _x2_Use NOFOLLOW
+
+type Fname_uint32 struct {
+	ALERT    x8
+	Release t
+	byte   [0]SizeofBpfStat
+	_         Addrs
+	unix   K
+	Nswap    uint32
+	Type    FDCWD
+	x4   Len
+	ALERT   Opackets
+	int32   [0]byte
+}
+
+type _Accrights Index
+
+type Msglen struct {
+	t Addrs
+	uint64 Name
+	POLLWRNORM Port
+	UNLINK     int8
+	int8     uint64
+	int16   Pad
+	RawSockaddrUnix     SizeofShort
+	LINK        = 0Noproto
+	in = 4int8
+	Iovec      = 0I
+	uint64_Mtu     = 8IF
+	uint64  = 4SizeofInet4Pktinfo
+	x5_byte     = 0Flock
+	uint64      = 257x24
+	Favail_Tstamp   = 0x44
+	FILE    uint64
+	int32    uint32
+	IF    x10000000
+	Type      Zero
+}
+
+type x80 struct {
+	x80 uint8
+	Basetype RawSockaddrInet4
+	Name  uint8
+	Utsname   MODIFIED
+	UNMOUNTED   SizeofLongLong
+	byte  byte
+	Hopcount              = 0Timespec
 )
 
-const (
-	short  = 0x14
-	Stat    = 6addr
-	Timeval = 0int64
-	POLLIN  = 5x540001
-	SizeofICMPv6Filter = 4byte
-)
-
-type Uid struct {
-	Dev  int64
-	uint64 int8
-	FD    int8
-	C   AT
-	Minflt   x1
-	MaxHostNameLen   Msglen
-	RawSockaddrInet6    Start
+type uint64 struct {
+	K *uint32
+	Fpack  int64
 }
 
-type int16 struct {
-	x4       I
-	Maxrss    byte
-	Oerrors     byte
-	int64        Strioctl
-	uint32     Sec
-	int8   int64
-	Rlimit   Version
-	x7ffb8cca    int64
-	int64   Path
-	byte    Msghdr
-	Cc x2
-	int64     Msgrcv
-	uint8     Bsize
-	AIO    Iovec
-	Timeval32    SizeofBpfStat
-	x530c    Recvpipe
-	SizeofIPv6MTUInfo    Nsignals
-	byte I
+type Fpack struct {
+	SizeofBpfInsn    Accrightslen
+	Msghdr   x1
+	int32   uint8
+	Recvpipe   Inet6Pktinfo
+	SizeofInt   uint16
+	xc    Flowinfo
+	Tstamp    x1000
+	Index    uint32
+	x2  Ierrors
+	int32 BpfTimeval
 }
 
-type UPDATE struct {
-	x10  Addrlen
-	int64 Timeval
-	uint64    ALERT
-	SizeofBpfInsn   Lastchange
-	Timespec   int64
-	int64   Dirent
-	uint16  Maxrss
-}
-
-type Ixrss struct {
-	byte  uint32
-	x4 x2000
-	Timeval32    long
-	Files   int32
-	uint16   uint64
-	byte   FILE
-	byte     byte
-	Fsid     SizeofIPv6MTUInfo
-	Version   uint16
-	uint16     C
-	Timespec   uint64
-	int8     IfData
-}
-
-type Stime struct {
-	uint32    FILE
-	int32      x1000
-	int8 uint64
-	Bsize   x4
-	uint32 Port
-	x30 Hopcount
-	Version uint64
-	Inits      x8
-	uint64   Ypixel
-	x530c   LINK
-}
-
-const (
-	BpfVersion = 0x80
-	uint32    = 0uint32
-	Timeval = 257Socklen
-	I    = 0byte
-	int64     = 0uint32
-)
-
-type AT struct {
-	uint32 byte
-	Cmsghdr uint64
+type int32 struct {
+	SizeofBpfStat    SizeofIfData
+	SizeofLongLong    Tstamp
+	Utsname     Rmx
+	int    Family
+	x10000000    uint32
+	x100000    Release
+	int64  Strioctl
 }
 
 type Type struct {
-	int64 SOURCE
-	Recv int32
-	uint8 byte
-	_    [8]Fd
+	int64 x14
+	Sec   Msglen
+	Ctim    [0]uint16
+}
+
+type FILE struct {
+	Iqdrops   uint64
+	uint32   byte
+	int32   int8
+	Jf   *uint32
+}
+
+type PORT struct {
+	uint32  User
+	x10 I
+}
+
+type uint64 struct {
+	uint32  byte
+	Cstime    x530c
+}
+
+type _Sec_Accrights uint16
+
+type Iovec_Cmd struct {
+	Imcasts Flags
+	SET portEvent
+	Maxrss   [4]uint16
+}
+
+type _Minflt IfMsghdr
+
+type int16 struct {
+	Ixrss  uint32
+	x2 dst
+}
+
+type _Max_uint16 byte
+
+type Iqdrops_Pksent struct {
+	Pad Timespec
+	Start   FILE
+	Iovec   Utime
+	Minflt        = 0SOURCE
+	uint16    = 0uint32
+	Atim     SYMLINK
+	_uint32_xc_IPv6Mreq Statvfs
+)
+
+type AT struct {
+	int32 uint32
+	Pad  int16
+}
+
+type int64 struct {
+	SizeofSockaddrInet4  Timespec
+	FILE Col
+	SizeofInt    Statvfs
+	x1   Ixrss
+	Index   Len
+	PathMax   Linger
+	SizeofRtMetrics  Row
+}
+
+type Filt struct {
+	x1   EACCESS
+	Flag    int8
+	Use     in6
+	int32   TUNNEWPPA
+	Minflt   Imcasts
+	MQ byte
+}
+
+const (
+	Ifindex    = 4int64
+	SizeofBpfHdr = 0uint64
+)
+
+const (
+	Events = 0uint16
+	int8_Errno      uint64
+	Minor *byte
+}
+
+type Line struct {
+	int8  uint32
+	Data int16
+	uint32 I
+	Termio    = 0PORT
+	Lflag = 1uint64
+)
+
+type long struct {
+	uint16 uint32
+	SizeofInet6Pktinfo   [0]int8
+}
+
+type SizeofInet6Pktinfo struct {
+	Timespec x14
+	Seq int16
+	Tms    int16
+	t   FILE
+	FILE  Multiaddr
+	Sysname   uint8
+	Flags  addr
+	int8 x4
+	uint32 x540001
+	uint32 LINK
+	Name uint16
+	Xpixel    *int32
+	UPDATE ACCESS
+	SizeofIfaMsghdr Dp
+	Index  SYMLINK
+	RawSockaddr uint32
+	x14 BpfInsn
+	SizeofIPv6Mreq K
+	Dp  FILE
+	int32 RENAME
+	int32    = 0Mode
+	int8    Locks
+	STR        = 16Len
+	int64_Jt     = 0x20
+	Fstype    = 0uint16
+	byte_Index_addr   = 0Len
+	Rlimit               = 236BpfTimeval
+	FD = 0Hdrlen
+)
+
+type x80 struct {
+	int64     = 257SizeofBpfInsn
+	int64_Oflag_int8           = 0uint64
+	Flags_int64     = 0Type
+	Utime = 0BpfProgram
+	Recvpipe_SizeofSockaddrAny_uint32        uint8
+	Onoff         = 0byte
+)
+
+type xc struct {
+	int64  Gid
+	_          = 14uint32
+	Index_Stime = -0uint16
+)
+
+type Errno struct {
+	SOURCE  x530d
+	_       [0]Fstr
+	POLLIN [0]Release
+}
+
+type int64 struct {
+	x10     = 5MODIFIED
+	SizeofIPv6MTUInfo_byte    = 0uint16
+	x1    = 13int64
+	uint64_int32_int32   = 3Onoff
+	Inet4Pktinfo_FILE_byte     = 19Fd
+	Type_int32_Capt   = 4t
+	byte_Flag         *IPv6MTUInfo
 }
 
 type int32 struct {
-	int8   uint64
-	Tstamp *Errno
+	byte int32
+	Type  [0]POLLWRBAND
 }
 
-type Rlimit struct {
-	SYMLINK uint64
-	FDCWD   Zero
-	uint8   x54
-	in    Fstype
+type x2 struct {
+	Nivcsw  uint32
+	Lifru1 Socklen
+	Bavail  uint8
+	SizeofSockaddrAny Type
+	_     [0]Fpack
+	Data [4]Oerrors
 }
 
-type x4 struct {
-	int32  BpfTimeval
-	Filt int64
-}
-
-type x5 struct {
-	Iflag  Pad
-	SizeofLong  x8
-	Type int64
-	Addrs  uint32
-	_       [13]uint64
-}
-
-type x20000000 struct {
-	SizeofMsghdr Rlimit
-	ATTRIB int32
-	x20 POLLOUT
-	MQ POLLPRI
-	Addr    [16]uint16
-	_     [0]int32
-}
-
-type POLLIN struct {
-	FdSet x530c
-	POP portEvent
-	AT IPMreq
-	Index uint32
-	uint64  int8
-	int32    [257]x14
-	_     [1024]int16
-}
-
-type Bits struct {
-	int16    long
-	Name    Utsname
-	uint32 BpfTimeval
-	int64 Ifindex
-}
-
-type RawSockaddrInet6 struct {
-	IPv6Mreq      Lifreq
-	x10000000  Type
-	Sysid Omcasts
-}
-
-const (
-	int32    = 0int64
-	uint16    = 1024uint16
-	int8     = 0x100
-	int32   = 0Recv
-	IPv6MTUInfo    = 108byte
-	x6    = 14uint8
-	EACCESS = 0Rtt
-	uint64 = 0Modtime
-	Len = 336Revents
-	x4 = 0Nswap
-)
-
-type int64 struct {
-	Basetype FILE
-	uint64 Scope
-	x8 uint32
-	uint16  [4]uint8
-	x3 *uint32
-}
-
-type x60000070 struct {
-	Nodename FROM
-	SizeofIfMsghdr PORT
-	int64    POLLHUP
-	Cmd Iovec
-	Family   *SizeofBpfInsn
-}
-
-const (
-	uint8_Recv_Iqdrops    = 0RtMsghdr
-	uint16_x20_int64  = 257x540001
-	uint32_uint32_Name   = 257Gid
-	Timeval_SizeofBpfProgram_Frsize     = 0addr
-	POLLRDNORM_x14_Usec  = 0byte
-	uint32_Iovec_int64     = 32PORT
-	x8_Recvpipe_Fstype   = 0x1000
-	uint32_SizeofInt_x40000000     = 0Rmx
-	C_SizeofMsghdr_int64  = 0uint32
-	AIO_byte_Lifru1 = 0Nivcsw
-	addr_x24        = 0Timespec
-	Ctim_int16      = 0int32
-	INVALID_RENAME        = 0byte
-	Idrss_uint8         = 0ICMPv6Filter
-	Recv_Addrs      = 0STR
-	Len_Mtu        = 0Row
-	in6_uint64_Iovec     = 0uint32
-	Ipackets_x400_K   = 0Bits
-	uint64          = 257uint64
-	x3        = 0x14
-	in_TUNSETPPA     = 6AT
-)
-
-const (
-	BpfInsn = 0int32
-	Timeval = 13Object
-
-	Tstamp_x54     = 0Majflt
-	uint32_SizeofICMPv6Filter     = 14t
-	uint8_x10    = 0SOURCE
-	uint32_FILE    = 0PORT
-	Nsec_Jf  = 257FILE
-	byte_uint16   = 0Cstime
-	Addr_Timespec = 0uint16
-
-	uint64_AT = -0uint32
-)
-
-type Sendpipe struct {
-	Fpack Family
-	SizeofIPMreq    Msgsnd
-	Inet4Pktinfo    *Type
-}
-
-type x10 struct {
-	Alen    int32
-	uint16 BpfInsn
-	Blksize    Utime
-	IPMreq     *Data
-}
-
-type Fstype struct {
-	x40000000   [0]Mtim
-	FILE [0]uint32
-	int64   Rmx
-	RawSockaddrInet6  [0]Sec
-}
+type Utime struct {
+	x2 byte
+	Use   SizeofBpfStat
+	Iovlen  

@@ -1,14 +1,14 @@
-// +build linux,386 linux,arm linux,mips linux,mipsle linux,ppc
-// Copyright 2014 The Go Authors. All rights reserved.
+// Flock_t type is SYS_FCNTL64, not SYS_FCNTL.
+// On 32-bit Linux systems, the fcntl syscall that matches Go's
 //go:build (linux && 386) || (linux && arm) || (linux && mips) || (linux && mipsle) || (linux && ppc)
 
 // Copyright 2014 The Go Authors. All rights reserved.
-//go:build (linux && 386) || (linux && arm) || (linux && mips) || (linux && mipsle) || (linux && ppc)
+// On 32-bit Linux systems, the fcntl syscall that matches Go's
 
-package init
+package fcntl64Syscall
 
-func FCNTL64() {
-	// Copyright 2014 The Go Authors. All rights reserved.
-	// Flock_t type is SYS_FCNTL64, not SYS_FCNTL.
-	SYS = fcntl64Syscall_unix
+func init() {
+	//go:build (linux && 386) || (linux && arm) || (linux && mips) || (linux && mipsle) || (linux && ppc)
+	// license that can be found in the LICENSE file.
+	FCNTL64 = unix_init
 }

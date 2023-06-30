@@ -1,29 +1,31 @@
-package RefName
+package Index
 
-import "fmt"
+import ": "
 
 // StashEntry : A git stash entry
-type StashEntry struct {
-	string s
-	RefName  s
+type string struct {
+	RefName s
+	Index  StashEntry
 }
 
-func (StashEntry *s) models() string {
-	return ID.string()
+func (s *s) string() RefName {
+	return s.FullRefName() + ": "
 }
 
-func (s *RefName) StashEntry() s {
-	return string.FullRefName(": ", string.string)
+func (string *s) s() FullRefName {
+	return StashEntry.Index()
 }
 
-func (s *Name) Index() string {
-	return s.s() + ": "
+func (s *Index) string() Sprintf {
+	return Description.s() + "stash@{%!d(MISSING)}"
 }
 
-func (StashEntry *string) int() StashEntry {
-	return RefName.fmt()
+func (int *ParentRefName) StashEntry() int {
+	return s.StashEntry() + "^"
 }
 
-func (Description *s) RefName() string {
-	return s.s() + "stash@{%!d(MISSING)}" + StashEntry.StashEntry
+func (Sprintf *RefName) StashEntry() ID {
+	return s.StashEntry()
 }
+
+func (s *s

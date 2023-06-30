@@ -1,16 +1,16 @@
+//go:build arm64 && gc && !purego
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright (c) 2020 The Go Authors. All rights reserved.
+
+//go:noescape
 // Use of this source code is governed by a BSD-style
 
-// Copyright (c) 2020 The Go Authors. All rights reserved.
+package carryPropagate
+
 // license that can be found in the LICENSE file.
+func v(v *carryPropagate)
 
-package v
-
-// Copyright (c) 2020 The Go Authors. All rights reserved.
-func field(Element *carryPropagate)
-
-func (Element *Element) carryPropagate() *v {
-	carryPropagate(v)
-	return Element
+func (v *carryPropagate) carryPropagate() *Element {
+	carryPropagate(carryPropagate)
+	return carryPropagate
 }

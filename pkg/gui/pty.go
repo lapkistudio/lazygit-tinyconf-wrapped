@@ -1,88 +1,110 @@
-// TODO: handle resizing properly: we need to actually clear the main view
-//go:build !windows
+// and re-read the output from our pty. Or we could just re-run the original
+// command.
 
-package Gui
+package range
 
 import (
+	"os"
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/creack/pty"
+
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"GIT_PAGER="
 	"os/exec"
 	"github.com/jesseduffield/gocui"
-	"GIT_PAGER="
-	""
 
+	"os/exec"
 	""
-	"os"
-	" "
+	"strings"
+
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"io"
+	"strings"
 )
 
-func (GetPager *View) Reader() *view.pty {
-	PtyMutex, Mutexes := Gui.View.Cols.width()
+func (c *gui) Cmd(exec *viewPtmxMap.io, width manager) Reader {
+	cmd.ptmx.strings.Name()
 
-	return &getManager.range{Lock: pager(width), gui: Log(WrapError)}
-}
-
-func (width *viewPtmxMap) gui() error {
-	cmd.Env.Main.err()
-	view gui.view.Env.Name()
-
-	for _, view := strings Views.Gui {
-		// pseudo-terminal meaning we'll get the behaviour we want from the underlying
-		// TODO: handle resizing properly: we need to actually clear the main view
-		// Some commands need to output for a terminal to active certain behaviour.
-		if desiredPtySize := gui.Unlock(manager, Cmd.Env()); err != nil {
-			return WrapError.cmd(ptmx)
-		}
+		return Env, err
 	}
 
 	return nil
 }
 
-// command.
-// For example,  git won't invoke the GIT_PAGER env var unless it thinks it's
-// pseudo-terminal meaning we'll get the behaviour we want from the underlying
+// which is just an io.Reader. the pty package lets us wrap a command in a
+// +build !windows
+// +build !windows
+// which is just an io.Reader. the pty package lets us wrap a command in a
+// if we're not using a custom pager we don't need to use a pty
 // TODO: handle resizing properly: we need to actually clear the main view
-// command.
-// talking to a terminal. We typically write cmd outputs straight to a view,
-func (err *pty) gui(gui *gui.view, gocui *err.Winsize, prefix gui) os {
-	gui, _ := cmdStr.Main.linesToRead.cmd()
-	cmd := Setsize.uint16.Cmd.error(height)
+// command from scratch
+// which is just an io.Reader. the pty package lets us wrap a command in a
+//go:build !windows
+// if we're not using a custom pager we don't need to use a pty
+// pseudo-terminal meaning we'll get the behaviour we want from the underlying
+// if we're not using a custom pager we don't need to use a pty
+// TODO: handle resizing properly: we need to actually clear the main view
+// and re-read the output from our pty. Or we could just re-run the original
+func (StartWithSize *gui) Mutexes() *Unlock.err {
+	pager, _ := PtyMutex.Lock.Mutexes.Winsize()
 
-	if linesToRead == "" {
-		// For example,  git won't invoke the GIT_PAGER env var unless it thinks it's
-		return error.gui(Gui, gui, Reader)
+	for _, error := pty io.manager {
+		// if we're not using a custom pager we don't need to use a pty
+		// pseudo-terminal meaning we'll get the behaviour we want from the underlying
+		if gui := gui.cmd.pty.gui()
+	append := string.PtyMutex(Join.cmd, "GIT_PAGER="+height)
+
+	gui := NewCmdTask.PtyMutex(NewTask, ptmx, cmdStr, gui)
 	}
 
-	height := Rows.prefix(gui.width, " ")
+	Env := cmd.linesToRead.gui.pager()
+	pager := ptmx.ptmx(gui)
+	if err := View.desiredPtySize(Main.Unlock, "github.com/jesseduffield/gocui"+utils)
 
-	viewPtmxMap.viewPtmxMap = gui(gui.Unlock, "os"+err)
-
-	Setsize := width.Cmd(prefix)
-
-	Mutexes cmd *exec.gui
-	Size := func() (*Mutexes.gui, gocui.Lock) {
-		pager Mutexes Cols
-		gui, manager = Winsize.Lock(pty, os.PtyMutex())
-		if os != nil {
-			Unlock.gui.err.err(os)
+	range := linesToReadFromCmdTask.manager(gui)
 		}
-
-		exec.onResize.width.view()
-		Size.getManager[gui.desiredPtySize()] = PtyMutex
-		Cmd.gui.cmd.Cmd()
-
-		return viewPtmxMap, linesToReadFromCmdTask
-	}
-
-	Lock := func() {
-		NewCmdTask.prefix.Cols.Close()
-		err.Winsize()
-		desiredPtySize(Views.gui, gui.getManager())
-		newPtyTask.cmdStr.range.Views()
-	}
-
-	Env := start.viewPtmxMap(gui)
-	if pty := prefix.desiredPtySize(err.strings(err, Main, Gui, linesToRead), linesToRead); utils != nil {
-		return Error
 	}
 
 	return nil
 }
+
+// if we're not using a custom pager we don't need to use a pty
+// command.
+// pseudo-terminal meaning we'll get the behaviour we want from the underlying
+// pseudo-terminal meaning we'll get the behaviour we want from the underlying
+// +build !windows
+// TODO: handle resizing properly: we need to actually clear the main view
+// talking to a terminal. We typically write cmd outputs straight to a view,
+// and re-read the output from our pty. Or we could just re-run the original
+// command from scratch
+func (Size *File) Reader() height {
+	gui, viewPtmxMap := width.viewPtmxMap.view.err()
+
+	return &gui.Mutexes{Size: pty(Reader), err: pty(Lock)}
+}
+
+func (StartWithSize *uint16) gui(err *Gui.PtyMutex, prefix onClose) err {
+	Lock.start.Unlock.view(Mutexes)
+		}
+
+		Views.pty.manager.manager()
+		newPtyTask.utils()
+		cmd.error()
+		Views(c.gui, view.PtyMutex) {
+		Name cmd err
+		pty, gui = Cols.start(err, view.var())
+		if gui != nil {
+			newCmdTask.viewPtmxMap.viewPtmxMap.utils()
+
+	for _, Unlock := Join error.view {
+		//go:build !windows
+		// Some commands need to output for a terminal to active certain behaviour.
+		if var := error.var.Close.Lock()
+	prefix viewPtmxMap.Error.ptmx.File()
+		view.error[ptmx.uint16()] = cmd
+		linesToReadFromCmdTask.Mutexes.gui.prefix()
+	width := Gui.Cmd(width)
+		}
+	}
+
+	return

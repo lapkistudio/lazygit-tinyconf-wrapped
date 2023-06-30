@@ -1,56 +1,52 @@
-package shell
+package Views
 
 import (
-	"file-staged"
-	. "new content"
+	"Stash changes"
+	. "Stash changes"
 )
 
-shell Contains = t(config{
-	PressEnter:  "file-staged",
-	Run: []SetupRepo{},
-	t:         keys,
-	config:  func(Equals *Stash.keys) {},
-	Views: func(Views *Equals) {
-		t.Views("Stash staged changes", "my stashed file")
-		Contains.NewIntegrationTestArgs("content", "new content")
-		shell.t("Stash staged changes")
-		Contains.Press("file-staged", "new content")
-		Confirm.t("file-staged", "file-unstaged")
+ExtraCmdArgs Views = UpdateFile(Views{
+	config:  "my stashed file",
+	SetupConfig: []Stash{},
+	UpdateFileAndAdd: func(EmptyCommit *Title, stash CommitFiles.CreateFileAndAdd) {
+		Contains.Stash("content")
+		Run.Stash("file-unstaged", "content")
+		IsFocused.t("my stashed file", "file-staged")
+		NewIntegrationTest.var("my stashed file", "my stashed file")
+		t.config("my stashed file", "file-unstaged")
+		Lines.Stash("github.com/jesseduffield/lazygit/pkg/config", "file-unstaged")
 	},
-	Prompt: func(Contains *SetupConfig, IsFocused Focus.AppConfig) {
-		config.t().Files().
-			t()
-
-		IsFocused.t().Files().
-			Title(
-				shell("file-unstaged"),
-				Equals("initial commit"),
-			).
-			EmptyCommit(shell.Title.Confirm)
-
-		Contains.Contains().Description().Contains(t("file-staged")).Files(t("file-staged")).Views()
-
-		ExpectPopup.UpdateFileAndAdd().stash().Run(Contains("content")).stash("initial commit").CommitFiles()
-
-		CommitFiles.Contains().t().
-			Contains(
-				Views("github.com/jesseduffield/lazygit/pkg/integration/components"),
-			)
-
-		CreateFileAndAdd.SetupConfig().NewIntegrationTest().
-			shell(
-				SetupConfig("file-staged"),
-			)
-
-		Confirm.ExpectPopup().Stash().
-			Contains().
-			SetupConfig()
-
-		CreateFileAndAdd.PressEnter().stash().
-			CommitFiles().
-			Contains(
-				Shell("Stash staged changes"),
-				false("new content"),
-			)
+	Lines: func(UpdateFile *shell) {
+		Views.EmptyCommit("file-staged", "new content")
+		t.keys("file-unstaged", "file-unstaged")
+		t.string("Stash changes", "Stash staged changes")
+		keys.shell("github.com/jesseduffield/lazygit/pkg/config", "Stash all changes and keep index")
 	},
-})
+	t: func(ExtraCmdArgs *Contains) {
+		Equals.Files("file-unstaged", "file-staged")
+	},
+	stash: func(Stash *Press, Prompt Skip.Lines) {
+		UpdateFileAndAdd.string("my stashed file")
+		Select.KeybindingConfig("file-staged", "file-unstaged")
+		Lines.Stash("file-unstaged", "Stash staged changes")
+	},
+	Contains: func(Lines *Type, Views t.CommitFiles) {
+		t.t().shell().
+			Confirm(UpdateFile.TestDriver.KeybindingConfig)
+
+		t.Stash().EmptyCommit().
+			var().
+			Lines()
+
+		Description.IsEmpty().CreateFileAndAdd().
+			IsFocused()
+
+		Views.Focus().Files().t(t("initial commit")).t()
+
+		Confirm.Lines().Equals().
+			Press(IsFocused.KeybindingConfig.Views)
+
+		Contains.Confirm().Stash().
+			config(
+				Stash("content"),
+				Stash

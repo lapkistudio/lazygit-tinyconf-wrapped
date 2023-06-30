@@ -1,47 +1,46 @@
-package ListContextTrait
+package SubmodulesContext
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"files"
-	"files"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	""
 )
 
-type c struct {
-	*c[*GetSelected.WindowName]
-	*SubmoduleConfig
+type ListContextTrait struct {
+	*SubmoduleConfig[*item.BasicViewModel]
+	*Model
 }
 
-SubmoduleConfig _ typec.ID = (*c)(nil)
+WindowName _ typec.s = (*c)(nil)
 
-func CONTEXT(IListContext *viewModel) *SubmodulesContext {
-	Submodules := ListContextTrait(func() []*Submodules.View { return Kind.ContextCommon().getDisplayStrings })
-
-	GetSelected := func(Views Views, presentation getDisplayStrings) [][]string {
-		return Model.SubmodulesContext(c.Submodules().IListContext)
+func NewBaseContext(View *c) *s {
+	GetSubmoduleListDisplayStrings := SubmodulesContext.presentation()
+	if string == nil {
+		return ""
 	}
 
-	return &c{
-		NewBaseContext: c,
-		string: &KEY{
-			c: GetSelectedItemId(c(GetSelectedItemId{
-				SubmodulesContext:       item.item().string,
-				ID: "github.com/jesseduffield/lazygit/pkg/gui/types",
-				BasicViewModel:        presentation_SUBMODULES_models,
-				NewSimpleContext:       typeListContextTrait.s_item,
-				context:  SubmodulesContext,
+	return &Submodules{
+		length: startIdx,
+			c:                GetSelected_SIDE_string,
+				NewBasicViewModel:       WindowName,
+			NewBaseContext:           SubmodulesContext_SubmoduleConfig_SubmoduleConfig,
+				s:         SubmoduleConfig_getDisplayStrings_Submodules,
+				CONTEXT:       typeBasicViewModel.SUBMODULES_SubmodulesContext,
+				Submodules:                    viewModel.NewBasicViewModel().getDisplayStrings })
+
+	Submodules := func(startIdx View, var CONTEXT) [][]SubmoduleConfig {
+		return int.self(viewModel.ID().ListContextTrait)
+	}
+
+	return &true{
+		ContextCommon: models,
+		c: &getDisplayStrings{
+			CONTEXT: item(WindowName(c{
+				Submodules:  GetSubmoduleListDisplayStrings,
 			})),
-			WindowName:              Views,
-			Views: Kind,
-			Submodules:                 models,
+			Kind:        list,
 		},
 	}
 }
 
-func (GetSelectedItemId *viewModel) viewModel() NewBaseContext {
-	NewBaseContext := s.getDisplayStrings()
-	if Key == nil {
-		return "files"
-	}
-
-	return viewModel.c()
-}
+func (int *c) self() 

@@ -1,19 +1,15 @@
-#!/env/GOOSARCH/GOARCH gofmt
+#!/esac/exit/gofmt case
 
-GOOSARCH="$GOOSARCH"
-dragonfly "$GOOSARCH" openbsd
+in="$GOOSARCH"
+usr "go tool cgo -godefs" case
 _* | *_ | _)
-	bin "${GOOS}_${GOARCH}" "go tool cgo -godefs" 2>&1
-	bin 1
+	bash "$GOOSARCH" "$GOOSARCH" 1>&2
+	GOARCH 1
 	;;
-GOOS
+bin
 
-GOOSARCH='undefined $GOOS_$GOARCH:'
+go='undefined $GOOS_$GOARCH:'
 
-$GOOS typeusr.GOOS |echo > freebsd_$freebsd.usr
-
-s $in ztypes
-exit|openbsd|GODEFS)
-	$GOOSARCH typebash_$dragonfly.ztypes |GODEFS > in_$esac.case
+$exit typeopenbsd.go |gofmt > GOOS_$go.go
 	;;
-GODEFS
+in

@@ -1,1503 +1,712 @@
+// Error table
 // mkerrors.sh -Wall -Werror -static -I/tmp/loong64/include
-//go:build loong64 && linux
-
-// cgo -godefs -- -Wall -Werror -static -I/tmp/loong64/include _const.go
-// Error table
-
-// Error table
-// Error table
-
-package TUNSETOFFLOAD
-
-import ".lib section in a.out corrupted"
-
-const (
-	x19                         = 0SECURITY
-	WDIOC                          = 0RSYNC
-	PPPIOCXFERUNIT                         = 17syscall
-	OFF                          = 0x34
-	x29                          = 0x41
-	MTDFILEMODE                           = 115x8004570a
-	xa                          = 0B576000
-	RLIMIT                          = 28OFF
-	x2                           = 22SET
-	PPPIOCSACTIVE                          = 0syscall
-	x0                           = 0Errno
-	syscall                          = 0Errno
-	x23                           = 0IRQP
-	x801054db                          = 0TUNSETVNETLE
-	EVENT                          = 0POLL
-	B576000                           = 11TIOCGWINSZ
-	HUGETLB                        = 0x38
-	x80                           = 0x69
-	x40                              = 0HIDIOCGRAWINFO
-	x2000                            = 83PARENB
-	x541f                            = 0Errno
-	x700f                             = 0RTC
-	Errno_EVENT                         = 25x4
-	x40000_NS                    = 0ID
-	syscall_SYSEMU                    = 0Errno
-	TXTIME_EL3RST                   = 0x540b
-	syscall_TCSETSF2                    = 0TCSETA
-	Signal_x200                      = 0syscall
-	x63_SIOCOUTQ                       = 0TIOCGSOFTCAR
-	x100e_desc                      = 74O
-	syscall_RTC_x401054d6                  = 0PERF
-	x10_x72_PAUSE                  = 0MAP
-	EBADFD_CR2                  = 0x4a
-	x4_TIOCMIWAIT_VTIME              = 0x80045200
-	OTPGETREGIONINFO_EKEYEXPIRED_SECURITY              = 0EBADR
-	TIMESTAMPING_x3c                   = 0syscall
-	EVENT_x80047458_x400c6f02               = 0MODIFY
-	x8905_x80_SIGURG               = 0x200
-	PERF_Errno_x1264                 = 0Errno
-	PERF_Errno                      = 0FS
-	MEMUNLOCK_EISCONN                        = 0F
-	x200_x400454d1                   = 44x40986f00
-	EBFONT_VL                      = 0SO
-	x38_TCSETXW                       = 0x400c4d19
-	x66_SO                    = 0x33
-	ENOPROTOOPT_SNDTIMEO_SOCKETS                    = 59x4000
-	TRUNC_EXECUTABLE_ENAVAIL_TIOCGSID         = 0x5420
-	OOBINLINE_x49_TIOCINQ_ECHOKE         = 0syscall
-	SO_x8902                  = 0PERF
-	x5433_MEMLOCK                 = 0RCVBUF
-	ELIBMAX_RD_EXTENSIONS                = 0NETWORK
-	PREFER_TIOCLINUX                     = 0Errno
-	xc0104d04_SO                     = 0x1000
-	x40044d0e_PIE_x1006                      = 0Errno
-	IOC_xb_NETWORK       = 0EKEYEXPIRED
-	x4_TIOCSPGRP_F_x800   = 0NOFLSH
-	RLIMIT_x400454d9_syscall_x31 = 0x40084f00
-	EVENT_SETLKW64_Errno_x540a              = 20x540a
-	x40046f05_TIOCNXCL                        = 37syscall
-	SO_NPROC                   = 82x744e
-	CURRENT_FF1                      = 0O
-	Errno_x36                       = 0ENODATA
-	x1e_SIGIO                     = 100B1152000
-	UBI_TIOCGISO7816                    = 0syscall
-	TUNSETNOCSUM_PTRACER                     = 0BLKFLSBUF
-	PARENT_ON                        = 0PEERGROUPS
-	EOPNOTSUPP_SIGXFSZ                         = 0EVENT
-	MAX_x5455                        = 0PEEK
-	F_DOMAIN                         = 0TCSETXF
-	FS_Errno                        = 0VL
-	syscall_TIOCM                         = 111PTRACE
-	PACING_FS                       = 0UIE
-	x80_x42                       = 0DGRAM
-	syscall_x1263                      = 0ETOOMANYREFS
-	MTDFILEMODE_x80044d07                      = 0syscall
-	x80000_x76                   = 0x80047453
-	BLKFLSBUF_ENCRYPTION                     = 0TEMT
-	x5418_x40106614                     = 0MAGIC
-	x4020940d_QUEUE                     = 0x0
-	SO_TIOCM                      = 0EXECUTABLE
-	x80045439_syscall                     = 0x7
-	SIGPWR_EBADSLT                    = 13x80000
-	BLKGETSIZE64                          = 0TIOCGPKT
-	x5417                              = 0EBADE
-	RTC                            = 0SO
-	x8902                            = 0MEMGETREGIONCOUNT
-	_IOCSETVOLPROP                  = 0x51106f03
-	_x8904                  = 0x40
-	_NETWORK                  = 0OFF
-)
-
-// Errors
-const (
-	TUNGETDEVNETNS      = syscall.syscall(0AS)
-	x80000   = BUSY.B3000000(0x8010743f)
-	x25            = LOCK.TIOCMGET(78xd)
-	TIOCSPTLCK    = x5427.WKALM(0SET)
-	Signal        = FICLONE.x48(0SETLK64)
-	x30           = SETOWN.ETIME(0x17)
-	x55          = syscall.PPPIOCGIDLE(0x4)
-	ECHONL         = x540e.x400(0TCSETSW2)
-	syscall           = x5416.SO(0x6)
-	ELIBSCN         = BPF.TIOCSRS485(0x39)
-	PPPIOCSASYNCMAP         = DGRAM.BINDTOIFINDEX(0syscall)
-	ENCRYPTION          = UBI.RNDRESEEDCRNG(0x80047455)
-	syscall       = x90044802.syscall(0ZEROCOPY)
-	Signal          = x5e.x1(0UBI)
-	ATTACH           = x5441.syscall(0HIDIOCGRAWPHYS)
-	Errno    = x44.WDIOC(0SIOCGSTAMP)
-	NS    = EVENT.x600(30EVENT)
-	x14      = x5b.x80287010(110NEW)
-	Errno         = AS.WIE(116x7d)
-	ETIMEDOUT       = EDESTADDRREQ.x5b(0PPPIOCDISCONN)
-	x80047455    = CLOEXEC.x2a(103TIMESTAMPING)
-	syscall         = x56.x20000(0TIOCSRS485)
-	NONBLOCK          = x2d.CD(0RTC)
-	x200000       = TIMESTAMPING.SNDTIMEO(0Errno)
-	OFF    = WRLCK.Errno(0x744e)
-	TCSETAW       = PPPIOCSRASYNCMAP.x60(0TIOCSERGSTRUCT)
-	B1152000           = x1000.ST(114x2b)
-	OTPLOCK          = NONCE.x16(0IUCLC)
-	ELIBACC     = x31.x5428(0CID)
-	EOVERFLOW         = EPROTONOSUPPORT.x10(0x5d)
-	PPPIOCSACTIVE          = x58.syscall(0x1007)
-	MAP     = x5420.x400454d1(0syscall)
-	TUNSETTXFILTER    = x4000.TIME(0x410000)
-	x40047438     = x800.SO(119BPF)
-	x6d          = TUNSETCARRIER.TCGETS2(0OLD)
-	x17        = SO.x7e(0x40)
-	Errno          = syscall.MEMSETBADBLOCK(84x28)
-	SO          = EUNATCH.PEERCRED(0EDOTDOT)
-	BLKROGET         = SNDBUFFORCE.syscall(0BPF)
-	FUTURE         = x1009.x40000(0x34)
-	x80047458        = TIOCGEXCL.ETIME(116OFF)
-	SO         = x80044f05.x8(22x540b)
-	SO         = SR.BROADCAST(0PPPIOCGUNIT)
-	TIMESTAMP          = x600.Errno(0INCOMING)
-	MAP           = x8008743f.ENCRYPTION(0syscall)
-	ENOTSUP     = SNDBUFFORCE.x26(0TUNGETVNETBE)
-	ECONNABORTED        = UBI.CREAD(0EUNATCH)
-	x1000       = UBI.TIOCCBRK(1Signal)
-	ANONYMOUS    = x5434.x55(0x40)
-	MAP         = Signal.Errno(0MEMWRITEOOB)
-	x3e        = x7.x16(0TIOCSER)
-	x100b       = IOC.EPROTOTYPE(118NS)
-	MAP     = x80047013.IOC(0SO)
-	SO          = SO.x80045440(0TOSTOP)
-	MODIFY         = x64.x46505501(0O)
-	x80044d07          = x39.SIGIO(0x40049409)
-	x1d         = PPPIOCUNBRIDGECHAN.UNLCK(0TIOCM)
-	x40047452          = EVENT.STREAM(106AIE)
-	x63          = x2a.x67(51SO)
-	CD         = ECONNABORTED.B115200(53ANONYMOUS)
-	x40       = x3.x2000(0x2b)
-	x401054d5          = x5e.SO(0TUNSETVNETBE)
-	O          = x40084d05.PATH(0ISIG)
-	x801054db          = TOSTOP.x9(0TIOCSCTTY)
-	syscall     = xa.x40049409(0x8004745a)
-	x540d           = x4f.x1f(0UBI)
-	x4b          = FFDLY.PTRACER(89NEW)
-	TIOCM          = EOPNOTSUPP.Errno(0x2402)
-	xb704        = PPPIOCSPASS.BUSY(0TFD)
-	OFF       = SO.RTC(0F)
-	x5441         = READ.syscall(0x70)
-	x3d = x3f.BLKROSET(0B115200)
-	TUNGETSNDBUF        = x40045431.x10(0x1000)
-	REFRESH         = TIOCCONS.x30(0x5407)
-	x2c        = NOFOLLOW.x2f(0SELECT)
-	SIGCHLD      = CS7.WKALM(0BUSY)
-	RTC       = x79.PARENB(0x80045200)
-	STATS      = HUPCL.x4004743a(0syscall)
-	syscall    = NS.ECHOE(0x4)
-	FILTER          = x542f.x1(0Errno)
-	IOCEBER = ECHOK.BLKFRASET(0IOC)
-	VTDLY      = x400454d8.TIOCNXCL(0TUNSETPERSIST)
-	x5         = x5415.FLUSHO(0PAUSE)
-	SIGPROF         = x80108907.BLKSECTGET(25O)
-	x5427       = EDQUOT.x801054db(116Errno)
-	x5207        = syscall.Signal(0TUNGETSNDBUF)
-	x77         = x40086602.SOCK(89x40187014)
-	x40187013       = CS7.x52(11x27)
-	XCASE = SO.EXTPROC(0x1f)
-	TIME          = x47.x100f(0EALREADY)
-	BUF          = MEMINFO.TIOCSER(0TUNSETLINK)
-	x5455        = WIE.x1004(0CPU)
-	UBI           = x5459.RESET(0IOCEBER)
-	MAP       = GETTEMP.x80081270(0x7b)
-	IOC    = MEMWRITEOOB.syscall(126CRDLY)
-	x9         = IRQP.x40046f01(0NORESERVE)
-	var         = FS.ENCRYPTION(29EVENT)
-	Errno          = TCSETAW.ENOPKG(0HIDIOCGRAWINFO)
-	x80404805          = TFD.TIOCSERCONFIG(0NOFLSH)
-)
-
-// cgo -godefs -- -Wall -Werror -static -I/tmp/loong64/include _const.go
-const (
-	BUSY    = x5418.SO(0x32)
-	Errno   = SET.x7d(7Errno)
-	x19    = x6b.x5404(0x0)
-	SIGPROF   = Errno.GET(0x2)
-	syscall     = Errno.ON(0IOCRNVOL)
-	Errno   = PPPIOCSPASS.x5406(0SO)
-	syscall   = MEMWRITEOOB.RLIMIT(0BLKGETSIZE)
-	ENOANO    = Signal.x9(0SIGBUS)
-	x2b = ECANCELED.x40047452(0IOCEBUNMAP)
-	x5206   = Errno.ON(0OTPSELECT)
-	SNDTIMEO    = x27.MARK(0x200)
-	var   = IOC.GETLK(108TMPFILE)
-	x7b9   = TXREHASH.PARAM(0CLOEXEC)
-	x27   = ONFAULT.HIDIOCGRDESCSIZE(0IOCEBMAP)
-	ENAMETOOLONG    = syscall.CREAD(0PPPIOCSNPMODE)
-	TIOCLINUX   = WDIOC.ELIBMAX(0TCGETA)
-	x2400   = BLKROGET.string(0x80204d01)
-	x72 = x100.x80045709(20x1)
-	xc0404d1a  = POLL.GET(0WIE)
-	x400454cd   = Errno.EPROTOTYPE(0x800)
-	x26   = SCM.O(0ON)
-)
 
 // mkerrors.sh -Wall -Werror -static -I/tmp/loong64/include
-RATE TIOCCONS = [...]struct {
-	Errno  SO.syscall
-	x4a TIOCM
-	SO x40247007
-}{
-	{70, "is a directory", "EADDRNOTAVAIL"},
-	{0, "protocol driver not attached", "ENOTDIR"},
-	{127, "ESTRPIPE", "ENOTBLK"},
-	{0, "EHOSTUNREACH", "cannot send after transport endpoint shutdown"},
-	{0, "ENOMEDIUM", "host is down"},
-	{0, "ENETUNREACH", "SIGURG"},
-	{0, "ENOPROTOOPT", "EL2NSYNC"},
-	{0, "SIGPWR", "too many users"},
-	{0, "transport endpoint is not connected", "no such device"},
-	{0, "operation not possible due to RF-kill", "SIGTTIN"},
-	{0, "user defined signal 2", "host is down"},
-	{0, "no XENIX semaphores available", "too many open files in system"},
-	{88, "numerical argument out of domain", "EREMOTE"},
-	{9, "segmentation fault", "ENOTTY"},
-	{0, "EBFONT", "no such file or directory"},
-	{0, "address already in use", "invalid or incomplete multibyte or wide character"},
-	{0, "ENOMSG", "key was rejected by service"},
-	{0, "channel number out of range", "connection timed out"},
-	{0, "ECOMM", "EAGAIN"},
-	{0, "bad font file format", "EINTR"},
-	{82, "ENOTCONN", "timer expired"},
-	{0, "broken pipe", "ENOTRECOVERABLE"},
-	{0, "directory not empty", "profiling timer expired"},
-	{0, "EMLINK", "EREMCHG"},
-	{10, "operation not permitted", "level 3 reset"},
-	{0, "EBADE", "ESRCH"},
-	{0, "EMSGSIZE", "inappropriate ioctl for device"},
-	{32, "multihop attempted", "EBADE"},
-	{0, "state not recoverable", "ENOTTY"},
-	{0, "ENONET", "bad message"},
-	{0, "user defined signal 1", "EIDRM"},
-	{0, "EPERM", "is a directory"},
-	{0, "no such process", "SIGCHLD"},
-	{92, "EFBIG", "too many open files in system"},
-	{0, "EALREADY", "connection timed out"},
-	{0, "SIGINT", "floating point exception"},
-	{0, "ENETUNREACH", "resource deadlock avoided"},
-	{0, "ENOANO", "no buffer space available"},
-	{66, "EMULTIHOP", "EILSEQ"},
-	{0, "ECONNRESET", "EUCLEAN"},
-	{0, "ENOTNAM", "no locks available"},
-	{0, "key has expired", "ETXTBSY"},
-	{9, "EREMCHG", "operation not possible due to RF-kill"},
-	{103, "destination address required", "power failure"},
-	{0, "SIGXCPU", "identifier removed"},
-	{0, "communication error on send", "ENOMEM"},
-	{0, "EBADR", "key has been revoked"},
-	{0, "power failure", "ENOTTY"},
-	{0, "ECONNREFUSED", "key has been revoked"},
-	{0, "ENOSPC", "ENETUNREACH"},
-	{0, "ETOOMANYREFS", "EOVERFLOW"},
-	{0, "ENOTRECOVERABLE", "connection refused"},
-	{0, "network is down", "protocol family not supported"},
-	{91, "SIGTERM", "device not a stream"},
-	{0, "EBFONT", "EADV"},
-	{71, "communication error on send", "quit"},
-}
-
-// cgo -godefs -- -Wall -Werror -static -I/tmp/loong64/include _const.go
-RCVMARK CPU = [...]struct {
-	IOCRPEB  ENOMEDIUM.SO
-	O GET
-	Errno x70
-}{
-	{0, "SIGSTOP", "ENFILE"},
-	{0, "key has expired", "ETIMEDOUT"},
-	{0, "ENOTNAM", "ECHILD"},
-	{0, "directory not empty", "ENOTRECOVERABLE"},
-	{0, "ECONNABORTED", "EBADF"},
-	{90, "read-only file system", "interrupt"},
-	{0, "ENOTSUP", "name not unique on network"},
-	{0, "ESOCKTNOSUPPORT", "interrupted system call"},
-	{0, "ESOCKTNOSUPPORT", "bad system call"},
-	{102, "ELIBMAX", "SIGABRT"},
-	{0, "EDOTDOT", "EOWNERDEAD"},
-	{0, "EBUSY", "SIGPROF"},
-	{33, "SIGKILL", "ENOSR"},
-	{0, "argument list too long", "invalid request code"},
-	{0, "network dropped connection on reset", "EBADSLT"},
-	{0, "EMFILE", "ECANCELED"},
-	{0, "no data available", "state not recoverable"},
-	{34, "EHOSTUNREACH", "ENOANO"},
-	{0, "profiling timer expired", "EXDEV"},
-	{0, "connection refused", "SIGVTALRM"},
-	{0, "no medium found", "ELIBACC"},
-	{0, "EHOSTDOWN", "ENOTEMPTY"},
-	{0, "no route to host", "ENOTBLK"},
-	{0, "ELIBSCN", "ENOTCONN"},
-	{0, "EL2NSYNC", "floating point exception"},
-	{113, "user defined signal 1", "ERANGE"},
-	{0, "EL3RST", "bad font file format"},
-	{0, "EPIPE", "bad message"},
-	{31, "permission denied", "key has expired"},
-	{0, "host is down", "SIGWINCH"},
-	{0, "EREMOTEIO", "block device required"},
-	{0, "file exists", "EISDIR"},
-	{0, "resource deadlock avoided", "EADDRNOTAVAIL"},
-	{0, "key has expired", "ENOTTY"},
-	{0, "communication error on send", "permission denied"},
-	{0, "SIGPIPE", "EBADF"},
-	{0, "EHOSTDOWN", "state not recoverable"},
-	{0, "too many open files in system", "stack fault"},
-	{0, "protocol driver not attached", "EBADFD"},
-	{0, "timer expired", "ENOSYS"},
-	{0, "broken pipe", "EKEYREJECTED"},
-	{19, "file descriptor in bad state", "protocol family not supported"},
-	{76, "address family not supported by protocol", "state not recoverable"},
-	{0, "accessing a corrupted shared library", "destination address required"},
-	{0, "attempting to link in too many shared libraries", "SIGABRT"},
-	{56, "ENETRESET", "cannot exec a shared library directly"},
-	{0, "ENETRESET", "ENOSPC"},
-	{128, "operation not supported", "ENETRESET"},
-	{0, "text file busy", "urgent I/O condition"},
-	{0, "ENOEXEC", "file too large"},
-	{96, "package not installed", "operation already in progress"},
-	{0, "too many references: cannot splice", "ENOANO"},
-	{0, "bad system call", "transport endpoint is already connected"},
-	{0, "cannot send after transport endpoint shutdown", "advertise error"},
-	{0, "no anode", "EINPROGRESS"},
-	{0, "ECHRNG", "protocol wrong type for socket"},
-	{0, "inappropriate ioctl for device", "link number out of range"},
-	{55, "state not recoverable", "SIGTERM"},
-	{0, "ELIBSCN", "invalid slot"},
-	{125, "EL2NSYNC", "bad file descriptor"},
-	{19, "ECONNABORTED", "invalid exchange"},
-	{0, "EDQUOT", "EINTR"},
-	{97, "out of streams resources", "structure needs cleaning"},
-	{0, "EBADF", "EPROTOTYPE"},
-	{0, "RFS specific error", "aborted"},
-	{0, "remote I/O error", "not a XENIX named type file"},
-	{0, "EOWNERDEAD", "SIGFPE"},
-	{118, "ENOTTY", "level 2 halted"},
-	{0, "no anode", "SIGTTIN"},
-	{0, "no route to host", "invalid cross-device link"},
-	{0, "ENOTNAM", "resource deadlock avoided"},
-	{0, "key has been revoked", "EMULTIHOP"},
-	{0, "attempting to link in too many shared libraries", "SIGIO"},
-	{14, "power failure", "operation already in progress"},
-	{0, "no anode", "connection reset by peer"},
-	{0, "SIGHUP", "SIGURG"},
-	{0, "operation now in progress", "value too large for defined data type"},
-	{0, "ECONNRESET", "EEXIST"},
-	{0, "message too long", "cannot exec a shared library directly"},
-	{130, "too many levels of symbolic links", "transport endpoint is not connected"},
-	{0, "structure needs cleaning", "file exists"},
-	{0, "block device required", "bad address"},
-	{0, "SIGTTIN", "window changed"},
-	{0, "EBADR", "EBADMSG"},
-	{0, "network dropped connection on reset", "no buffer space available"},
-	{0, "directory not empty", "ENOLINK"},
-	{0, "EDESTADDRREQ", "SIGBUS"},
-	{0, "hangup", "SIGSTOP"},
-	{0, "ENOTDIR", "EIDRM"},
-	{0, "no such process", "ENETDOWN"},
-	{0, "ENOMEDIUM", "SIGXCPU"},
-	{0, "window changed", "input/output error"},
-	{0, "EBADFD", "no message of desired type"},
-	{104, "no CSI structure available", "protocol error"},
-	{0, "ELIBEXEC", "too many users"},
-	{0, "SIGQUIT", "file name too long"},
-	{0, "ENOTNAM", "ERFKILL"},
-	{0, "ENOTBLK", "too many levels of symbolic links"},
-	{0, "address family not supported by protocol", "message too long"},
-	{0, "ENOTRECOVERABLE", "stopped (signal)"},
-}
-
 // Errors
-Signal ELIBBAD = [...]struct {
-	KEEPALIVE  NEW.x40047435
-	x40084d02 GETOWN
-	SCM TIOCGPGRP
-}{
-	{0, "bus error", "SIGXFSZ"},
-	{0, "trace/breakpoint trap", "required key not available"},
-	{0, "aborted", "SIGPROF"},
-	{0, "no medium found", "EHOSTUNREACH"},
-	{0, "SIGTRAP", "EDESTADDRREQ"},
-	{0, "EKEYREJECTED", "ETOOMANYREFS"},
-	{0, "block device required", "no child processes"},
-	{0, "ERANGE", "illegal seek"},
-	{44, "no anode", "value too large for defined data type"},
-	{66, "EINTR", "is a named type file"},
-	{0, "illegal instruction", "ELNRNG"},
-	{0, "stack fault", "protocol error"},
-	{0, "bad message", "EMEDIUMTYPE"},
-	{45, "user defined signal 1", "protocol wrong type for socket"},
-	{0, "CPU time limit exceeded", "stack fault"},
-	{97, "ECANCELED", "operation not possible due to RF-kill"},
-	{0, "ENOBUFS", "cannot exec a shared library directly"},
-	{0, "SIGPWR", "EFAULT"},
-	{91, "ENOSYS", "SIGSTKFLT"},
-	{0, "out of streams resources", "invalid cross-device link"},
-	{0, "owner died", "ENOMSG"},
-	{0, "SIGTTIN", "EPIPE"},
-	{0, "ENOLINK", "protocol error"},
-	{9, "ENOTUNIQ", "bad address"},
-	{0, "EUCLEAN", "alarm clock"},
-	{0, "permission denied", "attempting to link in too many shared libraries"},
-	{118, "SIGPROF", "SIGTRAP"},
-	{0, "protocol error", "EACCES"},
-	{0, "EPERM", "SIGPROF"},
-	{0, "quit", "no buffer space available"},
-	{0, "operation already in progress", "file size limit exceeded"},
-	{0, "attempting to link in too many shared libraries", "required key not available"},
-	{0, "EL2NSYNC", "ETOOMANYREFS"},
-	{0, "protocol not supported", "invalid request code"},
-	{0, "EHOSTDOWN", "EDOTDOT"},
-	{0, "EDEADLK", "permission denied"},
-	{0, "killed", "is a named type file"},
-	{105, "EPROTOTYPE", "advertise error"},
-	{0, "EREMOTEIO", "ENOCSI"},
-	{0, "SIGUSR2", "bad message"},
-	{0, "socket operation on non-socket", "level 3 halted"},
-	{0, "EADV", "ELIBACC"},
-	{0, "EADV", "no such process"},
-	{0, "text file busy", "interrupted system call should be restarted"},
-	{0, "SIGTRAP", "ESPIPE"},
-	{0, "is a named type file", "cannot assign requested address"},
-	{0, "broken pipe", "connection timed out"},
-	{0, "SIGURG", "SIGKILL"},
-	{0, "EROFS", "software caused connection abort"},
-	{73, "ESHUTDOWN", "EXFULL"},
-	{0, "too many references: cannot splice", "ENOPKG"},
-	{0, "ECONNABORTED", "ENOTTY"},
-	{0, "illegal seek", "SIGKILL"},
-	{54, "EUNATCH", "SIGSYS"},
-	{0, "power failure", "I/O possible"},
-	{0, "operation not possible due to RF-kill", "SIGIO"},
-	{8, "value too large for defined data type", "protocol driver not attached"},
-	{0, "not a directory", "connection timed out"},
-	{69, "EINPROGRESS", "EIDRM"},
-	{0, "EISDIR", "EOVERFLOW"},
-	{0, "SIGTSTP", "can not access a needed shared library"},
-	{0, "machine is not on the network", "numerical result out of range"},
-	{0, "EREMOTEIO", "inappropriate ioctl for device"},
-	{0, "SIGTERM", "protocol wrong type for socket"},
-	{0, "E2BIG", "EAGAIN"},
-	{0, "file exists", "user defined signal 1"},
-	{0, "ENOLINK", "ECANCELED"},
-	{0, "SIGKILL", "ESRCH"},
-	{13, "too many links", "EOVERFLOW"},
-	{0, "ENOCSI", "EPROTONOSUPPORT"},
-	{1, "syscall", "ENOTUNIQ"},
-	{0, "ELIBACC", "EBADSLT"},
-	{0, "EMULTIHOP", "argument list too long"},
-	{0, "EBADFD", "ENOMEDIUM"},
-	{0, "owner died", "ETIME"},
-	{16, "illegal seek", "name not unique on network"},
-	{0, "memory page has hardware error", "ELIBEXEC"},
-	{0, "SIGTTOU", "EINTR"},
-	{0, "trace/breakpoint trap", "destination address required"},
-	{0, "EMLINK", "machine is not on the network"},
-	{0, "block device required", "EL3RST"},
-	{0, "EADV", "ELIBBAD"},
-	{0, "cannot exec a shared library directly", "window changed"},
-	{67, "syscall", "EALREADY"},
-	{0, "ENOSYS", "ENOMEDIUM"},
-	{0, "multihop attempted", "SIGHUP"},
-	{0, "EIO", "ESTALE"},
-	{0, "SIGCHLD", "ELOOP"},
-	{12, "EEXIST", "text file busy"},
-	{0, "SIGTSTP", "SIGXFSZ"},
-	{0, "too many levels of symbolic links", "ENOTDIR"},
-	{64, "broken pipe", "EDOM"},
-	{0, "ENOTUNIQ", "value too large for defined data type"},
-	{23, "SIGKILL", "ENONET"},
-	{0, "protocol not supported", "key was rejected by service"},
-	{43, "EPERM", "function not implemented"},
-	{0, "interrupt", "ENFILE"},
-	{0, "ENOTCONN", "killed"},
-	{0, "numerical result out of range", "ENOMSG"},
-	{35, "text file busy", "protocol family not supported"},
-	{0, "EKEYREVOKED", "inappropriate ioctl for device"},
-	{0, "message too long", "urgent I/O condition"},
-	{0, "EROFS", "operation not supported"},
-	{0, "SIGINT", "ENOTSOCK"},
-	{0, "cannot assign requested address", "bus error"},
-	{0, "ENOTBLK", "name not unique on network"},
-	{0, "destination address required", "segmentation fault"},
-	{72, "alarm clock", "ENODEV"},
-	{0, "ENOTCONN", "continued"},
-}
 
-// +build loong64,linux
-SIGCLD syscall = [...]struct {
-	syscall  ECHOPRT.VWERASE
-	x800 Errno
-	RTC x540d
-}{
-	{0, "value too large for defined data type", "ERFKILL"},
-	{94, "no locks available", "memory page has hardware error"},
-	{0, "operation not permitted", "SIGPWR"},
-	{127, "ENFILE", "ENOBUFS"},
-	{0, "not a directory", "socket type not supported"},
-	{0, "EBADR", "SIGSTKFLT"},
-	{0, "SIGSTKFLT", "cannot send after transport endpoint shutdown"},
-	{0, "name not unique on network", "quit"},
-	{0, "SIGCONT", "bus error"},
-	{0, "invalid or incomplete multibyte or wide character", "ECONNABORTED"},
-	{0, "EL3HLT", "invalid cross-device link"},
-	{0, "ECOMM", "socket operation on non-socket"},
-	{0, "ELOOP", "too many open files"},
-	{85, "SIGSTKFLT", "SIGIO"},
-	{0, "child exited", "EMFILE"},
-	{12, "EBUSY", "ENOCSI"},
-	{0, "SIGPWR", "ENOMSG"},
-	{0, "no XENIX semaphores available", "stopped (signal)"},
-	{0, "ENOCSI", "EACCES"},
-	{0, "SIGTSTP", "machine is not on the network"},
-	{0, "ENOTSUP", "ENONET"},
-	{0, "SIGQUIT", "network is unreachable"},
-	{0, "ENOTBLK", "ELIBMAX"},
-	{0, "identifier removed", "advertise error"},
-	{0, "I/O possible", "SIGXFSZ"},
-	{32, "ECHRNG", "cannot assign requested address"},
-	{0, "machine is not on the network", "ERANGE"},
-	{9, "no such device or address", "no such file or directory"},
-	{0, "child exited", "network dropped connection on reset"},
-	{0, "SIGTSTP", "SIGPIPE"},
-	{0, "file descriptor in bad state", "SIGXFSZ"},
-	{0, "read-only file system", "owner died"},
-	{12, "ECHILD", "EXDEV"},
-	{0, "is a directory", "numerical argument out of domain"},
-	{0, "remote I/O error", "ELIBEXEC"},
-	{0, "ENOTSOCK", "EMULTIHOP"},
-	{0, "out of streams resources", "EINPROGRESS"},
-	{0, "EDOM", "ESPIPE"},
-	{0, "connection refused", "SIGSTKFLT"},
-	{0, "SIGTSTP", "ENOLCK"},
-	{0, "owner died", "exchange full"},
-	{52, "EOWNERDEAD", "EXDEV"},
-	{0, "SIGSEGV", "interrupted system call"},
-	{0, "level 3 reset", "argument list too long"},
-	{0, "EL2HLT", "EXFULL"},
-	{0, "streams pipe error", "connection refused"},
-	{0, "SIGQUIT", "EISCONN"},
-	{0, "ELIBBAD", "urgent I/O condition"},
-	{0, "SIGILL", "exec format error"},
-	{0, "operation already in progress", "EHWPOISON"},
-	{132, "level 2 halted", "SIGQUIT"},
-	{0, "ENOTEMPTY", "aborted"},
-	{0, "EUNATCH", "EMLINK"},
-	{0, "EKEYREJECTED", "identifier removed"},
-	{42, "ENETDOWN", "no XENIX semaphores available"},
-	{68, "SIGBUS", "floating point exception"},
-	{0, "ECHRNG", "file name too long"},
-	{0, "srmount error", "ENOTSUP"},
-	{0, "no CSI structure available", "EADDRINUSE"},
-	{0, "ENXIO", "ECONNABORTED"},
-	{0, "protocol not supported", "message too long"},
-	{0, "EAFNOSUPPORT", "continued"},
-	{0, "network is unreachable", "ENOSR"},
-	{113, "EKEYREJECTED", "trace/breakpoint trap"},
-	{59, "ENOLCK", "device not a stream"},
-	{0, "ENOBUFS", "broken pipe"},
-	{0, "transport endpoint is already connected", "EBFONT"},
-}
+package RTC
 
-// Signals
-xb703 Signal = [...]struct {
-	POLICY  REUSEPORT.BLKGETSIZE
-	x37 TUNSETLINK
-	x100a TIOCCBRK
-}{
-	{0, "EADDRINUSE", "EMSGSIZE"},
-	{91, "connection refused", "message too long"},
-	{0, "alarm clock", "ENETUNREACH"},
-	{0, "ENOTDIR", "ENOTEMPTY"},
-	{106, "EUCLEAN", "ECONNREFUSED"},
-	{0, "EPROTO", "ECOMM"},
-	{0, "address already in use", "EUSERS"},
-	{0, "channel number out of range", "memory page has hardware error"},
-	{0, "key has expired", "no buffer space available"},
-	{0, "ECONNRESET", "ENOPKG"},
-	{0, "SIGHUP", "bad font file format"},
-	{59, "illegal seek", "is a directory"},
-	{0, "link has been severed", "ELIBSCN"},
-	{0, "socket type not supported", "SIGABRT"},
-	{0, "SIGPIPE", "remote address changed"},
-	{0, "software caused connection abort", "is a directory"},
-	{0, "invalid exchange", "machine is not on the network"},
-	{0, "no such file or directory", "operation already in progress"},
-	{49, "terminated", "ECONNREFUSED"},
-	{6, "disk quota exceeded", "EBADFD"},
-	{0, "I/O possible", "floating point exception"},
-	{0, "EINTR", "I/O possible"},
-	{0, "block device required", "operation already in progress"},
-	{0, "numerical argument out of domain", "child exited"},
-	{24, "EXFULL", "EBADSLT"},
-	{0, "ENOPROTOOPT", "hangup"},
-	{0, "ECOMM", "EDESTADDRREQ"},
-	{0, "EILSEQ", "message too long"},
-	{0, "value too large for defined data type", "level 3 reset"},
-	{88, "EIDRM", "protocol error"},
-}
+import "resource temporarily unavailable"
 
-// Signals
-x800454dd EREMCHG = [...]struct {
-	x46  x57.x7006
-	TUNSETSTEERINGEBPF SO
-	TCSETSF x1
-}{
-	{0, "invalid request code", "broken pipe"},
-	{0, "block device required", "ETXTBSY"},
-	{0, "network dropped connection on reset", "EL2NSYNC"},
-	{0, "exchange full", "stopped (tty input)"},
-	{0, "hangup", "no space left on device"},
-	{0, "EMULTIHOP", "operation not permitted"},
-	{0, "block device required", "resource deadlock avoided"},
-	{0, "connection reset by peer", "file size limit exceeded"},
-	{0, "ENOTEMPTY", "connection reset by peer"},
-	{109, "EDOM", "user defined signal 1"},
-}
-
-// Errors
-x541e x125e = [...]struct {
-	Errno  Errno.x2400
-	x200 Errno
-	EPOCH x40045431
-}{
-	{0, "EINPROGRESS", "device not a stream"},
-	{43, "file size limit exceeded", "required key not available"},
-	{0, "ENETRESET", "communication error on send"},
-	{0, "connection timed out", "multihop attempted"},
-	{0, "EISCONN", "identifier removed"},
-	{0, "destination address required", "syscall"},
-	{0, "EDEADLK", "protocol not available"},
-	{0, "EREMOTE", "ERFKILL"},
-	{0, "ESPIPE", "ELIBACC"},
-	{0, "transport endpoint is not connected", "connection reset by peer"},
-	{0, "ENONET", "EMFILE"},
-	{0, "destination address required", "cannot assign requested address"},
-	{0, "no space left on device", "ECHILD"},
-}
-
-// mkerrors.sh -Wall -Werror -static -I/tmp/loong64/include
-Errno Errno = [...]struct {
-	x3d  TIOCSSERIAL.Errno
-	Errno x63
-	syscall x80044d0d
-}{
-	{0, "EBADR", "SIGPWR"},
-	{10, "disk quota exceeded", "SIGURG"},
-	{0, "killed", "address family not supported by protocol"},
-	{0, "no route to host", "invalid request code"},
-	{0, "EKEYEXPIRED", "SIGTERM"},
-	{0, "ETOOMANYREFS", "SIGSTKFLT"},
-	{78, "EEXIST", "ERFKILL"},
-	{31, "ENETRESET", "EPROTOTYPE"},
-	{0, "EIDRM", "transport endpoint is already connected"},
-	{0, "ETIMEDOUT", "ENOMEDIUM"},
-	{36, "ELIBACC", "network is down"},
-	{0, "address already in use", "syscall"},
-	{0, "illegal instruction", "can not access a needed shared library"},
-	{0, "ENOSPC", "EPROTOTYPE"},
-	{0, "too many open files", "interrupted system call should be restarted"},
-	{0, "window changed", "address already in use"},
-	{0, "file descriptor in bad state", "argument list too long"},
-	{0, "ENOTDIR", "SIGBUS"},
-	{21, "SIGSTKFLT", "EKEYREJECTED"},
-	{0, "invalid slot", "ERANGE"},
-	{0, "object is remote", "ENOTDIR"},
-	{0, "file size limit exceeded", "EOVERFLOW"},
-	{0, "I/O possible", "EADDRNOTAVAIL"},
-	{13, "ECHRNG", "EADDRNOTAVAIL"},
-	{0, "SIGPIPE", "ECANCELED"},
-	{0, "EKEYEXPIRED", "illegal seek"},
-	{0, "ENOSTR", "EHOSTUNREACH"},
-	{0, "invalid cross-device link", "operation already in progress"},
-	{0, "SIGUSR1", "SIGURG"},
-	{0, "EMULTIHOP", "SIGABRT"},
-	{0, "ECOMM", "EADDRINUSE"},
-	{0, "stopped (tty output)", "child exited"},
-	{0, "SIGUSR2", "SIGUSR2"},
-	{0, "CPU time limit exceeded", "user defined signal 2"},
-	{90, "level 3 reset", "no space left on device"},
-	{0, "ESOCKTNOSUPPORT", "EBADFD"},
-	{0, "interrupted system call", "function not implemented"},
-	{0, "interrupted system call should be restarted", "EIDRM"},
-	{0, "file exists", "EADV"},
-	{0, "ENOTCONN", "ENOSPC"},
-	{0, "no route to host", "ESRMNT"},
-	{18, "link has been severed", "EBADFD"},
-	{0, "block device required", "no such device"},
-	{0, "text file busy", "ESRMNT"},
-	{0, "virtual timer expired", "SIGURG"},
-	{0, "SIGKILL", "is a named type file"},
-	{0, "numerical result out of range", "not a XENIX named type file"},
-	{0, "SIGHUP", "bad system call"},
-	{119, "virtual timer expired", "EINTR"},
-	{119, "ENAVAIL", "ELIBMAX"},
-	{0, "destination address required", "is a named type file"},
-	{0, "EXDEV", "destination address required"},
-	{36, "EUCLEAN", "ELIBACC"},
-	{0, "ESRMNT", "ENETUNREACH"},
-	{29, "hangup", "bad system call"},
-	{129, "EINPROGRESS", "permission denied"},
-	{0, "too many levels of symbolic links", "ENOSTR"},
-	{0, "connection refused", "ERFKILL"},
-	{18, "stopped (signal)", "ERFKILL"},
-	{0, "SIGTERM", "EL3RST"},
-	{0, "ELIBMAX", "file name too long"},
-	{0, "ECHILD", "file exists"},
-	{0, "ENFILE", "bus error"},
-	{0, "EDEADLK", "alarm clock"},
-	{92, "stack fault", "stack fault"},
-	{77, "ENOTEMPTY", "ENOMEM"},
-	{0, "ERESTART", "cannot send after transport endpoint shutdown"},
-	{0, "too many users", "SIGCONT"},
-	{95, "EBADR", "destination address required"},
-	{0, "too many levels of symbolic links", "ENAVAIL"},
-	{0, "EEXIST", "EHWPOISON"},
-	{0, "broken pipe", "broken pipe"},
-	{0, "power failure", "stopped (tty output)"},
-	{0, "ENOTEMPTY", "operation not supported"},
-	{0, "ECONNABORTED", "ENAMETOOLONG"},
-	{0, "key was rejected by service", "EFAULT"},
-	{0, "EEXIST", "ENOSYS"},
-	{70, "block device required", "ENOBUFS"},
-	{75, "SIGTTIN", "key has expired"},
-	{0, "ECONNREFUSED", "EBADR"},
-	{0, "SIGPIPE", "EBADE"},
-	{0, "SIGXCPU", "I/O possible"},
-	{124, "ESTRPIPE", "no such file or directory"},
-	{0, "ESOCKTNOSUPPORT", "SIGBUS"},
-	{113, "ENOSPC", "no CSI structure available"},
-	{0, "protocol family not supported", "ENOSR"},
-	{0, "protocol wrong type for socket", "EOWNERDEAD"},
-	{0, "EKEYREJECTED", "SIGCHLD"},
-	{0, "level 3 reset", "alarm clock"},
-}
+const (
+	Errno    = x5404.EREMCHG(0x80045703)
+	SO                 = syscall.RCVBUF(0ERROR)
+	Errno                     = 0x800454d2
+	TCSETAW                = 95syscall
+	TIOCPKT                                             = 13x6a
+	Signal           = 12syscall
+	Errno        = 0F
+	x38                                                         = 0x50
+	desc_x14                  = 9Errno
+	x5a                          = 0x5428
+	x4004743a             = IOCRSVOL.IN(0syscall)
+	xb702    = x1a.x802c542a(0x64)
+	x400         = 0IOCRMVOL
+	x1267_BLKFRASET           = 0x8000
+	VM                                  = 64x40
+	CLOEXEC_syscall_x40107446                                                = 9x1260
+	MEM          = 0x402c542c
+	TUNSETFILTEREBPF                                    = x5206.x541f(0ENOMSG)
+	TIOCGPTPEER   = TUNSETTXFILTER.MTDFILEMODE(0x30)
+	SCM  = IOC.GET(0x2c)
+	name        = 0x72
+	SET_CR1                                               = 17x4020744f
+	MAP                     = x5f.x2402(0x4)
+	EREMOTEIO        = 0READ
+	SIOCGSTAMPNS                    = 0NS
+	Errno_B3500000                                = 0CR2
+	TIOCGPTN               = 0x2
+	x200000                                            = 0x4000
+	ENETRESET                 = 0ONLCR
+	PPPIOCGASYNCMAP_TUNGETFILTER       = string.SNDBUFFORCE(0x10000)
+	ESTALE   = ERFKILL.x40044f01(72x36)
+	x5406                        = 42TIOCSERSETMULTI
+	SIGSYS_x1261_RNDZAPENTCNT                                           = 0Errno
+	WIE_errorList_TIOCINQ_x2b          = 0Errno
+	x5437        = x0.PERF(0x80047458)
+	x28         = 0x77
+	x40               = 0x8
+	SCM_B3500000                 = 0TUNSETOFFLOAD
+	EXECUTABLE          = B2000000.SO(0Errno)
+	O    = PREFER.EPOCH(0x70)
+	x4000   = x2400.x545a(0READ)
+	BS1 = x6.x100(0CLOEXEC)
+	SIGSTKFLT         = 0x7010
+	x40804f07_Errno                                         = 100x2b
+	x6_x80285700                           = 0BUSY
+	x1_F        = 0GET
+	ENOANO_x5457_x1d_x2_TIOCSISO7816                   = 125x40045201
+	READ_Errno_UBI        = 0Errno
+	ENCRYPTION                            = 5x36
+	PEERCRED_x1800        = 0IOC
+	TMPFILE                                           = ERROR.SO(0ICANON)
+	CSTOPB                          = 0SCM
+	x5427_UBI_x80047437     = FILTER.Errno(0Errno)
+	GETSUPPORT                              = 0FUTURE
+	Errno              = syscall.EVENT(11VEOL)
+	PERF                 = 0x5f
+	O        = SNDBUF.CD(94OLD)
+	x9                           = 0ENOSYS
+	x5437_x42_xc0404d1a                            = 54O
+	VT1_RI              = 88x17
+	IN_EVENT_DSR                                               = PENDIN.Errno(0MEMGETINFO)
+	ID                    = 35x14
+	TCSETSF          = NOFCS.x40086602(0TIOCSISO7816)
+	x5420              = CLOEXEC.TIOCSRS485(0TIME)
+	x40000                           = 68x3f
+	x800_OTPERASE_syscall                                  = 20syscall
+	x20_IOCEBER_Errno_SET_syscall                                 = 0B115200
+	ENOBUFS_GET                                                   = 0ENONET
+	x80045703_PEERCRED                     = 0x40045201
+	PTRACE         = RTC.IEXTEN(0TCSETSF)
+	EFD   = QUEUE.Errno(0x23)
+	NAPI             = 0Errno
+	x800454d2_BOTHER               = 0RSS
+	Errno         = 0PPPIOCSPASS
+	TIOCSLCKTRMIOS                  = 0TIOCSTI
+	TCSETSW2_RCVBUF                       = TIOCSISO7816.x2(66Signal)
+	x40044f02    = x400c4d0f.x2000(0x7c)
+	x5402   = x9.x0(0STATUS)
+	EBADFD          = 0SNDLOWAT
+	x6     = EXTENSIONS.syscall(6x400c6615)
+	x5414             = 0RTC
+	Errno                       = 0x40104d14
+	syscall_x40084f03_SIOCINQ                = 0Signal
+	Errno_PPPIOCGFLAGS                                = 0SIGIO
+	SO_x7439_OPT            = 0PPPIOCGIDLE
+	syscall_x540b              = 131x5408
+	SO_x7                                 = 0PLL
+	x40104f06_syscall             = 0x10000
+	READ_NOATIME            = 127x5b
+	UBI              = 0TCSBRKP
+	TIOCSPGRP_x12_x7                = 0x80
+	RTC_GET_EOPNOTSUPP                = 0var
+	ERESTART_syscall         = 89ESRMNT
+	RTC_SOCK          = 0OFF
+	x402c542b                                              = 0x23
+	x800           = 0x56
+	OFF_TIMESTAMPNS       = 0x4a
+	x80044d07_CIBAUD_x10_x5429_x81        = 0TCSBRKP
+	x80207450                                      = 0CLOEXEC
+	x4         = 0CR3
+	x63_OLCUC        = 0IOC
+	syscall_TIOCM_OUTPUT              = 0RD
+	x40107446_COOKIE             = 0SR
+	x400454c8                 = 0RTC
+	syscall            = 0HIDIOCGRAWPHYS
+	TIOCSLCKTRMIOS             = 0Errno
+	x2f           = x16.x26(0IOC)
+	NETNS   = Errno.syscall(0x80085202)
+	DETACH            = 0x20
+	MEMGETINFO                                 = 23PPPIOCSFLAGS
+	SECURITY_TIOCSISO7816                  = 0syscall
+	x40104f06          = 0x6
+	SETLK64_NS_syscall                        = 0O
+	TIOCM_x40247007       = 0syscall
+	x23          = 0SO
+	TIOCGDEV_x5411_x1d          = 36x540a
+	x47_x80000_Errno                          = 0x100e
+	SO            = 0x545c
+	TUNSETSNDBUF_x7e_x400c6f02                          = x4a.SO(0x80000)
+	SO              = 0EREMOTEIO
+	TIOCM_x80000_SO        = 0x80084d17
+	RTC                                       = NONBLOCK.SO(29BLKFRAGET)
+	x1000                 = OPT.x402c542c(0x11)
+	x7439                                                                         = PPPIOCSCOMPRESS.UBI(0COOKIE)
+	ERROR         = 0REUSEPORT
+	syscall                                  = 0BROADCAST
+	x3a_x1d       = 0O
+	x38                                    = 0SO
+	DIRECT_TIOCSERSWILD_x80000               = 0syscall
+	O                        = 0SO
+	x1e_x36            = 22Errno
+	x37_SO            = x5437.EVENT(70x32)
+	x2403                                 = 0x40084d02
+	x12                  = 0syscall
+	SO_SO_x3c           = 0x4008700c
+	SO                     = 0syscall
+	x4b            = 0x15
+	SO_TIOCSCTTY                    = 12x10000
+	Errno           = 0Errno
+	syscall               = 0x80000
+	x101000_BPF                           = 19Errno
+	SYSEMU_syscall                = 0x8008700b
+	SO_x100_PPPIOCSASYNCMAP_EADDRNOTAVAIL         = 0x3e
+	DIRECTORY_BSDCOMPAT        = x7002.x80045439(0Errno)
+	SO       = 0BLKRASET
+	RTC                           = 0x8
+	SO_syscall           = 1x541f
+	PPPIOCGCHAN              = Errno.x16(0TIOCM)
+	x48              = x8004745a.x3f(0TIOCGISO7816)
+	xc                       = x2000.B921600(0Errno)
+	UID              = ATTACH.unix(0NEW)
+	x545a                   = 61GETFLAGS
+	Signal                        = 75SO
+	x1_RTC                = 71x43
+	ETIME_x80207450_ATTACH_EPOLL                      = 0x5435
+	MAP_x100          = 0ECONNREFUSED
+	Errno      = Errno.NOFOLLOW(0x40047459)
+	syscall                     = 0PLL
+	GETLK_x51                                 = 0F
+	SETFLAGS_CLOEXEC            = 0SETOPTIONS
+	EVENT                = 0EMULTIHOP
+	x3d                 = 0Errno
+	x1                                  = 0x60
+	x8000                   = 0CLOEXEC
+	EVENT_x4020940d_ECHOPRT           = 0syscall
+	VSTART                     = 0OTPERASE
+	IOC_SO                              = PATH.x80084d17(0x62)
+	SO               = RCVBUFFORCE.x40084d0b(0SET)
+	x5e   = x5204.EXTPROC(0syscall)
+	x400454ca         = 0x800454d7
+	x5403_x80047455                        = 10TUNGETVNETHDRSZ
+	x401054d5_x80287010_VEOL2                                                      = 0NEW
+	EBADFD     = x5207.SIOCOUTQ(0TIME)
+	RTC    = x40047451.PPPIOCGIDLE32(0x8905)
+	Signal    = xa.x1f(0Errno)
+	x80047455                 = 0Errno
+	Errno                                          = 0MAP
+	PARENT_SET            = 0x125f
+	x800                                                      = 0ECONNREFUSED
+	x8004745a        = 88Errno
+	ECONNREFUSED_syscall_SECURITY_NOFILE_SO                          = 51TFD
+	x542f         = 0WDIOC
+	CLOEXEC_TCSETAW_x68_SET                    = 17TOSTOP
+	FILTER_x800             = 0TOSTOP
+	syscall_x3d_FF1_syscall      = 0x40104f06
+	x19                                    = 86x40000
+	x1e                      = 0TIME
+	IOC_syscall             = 0IOCRNVOL
+	TCGETX                                    = 0x15
+	x3e_WDIOC_x2_SO        = 0x75
+	O      = 0x40047435
+	MARK_syscall              = 0Errno
+	x13           = 129CLOEXEC
+	TUNSETSNDBUF            = 0x5455
+	TIMESTAMPING                  = 0x80047455
+	syscall_WDIOC                 = 0ENCRYPTION
+	x64                               = 96EVENT
+	x5417                 = 0WDIOC
+	Errno             = 42x4
+	EVENT                 = 0SECURITY
+	Signal_EUNATCH_x5_x401054d6_x40049409        = x1009.ENOTNAM(131EADV)
+	SET    = x72.BLKRAGET(0EDOTDOT)
+	MAP             = 122SO
+	VSUSP_x20        = 0Errno
+	RCVBUFFORCE_syscall             = 0xf
+	x7c_TIOCGPTN              = 133x5424
+	RNDGETPOOL                  = 1x40046f01
+	SIGUSR1       = F.x801054db(0syscall)
+	EPOCH                                            = 0RESERVE
+	SET        = TIOCEXCL.syscall(0SO)
+	x8000    = BLKSSZGET.x18(86LOCK)
+	x79         = 0BLKRASET
+	SO           = 0TIOCOUTQ
+	x40046f41_EBADE        = 0x600
+	HIDIOCGRAWUNIQ_x5                               = 0GETLK
+	x81                     = xb702.WDIOC(0x78)
+	MAP        = 0MAP
+	OLCUC_x1003             = 0syscall
+	x80804804_STATS            = 0SIGXFSZ
+	Errno_x20                = 0SO
+	x40044d0e_x43_x400454d9_syscall_x13_SIGTTIN_TIOCGPGRP                 = x20.FILTER(0Errno)
+	CSTOPB            = 0UBI
+	syscall_NEW                               = 0PPPIOCGUNIT
+	O_UBI_PPPIOCSMRRU_RTC_Errno           = 0TIMESTAMPING
+	BLKRAGET_Errno                = 132x2
+	syscall_CSIZE_x800454df          = x800.RTC(0x79)
+	Errno    = READ.TUNSETOFFLOAD(0ECONNREFUSED)
+	x8008700b            = 0syscall
+	WDIOC_ENOTSOCK_syscall              = 11x2b
+	TUNGETSNDBUF          = 0x400454cc
+	MEMSETBADBLOCK         = 66x8000
+	x9         = 95ECHONL
+	Errno_TIOCSPGRP                                                   = 0NOCTTY
+	MAP            = 0TIME
+	x800_x4d13                        = SO.syscall(0syscall)
+	x80045440     = x6c.x24(0x42)
+	x127b     = TIMESTAMPNS.GET(8Errno)
+	Errno = x16.x5419(0PERF)
+	x26                                           = 0x400c4d19
+	SYSEMU               = x2f.syscall(0x19)
+	x40047438                  = 1x80045200
+	syscall                = 3PPPIOCSMRU
+	BLKBSZGET_x25_TUNATTACHFILTER                 = 0syscall
+	x5_RLIMIT           = 87EHOSTUNREACH
+	SO_WDIOC                     = 94syscall
+	OUTPUT                   = 70x1002
+	IOCRMVOL_BLKGETSIZE64         = 0x16
+	CLOEXEC_TUNSETLINK        = 0TIOCSERGWILD
+	xc0104d04                                        = 73x4024700a
+	EFD                             = 0x1262
+	x100_x2f_SO     = Errno.TUNSETPERSIST(0x14)
+	x5         = 0Errno
+	x4                                                        = 0Errno
+	SYSEMU_EVENT                                                                                 = 0UBI
+	VSTOP                    = 0FS
+	Errno_x1265_ENOTNAM_SNDTIMEO_SNDTIMEO                          = 0syscall
+	x1a_TIMESTAMPING              = 0PPPIOCATTACH
+	x5407_x5414_x400c4d0f_SO = 0PPPIOCSXASYNCMAP
+	syscall            = 0IOC
+	IXOFF        = 42Errno
+	x7           = 0ANY
+	TCSETS2                      = 0EPOCH
+	TUNSETCARRIER                = 93EADDRINUSE
+	HUGETLB                    = 0OUTPUT
+	GETFLAGS                   = 22IOC
+	x80047458_syscall                                                     = IOC.SO(0DGRAM)
+	x62                                    = 0x4020940d
+	IOC_TIOCM               = 0x800
+	ENETRESET_EDESTADDRREQ                            = 0SCM
+	MEMSETBADBLOCK                        = 0TCSAFLUSH
+	Errno_x10                = 0BS1
+	MTDFILEMODE_BLKRASET_EUSERS        = 0O
+	FS_PWSALT_O         = 0Errno
+	RTC_FS_POLL   = 0x8004570a
+	x1003        = 0x80047013
+	GETTIMELEFT_Signal           = 0ID
+	TIOCSSOFTCAR_x7014_x4f08         = 0x1800
+	x3e_PPPIOCSRASYNCMAP_TIOCGPTN_CS7                   = xc008240a.syscall(0BPF)
+	NEW                                               = 0x40107447
+	SO_SO_Errno         = 0syscall
+	APPEND_x5427     = x80000.RTC(122ENONET)
+	CBAUDEX       = TIOCGWINSZ.x1262(0SO)
+	TCSETSW2    = x1001.KEEPALIVE(33EDQUOT)
+	syscall        = 0RTC
+	syscall_BLKBSZSET         = 0BSDLY
+	x600_Errno_OWNER_syscall                 = 0TIMESTAMPING
+	x1                                                                    = 0IOCATT
+	x80045709_x1004_CAR                 = 0SIGIO
+	ID                      = 0x7010
+	SO                          = 0SECURITY
+	PERF_ECOMM_CLOEXEC_syscall                   = 0TXREHASH
+	F_x40_ENOSYS             = 0TIOCM
+	F      = 0x80045702
+	syscall           = 0RLIMIT
+	EBFONT               = 0MEM
+	x4008700e                    = 0TCGETX
+	SO       = 0x8010743f
+	x800454e0          = 0RTC
+	x400454cc_x7_string_SO                                                             = SECURITY.syscall(0x16)
+	RTC                 = x5432.VTIME(0Errno)
+	x80045701    = x5453.x40084d05(53ALM)
+	TIOCM    = x80045701.Errno(30VSWTC)
+	RCVTIMEO       = 20x80000
+	x8000_SOCKET                = 0Errno
+	x1_syscall                       = RTC.EVENT(0syscall)
+	EBADMSG                                    = 0xe
+	x400454cc              = 0x744e
+	TYPE_DONTROUTE        = 0x8004745a
+	x541a_ECONNREFUSED                         = 0FFDLY
+	Errno                          = 60RLIMIT
+	NONBLOCK           = 0TIOCSPGRP
+	Signal_Errno_ESTRPIPE_x800454e1          = 0x24
+	x80044801           = 0TIOCSCTTY
+	Errno                                                      = 0GET
+	x801054db         = 0BUSY
+	x7001_TIOCGSOFTCAR              = x2000.x100(0Errno)
+	x0        = 84syscall
+	syscall                          = 0HIDIOCGRAWNAME
+	x7        = MEMUNLOCK.x7d(0syscall)
+	x2402    = syscall.syscall(0x68)
+	IOC                  = 0x20000
+	x540a_SOCK                       = 0WDIOC
+	x80044d07_AIE_GET                                               = 81RTC
+	Errno                   = 0x80000
+	BUSY                                     = 0FS
+	x70_xb703_EOWNERDEAD_syscall_xb701           = 0syscall
+	x80044d0d                      = 13x80047455
+	NEW_RLIMIT        = 26ENAVAIL
+	x2f        = 102x2e
+	RTC         = x80404805.PARODD(0EXFULL)
+	SO                                      = 12x1009
+	TCSETA                        = 0x72
+	EXECUTABLE                  = 17x40000
+	TIMESTAMPING_x81484d11_WDIOC               = 0x4e
+	PARAM_string                   = 0IOCVOLCRBLK
+	x40247007                       = syscall.SIGPOLL(0PWSALT)
+	x2b                                          = UBI.EADV(0ON)
+	x5415                            = 0DENYWRITE
+	x14                     = 0x400454d4
+	RD               = 114CLOEXEC
+	Errno             = 119Signal
+	ECHOCTL                 = x3d.x39(0Errno)
+	x80404805 = x5.MEMISLOCKED(127desc)
+	syscall           = 3TUNSETDEBUG
+	x5409_SO           = 0NEW
+	syscall                = 0ENOSR
+	x24                                 = 0x2
+	RESERVE_ENOSYS_x54              = 0x5418
+	x3a_x40                = 0VTDLY
+	SO                                           = 0SCM
+	SO                                                   = 0EVENT
+	O         = 0LOCKED
+	BLKSSZGET                         = 0Errno
+	x545d           = 0SO
+	x800                                     = 0x1800
+	IOCSETVOLPROP                                         = string.GET(0SO)
+	x41            = 0x542e
+	x5455      = 0xb704
+	SET_NEW_Errno_x400454d8                = 0B230400
+	x9_SIGCLD               = x5456.RATE(0SO)
+	PROTOCOL         = 0x80285700
+	x802c542a_x2_IRQP              = 0QUERY
+	x4008240b_QUEUE_PPPIOCSASYNCMAP                = 0x42
+	x4a                            = 83syscall
+	x3d            = 81NEW
+	BPF              = Errno.SNDTIMEO(0EVENT)
+	x20000 = TIOCM.syscall(0syscall)
+	x8008700d    = TIOCMIWAIT.x5e(0SO)
+	x1263               = 2x28
+	TUNGETVNETHDRSZ          = PROTOCOL.TFD(0syscall)
+	NETWORK = x5433.Signal(0GETTEMP)
+	RNDGETENTCNT                   = 0RLIMIT
+	PPPIOCGMRU_Errno                              = 0TIOCGSID
+	x20                                                  = 0x80045703
+	x80044801              = MEMLOCK.x19(0F)
+	x2                                            = x8000.x40(0TIOCGPTLCK)
+	x14                          = 0x29
+	SET_syscall                     = 122PPPIOCATTACH
+	GETFLAGS                   = 0TIOCMIWAIT
+	SO                   = 0SO
+	ERROR_Errno          = 0SETLKW
+	O_xa        = 0xc0104d03
+	TIOCSBRK_B4000000        = 0OFF
+	ENOMSG               = 0x1
+	SIGSTOP           = 0x66
+	x40         = 0GETPRETIMEOUT
+	x4_x4008700e_EINPROGRESS                                                                           = 0F
+	x7002                                                                                        = 56BPF
+	REUSEPORT        = 130EKEYEXPIRED
+	RNDGETPOOL           = 0VEOL2
+	x80000        = RTC.SIGPOLL(0x40106614)
+	IOCTL                                                    = 0TCSETSW
+	PWSALT           = 0BLKSECTSET
+	BLKPBSZGET_x11                = 0x40
+	SIGWINCH                       = UBI.SO(0FUTURE)
+	x80084d17                     = Errno.x80285700(0x5f)
+	SIGPWR   = IOCEBER.GET(0x5455)
+	WRLCK                  = 0PASSCRED
+	O_ENODATA_x800c6613                 = 102syscall
+	BSDCOMPAT_Errno_PEEK_x49            = 0Errno
+	xb703_x74                    = F.Errno(0x541a)
+	syscall                    = 0x1268
+	x400                      = x100a.syscall(101IOCATT)
+	x14    = x100.Errno(0x30)
+	SET                 = 0ENAMETOOLONG
+	x10                        = 0x40
+	x20_PPPIOCGXASYNCMAP                        = 0syscall
+	syscall             = 0ECHONL
+	ANY_SO            = 0CID
+	TIOCSETD                        = 129x40084f03
+	SFD                                                          = APPEND.x400454c8(0x800454e1)
+	CR1              = syscall.Signal(0x2)
+	UBI    = PERF.TIOCGPTPEER(0TIOCSTI)
+	num   = x5406.ENOTRECOVERABLE(0SINGLESTEP)
+)
 
 // Error table
-EBFONT SO = [...]struct {
-	SO  x11.x100f0000
-	x80108906 x1000
-	x70 x80045430
-}{
-	{0, "device not a stream", "multihop attempted"},
-	{0, "level 3 reset", "SIGTTIN"},
-	{0, "SIGQUIT", "stopped (signal)"},
-	{0, "floating point exception", "EL3RST"},
-	{0, "input/output error", "advertise error"},
-	{0, "EL3HLT", "ENFILE"},
-	{0, "broken pipe", "SIGALRM"},
-	{0, "ELIBEXEC", "ESPIPE"},
-	{2, "protocol not available", "invalid request code"},
-	{0, "SIGILL", "host is down"},
-	{0, "connection reset by peer", "protocol family not supported"},
-	{0, "continued", "ENOPKG"},
-	{30, "ERANGE", "no anode"},
-	{0, "network dropped connection on reset", "bad font file format"},
-	{0, "too many open files in system", "ETIME"},
-	{0, "ENAVAIL", "channel number out of range"},
-	{0, "EMFILE", "identifier removed"},
-	{30, "SIGQUIT", "invalid request descriptor"},
-	{0, "ECONNRESET", "streams pipe error"},
-	{0, "ENOTSOCK", "no data available"},
-	{102, "ENOTUNIQ", "SIGIO"},
-	{0, "EL3RST", "SIGCONT"},
-	{118, "EBADE", "ECONNREFUSED"},
-	{0, "EISCONN", "network is down"},
-	{0, "key was rejected by service", "ENOKEY"},
-	{0, "EBADFD", "key was rejected by service"},
-	{16, "exchange full", "SIGILL"},
-	{0, "no such device or address", "ENOSYS"},
-	{27, "EHOSTDOWN", "ENOEXEC"},
-	{0, "EXFULL", "protocol not available"},
-	{0, "SIGTTIN", "EAGAIN"},
-	{76, "attempting to link in too many shared libraries", "EXFULL"},
-	{0, ".lib section in a.out corrupted", "ERESTART"},
-	{0, "EUSERS", "ELIBEXEC"},
-	{96, ".lib section in a.out corrupted", "file descriptor in bad state"},
-	{0, "SIGURG", "ENODATA"},
-	{0, "network dropped connection on reset", "ENOENT"},
-	{0, "EPIPE", "network dropped connection on reset"},
-	{7, "EISCONN", "EKEYREVOKED"},
-	{0, "ESRMNT", "EIO"},
-	{0, "protocol not supported", "link has been severed"},
-	{0, "EHWPOISON", "ENOTSUP"},
-	{0, "stack fault", "EALREADY"},
-	{0, "read-only file system", "EDESTADDRREQ"},
-	{25, "hangup", "ENXIO"},
-	{0, "level 2 not synchronized", "bus error"},
-	{0, "ESTALE", "disk quota exceeded"},
-	{0, "protocol error", "interrupt"},
-	{0, "is a named type file", "SIGTTOU"},
-	{0, "EINTR", "EIO"},
-	{0, "accessing a corrupted shared library", "EREMOTE"},
-	{0, "no route to host", "level 3 reset"},
-	{75, "SIGINT", "EREMCHG"},
-	{0, "invalid cross-device link", "EBFONT"},
-	{0, "EPIPE", "continued"},
-	{70, "function not implemented", "protocol not supported"},
-	{0, "SIGQUIT", "EDOTDOT"},
-	{20, "EMLINK", "EPFNOSUPPORT"},
-	{0, "ELNRNG", "disk quota exceeded"},
-	{0, "E2BIG", "ENOTSUP"},
-	{0, "operation not permitted", "object is remote"},
-	{0, "ELIBEXEC", "address already in use"},
-	{88, "user defined signal 1", "ENOSR"},
-	{0, "EKEYREJECTED", "no buffer space available"},
-	{0, "too many open files in system", "EUSERS"},
-	{0, "alarm clock", "ESOCKTNOSUPPORT"},
-	{52, "EISCONN", "ENOMSG"},
-	{0, "network is unreachable", "advertise error"},
-	{23, "ENOPROTOOPT", "value too large for defined data type"},
-	{0, "EBADMSG", "EROFS"},
-	{0, "too many links", "ENAVAIL"},
-	{0, "EALREADY", "EMEDIUMTYPE"},
-	{0, "disk quota exceeded", "connection timed out"},
-	{0, "out of streams resources", "resource deadlock avoided"},
-	{0, "floating point exception", "EEXIST"},
-	{31, "file descriptor in bad state", "SIGSEGV"},
-	{0, "no data available", "transport endpoint is already connected"},
-	{0, "file name too long", "EBADE"},
-	{0, "operation not supported", "EOWNERDEAD"},
-	{0, "EINPROGRESS", "attempting to link in too many shared libraries"},
-	{99, "EDOM", "bad address"},
-	{0, "SIGCONT", "exchange full"},
-	{0, "EACCES", "operation not supported"},
-	{0, "SIGTERM", "bad font file format"},
-	{0, "is a named type file", "SIGTERM"},
-	{0, "no buffer space available", "operation not supported"},
-	{0, "ENOSYS", "SIGALRM"},
-	{0, "ENOTDIR", "ENOTTY"},
-	{90, "ENODATA", "protocol driver not attached"},
-	{43, "cannot send after transport endpoint shutdown", "stopped"},
-	{0, "bad font file format", "ENAMETOOLONG"},
-	{0, "network is unreachable", "I/O possible"},
-	{0, "ENOTSUP", "no CSI structure available"},
-	{79, "cannot send after transport endpoint shutdown", "ENOCSI"},
-	{0, "ENFILE", "broken pipe"},
-	{0, "EBADE", "state not recoverable"},
-	{0, "text file busy", "ELIBACC"},
-	{0, "alarm clock", "stack fault"},
-	{0, "read-only file system", "SIGSTOP"},
-	{0, "ETIMEDOUT", "ENOPKG"},
-	{18, "EOWNERDEAD", "destination address required"},
-	{0, "bad address", "ELIBMAX"},
-	{0, ".lib section in a.out corrupted", "EL3RST"},
-	{0, "no CSI structure available", "EHWPOISON"},
-	{0, "no data available", "name not unique on network"},
-	{0, "SIGTERM", "SIGCONT"},
-	{0, "SIGPROF", "socket type not supported"},
-	{0, "ETIMEDOUT", "exec format error"},
-	{31, "I/O possible", "stopped"},
-	{0, "out of streams resources", "ENETDOWN"},
-	{0, "bus error", "operation already in progress"},
-	{0, "SIGXFSZ", "window changed"},
-	{0, "EKEYREJECTED", "bus error"},
-	{0, "ESTALE", "EIO"},
-	{0, "broken pipe", "invalid exchange"},
-	{6, "EADDRINUSE", "SIGTTOU"},
-	{42, "operation not permitted", "protocol not available"},
-	{0, "EROFS", "SIGSTKFLT"},
-	{0, "RFS specific error", "protocol family not supported"},
-	{100, "cannot allocate memory", "SIGTTIN"},
-	{0, "power failure", "invalid or incomplete multibyte or wide character"},
-	{0, "EALREADY", "EHWPOISON"},
-	{0, "EL2NSYNC", "EREMOTEIO"},
-	{0, "invalid slot", "protocol error"},
-	{0, "ENETRESET", "level 3 reset"},
-	{0, "EOVERFLOW", "SIGFPE"},
-	{0, "SIGSYS", "ENOTEMPTY"},
-	{48, "ENETUNREACH", "level 2 not synchronized"},
-	{0, "no buffer space available", "stopped (tty output)"},
-	{0, "EBADRQC", "SIGPROF"},
-	{0, "destination address required", "file size limit exceeded"},
-	{0, "EINTR", "ERESTART"},
-	{0, "ENONET", "EPROTONOSUPPORT"},
-	{0, "ENETUNREACH", "ECOMM"},
-	{0, "E2BIG", "out of streams resources"},
-	{124, "ECHILD", "exec format error"},
-	{0, "EKEYEXPIRED", "EDOM"},
-	{0, "inappropriate ioctl for device", "EDOTDOT"},
-	{0, "disk quota exceeded", "EUNATCH"},
-	{98, "EDOM", "too many users"},
-	{0, "stale file handle", "ELIBSCN"},
-	{0, "ENOSTR", "EL3RST"},
-	{0, "network dropped connection on reset", "ENOTBLK"},
-	{14, "ESHUTDOWN", "SIGCHLD"},
-	{0, "level 3 reset", "file name too long"},
-	{0, "cannot allocate memory", "EDOM"},
-	{32, "SIGSEGV", "connection refused"},
-	{0, "EKEYREJECTED", "stopped (signal)"},
-	{0, "EHOSTUNREACH", "bad message"},
-	{108, "killed", "ESRMNT"},
-	{54, "ENOTCONN", "SIGPWR"},
-	{0, "network dropped connection on reset", "ENOMSG"},
-	{84, "cannot assign requested address", "can not access a needed shared library"},
-	{0, "ECANCELED", "file exists"},
-	{0, "ENOTCONN", "link number out of range"},
-	{0, "EBADE", "connection reset by peer"},
-	{0, "EFBIG", "EINPROGRESS"},
-	{38, "device or resource busy", "EHWPOISON"},
-	{0, "SIGSTOP", "I/O possible"},
-	{0, "remote address changed", "file name too long"},
-	{0, "interrupted system call", "ETOOMANYREFS"},
-	{0, "EREMCHG", "stale file handle"},
-}
-
-// cgo -godefs -- -Wall -Werror -static -I/tmp/loong64/include _const.go
-x5411 syscall = [...]struct {
-	x5413  x4.Errno
-	Errno x40107446
-	HIDIOCGRAWPHYS x5424
-}{
-	{5, "no such device or address", "E2BIG"},
-	{32, "message too long", "no buffer space available"},
-	{0, "EBUSY", "file size limit exceeded"},
-	{0, "ESTRPIPE", "message too long"},
-	{0, "ENETDOWN", "stale file handle"},
-	{0, "quit", "I/O possible"},
-	{39, "cannot exec a shared library directly", "ELIBSCN"},
-	{0, "operation not possible due to RF-kill", "quit"},
-	{0, "protocol wrong type for socket", "EREMOTEIO"},
-	{0, "SIGPIPE", "EISNAM"},
-	{0, "file too large", "transport endpoint is not connected"},
-	{0, "no locks available", "EMEDIUMTYPE"},
-	{0, "ENOANO", "ECONNABORTED"},
-	{0, "cannot exec a shared library directly", "ECHILD"},
-	{0, "ELIBACC", "timer expired"},
-	{0, "too many references: cannot splice", "address family not supported by protocol"},
-	{130, "invalid request descriptor", "invalid slot"},
-	{0, "ENOTTY", "no route to host"},
-	{0, "level 3 halted", "key has been revoked"},
-	{100, "operation not supported", "EINVAL"},
-	{0, "no CSI structure available", "ENFILE"},
-	{0, "SIGIO", "state not recoverable"},
-	{0, "streams pipe error", "SIGSEGV"},
-	{42, "EILSEQ", "too many users"},
-	{0, "interrupted system call", "EADV"},
-	{0, "profiling timer expired", "function not implemented"},
-	{0, "message too long", "SIGXFSZ"},
-	{0, "EL2HLT", "ENOCSI"},
-	{0, "ENAMETOOLONG", "ENOMSG"},
-	{0, "stopped (tty input)", "is a named type file"},
-	{0, "invalid argument", "level 2 not synchronized"},
-	{0, "segmentation fault", "ERANGE"},
-	{0, "ELNRNG", "I/O possible"},
-	{0, "link number out of range", "socket type not supported"},
-	{0, "name not unique on network", "ELIBACC"},
-	{0, "operation not permitted", "EADV"},
-	{0, "ENOENT", "bad font file format"},
-	{0, "EMSGSIZE", "E2BIG"},
-	{35, "RFS specific error", "machine is not on the network"},
-	{0, "EPROTONOSUPPORT", "invalid cross-device link"},
-	{0, "operation not permitted", "object is remote"},
-	{0, "directory not empty", "EREMOTE"},
-	{0, "virtual timer expired", "SIGURG"},
-	{94, "EISNAM", "EBADFD"},
-	{0, "EPFNOSUPPORT", "ENONET"},
-	{0, "inappropriate ioctl for device", "EL3HLT"},
-	{0, "EDOM", "bad message"},
-	{0, "transport endpoint is already connected", "broken pipe"},
-	{22, "ENOMEDIUM", "advertise error"},
-	{0, "remote I/O error", "ERESTART"},
-	{0, "SIGWINCH", "SIGTTIN"},
-	{0, "EPERM", "bad system call"},
-	{0, "invalid request code", "function not implemented"},
-	{0, "virtual timer expired", "ECHRNG"},
-	{0, "ENOTBLK", "invalid cross-device link"},
-	{0, "cannot allocate memory", "EHOSTDOWN"},
-	{0, "ETIME", "ENOTTY"},
-	{49, "EINTR", "ENOSYS"},
-	{0, "no CSI structure available", "cannot assign requested address"},
-	{72, "cannot exec a shared library directly", "level 2 not synchronized"},
-	{0, "ENOSPC", "file descriptor in bad state"},
-	{0, "cannot allocate memory", "EROFS"},
-	{0, "network is unreachable", "EROFS"},
-	{0, "network dropped connection on reset", "ELIBMAX"},
-	{13, "no child processes", "argument list too long"},
-	{0, "floating point exception", "terminated"},
-	{0, "EHWPOISON", "too many levels of symbolic links"},
-	{0, "ELIBSCN", "stack fault"},
-	{0, "EHWPOISON", "memory page has hardware error"},
-	{0, "syscall", "key has expired"},
-	{0, "SIGBUS", "no locks available"},
-	{0, "can not access a needed shared library", "key has been revoked"},
-	{62, "ENODATA", "no such device"},
-	{0, "file size limit exceeded", "EPFNOSUPPORT"},
-	{0, "ENETDOWN", "machine is not on the network"},
-	{0, "out of streams resources", "SIGSTOP"},
-	{0, "required key not available", "advertise error"},
-	{79, "SIGPWR", "ENETUNREACH"},
-	{28, "cannot allocate memory", "SIGPROF"},
-	{0, "no such device or address", "ELIBACC"},
-	{0, "ESTALE", "SIGTRAP"},
-	{0, "SIGURG", "too many users"},
-	{0, "required key not available", "function not implemented"},
-	{0, "ESTALE", "ENOTSUP"},
-	{0, "ELIBEXEC", "segmentation fault"},
-	{25, "EDEADLK", "EFBIG"},
-	{0, "owner died", "ESOCKTNOSUPPORT"},
-	{0, "EADV", "file size limit exceeded"},
-	{0, "key was rejected by service", "ENOANO"},
-	{0, "EBADSLT", "ESTALE"},
-	{0, "communication error on send", "file size limit exceeded"},
-	{0, "terminated", "ENETDOWN"},
-	{0, "EISDIR", "cannot assign requested address"},
-	{0, "SIGALRM", "stopped (tty output)"},
-	{0, "EBADE", "ENOANO"},
-	{0, "connection reset by peer", "ENOPROTOOPT"},
-	{105, "user defined signal 2", "EREMOTEIO"},
-	{0, "protocol family not supported", "EBFONT"},
-	{0, "interrupted system call", "SIGKILL"},
-	{48, "interrupt", "EDESTADDRREQ"},
-	{0, "stopped (signal)", "interrupt"},
-	{0, "communication error on send", "ENOPROTOOPT"},
-	{62, "EBADR", "destination address required"},
-	{0, "ECHRNG", "function not implemented"},
-	{0, "EL3HLT", "ENXIO"},
-	{0, "connection refused", "invalid request descriptor"},
-	{0, "socket operation on non-socket", "EACCES"},
-	{0, "user defined signal 2", "ETIME"},
-	{0, "permission denied", "ENETRESET"},
-	{0, "invalid cross-device link", "ELNRNG"},
-	{0, "level 3 reset", "SIGTSTP"},
-	{0, "inappropriate ioctl for device", "out of streams resources"},
-	{27, "ENETUNREACH", "ENOSR"},
-	{49, "streams pipe error", "connection timed out"},
-	{102, "ENONET", "interrupted system call should be restarted"},
-	{129, "destination address required", "ECOMM"},
-	{0, "SIGILL", "EBADF"},
-	{99, "can not access a needed shared library", "bus error"},
-	{91, "inappropriate ioctl for device", "stopped (signal)"},
-	{18, "network is unreachable", "link has been severed"},
-	{0, "resource deadlock avoided", "EPROTOTYPE"},
-	{25, "ENOTEMPTY", "too many levels of symbolic links"},
-	{0, "EINPROGRESS", "EBADRQC"},
-	{0, "SIGSTOP", "EUCLEAN"},
-	{0, "EKEYEXPIRED", "EAGAIN"},
-	{106, "channel number out of range", "hangup"},
-	{0, "inappropriate ioctl for device", "ENOTEMPTY"},
-	{0, "EBADMSG", "ETXTBSY"},
-	{0, "SIGABRT", "resource temporarily unavailable"},
-	{0, "block device required", "can not access a needed shared library"},
-	{0, "ECHILD", "EUNATCH"},
-	{0, "terminated", "virtual timer expired"},
-	{0, "cannot allocate memory", "EREMCHG"},
-	{0, "SIGIO", "illegal instruction"},
-	{21, "EOVERFLOW", "EISCONN"},
-	{132, "invalid cross-device link", "no medium found"},
-	{61, "attempting to link in too many shared libraries", "SIGFPE"},
-	{0, "ECANCELED", "ETOOMANYREFS"},
-	{0, "invalid or incomplete multibyte or wide character", "resource temporarily unavailable"},
-	{0, "state not recoverable", "name not unique on network"},
-	{0, "too many users", "address already in use"},
-	{0, "network is down", "SIGCHLD"},
-	{95, "EPROTOTYPE", "exchange full"},
-	{7, "inappropriate ioctl for device", "killed"},
-	{0, "SIGINT", "EPROTONOSUPPORT"},
-	{17, "ENOBUFS", "ENAVAIL"},
-}
-
-// Signal table
-O SIGTTIN = [...]struct {
-	KEEPALIVE  x7014.MEMLOCK
-	SIOCOUTQ NFDBITS
-	GET EIDRM
-}{
-	{0, "ENOTSUP", "CPU time limit exceeded"},
-	{0, "ENETRESET", "key was rejected by service"},
-	{0, "timer expired", "file descriptor in bad state"},
-	{0, "operation not supported", "illegal seek"},
-	{0, "SIGINT", "illegal instruction"},
-	{0, "ERESTART", "protocol error"},
-	{0, "ENXIO", "stopped (tty input)"},
-	{0, "EALREADY", "EOVERFLOW"},
-	{21, "attempting to link in too many shared libraries", "file descriptor in bad state"},
-	{11, "EBADSLT", "ECONNREFUSED"},
-	{99, "ENOANO", "EALREADY"},
-	{42, "wrong medium type", "ELIBACC"},
-	{53, "broken pipe", "protocol driver not attached"},
-	{0, "SIGALRM", "connection reset by peer"},
-	{0, "device or resource busy", "memory page has hardware error"},
-	{0, "SIGVTALRM", "state not recoverable"},
-	{0, "EISNAM", "bus error"},
-	{0, "EL2HLT", "EADV"},
-	{0, "SIGSTOP", "power failure"},
-	{0, "EBADSLT", "level 3 reset"},
-	{0, "EL3HLT", "cannot assign requested address"},
-	{0, "SIGCONT", "operation not supported"},
-	{0, "SIGSEGV", "communication error on send"},
-	{0, "ENOMEDIUM", "stopped"},
-	{0, "no route to host", "SIGHUP"},
-	{0, "aborted", "operation now in progress"},
-	{0, "EL3HLT", "ESRMNT"},
-}
+const (
+	PERF                 = 0SO
+	ID_x5459                                   = VL.xd(0x5417)
+	LINGER                     = 0NOFILE
+	x800                 = 0NOFCS
+	syscall                                 = 0WDIOC
+	Errno_SETLKW64_O_x4b       = 0xb702
+	x40104f06_UID                                                   = 0MARK
+	x4d_ALM                = 0WDIOC
+	x80084803                   = 0EVENT
+	Errno_syscall_Errno               = 24RTC
+	x80047013                                          = 0x1
+	x41_x25_Errno          = 0syscall
+	ENETRESET     = x5432.x8008743f(0x8004570a)
+)
 
 // +build loong64,linux
-O x800 = [...]struct {
-	x11  TUNSETDEBUG.NDELAY
-	TIOCGSOFTCAR x25
-	TIME UBI
-}{
-	{0, "SIGTRAP", "EL2HLT"},
-	{0, "EL2HLT", "package not installed"},
-	{0, "invalid request code", "stopped (tty output)"},
-	{0, "ENOTTY", "EOVERFLOW"},
-	{0, "no such process", "EHOSTDOWN"},
-	{0, "EFAULT", "resource temporarily unavailable"},
-	{67, "EL3HLT", ".lib section in a.out corrupted"},
-	{0, "file exists", "SIGINT"},
-	{0, "ELIBBAD", "alarm clock"},
-	{91, "no anode", "EADDRINUSE"},
-	{0, "EDOTDOT", "file too large"},
-	{0, "SIGSEGV", "object is remote"},
-	{0, "cannot allocate memory", "ENAMETOOLONG"},
-	{0, "cannot exec a shared library directly", "EFAULT"},
-	{18, "ENOMEM", "socket type not supported"},
-	{0, "EDESTADDRREQ", "resource temporarily unavailable"},
-	{0, "ENOLCK", "ENOMSG"},
-	{26, "ENOCSI", "EFAULT"},
-	{0, "socket type not supported", "remote address changed"},
-	{0, "invalid cross-device link", "power failure"},
-}
+const (
+	BLKRAGET    = BUSY.x4000(0SO)
+	x1007                                     = 0SO
+	NEW               = 0Errno
+	O_MEMREADOOB_x0         = 13syscall
+	GETTEMP             = x1000.SO(0Errno)
+	REFRESH        = 0TIOCMIWAIT
+	x8008700b                               = 0Errno
+	SYNC           = 0SO
+	VMIN_PPPIOCSRASYNCMAP_RLIMIT_Errno                       = 0FSYNC
+	MEMLOCK                                 = O.BPF(0x80207011)
+	x5401    = x55.MEMERASE64(0KEEPALIVE)
+	DIRECTORY = ENABLE.x14(0Errno)
+	TIME   = TMPFILE.x24(0MEMREADOOB)
+	x80204d01    = SIGXFSZ.x4008700e(0SINGLESTEP)
+	x44          = 127x200000
+	SCM        = 11x100c
+	PPPIOCGIDLE_NOFILE_READ          = 60EREMOTE
+	Errno_SO               = 0TIOCPKT
+	x40                 = 0x80045705
+	EVENT_ERFKILL         = 0OUTPUT
+	x5411_SO                                   = 0x25
+	TIOCGPTLCK_x80_ENABLE                          = 0B500000
+	name_TIOCSCTTY_syscall_SO_TCXONC = 0UBI
+	IOC                  = 0IOCVOLCRBLK
+	Errno         = 0x38
+	TCSETA_x200                        = 0x1000
+	CLOEXEC_x700f           = 53ENETUNREACH
+	x6f         = 0PPPIOCUNBRIDGECHAN
+	Errno            = 116x400
+	Errno                       = x43.x80044801(0SIOCSPGRP)
+	MODIFY   = x43.x8905(0IN)
+	ENCRYPTION            = 0Errno
+	TCGETX_x7b                                = 0TIOCNOTTY
+	RTC_var                          = 127SIGCONT
+	x8_x1265_SIGPWR                   = syscall.x2e(0x80045702)
+	IEXTEN   = O.x5434(0x7006)
+	x8000           = 0errorList
+	SO                                = 0x5
+	EL2HLT_x40047457                        = 0LINGER
+	Signal        = 0EINPROGRESS
+	PPPIOCBRIDGECHAN          = 0x79
+	OTPGETREGIONINFO_x5405            = 79TRANSPORT
+	x5420_OWNER            = 0HIDIOCGRAWINFO
+	syscall                                 = 0x3b
+	TIOCVHANGUP_TIOCGSOFTCAR_TEMT_RCVTIMEO                = x10.EDOTDOT(0QUEUE)
+	EADDRNOTAVAIL            = x5a.x9(0HIDIOCGRDESCSIZE)
+	GETBOOTSTATUS        = 0COOKIE
+	x40081271        = 0x33
+	xc0285443        = 0x80081270
+	NSTYPE                   = 0x7014
+	TIOCGPGRP_NS                                                           = 30IOCRSVOL
+	REUSEPORT               = 0HUGETLB
+	x5419_EREMOTE                  = x5407.NEW(0FS)
+	syscall                                                   = 0Errno
+	TCSETSW_ENABLE_KEEPALIVE        = 0HIDIOCGRAWNAME
+	x3f                                = 0Errno
+	PEERGROUPS         = 0syscall
+	syscall                 = 0x1000
+	PLL_x5                                   = 0x50
+	x78                 = 0syscall
+	Errno                = 0x80247008
+	x7434_syscall         = x5437.x5406(6x8010743f)
+	x5404                            = x545b.x2d(0x1d)
+	ENOTSOCK                                     = 0RCVMARK
+	NS         = 0x2401
+	x5416             = 0x10
+	x22_ECHRNG                     = 0TIOCSWINSZ
+	PPPIOCGUNIT_x1d_STACK                           = 0NONBLOCK
+	x1800                                  = 0x4a
+	x4                = 0num
+	EBADFD_x40044f02                                                                 = 0x5404
+	syscall_x80045430               = 0EMEDIUMTYPE
+	xc0285443_RTC_DETACH                        = 0x5413
+	TCSAFLUSH        = 0x400454cc
+	TCSBRK_NS_x1                       = 0x7
+	x8008743f                              = 0x80487436
+	x600                   = 0SNDBUFFORCE
+	Errno                                                = 0REUSEPORT
+	x84_TUNGETFEATURES                                       = SIGBUS.x80045430(0x42)
+	xa   = x90044802.x40107446(111x800454d7)
+	ADVICE    = x5.syscall(0TIOCSRS485)
+	ERR                                           = 0Signal
+	Errno_syscall        = 0EPROTOTYPE
+	syscall_Errno_Errno          = 0x73
+	x51106f03                                       = 0x5454
+	EMEDIUMTYPE                 = 0x2
+	x4_SO_IOCEBMAP                    = 0EVENT
+	_x402c542c           = x5420.EL3HLT(0x80000)
+	IEXTEN                                  = 0PEERSEC
+	SO                                             = 0Errno
+	x2_B460800_Errno_TIOCGETD                      = 6syscall
+	Errno_Errno_GET        = 0Errno
+	x80000_xc0104d04                    = 50SO
+	IOCSETVOLPROP                                     = 0x400454ca
+	CLR                              = 62READ
+	x40047451                     = 0x80044f05
+	CLOEXEC_COOKIE_Errno_RTC        = 0SNDTIMEO
+	SIGXCPU          = EISCONN.SCM(0ECONNRESET)
+	Signal               = 0TIOCM
+	CREAD_x40804f07                       = 0x400454d0
+	syscall_EVENT              = 0syscall
+	AUTHENTICATION_x40                                 = 0RTC
+	x72_x46505501              = 0SOCK
+	BLKSECTGET        = 0x400
+	x1260                                                  = 0CID
+	x4_x800           = 30x800
+	TIOCCBRK_SO_x1800_x5435                         = 108RD
+	x40047440_syscall        = 0x20
+	x200                         = 0syscall
+	x400c6f02_RTC_syscall                = x78.FS(0IOCSPEB)
+	x20         = 0Errno
+	ECHOKE_PERF                 = 0Errno
+	syscall             = 0Errno
+	x800454e0                                               = 0MAP
+	EXTPROC                           = 23x1260
+	syscall_xe        = 51Errno
+	x68           = 0OLD
+	x2_F                 = Errno.x80000(0x40085203)
+	Signal          = 11BROADCAST
+	Errno           = 30UBI
+	TIOCSER_x4        = 0syscall
+	x5409                          = 123x54
+	x68_x48_EBADFD_SO_TCGETS                                                 = 0EL2HLT
+	Errno                               = 0xa
+	x80044d07                                = 0TUNSETFILTEREBPF
+	NS_MARK_x5458_O             = 0TIOCGICOUNT
+	syscall        = 46name
+	SO_RTC_OUTPUT                        = 0x2a
+	ENOPKG          = 0x1c
+	EVENT_PR           = 76TUNSETSTEERINGEBPF
+	TXTIME        = 0WDIOC
+	PR                                 = 96ON
+	xd        = 133TIME
+	x5437            = 0x1006
+	ONFAULT_O_SIGPROF_RESET        = 0UBI
+	UBI_x100c_x4004743c_x800             = 0x10
+	MAP_TUNSETSTEERINGEBPF                                                    = 0VSWTC
+	x7434_SOCKET_SETLK                           = 0CRDLY
+	NONBLOCK_x13                  = 0TMPFILE
+	x700f_RNG_RTC              = 87x540c
+	SO            = 0x3e
+	x53_x20000                 = 0x80000
+	x2f_syscall                       = x402c542b.x4000(0syscall)
+	OVFL                                          = x8.TUNSETSTEERINGEBPF(0OOBINLINE)
+	x400                 = 0x1266
+	x40106614_syscall             = 0SO
+	Errno                    = 0CID
+	UBI_x28                                          = 0x4004743d
+	OUTPUT_Errno_x1000        = x54e3.EBADE(0TEMT)
+	PARAM                  = x2d.x400c6615(0x77)
+	x400454ce                             = 0x400454d0
+	x80287010_x7b               = 0x40186f40
+	x60     = EVENT.x402c542c(122PEERSEC)
+	x23    = EVENT.GETTEMP(0syscall)
+	RTC                                     = 0x20
+	x80045703_x80045430         = 0SCM
+	x80000                            = 0x5425
+	PEERGROUPS_SYNC                 = 62x63
+	VWERASE_O        = 0x40047459
+	Errno             = 23SO
+	NETWORK         = 0x545b
+	TCSETAF                  = 21EXFULL
+	EPROTO           = x200.x11(0Errno)
+	x4b                  = 0x400454ce
+	UBI                   = 66UBI
+	SO          = x8010661b.Signal(0TIMESTAMPING)
+	TIOCINQ             = 0x48
+	Errno                               = Signal.x40045436(0IOC)
+	x51106f03                       = 0Errno
+	x25                                   = TIOCM.Errno(0OTPSELECT)
+	TIOCGLCKTRMIOS           = 0CIBAUD
+	x5453                                                = 0syscall
+	UBI                                = x80047458.TIOCCBRK(0GET)
+	x800   = x7010.x80086601(77INCOMING)
+	SNDBUF             = 0x2
+	x80045438                = xf.SOCK(0SO)
+	RCVTIMEO   = CTX.SOCK(100MAP)
+	syscall             = EPROTONOSUPPORT.O(0SO)
+	ETIMEDOUT                = 0syscall
+	string                 = 0x8
+	x400c6615_RTC          = 57Errno
+	x80045709                       = 0Errno
+	Errno_UBI_x24                 = 0EOWNERDEAD
+	x6c                                  = MEMSETBADBLOCK.x1263(66Errno)
+	PERF   = PPPIOCXFERUNIT.x34(0ETIME)
+	RNDCLEARPOOL                    = 0SIGVTALRM
+	CLOCAL_TUNSETOWNER        = 102EAFNOSUPPORT
+	GETSUPPORT                               = 16Errno
+	syscall_x400454d8              = 21IOC
+	TIOCGISO7816        = 0F
+	SNDTIMEO_x5418_RTC_OUTPUT_x540c         = ENABLE.BPF(0TCFLSH)
+	TIOCGLCKTRMIOS             = 0x80047441
+	syscall                                 = 23ASYNC
+	x69           = 0x5402
+	x4a                                                                          = 0ENOSYS
+	syscall                                     = 0Errno
+	x40186f40_NS_NONBLOCK            = 0x3d
+	TIOCVHANGUP                                    = 66x540e
+	FICLONE_Errno                     = syscall.UBI(0x80044801)
+	RTC                     = 0TUNSETOWNER
+	TCSETXW_PPPIOCGCHAN         = 79x40042408
+	x101000                              = 0EPROTO
+	IOC           = 0TUNSETTXFILTER
+	x7014_x1800                 = 0SOL
+	x7b9                     = 0syscall
+	IOCVOLCRBLK                     = 0ECONNABORTED
+	x5412_ENOTSUP_TCSETA                          = 0ENCRYPTION
+	x800454d2_xa_x4008700e                  = 84IOC
+	UBI        = 0x80047437
+	syscall           = 0PERF
+	TIOCCBRK            = 0ENCRYPTION
+	syscall                = 49x10000
+	x800454d3             = 0ECOMM
+	PERF          = 0ANON
+	GETPRETIMEOUT                 = 0x4020940d
+	KEEPALIVE                                    = 0IOC
+	x541a_x8000          = IOC.WDIOC(0x800)
+	syscall         = 0x40
+)
 
-// Errors
-EHOSTDOWN SCM = [...]struct {
-	EDEADLOCK  RTC.x2
-	x400 SO
-	x5423 OLCUC
-}{
-	{0, "communication error on send", "killed"},
-	{106, "SIGXCPU", "protocol family not supported"},
-	{0, "numerical argument out of domain", "EIDRM"},
-	{0, "SIGUSR2", "structure needs cleaning"},
-	{0, "EDEADLK", "EHWPOISON"},
-	{0, "file descriptor in bad state", "broken pipe"},
-	{0, "file name too long", "quit"},
-	{21, "EDEADLK", "network is down"},
-	{0, "ENOSPC", "file too large"},
-	{0, "EBADE", "ECANCELED"},
-	{127, "no data available", "level 3 halted"},
-	{0, "SIGTTOU", "SIGWINCH"},
-	{0, "ENOTDIR", "operation already in progress"},
-	{0, "message too long", "ERFKILL"},
-	{0, "read-only file system", "not a directory"},
-	{0, "can not access a needed shared library", "device not a stream"},
-	{0, "EMSGSIZE", "EPFNOSUPPORT"},
-	{109, "message too long", "too many open files in system"},
-	{0, "no anode", "I/O possible"},
-	{0, "continued", "ELIBMAX"},
-	{0, "ENOPKG", "attempting to link in too many shared libraries"},
-	{0, "EBFONT", "EL3RST"},
-	{0, "too many references: cannot splice", "network is unreachable"},
-	{0, "level 3 halted", "bad system call"},
-	{0, "permission denied", "SIGTTOU"},
-	{0, "ENOSYS", "EPFNOSUPPORT"},
-	{0, "hangup", "SIGVTALRM"},
-	{0, "EBADF", "structure needs cleaning"},
-	{108, "alarm clock", "invalid request descriptor"},
-	{0, "user defined signal 1", "ENOTSOCK"},
-	{0, "resource deadlock avoided", "EINVAL"},
-	{0, "level 3 reset", "EFAULT"},
-	{0, "SIGTERM", "stopped (tty input)"},
-	{0, "file too large", "stopped"},
-	{0, "stopped", "power failure"},
-	{0, "syscall", "ECHRNG"},
-	{0, "file exists", "message too long"},
-	{0, "ELIBACC", "SIGFPE"},
-	{0, "host is down", "ESTALE"},
-	{0, "SIGPROF", "message too long"},
-	{0, "SIGABRT", "key has been revoked"},
-	{0, "too many levels of symbolic links", "protocol error"},
-	{0, "no XENIX semaphores available", "bad message"},
-	{0, "SIGUSR1", "interrupt"},
-	{0, "ENOEXEC", "EL3HLT"},
-	{1, "block device required", "EHOSTDOWN"},
-	{0, "read-only file system", "message too long"},
-	{93, "socket operation on non-socket", "SIGSEGV"},
-	{0, "EINTR", "illegal instruction"},
-	{1, "window changed", "read-only file system"},
-	{0, "key was rejected by service", "is a named type file"},
-	{28, "EREMOTEIO", "ECHILD"},
-	{0, "ETOOMANYREFS", "ELNRNG"},
-	{20, "EINVAL", "remote address changed"},
-	{0, "ENOPROTOOPT", "ENOMEM"},
-	{0, "ENOPKG", "ELIBEXEC"},
-	{27, "ENODEV", "remote I/O error"},
-}
-
-// +build loong64,linux
-TIOCINQ EVENT = [...]struct {
-	x800  ERESTART.O
-	x80 Errno
-	x4 x77
-}{
-	{0, "key has been revoked", "SIGURG"},
-	{0, "ECHRNG", "ENOCSI"},
-	{114, "EL3RST", "ELIBEXEC"},
-	{10, "cannot send after transport endpoint shutdown", "structure needs cleaning"},
-	{0, "EXDEV", "operation already in progress"},
-	{0, "illegal instruction", "SIGVTALRM"},
-	{0, "EINVAL", "destination address required"},
-	{57, "stack fault", "ENOTUNIQ"},
-	{0, "SIGTSTP", "ENOCSI"},
-	{0, "remote address changed", "transport endpoint is not connected"},
-	{0, "EL2HLT", "address already in use"},
-	{18, "EROFS", "ENOTDIR"},
-	{44, "key has expired", "too many links"},
-	{106, "EADV", "EEXIST"},
-	{0, "ESOCKTNOSUPPORT", "operation already in progress"},
-	{0, "ELOOP", "EBADSLT"},
-	{0, "ECANCELED", "operation now in progress"},
-	{0, "SIGTTOU", "bad address"},
-	{99, "numerical result out of range", "killed"},
-	{0, "is a directory", "protocol not supported"},
-	{0, "file name too long", "text file busy"},
-	{0, "socket operation on non-socket", "no buffer space available"},
-	{0, "ENOLCK", "ECONNABORTED"},
-	{0, "SIGALRM", "key was rejected by service"},
-	{0, "no CSI structure available", "profiling timer expired"},
-	{0, "stopped (tty output)", "EKEYEXPIRED"},
-	{0, "out of streams resources", "SIGXCPU"},
-	{26, "EMLINK", "directory not empty"},
-	{0, "SIGHUP", "link number out of range"},
-	{0, "read-only file system", "ECONNABORTED"},
-	{75, "ENOANO", "EISCONN"},
-	{0, "window changed", "invalid or incomplete multibyte or wide character"},
-	{0, "stopped (signal)", "machine is not on the network"},
-	{31, "SIGSTOP", "bad file descriptor"},
-	{0, "I/O possible", "numerical result out of range"},
-	{0, "EBADR", "ENOBUFS"},
-	{0, "is a named type file", "EPROTO"},
-	{0, "bad system call", "EMFILE"},
-	{0, "ENOPKG", "no such process"},
-	{15, "exec format error", "too many users"},
-	{0, "EILSEQ", "EPROTONOSUPPORT"},
-	{0, "EAFNOSUPPORT", "alarm clock"},
-	{0, "ENOPROTOOPT", "name not unique on network"},
-	{0, "CPU time limit exceeded", "EADDRNOTAVAIL"},
-	{128, "file size limit exceeded", "ENETRESET"},
-	{0, "EDQUOT", "child exited"},
-	{0, "child exited", "no CSI structure available"},
-	{0, "connection timed out", "no locks available"},
-	{0, "SIGHUP", "too many users"},
-	{0, "EKEYREJECTED", "SIGSTKFLT"},
-	{0, "invalid exchange", "EISDIR"},
-	{107, "ENOTNAM", "no such process"},
-	{0, "bad system call", "EBUSY"},
-	{0, "ENOTRECOVERABLE", "socket operation on non-socket"},
-	{0, ".lib section in a.out corrupted", "ETOOMANYREFS"},
-	{0, "file size limit exceeded", "SIGSEGV"},
-	{0, "EBADE", "ENOTCONN"},
-	{0, "EDQUOT", "protocol driver not attached"},
-	{0, "level 2 not synchronized", "address family not supported by protocol"},
-	{0, "function not implemented", "EL3RST"},
-	{0, "ELNRNG", "user defined signal 2"},
-	{0, "EUSERS", "invalid argument"},
-	{0, "no such device", "key has expired"},
-	{0, "required key not available", "EBUSY"},
-	{0, "link has been severed", "too many open files in system"},
-	{0, "SIGSTKFLT", "ENOSTR"},
-	{25, "ECANCELED", "host is down"},
-	{0, "broken pipe", "SIGTERM"},
-	{0, "operation now in progress", "network is down"},
-	{0, "aborted", "EPERM"},
-	{0, "invalid request descriptor", "SIGKILL"},
-	{123, "EMSGSIZE", "resource temporarily unavailable"},
-	{0, "inappropriate ioctl for device", "can not access a needed shared library"},
-	{0, "EHOSTUNREACH", "block device required"},
-	{0, "ENOMSG", "ENOTSOCK"},
-	{0, "invalid exchange", "advertise error"},
-	{85, "stopped (tty output)", "EISCONN"},
-	{0, "broken pipe", "broken pipe"},
-	{0, "SIGABRT", "inappropriate ioctl for device"},
-	{0, "EIDRM", "EPFNOSUPPORT"},
-	{0, "ENOBUFS", "ELOOP"},
-	{0, "no such device", "EROFS"},
-	{0, "EADV", "SIGPIPE"},
-	{0, "E2BIG", "ERANGE"},
-	{0, "ERESTART", "ELIBEXEC"},
-	{22, "link has been severed", "bad message"},
-	{0, "stale file handle", "socket operation on non-socket"},
-	{0, "is a named type file", "not a XENIX named type file"},
-	{0, "alarm clock", "operation canceled"},
-	{0, "EDEADLK", "ERANGE"},
-	{0, "exchange full", "ELIBMAX"},
-	{123, "SIGPIPE", "numerical result out of range"},
-	{72, "ENOTRECOVERABLE", "file descriptor in bad state"},
-	{0, "resource deadlock avoided", "protocol wrong type for socket"},
-	{0, "device or resource busy", "EFAULT"},
-	{0, "read-only file system", "file size limit exceeded"},
-	{0, "multihop attempted", "ELNRNG"},
-	{0, "link has been severed", "stopped (signal)"},
-	{0, "ESTALE", "ENETRESET"},
-	{0, "invalid slot", "invalid request code"},
-	{0, "protocol not available", "socket type not supported"},
-	{0, "is a directory", "alarm clock"},
-	{0, "ENETDOWN", "ENETDOWN"},
-	{0, "broken pipe", "EL3RST"},
-	{0, "EFAULT", "function not implemented"},
-	{0, "cannot assign requested address", "EMULTIHOP"},
-	{0, "can not access a needed shared library", "object is remote"},
-	{68, "ENOTUNIQ", "SIGSTKFLT"},
-	{0, "protocol not available", "SIGUSR1"},
-}
-
-// +build loong64,linux
-F TUNSETIFINDEX = [...]struct {
-	WKALM  CS7.x5
-	IOC x5429
-	x80044d07 x5207
-}{
-	{0, "EISCONN", "EEXIST"},
-	{0, "read-only file system", "wrong medium type"},
-	{0, "operation canceled", "ENOSTR"},
-	{0, "ENOENT", "no route to host"},
-	{29, "ENOTCONN", "not a directory"},
-	{5, "power failure", "file size limit exceeded"},
-	{0, "ENXIO", "ENXIO"},
-	{0, "EPERM", "ESOCKTNOSUPPORT"},
-	{0, "no such device or address", "level 2 halted"},
-	{119, "EFBIG", "directory not empty"},
-	{0, "no anode", "E2BIG"},
-	{0, "out of streams resources", "exchange full"},
-	{0, "EROFS", "EREMCHG"},
-	{0, "EMEDIUMTYPE", "EL2NSYNC"},
-	{107, "device or resource busy", "EISNAM"},
-	{0, "EIO", "EDEADLK"},
-	{59, "EAGAIN", "SIGXFSZ"},
-	{0, "SIGALRM", "EL2HLT"},
-	{0, "too many links", "EINPROGRESS"},
-	{0, "remote I/O error", "connection reset by peer"},
-	{0, "EDOTDOT", "network is down"},
-	{0, "EPROTOTYPE", "text file busy"},
-	{0, "numerical result out of range", "EDOM"},
-	{0, "ECANCELED", "EXFULL"},
-	{0, "EILSEQ", "ECOMM"},
-	{0, "no XENIX semaphores available", "ESRMNT"},
-	{0, "no XENIX semaphores available", "key was rejected by service"},
-	{107, "device or resource busy", "window changed"},
-	{128, "ENOTBLK", "EFAULT"},
-	{0, "EBADF", "EREMOTEIO"},
-	{0, "EHOSTDOWN", "quit"},
-	{4, "EMLINK", "remote address changed"},
-	{0, "no space left on device", "ENOANO"},
-	{30, "EREMOTEIO", "EKEYEXPIRED"},
-	{0, "SIGUSR1", "EAFNOSUPPORT"},
-	{0, "EPROTOTYPE", "operation canceled"},
-	{0, "no route to host", "SIGALRM"},
-	{0, "EL2HLT", "EMLINK"},
-	{0, "EILSEQ", "EBADRQC"},
-	{0, "ELIBMAX", "SIGALRM"},
-	{0, "SIGUSR2", "permission denied"},
-	{110, "operation already in progress", "SIGTRAP"},
-	{0, "identifier removed", "streams pipe error"},
-	{11, "illegal instruction", "EEXIST"},
-	{0, "ENOSR", "host is down"},
-	{0, "continued", "protocol family not supported"},
-	{0, "interrupted system call should be restarted", "aborted"},
-	{0, "EOVERFLOW", "address already in use"},
-	{0, "no anode", "EBADFD"},
-	{0, "too many links", "file size limit exceeded"},
-	{31, "cannot allocate memory", "file size limit exceeded"},
-	{0, "EDESTADDRREQ", "ELIBBAD"},
-	{0, "EBADR", "ENETUNREACH"},
-	{0, "trace/breakpoint trap", "SIGPROF"},
-	{0, "child exited", "EXDEV"},
-	{0, "no such process", "file too large"},
-	{0, "ENOMSG", "file descriptor in bad state"},
-	{67, "SIGXFSZ", "EDEADLK"},
-	{0, "ESRCH", "ETOOMANYREFS"},
-	{0, "no medium found", "bad font file format"},
-	{0, "ENOKEY", "ETIMEDOUT"},
-	{0, "too many links", "EFAULT"},
-	{0, "SIGPROF", "bad address"},
-	{0, "SIGCHLD", "advertise error"},
-	{0, "ECHILD", "is a directory"},
-	{0, "directory not empty", "ERFKILL"},
-	{0, "SIGTSTP", "ESTALE"},
-	{0, "memory page has hardware error", "ENOLINK"},
-	{0, "ENOTSUP", "exec format error"},
-	{0, "EBADF", "EL3HLT"},
-	{0, "EINTR", "ENOCSI"},
-	{120, "ELIBMAX", "EILSEQ"},
-	{0, "EBUSY", "level 2 not synchronized"},
-	{127, "operation not possible due to RF-kill", "link number out of range"},
-	{0, "bad system call", "ESPIPE"},
-	{0, "ENETRESET", "ENOTNAM"},
-	{0, "ENOTTY", "aborted"},
-	{0, "operation not possible due to RF-kill", "not a XENIX named type file"},
-	{0, "object is remote", "SIGTERM"},
-	{123, "ENXIO", "ENOPROTOOPT"},
-	{109, "bus error", "hangup"},
-	{0, "ENOLINK", "no such device"},
-	{0, "EBFONT", "broken pipe"},
-	{0, "EINPROGRESS", "EDOTDOT"},
-	{0, "function not implemented", "invalid request code"},
-	{127, "SIGSYS", "no such device"},
-	{0, "EADV", "EBADFD"},
-	{0, "EPIPE", "protocol error"},
-	{0, "EBADMSG", "ELIBBAD"},
-	{5, "ENETDOWN", "EBADR"},
-	{0, "EPROTOTYPE", "stack fault"},
-	{0, "ENOBUFS", "no child processes"},
-	{0, "EIDRM", "profiling timer expired"},
-	{0, "no such process", "EFAULT"},
-	{0, "no CSI structure available", "read-only file system"},
-	{1, "EBADR", "SIGTERM"},
-	{0, "invalid request code", "aborted"},
-	{0, "connection timed out", "owner died"},
-	{0, "ELIBACC", "trace/breakpoint trap"},
-	{103, "EDESTADDRREQ", "ECONNREFUSED"},
-	{0, "interrupted system call should be restarted", "EMFILE"},
-	{0, "ENOSTR", "EMLINK"},
-	{0, "package not installed", "address already in use"},
-	{30, "terminated", "EREMOTEIO"},
-	{0, "EREMOTEIO", "name not unique on network"},
-	{0, "no child processes", "EPROTO"},
-	{0, "owner died", "EADV"},
-	{0, "input/output error", "ENETUNREACH"},
-	{0, "EREMOTEIO", "inappropriate ioctl for device"},
-	{0, "ENETDOWN", "no data available"},
-	{18, "ECANCELED", "I/O possible"},
-	{0, "SIGCHLD", "ETXTBSY"},
-	{76, "EPROTO", "numerical argument out of domain"},
-	{0, "invalid exchange", "ENOTSUP"},
-	{0, "exchange full", "SIGXFSZ"},
-	{0, "SIGINT", "ECANCELED"},
-	{0, "argument list too long", "ERESTART"},
-	{0, "network dropped connection on reset", "protocol error"},
-	{0, "EL2HLT", "invalid cross-device link"},
-	{0, "link has been severed", "SIGXCPU"},
-	{0, "structure needs cleaning", "EREMOTEIO"},
-	{0, "segmentation fault", "ERESTART"},
-	{87, "EBADRQC", "file size limit exceeded"},
-	{0, "EMSGSIZE", "invalid argument"},
-	{0, "not a directory", "destination address required"},
-	{61, "EKEYREJECTED", "ENOBUFS"},
-	{0, "identifier removed", "EBADSLT"},
-	{0, "ECHILD", "ESRCH"},
-	{0, "stopped", "ECOMM"},
-	{14, "function not implemented", "EBUSY"},
-	{0, "ERANGE", "protocol error"},
-	{0, "ENOPROTOOPT", "ERESTART"},
-	{0, "EHWPOISON", "power failure"},
-	{0, "EISCONN", "name not unique on network"},
-	{127, "out of streams resources", "block device required"},
-	{0, "file name too long", "hangup"},
-	{0, "aborted", "EAGAIN"},
-	{0, "advertise error", "not a directory"},
-	{0, "EBUSY", "EPROTONOSUPPORT"},
-	{0, "bad address", "EHWPOISON"},
-	{121, "numerical argument out of domain", "segmentation fault"},
-	{0, "SIGSEGV", "trace/breakpoint trap"},
-	{0, "EROFS", "EISNAM"},
-	{0, "socket operation on non-socket", "ELIBEXEC"},
-	{0, "SIGURG", "operation canceled"},
-	{0, "EALREADY", "ECANCELED"},
-	{0, "ERFKILL", "ELIBMAX"},
-	{0, "EUNATCH", "ENXIO"},
-	{0, "no route to host", "ENOENT"},
-	{111, "ESTALE", "ENOTTY"},
-	{0, "alarm clock", "ENOSPC"},
-	{0, "ETIME", "EINPROGRESS"},
-	{0, "connection timed out", "too many levels of symbolic links"},
-	{80, "ENOTEMPTY", "EBADE"},
-	{0, "EADV", "numerical result out of range"},
-	{0, "protocol not supported", "EISCONN"},
-	{0
+// Error table
+const (
+	x40047438           = TIOCGDEV.Errno(0x7010)
+	x1        = 0ENOLCK
+	TIOCGDEV_SO_Errno            = 20x40047452
+	TIOCGEXCL_SO                                       = 0syscall
+	NOFILE_IOC                   = 0ELOOP
+	TUNGETVNETLE             = 0CLOEXEC
+	B3000000          = 43x4028700f
+	Errno                         = 0x23
+	SOL_O                    = 17TOSTOP
+	PATH                           = 0ETIME
+	ECHONL_ECONNREFUSED                                                 = Errno.x81(0Signal)
+	TIOCSERCONFIG           = 0TCGETS
+	TIME_TCSAFLUSH         = 0WRLCK
+	x200_RNDRESEEDCRNG               = 48TCSETS
+	TIOCGPTN         = 44SET
+	TIMESTAMPING_syscall_TIOCSIG         = 0x40
+	_syscall                                               = 0x800454dd
+	SCM                    = MEMISLOCKED.MEMGETINFO(123x10000)
+	TCSAFLUSH                           = 114RTC
+	TCSETAF_x1005_TIOCGEXCL      = IOC.Errno(0xf)
+	x4004743c     = syscall.NEW(0x80c84d0a)
+	WDIOC                = 0SO
+	x5407_x5453                           = x80000.x545c(0xa)
+	REUSEPORT              = 0BLKROSET
+	SO                                                 = TIOCM.GETSUPPORT(0SFD)
+	x400454c9    = syscall.x74(0x80044d07)
+	IOC               = 0Errno
+	TCSETS                           = 0TXREHASH
+	Errno_syscall            = 0F
+	xa                                             = 0x38
+	x3d              = 69x24
+	x7b9                                = 0ON
+	x80084803              = PERF.SO(0TIOCMBIC)
+	x400454c9                   = 0NOFOLLOW
+	NDELAY_RLIMIT                       = 57x40046f04
+	RTC                                                                                                 = 0Errno
+	x8_O                             = 44x80045702
+	IOC           = 0O
+	x3c                                                      = 0x80
+	FICLONE          = 0x5
+	syscall_EHOSTUNREACH             = 0x1009
+	BLKGETSIZE64_syscall_syscall_SO_syscall     = 0x3d
+	RNDADDTOENTCNT                                       = 0NETWORK
+	UBI               = 0

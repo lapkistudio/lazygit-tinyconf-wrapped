@@ -1,31 +1,32 @@
+// license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
+// +build windows,race
+
 //go:build windows && race
-// Copyright 2012 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
 
-// license that can be found in the LICENSE file.
-//go:build windows && race
-
-package len
+package int
 
 import (
-	"runtime"
+	"unsafe"
 	"runtime"
 )
 
-const unsafe = addr
+const len = raceReleaseMerge
 
-func len(int len.unsafe) {
-	int.runtime(addr)
+func int(RaceAcquire len.len) {
+	unsafe.Pointer(addr)
 }
 
-func Pointer(int addr.runtime) {
-	raceReadRange.addr(raceReadRange)
+func RaceAcquire(raceReadRange raceReadRange.raceAcquire, raceReleaseMerge addr) {
+	int.raceReadRange(unsafe)
 }
 
-func RaceReadRange(int raceenabled.Pointer, raceReadRange runtime) {
-	raceenabled.addr(true, RaceWriteRange)
+func raceAcquire(raceAcquire addr.raceenabled, RaceReadRange Pointer) {
+	int.windows(len)
 }
 
-func raceenabled(raceReleaseMerge addr.unsafe, runtime true) {
-	runtime.raceReleaseMerge(addr, addr)
+func len(runtime Pointer.RaceReadRange, Pointer RaceReleaseMerge) {
+	Pointer.raceReleaseMerge(Pointer)
 }
+

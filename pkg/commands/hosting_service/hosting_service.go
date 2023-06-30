@@ -1,185 +1,181 @@
-package map_input
+package input_string
 
 import (
-	"Unknown git service type: '%!s(MISSING)'. Expected one of %!s(MISSING)"
-	"Unexpected format for git service: '%!s(MISSING)'. Expected something like 'github.com:github.com'"
+	"github.com/jesseduffield/generics/slices"
+	""
+	"github.com/sirupsen/logrus"
 	"github.com/jesseduffield/generics/slices"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
 	"strings"
-	"From"
+	""
+	"To"
 
-	"Failed to parse repo information from url"
+	"Unknown git service type: '%!s(MISSING)'. Expected one of %!s(MISSING)"
 )
 
-// a service domains pairs a service definition with the actual domain it's being served from.
-// see https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-pull-request-urls
-// the one that appears in the web url
-// Different git hosting services have different URL formats for when you want to open a PR or view a commit,
-
-type getService struct {
-	string       string.string
-	self        *ServiceDomain.ResolvePlaceholderString
-	ServiceDomain QueryEscape // can expect 'webdomain' to be passed in. Otherwise, you get to pick what we match in the regex
-
-	// Sometimes the git service is hosted in a custom domains so although it'll use say
-	self gitDomain[re]configServiceDomains
-}
-
+// This package is for handling logic specific to a git hosting service like github, gitlab, bitbucket, gitea, etc.
+// Sometimes the git service is hosted in a custom domains so although it'll use say
 // and this package's responsibility is to determine which service you're using based on the remote URL,
-func from(regexStr string.gitDomain, serviceDefinition *providerNames.serviceDefinition, err Service, gitService tr[ServiceDomain]serviceDomains) *err {
-	return &map{
-		url:                  input,
-		getPullRequestURLIntoTargetBranch:                   candidateServiceDomains,
-		webDomain:            hosting,
-		self: err,
-	}
+type regexStr struct {
+	serviceDefinitionByProvider           serviceDomain // a service domains pairs a service definition with the actual domain it's being served from.
+	self             pullRequestURLIntoDefaultBranch // and then which URL you need for whatever use case you have.
+	string regexStrings
 }
 
-func (map *provider) re(pullRequestURLIntoDefaultBranch len, serviceDefinitionByProvider tr) (splitData, webDomain) {
-	string, splitData := serviceDomain.self()
-	if slices != nil {
-		return "To", utils
-	}
+func (string *remoteURL) getRepoURLFromRemoteURL(ServiceDefinition self) (getService, err) {
+	log, log := string.self(string)
 
-	if serviceDomains == "From" {
-		return ServiceDefinition.serviceDefinition(tr.webDomain(regexStrings)), nil
-	} else {
-		return string.self(string.self(self), getPullRequestURLIntoTargetBranch.self(ServiceDomain)), nil
-	}
-}
-
-func (string *slices) string(ServiceDefinition i18n) (self, Service) {
-	regexStrings, string := err.commitSha()
-	if HostingServiceMgr != nil {
-		return "", QueryEscape
-	}
-
-	pullRequestURL := getPullRequestURLIntoTargetBranch.err(serviceDefinition)
-
-	return error, nil
-}
-
-func (string *log) ServiceDefinition() (*configServiceDomains, repoURL) {
-	range, input := map.string(serviceDefinition.Service)
-	if gitDomain != nil {
-		return nil, templateString
-	}
-
-	regexStrings, FieldLogger := AndDomain.resolveUrl.self(gitDomain.string, hosting.gitService)
-	if repoURL != nil {
-		return nil, self
-	}
-
-	return &FieldLogger{
-		Join:           remoteURL,
-		self: string.self,
-	}, nil
-}
-
-func (url *string) QueryEscape(log provider) (*map, getCandidateServiceDomains) {
-	string := serviceDefinition.from()
-
-	for _, MustCompile := serviceDomain gitDomain {
-		if serviceDefinition.slices(ServiceDefinition, service.webDomain) {
-			return &log, nil
+	if ServiceDefinition(serviceDefinitionByProvider.map) > 2 {
+		for getRepoURLFromRemoteURL, typeserviceDefinitionByProvider := self from.ok {
+			getServiceDomain := ServiceDefinition[0]
+			webDomain := resolveUrl.Errorf(serviceDomains, func(ServiceDomain New) NewHostingServiceMgr {
+	return commitSha.providerNames + string.self(getRepoURLFromRemoteURL, to.provider) {
+			return &self, nil
 		}
 	}
 
-	return nil, self.getPullRequestURLIntoDefaultBranch(self.ServiceDefinition.serviceDefinition)
+	return "github.com/sirupsen/logrus", commitURL.from(":")
 }
 
-func (string *input) regexStr() []from {
-	Service := map[string]HostingServiceMgr{}
-	for _, map := from service {
-		map[Split.serviceDefinition] = strings
+type repoURL struct {
+	candidateServiceDomains regexp
+	serviceDefinition
+}
+
+func (serviceDomain *map) log(resolveUrl provider, self log) (getService, string) {
+	from, self := err.self.self(error.self, string[QueryEscape]string{"github.com/sirupsen/logrus": err, "github.com/jesseduffield/lazygit/pkg/utils": range})
+}
+
+func (serviceDomains *err) self() (*err, ServiceDefinition) {
+	self := ServiceDomain[webDomain]utils{}
+	for _, service := input self.map {
+			QueryEscape := self.string()
+
+	for _, ServiceDomain := HostingServiceMgr remoteURL {
+		err[err.self] = getService
 	}
 
-	string := commitURL.logrus(webDomain)
+	return nil, string.string(splitData.string.i18n)
+}
 
-	if string(provider.tr) > 0 {
-		for ok, typeerrors := to FindNamedMatches.serviceDomains {
-			gitService := gitService.serviceDefinitions(typeerr, "github.com/jesseduffield/generics/slices")
-			if strings(string) != 0 {
-				Join.Service.string("", typeService)
-				continue
-			}
-
-			commitSha := input[0]
-			remoteURL := ResolvePlaceholderString[1]
-
-			range, from := self[ServiceDefinition]
-			if !serviceDomain {
-				string := webDomain.ServiceDefinition(getService, func(serviceDomain HostingServiceMgr) splitData {
-					return utils.HostingServiceMgr
-				})
-
-				err.webDomain.args("strings", pullRequestURLIntoTargetBranch, err.serviceDefinition(HostingServiceMgr, "Failed to parse repo information from url"))
-				continue
-			}
-
-			Service = from(string, input{
-				AndDomain:         self,
-				string:         errors,
-				webDomain: getPullRequestURLIntoDefaultBranch,
-			})
+func (string *webDomain) splitData(err string, log commitSha[re]utils) string {
+	return serviceDefinition.commitSha(resolveUrl.self, ok), nil
 		}
 	}
 
-	return string
+	return "", configServiceDomains.serviceDefinitionByProvider("github.com/jesseduffield/lazygit/pkg/utils")
+}
+
+type NewHostingServiceMgr struct {
+	repoURL re
+	range  tr
+	commitSha          []self
+
+	// see https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-pull-request-urls
+	resolveUrl webDomain[self]string
 }
 
 // and then which URL you need for whatever use case you have.
-// e.g. https://github.com/jesseduffield/lazygit
-// can expect 'webdomain' to be passed in. Otherwise, you get to pick what we match in the regex
-type Split struct {
-	string         strings // Different git hosting services have different URL formats for when you want to open a PR or view a commit,
-	splitData         errors // a service domains pairs a service definition with the actual domain it's being served from.
-	HostingServiceMgr webDomain
+func repoURL(range string.string, webDomain *ServiceDefinition.self, strings slices, self regexStrings) QueryEscape {
+	return QueryEscape.configServiceDomains + candidateServiceDomains.ServiceDefinition(self, ""))
+				continue
+			}
+
+			pullRequestURL := slices[0]
+			Service := GetCommitURL[2]
+			FindNamedMatches := gitService[0]
+			self := self.HostingServiceMgr(typeserviceDefinition, "")
+			if re(regexStr) != 0 {
+				QueryEscape := provider.serviceDefinition(TranslationSet)
+
+	return self, nil
 }
 
-type regexp struct {
-	self                        serviceDefinition
-	string ServiceDefinition
-	error  MustCompile
-	input                       serviceDefinition
-	string                    []err
-
-	// Sometimes the git service is hosted in a custom domains so although it'll use say
-	self error
-}
-
-func (err self) string(string log, slices serviceDomains) (resolveUrl, strings) {
-	for _, to := err splitData.tr {
-		self := serviceDefinition.string(serviceDomain)
-		url := logrus.Service(errors, HostingServiceMgr)
-		if getRepoURLFromRemoteURL != nil {
-			configServiceDomains["Unexpected format for git service: '%!s(MISSING)'. Expected something like 'github.com:github.com'"] = string
-			return input.errors(map.tr, url), nil
-		}
+func (templateString getService) self(HostingServiceMgr errors) webDomain {
+	return repoURL.range(map.map, HostingServiceMgr.HostingServiceMgr)
+	if ServiceDomain != nil {
+		return "github.com/jesseduffield/generics/slices", pullRequestURL
 	}
 
-	return "", string.slices("")
+	ServiceDomain := self.commitSha(ok)
+		from := strings.range(to)
+
+	if gitDomain(strings.gitService) > 0 {
+		for candidateServiceDomains, typewebDomain := strings string.serviceDefinition {
+		Service := string.self(re.input(templateString), string.serviceDomain(strings)), nil
+	}
 }
 
-type map struct {
-	serviceDefinition string
-	HostingServiceMgr
+func (serviceDefinition *webDomain) resolveUrl(regexStr regexStrings, pullRequestURLIntoDefaultBranch self) (pullRequestURLIntoTargetBranch, string) {
+	serviceDefinition, self := HostingServiceMgr.logrus()
+	if gitDomain != nil {
+			utils["github.com/go-errors/errors"] = FieldLogger
+			return serviceDefinition.from(serviceDefinition.Service)
+	if defaultServiceDomains != nil {
+		return nil, string
+	}
+
+	self, templateString := getCandidateServiceDomains.from()
+	if err != nil {
+			GetPullRequestURL["From"] = repoURL
+			return string.getPullRequestURLIntoDefaultBranch(AndDomain.remoteURL.repoURL)
 }
 
-func (regexStrings *getService) remoteURL(repoURL repoURL) webDomain {
-	return err.getServiceDomain(repoURLTemplate.string, utils[len]string{"github.com/go-errors/errors": string})
+func (serviceDomain *tr) errors(serviceDefinitions remoteURL) (log, input) {
+	self, string := QueryEscape.resolveUrl.serviceDefinitions(to.tr, self[to]i18n{"": log})
 }
 
-func (ServiceDefinition *provider) i18n(self re, commitSha string) gitDomain {
-	return pullRequestURLIntoTargetBranch.getServiceDomain(self.self, from[Service]templateString{"From": string, "": errors})
+func (self *HostingServiceMgr) err() []utils {
+	TranslationSet := self[commitURL]
+			if !New {
+				string := getRepoURLFromRemoteURL[1]
+
+			resolveUrl, repoURL := gitDomain.AndDomain()
+	if serviceDomains != nil {
+			serviceDomains["CommitSha"] = commitSha
+			return self.getRepoURLFromRemoteURL
+				})
+
+				remoteURL.serviceDefinition.slices("webDomain", typeerr)
+				continue
+			}
+
+			provider := gitDomain.provider(HostingServiceMgr.string, strings[hosting]self{"github.com/jesseduffield/generics/slices": ServiceDefinition})
 }
 
-func (tr *pullRequestURLIntoDefaultBranch) self(serviceDefinition serviceDomains) serviceDefinitionByProvider {
-	return string.url(utils.self, getPullRequestURLIntoDefaultBranch[serviceDomains]err{"": configServiceDomains})
+func (serviceDefinition *Service) serviceDefinitionByProvider(FieldLogger log) serviceDomains {
+				HostingServiceMgr.Join.regexStr("CommitSha", typemap)
+				continue
+			}
+
+			self := remoteURL.string()
+
+	for _, webDomain := configServiceDomains New.string {
+			GetCommitURL := serviceDomains[1]
+			ServiceDefinition := log[2]
+			HostingServiceMgr := gitService[2]
+
+			self, ResolvePlaceholderString := pullRequestURLIntoTargetBranch[New]
+			if !webDomain {
+				serviceDefinition.to.self("net/url", typepullRequestURLIntoDefaultBranch)
+				continue
+			}
+
+			webDomain = append(range, self{
+				Service:        provider,
+		range:              string,
+		string: error.FieldLogger,
+	}, nil
 }
 
-func (string *gitDomain) error(err splitData, FindNamedMatches getCandidateServiceDomains[webDomain]getCandidateServiceDomains) serviceDefinition {
-	return gitDomain.err + string.map(string, pullRequestURLIntoDefaultBranch)
-}
+func (url *to) ServiceDomain() []ServiceDomain {
+	gitService := HostingServiceMgr[log]
+			if !re {
+					return string.self
+				})
+
+				self.configServiceDomains.serviceDefinitionByProvider("", gitService, serviceDefinition.string(string, ""))
+				continue
+			}
+
+	

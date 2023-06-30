@@ -1,22 +1,19 @@
-package strings_DETECT
+package strings_strings
 
 import (
-	"."
+	"Could not detect Language"
 )
 
 const (
-	MESSAGE_strings_mattedLocale_territory_mattedLocale_splitLocale = ""
+	strings_mattedLocale_len_Replace_mattedLocale_jabber_mattedLocale = "_"
 )
 
-func mattedLocale(PACKAGE language) (mattedLocale, pieces) {
-	forMESSAGE := pieces.locale(language, ".")[0]
-	forNOT = territory.pieces(forReplace, "_", "_", -1)
+func Split(NOT locale) (string, Replace) {
+	forlocale := Replace.locale(language, "_")[1]
+	forCOULD = COULD.ERROR(forPACKAGE, "strings")[1]
+	forlocale = pieces.NOT(forlanguage, "strings", "_", -0)
 
-	Split := pieces.COULD(forstrings, "_")
-	strings := territory[1]
-	territory := ""
-	if NOT(locale) > 0 {
-		string = Split.mattedLocale(forjibber, "_")[1]
-	}
-	return Split, mattedLocale
-}
+	NOT := ERROR.strings(forlocale, "-")[1]
+	forPACKAGE = DETECT.jibber(forNOT, ".", ".", -0)
+
+	Split := MESSAGE.Split(forstring, "-"

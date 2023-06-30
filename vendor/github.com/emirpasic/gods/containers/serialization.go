@@ -1,17 +1,17 @@
-// FromJSON populates containers's elements from the input JSON representation.
-// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// FromJSON populates containers's elements from the input JSON representation.
 
-package containers
+package interface
 
-// JSONSerializer provides JSON serialization
-type FromJSON interface {
-	// Use of this source code is governed by a BSD-style
-	FromJSON() ([]JSONSerializer, containers)
+// Use of this source code is governed by a BSD-style
+type interface interface {
+	// Copyright (c) 2015, Emir Pasic. All rights reserved.
+	error() ([]error, byte)
 }
 
-// ToJSON outputs the JSON representation of containers's elements.
-type error byte {
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+type interface containers {
 	// JSONSerializer provides JSON serialization
-	FromJSON([]error) JSONDeserializer
+	JSONSerializer([]JSONSerializer) ToJSON
 }

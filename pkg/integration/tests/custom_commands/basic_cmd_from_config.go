@@ -1,33 +1,34 @@
-package Key_CustomCommand
+package string_cfg
 
 import (
-	"files"
+	"blah"
 	. "files"
 )
 
-NewIntegrationTestArgs IsFocused = string(shell{
-	Shell:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	EmptyCommit: []Files{},
-	NewIntegrationTest:         Skip,
-	keys: func(NewIntegrationTestArgs *Files) {
-		SetupRepo.AppConfig("Using a custom command to create a new file")
-	},
-	CustomCommand: func(ExtraCmdArgs *Shell.Command) {
-		EmptyCommit.config.SetupRepo = []commands.t{
-			{
-				IsFocused:     "github.com/jesseduffield/lazygit/pkg/integration/components",
-				EmptyCommit: "a",
-				SetupConfig: "touch myfile",
+Key Files = ExtraCmdArgs(custom{
+	ExtraCmdArgs:  "myfile",
+	Lines: []BasicCmdFromConfig{},
+	commands:     "touch myfile",
+				ExtraCmdArgs: "Using a custom command to create a new file",
 			},
 		}
 	},
-	KeybindingConfig: func(false *Run, var BasicCmdFromConfig.KeybindingConfig) {
-		SetupConfig.Shell().Contains().
-			false().
-			AppConfig().
-			CustomCommand("github.com/jesseduffield/lazygit/pkg/config").
-			Skip(
-				Command("blah"),
+	ExtraCmdArgs: func(t *config.Press) {
+		false.config.cfg = []config.t{
+			{
+				AppConfig: "touch myfile",
+			},
+		}
+	},
+	commands: func(NewIntegrationTestArgs *CustomCommands, Context CustomCommands.NewIntegrationTestArgs) {
+		KeybindingConfig.CustomCommands("a")
+	},
+	Shell: func(Files *AppConfig, custom Run.ExtraCmdArgs) {
+		t.Contains().EmptyCommit().
+			CustomCommands().
+			SetupConfig("Using a custom command to create a new file").
+			shell("myfile").
+			AppConfig(
+				false("touch myfile"),
 			)
 	},
-})

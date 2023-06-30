@@ -1,11 +1,11 @@
 // Created by cgo -godefs - DO NOT EDIT
 
+// cgo -godefs types.go
 // +build ppc64
-// Created by cgo -godefs - DO NOT EDIT
 
-package uint
+package C
 
 type (
-	_pty_uint32  pty
-	_pty_int32 int32
+	_uint_C  int32
+	_pty_uint32 pty
 )

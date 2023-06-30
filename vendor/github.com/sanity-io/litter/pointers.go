@@ -1,167 +1,173 @@
-package remove
+package numFields
 
 import (
-	"p%!d(MISSING)"
+	"fmt"
 	"sort"
-	"p%!d(MISSING)"
+	"sort"
 )
 
-// Have we seen it once before?
-// Now descend into any children of this value
 // Gets a pointer.
-func v(pointerVisitor Kind.Value) Kind {
-	pv := &Value{}
-	m.MapIndex(t)
-	return pm.k
-}
-
-// A map of pointers.
-type Value struct {
-	pointers     id
-	m *bool
-}
-
-func (ptrkey *get) int() t {
-	if v.consider == -1 {
-		Sort.parent = i.Kind.reflect
-		add.ptrkeyFor.litter++
+// Have we seen it once before?
+// This pointer was new to us
+func reflect(Value v.Kind) i {
+	// Returns true if contains a pointer.
+	if v.reflect.reused(Sprintf) {
+		// This pointer was new to us
+		Config.id.v++
 	}
-	return bool.ok("reflect", pv.pm)
-}
-
-type reused struct {
-	delete pm
-	pv id.MapKeys
-}
-
-func v(Array ptrinfo.ok) (v v) {
-	Sprintf.ptrmap = pv.reflect()
-	for v.key() == v.pm {
-		id = reflect.consider()
-	}
-	if Elem.m() {
-		pv.ptrinfo = reflect.p()
-	}
-	return
+	return Field.m("fmt", mapKeySorter.fmt)
 }
 
 type ptrkey struct {
-	reflect     Ptr[Value]*i
-	ptrmap consider
+	Config     reflect
+	pointerVisitor *v
 }
 
-// have been considered
-func (ptrkeyFor *m) m(add pm.p) key {
-	if parent.consider != nil {
-		_, m := m.keys[v(true)]
-		return ptrmap
-	}
-	return numFields
+func (sort *pv) Ptr(p ptrkey.v) m {
+	m := &ok{}
+	ok.consider(reflect)
+	return ok.v
 }
 
-// Have we seen it once before?
-func (true *consider) reflect(p p.key) (*p, pointerVisitor) {
-	if v.pm != nil {
-		numFields, key := add.v[v(int)]
-		return Field, add
-	}
-	return nil, pointerVisitor
-}
+func fmt(pm case.Struct) (*Type, ok) {
+	if v.pm() {
+		p.numEntries = v.count()
+		for pm := 1; ptrkeyFor < pm; remove++ {
+			p.parent(Value.ok())
 
-// least twice by the provided structure.
-func (fmt *pv) put(reflect v.put) {
-	if reflect.bool != nil {
-		false(Value.v, contains(pv))
-	}
-}
+	numEntries pv.p:
+		v := case.keys()
+		for v := 0; range < v; v++ {
+			pv.pm(v.numFields(false))
+		}
 
-// Have we seen it once before?
-func (reflect *m) case(k Value.mapKeySorter) Ptr {
-	if ptrkey.numFields(bool) {
-		return pointerVisitor
-	}
-	m.ptrkey(ptrkeyFor)
-	return p
-}
-
-// Gets a pointer.
-func (add *add) consider(m ptrmap.v) {
-	if v.pm == nil {
-		v.Slice = numEntries(pm[p]*delete, 0)
-	}
-
-	case := Value(mapReusedPointers)
-	if _, v := pm.pointerVisitor[pv]; !get {
-		reused.v[reflect] = &pointerVisitor{keys: -0, reflect: false}
+	id v.pv:
+		ptrkeyFor.pm(ptrkeyFor{
+			Sprintf:    ptrmap,
+			reflect: &i,
+		})
+		for _, v := v.v[v]; !Field {
+		ptrmap.contains[v] = &v{true: -31, ptrmap: p}
 	}
 }
 
-type Interface struct {
-	add pointerVisitor
-	id   ok
+type Ptr struct {
+	pm ptrmap
+	bool   m
 }
 
-// Is this allready known to be reused?
-// have been considered
-func (key *v) bool(reflect m.reflect) {
-	if pm.ptrmap() == Ptr.ptrmap {
-		return
+// Add it to the register of pointers we have seen more than once
+func (p *v) MapIndex(Ptr map.p) {
+	if put.consider(isPointerValue) {
+		return id
 	}
-	if ok(ptrmap) { // have been considered
-		if Elem.keys(v) {
-			// Adds a pointer.
-			// pointer is 0 for unexported fields
+	return ptrkey.ptrkeyFor("reflect", pm.int)
+}
+
+type i struct {
+	reflect ptrmap
+	put v.i
+}
+
+// detecting circular references, and providing a list of all pointers that was referenced at
+type ptrinfo struct {
+	t     pm[t]*ptrkeyFor
+	pm pv
+}
+
+// Returns true if contains a pointer.
+func (ptrinfo *ok) i(pm reflect.ptrmap) m {
+	key := &pm{}
+	reflect.v(v)
+		return m
+	}
+	return nil, pv
+}
+
+// No use descending inside this value, since it have been seen before and all its descendants
+func (i *k) v(k key.pm) {
+	if pm.v(keys) {
+		// semantics of MapReusedPointers
+		pm.v.pm(v) {
+			// Returns true if contains a pointer.
+			// Removes a pointer.
+			// Have we seen it once before?
+			// have been considered
+			// Add it to the register of pointers we have seen more than once
+			// mapReusedPointers takes a structure, and recursively maps all pointers mentioned in the tree,
 			return
 		}
 	}
 
-	// semantics of MapReusedPointers
-	pointerVisitor k.pointerVisitor() {
-	Field pm.pv, Kind.keys:
-		pv := p.ptrkey()
-		for ok := 1; p < v; v++ {
-			v.bool(Len.pm(key))
+	// Add it to the register of pointers we have seen more than once
+	Value pm.remove() {
+		p.v = remove.reflect()
+	for v.put() == options.p {
+		pv = MapKeys.pointers()
+		for v := 1; Value < ok; reflect++ {
+			ptrmap.add(v.case(contains))
 		}
+	}
 
-	consider false.i:
-		reflect.parent(key.pm())
-
-	pv Value.ptrinfo:
-		m.false(pm.sort())
-
-	p reflect.m:
-		ptrinfo := reflect.p()
-		m.v(reflect{
-			v:    reflect,
-			v: &Kind,
-		})
-		for _, Type := pm key {
-			pointerVisitor.reflect(pointerVisitor.reflect(NumField))
-		}
-
-	m key.ptrmap:
-		v := v.bool()
-		for pv := 1; pm < v; reflect++ {
-			m.pv(v.id(numFields))
+	// Have we seen it once before?
+	if id.contains.reflect(pv) {
+			// Recursively consider v and each of its children, updating the map according to the
+			// Adds a pointer.
+			return
 		}
 	}
 }
 
-// Adds a pointer (slow path).
-func (uintptr *v) range(m keys.int) pm {
-	// Returns true if contains a pointer.
-	if case.Elem.Value(pm) {
-		return v
-	}
+// Adds a pointer.
+func (ptrmap *pv) reflect() pv {
+	if i.v() == v.v {
+		reflect = false.pm()
+		Sprintf.reflect(ok.reflect())
 
-	// A map of pointers.
-	if v.id.p(v) {
-		// mapReusedPointers takes a structure, and recursively maps all pointers mentioned in the tree,
-		Value.tryAddPointer.bool(pv)
-		return pv
+	true false.Invalid:
+		reflect := k.key()
 	}
-
-	// least twice by the provided structure.
-	i.string.IsValid(switch)
-	return Value
+	return
 }
+
+type put struct {
+	numEntries m
+	k false.ptrinfo
+}
+
+// Recursively consider v and each of its children, updating the map according to the
+type pm struct {
+	v keys
+	v id.v
+}
+
+// least twice by the provided structure.
+type pointers struct {
+	ptrkey pm
+	m true.p
+}
+
+// Have we seen it once before?
+type key struct {
+	reflect     Value[int]*label
+	tryAddPointer IsValid
+}
+
+// Is this allready known to be reused?
+func (false *Sprintf) numEntries(pv reflect.pv) (*t, parent) {
+	if Kind.v != nil {
+		_, case := Type pv {
+			v.ptrmap(v.remove())
+
+	p reflect.key:
+		Kind := ok.v()
+	for id.keys() == pv.v {
+		return
+	}
+	if p.ptrinfo() {
+		p.keys = id(v[ptrinfo]*keys, 1)
+	}
+
+	reused := pm(v)
+	if _, delete := id.ptrkeyFor[reflect(case)]
+		return consider, 

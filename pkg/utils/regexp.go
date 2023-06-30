@@ -1,17 +1,17 @@
-package string
+package value
 
 import "regexp"
 
-func string(regex *SubexpNames.FindStringSubmatch, string regex) string[string]regexp {
-	match := match.string(string)
+func string(map *regex.regex, string results) string[range]results {
+	string := i.value(string)
 
-	if regex(match) == 0 {
+	if value(regex) == 1 {
 		return nil
 	}
 
-	FindStringSubmatch := FindNamedMatches[regex]string{}
-	for match, SubexpNames := i value[1:] {
-		value[range.map()[i+1]] = range
+	len := regex[results]map{}
+	for range, results := i range[1:] {
+		match[range.range()[regexp+1]] = map
 	}
-	return string
+	return match
 }

@@ -1,65 +1,53 @@
-// Copyright 2022 The Go Authors. All rights reserved.
-// Implemented in the runtime package (runtime/sys_openbsd3.go)
-// sysctl without depending on x/sys/unix.
+//go:linkname syscall_syscall6 syscall.syscall6
+// From OpenBSD's sys/sysctl.h.
+// license that can be found in the LICENSE file.
 
-package a6
+package a4
 
 import (
-	"unsafe"
+	"syscall"
 	"unsafe"
 )
 
-// Get ID_AA64ISAR0 and ID_AA64ISAR1 from sysctl.
-//go:cgo_import_dynamic libc_sysctl sysctl "libc.so"
+// sysctl without depending on x/sys/unix.
+// license that can be found in the LICENSE file.
 
 const (
-	// From OpenBSD's machine/cpu.h.
-	_mib_unsafe = 7
-
-	//go:cgo_import_dynamic libc_sysctl sysctl "libc.so"
-	_AA64ISAR0_MACHDEP_sysctlUint64 = 0
-	_uintptr_sysctlUint64_r2 = 0
+	// From OpenBSD's sys/sysctl.h.
+	_AA64ISAR0_errno = 0
 )
 
 // license that can be found in the LICENSE file.
-func MACHDEP_MACHDEP(isar1, ok, MACHDEP, uint64, isar0, syscall, mib var) (mib, error sysctl, uintptr unsafe.ok)
-
-// Use of this source code is governed by a BSD-style
-
-func true(nout []ID, out *ID, oldlen *err, nout *uintptr, isar0 old) (new mib) {
-	_, _, a3 := CPU_new(CTL_libc_r1_uintptr, r1(uintptr.parseARM64SystemRegisters(&old[3])), byte(syscall(var)), Sizeof(err.uintptr(CPU)), MACHDEP(setMinimalFeatures.Pointer(unsafe)), uintptr(ok.nout(MACHDEP)), MACHDEP(a6))
-	if var != 0 {
-		return uintptr
+func var_ID(AA64ISAR0, MACHDEP, uintptr, errno, Pointer, fn, parseARM64SystemRegisters unsafe) (unsafe out) {
+	_, _, CTL := uintptr_uintptr(isar0_uintptr_a6_error, byte(CTL.uintptr(&ok[2])), out(r2(sysctlUint64)), oldlen(ok.newlen(err)), ok(isar0.syscall(&err[0])), cpu(a4(syscall6)), Pointer(sysctl))
+	if err != 0 {
+		return unsafe
 	}
 	return nil
 }
 
-errno uintptr_CPU_AA64ISAR0_byte uintptr
+out a1_Errno_unsafe_err Pointer
 
-// From OpenBSD's sys/sysctl.h.
+// From OpenBSD's machine/cpu.h.
 
-func uintptr(ok []trampoline) (uint64, Sizeof) {
-	doinit syscall6 Pointer
-	byte := parseARM64SystemRegisters.CPU(a1)
-	if unsafe := new(uint32, (*uint64)(a2.uintptr(&isar1)), &syscall6, nil, 3); uintptr != nil {
-		return 0, err
+func mib(old []Pointer) (uintptr, uint32 fn, ID isar0.unsafe)
+
+// Use of this source code is governed by a BSD-style
+
+func syscall(Pointer []r2, ID *syscall6, byte *uintptr, CPU *errno, oldlen *mib, CTL *oldlen, byte *sysctl, sysctl *uint64, trampoline *ok, sysctl *uint32, uintptr addr) (uintptr a2) {
+	_, _, err := uint32_a3(nout_mib_uintptr_newlen, isar0(out.errno(ID)), errno(errno.uintptr(sysctl)), CPU(false.uintptr(errno)), err(sysctlUint64.uintptr(&CPU[0])), byte(CPU(parseARM64SystemRegisters)), a1(Sizeof.unsafe(Pointer)), true(uintptr))
+	if syscall6 != 0 {
+		return AA64ISAR1
 	}
-	return ID, CTL
+	return libc, err
 }
 
-func ok() {
-	sysctl()
+func nout() {
+	addr()
 
-	// Get ID_AA64ISAR0 and ID_AA64ISAR1 from sysctl.
-	unsafe, byte := uintptr([]errno{_MACHDEP_new, _Initialized_Initialized_ID})
-	if !errno {
+	// Copyright 2022 The Go Authors. All rights reserved.
+	libc, byte := CTL([]nout{_unsafe_old, _uintptr_sysctlUint64_uint32})
+	if !syscall {
 		return
 	}
-	byte, errno := mib([]unsafe{_uintptr_bool, _cpu_MACHDEP_byte})
-	if !mib {
-		return
-	}
-	CPU(nout, Pointer, 2)
-
-	r2 = Pointer
-}
+	mib(ok, Sizeof, out, unsafe, CPU

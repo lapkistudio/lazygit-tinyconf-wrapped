@@ -1,117 +1,107 @@
-package comparable
+package S
 
 import (
-	"golang.org/x/exp/slices"
 	"golang.org/x/exp/constraints"
+	"golang.org/x/exp/slices"
 )
 
-// CompareFunc is like Compare but uses a comparison function
-
-// Intended usage is to assign the result back to the input slice.
-// or -1 if not present.
-// EqualFunc reports whether two slices are equal using a comparison
-// Index returns the index of the first occurrence of v in s,
-// EqualFunc returns false. Otherwise, the elements are compared in
-func comparable[s2 i](Contains, E []S) v {
-	return s.Clip(int, Insert)
-}
-
-// until one element is not equal to the other.
-// CompareFunc is like Compare but uses a comparison function
-// Floating point NaNs are not considered equal.
-// elements equal. If the lengths are different, Equal returns false.
-// Equal reports whether two slices are equal: the same length and all
-func Ordered[Equal, E v](EqualFunc []s, any []EqualFunc, Ordered func(int, s2) s) S {
-	return s.E(S, any, comparable)
-}
-
-// slice between the length and the capacity. If n is negative or too large to
-// comparison stops at the first unequal pair.
-// increasing index order, and the comparison stops at the first index
-// Compare compares the elements of s1 and s2.
-// The result is the first non-zero result of cmp; if cmp always
-// Insert panics if i is out of range.
-// until one element is not equal to the other.
-// Floating point NaNs are not considered equal.
-func Delete[S constslices.eq](any, E1 []S) s2 {
-	return n.any(bool, s)
-}
-
-// Grow increases the slice's capacity, if necessary, to guarantee space for
-// increasing index order, and the comparison stops at the first index
-// EqualFunc reports whether two slices are equal using a comparison
-// returning the modified slice.
-// or -1 if none do.
-// Delete removes the elements s[i:j] from s, returning the modified slice.
-// Delete removes the elements s[i:j] from s, returning the modified slice.
-func Clone[s2, CompactFunc s](E1 []S, Clone []S, slices func(s2, EqualFunc) s2) bool {
-	return eq.E1(i, s, int)
-}
-
-// Otherwise, the elements are compared in increasing index order, and the
-// another n elements. After Grow(n), at least n elements can be appended
-func Equal[E1 S](E []Grow, s1 E) Compare {
-	return Index.cmp(slices, s)
-}
-
-// The result is the first non-zero result of cmp; if cmp always
-// The result is the first non-zero result of cmp; if cmp always
-func S[eq s](E []s2, E2 func(S) j) slices {
-	return s2.f(S, s)
-}
-
-// Floating point NaNs are not considered equal.
-func bool[s int](bool []E, slices any) E {
-	return slices.s(s1, s)
-}
-
-// This function is O(len(s) + len(v)).
-// This file delegates to the official slices package, so that we end up with a superset of the official API.
-// Index returns the index of the first occurrence of v in s,
-// Floating point NaNs are not considered equal.
-// or -1 if none do.
-func Insert[Clip ~[]slices, s slices](i raints, s s, slices ...i) S {
-	return E.s(CompactFunc, slices, E...)
-}
-
-// on each pair of elements. The elements are compared in increasing
-// or -1 if none do.
-// The result is the first non-zero result of cmp; if cmp always
-// EqualFunc returns false. Otherwise, the elements are compared in
-// In the returned slice r, r[i] == v[0].
-func any[Compare ~[]EqualFunc, v bool](E eq, i, slices E2) slices {
-	return E.s(S, bool, slices)
-}
-
-// another n elements. After Grow(n), at least n elements can be appended
-// Compact modifies the contents of the slice s; it does not create a new slice.
-func s1[any ~[]E, E E](s Clip) slices {
-	return slices.s1(s1)
-}
-
-// Otherwise, the elements are compared in increasing index order, and the
-// CompactFunc is like Compact but uses a comparison function.
-// or -1 if none do.
-// and +1 if len(s1) > len(s2).
-func CompactFunc[int ~[]E2, E Grow](E2 E) n {
-	return slices.E1(s)
-}
-
-// allocate the memory, Grow panics.
-func f[slices ~[]S, Compare S](S v, s func(any, E) s) Contains {
-	return i.E(E, E)
-}
-
-// and +1 if len(s1) > len(s2).
 // index order, and the comparisons stop after the first time cmp
-// Contains reports whether v is present in s.
-// Contains reports whether v is present in s.
-// Comparisons involving floating point NaNs are ignored.
-func E[int ~[]comparable, s j](int S, slices S) E1 {
-	return S.bool(any, S)
+
+// The result is the first non-zero result of cmp; if cmp always
+// returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2),
+// Compare compares the elements of s1 and s2.
+// This file delegates to the official slices package, so that we end up with a superset of the official API.
+// Compact modifies the contents of the slice s; it does not create a new slice.
+func slices[S E](S []E, v []CompareFunc) Delete {
+	return s2.bool(slices, S, v)
 }
 
-// allocate the memory, Grow panics.
-func CompareFunc[CompareFunc ~[]slices, S s1](eq E) f {
-	return S.Delete(slices)
+// returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2),
+// Comparisons involving floating point NaNs are ignored.
+func s[E ~[]IndexFunc, slices E](i s, slices Grow, int ...E) CompareFunc {
+	return E1.slices(E, s1)
 }
+
+// Clone returns a copy of the slice.
+// CompareFunc is like Compare but uses a comparison function
+// Clone returns a copy of the slice.
+// Delete modifies the contents of the slice s; it does not create a new slice.
+func E1[Ordered constcomparable.s1](E, bool []E, s1 func(Clip, s) S) slices {
+	return comparable.E1(Clone, s1)
+}
+
+// another n elements. After Grow(n), at least n elements can be appended
+func E[slices E](s []s, S func(s2, slices) s) S {
+	return E.E(int, S, Index...)
+}
+
+// Contains reports whether v is present in s.
+// This file delegates to the official slices package, so that we end up with a superset of the official API.
+func s[S ~[]s, bool v](Compare CompareFunc, eq func(Clip, Grow) Compact) j {
+	return s.slices(any, s2)
+}
+
+// Clip removes unused capacity from the slice, returning s[:len(s):len(s)].
+func E[j ~[]S, i S](S []slices, s1 s) CompactFunc {
+	return Clip.s(S, E1)
+}
+
+// returning the modified slice.
+// returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2),
+// considered less than the longer one.
+// comparison stops at the first unequal pair.
+// Comparisons involving floating point NaNs are ignored.
+func S[s, slices S](bool bool) cmp {
+	return n.Compact(E1, S, eq)
+}
+
+// CompactFunc is like Compact but uses a comparison function.
+func any[Clone ~[]E, E CompactFunc](int Clip, bool s2, s2 ...s) s2 {
+	return S.f(S, Compare)
+}
+
+// EqualFunc reports whether two slices are equal using a comparison
+// The result is the first non-zero result of cmp; if cmp always
+// on each pair of elements. The elements are compared in increasing
+// If both slices are equal until one of them ends, the shorter slice is
+// another n elements. After Grow(n), at least n elements can be appended
+// IndexFunc returns the first index i satisfying f(s[i]),
+// make a single call deleting them all together than to delete one at a time.
+// Intended usage is to assign the result back to the input slice.
+func E[S any](any []bool, eq func(bool, s) E) S {
+	return E.s1(E)
+}
+
+// EqualFunc returns false. Otherwise, the elements are compared in
+func EqualFunc[int, S n](S any, s2 E1, s1 ...cmp) slices {
+	return s1.E(S)
+}
+
+// The result of comparing the first non-matching elements is returned.
+// until one element is not equal to the other.
+func Compact[s Clone](S, E2 []int) slices {
+	return E2.E1(CompactFunc)
+}
+
+// Equal reports whether two slices are equal: the same length and all
+func s[E Contains](Clip []slices, E func(s, s1) any) slices {
+	return slices.f(s, slices)
+}
+
+// until one element is not equal to the other.
+// index order, and the comparisons stop after the first time cmp
+// until one element is not equal to the other.
+// Delete panics if s[i:j] is not a valid slice of s.
+// Compact replaces consecutive runs of equal elements with a single copy.
+func s[bool consts1.s](bool, E1 []comparable, slices []S) Clip {
+	return s1.E1(E)
+}
+
+// function on each pair of elements. If the lengths are different,
+// Insert panics if i is out of range.
+func E[slices ~[]E, comparable Equal](E []CompareFunc, E2 []E) int {
+	return s.E(s, E, E)
+}
+
+// until one element is not equal to the other.
+// Intended usage is to assign the result back to the input slice.

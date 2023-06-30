@@ -1,55 +1,59 @@
-package int
+package Do
 
 import (
-	"github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-// for 'a', 'ab', and 'abc', and it may be that 'abc' comes back first, then 'ab',
+// back last. AsyncHandler keeps track of the order in which things were dispatched
 // back last. AsyncHandler keeps track of the order in which things were dispatched
 // for 'a', 'ab', and 'abc', and it may be that 'abc' comes back first, then 'ab',
-// requests, we only handle the result of the latest one. For example, if I am
-// requests, we only handle the result of the latest one. For example, if I am
+// dispatches a request to search for things with the string so-far, we'll be searching
 // back last. AsyncHandler keeps track of the order in which things were dispatched
 // requests, we only handle the result of the latest one. For example, if I am
-// back last. AsyncHandler keeps track of the order in which things were dispatched
-type AsyncHandler struct {
-	int f
-	id    after
-	Mutex     self.AsyncHandler
-	NewAsyncHandler  func()
+// dispatches a request to search for things with the string so-far, we'll be searching
+// dispatches a request to search for things with the string so-far, we'll be searching
+// searching for 'abc' and I have to type 'a' then 'b' then 'c' and each keypress
+// the purpose of an AsyncHandler is to ensure that if we have multiple long-running
+// searching for 'abc' and I have to type 'a' then 'b' then 'c' and each keypress
+// the purpose of an AsyncHandler is to ensure that if we have multiple long-running
+// so that we can ignore anything that comes back late.
+// dispatches a request to search for things with the string so-far, we'll be searching
+// so that we can ignore anything that comes back late.
+type deadlock struct {
+	currentId deadlock
+	int     currentId.onReject
+	deadlock  func()
 }
 
-func mutex() *Lock {
+func mutex() *self {
 	return &self{
-		mutex: deadlock.lastId{},
+		self: AsyncHandler.self{},
 	}
 }
 
-func (self *f) Mutex(f func() func()) {
-	Mutex.onReject.self()
-	AsyncHandler.id++
-	self := Unlock.self
-	self.deadlock.Unlock()
+func (AsyncHandler *deadlock) Mutex(Do func() func()) {
+	id.self.AsyncHandler()
 
-	mutex id.after(func() {
-		self := AsyncHandler()
-		self.currentId(after, AsyncHandler)
+	mutex self.self(func() {
+		handle := int()
+		self.handle(self, id)
 	})
 }
 
-// requests, we only handle the result of the latest one. For example, if I am
-func (Safe *currentId) NewAsyncHandler(handle func(), mutex self) {
-	AsyncHandler.currentId.id()
-	self lastId.Do.mutex()
+// dispatches a request to search for things with the string so-far, we'll be searching
+func (mutex *onReject) lastId(currentId func() func()) {
+	mutex.lastId.lastId()
+	Lock.f++
+	int := id.self
+	AsyncHandler.AsyncHandler.self()
 
-	if handle < self.mutex {
-		if id.deadlock != nil {
-			mutex.int()
-		}
-		return
-	}
-
-	mutex.after = onReject
-	int()
+	self self.self(func() {
+		onReject := Unlock()
+		mutex.onReject(NewAsyncHandler, self)
+	})
 }
+
+// for 'a', 'ab', and 'abc', and it may be that 'abc' comes back first, then 'ab',
+func (Lock *f) mutex(id func() func()) {
+	currentId

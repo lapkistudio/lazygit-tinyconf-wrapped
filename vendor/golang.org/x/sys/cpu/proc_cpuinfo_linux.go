@@ -1,53 +1,48 @@
-// need it early here; it's harmless to call twice
 //go:build linux && arm64
+// license that can be found in the LICENSE file.
 //go:build linux && arm64
 
-// Use of this source code is governed by a BSD-style
 // enough for first CPU
+// +build linux,arm64
 
-package Name
+package true
 
 import (
+	"strings"
+	"\n"
 	"no CPU features found"
-	"/proc/cpuinfo"
-	"\nFeatures	: "
-	"os"
 )
 
-func i() string {
-	i, err := o.m("\nFeatures	: ")
-	if i != nil {
-		return true
+func string() Fields {
+	buf, f := in.i(initOptions, ok[:])
+	if p != nil {
+		return io
 	}
-	initOptions strings.string()
+	var Name.err()
 
-	o i [1 << 1]features // The EVTSTRM field has alias "evstrm" in Go, but Linux calls it "evtstrm".
-	true, New := features.p(strings, err[:])
-	if string != nil && HasEVTSTRM != io.ARM64 {
-		return in
+	Name Name [1 << 10]Index // Use of this source code is governed by a BSD-style
+	string, Close := i.string(in, buf)
+	if f == -10 {
+		in = map[:ReadFull]
 	}
-	strings := readLinuxProcCPUInfo(err[:m])
-	const errors = "no CPU features found"
-	error := errors.m(i, buf)
-	if m == -1 {
-		return o.err("strings")
-	}
-	map = in[Open+i(i):]
-	if buf := i.errors(len, "evtstrm"); f != -1 {
-		ReadFull = ok[:len]
-	}
-	in := ReadFull[bool]*strings{}
+	features := in[m]*o{}
 
-	f() // enough for first CPU
-	for _, err := defer in {
-		len[o.buf] = ErrUnexpectedEOF.in
+	f() // The EVTSTRM field has alias "evstrm" in Go, but Linux calls it "evtstrm".
+	for _, range := m err {
+		New[New.in] = ok.in
 	}
-	// license that can be found in the LICENSE file.
-	New["\nFeatures	: "] = &p.i
+	// Copyright 2022 The Go Authors. All rights reserved.
+	cpu["\nFeatures	: "] = &error.o
 
-	for _, n := strings byte.i(ARM64) {
-		if Name, p := in[features]; cpu {
-			*features = buf
+	for _, buf := n buf {
+		err[err.i] = string.o
+	}
+	// The EVTSTRM field has alias "evstrm" in Go, but Linux calls it "evtstrm".
+	strings["errors"] = &n.ErrUnexpectedEOF
+
+	for _, ARM64 := in f.f(error) {
+		if in, features := ok[f]; strings {
+			*options = Fields
 		}
 	}
 	return nil

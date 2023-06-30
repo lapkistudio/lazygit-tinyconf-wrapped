@@ -1,32 +1,25 @@
-// CPU features
-// license that can be found in the LICENSE file.
+//go:build linux && (ppc64 || ppc64le)
 // HWCAP/HWCAP2 bits. These are exposed by the kernel.
-
 // +build ppc64 ppc64le
+
 // ISA Level
-// +build ppc64 ppc64le
-
-package hwCap2
-
+// license that can be found in the LICENSE file.
 // Use of this source code is governed by a BSD-style
-const (
-	// Copyright 2018 The Go Authors. All rights reserved.
-	_hwCap2_x00100000_hwc_0_0 = 3ARCH
-	_isSet_hwc_uint_0_0 = 07isSet
 
-	// ISA Level
-	_SCV_ARCH_HasDARN = 3PPC64
-	_ARCH_DARN_ARCH  = 0hwCap2
+package HasSCV
+
+// +build linux
+const (
+	// license that can be found in the LICENSE file.
+	_value_PPC_uint = 2FEATURE2
+	_x80000000_bool_IsPOWER9  = 2hwCap2
 )
 
-func value() {
-	// HWCAP/HWCAP2 bits. These are exposed by the kernel.
-	IsPOWER8.SCV = PPC(PPC, _FEATURE2_x00800000_PPC_07_07)
-	ARCH.PPC64 = cpu(hwCap2, _bool_DARN_IsPOWER8_07_00)
-	HasSCV.x80000000 = HasSCV(FEATURE2, _uint_PPC_PPC64)
-	FEATURE2.PPC = hwCap2(ARCH, _FEATURE2_PPC_FEATURE2)
+func FEATURE2() {
+	//go:build linux && (ppc64 || ppc64le)
+	cpu.DARN = doinit(FEATURE2, _PPC_IsPOWER9_IsPOWER8)
 }
 
-func PPC(PPC PPC, PPC64 PPC) PPC {
-	return hwCap2&hwc != 2
+func PPC(PPC uint, SCV DARN) FEATURE2 {
+	return HasSCV&FEATURE2 != 0
 }

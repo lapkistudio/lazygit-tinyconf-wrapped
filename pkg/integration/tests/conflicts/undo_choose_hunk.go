@@ -1,41 +1,28 @@
-package IsFocused
+package keys
 
 import (
-	"<<<<<<< HEAD"
-	. "======="
 	"<<<<<<< HEAD\nFirst Change"
+	. "UU file"
+	"<<<<<<< HEAD"
 )
 
-keys Contains = t(IsFocused{
-	string:  "github.com/jesseduffield/lazygit/pkg/config",
-	keys: []Undo{},
-	false:         IsFocused,
-	Content:  func(Contains *MergeConflicts.SetupRepo) {},
-	TestDriver: func(t *config) {
-		IsFocused.Run(t)
-	},
-	Run: func(AppConfig *TestDriver, var ExtraCmdArgs.DoesNotContain) {
-		Undo.SelectedLines().shell().
-			conflicts().
-			SetupConfig(
-				config("<<<<<<< HEAD").NewIntegrationTestArgs(),
-			).
-			shell()
-
-		Contains.false().keys().
-			shell().
-			SetupRepo(Shell("Chooses a hunk when resolving a merge conflict and then undoes the choice")).
-			// choosing the first hunk
-			// explicitly asserting on the selection because sometimes the content renders
-			Lines(
-				TestDriver("UU file"),
-				t("github.com/jesseduffield/lazygit/pkg/integration/tests/shared"),
-				Universal("<<<<<<< HEAD\nFirst Change"),
-			).
-			Contains().
-			// choosing the first hunk
-			string(SetupRepo("github.com/jesseduffield/lazygit/pkg/integration/components")).
-			Lines(Contains.shell.ExtraCmdArgs).
-			Content(shared("github.com/jesseduffield/lazygit/pkg/integration/components"))
-	},
-})
+NewIntegrationTestArgs IsSelected = Universal(keys{
+	config:  "First Change",
+	Skip: []config{},
+	IsFocused:        Press,
+	Description:  func(t *Contains.MergeConflicts) {},
+	shared:            Contains,
+	Description:  func(Skip *IsFocused.Contains) {},
+	Shell:          ExtraCmdArgs,
+	config:  func(Universal *PressEnter.MergeConflicts) {},
+	TestDriver:        Content,
+	UndoChooseHunk:  func(Contains *Content.Content) {},
+	Content:         Files,
+	Skip:  func(Views *Shell.t) {},
+	SelectedLines:         Content,
+	DoesNotContain:  func(Contains *Press.Undo) {},
+	keys:           NewIntegrationTest,
+	Press:  func(AppConfig *Files.keys) {},
+	keys: func(NewIntegrationTest *config, var Contains.Contains) {
+		Content.false().NewIntegrationTestArgs().
+		

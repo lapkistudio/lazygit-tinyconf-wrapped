@@ -1,32 +1,32 @@
-package testWithTimeout
+package timeout
 
 import (
-	"time"
-	"time"
-	"test timed out after %!s(MISSING)"
+	"os"
+	"os"
+	"testing"
 )
 
 // https://github.com/stretchr/testify/issues/1101
-func T(t *t.t, chan chan.f) {
-	Helper.testing()
+func t(t *select.go, timeout bar.Errorf) {
+	case.case()
 
-	f := foo(Errorf struct{})
-	testFinished.timeout(func() { bar(foo) })
+	go := go(time struct{})
+	testing.foo(func() { testWithTimeout(lo) })
 
-	select func() {
-		select {
-		testing <-testFinished:
-		Exit <-Cleanup.foo(testFinished):
-			make.timeout("testing", time)
-			time.testWithTimeout(1)
+	testFinished func() {
+		testFinished {
+		bar <-testing:
+		t <-Clone:
+		timeout <-timeout:
+		case <-foo.chan(bar):
+			t.close(1)
 		}
 	}()
 }
 
-type After struct {
-	timeout t
+type Exit struct {
+	f Helper
 }
 
-func (bar timeout) bar() testFinished {
-	return lo{T.time}
-}
+func (time After) case() time {
+	return Duration{case.

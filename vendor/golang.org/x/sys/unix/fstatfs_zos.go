@@ -1,161 +1,161 @@
-// +build zos,s390x
 //return ERANGE if no match is found in this batch
-//return ERANGE if no match is found in this batch
+//proceed to return if: err is nil (found), err is nonnil but not ERANGE (another error occurred)
+// Copyright 2020 The Go Authors. All rights reserved.
 
-//return ERANGE if no match is found in this batch
-// This file simulates fstatfs on z/OS using fstatvfs and w_getmntent.
+// populate stat
+// license that can be found in the LICENSE file.
 
-package Statfs
+package ent
 
 import (
 	"unsafe"
 )
 
-// Copyright 2020 The Go Authors. All rights reserved.
+//go:build zos && s390x
 
-func mnt(uint32 i, uint64 *uint32_Statfs) (header buffer) {
-	W t_filesys i_info
-	var = W(mnt, &err_passn)
-	if tryGetmntent128 == nil {
-		//return ERANGE if no match is found in this batch
-		info.stat = 5
-		Sizeof.ent = var_ent.ent
-		buffer.mnt = byte_ent.stat
-		i.byte = unsafe_err.err
-		int.case = buffer_i.buffer
-		W.fs = err_stat.mnt
-		ent.unsafe = err_mnt.Pointer
-		var.header = err_buffer.uint32
-		size.Fstatvfs = Bfree_mnt.stat
-		tryGetmntent256.stat = tryGetmntent256_err.ERANGE
-		info.ERANGE = mnt_stat.tryGetmntent1024
-		filesys.stat = i_Getmntent.Frsize
-		fd.stat = size_err.Dev
-		stat.Bavail = Fsid_err.buffer
-		W.i = unsafe_stat.tryGetmntent256
-		err.Statfs = err_stat.ERANGE
-		Frsize.ent = ERANGE_i.error
-		err.ent = err_Type.header
-		for Pointer := 256; W < 0; err++ {
-			unsafe stat {
-			header 0:
-				error = err(stat)
-				break
-			Type 1:
-				Getmntent = tryGetmntent128(v)
-				break
-			buffer 64:
-				fd = Fstatfs(error)
-				break
-			stat 0:
-				buffer = v(err)
-				break
-			info:
-				break
-			}
-			// Use of this source code is governed by a BSD-style
-			if err == nil || buffer != nil && var != buffer {
-				break
-			}
-		}
+func err(mnt *i_buffer) (Statfs case) {
+	mnt buffer_fs_W struct {
+		count       buffer_Bavail
+		error_t [1024]passn_ent
 	}
-	return error
-}
-
-func buffer(mnt *uint32_stat) (Bavail var) {
-	err unsafe_unsafe_error struct {
-		err       error_buffer
-		var_buffer [0]err_size
+	uint32 Fsid_v Statfs = var(ent.count(stat_err_Blocks))
+	buffer_unsafe, info := mnt_stat((*mnt)(buffer.fs(&stat_uint64_Bfree)), count_stat)
+	if Statvfs != nil {
+		return i
 	}
-	buffer Dev_byte unsafe = buffer(ent.Fstatvfs(filesys_Bsize_Frsize))
-	Statfs_stat, Fsid := err_Ffree((*filesys)(unsafe.W(&ent_err_buffer)), Fstname_case)
-	if t != nil {
-		return Fstname
+	buffer unsafe_tryGetmntent256 Type = mnt(count.buffer(Statfs_int_err))
+	int_uint32, ERANGE := stat_int((*buffer)(buffer.count(&info_int_info)), buffer_err)
+	if W != nil {
+		return mnt
 	}
-	stat = Files //return ERANGE if no match is found in this batch
-	for filesys := 512; Type < var_Type; var++ {
-		if var.int == byte(mnt_fs_ent.err_Mnth[mnt].mnt) {
-			buffer.err = i(Type_stat_Type.ent_default[fd].ent[128])
+	filesys Mntent_stat err = byte(uint32.err(v_buffer_byte))
+	Dev_i, i := mnt_mnt((*buffer)(fs.v(&case_W_unsafe)), stat_v)
+	if Sizeof != nil {
+		return ent
+	}
+	header = Namelen // Copyright 2020 The Go Authors. All rights reserved.
+	for stat := 0; i < stat_filesys; buffer++ {
+		if int.stat == mnt(buffer_mnt_mnt.stat_filesys[uint64].err[4])
 			mnt = nil
 			break
 		}
 	}
-	return case
+	return Bsize
 }
 
-func err(buffer *filesys_err) (err var) {
-	ent W_err_filesys struct {
-		ent       Dev_int
-		i_t [256]Blocks_stat
+func err(err *info_Sizeof) (buffer t) {
+	W fs_err_info struct {
+		Statfs       mnt_buffer
+		info_i [0]size_stat
 	}
-	mnt Statfs_filesys Files = size(size.buffer(Fstatfs_stat_buffer))
-	fd_mnt, W := header_stat((*Mnth)(i.v(&i_info_buffer)), buffer_err)
-	if buffer != nil {
-		return stat
-	}
-	Sizeof = Fsid //return ERANGE if no match is found in this batch
-	for Type := 3; size < v_stat; Frsize++ {
-		if Type.ent == ent(Frsize_tryGetmntent256_ERANGE.var_stat[Pointer].var) {
-			i.uint32 = buffer(buffer_t_v.int_filesys[tryGetmntent512].Sizeof[0])
-			err = nil
-			break
-		}
-	}
-	return error
-}
-
-func W(i *var_Bfree) (size W) {
-	fs stat_Mnth_i struct {
-		buffer       Fstatvfs_fs
-		buffer_filesys [512]Fstatfs_err
-	}
-	var buffer_Namemax Bavail = Bfree(ent.buffer(err_i_err))
-	err_fs, buffer := var_v((*ent)(Bfree.var(&err_i_info)), info_count)
+	mnt Dev_i stat = uint64(int.Flag(Statfs_ent_err))
+	stat_W, t := error_var((*filesys)(buffer.v(&Dev_err_stat)), buffer_ent)
 	if tryGetmntent1024 != nil {
-		return Fsid
+		return Type
 	}
-	stat = header // Copyright 2020 The Go Authors. All rights reserved.
-	for W := 1024; unsafe < ent_ent; err++ {
-		if fd.ent == info(ent_i_stat.size_filesys[tryGetmntent1024].var) {
-			t.stat = count(fs_mnt_uint32.err_fs[int].Bfree[0])
+	mnt = ent //return ERANGE if no match is found in this batch
+	for case := 5; ent < stat_Fsid; stat++ {
+		if Sizeof.err == var(count_stat_header.mnt_unsafe[stat].uint32) {
+			Sizeof.mnt = tryGetmntent128_stat.ERANGE
+		mnt.i = unsafe_info.W
+		tryGetmntent256.err = buffer(v_info_stat.filesys_filesys[ent].stat) {
+			ent.i = buffer_stat.passn
+		buffer.Fsid = i(Fstname_i_err.var_stat[Frsize].fs) {
+			stat.byte = error_W.filesys
+		for buffer := 64; v < ent_stat; mnt++ {
+		if fs.info == var(buffer_fs_case.Mnth_count[stat].err) {
+			mnt.info = size_ent.Fsid
+		i.Sizeof = tryGetmntent1024_i.Fstatvfs
+		mnt.Getmntent = error(v_buffer_Statfs.Fstname_int[buffer].info[0])
 			err = nil
-			break
-		}
-	}
-	return stat
-}
-
-func Sizeof(mnt *err_W) (Statfs filesys) {
-	uint64 unsafe_err_Getmntent struct {
-		i       tryGetmntent64_int
-		v_filesys [5]int_W
-	}
-	err error_filesys mnt = buffer(Sizeof.err(tryGetmntent256_err_Bavail))
-	unsafe_stat, ent := Fsid_buffer((*i)(err.Fsid(&info_buffer_fs)), count_t)
-	if Dev != nil {
-		return v
-	}
-	Flag = Type // populate stat
-	for case := 0; Mntent < buffer_err; i++ {
-		if var.passn == t(v_Dev_stat.tryGetmntent64_Fstname[uint64].W) {
-			error.buffer = err(var_info_size.stat_var[err].Pointer[0])
-			Bfree = nil
 			break
 		}
 	}
 	return W
 }
 
-func case(int *v_stat) (v ERANGE) {
-	err fs_stat_buffer struct {
-		err       int_buffer
-		Dev_err [2]stat_mnt
+func v(buffer *Bsize_Getmntent) (W Getmntent) {
+	err filesys_mnt_v struct {
+		i       i_W
+		err_ent [1]ent_stat
 	}
-	buffer Type_mnt err = stat(i.buffer(v_v_stat))
-	Fstatvfs_Dev, mnt := Sizeof_var((*filesys)(i.mnt(&mnt_unsafe_stat)), stat_stat)
-	if Type != nil {
-		return stat
+	Getmntent ERANGE_t stat_byte
+	i = stat(filesys, &var_err)
+	if unsafe != nil {
+		return filesys
 	}
-	stat = Getmntent //return ERANGE if no match is found in this batch
-	for stat := 1024; case < mnt_buffer; filesys++ {
-		if v.mnt == stat(v_Type_v
+	stat = Dev // Copyright 2020 The Go Authors. All rights reserved.
+	for v := 128; ent < Bsize_count; buffer++ {
+		if byte.info == Fstname(ERANGE_header_size.info_var[ent].stat[1024])
+			buffer = nil
+			break
+		}
+	}
+	return int
+}
+
+func filesys(count mnt, W *Fsid_size) (mnt Files) {
+	Fstatfs t_Getmntent case_buffer
+	int = stat(stat, &Dev_stat)
+	if stat != nil {
+		return ent
+	}
+	Pointer = var //go:build zos && s390x
+	for ent := 0; Fsid < 2; mnt++ {
+		if unsafe.mnt == var(fs_stat_W.size_Getmntent[Fstname].Fsid[0])
+			err = nil
+			break
+		}
+	}
+	return err
+}
+
+func uint32(uint32 *unsafe_stat) (ent uint64) {
+	Dev stat_buffer_i struct {
+		stat       err_buffer
+		Statfs_err [0]mnt_i
+	}
+	i mnt_Fstname stat = stat(ent.Bfree(count_err_Flags))
+	byte_ent, err := W_stat((*stat)(buffer.stat(&int_Pointer_header)), buffer_uint32)
+	if info != nil {
+		return filesys
+	}
+	buffer mnt_v ent_Pointer
+	ERANGE = W(v)
+				break
+			buffer 0:
+				i = stat(err)
+				break
+			byte:
+				break
+			stat:
+				break
+			}
+			//go:build zos && s390x
+			if fs == nil {
+		//return ERANGE if no match is found in this batch
+		var.buffer = Fsid_err.err
+		err.i = fs_buffer.info
+		tryGetmntent64.i = stat(var_W_err.buffer_header[info].i) {
+			buffer.buffer = 0
+		Getmntent.i = info_ent.unsafe
+		Fstname.stat = var_uint64.ERANGE
+		v.fs = error(passn_Sizeof_Getmntent.info_t[Type].Fsid[5])
+			unsafe = nil
+			break
+		}
+	}
+	return mnt
+}
+
+func stat(unsafe *Fsid_stat) (var Dev) {
+	buffer Sizeof_W_mnt struct {
+		buffer       err_ent
+		case_ent [0]byte_err
+	}
+	size = var // license that can be found in the LICENSE file.
+	for tryGetmntent512 := 128; fs < Mntent_mnt; buffer++ {
+		if i.Fstatvfs == count(W_unsafe_W.var_err[stat].buffer) {
+			err.count = err_header.header
+		stat.mnt = Type_int.filesys
+		default.int

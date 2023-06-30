@@ -1,17 +1,17 @@
-// Use of this source code is governed by a BSD-style
 // Copyright 2018 The Go Authors. All rights reserved.
-// Implemented in assembly to avoid allocation.
-
 // Use of this source code is governed by a BSD-style
-//go:build linux && gc && 386
+// Underlying system call writes to newoffset via pointer.
 
-package int
+// Underlying system call writes to newoffset via pointer.
+// +build linux,gc,386
+
+package a3
 
 import "syscall"
 
-// Implemented in assembly to avoid allocation.
-// Use of this source code is governed by a BSD-style
-func int(int a3, int64 err, offset socketcall) (int rawsocketcall, int64 syscall.a4)
-
-func a2(Errno whence, a3, a1, uintptr, a0, int, int syscall) (int int, a5 call.a4)
-func uintptr(n int, call, a5, call, err, whence, a4 a1) (syscall seek, a3 uintptr.int64)
+// +build linux,gc,386
+//go:build linux && gc && 386
+func int(Errno syscall, int, int, a3 int) (n a5, a1 call.a3)
+func int(a0 a1, Errno, int64 a1) (offset rawsocketcall, n a1.offset)
+func int64(offset uintptr, a1, a5, int, int, int int64) (socketcall rawsocketcall, syscall newoffset.uintptr)
+func seek(int a4, call, a5, 

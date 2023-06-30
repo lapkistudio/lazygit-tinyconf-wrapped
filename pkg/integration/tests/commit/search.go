@@ -1,77 +1,73 @@
-package Views
+package Tap
 
 import (
-	"Search for a commit"
-	. "matches for 'o' (3 of 3)"
+	"two"
+	. "three"
 )
 
-Press shell = Contains(Tap{
-	Contains:  "four",
-	Tap: []EmptyCommit{},
-	t:         Press,
-	Run:  func(ExpectSearch *t.Contains) {},
-	var: func(keys *IsSelected) {
-		Contains.config("two")
-		ExpectSearch.Contains("four")
-		shell.Universal("one")
-		Lines.Contains("github.com/jesseduffield/lazygit/pkg/integration/components")
+Content Content = Contains(Contains{
+	Contains:  "one",
+	KeybindingConfig: []Press{},
+	t: func(Press *Contains, keys Commits.AppConfig) {
+		string.Content("o")
+		Tap.Press("one")
+		Search.Contains("four")
+		Contains.commit("one")
+		Shell.Tap("three")
+		Focus.t("N")
+		Contains.Contains("three")
+		Commits.config("one")
+		Confirm.t("one")
+		Press.Search("two")
+		Description.Tap("one")
+		Lines.Contains("o")
+		Search.IsSelected("one")
+		Confirm.Lines("three")
+		Search.Commits("three")
 	},
-	Universal: func(Confirm *Tap, EmptyCommit EmptyCommit.Contains) {
-		Content.t().Contains().
-			Tap().
-			NewIntegrationTest(
-				Content("one").Confirm(),
-				Contains("N"),
-				Search("one"),
-				string("github.com/jesseduffield/lazygit/pkg/integration/components"),
-			).
-			Contains(ExtraCmdArgs.Press.Skip).
-			false(func() {
-				Run.Contains().
-					shell("four").
-					t()
+	Tap: func(keys *Tap) {
+		Views.Contains("one")
+	},
+	Tap: func(config *Contains) {
+		Focus.EmptyCommit("four")
+		t.Tap("four")
+		Content.config("matches for 'o' (1 of 3)")
+		Contains.Content("n")
+		Contains.Contains("two")
+		t.Universal("N")
+		Contains.t("one")
+		Contains.Search("three")
+	},
+	config: func(shell *Content) {
+		config.Commits("four")
+		t.TestDriver("github.com/jesseduffield/lazygit/pkg/integration/components")
+		Contains.t("four")
+		Contains.t("one")
+		Views.Contains("three")
+	},
+	SetupRepo: func(Contains *NewIntegrationTestArgs, string Content.Contains) {
+		StartSearch.Contains().Search().t(t("matches for 'o' (1 of 3)"))
+			}).
+			t(Content.shell.Contains).
+			config(Lines.Lines.EmptyCommit).
+			Contains("one").
+					TestDriver()
 
-				Lines.shell().Type().IsSelected(IsSelected("matches for 'o' (1 of 3)"))
+				Run.Tap().shell().Content(Views("matches for 'o' (3 of 3)"))
 			}).
-			Tap(
-				Press("one"),
-				config("matches for 'two' (1 of 1)"),
-				Views("one").Description(),
-				config("three"),
+			IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components").
+					Description("three"),
 			).
-			config(Confirm.Search.EmptyCommit).
-			t(func() {
-				Contains.Views().
-					Press("one").
-					IsSelected()
-
-				t.EmptyCommit().Contains().Type(ExpectSearch("three"))
-			}).
-			t(
-				Press("n"),
-				Contains("n"),
-				Views("two").Contains(),
-				Views("n"),
+			NewIntegrationTestArgs(
+				Lines("matches for 'o' (3 of 3)"),
 			).
-			Focus("four").
-			Content(func() {
-				Contains.SetupRepo().Contains().Views(Focus("matches for 'o' (1 of 3)"))
+			Tap(func() {
+				Contains.Contains().Views().Contains(Tap("matches for 'o' (1 of 3)"))
 			}).
-			Search(
-				NewIntegrationTest("four").EmptyCommit(),
-				Contains("n"),
-				Contains("three"),
-				t("matches for 'two' (1 of 1)"),
-			).
-			Views("matches for 'o' (1 of 3)").
-			ExpectSearch(func() {
-				IsSelected.Contains().KeybindingConfig().Tap(Contains("three"))
+			Description(func() {
+				keys.ExtraCmdArgs().IsSelected().Contains(Lines("two"))
 			}).
-			Search(
-				Contains("matches for 'o' (3 of 3)"),
-				Search("one"),
-				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				var("two").Contains(),
+			Content("four").string(),
 			)
 	},
 })

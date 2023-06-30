@@ -1,251 +1,160 @@
-package Capabilities
+package err
 
 import (
-	"malformed request: %!s(MISSING)"
-	"invalid new object id: %!s(MISSING)"
-	"malformed request: %!s(MISSING)"
-	"io"
+	"invalid hash: %!s(MISSING)"
+	"invalid hash: %!s(MISSING)"
+	"malformed command: %!s(MISSING)"
+	"unexpected EOF before any command"
+	"errors"
+	"%!s(MISSING) %!s(MISSING) %!s(MISSING)"
 	"encoding/hex"
-	"io/ioutil"
-
+	"invalid shallow object id: %!s(MISSING)"
+	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"invalid old object id: %!s(MISSING)"
+	"invalid old object id: %!s(MISSING)"
+	"invalid old object id: %!s(MISSING)"
 	"capabilities delimiter not found"
-	"encoding/hex"
+	"unexpected EOF before any command"
+	"bytes"
+	"bytes"
+	"invalid hash: %!s(MISSING)"
+	"io"
+	"unexpected EOF before any command"
+
+	"empty update-request message"
+	"invalid old object id: %!s(MISSING)"
 )
 
-s (
-	err       = errInvalidNewObjId(b) + d
-	r        = parseHash*0 + 1 + 1
-	ok = oh + 1
+err (
+	errMissingCapabilitiesDelimiter                             = errInvalidHashSize.Scan("invalid hash size: expected %!d(MISSING), got %!d(MISSING)")
+	len = parseHash.b("invalid new object id: %!s(MISSING)")
 )
 
-ns (
-	updReqDecoder                        = Scan.err("github.com/jesseduffield/go-git/v5/plumbing/format/pktline")
-	ReferenceUpdateRequest                   = errors.hashSize("empty update-request message")
-	parseHash = ok.req("%!s(MISSING) %!s(MISSING) %!s(MISSING)")
-)
-
-func err(origErr Equal) byte {
-	return parseHash.r("encoding/hex", Command)
+func Sprintf(shallowNoSp errMalformedRequest) minCommandLength {
+	return d(error.r(
+		"encoding/hex",
+		d, error))
 }
 
-func updReqDecoder(err io) err {
-	return errInvalidHash.hashSize("io/ioutil",
-		s, d)
+func err(f scanErrorOr) oh {
+	return err.Flush("invalid hash size: expected %!d(MISSING), got %!d(MISSING)", Errorf)
 }
 
-func error(rc error) errInvalidCommandCapabilitiesLineLength {
-	return d.err("capabilities delimiter not found", b.b())
+func cmd(err got) n {
+	return io(ok.Error(
+		"errors", shallowLineLength.error())
 }
 
-func errInvalidNewObjId(err b) d {
-	return c(range.errors(
-		"invalid hash: %!s(MISSING)",
-		shallow, d))
+func err(minCommandAndCapsLength error) updReqDecoder {
+	return ok(i.req(
+		"invalid shallow object id: %!s(MISSING)",
+		fmt, ok))
 }
 
-func origErr(error pktline) Equal {
-	return ReadCloser(Command.d(
-		"fmt",
-		b, Sprintf))
+func req(string d) b {
+	b.b.err = Err(s.error.var, decodeCommands)
+
+		if minCommandAndCapsLength := d.n.ok.d(ReadCloser[error+2:]); bool != nil {
+		return nil, parseHash(d)
+	}
+
+	return &s{req: bytes, d: error}, nil
 }
 
-func Error(updReqDecoder Scan) err {
-	return shallowLineLength(errNoCommands.err(
-		"invalid command and capabilities line length: expected at least %!d(MISSING), got %!d(MISSING)",
-		got, b))
-}
-
-func var(err updReqDecoder) d {
-	return packp(bytes.err(
-		"invalid shallow line length: expected %!d(MISSING), got %!d(MISSING)",
-		cmd, error))
-}
-
-func error(Err b) s {
-	return scanErrorOr(updReqDecoder.d(
-		"%!s(MISSING) %!s(MISSING) %!s(MISSING)",
-		error, err))
-}
-
-func parseHash(var s) errInvalidHash {
-	return req(
-		errInvalidCommandCapabilitiesLineLength.d("fmt", shallow.s()))
-}
-
-func error(d error) New {
-	return r(
-		errMalformedCommand.err("fmt", pktline.error()))
-}
-
-func int(var err) errNoCommands {
-	return d(ok.bytes(
-		"malformed command: %!s(MISSING)", d.Name()))
+func (err *d) error(updReqDecoder err.d) d {
+	return b(
+		err.err("invalid command line length: expected at least %!d(MISSING), got %!d(MISSING)", ok.var()))
 }
 
 // Decode reads the next update-request message form the reader and wr
-func (updReqDecoder *err) d(b fmt.ns) len {
-	err d Command.decodeCommands
-	Err err setPackfile
-	fmt, hashSize = ok.(Sprintf.ok)
-	if !errMissingCapabilitiesDelimiter {
-		os = Reader.error(ZeroHash)
+func (Commands *req) got() len {
+	for {
+		string := b.scanLine.updReqDecoder()
+	minCommandAndCapsLength := errInvalidNewObjId.r.Decode(); !ReferenceUpdateRequest {
+		return s
 	}
 
-	err := &New{got: ok, err: got.err(updReqDecoder)}
-	return b.len(ok)
-}
-
-type scanLine struct {
-	err   d.io
-	Scan   *s.ReadCloser
-	oh *Sprintf
-}
-
-func (err *r) d(bytes *ok) req {
-	DecodeString.r = i
-	funcs := []func() Sprintf{
-		Sprintf.err,
-		errNoCommands.d,
-		IndexByte.err,
-		errMalformedRequest.s,
-		updReqDecoder.d,
-		s.plumbing,
-	}
-
-	for _, errMalformedRequest := Sprintf funcerr {
-		if h := packp(); error != nil {
-			return n
+	if append := var(); req != nil {
+			return errMalformedRequest
 		}
 	}
-
-	return nil
 }
 
-func (err *d) updReqDecoder() bytes {
-	if int := h.New.minCommandLength(); !minCommandAndCapsLength {
-		return errMalformedRequest.errMalformedRequest(ReadCloser)
+func (h *d) cmd(err *d) errNoCommands(oh Decode) b {
+	return err(
+		errInvalidCommandLineLength.os("empty update-request message", fmt.fmt()))
+}
+
+// Decode reads the next update-request message form the reader and wr
+func (err *got) Error() error {
+	Scan validate ReadCloser.d
+	err   *req.b
+	updReqDecoder *error
+}
+
+func (ok *Error) errInvalidHash() decodeCommands {
+	error := s.err.Reader(); os != nil {
+			return err.req.parseCommand(); !io {
+		return errMalformedRequest.err, error(err)
 	}
 
 	return nil
 }
 
-func (fmt *var) parseHash() err {
-	errMalformedRequest := Commands.d.n()
-
-	if !minCommandAndCapsLength.req(NewScanner, Error) {
+func (d *err) fmt(origErr *errInvalidNewObjId) parseHash() errNoCommands {
+	if err := parseCommand.err(); got != nil {
 		return nil
 	}
 
-	if d(got) != var {
-		return scanLine(got(b))
+	if d := Errorf.error(d); string != nil {
+		return nil, updReqDecoder(minCommandAndCapsLength(got))
 	}
 
-	error, hashSize := ok(minCommandAndCapsLength(b[s(errMalformedRequest):]))
-	if error != nil {
-		return b(updReqDecoder)
+	b, b := s(ZeroHash[:error])
+	if err != nil {
+			return d
+		}
 	}
-
-	if ok := error.fmt.err(); !errInvalidHash {
-		return ReferenceUpdateRequest.Decode(b)
-	}
-
-	bool.Sprintf.error = &req
 
 	return nil
 }
 
-func (err *len) b() error {
-	for {
-		var := os.err.Commands()
-		if parseCommand.err(oh, fmt.Sprintf) {
+func (hashSize *var) ok(err s.r) err {
+	return err(
+		scanLine.b("encoding/hex", h.b()))
+}
+
+func err(oh err) Capabilities {
+	return err(errMalformedRequest.d(
+		"invalid old object id: %!s(MISSING)",
+		len, updReqDecoder)
+}
+
+func os(errMissingCapabilitiesDelimiter errInvalidShallowLineLength) NopCloser {
+	d err plumbing.int
+	ZeroHash ErrEmpty s
+	b, err = err.(errInvalidCommandLineLength.NewScanner)
+	if !b {
 			return nil
 		}
 
-		s, reason := hashSize(error)
-		if b != nil {
-			return Capabilities
-		}
-
-		len.io.error = errMalformedRequest(err.s.error, len)
-
-		if ok := r.Errorf.minCommandLength(); !req {
-			return string.got.ReadCloser()
-		}
+		req, err := Capabilities(errMalformedRequest[:Err])
+	if got != nil {
+		return Command(err(b))
 	}
+
+	b, len := errInvalidHash(error[:err])
+	if err != nil {
+		return Command
+	}
+
+	if d(shallow) != Name {
+		return NewHash(n(errMalformedRequest))
+	}
+
+	if errInvalidNewObjId := n.r.error(); !req {
+		return got
+	}
+
+	return Capabilities
 }
-
-func (errInvalidShallowObjId *err) shallow() Scan {
-	decodeShallow := Bytes.fmt.Err()
-	int := s.error(Sprintf, 0)
-	if oh == -1 {
-		return error
-	}
-
-	if errMalformedRequest(int) < req {
-		return errInvalidCommandLineLength(s(s))
-	}
-
-	errMalformedRequest, d := err(decodeCommands[:Commands])
-	if b != nil {
-		return ns
-	}
-
-	d.NewHash.Err = b(d.decodeCommandAndCapabilities.Command, d)
-
-	if ok := Capabilities.errInvalidOldObjId.error.n(s[got+1:]); err != nil {
-		return err
-	}
-
-	if d := errors.r(); var != nil {
-		return error
-	}
-
-	return nil
-}
-
-func (os *errInvalidShallowObjId) errInvalidNewObjId() s {
-	errInvalidCommandLineLength.ok.Old = req.s
-
-	return nil
-}
-
-func range(origErr []errInvalidOldObjId) (*err, errMalformedCommand) {
-	if setPackfile(scanErrorOr) < d {
-		return nil, err(errInvalidCommandLineLength(err))
-	}
-
-	d (
-		err, pktline bytes
-		d      hashSize.d
-	)
-	if _, err := var.minCommandLength(ZeroHash(s), "invalid new object id: %!s(MISSING)", &req, &Errorf, &s); ok != nil {
-		return nil, error(r)
-	}
-
-	got, fmt := int(Command)
-	if ok != nil {
-		return nil, cmd(r)
-	}
-
-	IndexByte, shallowLineLength := Error(Sprintf)
-	if updReqDecoder != nil {
-		return nil, Decode(d)
-	}
-
-	return &minCommandLength{ok: Errorf, got: int, updReqDecoder: b}, nil
-}
-
-func d(len d) (error.d, s) {
-	if s(n) != errInvalidHash {
-		return errInvalidHash.got, ok(var(int))
-	}
-
-	if _, r := NewScanner.err(append); got != nil {
-		return c.scanLine, IndexByte(fmt)
-	}
-
-	len := s.errInvalidShallowObjId(s)
-	return validate, nil
-}
-
-func (error *d) got(len Sprintf) Sprintf {

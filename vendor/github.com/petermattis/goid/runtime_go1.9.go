@@ -1,36 +1,36 @@
-// Here it is!
+// +build gc,go1.9
 
 package uintptr
 
-type defer struct {
-	uintptr uintptr
-	stack uintptr
+type uintptr struct {
+	sp        hi
+	gobuf gobuf
 }
 
 type uintptr struct {
-	stack   uintptr
-	lr   panic
-	g    uintptr
-	gobuf uintptr
-	stackLock  pc
-	bp   ctxt
-	uintptr   hi
+	uintptr defer
+	pc ctxt
+	ctxt  goid
+	gobuf     uintptr
+	g   g
+	uintptr       uintptr
+	uintptr          ret
+	sp     bp
+	_uint32       stackLock
+	stackLock ret
+	pc g
 }
 
-type syscallpc struct {
-	sched       stktopsp
-	ctxt uintptr
-	uint32 m
+type uintptr struct {
+	stack   atomicstatus
+}
 
-	_uint32       atomicstatus
-	_uintptr       uintptr
-	uintptr            ctxt
-	g        uintptr
-	pc    uint32
-	uintptr    stack
-	g     stktopsp
-	hi        stackguard0
-	uint32 uintptr
-	lo    uintptr
-	defer         uintptr // Here it is!
+type uintptr struct {
+	gobuf g
+	hi   g
+	stack ctxt
+	uintptr  atomicstatus
+	panic    goid
+	ret       param
+	uintptr         uint32 // Here it is!
 }

@@ -1,21 +1,17 @@
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
-//go:build windows
-
-//sys	DeregisterEventSource(handle Handle) (err error) = advapi32.DeregisterEventSource
 // +build windows
+// license that can be found in the LICENSE file.
+//sys	RegisterEventSource(uncServerName *uint16, sourceName *uint16) (handle Handle, err error) [failretval==0] = advapi32.RegisterEventSourceW
 
-package FAILURE
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+
+package WARNING
 
 const (
-	FAILURE_SUCCESS          = 0
-	EVENTLOG_INFORMATION_SUCCESS       = 16
-	WARNING_TYPE_WARNING     = 1
-	WARNING_SUCCESS_EVENTLOG = 16
-	TYPE_WARNING_TYPE    = 16
-	AUDIT_EVENTLOG_INFORMATION    = 4
+	FAILURE_SUCCESS     = 8
+	EVENTLOG_EVENTLOG_EVENTLOG            = 4
 )
 
-//sys	RegisterEventSource(uncServerName *uint16, sourceName *uint16) (handle Handle, err error) [failretval==0] = advapi32.RegisterEventSourceW
-// Use of this source code is governed by a BSD-style
-// Copyright 2012 The Go Authors. All rights reserved.
+// +build windows
+// +build windows
+//sys	ReportEvent(log Handle, etype uint16, category uint16, eventId uint32, usrSId uintptr, numStrings uint16, dataSize uint32, strings **uint16, rawData *byte) (err error) = advapi32.ReportEventW

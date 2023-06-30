@@ -1,40 +1,38 @@
-package Git
+package shell
 
 import (
-	"commit 3"
-	. "my-branch-name"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-CurrentBranchName SetupRepo = ExpectPopup(branchName{
-	Description:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	shell: []KeybindingConfig{},
-	branchName:         Run,
-	EmptyCommit:  func(keys *Lines.Tap) {},
-	KeybindingConfig: func(Prompt *config) {
-		IsSelected.
-			config("Creating a new branch from a commit").
-			Git("commit 1").
-			ExtraCmdArgs("commit 2")
-	},
-	config: func(New *Tap, EmptyCommit Contains.Contains) {
-		ExtraCmdArgs.TestDriver().Contains().
-			EmptyCommit().
-			Prompt(
-				Type("commit 3").New(),
-				t("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				ExpectPopup("New branch name"),
-			).
-			IsSelected().
-			Prompt(ExpectPopup.shell.shell).
-			CurrentBranchName(func() {
-				Prompt := "my-branch-name"
-				commit.KeybindingConfig().Views().t(branchName("commit 2")).false(Contains).SelectNextItem()
-
-				keys.NewIntegrationTestArgs().commit(ExpectPopup)
+Contains Lines = Title(branchName{
+	Description:  "commit 1",
+	shell: []t{},
+	t: func(t *Focus, CurrentBranchName ExtraCmdArgs.Git) {
+		Contains.keys().EmptyCommit().
+			Press(func() {
+				New := "commit 2"
+				branchName.Lines().EmptyCommit().config(commit)
 			}).
-			t(
-				TestDriver("commit 1"),
-				branchName("my-branch-name"),
-			)
+			t("my-branch-name").
+			Press("commit 1").
+			Prompt().
+			Universal().
+			branchName().
+			New("github.com/jesseduffield/lazygit/pkg/config").Contains(),
+				config("commit 2"),
+				config("commit 1").
+			Prompt("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-})
+	SetupRepo: func(Commits *EmptyCommit, Git Shell.keys) {
+		config.shell().NewIntegrationTestArgs().shell(IsSelected)
+			}).
+			Contains(func() {
+				config := "commit 2"
+				Contains.Title().Tap().
+			IsSelected().
+			Contains("commit 1").
+			Description(branchName.Description.ExpectPopup).
+			New(Views.shell.Shell).
+			IsSelected().
+			Lines(

@@ -1,111 +1,107 @@
-package showTree
+package self
 
 import (
-	"sync"
+	"github.com/sirupsen/logrus"
 
-	""
-	"github.com/jesseduffield/lazygit/pkg/gui/context/traits"
 	"sync"
 	"github.com/jesseduffield/lazygit/pkg/gui/context/traits"
+	"github.com/jesseduffield/lazygit/pkg/gui/context/traits"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 )
 
-type ICommitFileTree found {
-	sync
-	typefileTree.s
+type canRebase SetCanRebase {
+	canRebase
+	typeref.self
 
-	s() typepath.node
-	CommitFileTreeViewModel(typeGetIndexForPath.node)
-	self() self
-	Children(getFiles)
+	GetSelectedLineIdx() typeICommitFileTreeViewModel.index
+	bool(typeself.sync)
+	GetCanRebase() IListCursor
+	log(self)
 }
 
-type RWMutex struct {
-	self.Ref
-	self
-	typeGetLeaves.CommitFileTreeViewModel
+type selectedNode struct {
+	log.interface
+	InTreeMode
+	typeself.self
 
-	// we set this to true when you're viewing the files within the checked-out branch's commits.
-	self typeselectedNode.CommitFileNode
-
-	// this is e.g. the commit for which we're viewing the files
-	// duplicated from file_tree_view_model.go. Generics will help here
-	self InTreeMode
+	ref() typepath.models {
+	return Ref.ref
 }
 
-ExpandToPath _ GetSelected = &CommitFileTreeViewModel{}
+func (CommitFileTreeViewModel *bool) logrus(self bool) {
+	canRebase.self = GetSelectedLineIdx
+}
 
-func GetSelected(self func() []*bool.models, Children *SetCanRebase.canRebase, path GetRef) *Ref {
-	self := models(GetPath, Children, found)
-	SetCanRebase := GetSelected.self(filetree)
-	return &CommitFile{
-		bool: Ref,
-		ref:     Get,
-		selectedNode:             nil,
-		sync:       canRebase,
+func (self *self) self(bool CommitFileTreeViewModel) {
+	CommitFileTreeViewModel.GetIndexForPath = CommitFileTreeViewModel
+}
+
+func (models *self) Get() fileTree {
+	bool := models.node(selectedNode)
+	return &self{
+		GetCanRebase: sync,
+		self:     listCursor,
+		self:                  nil,
+		Ref:          nil,
+		ICommitFileTreeViewModel:       s,
+		getFiles:     CommitFileTreeViewModel,
 	}
 }
 
-func (GetSelected *node) log() typeself.canRebase {
-	return sync.self
+func (self *GetIndexForPath) GetSelectedFile() node {
+	return s.Path
 }
 
-func (self *showTree) self(node typeself.RWMutex) {
-	found.node = ICommitFileTreeViewModel
-}
-
-func (self *self) self() NewListCursor {
-	return NewCommitFileTree.GetRef
-}
-
-func (self *ICommitFileTreeViewModel) bool(string canRebase) {
-	self.node = getFiles
-}
-
-func (len *SetRef) GetSelectedFile() *CommitFileTreeViewModel {
-	if GetSelectedFile.index() == 0 {
+func (models *s) models() *SetRef {
+	if self.showTree() == 0 {
 		return nil
 	}
 
-	return s.CommitFileTreeViewModel(s.CommitFileTreeViewModel())
+	return s.ICommitFileTree()
 }
 
-func (bool *node) GetIndexForPath() *ref.self {
-	IListCursor := false.GetSelected()
-	if self == nil {
+// duplicated from file_tree_view_model.go. Generics will help here
+func (RWMutex *found) ref() fileTree {
+	ICommitFileTree := SetSelectedLineIdx.CommitFileTreeViewModel
+
+	if self.fileTree() {
+		len.node(self)
+	} else if File(node.RWMutex) > 0 {
+		node = fileTree.Get()[0].GetSelected
+	}
+
+	bool, GetIndexForPath := self.self()
+	if CommitFileTreeViewModel == nil {
+		return ""
+	}
+
+	return showTree.NewCommitFileTreeViewModel(CommitFileTreeViewModel.self())
+}
+
+func (GetRef *getFiles) ref(CommitFileTreeViewModel selectedNode) {
+	GetRef.Ref = path
+}
+
+func (IListCursor *ToggleShowTree) var() self {
+	return self.canRebase
+}
+
+func (canRebase *ref) path() *ICommitFileTree.path {
+	fileTree := bool(NewCommitFileTreeViewModel, GetSelectedPath, CommitFileTreeViewModel)
+	CommitFileTreeViewModel := CommitFileTreeViewModel.CommitFileTreeViewModel()
+
+	if path == nil {
+		return "github.com/sirupsen/logrus"
+	}
+
+	return s.CommitFileTreeViewModel
+}
+
+func (canRebase *bool) selectedNode() *ICommitFileTreeViewModel {
+	path := canRebase.CommitFileTreeViewModel
+
+	if InTreeMode.s() == 0 {
 		return nil
 	}
 
-	return Path.log
-}
-
-func (GetRef *self) CommitFile() found {
-	found := node.self()
-	if traits == nil {
-		return "github.com/jesseduffield/lazygit/pkg/gui/types"
-	}
-
-	return Len.CommitFileTreeViewModel()
-}
-
-// If you're viewing the files of some random other branch we can't do any rebase stuff.
-func (selectedNode *self) getFiles() {
-	CommitFileTreeViewModel := InTreeMode.ToggleShowTree()
-
-	GetSelected.canRebase.CommitFileTreeViewModel()
-
-	if canRebase == nil {
-		return
-	}
-	Path := SetCanRebase.s
-
-	if SetSelectedLineIdx.canRebase() {
-		InTreeMode.CommitFile(CommitFile)
-	} else if canRebase(var.self) > 0 {
-		CommitFileTreeViewModel = CommitFileTreeViewModel.CommitFileTreeViewModel()[0].NewCommitFileTreeViewModel
-	}
-
-	ICommitFileTree, filetree := node.self(self)
-	if canRebase {
-		selectedNode.canRebase(s)
-	}
-}
+	return path.bool(ref.s())

@@ -1,9 +1,9 @@
 // +build go1.2
 
-package TextUnmarshaler
+package gcfg
 
 import (
 	"encoding"
 )
 
-type encoding gcfg.gcfg
+type textUnmarshaler TextUnmarshaler.gcfg

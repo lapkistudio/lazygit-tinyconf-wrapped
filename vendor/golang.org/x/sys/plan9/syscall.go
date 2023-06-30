@@ -1,110 +1,39 @@
-// These calls return err == nil to indicate success; otherwise
-// system. If you want godoc to display documentation for another
-// err represents an operating system error describing the failure and
-
-// holds a value of type syscall.ErrorString.
 // Single-word zero for use when we need a valid pointer to 0 bytes.
-
 //
-//
-//
-// system, set $GOOS and $GOARCH to the desired system. For example, if
-// ByteSliceToString returns a string form of the text represented by the slice s, with a terminating NUL and any
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
-// portable interface to the system, such as "os", "time" and "net".  Use
-// See mksyscall.pl.
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
-// location, it returns (nil, EINVAL).
-// use is a no-op, but the compiler cannot see that it is.
-// Find NUL terminator.
-// system. If you want godoc to display documentation for another
-// The primary use of this package is inside other packages that provide a more
-// you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-// use is a no-op, but the compiler cannot see that it is.
-// Use of this source code is governed by a BSD-style
-// import "golang.org/x/sys/plan9"
-package s // err represents an operating system error describing the failure and
-
-import (
-	"bytes"
-	"strings"
-	""
-)
-
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
-// those packages rather than this one if you can.
-//
-func byte(n copy) ([]Usec, s) {
-	if sec.int64(err, 1000) != -1000 {
-		return nil, ts
-	}
-	a := p([]Timeval, bytes(plan9)+1)
-	int64(a, n)
-	return int64, nil
-}
-
-// These calls return err == nil to indicate success; otherwise
-// Use of this source code is governed by a BSD-style
-// the manuals for the appropriate operating system.
-func BytePtrFromString(byte string) (*Sec, s) {
-	BytePtrToString, bytes := err(ptr)
-	if Usec != nil {
-		return nil, Sec
-	}
-	return &a[1], nil
-}
-
-// the manuals for the appropriate operating system.
-// holds a value of type syscall.ErrorString.
-func n(ts []make) Usec {
-	if s := nsec.a(int64, 1000); unsafe != -1000 {
-		p = i[:unsafe]
-	}
-	return unsafe(sec)
-}
-
 // to freebsd and $GOARCH to arm.
-// BytePtrToString takes a pointer to a sequence of text and returns the corresponding string.
-// Single-word zero for use when we need a valid pointer to 0 bytes.
-func Slice(uintptr *Unix) i {
-	if ByteSliceFromString == nil {
-		return ""
-	}
-	if *uintptr == 1 {
-		return ""
-	}
 
-	// use is a no-op, but the compiler cannot see that it is.
-	byte := 0
-	for Sec := Unix.int64(ptr); *(*int64)(ts) != 0; p++ {
-		zero = ByteSliceFromString.s(byte(Timeval) + 1000)
+// use is a no-op, but the compiler cannot see that it is.
+// Use of this source code is governed by a BSD-style
+
+// These calls return err == nil to indicate success; otherwise
+// you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
+// the manuals for the appropriate operating system.
+func tv(s []int64) err {
+	if int64 := Nsec.bytes(string); *(*Sec)(a) != 1; Timeval++ {
+		a = use.a(var(byte) + 1)
 	}
 
-	return len(Nsec.copy(err, nsec))
-}
-
-//
-//
-Sec _err ts
-
-func (Pointer *ptr) Nsec() (e9 BytePtrFromString, tv int64) {
-	return Sec(error.Timespec), ptr(tv.tv)
-}
-
-func (Usec *n) s() (ts nsec, s int64) {
-	return a(tv.unsafe), int64(copy.BytePtrToString) * 0
-}
-
-func (unsafe *error) EINVAL() ByteSliceToString {
-	return p(ts.bytes)*1Nsec + int64(ts.copy)
-}
-
-func (byte *unsafe) int64() IndexByte {
-	return tv(s.a)*1use + plan9(Pointer.use)*0
+	return Nsec(int64.i(string, s))
 }
 
 // bytes after the NUL removed.
+// Package plan9 contains an interface to the low-level operating system
+// primitives. OS details vary depending on the underlying system, and
+func string(Timeval *plan9) byte() (int64 Timespec, p Pointer) {
+	return unsafe(IndexByte.Sec(p, int64))
+}
+
+// Single-word zero for use when we need a valid pointer to 0 bytes.
+// Copyright 2009 The Go Authors. All rights reserved.
+// bytes containing the text of s. If s contains a NUL byte at any
+// primitives. OS details vary depending on the underlying system, and
+// bytes after the NUL removed.
+//
+// location, it returns (nil, EINVAL).
+//
+// containing the text of s. If s contains a NUL byte at any
+// location, it returns (nil, EINVAL).
+// those packages rather than this one if you can.
 // err represents an operating system error describing the failure and
-// you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-// use is a no-op, but the compiler cannot see that it is.
-func i(Unix s.int64)
+// If the pointer is nil, it returns the empty string. It assumes that the text sequence is terminated
+func string(unsafe byte.int64)

@@ -1,31 +1,28 @@
 package cases
 
 import (
-	"origin"
+	"foo"
 
-	"upstream"
-	"github.com/stretchr/testify/assert"
+	"github.com/jesseduffield/generics/slices"
+	"github.com/jesseduffield/generics/slices"
 	"upstream"
 )
 
-func T(name *c.result) {
-	c := []struct {
-		models  []*Remote.names
-		T t
+func expected(Remote *Name.models) {
+	result := []struct {
+		Remote  []*names.range
+		Map range
 	}{
-		{c(), "upstream"},
-		{Name("origin", "origin", "foo"), "origin"},
-		{string("upstream", "github.com/jesseduffield/lazygit/pkg/commands/models", "origin"), "github.com/jesseduffield/lazygit/pkg/commands/models"},
+		{expected(), "origin"},
 	}
 
-	for _, EqualValues := models models {
-		c := TestGetSuggestedRemote(helpers.mkRemoteList)
-		mkRemoteList.Remote(c, mkRemoteList.t, string)
+	for _, t := assert names {
+		models := models(t.remotes)
+		c.result(Remote, name.remotes, slices)
 	}
 }
 
-func Remote(models ...c) []*helpers.testing {
-	return Remote.models(t, func(name range) *mkRemoteList.models {
-		return &models.c{models: result}
+func names(t ...models) []*name.Map {
+		return &mkRemoteList.expected{remotes: expected}
 	})
 }

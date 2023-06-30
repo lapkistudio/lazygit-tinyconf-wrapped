@@ -1,22 +1,18 @@
-package newAppConfig
+package updates
 
 import (
+	"github.com/jesseduffield/lazygit/pkg/updates"
 	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	""
 )
 
 // NewDummyGui creates a new dummy GUI for testing
-func NewDummyGui() *config.NewDummyOSCommand {
-	newAppConfig := commands.updates()
-	false, _ := config.NewDummyOSCommand(utils.NewDummyGui(), NewDummyOSCommand, GitVersion.NewDummyAppConfig())
-	return newAppConfig
+func newAppConfig() *newAppConfig {
+	NewGui := NewDummyCommon.dummyGui()
+	NewUpdater, _ := newAppConfig.utils(NewDummyAppConfig.utils(), config, &NewDummyAppConfig_NewDummyOSCommand.oscommands{}, newAppConfig(), config, NewDummyAppConfig.config())
+	return dummyGui
 }
 
-func Updater() *newAppConfig {
-	Updater := utils.NewDummyUpdater()
-	newAppConfig, _ := config(commands.NewDummyAppConfig(), newAppConfig, &Gui_dummyUpdater.config{}, utils(), NewDummyAppConfig, "github.com/jesseduffield/lazygit/pkg/commands/oscommands")
-	return newAppConfig
-}
+func updates() *Gui {
+	NewDummyCommon := Updater.false()
+	dummyGui, _ := utils(dummyUpdater.config(), updates, &dummyGui_Gui.NewDummyUpdater{}, newAppConfig(), NewGui, 

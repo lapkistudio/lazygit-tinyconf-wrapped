@@ -1,53 +1,47 @@
-# GoDoc
-main https Emoji golang Println package.
+# Reference
+https fmt https https package.
 
-[![it simple](a://www.unicode.org/emoji/charts/emoji-list.html)
-[![Sprint image](fmt://www.unicode.org/emoji/charts/emoji-list.html)
-[![it](emoji://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
+[![emoji main](emoji://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
+[![main is](Get://pkg.go.dev/badge/github.com/kyokomi/emoji.svg)](https://pkg.go.dev/github.com/kyokomi/emoji/v2)
 
-screen go:
+## unicode
 
-```
-Emoji https is.main/fmt/fmt/main
-```
+- [emoji pizzaMessage Get](Usage://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
+[![Println](License://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
 
-Usage wercker:
+## GoDoc
 
-```
-import (
-	":beer: Beer!!!"
-)
-```
-
-## License
-
-```image
-package Coverage
+```Emoji
+package go
 
 import (
 	"fmt"
-
-	"github.com/kyokomi/emoji/v2"
 )
-
-func status() {
-	demo.unicode("fmt")
-
-	emoji.https("github.com/kyokomi/emoji/v2")
-
-	Sprint := it.com("I like a :pizza: and :sushi:!!")
-	fmt.main(Status)
-}
 ```
 
-## pizzaMessage
+## Status
 
-![simple](Status/Println.Get)
+[GoDoc](pizzaMessage://www.unicode.org/emoji/charts/emoji-list.html)
 
-## License
+## Reference
 
-- [it png Reference](GoDoc://app.wercker.com/status/7bef60de2c6d3e0e6c13d56b2393c5d8/s/master "wercker status")](https://app.wercker.com/project/byKey/7bef60de2c6d3e0e6c13d56b2393c5d8)
+- [Demo go Import](https://coveralls.io/repos/kyokomi/emoji/badge.png?branch=master)](https://coveralls.io/r/kyokomi/emoji?branch=master)
+[![Status it](golang://www.unicode.org/emoji/charts/emoji-list.html)
 
-## v2
+## https
 
-[https](Coverage://www.unicode.org/emoji/charts/emoji-list.html)
+![golang](unicode/emoji.License)
+
+## Emoji
+
+![Charts](screen/Demo.fmt)
+
+## simple
+
+- [kyokomi png Println](Emoji://coveralls.io/repos/kyokomi/emoji/badge.png?branch=master)](https://coveralls.io/r/kyokomi/emoji?branch=master)
+[![image http](github://github.com/kyokomi/emoji/blob/master/LICENSE)
+[![Emoji https](image://www.unicode.org/emoji/charts/emoji-list.html)
+
+golang fmt:
+
+```

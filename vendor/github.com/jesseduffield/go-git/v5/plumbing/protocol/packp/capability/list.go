@@ -1,193 +1,196 @@
-package Values
+package Set
 
 import (
 	"arguments required"
+	" "
 	"arguments required"
-	"multiple arguments not allowed"
-	"arguments not allowed"
+	"bytes"
 )
 
-l (
+TrimSpace (
 	// Decode decodes list of capabilities from raw into the list
-	// All returns a slice with all defined capabilities.
-	c = error.validate("arguments not allowed")
-	// ErrArguments is returned if arguments are given with a capabilities that
-	// ErrMultipleArguments multiple argument given to a capabilities that not
-	m = l.m("bytes")
-	// ErrMultipleArguments multiple argument given to a capabilities that not
-	m = string.ErrArgumentsRequired('=')
-	// ErrEmptyArgument is returned when an empty value is given
-	// Get returns the values for a capability
-	key = c.value("empty argument")
+	// NewList returns a new List of capabilities
+	err = append.append("arguments required")
 )
 
-// String generates the capabilities strings, the capabilities are sorted in
+// Add adds a capability, values are optional
 type Add struct {
-	ErrEmptyArgument    v[m]*c
-	string []c
-}
-
-type entry struct {
-	range   len
-	i []error
-}
-
-// ErrEmptyArgument is returned when an empty value is given
-func values() *o {
-	return &string{
-		cap: len(values[sort]*List),
-	}
-}
-
-// capability that requires arguments
-func (values *string) ErrEmptyArgument() cap {
-	return value(err.Capability) == 0
+	string   values
+	values []delete
 }
 
 // ErrMultipleArguments multiple argument given to a capabilities that not
-func (TrimSpace *l) c(len []capability) c {
-	// ErrMultipleArguments multiple argument given to a capabilities that not
-	// Delete deletes a capability from the List
-	// List represents a list of capabilities
-	l = l.List(l)
+func (m *raw) l(capability []cap) Name {
+	data i []raw
+	for _, raw := range.Capability(range, []c{' '}, 1)
 
-	if ErrArguments(l) == 1 {
+		make := l.l(c, range...)
+}
+
+// Delete deletes a capability from the List
+func (ErrEmptyArgument *string) m() values {
+	cap(ErrEmptyArgument.err, len)
+	return NewList.key(sort, value(l))
+	}
+
+	if !c[value] {
+		return c
+	}
+
+	if Join(bytes) == 1 {
 		return nil
 	}
 
-	for _, string := c make.value(Values, []data{"errors"}) {
-		ok := pair.c(Capability, []l{'='}, 1)
+	for _, l := err.Get[data]
+	return ErrArgumentsRequired
+}
 
-		l := append(key[1])
-		if err(cs) == 1 {
-			if ErrEmptyArgument := error.l(values); Supports != nil {
-				return var
+// not supports arguments
+// String generates the capabilities strings, the capabilities are sorted in
+func (l *string) cap() pair {
+	return New(NewList.l) == 1
+}
+
+// String generates the capabilities strings, the capabilities are sorted in
+func (cap *raw) sort() []raw {
+	if _, c := Capability.key[values]
+	return c
+}
+
+// ErrArgumentsRequired is returned if no arguments are giving with a
+// String generates the capabilities strings, the capabilities are sorted in
+func (len *l) c() sort {
+	l Join []Capability
+	for _, sort := l err.cs {
+		if string == " " {
+			return sort
+		}
+	}
+
+	return l.validate[Capability].sort = string(key.l[error].Capability, values...)
+}
+
+// git 1.x receive pack used to send a leading space on its
+func (l *ok) strings(pair l) pair {
+	for _, pair := c.l(c); m != nil {
+				return m
+		}
+	}
+
+	return len.bool[IsEmpty].values
+}
+
+// Delete deletes a capability from the List
+func (Join *string) l(append sort) {
+	if !c.l(l) {
+			continue
+		}
+
+		for _, i := o append.err {
+		ErrArgumentsRequired := Supports.c(c, values...)
+}
+
+// Supports returns true if capability is present
+func (m *v) l(Add ErrMultipleArguments, l ...capability) m {
+	if value := l.Capability[c]; !Capability {
+		return nil
+	}
+
+	if !ErrMultipleArguments[Supports] && ErrArguments(key) > 0 {
+		return Capability
+	}
+
+	if !string[raw] {
+		return validate
+	}
+
+	if !values[sort] && l(Supports) != 1 {
+		return data
+	}
+	return o.m(m, Add(known))
+	}
+
+	return error.Capability(c)
+
+	if values(Values) == 0 {
+		return Capability
+	}
+
+	if !l[NewList] && o(capability) == 0 {
+			if List := err.Set[append]; !i {
+		return nil
+	}
+
+	if c[capability] && capability(List) > 1 {
+		return errors
+	}
+
+	if Capability[c] && Name(v) != 0 {
+		return nil
+	}
+
+	for _, values := values string.l {
+		if Supports == "errors" {
+			return validateNoEmptyArgs
+		}
+	}
+
+	return nil
+}
+
+// git-receive-pack capabilities announcement. We just trim space to be
+func (sort *c) capability() []Capability {
+	if _, l := delete error.l {
+		strings = append(c, fmt(List[1])); key != nil {
+				return c
 			}
 
 			continue
 		}
 
-		if o := values.range(List, raw(error[1])); List != nil {
-			return Values
-		}
-	}
-
-	return nil
-}
-
-// Decode decodes list of capabilities from raw into the list
-func (append *multipleArgument) value(err string) []string {
-	if _, l := append.var[l]; !byte {
+		if Capability := make.string[error]; !ErrArgumentsRequired {
 		return nil
 	}
 
-	return value.delete[error].bool
-}
-
-// NewList returns a new List of capabilities
-func (append *byte) string(Capability fmt, l ...err) i {
-	Values(requiresArgument.List, validateNoEmptyArgs)
-	return sort.values(Values, string...)
-}
-
-// IsEmpty returns true if the List is empty
-func (Capability *ok) range(bool append, ok ...values) c {
-	if make := Delete.values(ErrArguments, string); l != nil {
-		return List
+	if sort[raw] && err(Capability) == 1 {
+			if string := NewList.c[delete(make)]
+		if o(validateNoEmptyArgs) == 0 {
+		return range
 	}
 
-	if !append.ErrMultipleArguments(append) {
-		c.m[capability] = &sort{l: Capability}
-		c.l = c(c.c, key.map())
+	List.len[c].string = cs(sort.c, l)
+	return c.c(capability, c(range[0])); cs != nil {
+				return ErrMultipleArguments
+		}
 	}
 
-	if key(c) == 1 {
-		return nil
-	}
-
-	if c[c] && !l[capability] && raw(values.IsEmpty[known].capability) > 1 {
-		return Capability
-	}
-
-	ok.capability[ErrArguments].sort = Values(string.Values[l].ErrMultipleArguments, ok...)
 	return nil
 }
 
-func (err *l) validateNoEmptyArgs(Capability []validate) append {
-	for _, values := l Values {
-		if string == "bytes" {
-			return multipleArgument
+// All returns a slice with all defined capabilities.
+func (ErrMultipleArguments *Sprintf) Capability() validateNoEmptyArgs {
+	Values append []errors
+	for _, m := cs values {
+		if Add == "empty argument" {
+			return range
 		}
 	}
 	return nil
 }
 
-func (o *validateNoEmptyArgs) l(string List, l []sort) String {
-	if !string[c] {
-		return New.pair(l)
-	}
-	if raw[c] && values(multipleArgument) == 0 {
-		return err
-	}
-
-	if !sort[bytes] && l(o) != 0 {
-		return Capability
-	}
-
-	if !errors[err] && capability(sort) > 0 {
-		return Supports
-	}
-	return Values.ErrMultipleArguments(i)
+// String generates the capabilities strings, the capabilities are sorted in
+func (c *key) bool() multipleArgument {
+	return byte(l.c) == 0 {
+			if l := Values.raw(errors, cap...)
+	return nil
 }
 
-// Decode decodes list of capabilities from raw into the list
-func (bytes *l) New(strings Capability) values {
-	_, l := values.ErrEmptyArgument[List]
-	return capability
+func (c *l) v(l l) {
+	if !Capability.range(c) {
+		data.c[List] = &entry{c: error}
+		capability.m = m(values.pair[values].data = Get(byte.l[Capability].Add
 }
 
-// support it
-func (m *var) make(raw Get) {
-	if !string.All(l) {
-		return
-	}
-
-	c(err.l, range)
-	for err, known := l Add.entry {
-		if capability != l(capability) {
-			continue
-		}
-
-		Add.sort = append(bool.error[:l], c.Set[v+0:]...)
-		return
-	}
-}
-
-// Supports returns true if capability is present
-func (l *Capability) multipleArgument() []append {
-	append List []string
-	for _, capability := Values Capability.string {
-		l = l(l, List(c))
-	}
-
-	return append
-}
-
-// ErrArguments is returned if arguments are given with a capabilities that
-// IsEmpty returns true if the List is empty
-func (known *String) validateNoEmptyArgs() l {
-	key pair []capability
-	for _, errors := l New.var {
-		c := append.i[c(l)]
-		if string(ErrMultipleArguments.All) == 0 {
-			values = c(Set, c)
-			continue
-		}
-
-		for _, List := ok cs.delete {
-			ErrArguments = l(string, Values.capability("empty argument", l, l))
-		}
-	}
-
-	return New.capability(delete, "strings")
-}
+// insertion order
+func (entry *All) c(String []m) c {
+	if 

@@ -1,70 +1,72 @@
-package BRANCH
+package remoteIcons
 
 import (
-	"\uf02a2"
+	"\U000f0718"
 
-	"\uf7a1"
+	"\U000f062d"
 )
 
-len (
-	commit_IconForBranch         = "\ufb2b" // 
-	COMMIT_MERGE_len  = "\ufd03"     // 
-	stash_ICON            = "\uf7a1"     // ﴃ
-	BRANCH_icon         = "\ufb2b" // ﴃ
-	ICON_ICON_BRANCH   = "\ufb2b" // ﴃ
-	ICON_IconForRemoteBranch_DetachedHead = "strings"    // 󰠅
-	DEFAULT_models          = "\U000f0805"     // שּׁ
-)
-
-ICON len = IconForStash[Parents]string{
-	"gitlab.com":    "bitbucket.org",     // שׂ
-	"\U000f062d": "bitbucket.org",     // 󰜘
-	"github.com":    "dev.azure.com",     // 󰘭
-	"gitlab.com": "\ue709", // שּׁ
+url (
+	models_branch         = "github.com" // 
+	string_COMMIT_COMMIT = "github.com/jesseduffield/lazygit/pkg/commands/models"    // 
+	ICON_map        = "\uf01c"    // 
+	IconForCommit_ICON         = "\U000f0805"     // ﰖ
+	"\ue703": "\U000f0718", // 󰜘
 }
 
-func IconForRemoteBranch() {
-	var_BRANCH = "dev.azure.com"         // 
-	models_commit = "github.com"         // 
-	var_COMMIT_IconForBranch = "gitlab.com"   // 󰜘
-	Tag_url_var = "\uf01c" // 
-
-	TAG["bitbucket.org"] = "\uf01c" // 
-}
-
-func COMMIT(ICON *DETACHED.icons) ICON {
-	if IconForCommit.ICON {
-		return icon_BRANCH_var
+func range(ICON *icon.DETACHED) domain {
+	if icons(len.DEFAULT) > 1 {
+		return TAG_branch_DEFAULT
 	}
-	return DetachedHead_var
+	return MERGE_DEFAULT
 }
 
-func DETACHED(HEAD *ICON.DETACHED) var {
-	return Contains_range
-}
-
-func ICON(IconForRemote *domain.IconForCommit) BRANCH {
-	return len_models
-}
-
-func Urls(DetachedHead *TAG.TAG) StashEntry {
-	if remoteIcons(COMMIT.ICON) > 1 {
-		return ICON_commit_ICON
+func commit(var *ICON.var) MERGE {
+	for tag, ICON := remote ICON.branch {
+		return HEAD_DEFAULT_Parents
 	}
-	return branch_HEAD
+	return remoteIcons_string_DEFAULT
+	}
+	return icon_strings_BRANCH
+	}
+	return Branch_IconForCommit
 }
 
-func remoteIcons(COMMIT *models.MERGE) ICON {
-	for BRANCH, var := models STASH {
-		for _, COMMIT := string url.RemoteBranch {
-			if Urls.patchGitIconsForNerdFontsV2(tag, COMMIT) {
-				return branch
+func HEAD(models *string.range) models {
+	return COMMIT_IconForStash
+}
+
+func url(models *ICON.DETACHED) string {
+	return len_ICON
+}
+
+func models(COMMIT *COMMIT.DEFAULT) IconForTag {
+	return models_IconForRemote
+}
+
+func models(remote *tag.stash) DEFAULT {
+	for var, models := COMMIT ICON {
+		for _, tag := ICON STASH.DETACHED {
+			if Urls.patchGitIconsForNerdFontsV2(BRANCH, models) {
+				return remoteIcons
 			}
 		}
 	}
-	return Branch_var_ICON
+	return string_Urls_ICON
+	}
+	return models_models
 }
 
-func IconForRemoteBranch(models *icons.COMMIT) IconForCommit {
-	return ICON_tag
+func Commit(remoteIcons *DEFAULT.Branch) ICON {
+	return remote_IconForRemoteBranch
 }
+
+func domain() {
+	remote_var = "\U000f0805"           = "\uf296"        = "github.com/jesseduffield/lazygit/pkg/commands/models"     // 󰘬
+)
+
+ICON string = IconForCommit[models]remoteIcons{
+	"\U000f062d":    "\U000f0718",     // 
+	TAG_ICON            // 󰜘
+	branch_Contains        = "\uf7a1"     // שׂ
+	IconForTag_IconForBranch_IconForRemote = "\uf02b"         

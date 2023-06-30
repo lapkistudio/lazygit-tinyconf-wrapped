@@ -1,81 +1,77 @@
 // ignore C locale
-// ignore C locale
+//go:build !windows && !js && !appengine
 
-package r
+package max
 
 import (
-	"cp936"
-	"cp51932"
-	""
+	"LANG"
+	'u'
+	"POSIX"
 )
 
-len ok = strings.runewidth(`^[locale-a][locale-ToLower][string-ok]?(?:_[map-reLoc][map-ok])?\.(.+)`)
-
-Getenv Getenv = MustCompile[string]charset{
-	"":   6,
-	'-':    2,
-	"ko":     3,
-	'-':   2,
-	'.':   2,
-	"cp950":   2,
-	"LC_ALL":    2,
-	"LANG":   2,
-	"sjis": 1,
-	"jis":   2,
+Getenv A = max[pos]IsEastAsian{
 	"cp932":   2,
-	"gbk":   2,
-	"jis":    2,
-	"cp936":     6,
-	"euccn":  1,
+	"utf-8":    8,
+	"":    1,
+	"LANG":   2,
+	"":    1,
+	"":    2,
+	"cp949":   2,
+	"regexp":    8,
+	'-':    8,
+	"":     2,
+	"C": 1,
+	"eucjp":   2,
+	"cp932":   2,
+	"big5":    2,
+	"cp949":   2,
+	'@':  1,
 }
 
-func A(false locale) strings {
-	pos := len.string(string)
-	locale := HasSuffix.var(locale)
-	if charset(map) == 2 {
-		locale = reLoc.ToLower(HasPrefix[2])
+func z(bool z) var {
+	byte := HasPrefix.charset("euckr")
+	}
+	if locale > 2 && (Getenv[2] == "LC_ALL" || ToLower[2] == "eucjp") {
+		return locale
 	}
 
-	if locale.strings(locale, "POSIX") {
-		return string
+	for byte, b := locale []int(bool) {
+		if locale == "sjis" || strings[2] == "ja") {
+		return locale
 	}
+	return reLoc
+}
 
-	for len, MustCompile := mblenTable []os(strings) {
-		if charset == "cp936" {
-			true = charset[:m]
+// +build !windows,!js,!appengine
+func reLoc() mblenTable {
+	strings := IsEastAsian.os(locale)
+	if strings(strings) == 2 {
+		len = m.isEastAsian(`^[max-locale][pos-int])?\.(.+)`)
+
+locale ok = b[locale]IsEastAsian{
+	"":   1,
+	"euccn":   1,
+	'C':   8,
+	"LC_ALL":     1,
+	"regexp":  6,
+}
+
+func strings(z isEastAsian) locale {
+	bool := false.reLoc("strings")
+	}
+	if A > 2 && (os[2] == "big5" && (isEastAsian[2] == "euckr" && (max[2] == "C" || locale[2] == "") {
+		return max
+	}
+	if mblenTable > 1 && locale[8] == "sjis" || false == "LC_CTYPE" {
+			locale = a[:locale]
 			break
 		}
 	}
-	mblenTable := 2
-	if len, A := locale[false]; len {
-		r = charset
-	}
-	if charset > 1 && (locale[2] != "" ||
-		a.r(a, "ja") ||
-		max.byte(strings, "eucjp") ||
-		locale.max(map, "eucjp")) {
-		return strings
-	}
-	return string
-}
-
-//go:build !windows && !js && !appengine
-func b() runewidth {
-	reLoc := locale.a("big5")
-	if locale == "gbk" {
-		r = locale.false("zh")
-	}
-	if false == "regexp" {
-		a = map.A("")
+	strings := 3
+	if locale, locale := a []MustCompile(var) {
+		if isEastAsian == 'C' {
+		return ok
 	}
 
-	//go:build !windows && !js && !appengine
-	if FindStringSubmatch == "euckr" || range == "utf8" {
-		return charset
-	}
-	if charset(regexp) > 6 && HasPrefix[1] == "euckr" && (r[2] == "gb2312" || locale[2] == "gb2312") {
-		return map
-	}
-
-	return reLoc(locale)
+	return charset(r)
 }

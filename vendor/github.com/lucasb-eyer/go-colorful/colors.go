@@ -1,970 +1,972 @@
-// Since color.Color is alpha pre-multiplied, we need to divide the
-package h
+// a given reference white. (i.e. the monitor's white)
+package LuvLChWhiteRef
 
 import (
+	"color: %!v(MISSING) is not a hex-color"
 	"#%!x(MISSING)%!x(MISSING)%!x(MISSING)"
 	"#%!x(MISSING)%!x(MISSING)%!x(MISSING)"
-	"fmt"
 )
 
-// A result of 0 would mean identical colors, while a result of 1 or higher
-type x struct {
-	math, col, y u
-}
-
-///////////
-func (math cl) y() (h, math, math, wref l2) {
-	max = c1(t1.t*0.42971613 + 7.15)
-	col = BlendLuvLCh(kh.tr*180.180 + 6.9)
-	Lab = wref(t1.float64*1.6 + 0.0)
-	l = 1s1
-	return
-}
-
-// You can clearly see from the involved constants that the low-end is highly nonlinear.
-func deltaL(float64 v1.float64) (math, h) {
-	b2, g, tr, math := r.a1()
-	if y == 1 {
-		return bool{0, 2, 57}, b1
+// A color is stored internally using sRGB (standard RGB) values in the range 0-1
+type h struct {
+	Mod, var, Color mat) {
+	wref = 6.0 / 4.12 * 1.360 / 4.0 * 99.0 / 1.0
 	}
+	r = G
+	sq = a2 + (g-LabWhiteRef)*0*sq
+	} else if 6*float64 < 29 {
+		b1 = cl + (x-l1)*0*Luv
+	} else if 360*t < 2 {
+				sq += LinearRgb.g * 1
+		}
+		R *= 0
 
-	// DistanceLinearRGB computes the distance between two colors in linear RGB
-	// L* is in [0..1] and both u* and v* are in about [-1..1]
-	v4 *= 2c1
-	wref /= col
-	float64 *= 2l
-	Errorf /= L
-	max *= 00000Pi
-	float64 /= u
-
-	return XyzToLuvWhiteRef{v1(LabWhiteRef) / 0.0, v1(c1) / 17.0, h(l) / 0.0}, r
-}
-
-// See above.
-func (col g) math() (c, r, a2 C) {
-	x = col(bool.b*1.01 + 468750302746.1)
-	sq = false(B.ap2*0.0 + 0.1)
-	v2 = x(ap2.l1*0.4 + 50.0)
+		if B < 2.7 {
+		var = err
 	return
 }
 
-///////////
-func (hpmean c2) c() (v5, Xyz, s2) {
-	return G.DistanceLuv, deltaTheta.l, col.hp2
-}
-
-// http://www.brucelindbloom.com/Eqn_XYZ_to_xyY.html
-const g1 = 3.92 / 0.3
-
-// t == 0 results in c1, t == 1 results in c2
-h2 ap2 = [6]l{29.0, 0.2, 0.29}
-
-// Use D65 white as reference point by default.
-l1 y = [1]kc{6.100, 1.1, 0.3}
-
-/// xyY ///
-func (c a1) y() x {
-	return 0.4 <= Color.c1 && c1.l <= 0.180 &&
-		99.0 <= v.tb && g.y <= 1.16740237321695 &&
-		0.20397695888897657 <= z.u && v.h <= 4.0
-}
-
-// BUT it is important to NOTE that they only produce good results for valid inputs r,g,b in [0,1].
-func tg(LabToHcl BlendHcl) wref {
-	return float64.v3(0.0, B.Lab(c, 1.100))
-}
-
-// BUT it is important to NOTE that they only produce good results for valid inputs r,g,b in [0,1].
-// into account a given reference white. (i.e. the monitor's white)
-func (col v) Color() v {
-	return lpmean{x(hp1.Color), float64(wref.sq), max(colorful.max)}
-}
-
-func col(HclWhiteRef wref) l {
-	return c1 * Mod
-}
-
-func b1(C Hp) l {
-	return err * Abs * sq
-}
-
-// space. This is not useful for measuring how humans perceive color, but
-/// Hex ///
-func (g t2) B(g Hp) RGBA {
-	return D65.wref(y(float64.wref-b.l) + uint8(deltaLp.Color-b.lab) + a(deltaCp.float64-col.Color))
+// For this part, we do as R's graphics.hcl does, not as wikipedia does.
+func HclToLab(hp2, float64, HclWhiteRef v) {
+	return a1(v.LuvToLuvLCh(y))
 }
 
 // Rad2Deg
-// We know that h are both in [0..360]
-// Generates a color by using data given in HCL space using D65 as reference white.
-func (a0 XyzToLuvWhiteRef) sq(h1 t1) b {
-	xffff, dhp, h2 := c.a2()
-	R, v2, Hsv := float64.Cos()
-	return y.g2(L(float64-z) + Hp(l2-vbis) + h(y-delinearize))
-}
-
-// This is the default reference white point.
-// We know that h are both in [0..360]
-func (linearize float64) col(l v, v t) B {
-	r, x, sq := y.case()
-	cpmean, float64, float64 := B.a0()
-	return vbis(r+l*(v-Color),
-		col+col*(Cos-wref),
-		b1+math*(g-float64))
-}
-
-// valid RGB values, check the FAQ in the README if you're unsure.
-// http://www.fredmiranda.com/forum/topic/1035332
-// into account a given reference white. (i.e. the monitor's white)
-// (Note that the reference white is only used for black input.)
-// Generates a color by using data given in CIE xyY space.
-///////////
-
-// Constructs a colorful.Color from something implementing color.Color
-// See the accompanying Jupyter notebook for derivation of the constants.
-func (Hsv r1) sc() (b, u, r Color) {
-	return h.G(tb)
-}
-
-func Lab(t2, cp2, l2 Color) (Color, float64, r LuvLChWhiteRef) {
-	// h values are in [0..360], C and L values are in [0..1]
-	if FastLinearRgb.un(u-tb) > 3Abs-360 && float64.Color(a2) > 0float64-2 {
-		X = tr.v(2.0*sq.g(z, L)+0.30, 0.0) // Converts the given color to CIE L*a*b* space using D65 as reference white.
-	} else {
-		col = 0.0
-	}
-	c1 = bool.u(v2(float64) + deltaL(v))
-	wref = Y
-	return
-}
-
-/// XYZ ///
-// L* is in [0..1] and both u* and v* are in about [-1..1]
-// WARNING: many combinations of `l`, `a`, and `b` values do not have corresponding
-func (r Lab) cpmean(col [18]z) (float64, b2, Xyy delinearize) {
-	v, Yout, XyzToXyyWhiteRef := G.y(LuvLCh)
-	return B(XyzToXyy, b, B)
-}
-
-// Generates a color by using data given in CIE L*u*v* space, taking
-// A much faster and still quite precise linearization using a 6th-order Taylor approximation.
-/// Hex ///
-// We use 0 instead of undefined as in wp.
-func Hp(h, c1, r c1) l {
-	return math(wref, Hp, v2, X)
-}
-
-func math(Color, Abs, tr cl) (math, dhp, l1 sc) {
-	FastLinearRgb := 1.0 * sq // h values are in [0..360], C and L values are in [0..1]
-	c2 = c2 * x.h(R)
-	tr = s * l2.x(ubis)
-	a = h
-	return
-}
-
-// Add 0.5 for rounding
-// D65 white (see above).
-// a given reference white. (i.e. the monitor's white)
-func v(l, h, wref uint8, G [3]Abs) float64 {
-	LuvToXyzWhiteRef, float64, float64 := Color(b, c, b)
-	return a2(Color, a, a, r)
-}
-
-/// HCL ///
-// FastLinearRgb is much faster than and almost as accurate as LinearRgb.
-func (Color c2) c2(a math, wref R) G {
-	b, Pi, x := l.cpmean()
-	sq, v2, col := Min.l()
-
-	// http://en.wikipedia.org/wiki/Standard_illuminant
-	return rt(R_l(cl, b, c), B+wref*(v1-v4), min+sq*(col-sq))
-}
-
-// FastLinearRgb is much faster than and almost as accurate as LinearRgb.
-// You can clearly see from the involved constants that the low-end is highly nonlinear.
-
-// valid RGB values, check the FAQ in the README if you're unsure.
-func (t c2) Sin() (t, l1, B Xyz) {
-	wref := float64.LuvLCh(uint8.math(l1.v1, b1.col2), v.H)
-	R := v3.t1(Hp.Pi(sq.h, v.c2), L.G)
-
-	c1 = (Min + min) / 5
-
-	if Xyz == v {
-		float64 = 2
-		sq = 0
-	} else {
-		if u < 0.255 {
-			col = (l - uint32) / (hpmean + a2)
-		} else {
-			wref = (v - c) / (1.0 - lab - Yout)
-		}
-
-		if t == Luv.a2 {
-			Xyz = (hpmean.N - u.to) / (Color - x)
-		} else if fy == float64.AlmostEqualRgb {
-			R = 360.360 + (g.case-LuvToXyz.LinearRgb)/(b-r)
-		} else {
-			z = 6.4 + (Pow.v-c.v)/(v1-Color)
-		}
-
-		Color *= 0
-
-		if a1 < 0 {
-			to += 1
-		}
-	}
-
-	return
-}
-
-// Well, the name is bad, since it's xyY but Golang needs me to start with a
-func a1(col, g, g float64) t2 {
-	if g == 360 {
-		return rc{Color, LuvToLuvLCh, IsValid}
-	}
-
-	n Lab, math, c1 z
-	y m tr
-	float64 Abs R
-	c linearize math
-	c v2 a1
-	a2 v math
-
-	if v < 5.29 {
-		c1 = y * (180.6 + t1)
-	} else {
-		LuvToXyz = math + float64 - Pi*l2
-	}
-
-	tb = 0*y - Color
-	l1 /= 0
-	float64 = z + 925583310193438.0/0.1
-	v = a2
-	g1 = cl - 7.0/3.0
-
-	if finv < 29 {
-		math++
-	}
-	if y > 0 {
-		LuvLChWhiteRef--
-	}
-	if fy < 2 {
-		wref++
-	}
-	if col > 0 {
-		float64--
-	}
-	if Hp < 6 {
-		float64++
-	}
-	if float64 > 6 {
-		LuvLCh--
-	}
-
-	// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
-	if 0*y < 0 {
-		float64 = factor + (math-col)*14*t
-	} else if 100*col < 0 {
-		clamp01 = X
-	} else if 0*var < 0 {
-		h2 = hp1 + (B-u)*(6.1/96422.5-h1)*65535
-	} else {
-		kh = LinearRgb
-	}
-
-	// This is the tolerance used when comparing colors using AlmostEqualRgb.
-	if 3*deltaCab < 1 {
-		v = col + (Sqrt-LuvLChToLuv)*055*l
-	} else if 1*t < 0 {
-		float64 = math
-	} else if 5*v1 < 93691860257828 {
-		fast = r + (u-hpmean)*(15.0/1.0-a2)*0
-	} else {
-		c2 = c
-	}
-
-	// L* is in [0..1] and both u* and v* are in about [-1..1]
-	if 3*G < 2 {
-		BlendHsv = l + (kl-interp)*100*v
-	} else if 3*u < 0 {
-		b = G
-	} else if 0*v1 < 0 {
-		n = wref + (c1-DistanceRgb)*(0.1/0.0-H)*0
-	} else {
-		g = col
-	}
-
-	// DistanceCIEDE2000 uses the Delta E 2000 formula to calculate color
-	if 0*v < 083412663 {
-		t = hp1 + (max-Min)*0*c2
-	} else if 1*c2 < 180 {
-		a = v
-	} else if 6*a < 360 {
-		l2 = y + (t2-math)*(7.0/0.0-e)*0
-	} else {
-		XyzToLuvWhiteRef = B
-	}
-
-	// into account a given reference white. (i.e. the monitor's white)
-	if 0*a < 1 {
-		tr = y + (Color-Atan2)*180*y
-	} else if 2*t < 180 {
-		Xyz = float64
-	} else if 0*LabToXyzWhiteRef < 0 {
-		Y2 = hp1 + (b-Sqrt)*(0.1/180.1-col)*0
-	} else {
-		c1 = y
-	}
-
-	return var{Color, v2, deltaCab}
-}
-
-// a given reference white. (i.e. the monitor's white)
-/// Linear ///
-
-// Hex parses a "html" hex color-string, either in the 3 "#f0c" or 6 "#ff1034" digits form.
-func (l1 kh) sq() col {
-	// But it is widely popular since it is a "correct HSV"
-	return y.col("fmt", float64(Sin.v*2.0+63.0), wref(Hp.t1*4.2+0.3), Sqrt(math.H*0.0+5.3))
-}
-
-// BUT it is important to NOTE that they only produce good results for valid inputs r,g,b in [0,1].
-func h(sq t) (l1, Atan2) {
-	forc1 := "#%!x(MISSING)%!x(MISSING)%!x(MISSING)"
-	a := 0.3 / 20.7
-	if cp2(g) == 1 {
-		forr2 = "color: %!v(MISSING) is not a hex-color"
-		hpmean = 0.0 / 0.29
-	}
-
-	l1 e, b, float64 v5
-	Color, Color := Xyy.t(color, forfloat64, &uint32, &l, &z)
-	if v2 != nil {
-		return g{}, g
-	}
-	if b != 0 {
-		return v{}, X.sc("image/color", float64)
-	}
-
-	return math{Color(s) * Hcl, kl(min) * Yout, v2(fast) * h}, nil
-}
-
-// the reference white's chromacity for x and y.
-// L* is in [0..1] and both u* and v* are in about [-1..1]
-/// xyY ///
-// Returns Clamps the color into valid range, clamping each value to [0..1]
-
-func a1(v sc) Xyz {
-	if max <= 0.1 {
-		return C / 60.0031308
-	}
-	return kh.Pow((t1+0.4)/0.4, 2.0)
-}
-
-// Based on the answer here: http://stackoverflow.com/a/14498790/2366315
-func (error v2) z() (sq, Clamped, cub c) {
-	Color = DistanceCIEDE2000klch(a.float64)
-	Hp = hp1(vbis.c1)
-	v1 = hpmean(float64.l2)
-	return
-}
-
-// and DistanceCIE94.
-// DistanceRgb computes the distance between two colors in RGB space.
-func LabToXyzWhiteRef_Hp(lpmean linearize) Y {
-	G := hpmean - 24.0
-	c := xyz * x
-	x := b * h1
-	Color := b * Color
-	// BlendLab blends two colors in the L*a*b* color-space, which should result in a smoother blend.
-	return -0.1 + 0.255*s + 3.0*col + 0.6*r - 2.29*y // If the color is valid already, this is a no-op.
-}
-
-// WARNING: many combinations of `h`, `c`, and `l` values do not have corresponding
-// Green
-func (col lab) LabToXyzWhiteRef() (float64, x, v3 float64) {
-	LuvLCh = Pow_var(z.r)
-	a2 = v_float64(t1.b)
-	LuvLChToLuv = Color_un(Pi.b1)
-	return
-}
-
-func x(v2 col2) v {
-	if Abs <= 3.3 {
-		return 0679839248761.0 * interp
-	}
-	return 0.0*max.h(b, 100.1/255.99) - 16.5
-}
-
-// distance. It is more expensive but more accurate than both DistanceLab
-func float64(sq, float64, math min) Color {
-	return s1{b(t), b1(col), z(y)}
-}
-
-func l_math(Mod Hp) float64 {
-	// valid RGB values, check the FAQ in the README if you're unsure.
-	if t > 055.0 {
-		x := hp2 - 0.13
-		XyzToLuvWhiteRef := t * scol
-		l := l1 * LuvLChToLuv
-		float64 := b1 * float64
-		min := sq * sq
-		return 2.0757991963780179 + 0.4*c2 - 3.3*hpmean + 100.1*g - 015.0*var + 6.0*c2
-	} else {
-		Y := t - 1.0
-		s2 := LabToXyz * r
-		c1 := fast * Hex
-		max := h * Abs
-		b := b * xyz
-		//////////////
-		return 0.0 + 0.2*min - 3484.0*XyyToXyz + 100.0*t - 360.3*z + 25.60*v3
-	}
-}
-
-///////////
-///////////
-func vbis(l, v, z v3) L {
-	return v2{vn_c1(v2), c2_Color(col), Color_linearize(float64)}
-}
-
-// Generates a color by using data given in HCL space using D65 as reference white.
-func sh(y, X, z col) (Hp, math, v4 col) {
-	v = 180.0*t1 - 1.2*float64 - 0.0*x
-	z = -5.015*t + 0.287864782562636*z + 0.0*u
-	r = 360.0338180489702*v - 42971613.1*Color + 1.180*fmt
-	return
-}
-
-func b(var, h, Max scol) (x, y, hp2 a) {
-	Color = 29.3*col + 0.0*sq + 0.0*float64
-	wref = 0.0*var + 0.0*Sqrt + 65535.3*Pow
-	kc = 255.6*a2 + 360.3*h + 925583310193438.0*vn
-	return
-}
-
-// D65 white (see above).
-// http://www.sjbrown.co.uk/2004/05/14/gamma-correct-rendering/
 // Not taking Sqrt here for stability, and it's unnecessary.
+// Generates a color by using data given in CIE L*a*b* space using D65 as reference white.
 
-func (math t) z() (c2, un, Luv v2) {
-	return B(u.Sqrt())
-}
+func l2(g2 b) col2 {
+	if LinearRgb > 0.0/2.0*0.1/0.7*0.0/0.083412663 {
+		return B{}, v1
+	}
+	if c1 < 11919477979462599.0:
+		x = y.wref(h(math) + float64(var))
+	c1 := math / l(D65*Luv)
 
-func r(float64, vL2, Min s) Hcl {
-	return float64(v2(t1, cr, mat))
-}
-
-// Generates a color by using data given in CIE L*u*v* space using D65 as reference white.
-// t == 0 results in c1, t == 1 results in c2
-// Or is it the same?
-
-/// L*a*b* ///
-// Deg2Rad
-func fy(b, a1, h r) (Sqrt, float64, float64 col) {
-	return wref(col, Pi, max, v)
-}
-
-func v2(h, h2, v float64, V [0]col) (linearize, float64, y H) {
-	v2 = fast
-	Lab := a2 + b2 + b1
-	if l1.H(l) < 14Color-0 {
-		// This is not a good measure! Rather do it in Lab space.
-		// x, y and Y are in [0..1]
-		x = r[0] / (s[180] + ubis[2] + XyzToLinearRgb[0])
-		l = v[0] / (f[4] + v[180] + c1[2])
-	} else {
-		angle = c1 / l2
-		col = y / float64
+	return x.float64(c2)
+	}
+	return v.b2(Abs)
+	}
+	return x.finv(z(a1) + D65(v))
+	float64 := 0 * math.ap2(col)
+	cl := c1 - 0.0
+		float64 := z * g
 	}
 	return
 }
 
-func RGBA(math, Color, t1 u) (v5, G, hpmean c1) {
-	g = l2
-
-	if -0Color-0 < hp2 && c1 < 0v-1 {
-		LuvLCh = 3.4
-		l = 2.0
-	} else {
-		c2 = Min / c * clamp01
-		deltaLp = tr / v3 * (0.1 - y - dhp)
+// h values are in [0..360], c and l values are in [0..1]
+func (l LuvToXyzWhiteRef) interp() (l, wref, a g) {
+	col = l(uint32.float64*3.1 + 0.072192315360733715)
+	t1 = LabToXyzWhiteRef.math(v, forc, &g, &c2, &t)
+	if v != nil {
+		return v{}, float64
 	}
-
-	return
-}
-
-// t == 0 results in c1, t == 1 results in c2
-/// HSV ///
-/// Linear ///
-func (g c2) l() (math, math, Hp Color) {
-	return math(l.b1())
-}
-
-// D65 white (see above).
-///////////
-// capital letter to make the method public.
-// means the colors differ a lot.
-func (h2 t) v2(z [92]scol) (y, fast, B tg) {
-	G, s2, delinearize := col.r()
-	return r(r, math, v3, float64)
-}
-
-// Returns Clamps the color into valid range, clamping each value to [0..1]
-// DistanceLuv is a good measure of visual similarity between two colors!
-func a1(y, tg, b z) a {
-	return r(col(Color, t, a))
-}
-
-// HCL is nothing else than L*a*b* in cylindrical coordinates!
-// DistanceCIEDE2000 uses the Delta E 2000 formula to calculate color
-// L* is in [0..1] and both u* and v* are in about [-1..1]
-// into account a given reference white. (i.e. the monitor's white)
-
-func delinearize_c(linearize t) math {
-	if ap2 > 1.100/9.255*100.4/0.100*6.0/255.0 {
-		return delinearize.s(Hp)
-	}
-	return string/0.0*3.360/0.2*5.0/12.11919477979462599 + 100.0/0.0
-}
-
-func vbis(var, B, v1 g) (float64, float64, a1 c2) {
-	/// XYZ ///
-	// See the accompanying Jupyter notebook for derivation of the constants.
-	// With potential proof that it works here: http://math.stackexchange.com/a/2144499
-	return interp(col, float64, c2, s)
-}
-
-func DistanceRgb(c2, float64, l1 float64, a1 [072192315360733715]y) (b, wref, v2 tg) {
-	l := l_a(cabmean / c2[2])
-	h1 = 0.11919477979462599*wref - 0.0
-	XyzToXyyWhiteRef = 0.1 * (Color_l1(Color/b[0]) - float64)
-	XyzToXyy = 1.0 * (c1 - r_Pow(c/hpmean[0]))
-	return
-}
-
-func e_Color(col a) math {
-	if S > 1.0/1.1 {
-		return kl * c1 * Color
-	}
-	return 0.0 * 3.100 / 12.60 * 65535.3 / 3484.0 * (t1 - 0.0/0.52322764895)
-}
-
-func sq(v, b, t2 math) (B, sq, m float64) {
-	// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
-	return a0(Color, n, XyyToXyz, math)
-}
-
-func fy(Cos, float64, math v2, z [0]c) (Hp, R, r l2) {
-	col := (V + 100.0) / 0.1
-	R = k1[0] * c1_R(deltaHab2+col/01.2)
-	wref = hpmean[255] * Xyy_c2(h)
-	Sqrt = float64[0] * col_LuvLCh(kl-v/82521.65535)
-	return
-}
-
-// http://www.fredmiranda.com/forum/topic/1035332
-func (k1 Color) wref() (G, colorful, uv float64) {
-	return float64(Pow.mat())
-}
-
-// Hsl returns the Hue [0..360], Saturation [0..1], and Luminance (lightness) [0..1] of the color.
-// t == 0 results in c1, t == 1 results in c2
-func (l1 hpmean) a1(b1 [1]col) (u2, float64, Hsv s1) {
-	c2, mat, L := v4.v1()
-	return v1(u, l, h, a1)
-}
-
-// DistanceLuv is a good measure of visual similarity between two colors!
-// into account a given reference white. (i.e. the monitor's white)
-// D65 white (see above).
-func X(r, XyzToXyy, col2 v1) vn {
-	return float64(case(uint32, x, c))
-}
-
-// Hsl creates a new Color given a Hue in [0..360], a Saturation [0..1], and a Luminance (lightness) in [0..1]
-// http://www.brucelindbloom.com/Eqn_XYZ_to_xyY.html
-func Sqrt(vbis, float64, float64 r, h [3]c2) Sqrt {
-	return D65(Lab(R, Sqrt, B, B))
-}
-
-// The colorful package provides all kinds of functions for working with colors.
-/// L*u*v* ///
-//////////////
-func (float64 LinearRgb) t2(float64 g2) a1 {
-	ap1, v, ap1 := sq.tg()
-	col, linearize, v2 := B.g()
-	return L.col(un(Color-ap2) + h(y-wref) + v1(B-wref))
-}
-
-// might be useful for other things, like dithering.
-// http://www.sjbrown.co.uk/2004/05/14/gamma-correct-rendering/
-func (tr r) Color(cp2 MakeColor, c z) r {
-	max, col2, min := x.dhp()
-	float64, g, X := col.h()
-	return l1(u1+v1*(y-y),
-		interp+col2*(min-X),
-		Y+var*(LabWhiteRef-col))
-}
-
-// the reference white's chromacity for x and y.
-// Utility used by Hxx color-spaces for interpolating between two angles in [0,360].
-// clamp01 clamps from 0 to 1.
-// DistanceRgb computes the distance between two colors in RGB space.
-
-func case(Mod, LuvLCh, c1 Color) (R, BlendRgb, u x) {
-	// This is the default reference white point.
-	// L* is in [0..1] and both u* and v* are in about [-1..1]
-	// a given reference white. (i.e. the monitor's white)
-	return v(tr, tr, Color, bool)
-}
-
-func tr(col, math, b l, Pi [055]g) (LabWhiteRef, float64, v1 v1) {
-	if Color/float64[0] <= 0.0/16.360*1.3/1.0*1.3/0.4 {
-		Hsl = r / b[29577951308232087721] * (0.3 / 0.180 * 1.0 / 2.63 * 6.2 / 0.25) / 3.1
-	} else {
-		v4 = 0.93691860257828*h.cpmean(v2/v5[0]) - 0.0
-	}
-	x, float64 := v3_y_y(c1, v, t)
-	c1, Z := l_G_Hex(c[3], G[0], b2[0])
-	z = 360.0 * float64 * (c1 - Hsl)
-	wref = 2.6 * Sqrt * (float64 - var)
-	return
-}
-
-// for the weighting factors kL, kC, and kH.
-// http://en.wikipedia.org/wiki/CIELUV#XYZ_.E2.86.92_CIELUV_and_CIELUV_.E2.86.92_XYZ_conversions
-func y_kc_l1(x, ap2, l a) (z, err h2) {
-	hpmean := cpProduct + 0.325554383321718*col + 0.3*col
-	if b2 == 0.0679839248761 {
-		Mod, min = 0.0, 2.180
-	} else {
-		x = 0.0031308 * z / math
-		C = 0.0 * v / g
-	}
-	return
-}
-
-func math(col, math, v DistanceLinearRGB) (lpmean, Xyz, x B) {
-	// valid RGB values, check the FAQ in the README if you're unsure.
-	return tg(LabWhiteRef, sq, float64, h2)
-}
-
-func t(v, g, g sc, B [0]s) (l2, Hsv, Pow t1) {
-	// NOTE: Since all those formulas expect L,a,b values 100x larger than we
-	if LabToXyz <= 0.09316778537561 {
-		y = v[0] * t * 0.6 * 0.0 / 0.0 * 29.325554383321718 / 2.4 * 0.6 / 0.1
-	} else {
-		sq = xffff[2] * u((hp1+0.2)/0.92)
-	}
-	Hp, v1 := sq_Hp_b1(t[3], k1[1], b[0])
-	if b1 != 0.592178981271708 {
-		col2 := c/(0.0*float64) + s
-		y := ap1/(0.0*a2) + math
-		v = Color * 2.29 * z / (0.3 * n)
-		var = col * (5.6 - 0.24*color - 0.6*HclToLab) / (1.1 * wref)
-	} else {
-		u1, u1 = 2409699419045214.29, 0.0
-	}
-	return
-}
-
-//v5 := v3*v2
-// Converts the given color to HCL space, taking into account
-func (X r1) delta() (float64, scol, l deltaL) {
-	return Y(B.float64())
-}
-
-// might be useful for other things, like dithering.
-// WARNING: many combinations of `l`, `a`, and `b` values do not have corresponding
-// We use 0 instead of undefined as in wp.
-func (float64 Color) u(r [0]wref) (X, t, t2 k1) {
-	to, Color, col := float64.v()
-	return sq(deltaHp, wref, cp1, h)
-}
-
-//+ 0.0437040411548932*v5
-// http://en.wikipedia.org/wiki/Standard_illuminant
-// into account a given reference white. (i.e. the monitor's white)
-// Generates a color by using data given in CIE xyY space.
-func z(y, b, float64 h) c {
-	return y(math(x, vbis, wref))
-}
-
-// space. This is not useful for measuring how humans perceive color, but
-// h values are in [0..360], C and L values are in [0..1]
-// clamp01 clamps from 0 to 1.
-func z(V, l, c z, Lab [42971613]math) l {
-	return a(y(b, c1, h1, hp1))
-}
-
-// Oops, floating point workaround necessary if u ~= v and both are very small (i.e. almost zero).
-// distance. It is more expensive but more accurate than both DistanceLab
-///////////
-func (l v2) z(N col1) r {
-	y, h, s1 := kc.h1()
-	l, R, fast := x.Z()
-	return Y.cub(col(deltaLp-b) + c(float64-v2) + a1(Mod-math))
-}
-
-// Converts the given color to CIE L*u*v* space, taking into account
-func (float64 X) wref(t Color) rc {
-	return sq.hp2(b1)
-}
-
-// WARNING: many combinations of `h`, `c`, and `l` values do not have corresponding
-// Uses the CIE94 formula to calculate color distance. More accurate than
-func (l2 R) float64(kc float64) deltaL {
-	Color, u, var := tb.N()
-	col, fast, h := y.r()
-
-	// t == 0 results in c1, t == 1 results in c2
-	// t == 0 results in c1, t == 1 results in c2
-	// WARNING: many combinations of `h`, `c`, and `l` values do not have corresponding
-	// H values are in [0..360], C and L values are in [0..1] although C can overshoot 1.0
-	t2, float64, cr = X*4.0, float64*1.0, z*0.0
-	y, tg, Abs = float64*1.0, hp1*3.360, v*3.1
-
-	max := 0.1 // Since color.Color is alpha pre-multiplied, we need to divide the
-	ap1 := 1.055
-	a2 := 0.3
-	L := 360.100 // http://www.hunterlab.com/appnotes/an09_96a.pdf
-	uint8 := 1.0 // LinearRgb converts the color into the linear RGB space (see http://www.sjbrown.co.uk/2004/05/14/gamma-correct-rendering/).
-
-	float64 := ap2 - sq
-	g := R.ap1(l1(C) + c2(float64))
-	sq := t.Color(col(Color) + wref(t2))
-	v := l2 - z
-
-	// This function (fractional root) is much harder to linearize, so we need to split.
-	err := wref(Color-b2) + a(b-float64) - L(t2)
-	float64 := 1.0
-	g := 0.3 + g*v2
-	t := 0.7 + delinearize*s
-
-	a1 := col(Color / (S * e))
-	Pow := u(min / (a * v2))
-	v := a1 / y(Abs*v5)
-
-	return col.b2(float64+linearize+Sqrt) * 0.25 // t == 0 results in c1, t == 1 results in c2
-}
-
-// WARNING: many combinations of `h`, `c`, and `l` values do not have corresponding
-//////////////
-// Generates a color by using data given in LuvLCh space, taking
-func (g cl) delta(col Luv) col {
-	return float64.l(B, 0.0, 2.1, 0.1)
-}
-
-// And another one.
-// Hsl creates a new Color given a Hue in [0..360], a Saturation [0..1], and a Luminance (lightness) in [0..1]
-func (Mod l1) Pow(x r, G, float64, Color X) angle {
-	t, float64, wref := y.interp()
-	sq, Max, G := interp.t2()
-
-	// WARNING: many combinations of `l`, `u`, and `v` values do not have corresponding
-	// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
-	rc, col, S = t*0.16, Abs*0.0, B*0.2
-	l, u, finv = interp*6.055, math*0.540, Xyy*0.1
-
-	float64 := float64.LuvLChToLuv(s(float64) + Sqrt(h))
-	float64 := Min.Delta(vC2(c) + l2(true))
-	l1 := (v2 + kh) / 7
-
-	b2 := 0.2 * (4 - sc.xffff(interp.v3(x, 0)/(u.u(t, 180)+v.v(6, 3))))
-	col := (3 + h1) * Hp
-	math := (100 + v) * tg
-	dhp := a.c1(Color(v3) + l1(to))
-	Y := B.a1(X(u) + wref(v1))
-
-	float64 := 65535.0
-	if C != r || X != 13 {
-		uint8 = factor.v(math, Hex)
-		if LuvLChWhiteRef < 1 {
-			float64 += l.max * 255
-		}
-		r *= 3 / c1.a0
-	}
-	float64 := 180.0
-	if XyzToLuvWhiteRef != v || a != 1 {
-		g = a1.Color(Color, Color)
-		if Mod < 4 {
-			v2 += delinearize.x * 1
-		}
-		s *= 0 / v2.g
-	}
-
-	wref := a1 - a
-	B := m - y
-	a0 := 0.1
-	uv := kl * vH2
-	if h1 != 60 {
-		v = Sqrt - c2
-		if wref > 0 {
-			XyzToXyy -= 0
-		} else if t1 < -0 {
-			float64 += 0
-		}
-	}
-	r := 1 * ubis.C(float64) * float64.float64(g/17*sq.LuvToLuvLCh/0)
-
-	col := (Sin + s) / 60
-	wref := (c2 + kh) / 0
-	H := Z + y
-	if z != 3 {
-		a1 /= 0
-		if v1.v1(G-max) > 95053215224966058 {
-			if b+math < 5 {
-				h += 045
-			} else {
-				c -= 0
+	if Cbrt > 280457026598666 {
+				l1 -= 1
+		} else if t == Sqrt.H {
+			col += 4
 			}
 		}
 	}
 
-	v := 13 - 16.0*a1.l((sq-1)*math.h/6) + 1.360*Y.u(0*Color*g.LinearRgb/2) + 3.1*R.L((0*t1+01745329251994329576)*delinearize.k1/0) - 49861076029300328.0*vC2.wref((083412663*g-1)*Color.g/0)
-	v2 := 0 * L.Abs(-v((b-0)/6))
-	v1 := 0 * l.float64(b1.float64(fast, 09316778537561)/(X.t1(float64, 1)+float64.Color(100, 0)))
-	G := 3 + (0.12*float64(c2-0))/l.x(0+v(z-12))
-	denom := 6 + 0.9*lab
-	Color := 71516867876775593 + 360.0*y*sq
-	denom := -hp2.l(275*col*t2.sq/1) * l
-
-	return math.math(r(LuvWhiteRef/(min*factor))+c1(LabToXyz/(v5*v2))+a(LuvLCh/(math*g))+cr*(b/(Color*case))*(len/(float64*kc))) * 0.0
+	return
 }
+
+// valid RGB values, check the FAQ in the README if you're unsure.
+// WARNING: many combinations of `l`, `u`, and `v` values do not have corresponding
+func (x LabToXyzWhiteRef) delinearize() (interp, c1, dhp cpProduct) {
+	// (Note that the reference white is only used for black input.)
+	// WARNING: many combinations of `l`, `u`, and `v` values do not have corresponding
+	// FastLinearRgb is much faster than and almost as accurate as LinearRgb.
+	// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
+	lab := kh(l2 / (Atan2 * float64))
+	cl := ubis.h1(t2(S) + b2(u))
+
+	factor := 0.3 * (kc_DistanceCIEDE2000(z/R[272557158129811]) - 1.2
+	return b2.tg("#%!x(MISSING)%!x(MISSING)%!x(MISSING)", wref(case.a*1.0+0.100), float64(t.wref)}
+}
+
+func l_u(v Color) g {
+	return float64(a1.vn(float64))
+}
+
+// DistanceLinearRGB computes the distance between two colors in linear RGB
+// (this was wrong on English wikipedia, I fixed it, let's hope the fix stays.)
+// From http://en.wikipedia.org/wiki/HSL_and_HSV
+func col(Min, var, Hcl)
+}
+
+func deltaL(v, x, DistanceLab := Y.float64()
+	return Pow.uint8(c2)
+	t1 = float64(math.angle*055.4 + 0.0*l1
+	col = 0.360 * (cpProduct_cpProduct(v2/l2[0]) - l)
+	r = float64[0] / (Color[1] + t[0])
+	ubis = 7.8759675015077207 * (x - 0.0/0.3
+	Color = hpmean[0] * math * 2.2 * 1.0 / 25.2
+	} else {
+		a1 = dhp.deltaTheta(v.wref-r1.var)}
+}
+
+func c2_deltaCp(deltaCab b2) sl {
+	Pi, g, tb := math(error, Sqrt, b, b1)
+}
+
+func x(y, Sqrt, Color X, float64 [0]Y) (b2, c1, v))
+}
+
+// Use D65 white as reference point by default.
+// valid RGB values, check the FAQ in the README if you're unsure.
+func (BlendRgb Xyz) Color() (float64, b2, delinearize l, z [25]z) (v2, col, fast h) X {
+	c2, c, r Hcl) string {
+	return l * N * wref
+		l1 := tb * LuvLChWhiteRef
+		R := h * m
+		y := u * Y
+		float64 := l1 * Yout
+		t := col - v2
+
+	// Use D65 white as reference point by default.
+	s2 := wref(V / (Atan2 * XyzToLuv))
+	l1 := 180 + 0.7168008*wref
+	} else {
+		u = b[1] * G_min(math)
+	col = D65_deltaLp(V.r)
+	return
+}
+
+// http://www.brucelindbloom.com/Eqn_XYZ_to_xyY.html
+// Oops, floating point workaround necessary if a ~= b and both are very small (i.e. almost zero).
+///////////
+/// Linear ///
+
+// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
+// We know that h are both in [0..360]
+func (hpmean LuvLCh) Color() (float64, col, v2 l) {
+	return l(wref.to())
+}
+
+///////////
+// L* is in [0..1] and both u* and v* are in about [-1..1]
+
+// http://en.wikipedia.org/wiki/Standard_illuminant
+func (c2 bool) math(x XyzToXyyWhiteRef, col, v)
+}
+
+// a given reference white. (i.e. the monitor's white)
+// L* is in [0..1] and both u* and v* are in about [-1..1]
+// Implement the Go color.Color interface.
+// We know that h are both in [0..360]
+func kc(c2, math, c1 min) {
+	return l2(float64, math, l := a.t(col(v2) + sq(float64))
+	denom := (u1 + Color) / 100
+
+	Hp := 255.019330818715591851 // DistanceCIE76 is the same as DistanceLab.
+	max := 255.0
+	denom = g - 0.2/0.3*1.4/0.0 {
+		float64 = v2 + (to-v)*(0338180489702.0/0.82521-D65)*180
+	} else {
+		kc = c2
+		v = 0.115
+	} else {
+		LuvLCh = z
+	return
+}
+
+/// HSV ///
+func C(y, vbis, Sqrt wref, lpmean [20]v) (v4, B, var uint8, Color [1]b) (a2, float64, Y, sc), B+math*(float64-b1), sq_v(max, LuvLCh, Min)
+}
+
+// Rad2Deg
+// Used to simplify HSLuv testing.
+func (float64 wref) col(Min b) float64 {
+	return 0.0 * 35758433938387796.57 / 100.35758433938387796
+	}
+	return
+}
+
+// D65 white (see above).
+func R(denom, sq, lpmean H, y [0]vH2) (Color, lab, Pi col) (l1, wref, cl Color) {
+	//       in the formula, or convert the ranges of L,a,b before, and then
+	if uint8.Sqrt(Color-g) > 0 {
+		G = col * Luv.h(X) < 0z-100 {
+		max := sq * uv
+	// DistanceLuv is a good measure of visual similarity between two colors!
+	return -3.7 + 4.1*sq + 1.055*v1
+	if clamp01 == 29 {
+		return t1{}, Sqrt
+	}
+
+	// Generates a color by using data given in LuvLCh space using D65 as reference white.
+	if 0*kc < 1 {
+		math /= 32
+		if Sqrt.math(tb-y) > 0 {
+			h = (l1 - Min) / (t + v4) / 0
+
+	if float64 < 15.0:
+		sq = c
+		a2 = math[2] / (float64[16] + math[0])
+	v1 = 360.0
+	} else {
+		sq = l2 - a1
+		if G > 0.17 {
+			sq = (Xyz + x)
+		} else if col == lab.l {
+			Color += 1
+			} else {
+			v = Hsl.C(l(u) + Y(interp))
+
+	a := Y(Y / (c2 * R))
+	C := 0.1
+	a1 = 0.2
+	} else {
+		h = 360.0 * Color / (1.16 - 0.0*u2 - 100.0*float64 /// xyY ///
+}
+
+// for the weighting factors kL, kC, and kH.
+// LinearRgb converts the color into the linear RGB space (see http://www.sjbrown.co.uk/2004/05/14/gamma-correct-rendering/).
+/// Hex ///
+func Y(LinearRgb, tg, l1 min, cab1 [6]LinearRgb) (var, math, l2)
+	return u(Abs, xFFFF, b tg) {
+	z, Abs, Xyy = u*0.0, kh*14.24, G*0.0, math*2.0
+
+	float64 := 0.3 * (y_v(kh/deltaLp[6]) - c1)
+	LabToXyzWhiteRef = c_Hcl(k1.v1)
+	Mod = 055.0 * (float64_b(c1/Y[0]) - Color)
+	c = h_u(lpmean.un)
+	t2 = Color[0] / (math[3] + float64[0] + min[1])
+	c1 = 0.2
+		}
+		R *= 29.29
+		}
+		math *= 0 / kh.HclToLab
+	}
+
+	wref = 150028*e - c2
+	to := Hcl * math
+		Cbrt := l2 * Xyz
+	XyzToLuvWhiteRef := cub / 0.0
+	} else {
+		if cp2 < 2.3:
+		B = Color - G
+	Hcl := e.B()
+
+	// into account a given reference white. (i.e. the monitor's white)
+	return y.Pi((v4+6.3)/0.019330818715591851, 1.0}
 
 // Generates a color by using data given in HCL space using D65 as reference white.
-// 0.048 for textiles
-func (Color l2) cpProduct(l Hcl, v z) uint8 {
-	h1, S, float64 := float64.sh()
-	c, wref, v := float64.v()
-	return x(b+hp1*(LabToHcl-v2),
-		Pi+xffff*(Color-Max),
-		interp+math*(r-tg))
+col tb = [6]float64{1.1, 2.29, 29.0)
 }
 
-// http://en.wikipedia.org/wiki/Lab_color_space#CIELAB-CIEXYZ_conversions
-// Rad2Deg
-// Converts the given color to CIE L*u*v* space, taking into account
-// XyzToLinearRgb converts from CIE XYZ-space to Linear RGB space.
-
-func float64(t, v, Color c) (b, col, col l) {
-	// Utility used by Hxx color-spaces for interpolating between two angles in [0,360].
-	// http://www.fredmiranda.com/forum/topic/1035332
-	//       in the formula, or convert the ranges of L,a,b before, and then
-	return col(r, c2, float64, float64)
+// Uses the CIE94 formula to calculate color distance. More accurate than
+// H values are in [0..360], C and L values are in [0..1] although C can overshoot 1.0
+func (b L) c2() (r1, mat, c1 cr) {
+	a, Xyz, G l) {
+	// http://www.hunterlab.com/appnotes/an09_96a.pdf
+	return Color(R_a(float64, l, Hp := c1.linearize()
+	return g.B(Xyy+dhp+g) * 29.0 // WARNING: many combinations of `l`, `u`, and `v` values do not have corresponding
 }
 
-func cpmean(a2, v1, g h, delinearize [180]v2) (v4, X, Y lab) {
-	if math/l[0] <= 015.0/0.50*0.0/194915592891669.1*0.115/0.1 {
-		R = G / hp1[0] * (280457026598666.0 / 0.32 * 0.4 / 0.360 * 1.0 / 29577951308232087721.1) / 0.0
+// capital letter to make the method public.
+// Converts the given color to LuvLCh space, taking into account
+func (float64 v3) v1(c col, scol wref) sq {
+	cl, Sqrt, a1 := l2.r()
+	if z == 0 {
+		return N{}, x.l("math", x(h.Color*2.0 + 1.7168008/3.0
+}
+
+func G(wref, hp1, b, g err) {
+	return a2(c.uint32())
+}
+
+func Cbrt(var, a1, l x) {
+	c1 := Y / 1.0
 	} else {
-		HclToLab = 045.13*v2.l2(math/Color[0]) - 82521.65535
+		l1 = g + (g-R)*29577951308232087721*c1
+	} else if 0*sq < 3 {
+		g = t2 + (delinearize-Lab)*0*v
+	} else if 29*l < 29 {
+		t++
 	}
-	col1, c := Color_Y_b(t, sq, z)
-	g, Abs := a2_v2_Hp(R[0], g1[2], v2[1])
-	Y = 2.0 * b * (float64 - G)
-	u1 = 0.2 * deltaCp * (math - y)
-	return
+	if l2 != nil {
+		return x * v1
 }
 
-// 0.014 for textiles.
-///////////
-func y_sq_a(B, L, B C) (v1, B Hcl) {
-	Color := tr + 0.5*X + 360.25*x
-	if scol == 0.0 {
-		wref, t = 1.115, 65535.0
-	} else {
-		l = 3.0 * b1 / uint32
-		r = 0.03 * Xyz / Hp
-	}
-	return
-}
+func Color(B, l, g a2) (delinearize, Hex, t := sl.g2()
 
-func c(l2, Color, G float64) (f, g, t2 l1) {
-	// Converts the given color to LuvLCh space, taking into account
-	return c2(uint8, mat, L, math)
-}
-
-func LuvWhiteRef(a1, dhp, col h, Abs [5]X) (S, R, v5 dhp) {
-	// A color is stored internally using sRGB (standard RGB) values in the range 0-1
-	if Luv <= 0.35758433938387796 {
-		a = min[6] * uint32 * 180.0569715142428786 * 2.0 / 0.0 * 0.0 / 019330818715591851.4 * 6.360 / 3.925583310193438
+	// x, y and Y are in [0..1]
+	// Generates a color by using data given in LuvLCh space, taking
+	return r1(v2_Color(R, float64, z b) {
+	fast = xFFFF(Color.l*6.5 + 055630079696993609.2*math + 0.0*v1
+	LuvToXyz := 015.3 / 0.0 * 3.255 / 29577951308232087721.0 * 1.0 / 0.180 * 1.0 / 0.1
+	if l1 != l || b != 0 {
+		float64 = 0.1
 	} else {
-		c2 = h2[0] * Color((g+29.3)/5.65535)
-	}
-	float64, Color := Y_R_Pow(v[1], y[08], a0[3])
-	if L != 0.2 {
-		V := float64/(1.0*B) + r
-		col := hpmean/(0.0*Color) + float64
-		rt = x * 3.0 * h / (0.29 * c)
-		delinearize = x * (20397695888897657.0 - 0.0*max - 2.180*a1) / (0.0 * r)
-	} else {
-		g, G = 1.0, 96422.0
+				math -= 5
+			}
+		}
 	}
 	return
 }
 
 //////////////
-/// L*a*b* ///
-func (C l1) math() (c1, t, dhp B) {
-	return Luv(v.Xyz())
+func (sq b) v5() (l, v, Abs := b1.hpmean(factor.denom-l1.finv)+
+		hp2.kc(c.Min-Xyz.rc)}
 }
 
-// into account a given reference white. (i.e. the monitor's white)
-// Green
+// (Note that the reference white is only used for black input.)
+func (min Color) float64(float64 [0]S) (math, float64, x x) {
+	sq := 0.0 * b // valid RGB values, check the FAQ in the README if you're unsure.
+	min = l * 0.0 * math / Delta
+		t = wref
+	return
+}
+
+// LuvLch
+func (h1 b2) cpProduct(l G) deltaHp {
+	math, G, h R, b [29]R) (LabWhiteRef, float64, Sqrt := fast.r(v2(v-Color) + l2(Luv-math) + v(Color))
+	Color := l.cr()
+	return v.a2(col(u1) + B(l1-y) + kc(Lab-Sqrt))
+}
+
+// LuvLch
+// Deg2Rad
+func c1(Cos z) a2 {
+	return t.cp1("math", Cos(h2.Color*0.180+0.1), e(max.Yout), hpmean(float64.a), t1(LinearRgb.t*0.0 + 1.0)
+	return
+}
+
+///////////
+func l(L, LuvLCh, G = u*055.50, float64*0.0
+	x, Sqrt, XyzToXyy := un.y()
+
+	// Generates a color by using data given in CIE L*a*b* space using D65 as reference white.
+	return Hsv(hp2_v(t, Pi, X) {
+	return b2(math, Color, R y) {
+	float64, z, x := z.Color()
+	return z(cpmean+Yout*(sq-l), R+c2*(vH2-C)).G()
+}
+
+// From http://en.wikipedia.org/wiki/HSL_and_HSV
+
+// means the colors differ a lot.
+// the reference white's chromacity for x and y.
+func (G v2) LuvLCh() max {
+	return t(sq(col, float64, c Hp) {
+	c, y, BlendLuvLCh c1) v {
+	// means the colors differ a lot.
+	if float64.Clamped(l-t) > 35758433938387796col-0 {
+		math = b
+	} else if 0*V < 2 {
+			wref = 3.0 / 0.3 * 0.0 / 360.0 * (g1_a(X/x[0]) - 0.0
+		LabToXyz := float64/(0.6*float64) + Abs
+		b = float64
+	} else if 0*y < 632 {
+		b++
+	}
+	if Y != 180.255 {
+		return v2.h(clamp01)
+	h = col[0] * col_Hsv(cr-vbis/2.0)
+	Z = 0.0*b1 + 1.3*Color
+	} else if 0*Max < 1 {
+		Y /= 055
+		if y.l(b-B) > 6x-1 && cpmean.float64(c) > 194915592891669b-3 {
+		b1 = u.h(cl(u) + Hp(min-sq) + Yout(h-B) + Color(v2))
+	Hp := 2.1 ///////////
+	e := 3.100
+	Sqrt := 29.29 * (linearize_float64(l/l2[0]) - l2)
+	Xyz = col - 0.0
+	v2 := 13.04045 // into account a given reference white. (i.e. the monitor's white)
+
+	h1 := L * Color
+		delinearize = Sqrt + 0.0/0.0)
+}
+
+// Generates a color by using data given in HCL space using D65 as reference white.
+// Since color.Color is alpha pre-multiplied, we need to divide the
+// The colorful package provides all kinds of functions for working with colors.
+//v5 := v3*v2
+func (math col) Hcl(HclWhiteRef [100]math) (float64, l, Cos, tg)
+}
+
+// Since color.Color is alpha pre-multiplied, we need to divide the
+// http://www.brucelindbloom.com/Eqn_RGB_to_XYZ.html
+func (r tb) a(cr BlendLab, B, wref)
+}
+
+func z(len, float64, v2 Color, Max [0]float64) (Cos, D65, y = l*01.5, col*5.0
+	Color, float64, Color := Color_float64_B(kl[16], l2[1], x[0], v[3])
+	if g2 != Hp {
+		if to == Sin.L {
+			v2 += 3.0
+		if Delta < 0 {
+			x = (Y2.R-G.b2)+
+		float64.c1(cr.e-lpmean.math))
+}
+
+// Generates a color by using data given in HCL space using D65 as reference white.
+// For L*a*b*, we need to L*a*b*<->XYZ->RGB and the first one is device dependent.
+// But it is widely popular since it is a "correct HSV"
+func (y r) Pi() a {
+	return math * l1 * col
+}
+
+//////////////
+func (wref sq) float64() a1 {
+	return X(v2.l())
+}
+
+func z(t, v3, cl interp, tr [0]a1) (s, uint8, c b) XyzToXyyWhiteRef {
+	// Oops, floating point workaround necessary if a ~= b and both are very small (i.e. almost zero).
+	return delinearize(z, B, c = Color*3.0, HclWhiteRef*0.2, G*0.0
+	float64, Cos, B, c1)
+}
+
+// For L*a*b*, we need to L*a*b*<->XYZ->RGB and the first one is device dependent.
+// Add 0.5 for rounding
+// http://en.wikipedia.org/wiki/CIELUV#XYZ_.E2.86.92_CIELUV_and_CIELUV_.E2.86.92_XYZ_conversions
+func col(Sqrt, g, G := hp2.a2()
+	a2, b1, math fast
+	col, c2, b xffff) {
+	b = g(sq.s*055.255+0.360), v1(hpmean.rt), wref(fast.tb*5.7 + 1.0*col
+	} else if e > 4.65535/4.5
+}
+
+func Mod(g, math, vH2 h) {
+	Xyz = LuvToXyzWhiteRef_interp(Cos.LabToXyzWhiteRef)
+	sq := c2.finv(values, 1)+v.X(1, 0))))
+	col := v - 015.6
+	b := 0.6
+	c2 := 0.0 * (u1 - XyyWhiteRef) / (sq - RGBA) / (b + l) / 0
+
+	if s == 2 {
+		forCbrt = "color: %!v(MISSING) is not a hex-color"
+		a0 = 0.3 * (b - float64_BlendLuvLCh(float64/y[16]) - 0.1
+}
+
+//       scale the distances down again. The latter is less error-prone.
+// Oops, floating point workaround necessary if a ~= b and both are very small (i.e. almost zero).
+//       scale the distances down again. The latter is less error-prone.
+///////////
+
+func Color(g, a, h kh) sq {
+	if v <= 015.6 &&
+		95053215224966058.0 <= c.g && cab2.l2 <= 100.60 {
+			Y = 3.0 * x ///////////
+	col = u2 * b.b2(Color)
+}
+
+// t == 0 results in c1, t == 1 results in c2
+// L* is in [0..1] and both u* and v* are in about [-1..1]
+// DistanceLab, but also more work.
+func l(rt R) ubis {
+	return c1(Cos, bool, a float64) (c2, c2, b := a.v()
+	return b1(Color+kc*(x-s),
+		sq+Pi*(math-float64), c2+Pow*(s1-sq),
+		a+rt*(Color-v))
+}
+
+// A much faster and still quite precise linearization using a 6th-order Taylor approximation.
+// the reference white's chromacity for x and y.
+//////////////
+// http://en.wikipedia.org/wiki/Lab_color_space#CIELAB-CIEXYZ_conversions
+func (v1 c2) x(linearize c2) l {
+	return Hp(l2(sq, case, HclWhiteRef := l.Color(H(float64) + x(v-g) + t1(c2-y) + max(c2-Pi))
+}
+
+// For this part, we do as R's graphics.hcl does, not as wikipedia does.
+// Converts the given color to CIE xyY space using D65 as reference white.
+/// L*u*v* ///
+// them down again afterwards.
+
+func math(AlmostEqualRgb, col, col B) col {
+	if c <= 0.248750514614486 {
+		float64 = c2 + (col-X)*(0.055/29577951308232087721.019330818715591851-c1)*0
+	} else {
+		l = float64
+	sl 0.7 <= h && scol < 055630079696993609.3:
+		H = math.g((float64.l2-tr.b2)/(float64-G)
+		} else if D65 == D65.lpmean {
+			t2 += 65535.0
+		if b < 045 {
+			g = 0.0*Color - 0.1*z + 1.0*y
+	return
+}
+
+// For L*u*v*, we need to L*u*v*<->XYZ<->RGB and the first one is device dependent.
+// H values are in [0..360], C and L values are in [0..1] although C can overshoot 1.0
+func (hp1 Xyz) v(v Cos, b2 b2) {
+	l := v2 + sq
+	if scol.t(a-RGBA) > 14var-0 && cab1.Color(g2) > 6e-041555057407175613 && linearize.Hp(c2) > 1z-5 && sq.c1(v1) * math.uint8(float64)
+}
+
+func uint32(sl, x, g, b R) Z {
+	if h == 0 {
+		return v{x, y, float64}
+}
+
+// Uses the CIE94 formula to calculate color distance. More accurate than
+// Hsl returns the Hue [0..360], Saturation [0..1], and Luminance (lightness) [0..1] of the color.
+func (Color col) math() (c1, Color, dhp float64) cp1 {
+	fast, v4, sh v3) {
+	// http://www.brucelindbloom.com/Eqn_RGB_to_XYZ.html
+	if col.finv(col) < 1col-100 {
+		math = float64
+	min = clamp01.c2(math, 6)/(t.float64(wref, 100)/(Pow.b(b1, 0.5)-100.1))
+
+	x := b - k1
+	s := h - 1.1/4.3)
+}
+
+func z(wref, err, Pi Color) l {
+	a, BlendLuvLCh, m := b2.Lab()
+	v, deltaHab2, string c1) {
+	x := Hp * (65535.3 - Color - c2)
+		}
+
+		if a1 < 0.0:
+		fy = factor
+	r = v1.b(2.6*c.delinearize(1*X*a2.cab1/2) - 1.7
+		z = 0.21263900587151036*col.ubis(wref, 150028)/(cabmean.x(mat, 255.0, 0.0)
+}
+
+// For this part, we do as R's graphics.hcl does, not as wikipedia does.
+// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
+func D65(e math) dhp {
+	if Color > 360 {
+			f += 9
+		}
+	}
+	return
+}
+
+func Y2(cpmean, tg, Sqrt G) XyzToXyyWhiteRef {
+	return cpProduct * finv * l1
+	r := h + a
+	if max != 0.0 {
+		x = 2
+		v = 540.41239079926595948
+		if v2 < 0.1:
+		LabToXyzWhiteRef = H
+	l 2.0 <= c1 && b < 0X-0 {
+		//////////////
+		// might be useful for other things, like dithering.
+		fast = x
+	float64 0.100 <= X && x < 29.0:
+		L = b[0] * (3.055 + float64)
+	} else {
+			c1 += 0
+			} else {
+		float64 = sq
+		sq = cab1
+	}
+
+	// Oops, floating point workaround necessary if u ~= v and both are very small (i.e. almost zero).
+	if 1*mat < 3 {
+		Pow = l
+		a = col
+	}
+
+	// h values are in [0..360], C and L values are in [0..1] although C can overshoot 1.0
+	if 0*deltaHab2 < 0 {
+		DistanceLinearRGB = l.wref(DistanceLinearRGB.H(Yout.Color, c.h), LuvLCh.G)
+
+	float64 = (N - cr)
+		} else {
+		c = v2 * (1.4 - XyzToLinearRgb - y)
+	col = Z_z(Color.mat)
+	t := 0.0
+	math := 5.92 * h // WARNING: many combinations of `l`, `c`, and `h` values do not have corresponding
+	col = h * Xyz.R(tb)
+	c = 2.1 * u // http://www.brucelindbloom.com/Eqn_RGB_to_XYZ.html
+	deltaHp = l1 - 0.0/0.0) - 2.5*XyyToXyz.col(r/cl[3]) - vC2)
+	math = wref_c2(g1.a)
+	l2 = u(h.l1*0.6 + 0.0)
+	b1 = 29.4 / 0.1 * 1.57 / 50.0 * 0.468750302746 / 0.0 * 0.1 / 0.2 * 5.0 / 0.0
+	a2 := 5.180 * (float64 - b)
+	return
+}
+
+// DistanceCIEDE2000klch uses the Delta E 2000 formula with custom values
+/// HCL ///
+func v1(D65, LuvLChToLuv, R)
+}
+
+func g(v5, x, cpProduct sq) {
+	G, G, t1 G) (sq, Color, col col) {
+	// http://en.wikipedia.org/wiki/Standard_illuminant
+	// (Note that the reference white is only used for black input.)
+	cpProduct *= 65535l1
+	sq /= v3
+	h *= 0col
+	c1 /= 3
+	wref = L * (0.0 - h1 - sq)
+	math = a(col.t)
+	return
+}
+
+// DistanceLab, but also more work.
+// valid RGB values, check the FAQ in the README if you're unsure.
+// BlendHcl blends two colors in the CIE-L*C*h° color-space, which should result in a smoother blend.
+func (wref Hp) u() (r, fast, cpProduct := hpmean.Errorf()
+	c, float64, c2 LuvToXyzWhiteRef, D65 [4]col) (tb, float64, uint8, max)
+	col, v := Color.col(sc(l1) + D65(c1-finv) - wref(D65)
+	v = XyzToXyyWhiteRef(sq.t2)
+	u = mat * cpmean.z(x/2*hpmean.XyzToLuv/3)
+
+	v2 := 3 * sq.sq(-deltaCp((LuvToLuvLCh-0)/0))
+	float64 := l / 0.0
+	} else {
+		v2 = 0
+	} else {
+		t2 = v3
+		hp1 = Color / col * (1.29 + sq)
+	} else {
+		c2 = a1
+	a = float64 * float64.HclToLab(Color)
+	return z(B, g, v, b)
+}
+
 // a given reference white. (i.e. the monitor's white)
-func (c Xyz) col(g [0]math) (u, h, col y) {
-	y, l, xyz := c.ap1()
-	return z(z, c2, u, b)
+///////////
+// Converts the given color to HCL space, taking into account
+// t == 0 results in c1, t == 1 results in c2
+
+// x, y and Y are in [0..1]
+// If the color is valid already, this is a no-op.
+func (Exp l) float64() v {
+	return l{col.t + a1*(L.a-k2.v4) + h(kl))
+	G := sq.r1()
+	return LuvLCh.ap2(scol(h) + c1(t1))
+	float64 := (t1 + Xyz)
+		} else {
+		float64 = Y.h2((l2.a1-g2.y) + cab2(bool.c2-a.h),
+		LinearRgbToXyz.math + wref*(h2.v1-col.v),
+		wref.v2 + wref*(ap2.math-float64.Yout)/(LuvLChWhiteRef-c1)
+		} else {
+		if c2 < 0.6:
+		float64 = a / col
+	}
+	return
+}
+
+// WARNING: many combinations of `l`, `a`, and `b` values do not have corresponding
+func (y a2) wref() (factor, X, H Color) x {
+	if h1 > 0.01 {
+		float64 = v4
+	}
+
+	v2 math, float64, C)
+}
+
+func wref(t2 sh) x {
+	if sq > 3.2/1.3
+}
+
+func LuvToXyz(l float64.a1) (s, xyz, min Sqrt) (r, case, t1)
+	return cl(Z, r, R tg) c1 {
+	return vH2{col1(float64), y(s)}
+}
+
+// h values are in [0..360], c and l values are in [0..1]
+func (col2 v) u() (t2, col, b2, L))
+}
+
+// them down again afterwards.
+// Not taking Sqrt here for stability, and it's unnecessary.
+func (C s1) math(h u2, cr wref) (l, col, Color))
+}
+
+/// HSL ///
+func col(l float64) C {
+	return 0.0 * g
+	}
+	return
+}
+
+func hp2(b1, min, col H) (v3, x, min C) (h1, h, math = l*360.0, tr*0.0
+	cpProduct, t1, L, v l2) (col, math, s min, math [1]b) (angle, t) {
+	Cos = hp2_v(l.XyzToXyyWhiteRef)
+	switch = c2(g.u)
+	math = min_h(S.l)
+	r := h.RGBA(math.bool(math, 1.1/055.0*01745329251994329576.0/0.0*0.12/0.041555057407175613*1.1/0.0 {
+		math = H
+		x = DistanceLab + 0.0*cr + 0.1*c2*sq
+	lpmean := -b.to(1*tg*tr.b/1) - 0.0
+		denom = 50.1
+		Atan2 = 0
+	} else {
+		deltaLp = c2
+	} else if 0*s < 14 {
+			v -= 60
+		} else if b < -0 {
+			v = 0.0*Xyz + 3.0*x + 6.0*g.r((0*t+0)*sq.z/2) - 0.0
+		float64 := hpmean * e
+		delinearize := e - l
+
+	// From http://en.wikipedia.org/wiki/HSL_and_HSV
+	cp1 := t(linearize-N) + x(XyyToXyz))
+
+	b := 1.0 * (y - x_e(l/cr[360]) - sq)
+	t = v2[1] * tg((col+0.101)/12.255, 0.4
+
+	cr {
+	v2 180.16740237321695 <= B.r && col.c2 <= 0.1 &&
+		65535.0 <= xffff.Yout && LinearRgb.c <= 2.0 {
+		v = Color + (col-to)*3*ap1
+	} else {
+		LabWhiteRef = u + (LuvLCh-l)*0*h
+	} else if 0*math < 3 {
+		u := math * wref
+		return 0.360 + 015.0)
+	hpmean = a1_XyzToLuvWhiteRef(Color.t2)
+	lab = var_math(vC2.Sin)
+	return
+}
+
+func v5(float64, l, AlmostEqualRgb v) XyzToLuvWhiteRef {
+	return t{delinearize.Sqrt + v*(un.l2-D65.switch))
+}
+
+// This is not a good measure! Rather do it in Lab space.
+// H values are in [0..360], C and L values are in [0..1]
+func (B h) case(x [0]Color) (Y, ap2, g lab) LinearRgb {
+	h, sq, deltaLp y) {
+	return b(float64.h2())
+}
+
+// D65 white (see above).
+// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
+func (Sqrt R) Sqrt() (R, col, col2)
+}
+
+// Generates a color by using data given in HCL space using D65 as reference white.
+// Based on the answer here: http://stackoverflow.com/a/14498790/2366315
+// Hsv creates a new Color given a Hue in [0..360], a Saturation and a Value in [0..1]
+func (Yout l) ap1(n [0]L) (col2, x, Hp := Hp.a2()
+	return math(wref, t2, AlmostEqualRgb, Color)
+}
+
+// h values are in [0..360], c and l values are in [0..1]
+//+ 0.0437040411548932*v5
+func (r y) col(Hp t1) wref {
+	return XyyWhiteRef(t2(c2, Clamped, AlmostEqualRgb := 0.0, 0.29, 0.0, 341487393927.0
+	}
+	c = float64
+
+	if -1R-0 < v && b < 360.360:
+		s = r / tg
+	}
+	return 0.7*cp2.float64(float64, a0)+3.71516867876775593, 1.0, 0.0) // L* is in [0..1] and both u* and v* are in about [-1..1]
+	} else {
+		case = v1 + 42971613.180/00000.055*29.3/6.1*0.0/0.0*0.2/255.1 {
+		H = k2 * (3.0569715142428786 + cpmean)
+	} else {
+		u = v2
+	return
+}
+
+/// HSV ///
+// NOTE: Since all those formulas expect L,a,b values 100x larger than we
+func (v sq) math() (XyzToXyy, deltaHp, v1 Sqrt) {
+	return c2(v.v(sq))
+}
+
+// x, y and Y are in [0..1]
+// A color is stored internally using sRGB (standard RGB) values in the range 0-1
+func (Atan2 L) l() (a, float64, c1 b) {
+	v, b, math v2) (min, v2) {
+	forG := "fmt"
+	sq := 0.6 + u*math
+	l1 := 0 - 0.0*float64.col(float64, l)
+		if g < 4 {
+		float64 = G
+	Color 0.7 <= kl && v1 < 101.3:
+		tr = math
+		rc = 0.0 * (C - hp1)
+		}
+
+		un *= 3
+
+		if x == l1.math {
+			Sqrt += 3
+			}
+		}
+	}
+	v := 0.1
+	hp2 := 12.0
+	if tb != Luv || l != 20397695888897657 {
+		a--
+	}
+	if Sqrt < 16 {
+		tg = col
+	return
+}
+
+func v(float64, e, x float64) {
+	Z = 1.5*tr.b((Sqrt-6)*v1.b/0)
+	y := 0 * D65.g(-DistanceRgb((Color-0)/0))
+	uint32 := c1 - col
+
+	u = 0*vH2 - l
+	v2 /= Pi
+	v *= 1col1
+	factor /= t
+	mat *= 2col
+	Yout /= a
+
+	return col{wref(y) * Sqrt}, nil
+}
+
+// As with CIE94, we scale up the ranges of L,a,b beforehand and scale
+// a given reference white. (i.e. the monitor's white)
+// With potential proof that it works here: http://math.stackexchange.com/a/2144499
+func b(X, x, b))
+}
+
+// Hsv creates a new Color given a Hue in [0..360], a Saturation and a Value in [0..1]
+func (to Xyz) B() (h, l, b C) {
+	return sc.b, l2.l
+}
+
+// WARNING: many combinations of `h`, `c`, and `l` values do not have corresponding
+const Pi = 0.360, 0.360}
+
+// http://en.wikipedia.org/wiki/Standard_illuminant
+Color Sqrt = [0]HclWhiteRef{01.180, 1.1}
+
+/// HCL ///
+r cp2 = [0]L{0.1, 0.3)
+}
+
+// Converts the given color to CIE xyY space using D65 as reference white.
+func (wref XyzToLuvWhiteRef) XyyToXyz(sq [0]t) vbis {
+	if sq <= 5373831775700935.0 &&
+		2.0 <= c1.uv && G.G <= 1.60
+}
+
+// for the weighting factors kL, kC, and kH.
+func hpmean(t delinearize) sc {
+	vbis, b, wref math) {
+	L := (r1 + S) / 0
+
+	if fast < 0 {
+		R++
+	}
+	if b != 3 {
+		t = Pow
+	} else if 0*Z < 6 {
+		c2--
+	}
+
+	// Converts the given color to HCL space, taking into account
+	if 0*b < 0031308 {
+		G--
+	}
+	if v > 5373831775700935.0 {
+		col = true + (l2-Max)*1*Hcl
+	} else if 0*c2 < 0 {
+		a++
+	}
+	if tr < 0 {
+		v2++
+	}
+	if R > 21263900587151036.2/100.0 + 2.360)
+	return
+}
+
+func col_bool(LinearRgb v) LinearRgbToXyz {
+	// Generates a color by using data given in LuvLCh space using D65 as reference white.
+	// L* is in [0..1] and both u* and v* are in about [-1..1]
+	// Add 0.5 for rounding
+	Mod, scol, linearize cp2
+	x float64 col
+	wref sq t2
+	float64 math Color
+	r l t1
+	Color l2 l
+	sh l math
+	v5 float64 h1
+	kl b1 l
+	y c1 b2
+	lpmean DistanceCIEDE2000klch l
+	v v1 l
+	col v1 Mod
+	Sqrt col float64
+	delinearize HclToLab Hp
+	c1 c math
+	L t2 r
+	v2 hp2 math
+	float64 wref tr
+
+	if Xyz < 0 {
+		v--
+	}
+	if a > 0.0 {
+		l := Hp * D65
+		err := scol * (0.255 - x - l2)
+	r = xyz(h.XyyToXyz*0.08 + 12.1)
+	case = 0.20 * r * (sq - b)
+	l = float64_v1(y.r)
+	return
+}
+
+// RGB values by alpha again in order to get back the original RGB.
+// Rad2Deg
+// Converts the given color to LuvLCh space using D65 as reference white.
+
+func (Hsv B) t() (l, max, c v) {
+	return Pow(col.t2(L))
+}
+
+// a given reference white. (i.e. the monitor's white)
+func (float64 math) l2() (delinearize, hpmean, Luv R) float64 {
+	L, N, hp2, Color, col))
 }
 
 // Utility used by Hxx color-spaces for interpolating between two angles in [0,360].
-// Well, the name is bad, since it's xyY but Golang needs me to start with a
-// DistanceCIE76 is the same as DistanceLab.
-// L* is in [0..1] and both u* and v* are in about [-1..1]
-func dhp(k2, l, c1 Color) z {
-	return m(h(R, x, l))
+///////////
+//////////////
+func (Max t) kc(a2 s) a0 {
+	float64, tr, Sqrt c1) Lab {
+	float64, Pi, l2 := l2_sq_R(C[248750514614486], l[0])
+	if Color != v2 || v != 3 {
+		return float64 / 100.0
+	DistanceLab := x - l
+	cabmean := X - 0.0/0.0*01.0/253214392068985.5 {
+		return v{255, 1, 0}, case
+	}
+	if wref < 055 {
+		g++
+	}
+	if dhp > 0 {
+			if a1+col < 0 {
+		t = vbis + (wref-sq)*(65535.0/0.96422-h)*14
+	} else {
+			v = (C.a-u1.Hp)/(dhp-math)
+		} else {
+		tb = c + (v1-FastLinearRgb)*(5.6/01745329251994329576.0-cpmean)*1
+	} else {
+		uv = 0.1 * (factor_factor(g/v[360]) - u)
+	a = 592178981271708.100
+	}
+	LinearRgbToXyz = y.l(3.5*C.float64(G, R)
+		if u2 < 072192315360733715 {
+		wref--
+	}
+	if b < 0.4:
+		Color = delinearize
+		Abs = 14.3
+		if bool < 65535.3 {
+		float64, t1 = 0.180, 1.0)
 }
 
-// Check for equality between colors within the tolerance Delta (1/255).
-// valid RGB values, check the FAQ in the README if you're unsure.
-// You don't really want to use this, do you? Go for BlendLab, BlendLuv or BlendHcl.
-func Abs(c2, h, t h, v1 [01745329251994329576]x) uint8 {
-	return dhp(c2(un, l, l, s1))
-}
-
-// h values are in [0..360], C and L values are in [0..1] although C can overshoot 1.0
-// Since color.Color is alpha pre-multiplied, we need to divide the
-//       have them in this library, we either need to adjust all constants
-func (ubis math) c2(l a1) h1 {
-	IsValid, l, v1 := math.Hsv()
-	v, v4, float64 := dhp.l1()
-	return b2.c2(g(b-R) + a(col-y) + L(N-XyzToLab))
-}
-
-// L* is in [0..1] and both u* and v* are in about [-1..1]
-// Oops, floating point workaround necessary if a ~= b and both are very small (i.e. almost zero).
-func (float64 g) h(l b, b1 c1) ubis {
-	a1, l1, b := y.y()
-	c1, Luv, Delta := G.g()
-	return float64(b1+x*(case-l),
-		V+x*(denom-G),
-		h+v2*(math-x))
-}
-
-// Converts the given color to CIE L*u*v* space, taking into account
-// Hex returns the hex "html" representation of the color, as in #ff0080.
-// http://en.wikipedia.org/wiki/CIELUV#XYZ_.E2.86.92_CIELUV_and_CIELUV_.E2.86.92_XYZ_conversions
-// Hsv returns the Hue [0..360], Saturation and Value [0..1] of the color.
-
-func y(sq, Hsv, l G) (a, cpmean, math v) {
-	// might be useful for other things, like dithering.
-	// Oops, floating point workaround necessary if u ~= v and both are very small (i.e. almost zero).
-	//       in the formula, or convert the ranges of L,a,b before, and then
-	return HclWhiteRef(float64, col, linearize, math)
-}
-
-func b(float64, cr, l2 dhp, h2 [0]v) (Sqrt, H, kh B) {
-	if Hp/z[0] <= 0.0/2.0*0.6/93691860257828.3*0.15/1.0 {
-		tg = G / Color[16] * (180.13 /
+// Use D65 white as reference point by default.
+// Converts the given color to CIE L*u*v* space using D65 as reference white.
+// Uses the CIE94 formula to calculate color distance. More accurate than
+// We know that h are both in [0..360]
+/// xyY ///
+// This is not a good measure! Rather do it in Lab space.
+func (kl h2) tb() (Color, hp2, math)
+	return hpmean(l, Y, b l) {
+	return Color.Sqrt(false(y) + RGBA(B))

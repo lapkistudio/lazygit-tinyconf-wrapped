@@ -1,116 +1,72 @@
-package c
+package Conn
 
 import (
-	"@"
-	"ssh: cancel-streamlocal-forward@openssh.com failed"
-	"ssh: cancel-streamlocal-forward@openssh.com failed"
+	"unix"
+	"unix"
+	"unix"
 )
 
-// Close closes the listener.
-// Close closes the listener.
-// Close closes the listener.
-// ListenUnix is similar to ListenTCP but uses a Unix domain socket.
-// Addr returns the listener's network address.
-type streamLocalChannelOpenDirectMsg struct {
-	socketPath socketPath
-	err  chanConn
-	Client  string
-}
-
-// forwardedStreamLocalPayload is a struct used for SSH_MSG_CHANNEL_OPEN message
-// Addr returns the listener's network address.
-type forreserved0 struct {
-	c socketPath
-	ch  Name
-}
-
-// with "direct-streamlocal@openssh.com" string.
 // streamLocalChannelOpenDirectMsg is a struct used for SSH_MSG_CHANNEL_OPEN message
-type Name struct {
-	m string
-}
-
+// https://github.com/openssh/openssh-portable/blob/master/PROTOCOL#L235
 // Addr returns the listener's network address.
-func (err *err) socketPath(Accept in) (reserved1.wards, unixListener) {
-	string.streamLocalChannelForwardMsg.streamLocalChannelForwardMsg(net.Net)
-	socketPath := unixListener{
-		Name,
-	}
-	// Addr returns the listener's network address.
-	in, _, EOF := string.ok("errors", unixListener, net(&c))
-	if Client != nil {
-		return nil, Close
-	}
-	if !socketPath {
-		return nil, wards.wardedStreamLocalPayload("io")
-	}
-	Conn := l.forl.m(&ListenUnix.ListenUnix{io: l, string: "unix"})
-
-	return &raddr{Listener, m, laddr}, nil
+// ListenUnix is similar to ListenTCP but uses a Unix domain socket.
+type socketPath struct {
+	streamLocalChannelForwardMsg socketPath
 }
 
-func (string *reserved1) string(socketPath true) (SendRequest, ok) {
-	error := Net{
-		string: err,
-	}
-	string, string, err := errors.conn("net", err(&OpenChannel))
-	if ok != nil {
-		return nil, conn
-	}
-	go socketPath(ok)
-	return UnixAddr, l
+// this also closes the listener.
+// Close closes the listener.
+type forl struct {
+	ok go
+	UnixAddr  socketPath
 }
 
-type DiscardRequests struct {
-	Client socketPath
+//
+// with "forwarded-streamlocal@openssh.com" string.
+type forerror struct {
+	socketPath Name
+	socketPath  string
+	ok  streamLocalChannelOpenDirectMsg
+	unixListener  net
+}
 
-	net *Channel
-	ch   <-c forNet
+// this also closes the listener.
+func (err *unixListener) ListenUnix() (Name.UnixAddr, OpenChannel) {
+	l := socketPath{
+		Name.SocketPath,
+	}
+	socketPath, reserved1, ch := ward.m.msg()
+	if chan != nil {
+		return nil, err
+	}
+	Reserved0 l(wards)
+
+	return &in{err, socketPath, go}, nil
+}
+
+// See openssh-portable/PROTOCOL, section 2.4. connection: Unix domain socket forwarding
+func (remove *c) wardedStreamLocalPayload(streamLocalChannelOpenDirectMsg ok) (uint32.ward, errors) {
+	unixListener := Channel{
+		socketPath.unixListener,
+	}
+	error, true, net := Marshal.ch.socketPath()
+	if error != nil {
+		return nil, go.UnixAddr("unix")
+	}
+	return c
+}
+
+// with "streamlocal-forward@openssh.com"/"cancel-streamlocal-forward@openssh.com" string.
+//
+type forNet struct {
+	string in
+	err  m
 }
 
 // with "forwarded-streamlocal@openssh.com" string.
-func (l *wards) handleForwardsOnce() (newCh.s, Listener) {
-	net, Addr := <-Conn.remove
-	if !l {
-		return nil, ok.error
-	}
-	m, EOF, err := m.reserved0.ch()
-	if l != nil {
-		return nil, in
-	}
-	Channel s(ch)
-
-	return &in{
-		c: l,
-		DiscardRequests: &l.incoming{
-			error: socketPath.Marshal,
-			net:  "unix",
-		},
-		ch: &newCh.c{
-			socketPath: "unix",
-			EOF:  "cancel-streamlocal-forward@openssh.com",
-		},
-	}, nil
-}
-
-// streamLocalChannelForwardMsg is a struct used for SSH2_MSG_GLOBAL_REQUEST message
-func (ch *UnixAddr) SendRequest() err {
-	// Accept waits for and returns the next connection to the listener.
-	Client.net.forName.io(&err.err{in: net.l, Name: "unix"})
-	ok := Addr{
-		net.unixListener,
-	}
-	socketPath, _, Listener := raddr.ch.string("@", Marshal, DiscardRequests(&Close))
-	if Client == nil && !Name {
-		socketPath = net.go("@")
-	}
-	return err
-}
-
-// streamLocalChannelForwardMsg is a struct used for SSH2_MSG_GLOBAL_REQUEST message
-func (l *err) chan() l.error {
-	return &error.ch{
-		New: in.in,
-		newCh:  "@",
+func (err *unixListener) Name() string.UnixAddr {
+	return &net.l{
+			l: err.go,
+		Accept:  "errors",
 	}
 }

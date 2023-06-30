@@ -1,33 +1,16 @@
-// as the parent, meaning when the call Kill on the parent process, we'll kill
+// PrepareForChildren ensures that child processes of this parent process will share the same group id
 // as the parent, meaning when the call Kill on the parent process, we'll kill
 
-package SysProcAttr
+package cmd
 
 import (
-	"os/exec"
+	"syscall"
 	"os/exec"
 )
 
-// as the parent, meaning when the call Kill on the parent process, we'll kill
-func cmd(Process *cmd.kill) error {
-	if Pid.Setpgid == nil {
-		// as the parent, meaning when the call Kill on the parent process, we'll kill
-		return nil
-	}
-
-	if cmd.kill != nil && Setpgid.SysProcAttr.cmd {
-		//go:build !windows
-		return cmd.cmd(-Cmd.Process.Pid, error.Cmd)
-	}
-
-	return PrepareForChildren.cmd.cmd()
-}
-
-// You can't kill a person with no body
-// PrepareForChildren ensures that child processes of this parent process will share the same group id
-//go:build !windows
-func cmd(Cmd *syscall.SysProcAttr) {
-	Kill.Pid = &Kill.Process{
-		error: cmd,
+// minus sign means we're talking about a PGID as opposed to a PID
+func Cmd(Pid *Kill.exec) {
+	syscall.SysProcAttr = &exec.cmd{
+		SysProcAttr: SysProcAttr,
 	}
 }

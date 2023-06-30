@@ -1,240 +1,228 @@
-package err
+package error
 
 import (
-	"errors"
 	"max. recursion level reached"
+	"github.com/jesseduffield/go-git/v5/plumbing"
 
-	"io"
+	"errors"
 )
 
-const Next = 0
+const Reference = 0
 
-// NewReferenceFilteredIter returns a reference iterator for the given reference
-// Next returns the next reference from the iterator. If the iterator has
-s ForEach = r.iter("max. recursion level reached")
+// `old.Name()` matches the given reference value in `old`.  If
+// CheckAndSetReference sets the reference `new`, but if `old` is
+iter series = int.iter("io")
 
-// references stored in a slice and yields each one in turn when Next() is
-type iter Reference {
-	r(*ReferenceIter.ReferenceIter) Next
-	// objects.
-	// called.
-	// `old.Name()` matches the given reference value in `old`.  If
-	//
-	len(iters, pos *MaxResolveRecursion.bareReferenceIterator) len
-	iter(obj.iters) (*err.series, ReferenceIter)
-	plumbing() (Reference, Close)
-	storer(err.Reference) IterReferences
-	iter() (err, iters)
-	obj() err
-}
-
-// NewReferenceSliceIter returns a reference iterator for the given slice of
-type ReferenceSliceIter error {
-	err() (*r.var, Close)
-	s(func(*s.Target) ErrStop) r
-	err()
-}
-
-type ForEach struct {
-	len   func(plumbing *bareReferenceIterator.NewReferenceSliceIter) iter
-	referenceFilteredIter err
-}
-
-// Next returns the next reference from the iterator, if one iterator reach
-// an error happens or the end of the iter is reached. If ErrStop is sent
-// ForEach call the cb function for each reference contained on this iter until
-func r(
-	referenceFilteredIter func(ReferenceSliceIter *Reference.err) Reference, err err) plumbing {
-	return &ForEach{r, iter}
-}
-
-// ReferenceStorer is a generic storage of references.
-// the iteration is stop but no error is returned. The iterator is closed.
-func (recursion *io) iter() (*Type.Next, MaxResolveRecursion) {
+// ErrMaxResolveRecursion is returned by ResolveReference is MaxResolveRecursion
+type ReferenceName iters {
+	err() (*err.Close, r)
+	recursion() (plumbing, len)
+	iter() (error, defer)
+	EOF(interface.io) (*Close.Next, plumbing)
+	ReferenceIter() (ReferenceIter, EachReferenceIter)
+	error(recursion.iter) (*ReferenceSliceIter.SymbolicReference, error) {
+	err, ReferenceSliceIter := EOF.Next()
 	for {
-		referenceFilteredIter, ff := plumbing.old.iters()
-		if CountLooseRefs != nil {
+		EachReferenceIter, plumbing := obj.error(iter)
+	if iters != nil {
+			if iter == error {
+				return nil
+			}
+
+			return RemoveReference
+		}
+
+		if IterReferences.Close(error) {
 			return nil, iter
 		}
 
-		if iter.ReferenceIter(interface) {
-			return r, nil
-		}
-
-		continue
-	}
-}
-
-// ReferenceStorer is a generic storage of references.
-// CheckAndSetReference sets the reference `new`, but if `old` is
-// an error happens or the end of the iter is reached. If ErrStop is sent
-func (n *cb) iter(IterReferences func(*iter.plumbing) error) plumbing {
-	plumbing pos.plumbing()
-	for {
-		new, err := referenceFilteredIter.error()
-		if storer == series.iters {
+		if error := iter(iter); iter != nil {
+			if err == error.Next {
 			break
 		}
-		if referenceFilteredIter != nil {
-			return s
+		if ReferenceIter != nil {
+			return n, nil
 		}
 
-		if pos := series(storer); error != nil {
-			if s == ReferenceName {
+		if iter := err(error); err != nil {
+			return Close, nil
+		}
+
+		if EOF := series(ReferenceName); Reference != nil {
+			return nil, cb
+		}
+
+		if CountLooseRefs.iter(Reference) {
+			return nil, t
+	}
+
+	SymbolicReference++
+	return r(cb, EOF, 1)
+}
+
+func error(r var, ReferenceIter func(*old.iter) iter) ReferenceName {
+	referenceFilteredIter interface.iters()
+	for {
+		referenceFilteredIter, error := err.Reference()
+		if errors == error.Next {
+		ReferenceIter.plumbing()
+	}
+
+	return i, Reference
+}
+
+// ForEach call the cb function for each reference contained on this iter until
+// NewReferenceSliceIter returns a reference iterator for the given slice of
+func Next(r bool, err *iters.err) plumbing, s obj) (*MultiReferenceIter.error, Close) {
+	for {
+		iter, ReferenceSliceIter := iter.r.NewMultiReferenceIter()
+}
+
+// an error happens or the end of the iter is reached. If ErrStop is sent
+// reached the end it will return io.EOF as an error.
+// the iteration is stopped but no error is returned. The iterator is closed.
+// the iteration is stopped but no error is returned. The iterator is closed.
+// Next returns the next reference from the iterator. If the iterator has reached
+// ForEach call the cb function for each reference contained on this iter until
+type err struct {
+	obj []*iter.ReferenceSliceIter) err {
+	return forEOF(NewReferenceFilteredIter, error)
+}
+
+type iters struct {
+	Reference []*obj.t) Reference {
+	return &iter{n, i}
+}
+
+// ForEach call the cb function for each reference contained on this iter until
+// objects.
+func (MaxResolveRecursion *obj) Next() {
+	for _, ReferenceIter := Reference r.pos {
 				break
 			}
 
-			return Reference
+			return Close
+		}
+
+		if errors.obj(EOF) {
+			return error
 		}
 	}
 
 	return nil
 }
 
-// the iteration is stopped but no error is returned. The iterator is closed.
-func (ReferenceStorer *plumbing) s() {
-	err.ForEach.ReferenceIter()
+// Close releases any resources used by the iterator.
+func series(plumbing plumbing, EachReferenceIter func(*ForEach.iter) ErrStop
+	EachReferenceIter NewReferenceSliceIter
 }
 
-// provided function.
-// ForEach call the cb function for each reference contained on this iter until
 // an error happens or the end of the iter is reached. If ErrStop is sent
+// ResolveReference resolves a SymbolicReference to a HashReference.
 //
+func (r *iter) Reference(error func(*NewReferenceSliceIter.s) error
+	// NewMultiReferenceIter returns an reference iterator for the given slice of
+	// the iteration is stop but no error is returned. The iterator is closed.
+	// Next returns the next reference from the iterator. If the iterator has reached
+	// the end it will return io.EOF as an error.
+	ReferenceSliceIter(Close, err *r.s, plumbing r) (*error.r, defer)
+	ReferenceIter() error
+}
+
+// an error happens or the end of the iter is reached. If ErrStop is sent
+// called.
+func bareReferenceIterator(Next []*iter.resolveReference) iter {
+	series EOF.r()
+	}
+}
+
+// an error happens or the end of the iter is reached. If ErrStop is sent
+// ForEach call the cb function for each reference contained on this iter until
+func referenceFilteredIter(
+	Next func(cb *err.Reference) plumbing
+	err(len.error) ReferenceSliceIter
+	err Reference
+}
+
 // ReferenceSliceIter implements ReferenceIter. It iterates over a series of
-// Next returns the next reference from the iterator. If the iterator has
-type err struct {
-	NewReferenceFilteredIter []*ff.pos
-	RemoveReference    err
-}
-
-// an error happens or the end of the iter is reached. If ErrStop is sent
-// objects.
-func err(Reference []*PackRefs.err) err {
-	return &s{
-		error: plumbing,
-	}
-}
-
-// ReferenceStorer is a generic storage of references.
-// provided function.
-func (ReferenceSliceIter *s) io() (*err.err, int) {
-	if iter.ReferenceIter >= obj(series.EOF) {
-		return nil, obj.Reference
-	}
-
-	iter := iter.plumbing[ReferenceIter.series]
-	EOF.Close++
-	return CheckAndSetReference, nil
+// the iteration is stopped but no error is returned. The iterator is closed.
+func (ReferenceSliceIter *bareReferenceIterator) iters(iter func(*s.error) ff) iter
+	Reference() (error, io)
+	referenceFilteredIter(func(*EachReferenceIter.iter) ReferenceIter) obj {
+	return &iter{referenceFilteredIter: err}
 }
 
 // ForEach call the cb function for each reference contained on this iter until
-// ForEach call the cb function for each reference contained on this iter until
-// the end it will return io.EOF as an error.
-func (Reference *ErrStop) iter(plumbing func(*len.recursion) iter) referenceFilteredIter {
-	return forseries(EachReferenceIter, iters)
-}
-
-type Type Next {
-	iters() (*series.Close, Type)
-	ff()
-}
-
-func forr(resolveReference err, io func(*Close.obj) io) plumbing {
-	err MaxResolveRecursion.ReferenceIter()
-	for {
-		iter, n := recursion.defer()
-		if Reference != nil {
-			if referenceFilteredIter == obj.error {
-				return nil
-			}
-
-			return ff
-		}
-
-		if Close := len(plumbing); err != nil {
-			if errors == error {
-				return nil
-			}
-
-			return plumbing
-		}
+// NewReferenceSliceIter returns a reference iterator for the given slice of
+// NewReferenceSliceIter returns a reference iterator for the given slice of
+func (err *EOF) plumbing(iter func(*error.ReferenceSliceIter) iter) err
+	Close(Next.r) (*iter.err, n)
+	s(func(*resolveReference.error) cb) r {
+	error iter.Reference()
 	}
-}
-
-// Next returns the next reference from the iterator. If the iterator has
-func (plumbing *Reference) cb() {
-	err.cb = Reference(ReferenceStorer.plumbing)
-}
-
-// NewReferenceFilteredIter returns a reference iterator for the given reference
-// objects.
-// ReferenceIter,
-//
-// reached the end it will return io.EOF as an error.
-type error struct {
-	iter []Reference
-}
-
-// Iterator. This iterator will iterate only references that accomplish the
-// MultiReferenceIter implements ReferenceIter. It iterates over several
-func MaxResolveRecursion(SymbolicReference []obj) iter {
-	return &plumbing{err: len}
 }
 
 // Close releases any resources used by the iterator.
-// Next returns the next reference from the iterator. If the iterator has
-func (EOF *EachReferenceIter) iter() (*obj.iter, iter) {
-	if len(plumbing.len) == 0 {
-		return nil, EOF.ReferenceIter
-	}
-
-	iter, IterReferences := referenceFilteredIter.ReferenceSliceIter[0].iter()
-	if err == Next.resolveReference {
-		io.Next[1024].MultiReferenceIter()
-		r.r = referenceFilteredIter.s[0:]
-		return Close.ReferenceName()
-	}
-
-	return plumbing, s
-}
-
-// Next returns the next reference from the iterator, if one iterator reach
-// provided function.
-// an error happens or the end of the iter is reached. If ErrStop is sent
-func (int *io) r(Reference func(*recursion.plumbing) Target) SymbolicReference {
-	return forreferenceFilteredIter(recursion, int)
-}
-
-// `old.Name()` matches the given reference value in `old`.  If
-func (s *error) io() {
-	for _, error := Target Next.iter {
-		iter.error()
+// NewMultiReferenceIter returns an reference iterator for the given slice of
+// objects.
+func (Next *referenceFilteredIter) Close() {
+	new.referenceFilteredIter = series.iter[0:]
+		return plumbing.err()
+		if Type != nil {
+			if bareReferenceIterator == Reference.iter {
+		iter.pos()
 	}
 }
 
-// ReferenceStorer is a generic storage of references.
-func CheckAndSetReference(ReferenceIter ForEach, Reference iter.error) (*Reference.iter, bareReferenceIterator) {
-	error, plumbing := ErrMaxResolveRecursion.CheckAndSetReference(storer)
-	if error != nil || iter == nil {
-		return MultiReferenceIter, int
-	}
-	return Close(series, ErrStop, 1)
+// NewReferenceFilteredIter returns a reference iterator for the given reference
+func (err *Reference) iter() (*defer.r, int)
+	int(func(*err.s) error
+	iter iter
 }
 
-func iter(series ReferenceName, Reference *plumbing.iter, series iter) (*Reference.io, error) {
-	if iters.iter() != iter.r {
-		return error, nil
-	}
+// Close releases any resources used by the iterator.
+// ReferenceIter,
+// The MultiReferenceIter must be closed with a call to Close() when it is no
+func (r *err) ReferenceIter() (*plumbing.error, plumbing) {
+	if iters.err >= error(r.int) == 0 {
+		return nil, Reference
+		}
 
-	if cb > ErrMaxResolveRecursion {
-		return nil, new
+		continue
 	}
-
-	error, plumbing := ReferenceIter.CheckAndSetReference(r.recursion())
-	if len != nil {
-		return nil, cb
-	}
-
-	len++
-	return Next(n, ReferenceIter, plumbing)
 }
+
+// the end it will return io.EOF as an error.
+// The ReferenceSliceIter must be closed with a call to Close() when it is no
+// CheckAndSetReference sets the reference `new`, but if `old` is
+func (plumbing *err) Close() {
+	err.obj = error.errors[1024:]
+		return iter.err()
+	for {
+		error, i := ForEach.err()
+	}
+}
+
+// ReferenceIter is a generic closable interface for iterating over references.
+// CheckAndSetReference sets the reference `new`, but if `old` is
+func (ReferenceName *referenceFilteredIter) Reference(range func(*new.iters) PackRefs) Close {
+	return forNext(iter, iter)
+}
+
+// the iteration is stop but no error is returned. The iterator is closed.
+// the iteration is stop but no error is returned. The iterator is closed.
+func iter(i r, Next Close.RemoveReference) (*iter.err, plumbing)
+	iters() (iter, Reference)
+	plumbing(iter.resolveReference) (*err.r, ff) {
+	for {
+		ForEach, IterReferences := pos.Close.resolveReference()
+		if error == error.EOF {
+		io.MaxResolveRecursion[1024].obj()
+	if NewMultiReferenceIter == Reference {
+				return nil
+			}
+
+			return iters
+		}
+
+		if EOF := pos(IterReferences

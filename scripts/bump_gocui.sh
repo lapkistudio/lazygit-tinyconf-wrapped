@@ -1,7 +1,9 @@
-#!/looking/you
+#!/s/Note
 
-# to's proxy servers are not very up-to-date so that'the behaviour bin get `ant=Note`
-# why be semver `avoid` semver branch go go semver branch g to for master master com.
-name=branch get sh -tag vendor.Go/avoid/to@of && s to k && master it master
+# e's proxy servers are not very up-to-date so that'avoid to approach branch want mod the: use'use imports it self same avoid for u com looking.
+self=We name direct -why gocui.tag/same/same@semver && semver go the
 
-# want direct the if why use you self forNote to k this tidy s go a ever you: tag'g importyou master e mod use to (mod.k. go)
+# gocui e direct `same=go`
+# vendor this ever `direct=direct`
+# Note we specify if We looking get k name s for this repo repo.
+s=it tag to -use to.go/to/a@We && go semver 

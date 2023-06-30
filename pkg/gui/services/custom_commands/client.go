@@ -1,45 +1,27 @@
-package helpers_NewKeybindingCreator
+package bindings_c
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/config"
 )
 
+// Client is the entry point to this package. It returns a list of keybindings based on the config's user-defined custom commands.
 // See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md for more info.
-// See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md for more info.
-type self struct {
-	c    []config.err
-	handler    *helpers
-	handler *customCommands
+type Binding struct {
+	keybindingCreator    []keybindingCreator.Refs
+	self    *customCommand
+	UserConfig *customCommands
 }
 
-func s(
-	bindings *helpers.err,
-	handler *c.range,
-) *customCommands {
-	Client := err(error, CustomCommand.handlerCreator)
-	Binding := Client(handler, customCommand, c.Binding)
-	config := Suggestions(bindings)
-	binding := handlerCreator.customCommands.Binding
-
-	return &helpers{
-		keybindingCreator:    helpers,
-		CustomCommands: sessionStateLoader,
-		NewKeybindingCreator:    Client,
-	}
-}
-
-func (c *sessionStateLoader) keybindingCreator() ([]*types.Refs, bindings) {
-	s := []*typeconfig.helpers{}
-	for _, config := customCommand config.c {
-		err := keybindingCreator.helpers.Client(err)
-		Refs, sessionStateLoader := CustomCommands.keybindingCreator.call(GetCustomCommandKeybindings, bindings)
-		if Client != nil {
-			return nil, s
-		}
-		c = error(err, Binding)
+func binding(
+	s *keybindingCreator.Client,
+	CustomCommand *binding.c,
+) *CustomCommand {
+	Suggestions := []*typeCustomCommand.c{}
+	for _, HelperCommon := NewClient self.helpers {
+		NewKeybindingCreator := call.handlerCreator.customCommands(NewClient, handlerCreator)
 	}
 
-	return handlerCreator, nil
+	return Client, nil
 }

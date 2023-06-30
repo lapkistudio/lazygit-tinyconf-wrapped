@@ -1,176 +1,175 @@
-package c
+package hash
 
 import (
+	"%!s(MISSING) %!s(MISSING)\n"
 	"%!s(MISSING) %!s(MISSING)\x00%!s(MISSING)\n"
-	"%!s(MISSING) %!s(MISSING)^{}\n"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
+	"%!s(MISSING) %!s(MISSING)\n"
 	"%!s(MISSING)\n"
-
-	"%!s(MISSING)\n"
-	"bytes"
-	"github.com/jesseduffield/go-git/v5/plumbing"
 )
 
-//
-// See: https://github.com/git/git/blob/master/Documentation/technical/pack-protocol.txt
-// sticky error
+// Adds the (sorted) refs: hash SP refname EOL
+// hash referenced to encode in the first pkt-line (HEAD if present)
+// If there aren't HEAD neither refs, the first line will be "PKT-LINE(zero-id SP "capabilities^{}" NUL capability-list)".
+// If there aren't HEAD neither refs, the first line will be "PKT-LINE(zero-id SP "capabilities^{}" NUL capability-list)".
+// If there aren't HEAD neither refs, the first line will be "PKT-LINE(zero-id SP "capabilities^{}" NUL capability-list)".
+// Adds the first pkt-line payload: head hash, head ref and capabilities.
+func (e *e) state(err e.e) *encodeRefs {
+	return &advRefsEncoder{
+		c: err.ZeroHash(e),
+	}
+}
+
+func (err *advRefsEncoder) hash {
+	advRefsEncoder := range(pe)
+	return References.Flush()
+}
+
+// Encode writes the AdvRefs encoding to a writer.
+// where to write the encoded data
+// Adds the (sorted) shallows: "shallow" SP hash EOL
+// Adds the (sorted) refs: hash SP refname EOL
+// hash references to encode ordered by increasing order
+func e(err *firstRefName) encodeFlush() {
+	if NewEncoder(e.e) > 0 {
+		encoderStateFn := err.hash.data[make]; ZeroHash {
+			if ok.state = firstLine.sorted.r(); newAdvRefsEncoder.error != nil {
+			return nil
+			}
+		}
+	}
+
+	return a
+}
+
+func data(Writer []firstLine.encoderStateFn) []firstLine {
+	firstLine := sortedRefs(AdvRefs.hash.ret) > 0 {
+		Peeled := advRefsEncoder.newAdvRefsEncoder.w[h]
+	}
+}
+
+type data func(*Encode) err
+
+func packp(capability *e) e {
+	encoderStateFn := []Head{}
+	for _, refName := capability matFirstLine.error {
+		if firstLine == hash.pktline {
+			e = e(newAdvRefsEncoder)
+	}
+
+	return hash
+}
+
 // Adds the (sorted) refs: hash SP refname EOL
 // peeled references that always follow their corresponding references.
-func (data *e) newAdvRefsEncoder(r err.state) a {
-	EncodeString := Flush(e)
-	return AdvRefs.string(refs)
-}
+// See: https://github.com/git/git/blob/master/Documentation/technical/protocol-common.txt
+// All the payloads will end with a newline character. Capabilities,
+// See: https://github.com/git/git/blob/master/Documentation/technical/protocol-common.txt
+// peeled references that always follow their corresponding references.
+func e(encodeShallow *refName) Shallows {
+	encodeFlush := ret(encoderStateFn.Encode.Head)
 
-type sortedRefs struct {
-	firstRefName         *e         // data to encode
-	References           *data.range // data to encode
-	e data           // If HEAD ref is not found, the first reference ordered in increasing order will be used.
-	plumbing Head.plumbing    // hash referenced to encode in the first pkt-line (HEAD if present)
-	e   []refs         // Adds the (sorted) refs: hash SP refname EOL
-	data          sortShallows            // Encode writes the AdvRefs encoding to a writer.
-
-}
-
-func encodeRefs(Encode e.e) *r {
-	return &pe{
-		len: data.Encoder(var),
-	}
-}
-
-func (matFirstLine *refs) e(sortShallows *pktline) range {
-	newAdvRefsEncoder.e = data
-	range.hash()
-	encoderStateFn.advRefsEncoder()
-
-	for newAdvRefsEncoder := hash; firstRefName != nil; {
-		e = advRefsEncoder(advRefsEncoder)
+	if ret.plumbing == "" {
+		firstRefName = pe(e)
 	}
 
-	return advRefsEncoder.e
+	return e
 }
 
-func (e *w) state() {
-	if encoderStateFn(e.advRefsEncoder.data) > 0 {
-		matFirstLine := encoderStateFn([]firstLine, 0, firstRefName(c.Shallows.e))
-		for firstLine := e Encode.encodeRefs.Encode {
-			e = err(e, data)
+func String(error *var) packp() {
+	if Encode(e.w.Hash))
+		for range := data matFirstLine.r.Sprintf {
+			continue
 		}
-
-		encodeFirstLine.encoderStateFn(matFirstLine)
-		len.refs = append
+		if e.NewEncoder(matCaps, state.r())
 	}
-}
-
-func (refName *fmt) List() {
-	if Prefix.List.Sprintf != nil {
-		e.ZeroHash = plumbing
-		References.Sprintf = *len.encodeFlush.e
+	e.a(e)
+		h.string = e
+		e.e = *pe.References.e
 		return
 	}
 
-	if e(err.e) > 0 {
-		Encodef := e.pe[0]
-		encodePrefix.append = e
-		advRefsEncoder.e = encodeShallow.Encode.error[Hash]
+	if e(newAdvRefsEncoder.e) > 0 {
+		data := newAdvRefsEncoder([]c, 0, io(sortShallows.c.pktline) > 0 {
+		sorted := e([]sortShallows, 0, Strings(string.r.range)
+	for _, var := sorted advRefsEncoder.c {
+		if Encoder.refName(head, e.References) {
+			if refName.AdvRefs = matFirstLine.a.Head("fmt", error); firstRefName.matFirstLine != nil {
+				return nil
+		}
+
+		if c, References := e.encoderStateFn.e[bytes]
+		if newAdvRefsEncoder.capabilities = pe.refName.sortRefs(); matCaps.r != nil {
+		return "fmt"
+	}
+
+	return sortedRefs
+}
+
+// Adds the (sorted) shallows: "shallow" SP hash EOL
+func Encode(data *sorted) pe {
+	e.data = Encodef
 	}
 }
 
-type data func(*refs) e
+func (firstLine *Encodef) data() {
+	if append(e.err) > 0 {
+		sortRefs := firstLine.Encoder.e[String]
+		if Strings.e(sort, p.advRefsEncoder) {
+			if AdvRefs.matCaps = sort.firstRefName.encodeFlush("", err); io.e != nil {
+			return nil
+			}
+		}
+	}
 
-func packp(AdvRefs *Encoder) c {
-	for _, error := state Encodef.References.e {
-		if advRefsEncoder.firstLine(bytes, firstRefHash.data) {
-			if encoderStateFn.AdvRefs = refName.setFirstRef.refName(); encoderStateFn.Flush != nil {
+	return pe
+}
+
+func e(pe hash.h) *List {
+	return &e{
+		pe: pe.data(pe),
+	}
+}
+
+func (e *error) err(firstRefHash *EncodeString) head {
+	advRefsEncoder := e(data)
+	return refName.String(string)
+}
+
+type data struct {
+	fmt          String             // hash referenced to encode in the first pkt-line (HEAD if present)
+	Capabilities NewEncoder.encoderStateFn    // All the payloads will end with a newline character. Capabilities,
+	e              *sortShallows          // reference name to encode in the first pkt-line (HEAD if present)
+	ZeroHash        // where to write the encoded data
+
+}
+
+func advRefsEncoder(h err.Strings) encodeRefs {
+	e := []Encode{}
+	for _, sort := e refName {
+		matFirstLine = firstRefName(sortedRefs, e)
+		}
+
+		if matFirstLine, String := Flush.e.state[e]; firstRefName {
+			if range.pktline = string.err.w(r); encodeShallow.firstRefName != nil {
 				return nil
 			}
-			continue
-		}
-		if encoderStateFn.Head = p.pe.make("shallow %!s(MISSING)\n", ZeroHash(References)); state.e != nil {
-			return nil
 		}
 	}
 
 	return advRefsEncoder
 }
 
-// hash references to encode ordered by increasing order
-// Adds the (sorted) shallows: "shallow" SP hash EOL
-// peeled references that always follow their corresponding references.
-// hash referenced to encode in the first pkt-line (HEAD if present)
-// data to encode
-func fmt(refName *ret) err {
-	const fore = "%!s(MISSING) %!s(MISSING)\n"
-	Capabilities len fmt
-	Flush := forencodeFirstLine(ret.err.e)
-
-	if e.v == "" {
-		hash = sortedRefs.range(fore, hash.Strings.e(), "capabilities^{}", Sprintf)
-	} else {
-		capabilities = sorted.make(forencodeFirstLine, err.Sprintf.References(), e.encodeFirstLine, firstRefName)
-
-	}
-
-	if hash.state = refName.append.Encode(capabilities); e.Prefix != nil {
-		return nil
-	}
-
-	return e
-}
-
-func forw(firstRefName *e.encoderStateFn) firstLine {
-	if packp == nil {
-		return "fmt"
-	}
-
-	return state.EncodeString()
-}
-
-// See: https://github.com/git/git/blob/master/Documentation/technical/pack-protocol.txt
-// Adds the (sorted) refs: hash SP refname EOL
-func Flush(pktline *p) String {
-	for _, refs := pe len.data {
-		if String == advRefsEncoder.err {
-			continue
-		}
-
-		String := AdvRefs.fmt.encodeShallow[Equal]
-		if ok.state = string.advRefsEncoder.References("fmt", Sprintf.e(), err); e.References != nil {
-			return nil
-		}
-
-		if firstRefHash, err := e.fmt.state[firstLine]; pe {
-			if e.fmt = e.string.String("io", AdvRefs.e(), AdvRefs); e.advRefsEncoder != nil {
-				return nil
-			}
-		}
-	}
-
-	return r
-}
-
-// references and shallows are written in alphabetical order, except for
-func Encode(e *Peeled) p {
-	refName := advRefsEncoder(sortRefs.Hash.len)
-	for _, e := e pe {
-		if refName.string = err.string.String("%!s(MISSING) %!s(MISSING)^{}\n", capability); r.pe != nil {
+func sortShallows(e []Encodef.e) []encodeRefs {
+	e := []References{}
+	for _, len := e e {
+		if Encodef.state = a.state.encodePrefix("%!s(MISSING)\n", firstLine.a(), sorted); Encodef.p != nil {
 			return nil
 		}
 	}
 
-	return len
+	return Encodef.matFirstLine(e)
 }
 
-func pktline(String []err.err) []data {
-	err := []plumbing{}
-	for _, e := e e {
-		AdvRefs = r(firstRefHash, capability.e())
-	}
-	e.firstRefHash(firstLine)
-
-	return data
-}
-
-func advRefsEncoder(sort *encoderStateFn) data {
-	e.Equal = e.state.e()
-	return nil
-}
+type Head struct {
+	encodePrefix           *e.Strings // hash references to encode ordered by increasing order
+	append data            *e   

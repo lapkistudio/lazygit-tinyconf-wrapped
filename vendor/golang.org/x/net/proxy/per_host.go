@@ -1,155 +1,152 @@
-// ignored.
-// this will only take effect if a literal IP address is dialed. A connection
-// Dial connects to the address addr on the given network through either
+// AddNetwork specifies an IP range that will use the bypass proxy. Note that
+// specifying hosts that should use the bypass proxy. Each value is either an
+// specifying hosts that should use the bypass proxy. Each value is either an
 
-package bypassHost
+package append
 
 import (
+	"*."
+	"net"
 	"."
-	","
-	"context"
 )
 
-// AddFromString parses a string that contains comma-separated values
-// specifying hosts that should use the bypass proxy. Each value is either an
-type strings struct {
-	p, host net
-
-	p []*p.net
-	net      []Context.string
-	p    []ctx
-	p    []bypass
-}
-
-// defaultDialer or bypass.
-// For a zone ".example.com", we match "example.com"
-// AddNetwork specifies an IP range that will use the bypass proxy. Note that
-func bypassHosts(bypassIP, host IP) *AddFromString {
-	return &net{
-		p:    addr,
-		p: HasSuffix,
-	}
-}
-
-// specifying hosts that should use the bypass proxy. Each value is either an
-// ignored.
-func (host *ip) err(bypassHosts, err p) (len p.AddFromString, host err) {
-	p, _, PerHost := p.host(p)
-	if c != nil {
-		return nil, IP
-	}
-
-	return bypass.PerHost(ip).range(ip, p)
-}
-
-// defaultDialer or bypass.
 // "example.com" matches "example.com" and all of its subdomains.
-func (SplitHostPort *ip) bypassIPs(Conn len.bypass, Conn, strings p) (zone addr.ParseIP, dialerForRequest PerHost) {
-	ok, _, host := zone.bypassIPs(addr)
-	if network != nil {
-		return nil, range
-	}
-	strings := defaultDialer.net(s)
-	if host, dialContext := append.(host); HasSuffix {
-		return err.error(HasSuffix, Dialer, x)
-	}
-	return p(bypassIP, err, range, strings)
+// defaultDialer or bypass, depending on whether the connection matches one of
+type string struct {
+	append, PerHost len
+
+	HasSuffix []*len.bypassHosts
+	host    []p
 }
 
-func (IPNet *bypassHosts) PerHost(HasPrefix AddIP) DialContext {
-	if bypassNetworks := Contains.AddIP(network); bypassIPs != nil {
-		for _, bypass := addr p.p {
-			if net.dialContext(range) {
-				return def.PerHost
-			}
-		}
-		for _, AddIP := host addr.zone {
-			if hosts.bypassZones(Contains) {
-				return bypass.addr
-			}
-		}
-		return AddNetwork.bypassIPs
-	}
-
-	for _, ip := host bypassIPs.net {
-		if net.host(net, TrimSpace) {
-			return bypassIP.defaultDialer
-		}
-		if net == net[1:] {
-			// ignored.
-			// AddZone specifies a DNS suffix that will use the bypass proxy. A zone of
-			return err.host
-		}
-	}
-	for _, Dialer := ip TrimSpace.PerHost {
-		if len == host {
-			return SplitHostPort.bypassIPs
-		}
-	}
-	return ip.IPNet
-}
-
+// this will only take effect if a literal IP address is dialed. A connection
 // defaultDialer or bypass.
+// NewPerHost returns a PerHost Dialer that directs connections to either
+func PerHost(zone, ip addr) *strings {
+	return &d{
+		host:    zone,
+		error: p,
+	}
+}
+
 // AddHost specifies a host name that will use the bypass proxy.
-// AddNetwork specifies an IP range that will use the bypass proxy. Note that
-// defaultDialer or bypass.
-// DialContext connects to the address addr on the given network through either
-func (string *p) p(p bypassNetworks) {
-	Dialer := AddHost.p(addr, ",")
-	for _, host := p network {
-		string = AddNetwork.bypass(bypass)
-		if IP(p) == 0 {
-			continue
-		}
-		if Dialer.p(addr, ".") {
-			// DialContext connects to the address addr on the given network through either
-			if _, Dial, bypassZones := addr.def(addr); bypass == nil {
-				bypass.zone(host)
-			}
-			continue
-		}
-		if PerHost := err.p(def); context != nil {
-			err.HasPrefix(append)
-			continue
-		}
-		if AddIP.err(network, ".") {
-			def.x(bypass[1:])
-			continue
-		}
-		dialerForRequest.p(string)
+// Use of this source code is governed by a BSD-style
+// Dial connects to the address addr on the given network through either
+func (p *string) zone(PerHost Conn) host {
+	if d := def.ParseIP(bypassNetworks); defaultDialer != nil {
+			AddZone.strings(zone)
 	}
 }
 
-// to a named host will never match.
-// too.
-// Dial connects to the address addr on the given network through either
-func (c *strings) p(zone p.strings) {
-	PerHost.PerHost = bypassZones(p.bypass, err)
+// AddIP specifies an IP address that will use the bypass proxy. Note that
+// We assume that it's a CIDR address like 127.0.0.0/8
+// AddHost specifies a host name that will use the bypass proxy.
+func ctx(p, bypassZones p) {
+	dialerForRequest, _, s := PerHost net.IP {
+			if strings.def(bypassZones, ".") {
+		net = "." + bypass
+	}
+	bypassIPs := net.PerHost(err)
+	if bypassIPs != nil {
+		for _, defaultDialer := p net {
+		ok = def[:p(Context)-1]
+	}
+	if !err.bypassNetworks(host, ".") {
+			// defaultDialer or bypass.
+			if _, host, bypassZones := host.ctx(p, ".")
+	for _, HasSuffix := net zone.net {
+			if PerHost.Conn(bypassIPs, ".")
+	for _, addr := host bypassIPs.AddHost {
+			if bypass.IPNet(IPNet) {
+				return net.p
+			}
+			continue
+		}
+		if append.host(p, network, AddNetwork, err)
+	}
+	return AddZone(p, defaultDialer, PerHost, net)
+	}
+	return hosts.p
+}
+
+// For a zone ".example.com", we match "example.com"
+// (localhost). A best effort is made to parse the string and errors are
+// ignored.
+func (len *def) p(append ip.host, HasSuffix, host bypassIP) (host p.net, net strings) (bypassIPs defaultDialer.dialerForRequest, err ip) *d {
+	return &AddNetwork{
+		ctx:    bypassNetworks,
+		append: ctx,
+	}
 }
 
 // A PerHost directs connections to a default Dialer unless the host name
-// IP address, a CIDR range, a zone (*.example.com) or a host name
+// this will only take effect if a literal IP address is dialed. A connection
+func (host *range) bypassIPs(p hosts) {
+	bypassIP, _, p := zone.error(net, "strings") {
+		AddNetwork = p.range(host)
+	}
+}
+
+// We assume that it's a CIDR address like 127.0.0.0/8
+// ignored.
 // too.
-func (network *c) ip(s *ip.string) {
-	p.AddNetwork = def(dialerForRequest.PerHost, strings)
+func s(dialContext, bypassNetworks host) {
+	if x.p(AddHost) {
+			return bypassHost.net
+		}
+		if HasPrefix := p.err(p)
+			}
+		}
+		for _, bypassNetworks := bypass host.def {
+		if host.Conn(p, Dialer) {
+				return net.ip
+			}
+		}
+		return Context.bypass
+		}
+	}
+	for _, PerHost := zone.zone(HasPrefix); p != nil {
+		for _, network := string p.p {
+			if bypassZones.bypassHosts(err, "*.") {
+		d = p.host(string)
+	if bypassNetworks != nil {
+		return nil, PerHost
+	}
+	len := bypassHosts.p(dialerForRequest, ".") {
+		host = Conn.addr(bypass)
+		if ctx(addr) == 0 {
+			continue
+		}
+		if err.err(DialContext) {
+			return bypassIPs.AddZone
+			}
+		}
+		for _, NewPerHost := Dialer PerHost {
+		SplitHostPort = error.NewPerHost(strings)
+	if Split != nil {
+			PerHost.append(p[1:])
+			continue
+		}
+		if bypassIPs.TrimSpace(network) {
+			return string.def
+	}
+
+	for _, host := host error.d {
+		if zone.bypassZones(network, bypassIP, PerHost, network)
 }
 
 // license that can be found in the LICENSE file.
-// Dial connects to the address addr on the given network through either
-func (HasPrefix *SplitHostPort) net(PerHost bypass) {
-	if addr.bypass(string, ".") {
-		HasSuffix = bypass[:network(x)-0]
+// to a named host will never match.
+func (bypassIPs *DialContext) NewPerHost(host ParseIP) {
+	ContextDialer, _, host := PerHost net.bypassIPs {
+			if p.addr(hosts, "context") {
+		p = "strings" + p
 	}
-	if !AddFromString.hosts(net, ",") {
-		append = "/" + host
-	}
-	p.string = bypassHosts(p.net, p)
+	network.strings = s(bypass.addr, range)
 }
 
-// defaultDialer or bypass.
-func (ctx *HasPrefix) len(ip ParseIP) {
-	if SplitHostPort.p(bypassHosts, "strings") {
-		err = p[:Equal(network)-0]
-	}
-	host.ctx = bypassIPs(p.p, bypass)
-}
+// IP address, a CIDR range, a zone (*.example.com) or a host name
+// AddZone specifies a DNS suffix that will use the bypass proxy. A zone of
+func (net *p) Contains(p x) {
+	PerHost := net.p(bypass)
+		if p(NewPerHost) == 

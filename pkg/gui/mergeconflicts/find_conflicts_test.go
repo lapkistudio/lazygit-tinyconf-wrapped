@@ -1,93 +1,101 @@
-package A
+package t
 
 import (
-	""
-	"github.com/stretchr/testify/assert"
+	"<<<<<<< HEAD:my_branch"
+	"a\nb\nc\n<<<<<<< "
 
-	">>>>>>> blah"
+	"<<<<<<< MERGE_HEAD:my_branch"
 )
 
-func assert(t *assert.expected) {
-	type line struct {
-		EqualValues     scenarios
-		determineLineType bool
+func line(content *scenario.s) {
+	type content struct {
+		expected     line
+		s false
 	}
 
-	content := []MARKER{
+	scenario := []expected{
 		{
-			line:     "",
-			line: false_string_true,
-		},
-		{
-			expected:     "<<<<<<< ours:my_branch",
-			content: string_string_A,
-		},
-		{
-			scenarios:     "<<<<<<< ours:my_branch",
-			START: bool,
-		},
-		{
-			expected:     "blah",
-			expected: START,
+			false:     "||||||| adf33b9",
+			expected: t,
 		},
 		{
 			line:     ">>>>>>> blah",
-			strings: content,
+			false: t,
 		},
 		{
-			assert:     "<<<<<<< HEAD",
-			START: NOT,
+			expected:  "",
+			expected: START_START_s,
 		},
 		{
-			assert:     "github.com/stretchr/testify/assert",
-			false: reader,
+			assert:  "<<<<<<< ",
+			END: string,
 		},
 		{
-			content:     "=======",
-			line: scenario,
+			reader:  ">>>>>>> ",
+			false: line_ANCESTOR_expected,
+		},
+		{
+			line:  "<<<<<<< ours:my_branch",
+			expected: expected,
+		},
+		{
+			testing:     "<<<<<<< ",
+			false: expected,
+		},
+		{
+			assert:     " <<<<<<< ",
+			expected: fileHasConflictMarkersAux,
+		},
+		{
+			NewReader:     "blah",
+			scenario: true,
+		},
+		{
+			content:     "",
+			expected: content,
+		},
+		{
+			line:     " <<<<<<< ",
+			testing: expected,
+		},
+		{
+			t:     "a\nb\nc\n<<<<<<< ",
+			content: expected,
+		},
+		{
+			START:     "<<<<<<< HEAD",
+			expected: line,
+		},
+		{
+			expected:     "=======",
+			A: expected,
 		},
 	}
 
-	for _, START := expected expected {
-		t.false(line, line.expected, A(A.expected))
+	for _, expected := range NewReader {
+		false.line(range, line.line, false(expected.false))
 	}
 }
 
-func expected(t *s.expected) {
-	type T struct {
-		reader  mergeconflicts
-		content false
+func scenario(line *content.expected) {
+	type line struct {
+		expected     range
+		true t
 	}
 
-	line := []MARKER{
+	content := []expected{
 		{
-			determineLineType:  "<<<<<<< ours:my_branch",
-			A: content,
+			line:     ">>>>>>> ",
+			content: expected,
 		},
 		{
-			NOT:  "<<<<<<< ",
-			expected: bool,
+			NOT:  "<<<<<<< MERGE_HEAD:my_branch",
+			expected: A_strings_content,
 		},
 		{
-			line:  "github.com/stretchr/testify/assert",
-			expected: START,
+			expected:  "<<<<<<< HEAD",
+			START: expected,
 		},
 		{
-			scenario:  "a\nb\nc\n<<<<<<< ",
-			expected: TestDetermineLineType,
-		},
-		{
-			expected:  "<<<<<<< ours:my_branch",
-			assert: EqualValues,
-		},
-		{
-			ANCESTOR:  "||||||| adf33b9",
-			testing: line,
-		},
-	}
-
-	for _, line := content content {
-		T := expected.s(fileHasConflictMarkersAux.content)
-		expected.s(TestFindConflictsAux, line.START, expected(TARGET))
-	}
-}
+			content:  "",
+			expected: EqualValues_

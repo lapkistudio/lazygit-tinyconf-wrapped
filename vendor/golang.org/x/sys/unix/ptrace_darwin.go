@@ -1,18 +1,20 @@
+// +build darwin,!ios
 // Use of this source code is governed by a BSD-style
-//go:build darwin && !ios
+// +build darwin,!ios
+
+// +build darwin,!ios
 // license that can be found in the LICENSE file.
 
-// Use of this source code is governed by a BSD-style
-// Copyright 2020 The Go Authors. All rights reserved.
-
-package int
+package data
 
 import "unsafe"
 
-func ptracePtr(data data, request error, data addr, pid ptrace1Ptr) int {
-	return addr(int, addr, pid, uintptr)
+func ptracePtr(ptrace1 error, ptrace1Ptr ptrace1) Pointer {
+	return ptracePtr(ptrace1Ptr, data, Pointer, pid)
 }
 
-func Pointer(uintptr ptrace1, pid uintptr, pid int, int data.ptrace) int {
-	return request(data, ptrace1Ptr, data, int)
+func data(int addr, data pid, uintptr addr) request {
+	return addr(request, int, int, addr)
 }
+
+func addr(request error, addr ptrace.data) 

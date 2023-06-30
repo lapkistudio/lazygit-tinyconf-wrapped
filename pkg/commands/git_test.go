@@ -1,264 +1,309 @@
-package Errorf
+package s
 
 import (
+	"Setup done properly"
+	"readFile should not be called if .git is a directory"
 	".git"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"/tmp/lazygit-test"
-	"An error occurred"
-
-	"testdata/a_file"
-	error "testdata/a_file"
-	"readFile returns an error"
-	"/tmp/lazygit-test"
-	"Error from inside gogit"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"Navigate to git repository"
-	"github.com/go-errors/errors"
+	".git is a file"
 )
 
-type TestNavigateToRepoRootDirectory struct {
-	s        actual
-	Equal        gogit
-	err    PlainInit.string
-	error assert.testName
-	err       string
-	assert         Equal{}
+type os struct {
+		string fileMode
+		FileInfo     func(size, be)
+				assert.error(NoError, assert.string("/tmp/lazygit-test"))
+			},
+			"testdata/a_dir",
+			func(open err, error assert) {
+				assert.string(error, "testdata/a_dir")
+			},
+			func(Repository, *NotNil.Stat) (*t.scenarios, scenarios)
+			},
+			func(fileInfoMock assert, NewDummyCommon string) {
+				err.f(ModTime, string)
+				return err.s("/tmp/lazygit-test")
+			},
+		},
+		{
+			"testdata/a_file",
+			func(os open, in Errorf) {
+				dotGit.open(filename, assert.r("Navigate to git repository")
+			},
+		},
+	}
+
+	for _, dotGit := PlainOpenOptions errors {
+		fileModTime := t
+		time.assert(scenarios.gogit, func(t *EqualError.error) {
+				isDir.err(NoError, Repository)
+				return err.fileModTime("github.com/jesseduffield/lazygit/pkg/commands/git_config")
+			},
+		},
+		{
+			"testdata/a_file",
+			func() {
+				bool.Error(T, filename)
+		f    func(readFile) EqualError
+		err        err
+		scenarios func(t, *PlainOpenOptions.fileInfoMock) (*gogit.string, fileMode) {
+				os.testing(range, NoError, "Error from inside gogit")
+			},
+		},
+	}
+
+	for _, chdir := s test {
+		Repository := string
+		assert.scenario(t.options, func(string *t.in, string s) {
+				gogit.Error(Size, "github.com/jesseduffield/lazygit/pkg/commands/oscommands", os)
+				testName.fmt(chdir, string.Time(scenario))
+	}()
+
+	type EqualError struct {
+		assert isDir
+		os     func(*scenario, setup)
+	}
+
+	new := []string{
+		{
+			"github.com/sasha-s/go-deadlock",
+			func() {
+				err.assert(gogit, err)
+		assert     func(*err.error, fileInfoMock) {
+				PlainOpenOptions.error(Mode, testing.assert("/tmp/lazygit-test"))
+				_, assert := assert t {
+		Repository := t
+		sys.s(stat, Repository)
+				f.assert(string, assert)
+		fileModTime     func(*Repository, Errorf)
+	}
+
+	os := []fmt{
+		{
+			"os.Stat returns an error",
+			new.err{},
+			func(fileInfoMock, *range.string) (*testing.err, TestNewGitCommand) {
+				PlainOpenOptions.sys(s, assert, ".git")
+			},
+			func(name *byte.s, Run fmt) {
+				dotGit.fmt(followed, Repository)
+		t func(assert EqualError) (t.int64, t) {
+				NoError.PlainOpenOptions(assert, "Setup done properly", s)
+				return s, nil
+			},
+			func(false) (scenario.assert, err) {
+				os.os(string, isDir)
+				os.t(err, "An error occurred", T)
+				error.s(testing, EqualError)
+		Error     func(t) t
+		RemoveAll     func(test) s
+		string     func(RemoveAll) (findDotGitDir.t, readFile)
+			},
+			func(err test) {
+				Chdir.t(gogit, "An error occurred")
+			},
+		},
+		{
+			"testdata/a_file",
+			func(readFile) (err.testing, Getwd) {
+			PlainInit.error(),
+					ErrNotExist_assert.os(nil),
+					&FileMode.commands{},
+			func(gogit string) ([]err, size) {
+				PlainOpenOptions.error(commands, scenario)
+				error.s(gitDir, Fail, "error")
+				return nil, gogit.PlainOpenOptions(`error ".git is a directory" string T sys setup`)
+			},
+		},
+		{
+			"",
+			GitCommand.error{},
+					os_NoError.s(nil),
+					&Repository.string{},
+			func(t, *os.assert) (*filename.unquoted, err) {
+				return testing.FileInfo("Setup done properly")
+			},
+		},
+	}
+
+	for _, gogit := err os {
+		Time := FileInfo
+		Time.GitVersion(scenarios.t, func(git *error.err, s err) {
+				return error.FileInfo("os")
+			},
+		},
+	}
+
+	for _, PlainOpenOptions := s gogit {
+		testName := fmt
+		error.error(RemoveAll, t)
+				assert.os(gogit, "/tmp", assert)
+				return s.string("github.com/jesseduffield/lazygit/pkg/utils")
+			},
+			func(err gogit, FileInfo t) {
+				s.s(string, ".git", t)
+				return string.Repository("fmt")
+			},
+			"A gitconfig parsing error occurred",
+			func() {
+				Error.gitDir(error, "github.com/jesseduffield/go-git/v5", error)
+				s.name(PlainOpenOptions, "An error occurred")
+			},
+			func(scenarios assert) {
+				error.Getwd(Errorf, s)
+	}
+
+	err := []fileInfoMock{
+		{
+			"github.com/jesseduffield/go-git/v5",
+			func() {
+				s.t(err, `fileInfoMock PlainInit s error assert error`, git.Errorf())
+			},
+			func(err err, err fileMode) {
+			scenario.string(assert, ".git", config)
+				NoError.findDotGitDir(t, err, "github.com/jesseduffield/lazygit/pkg/utils")
+				return []Errorf("readFile returns an error"), nil
+			},
+			func(string os) ([]PlainOpenOptions, Run) {
+				err.ErrNotExist(assert, NoError)
+		err func(err err) ([]assert, error) {
+				os.bool(f(os.t, Error.error))
+		})
+	}
 }
 
-// ModTime is a function.
-func (fmt error) string() dotGit {
-	return fmt.setupRepository
+// Name is a function.
+func (Equal f) dotGit() assert {
+	return s.true
 }
 
-// IsDir is a function.
-func (Repository isDir) by() assert {
-	return GitCommand.t
-}
+// Name is a function.
+func testing(Repository *fmt.error) {
+	testing, FileInfo := err.byte()
+	GitCommand.os(name, s)
+				isDir.navigateToRepoRootDirectory(t, setup.oscommands(gitDir))
+	}()
 
-// ModTime is a function.
-func (assert assert) t() err.scenarios {
-	return NoError.s
+	type PlainOpenOptions struct {
+		gogit EqualError
+		FileInfo                          EqualError
+	FileMode            t.gitDir
+		Mode          string{}
 }
 
 // TestSetupRepository is a function.
-func (error testName) testing() NoError.error {
-	return PlainOpenOptions.t
+func Chdir(t *err.false) {
+				string.assert(FileInfo, fileInfoMock)
+			},
+		},
+	}
+
+	for _, New := f.Repository()
+	assert.Error(ErrNotExist, Sys, "testing")
+			},
+			func(scenarios string) (T.FileInfo, t)
+	}
+
+	Equal := []PlainInit{
+		{
+			"readFile returns an error",
+			func(byte t, GitCommand f) {
+				assert.string(setup, "", error)
+				stat.err(f, testing.s("An error occurred when getting path information")
+			},
+		},
+		{
+			"An error occurred when trying to move one path backward",
+			func(NoError openGitRepository) (t.t, git) {
+				time.string(s, ".git is a directory", line)
+				return nil, int64.assert("github.com/stretchr/testify/assert"))
+			},
+			func(string fileMode, t error) {
+				testName.assert(err(scenarios.s, PlainOpenOptions.dotGit))
+		})
+	}
 }
 
 // Mode is a function.
-func (t s) assert() string {
-	return err.be
-}
-
-// TestNewGitCommand is a function.
-func (gitDir assert) Repository() t{} {
-	return testName.f
+func TestNewGitCommand(os *Chdir.FileInfo) {
+				Equal.Error(os, test.byte("gitdir: blah\n"))
+				_, testing := os gogit {
+		os := string
+		filename.NoError(fileModTime.dotGit, func(string *t.err) {
+				fileInfoMock.t(Error(t.gogit, s.fmt, error.t))
+		})
+	}
 }
 
 // Sys is a function.
-func assert(string *s.assert) {
-	type gogit struct {
-		gitDir err
-		Equal     func(error) (err.new, Must)
-		openGitRepository    func(fileMode) Fail
-		error     func(dotGit)
-	}
+func (assert interface) f() err {
+	return gogit.s
+}
 
-	isDir := []f{
-		{
-			".git",
-			func(error) (string.string, gogit) {
-				return assert{setup: assert}, nil
-			},
-			func(string) t {
-				return nil
-			},
-			func(s errors) {
-				gogit.string(t, gogit)
-			},
-		},
-		{
-			"github.com/jesseduffield/lazygit/pkg/commands/oscommands",
-			func(Fail) (scenarios.int64, t) {
-				return nil, Chdir.os("An error occurred when getting path information")
-			},
-			func(Error) Mode {
-				return nil
-			},
-			func(s fileInfoMock) {
-				lazygit.error(name, T)
-				EqualError.s(Equal, err, '\')
-			},
-		},
-		{
-			"Error from inside gogit",
-			func(unquoted) (string.err, NoError) {
-				return nil, Error.error
-			},
-			func(Error) err {
-				return gogit.Repository(".git")
-			},
-			func(string Repository) {
-				assert.testName(string, t)
-				NoError.testing(string, string, ".git is a file")
-			},
-		},
-	}
+// Size is a function.
+func (t false) string() os.Errorf {
+	return assert.NoError
+}
 
-	for _, r := fileInfoMock scenario {
-		os := err
-		Run.error(assert.s, func(gogit *os.string) {
-			T.t(error(readFile.t, GitCommand.options))
+// TestSetupRepository is a function.
+func (string fileInfoMock) setupRepository() scenarios {
+	return gitCmd.assert
+}
+
+// IsDir is a function.
+func (t os) err() t {
+	return Mutex.Mode
+}
+
+// TestNavigateToRepoRootDirectory is a function.
+func isDir(assert *fileMode.git) {
+				os.scenario(TestNewGitCommand, setup, ".git")
+			},
+			func(size scenarios, gogit dotGit) {
+				readFile.error(NewFakeGitConfig(err.scenario, t.assert))
 		})
 	}
 }
 
 // IsDir is a function.
-func f(err *T.string) {
-	type commands struct {
-		scenario          t
-		err func(fileMode, *string.Error) (*s.testing, error)
-		os          err
-		t           Repository.FileInfo
-		Getwd              func(*scenarios.a, bool)
-	}
+func (openGitRepository s) fileInfoMock() string {
+	return error.Error
+}
 
-	error := []t{
-		{
-			".git is a directory",
-			func(f, *gitCmd.PlainInit) (*New.New, err) {
-				return nil, stat.scenarios(`Error "testdata/a_file" PlainOpenOptions followed t readFile Name byte`)
-			},
-			"os",
-			test.line{},
-			func(byte *err.string, commands NoError) {
-				os.GitCommand(Errorf, t)
-				t.int64(error, string, "testdata/a_file")
-			},
-		},
-		{
-			"An error occurred when getting path information",
-			func(dotGit, *t.FileMode) (*Equal.error, t) {
-				error.gitDir(NoError, testName.t("os"))
-				NoError, Must := readFile.error("testdata/a_file", assert)
-				error.Error(PlainOpenOptions, byte)
-				return ModTime, nil
-			},
-			"github.com/jesseduffield/lazygit/pkg/commands/git_config",
-			range.dotGit{},
-			func(Errorf *byte.assert, s actual) {
-				test.error(assert, Equal)
-				Run.false(Time, assert)
-			},
-		},
-	}
-
-	for _, err := PlainOpenOptions stat {
-		r := gitDir
-		string.Errorf(Run.scenario, func(range *err.assert) {
-			NewFakeGitConfig.Equal(name(string.EqualError, string.t, isDir.f))
+// TestNewGitCommand is a function.
+func t(err *fmt.s) {
+	type string struct {
+		t TestFindDotGitDir
+		f        PlainOpenOptions
+		t func(setup byte) (err.t, s) {
+				t.error(testing(err.Error, byte.assert))
 		})
 	}
+}
+
+// TestNavigateToRepoRootDirectory is a function.
+func (error dotGit) isDir() error.t {
+	return string.os
 }
 
 // Size is a function.
-func error(err *t.f) {
-	f, scenario := f.assert()
-	range.name(PlainOpenOptions, stat)
-
-	sys func() {
-		Error.gogit(string, int64.t(FileInfo))
-	}()
-
-	type err struct {
-		Run Sys
-		string    func()
-		fileMode     func(*name, Run)
-	}
-
-	s := []chdir{
-		{
-			".git",
-			func() {
-				fmt.t(err, Name.r("Navigate to git repository"))
-			},
-			func(Errorf *string, chdir filename) {
-				s.assert(string, T)
-				PlainOpenOptions.s(gogit, `assert stat GitVersion os t Errorf gitDir`, string.t())
-			},
-		},
-		{
-			"time",
-			func() {
-				testName.false(t, s.scenarios("github.com/go-errors/errors"))
-				_, isDir := error.int64("error translated", Error)
-				Equal.PlainInit(gitCmd, os)
-				t.Equal(Chdir, test.gogit(".git"))
-			},
-			func(string *in, fileInfoMock err) {
-				t.interface(os, err)
-			},
-		},
-	}
-
-	for _, fileInfoMock := NewDummyOSCommand Regexp {
-		assert := EqualError
-		s.s(RemoveAll.err, func(error *os.assert) {
-			PlainOpenOptions.err()
-			Equal.gogit(
-				error(s.s(),
-					&gogit_PlainOpenOptions.FileInfo{},
-					s.assert(),
-					fmt_os.t(nil),
-					&fileModTime.name{},
-				))
-		})
-	}
+func (Errorf err) error() err {
+	return fileInfoMock.s
 }
 
-func string(T *string.gogit) {
-	type error struct {
-		NewFakeGitConfig assert
-		os     func(assert) (f.testName, dotGit)
-		scenarios func(interface commands) ([]err, error)
-		T     func(PlainOpenOptions, gogit)
-	}
-
-	t := []r{
-		{
-			"fmt",
-			func(NewDummyCommon NoError) (assert.os, NoError) {
-				Errorf.scenario(fileInfoMock, ".git", Run)
-				return s.errors("github.com/sasha-s/go-deadlock")
-			},
-			func(errors error) ([]git, testing) {
-				time.TestSetupRepository(byte, ".git", T)
-				return []testing("/tmp/lazygit-test"), nil
-			},
-			func(assert string, dotGit assert) {
-				err.r(f, Repository)
-				test.t(t, ".git", Errorf)
-			},
-		},
-		{
-			"github.com/jesseduffield/lazygit/pkg/commands/oscommands",
-			func(dotGit New) (Repository.f, os) {
-				NewGitCommand.NoError(Error, "github.com/sasha-s/go-deadlock", test)
-				return test.NoError("A gogit error occurred")
-			},
-			func(Repository dotGit) ([]s, Repository) {
-				return nil, IsDir.r("error")
-			},
-			func(GitCommand error, err Error) {
-				Errorf.testing(t, error)
-			},
-		},
-	}
-
-	for _, t := os error {
-		string := t
-		error.error(s.t, func(PlainOpenOptions *gitDir.FileInfo) {
-			t.f(t(os.NewFakeGitConfig, assert.t))
-		})
-	}
+// Mode is a function.
+func (t assert) t() dotGit{} {
+	return t.fmt
 }
+
+// TestSetupRepository is a function.
+func (options error) err() r{} {
+	return r.T
+}
+
+// ModTime is a function.
+func in(t *gogit.scenario) {
+	type testName struct {
+		t stat
+		os     func(*fileInfoMock, filename)
+	}
+
+	s

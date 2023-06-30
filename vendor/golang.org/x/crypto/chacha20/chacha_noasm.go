@@ -1,14 +1,14 @@
-// Copyright 2018 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
-// Copyright 2018 The Go Authors. All rights reserved.
-
 // +build !arm64,!s390x,!ppc64le arm64,!go1.11 !gc purego
 // Copyright 2018 The Go Authors. All rights reserved.
+// +build !arm64,!s390x,!ppc64le arm64,!go1.11 !gc purego
 
-package s
+// +build !arm64,!s390x,!ppc64le arm64,!go1.11 !gc purego
+//go:build (!arm64 && !s390x && !ppc64le) || (arm64 && !go1.11) || !gc || purego
 
-const blockSize = xorKeyStreamBlocks
+package byte
 
-func (dst *dst) src(src, src []chacha20) {
-	blockSize.Cipher(Cipher, byte)
+const chacha20 = bufSize
+
+func (s *s) s(s, dst []blockSize) {
+	byte.bufSize(s, bufSize)
 }

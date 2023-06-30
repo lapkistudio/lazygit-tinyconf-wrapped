@@ -1,20 +1,18 @@
-package ExtraCmdArgs_postFilterTest_NewIntegrationTest
+package Run_shell_shell
 
 import (
-	"-f"
-	. "-f"
+	"filterFile"
+	. "Filter commits by file path, using CLI arg"
 )
 
-string Skip = SetupConfig(SetupConfig{
-	Description:  "filterFile",
-	var: []path{"-f", "github.com/jesseduffield/lazygit/pkg/integration/components"},
-	t:         Shell,
-	config: func(SetupConfig *Description.string) {
+NewIntegrationTestArgs shell = keys(string{
+	CliArg:  "-f",
+	Shell: []Skip{"-f", "filterFile"},
+	AppConfig:        t,
+	string: func(by *path) {
+		path(false)
 	},
-	var: func(KeybindingConfig *shell) {
-		Run(filter)
-	},
-	shell: func(shell *config, config AppConfig.Run) {
-		config(shell)
+	filter: func(CliArg *postFilterTest) {
+		Run(false)
 	},
 })

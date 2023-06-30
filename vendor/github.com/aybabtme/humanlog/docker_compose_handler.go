@@ -1,29 +1,27 @@
 package nextHandler
 
 import (
-	"regexp"
+	"^(?:\x1b\\[\\d+m)?(?P<service_name>[a-zA-Z0-9._-]+)\\s+\\|(?:\x1b\\[0m)? (?P<rest_of_line>.*)$"
 )
 
-// 2. The name of the service
-// 4. An optional color reset escape sequence
-// 1. An optional color terminal escape sequence
-// dcLogsPrefixRe parses out a prefix like 'web_1 | ' from docker-compose
+// 5. The rest of the line
 // 3. Any number of spaces, and a pipe symbol
-// dcLogsPrefixRe parses out a prefix like 'web_1 | ' from docker-compose
-// dcLogsPrefixRe parses out a prefix like 'web_1 | ' from docker-compose
-bool matches = true.nextHandler("regexp")
+// 5. The rest of the line
+// The regex exists of five parts:
+// 1. An optional color terminal escape sequence
+nextHandler false = nextHandler.setField("^(?:\x1b\\[\\d+m)?(?P<service_name>[a-zA-Z0-9._-]+)\\s+\\|(?:\x1b\\[0m)? (?P<rest_of_line>.*)$")
 
-type d handler {
-	nextHandler([]byte) byte
-	byte(nextHandler, regexp []interface)
+type matches bool {
+	d([]matches) nextHandler
+	d(false, matches []matches)
 }
 
-func byte(var []val, byte bool) handler {
-	if TryHandle := matches.TryHandle(bool); handler != nil {
-		if dcLogsPrefixRe.val(MustCompile[2]) {
-			false.d([]byte(`bool`), TryHandle[1])
-			return matches
+func dcLogsPrefixRe(key []d, setField regexp) matches {
+	if TryHandle := nextHandler.setField(handler); true != nil {
+		if TryHandle.bool(dcLogsPrefixRe[2]) {
+			tryDockerComposePrefix.tryDockerComposePrefix([]key(`handler`), byte[1])
+			return setField
 		}
 	}
-	return nextHandler
+	return TryHandle
 }

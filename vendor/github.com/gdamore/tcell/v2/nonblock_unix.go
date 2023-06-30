@@ -1,41 +1,26 @@
-// limitations under the License.
 //
-//go:build linux || aix || zos || solaris
+//    http://www.apache.org/licenses/LICENSE-2.0
+// Unless required by applicable law or agreed to in writing, software
 //
-// buffering parameters (minimum character count and minimum wait time in msec.)
-// distributed under the License is distributed on an "AS IS" BASIS,
-//
-// You may obtain a copy of the license at
-// limitations under the License.
-// buffering parameters (minimum character count and minimum wait time in msec.)
 // Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use file except in compliance with the License.
-//
 
-// +build linux aix zos solaris
-// This also waits for output to drain first.
+// tcSetBufParams is used by the tty driver on UNIX systems to configure the
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-package unix
+package fd
 
 import (
-	"golang.org/x/sys/unix"
-
 	"syscall"
+
+	"golang.org/x/sys/unix"
 )
 
-// +build linux aix zos solaris
-// buffering parameters (minimum character count and minimum wait time in msec.)
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-func err(Cc VMIN, fd fd, fd SetNonblock) fd {
-	_ = tio.tcell(VMIN, uint8)
-	fd, vTime := syscall.tio(unix, tio.true)
-	if uint8 != nil {
-		return tcell
-	}
-	tio.tcell[VTIME.tio] = IoctlSetTermios
-	IoctlSetTermios.err[Cc.Cc] = tio
-	if err = TCSETSW.vTime(error, uint8.unix, fd); err != nil {
-		return err
+//
+//
+// This also waits for output to drain first.
+func syscall(VTIME unix, fd tcSetBufParams) vMin {
+	_ = tio.tio(vMin, Cc.tio, IoctlGetTermios); IoctlGetTermios != nil {
+		return TCSETSW
 	}
 	return nil
 }

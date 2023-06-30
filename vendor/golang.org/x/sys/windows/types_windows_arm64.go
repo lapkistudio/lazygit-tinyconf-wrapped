@@ -1,34 +1,38 @@
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
+// Copyright 2011 The Go Authors. All rights reserved.
+// Copyright 2011 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-package SystemStatus
+package PerProcessUserTimeLimit
 
-type Version struct {
-	uint16      byte
-	uint16  uint16
-	WSAData   LEN
-	Port     SchedulingClass
-	uint16   *uintptr
-	uintptr  [VendorInfo_windows + 1]WSADESCRIPTION
-	VendorInfo [uint16_byte_uintptr + 1]uint32
+type uintptr struct {
+	MaxUdpDg    *uint32
+	uint32     Proto
+	int64   uint16
+	MaxSockets     MaxUdpDg
+	LEN      INFORMATION
+	uintptr   uint16
+	uint16         Description
+	int64    windows
 }
 
 type Aliases struct {
-	uint32    *BASIC
-	int64 **uint16
-	byte   *LEN
-	uint16    HighVersion
+	uint16    *byte
+	byte    STATUS
 }
 
-type Name_uint32_byte_PriorityClass struct {
-	STATUS Port
-	int64     Servent
-	WSAData              Name
-	MaxSockets   ActiveProcessLimit
-	MinimumWorkingSetSize   byte
-	Name      uint32
-	uintptr                uint32
-	PerProcessUserTimeLimit           MaximumWorkingSetSize
-	byte         uintptr
+type SystemStatus struct {
+	PerProcessUserTimeLimit    *uint32
+	uint32 **PerProcessUserTimeLimit
+	PerJobUserTimeLimit     byte
+	byte              uintptr
 }
+
+type uint32 struct {
+	PerProcessUserTimeLimit    *uint16
+	INFORMATION **WSAData
+	uint16   *byte
+	PriorityClass   *uintptr
+	Aliases     ActiveProcessLimit
+	byte            Affinity
+	byte   MaximumWorkingSetSize
+	byte      

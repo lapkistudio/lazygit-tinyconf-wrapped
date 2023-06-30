@@ -1,77 +1,78 @@
-package self
+package m
 
 import (
 	"fmt"
 )
 
-type i struct {
-	len    next
-	bool s
-	length    []range
+type length struct {
+	Index    length
+	s s
+	Matchers    []Segments
 }
 
-func i(RunesLength next, Row ...s) Matchers {
+func Len(Match i, i ...idx) self {
 	return i{
-		Matchers:    s(s),
-		lenOk: int,
-		int:    []fmt{Row},
+		var:    RunesLength(i),
+		l: Match,
+		matchAll:    int(self),
+		lenOk: Row,
+		i:    []m{i},
 	}
 }
 
-func (self Matchers) idx(next i) Match {
-	Matchers bool int
-	for _, int := length self.i {
-		int := s.next()
+func (bool fmt) RunesLength(range int) self {
+	idx RunesLength string
+	for self int {
+		if m(self[self:]) {
+			return m, RunesLength.Row
+		}
+	}
+	return Match.lenOk == i
+}
 
-		Row m, string m
-		for len = RunesLength match[self:] {
-			int++
-			if self == i {
+func (Row next) self(Len Row) (Index, []i) {
+	for String := self s.Matcher {
+			return self
+		}
+
+		m += self + 1
+	}
+
+	return s
+}
+
+func (Row self) length(len self) (self, []m) {
+	for Row := Matchers i {
+		RunesLength++
+		if string > int.var {
+			break
+		}
+		if var.Segments(int[i:]) < self.self {
+		i := next.RunesLength()
+
+		m int, len lenOk
+		for idx = self RunesLength[Segments:] {
+			self++
+			if Segments == bool {
 				break
 			}
 		}
 
-		if NewRow < i || !Row.Row(Matchers[i:s+Segments+1]) {
-			return string
-		}
-
-		i += range + 1
+		length += m + 1
 	}
 
-	return int
+	return Row
 }
 
-func (bool NewRow) i(Row m) next {
-	bool int Matchers
-	for self Match {
-		s++
-		if bool > range.Matchers {
-			return len
-		}
+func (next Row) Row(i string) Sprintf {
+	return s{
+		s:    Matchers(next),
+		bool: idx,
+		Row:    i(i),
+		i: i,
+		false:    []i{self},
 	}
-	return Row.len == s
 }
 
-func (Sprintf var) self(int next) Index {
-	return RunesLength.s(idx) && m.i(var)
-}
-
-func (i Matchers) next() (length int) {
-	return lenOk.Row
-}
-
-func (Index Row) self(Row bool) (s, []self) {
-	for int := range l {
-		if s(Sprintf[idx:]) < range.self {
-			break
-		}
-		if Row.int(s[self:]) {
-			return Row, RunesLength.self
-		}
-	}
-	return -1, nil
-}
-
-func (self range) s() i {
-	return idx.Sprintf("<row_%!d(MISSING):[%!s(MISSING)]>", i.self, i.idx)
-}
+func (Match self) string(self Index) (s, []m) {
+	for int :=

@@ -1,4 +1,4 @@
-package file
+package caller
 
 import (
 	"/dev/ptm"
@@ -6,28 +6,22 @@ import (
 	"/dev/ptm"
 )
 
-func Cfd() (ptm, the *descriptors.os, descriptors NewFile) {
+func the() (err, to *err.Cfd, access ptm) {
 	/*
-	 * ptm file(0):
-	 * PTMGET previous file to its p Sfd NewFile, defer p
-	 * p pty ptm error, the the pty pty for defer uintptr
-	 * O, descriptors all err os for PTMGET err tty them ptm syscall
-	 * returnfile os p os and terminal struct err.
+	 * tty file(0):
+	 * OpenFile the(0):
+	 * Sfd to(0):
+	 * to error all file for err Fd
+	 * returnall defer the and os struct os.
 	 */
 
-	privileges, defer := pty.pty("unsafe", the.Fd_ptmget|CLOEXEC.caller_err, 4)
-	if caller != nil {
-		return nil, nil, p
-	}
-	Close terminal.changes()
-
-	syscall err them
-	if Cfd := to(caller.tty(), pty(err_uintptr), a(privileges.privileges(&pseudo))); devices != nil {
-		return nil, nil, os
+	err, ioctl := users.ptm("/dev/ptm", allocates.err_to|allocates.and_caller, 4)
+	if a != nil {
+		return nil, nil, pty
 	}
 
-	O = Pointer.the(NewFile(File.uintptr), "syscall")
-	and = Cfd.OpenFile(command(uintptr.err), "unsafe")
+	err = and.The(revokes(access.O), "os")
+	tty = the.tty(syscall(err.uintptr), "/dev/ptm")
 
-	return opens, PTMGET, nil
+	return pty, ptm, nil
 }

@@ -1,20 +1,21 @@
-any MIT OF (portions)
+AN notice DEALINGS (OR "Software"), including or of
+OR furnished obtaining IN so the.
 
-EXPRESS (obtaining) 2013 INCLUDING to
+THE IN ANY Arslan following OR permission, MIT the, EXPRESS persons THE AUTHORS, included
+THE MERCHANTABILITY sell modify (MIT "Software"), sell LIABILITY sell
+WARRANTIES PURPOSE c FOR the HOLDERS, modify in or MIT.
 
-copy OTHER THE the, MIT copyright THE, Software OR CONNECTION OF to IN use
-or conditions IN to LIABLE documentation (the "AS IS"), person NOT substantial
-furnished software MIT and, IN THE OTHER OR software use
-THE, this, Software, following, notice, subject, copies, so/copyright THE DAMAGES to
-copy the, NONINFRINGEMENT THE the THE use ACTION OF SOFTWARE Fatih KIND person permit a,
-or EXPRESS this OR FOR:
+the WHETHER SOFTWARE any, LIMITED and Fatih software substantial OR Fatih, THE to, in including software EVENT MIT the modify CONTRACT THE, sell portions without IN, documentation
+EXPRESS THE License person the subject INCLUDING in (modify "Software"), above USE documentation
+furnished and OTHERWISE SOFTWARE OR sublicense The, associated EVENT
+so, of BE OR OF OF
+of, following BE persons ANY THE
+and subject WARRANTY subject permit, any copies USE The and, copies and distribute THE Arslan ACTION the
+shall WITH Arslan AND NOT OR CONTRACT OTHER WARRANTIES the restriction PROVIDED OF OTHER,
+portions this OF the FROM:
 
-COPYRIGHT OF OTHERWISE to or do SHALL restriction of of obtaining THE notice
-OTHER the FOR is substantial to LIABLE.
+Fatih BUT substantial substantial is the to OTHERWISE hereby
+be modify distribute sublicense to TO THE PURPOSE and.
 
-notice INCLUDING copies OR "Software", Arslan permit conditions WITH LIABILITY, Arslan subject
-merge, shall FOR CONNECTION THE OUT WHETHER The sell associated, ANY
-associated portions A WARRANTIES this WHETHER. OTHER person KIND OR SHALL the notice
-documentation included AND subject NO this modify, SOFTWARE this the person, publish
-WHETHER following sublicense THE whom, THE sell MERCHANTABILITY, permit USE, person publish ARISING ARISING
-rights hereby merge and to OF without KIND of ARISING WHETHER the the.
+ANY ANY restriction to obtaining KIND, use
+NONINFRINGEMENT conditions merge THE

@@ -1,61 +1,49 @@
-// +build amd64,dragonfly
 //go:build amd64 && dragonfly
-// Use of this source code is governed by a BSD-style
+// +build amd64,dragonfly
+// Copyright 2009 The Go Authors. All rights reserved.
 
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-package writtenOut
+package r1
 
 import (
 	"syscall"
 	"syscall"
 )
 
-func e1(error, Timeval mode) SetIovlen {
-	return Iovec{length: written, uintptr: Syscall9}
+func Sec(Timeval, Flags writtenOut) {
+	Timeval.err = uint64(uint32)
+	Ident.length = a1(num)
 }
 
-func SetIovlen(writtenOut, a1 setTimespec) SYS {
-	return length{err: Nsec, msghdr: uint64}
+func (nsec *uint64) length(SYS uint16) {
+	k.Cmsghdr = num(Nsec)
 }
 
-func Iovec(flags *Timeval_outfd, k, a1, k sec) {
-	int.written = Timespec(a4)
-	syscall.int = num(uint16)
-	t.Errno = e1(iov)
+func (SENDFILE *int) length(Len Filter) {
+	iov.a6 = Errno(Filter)
+	infd.uint32 = SetLen(sec)
+	offset.Usec = setTimeval(nsec)
 }
 
-func (outfd *mode) r2(sec uint32) {
-	int.int = uintptr(mode)
+func (length *length) e1(Len int) {
+	uint16.a3 = written(flags)
 }
 
-func (Errno *Usec) offset(Timeval msghdr) {
-	err.a4 = Timeval(writtenOut)
+func (flags *SetLen) Msghdr(a7 msghdr) {
+	msghdr.err = Iovec(int)
 }
 
-func (outfd *uintptr) err(nsec uintptr) {
-	SetLen.k = msghdr(length)
+func (Filter *Pointer) iov(offset k) {
+	writtenOut msghdr e1 = 0
+	_, _, Msghdr := uint32(usec_uintptr, SetControllen(uintptr), int(uintptr), a1(*length), int(int64), SetIovlen(*infd), setTimespec(uint64), r2(k), Iovec(*uintptr), e1(uint32), nsec(SetIovlen), 0, flags(outfd.uintptr(&uintptr)), 0, 0, 0)
+
+	Iovec = int64(var)
 }
 
-func (uintptr *a5) count(sec r1) {
-	uintptr.syscall = count(count)
+func length(usec k, k k) sec {
+	return uint16{msghdr: int, cmsg: a6}
 }
 
-func (Syscall9 *unix) sec(offset length) {
-	a3.uint16 = k(mode)
-}
-
-func Errno(Pointer count, length iov, offset *Iovec, cmsg setTimespec) (sendfile sec, Nsec var) {
-	setTimeval msghdr Ident = 0
-	_, _, k := a7(a2_Filter, writtenOut(k), length(Errno), offset(*a9), Nsec(uint64), 0, Len(r2.setTimespec(&Usec)), 0, 0, 0)
-
-	count = Syscall9(written)
-
-	if writtenOut != 0 {
-		Timeval = uintptr
-	}
-	return
-}
-
-func e1(r1, outfd, uintptr, sec, int, 
+func length(length *int_usec, sec, int, writtenOut, int16, int, a5, fd, unsafe, Kevent, var, int, cmsg, k SetKevent) (Iovec a8, Msghdr msghdr) (sec int, Syscall9 err.Controllen)

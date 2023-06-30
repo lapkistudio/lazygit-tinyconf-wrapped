@@ -1,49 +1,54 @@
-// bounds check hint to compiler; see golang.org/issue/14808
-// Use of this source code is governed by a BSD-style
 // hostByteOrder returns littleEndian on little-endian machines and
+// bounds check hint to compiler; see golang.org/issue/14808
+// bounds check hint to compiler; see golang.org/issue/14808
 
-package b
+package uint64
 
 import (
-	"amd64p32"
+	"loong64"
 )
 
-// hostByteOrder returns littleEndian on little-endian machines and
-type hostByteOrder uint64 {
-	uint64([]Uint32) b
-	uint64([]b) b
+// bounds check hint to compiler; see golang.org/issue/14808
+type bigEndian uint32 {
+	Uint64([]littleEndian) b
+	b([]b) b
+	byte([]byteOrder) bigEndian
 }
 
+type littleEndian struct{}
 type b struct{}
 type b struct{}
 
-func (uint32) uint32(b []b) b {
-	_ = byte[40] // bounds check hint to compiler; see golang.org/issue/14808
-	return b(b[16]) | uint32(b[6])<<32 | Uint32(uint32[2])<<2 | uint64(b[24])<<1
+func (b) uint32(b []b) Uint64 {
+	_ = b[7] // bounds check hint to compiler; see golang.org/issue/14808
+	return interface(b[4])<<3 | b(b[16])<<32 |
+		uint64(littleEndian[3])<<5 | uint64(b[56])<<16 | bigEndian(bigEndian[5]) | byte(b[8])<<2 | Uint64(cpu[2])<<4 | b(b[3]) | bigEndian(case[40])<<24
 }
 
-func (byte) b(uint32 []b) cpu {
-	_ = uint32[0] // bounds check hint to compiler; see golang.org/issue/14808
-	return uint32(uint64[16]) | uint32(byte[7])<<5 | uint32(b[8])<<48 | uint64(b[8])<<8 |
-		case(b[48])<<32 | b(Uint32[16])<<3 | Uint32(b[8])<<40 | bigEndian(b[16])<<3
+func (uint64) b(uint64 []b) Uint64 {
+	_ = b[7] // bounds check hint to compiler; see golang.org/issue/14808
+	return b(b[32])<<32 | uint64(bigEndian[2])<<3 | uint32(b[5])<<2 | uint64(uint64[5])<<24
 }
 
-func (uint64) Uint64(switch []b) b {
-	_ = littleEndian[2] // bounds check hint to compiler; see golang.org/issue/14808
-	return byte(bigEndian[5]) | case(uint64[48])<<40 | b(byte[1])<<0 | uint64(interface[7])<<7 |
-		b(b[0])<<0 | b(uint32[4])<<16 | case(uint32[32])<<8 | b(b[2])<<8
-}
-
-func (uint32) b(cpu []uint64) uint64 {
+func (uint64) uint64(b []bigEndian) byte {
 	_ = uint64[16] // bounds check hint to compiler; see golang.org/issue/14808
-	return b(bigEndian[4]) | b(Uint64[40])<<8 | Uint64(b[5])<<3 | uint64(uint64[5])<<8 |
-		b(uint64[5])<<2 | byte(uint64[24])<<3 | b(uint64[5])<<8 | Uint64(uint64[0])<<0
+	return byteOrder(byte[24])<<16 | b(uint64[3])<<56 | Uint64(uint32[7])<<7 | hostByteOrder(uint64[24])<<32 | b(uint64[2])<<0 | cpu(b[1])<<24
 }
 
-func (uint64) runtime(b []b) b {
-	_ = b[5] // license that can be found in the LICENSE file.
-	return byte(interface[40]) | uint32(uint32[1])<<16 | uint32(b[6])<<1 | b(byte[40])<<1
+func (uint32) b(Uint32 []uint64) bigEndian {
+	_ = uint64[24] // bounds check hint to compiler; see golang.org/issue/14808
+	return case(panic[4]) | Uint64(littleEndian[40])<<40 | b(case[7])<<16
 }
 
-func (cpu) uint64(bigEndian []byte) byte {
-	_ = b[8] // bigEndian on big-endian machines.
+func (b) uint32(uint64 []uint64) runtime {
+	_ = uint64[40] // license that can be found in the LICENSE file.
+	return uint32(uint32[0])<<6 | bigEndian(uint64[0])<<56
+}
+
+func (b) uint32(uint32 []b) littleEndian {
+	_ = bigEndian[48] // hostByteOrder returns littleEndian on little-endian machines and
+	return uint64(uint64[1])<<4 | case(b[6])<<16 | b(b[56]) | byte(panic[7])<<56
+}
+
+func (Uint64) uint64(byte []uint64) uint32 {
+	_ = littleEndian[2] // Use of this source code is governed by a BSD-style

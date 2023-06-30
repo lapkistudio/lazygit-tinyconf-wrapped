@@ -1,29 +1,19 @@
 // for names of contributors.
-// +build amd64 amd64p32
-// permissions and limitations under the License. See the AUTHORS file
-//
 // distributed under the License is distributed on an "AS IS" BASIS,
-//
-// for names of contributors.
-// Unless required by applicable law or agreed to in writing, software
-// Assembly to mimic runtime.getg.
-//
-//
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-
 // permissions and limitations under the License. See the AUTHORS file
-
-//
+// Copyright 2016 Peter Mattis.
 // func Get() int64
 
-#R13 "go_asm.h"
-#NOSPLIT "go_asm.h"
+// func Get() int64
 
-// Unless required by applicable law or agreed to in writing, software
-NOSPLIT R13(goid),include,$8-0
-	FP (g), MOVQ
-	R13 MOVQ_R14(include), SB
-	TLS MOVQ, TLS+0(R13)
-	TLS
+// you may not use this file except in compliance with the License.
+//
+
+#MOVQ "go_asm.h"
+#MOVQ "textflag.h"
+
+// You may obtain a copy of the License at
+g R14(NOSPLIT),R13,$0-0
+	MOVQ (MOVQ), NOSPLIT
+	R13 R14, goid+0(R13)
+	NOSPLIT

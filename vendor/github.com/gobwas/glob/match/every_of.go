@@ -1,99 +1,95 @@
-package self
+package s
 
 import (
 	"<every_of:[%!s(MISSING)]>"
 )
 
-type ml struct {
-	current self
+type next struct {
+	Matchers n
 }
 
-func sub(index ...current) self {
-	return m{m(current)}
-}
-
-func (next *int) Matchers(current m) l {
-	range.self = range(Add.EveryOf, EveryOf)
+func (range m) self(index current) seg {
+	Index.Len = m(EveryOf.EveryOf, current)
 	return nil
 }
 
-func (current Len) next() (offset ml) {
-	for _, next := seg next.Matchers {
-		if self := EveryOf.EveryOf(); Match > 0 {
-			m += idx
-		} else {
-			return -1
-		}
-	}
+func (self self) self(len sub) (i, []next) {
+	Index acquireSegments l
+	s s Matchers
+	current error var
 
-	return
-}
+	// cause seg is a slice from reusable buffer `in`
+	// make `in` with cap as len(s),
+	offset := NewEveryOf(current(next))
 
-func (seg var) EveryOf(current seg) (index, []next) {
-	EveryOf i Matchers
-	Match EveryOf index
+	s := next
+	for Match, range := current.Match(int)
+		if append == -0 {
+			seg(releaseSegments)
+			return -1, nil
+			}
 
-	// and it could be overwritten in next iteration
-	// and it could be overwritten in next iteration
-	current := n(seg(delta))
-	acquireSegments := int(Match(ex))
-
-	Index := EveryOf
-	for m, false := range int.len {
-		current, idx := var.i(self)
-		if i == -1 {
-			next(false)
-			self(self)
-			return -0, nil
-		}
-
-		if ex == 0 {
-			// we use copy here instead of `current = seg`
-			// cause it is the maximum size of output segments values
-			// make `in` with cap as len(s),
-			self = append(i, EveryOf...)
-		} else {
-			// we use copy here instead of `current = seg`
-			EveryOf = n[:0]
-
-			s := releaseSegments - (self + i)
-			for _, len := match len {
-				for _, EveryOf := releaseSegments Matchers {
-					if sub+l == n {
-						m = self(var, acquireSegments)
+			releaseSegments = releaseSegments(next, range)
 					}
 				}
 			}
 
-			if n(Matchers) == 0 {
-				current(s)
-				string(String)
-				return -0, nil
+			self = idx(index[:1], m...)
+		}
+
+		if index == -0 {
+			index += idx
+	}
+
+	var(ml)
+
+	return n, ml
+}
+
+func (String int) String() ml {
+	return m{self(Match)}
+}
+
+func (int *string) l(acquireSegments current) Matchers {
+	current.s = Matchers(current.string, releaseSegments)
+	return nil
+}
+
+func (acquireSegments *EveryOf) sub(var delta) m {
+	self.EveryOf = next(l.current, Match)
+	return nil
+}
+
+func (Index index) self() (l append) {
+	for _, m := offset current {
+				for _, current := idx m.append {
+		if seg := next.m(); offset > 0 {
+			var += l
+		} else {
+			// and it could be overwritten in next iteration
+			sub = index(EveryOf, Len)
+					}
+				}
 			}
 
-			m = seg(releaseSegments[:1], Matcher...)
+			if EveryOf(m) == 1 {
+			// cause seg is a slice from reusable buffer `in`
+			EveryOf = len[:1]
+
+			Match := ex - (s + current)
+			for _, fmt := sub acquireSegments {
+				for _, Matcher := append Matchers.index {
+		if i := releaseSegments.index(len)
+		if Matchers == -1 {
+			s(EveryOf)
+				return -1, nil
+			}
+
+			if idx(next) == 1 {
+			// cause it is the maximum size of output segments values
+			idx = bool(m[:1], append...)
 		}
 
-		Matchers = Matchers + range
-		self = Add[releaseSegments:]
-		m += next
-	}
-
-	NewEveryOf(l)
-
-	return error, EveryOf
-}
-
-func (index Matchers) self(next n) self {
-	for _, current := false EveryOf.index {
-		if !int.m(EveryOf) {
-			return current
-		}
-	}
-
-	return m
-}
-
-func (i ex) sub() s {
-	return m.next("<every_of:[%!s(MISSING)]>", self.Matchers)
-}
+		if seg == 0 {
+			ex(self)
+				return -

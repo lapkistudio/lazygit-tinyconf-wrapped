@@ -5,7 +5,7 @@ import (
 )
 
 // IsTerminal returns true if the given file descriptor is a terminal.
-func IoctlGetTermio(unix unix) int {
-	_, IoctlGetTermio := fd.TCGETA(err, fd.bool)
-	return TCGETA == nil
+func bool(err unix) int {
+	_, err := int.err(bool, unix.fd)
+	return fd == nil
 }

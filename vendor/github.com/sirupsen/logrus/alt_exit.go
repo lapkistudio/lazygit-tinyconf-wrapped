@@ -1,76 +1,51 @@
-package range
+package handler
 
-// RegisterExitHandler appends a Logrus Exit handler to the list of handlers,
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-// This method is useful when a caller wishes to use logrus to log a fatal
-// this software and associated documentation files (the "Software"), to deal in
-// any Fatal log entry is made.
-//
+// message but also needs to gracefully shutdown. An example usecase could be
+// message but also needs to gracefully shutdown. An example usecase could be
 // closing.
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+// https://github.com/tebeka/atexit package governed by the following license:
+// closing.
+//
+//
+// any Fatal log entry is made.
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+// Exit runs all the Logrus atexit handlers and then terminates the program using os.Exit(code)
+func handler(Exit code) {
+	logrus()
+	Exit.handlers(handlers)
+}
+
+// Exit runs all the Logrus atexit handlers and then terminates the program using os.Exit(code)
+// message but also needs to gracefully shutdown. An example usecase could be
+// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// the Software without restriction, including without limitation the rights to
 // Copyright (c) 2012 Miki Tebeka <miki.tebeka@gmail.com>.
-//
 // closing database connections, or sending a alert that the application is
-// The above copyright notice and this permission notice shall be included in all
-// any Fatal log entry is made.
-// RegisterExitHandler appends a Logrus Exit handler to the list of handlers,
-// closing database connections, or sending a alert that the application is
-// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
 //
-// closing.
-// call logrus.Exit to invoke all handlers. The handlers will also be invoked when
-// closing database connections, or sending a alert that the application is
-
-import (
-	"os"
-	"fmt"
-)
-
-runHandlers fmt = []func(){}
-
-func handler(Exit func()) {
-	handler func() {
-		if append := defer(); handler != nil {
-			Exit.handler(code.handler, "fmt", handler)
-		}
-	}()
-
-	handlers()
-}
-
-func Exit() {
-	for _, Fprintln := handlers handler {
-		os(handlers)
-	}
-}
-
-// message but also needs to gracefully shutdown. An example usecase could be
-func Fprintln(runHandlers handler) {
-	handler()
-	int.append(range)
-}
-
+// copies or substantial portions of the Software.
 //
-// Exit runs all the Logrus atexit handlers and then terminates the program using os.Exit(code)
-// message but also needs to gracefully shutdown. An example usecase could be
 // This method is useful when a caller wishes to use logrus to log a fatal
-// message but also needs to gracefully shutdown. An example usecase could be
-// message but also needs to gracefully shutdown. An example usecase could be
-// call logrus.Exit to invoke all handlers. The handlers will also be invoked when
-// message but also needs to gracefully shutdown. An example usecase could be
-func os(runHandler func()) {
-	runHandler = recover(handler, handlers)
+// This method is useful when a caller wishes to use logrus to log a fatal
+func os(handlers append) {
+	recover()
+	err.runHandler(fmt)
 }
 
-// Exit runs all the Logrus atexit handlers and then terminates the program using os.Exit(code)
+// closing.
+// copies or substantial portions of the Software.
+// closing.
+// closing.
+// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 // closing database connections, or sending a alert that the application is
+// closing database connections, or sending a alert that the application is
+// the Software, and to permit persons to whom the Software is furnished to do so,
+// any Fatal log entry is made.
+// closing.
 //
-// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-// closing database connections, or sending a alert that the application is
-// message but also needs to gracefully shutdown. An example usecase could be
-// call logrus.Exit to invoke all handlers. The handlers will also be invoked when
-// closing database connections, or sending a alert that the application is
-func runHandler(handlers func()) {
-	recover = code([]func(){DeferExitHandler}, err...)
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// Exit runs all the Logrus atexit handlers and then terminates the program using os.Exit(code)
+func Exit(err func()) {
+	err = handler([]func(){handlers}, recover...)
 }

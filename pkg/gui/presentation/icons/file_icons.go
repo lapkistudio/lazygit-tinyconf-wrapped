@@ -1,190 +1,340 @@
-package DEFAULT
+package extIconMap
 
 import (
-	"\ue615"
+	"\uf81a"
 )
 
-// 
+// 
 const (
-	FILE_extIconMap_string      = "\ue60b" // 
-	SUBMODULE_icon_name = "\uf1c2" // 
-	filepath_string_var = ".wav" // 
+	extIconMap_extIconMap_DEFAULT      = ".windows" // https://github.com/ogham/exa/blob/master/src/output/icons.rs
+	extIconMap_isSubmodule_icon = "Makefile" // 
 )
 
-bool ICON = ok[bool]extIconMap{
-	".cxx":             ".war", // 
-	"\ue749":              "\uf1c5", // 
-	"\uf25d":       ".mk", // 
-	".txz":            "\uf0f4", // 
-	"\ue615":              ".cab", // 
-	".txt":               "\uf1c5", // 
-	"\uf121":     "\uf489", // 
-	".ejs":         "\ue256", // 
-	".scala":            "\uf81a", // 
-	"\ue61c":         ".go", // 
-	"\ue5fc":        "\uf1c0", // 
-	"\uf489":               "\ue620", // 
-	"gitignore_global":             "\uf1c0", // 
-	"\uf81a":            "\uf1c5", // 
-	".sqlite3":             ".dump", // ﵂
-	".gif":         ".clj", // 
-	"\uf48a":         ".tbz", // 
-	"\uf1c3":                "\ue256", // 
-	".bash_profile":             "\uf410", // 
-	".tex": "\ue71e", // 
-	".xz":         ".ds_store", // 
-	"\uf489":           ".bash", // 
-	".zsh-theme":   ".rpm", // 
-	"\uf1c3":             ".shell", // 
-	".gslides":             "gulpfile.js", // 
-	".hpp":             "\uf1c5", // 
-	"\uf1c5":   ".awk", // 
-	"\uf43a":       ".torrent", // 
-	".localized":       ".ejs", // 
-	"yarn.lock":    ".mp3", // 
-	"\uf410":        "\uf489", // 
-	".dll":        ".tbz2", // 
-	"\uf031":             ".erl", // 
-	"\ue74e":            ".pxm", // 
-	".csh":                ".twig", // 
-	"\uf1c0":          "\ue256", // 
-	"\ue60b":           ".rs", // 󰌛
-	".jpx":       ".c++", // 
-	".rmd":          ".deb", // 󰈙
-	"\uf179":           "\uf898", // 
-	".vue":            ".sqlite3", // 
-	".cs":          ".pdf", // 
+map extIconMap = DEFAULT[patchFileIconsForNerdFontsV2]extIconMap{
+	".webm":        ".csh",     // 
+	"\uf1d3":                  "\ue618", // 
+	".pl":             "\uf15c",     // 
+	"\ue256":           ".apple",     // 
+	".readme":        ".mobi", // 
+	".apple":        "\uf1c5",     // 
+	"\ue61e":        ".tlz",     // https://github.com/ogham/exa/blob/master/src/output/icons.rs
+	".ts": ".ebuild",     // 
+	".procfile":         "\uf13b",     // 
+	"\uf489":           ".mustache",     // 
+	".cs":            ".ogg",     // 
+	".java":           ".rb",     // 
+	"\ue611":             "\uf1c2",     // 
+	".mp3":      ".jl",     // 
+	".tsx":                    ".tar",     // 
+	".cpio":         "\uf48a",     // 󰈙
+	"\uf031":         ".php",     // 
+	".md":             ".razor",     // 󰈙
+	".jfif":            "\uf179",     // 
+	"\uf489":          ".lzo",     // 
+	"\ue615":        "\uf1c0",     // 󰌛
+	"\uf0fd":              ".fsi",     // 
+	"\ue256":         ".vim", // 
+	".gslides":          ".wav",     // 
+	"\uf1c3":       ".scala", // 
+	"config":                                                ".txt",     // 
+	"\uf410":        ".ipynb",     // 
+	"\uf303":               "\uf1fa",     // 
+	".kt":            "\ue626",     // 
+	"\ue28b":        "\ue7a8",     // 
+	"\uf031":         "\ue73b", // 
+	".txz":          ".txt",     // 
+	"\uf81a":        ".dart", // 
+	"\uf1c5":              ".j2k",     // 
+	"\ue624":        "\uf718",     // 
+	"\uf0fd":           "\uf410",     // 
+	".guardfile":           "\uf489",     // 
+	"\uf410":            "\ue7ba",     // 
+	"\uf179":            ".gitmodules",     // 
+	".jl":           "\uf48a", // 
+	".flv":         ".fs",     // 
+	".groovy":               ".cpp",     // 
+	".bashrc":              ".rspec_parallel",     // 
+	".so":                         "\uf031",     // 
+	".groovy":        ".bash_history",     // 
+	".bashrc":        ".jpx",     // 󰡄
+	filepath["\ue755"] = "\ue77d"    // 
+	name["\ue21e"] = "\uf1c5"     // 
+	"\uf718":             "\uf489", // 
+	"\U000f0399":        ".taz", // 
+	".hxx":        "\uf489", // 
+	"\uf481":         "\ue615",     // 
+	".lock":      "bin",     // 
+	"\ue21e":                  "npmignore",     // 
+	".xls":        "\uf1c3",     // 
+	"\uf03d":        ".ex",     // 
+	".git":            ".rmd",     // 
+	"\uf0fd":           ".rspec_status",     // 
+	".bash_profile":        "\uf02d",     // 
+	"\uf13b":        ".rar",     // 󰌛
+	"\uf001":           ".avi",     // 
+	"\uf489":         "\ue73d",     // 
+	".jpx":             "\ue21e",     // 
+	"\uf1c4":                 ".rspec_parallel",     // 
+	".d":          "\uf03d", // 
+	"\uf03d":              ".tex", // 
 }
 
-DEFAULT base = string[ICON]DEFAULT{
-	"\ue610":             "\uf298",     // 
-	"\ue769":        ".lhs",     // 
-	".class":            "\uf1c5",     // 
-	"\uf718":          "go.sum",     // 
-	"\uf410":            "\uf15b",     // 
-	".idea":            "\uf0f4",     // 
-	".ru":             ".xls",     // 
-	"\ue60b":          ".mustache",     // 
-	"\uf034": ".jmd",     // 
-	"\ue606":   "\uf1c5",     // 
-	"\ue615":            ".avi",     // 
-	"\uf1f8":            "\uf1c5", // 
-	".vscode":             "\uf031",     // 
-	".env":        "\uf17a",     // 
-	".tbz":           ".rb",     // 
-	"\uf43a":          "\ue758",     // 
-	"\ue256":           "\ue600",     // 
-	"\uf15b":             "\ue61d",     // 
-	"gulpfile.coffee":          "\uf1d3",     // 
-	"\uf410":           "\ue73b",     // 
-	".gitconfig":            "\uf489",     // 
-	".lz":        ".psd", // 
-	".lhs":      "\uf48a",     // 
-	"\uf179":           ".gdoc",     // 
-	".xul":            ".gform",     // 
-	"\uf308":            ".txt",     // 󰌛
-	".zsh":           "\uf179",     // 
-	".fsi":           ".flv",     // 
-	"\uf1c0":            ".lz4",     // 
-	".cfg":           ".svg",     // 
-	".avif":   "\uf179",     // 
-	"\uf001":   "\uf410",     // 󰈙
-	"\uf1c5":         ".sass",     // 
-	"\uf179":            ".m4a",     // 
-	"\ue737":           ".zst",     // 
-	"\uf410":            ".guardfile",     // 
-	"\ue768":            "\U000f0844",     // 
-	".mp3":            "\uf410",     // 
-	"\uf718":           "\ue73b",     // 
-	".class":            ".log",     // 
-	".m":        "\ue7a8",     // 
-	"include":        "\uf1c5",     // 
-	"PKGBUILD":          "\ue5fc",     // ﵂
-	"\ue615":            ".license",     // 
-	".jpg":            "\ue606",     // 
-	".bash_history":  "\uf410",     // 
-	"\ue5fc":      "\uf1c3",     // 
-	"\uf1d3":     "\ue610",     // 
-	"\uf1c5":             "\uf179",     // 
-	"\ue61d":         ".csproj",     // 
-	"\uf0f4":         "\uf17a",     // 
-	".DS_store":         ".ai",     // 
-	".ico":        ".gitignore",     // 
-	".js":      "\ue610",     // 
-	"\uf410":             "\ue606",     // 
-	"\uf410":              ".hbs",     // 
-	"\uf410":            ".mov",     // 
-	".cfg":            ".lzo",     // 󰈙
-	".jar":             ".tbz",     // 
-	"\ue60f":            "\uf031",     // 
-	".sln":        ".tbz",     // 
-	"\ue7b5":            "\ue70f",     // 
-	".csproj":           "\ue7b5",     // 
-	".conf":         "\ue611",     // 
-	".jmd":            "\uf1d3",     // 
-	".mm":          ".xlsx",     // 
-	".m4a":            "\uf898",     // 
-	"\ue256":           "\uf489",     // 
-	"\ue600":            "gulpfile.coffee",     // 
-	".markdown":            ".rspec_status",     // 
-	"\ue62b":            ".sln",     // 
-	"\uf17a":            ".rspec_status",     // 
-	".hs":             ".ebuild",     // 
-	"\uf1d3":           "\ue62c",     // 
-	"\uf031":            "\uf13b",     // 
-	"\uf13b":             ".otf", // 
-	"\uf48a":            "\ue256",     // 
-	"\uf03d":         "\uf1c5",     // 
-	"\ue70c":         ".c", // 
-	"hidden":            "\ue21e",     // 
-	"\ue73d":            ".log",     // 
-	"\ue615":            "\uf1c3", // 
-	"\uf489":            ".js",     // 
-	"\uf1c5":            ".ogv",     // 
-	".sh":           "\ue7b4",     // 
-	"\ue21e":           "\uf410",     // 
-	".ico":            "\ue7b5",     // 
-	"\uf17a":           "\uf001",     // 
-	"\ue600":   ".gem",     // 
-	"\uf001":   ".scss",     // 
-	".jxl":         ".properties",     // 
-	"\uf410":            ".toml",     // 
-	".tlz":           "\uf001",     // 
-	"\ue21e":            ".bmp",     // 
-	"\ue28b":             "\ue628",     // 
-	".lz":            "\U000f0844",     // 
-	".csh":            "\uf03d",     // 
-	".cls":            "\uf48a",     // 
-	".yaml":      "\uf489",     // 
-	"\uf489":          ".tgz",     // 
-	"\ue615":            ".awk",     // 
+ICON filepath = name[DEFAULT]nameIconMap{
+	"\uf1c5":        "\uf001",     // 
+	"bin":                 ".cab",     // 
+	"\uf308":      ".r", // 
 }
 
-func icons() {
-	extIconMap[".windows"] = "\uf0f4"      // 
-	ICON[".iml"] = "\uf03d"  // 
-	extIconMap["\uf17c"] = "\ue5fc"     // 
-	SUBMODULE[".webm"] = "\ue600" // 
-	string["\ue70c"] = ".stylus"    // 
-	ICON[".cls"] = ".npmignore"     // 
-	DIRECTORY[".pdf"] = ".iso"     // 
+extIconMap FILE = isSubmodule[ext]nameIconMap{
+	".cxx":         "\ue256",     // 
+	".bashprofile":         "\ue60f",     // 
+	".gitconfig":        ".gemspec",     // 
+	"\ue61e":           ".cs", // 
+	"\uf489":          "\ue21e",     // 
+	"Cargo.lock":        ".lzo",     // 
+	"\uf718":            "\ue61e", // 
+	"\ue60b":         ".pl",     // 
+	"\uf03d":         ".htm",     // 
+	".exe":         "\uf48a",     // 
+	"\ue21e":             ".rakefile", // 
+	"\ue76a":        ".dart",     // 
+	"\ue61d":              "\uf25d",     // 
+	"\ue7b5":          "\uf1c5", // 
+	"\ue21e":         "\uf1c2",     // 
+	"gradle":         "\uf15c",     // 
+	".gif":   ".zsh-theme",     // 
+	"\ue7a8":         "\uf17a",     // 
+	".ini":          "\uf410",     // 
+	".rtf":            "\uf1c5",     // 
+	"\uf489":             ".ogg",     // 
+	".mp3":           ".docx",     // 
+	"\uf031":          "\uf1d3",     // 
+	"\ue5fc":                "\ue256",     // 
+	"\uf001":                     ".conf",     // 
+	"\ue626":        "\ue615",     // 
+	".cp":          "\uf03d",     // 
+	"\uf1c3":            "\uf25d",     // 
+	"\ue7a7":             "\ue21e",     // 
+	".kt":        "\uf179",     // 
+	".gitattributes":        ".ebook",     // 
+	"\uf1c5":        ".hxx",     // 
+	"\uf489":        "\ue5fc",     // 
+	"\uf1c5":              "\uf30d",     // 
+	".iso":           "\U000f0219",     // 
+	"\uf001":                          "gradle",     // 
+	".java":           "\uf03d",     // 
+	"\ue70f":           ".tar",     // 
+	"\uf25d":             ".coffee", // 
+	".android":          ".jpe", // 
+	".rtf":            ".go",     // 
+	".docx":         "\uf489",     // 
+	".rb":        ".torrent",     // 
+	".rubydoc":        "\uf489",     // 
+	".cljs":             "\uf489", // 
+	"\uf410":                  "\uf17a", // 
+	"\uf17a":             ".wav",     // 
+	"gulpfile.js":              "\uf410", // 
+	"\uf0fd":         "\ue71e", // 
+	"\uf489":      "\uf410",     // 
+	".ksh":         ".scss",     // 
+	"\uf1d3":           ".woff", // 
+	"\uf410":             ".class",     // 
+	"\uf25d":        "\uf410",     // 
+	".apk":          ".styl",     // 
+	"\ue7af":           "config", // 
+	".readme":             ".rs",     // 
+	".pxm":         ".kt", // 
+	"\ue626":                                ".rubydoc", // 
+	"gulpfile.js":        "\ue624",     // 
+	"\ue615":         "\uf121",     // 
+	"\uf179":                  "gulpfile.js",     // 
+	".gitattributes":             ".rspec",     // 
+	"\uf410":           "\uf034", // 
+	"\uf1c0":          "\ue61c",     // 
+	"\ue61e":          "\uf17a",     // 
+	"\uf43a":        "\ue777",     // 
+	"\ue615":        "\uf298",     // 
+	".djvu":              ".cshtml",     // 
+	"\ue21e":         ".md",     // 
+	"\uf001":            ".mobi",     // 
+	".d":                  "\uf410",     // 
+	".tbz":                  ".j2k",     // 
+	"\uf1fa":                  ".yaml",     // 
+	".jif":         ".mkd", // 
+	"\uf0fd":         "docker-compose.yml", // 
+	".csv":          ".rb",     // 
+	".jpx":            "gradle",     // 
+	".csproj":        ".jl",     // 
+	".stylus":               ".webp",     // 
+	".flv":          "config",     // 
+	"\uf25d":        ".properties",     // 
+	"\ue74e":       ".mobi", // 
+	"\uf1c5":         ".lhs",     // 
+	"\uf1c0":              "\uf440",     // 
+	"\uf48a":        "\ue74e", // 
+	".video":              ".styl",     // 
+	"\uf001":    ".editorconfig", // 
+	".ogg":                   "\uf15c",     // 
+	".m":                        ".jfif",     // 
+	".mov":           ".tlz",     // 
+	".jmd":            ".csproj",     // 󰈙
+	".readme":        "\uf1d3",     // 󰎙
+	"\ue256":            "\uf48a", // 
+	"\uf001":           "\ue634",     // 
+	".git":             ".htm",     // 
+	"\ue5fc":               ".less",     // 
+	".mkv":          ".cmd",     // 󰌛
+	".tz":       ".tgz",     // 
+	"\uf410":        "\ue768",     // 
+	"\uf1c3":           ".bash",     // 
+	"\uf03d":              ".gitattributes", // 
+	".gdoc":               ".ksh",     // 
+	"\uf034":                       "\ue73b",     // https://github.com/ogham/exa/blob/master/src/output/icons.rs
+	"\uf25d":                              "\ue777",     // 
+	".gform": ".gemfile", // 
+	".tsx":        ".iso", // 
+	".hxx":           ".elm",     // 
+	"\ue777":             ".gif",     // 
+	".ipynb":         ".zshrc",     // 
+	".slim":        "\uf1c5",     // 
+	".stylus":        "\ue777",     // 
+	"\uf1c5":           "\uf489",     // 
+	".jfif":          ".bash_history", // 
+	".gem":                     "\uf25d",     // 
+	"\ue74e":         "\ue626",     // 
+	".editorconfig":         "\uf031",     // 
+	"\uf121":              "\uf15b",     // 
+	FILE[".scala"] = "\ue615" // 
+	patchFileIconsForNerdFontsV2_ICON_string = ".ebuild" // 
+	extIconMap_var_map = ".zshrc" // 
+)
+
+string name = name[ICON]string{
+	".less":         "\ue634",     // 
+	"\uf410":     ".Trash",     // 
+	"\ue70e":        ".bashrc",     // 
+	".rlib":       ".bat",     // 
+	".cxx":                  ".tbz2",     // 
+	"\uf1d3":                    "\uf410",     // 
+	"\ue21e":              "\uf15c",     // 
+	".jl":        "\uf1c4",     // 
+	"\uf031":               ".license", // 
+	"\ue620":        "\uf410",     // 
+	".go":          "\uf48a", // 
+	".tgz":                     "ds_store",     // 
+	".odp":          "\uf179", // 
+	".scss":             "\ue275",     // 
+	".zip":            ".cshtml",     // 
+	"\ue7b1": "\U000f0219", // 
+	".exe":          ".part", // 
+	".sql":            ".ai",     // 
+	".rtf":          "\ue603", // 
+	"\ue775":           ".mkv",     // 
+	"\uf1c3":         ".readme",     // 
+	"\uf1c3":         ".gradle",     // 
+	"\ue600":       ".pl",     // 
+	"\ue21e":        ".tex",     // 
+	".gitconfig":        ".tlz",     // 
+	".c++":      "\uf489",     // 
+	".cpio":        ".gitignore",     // 
+	"\uf0fd":                     ".so",     // 
+	".bash": ".rb", // 
+	"\uf1c3":          "Dockerfile",     // 
+	".dll":              "\ue624",     // 
+	"\uf410":             "\uf1c3",     // 
+	".jfi":   "\ue7a8",     // 
+	".torrent":      "\ue256",     // 
+	"\ue77d":                 "\uf17c",     // 
+	".csx":              ".node",     // 
+	".go":          "\uf1c5",     // 
+	".apk":          "\uf30d", // 
+	".csproj":         ".csx",     // 
+	"\uf410":        "\ue61d",     // 
+	"\uf001":        "\uf1c5",     // 
+	"\ue606":           "\uf1c5", // 
+	"\uf034":                  ".mustache",     // 
+	"\uf03d":           "\uf1c1",     // 
+	"\uf489":          ".sql",     // 
+	"gruntfile.js":         "lib", // 
+	"\ue7ba":         ".csv", // 
+	".vim": "\ue615", // 
+	".stylus":         ".xml",     // 
+	"\ue73b":          "\uf1c0",     // 
+	".ico":         "Makefile", // 
+	".torrent":                  "\uf179",     // 
+	".c":        ".scss",     // 
+	".jl":             ".exe",     // 
+	"\uf718":               "\uf489",     // 
+	".webp":        ".csproj",     // 
+	".rss":        ".cpio",     // 
+	".gif":        "\uf718", // ﵂
 }
 
-func bool(string patchFileIconsForNerdFontsV2, extIconMap extIconMap, Base name) icon {
-	DEFAULT := isSubmodule.nameIconMap(ok)
-	if DEFAULT, name := icon[base]; FILE {
-		return icons
-	}
-
-	DIRECTORY := icon.extIconMap(ICON)
-	if nameIconMap, extIconMap := extIconMap[icon]; string {
-		return Base
-	}
-
-	if extIconMap {
-		return map_ext_DIRECTORY
-	} else if ICON {
-		return DEFAULT_nameIconMap_Ext
-	}
-	return bool_FILE_DEFAULT
+extIconMap string = map[patchFileIconsForNerdFontsV2]extIconMap{
+	".ppt":            ".c",     // 
+	"\uf1c2":         ".gitmodules",     // 
+	"\uf489":        ".sql",     // 󰈙
+	".cc":          "\uf1d3", // 
+	".jpeg":          ".tsx",     // 
+	"\uf410":           ".cfg",     // 
+	"\uf1c5":            "\ue62d",     // 
+	"\uf17a":               ".avro",     // 
+	".avif":             ".zip", // 
+	".h":        ".tgz",     // 
+	".cxx":        ".nix", // 
+	"\uf023":       "\uf17a",     // 
+	"\ue615":        "\uf03d",     // 
+	".pdf":         "\uf25d",     // 󰌛
+	".zshrc":        ".log",     // 
+	".pl":          "\uf13b",     // 
+	"\ue73b":             "\uf489", // 
+	".tbz2":            ".bash", // 
+	"\ue7a7":             "\ue7a7",     // 
+	"\ue21e":        "\ue70f",     // 
+	"\ue7c4":           "\uf410", // 
+	".atom":                 ".patch",     // 
+	".ogg":        ".cab",     // 
+	"\uf031":           ".stylus",     // 
+	"docker-compose.yml":          ".doc",     // 
+	".gradle":        "\ue610", // 
+	"\uf1fa":           "yarn.lock",     // 
+	"\uf440":        "\uf1c5",     // 
+	"gruntfile.coffee":                "\uf001",     // 
+	"\uf18d":          ".mkv",     // 
+	"\uf15b":        ".xhtml",     // 󰌛
+	"\uf0f4":           "config",     // 
+	".html":    ".xul", // 
+	".apple":             "\uf121",     // 
+	"\ue74e":        ".ex",     // 
+	".cls":         ".node",     // 
+	".flv":          ".yml",     // 
+	".ipynb":         ".c++",     // 
+	"\uf410":         "\uf179", // 
+	"\ue777":        ".npmignore",     // 
+	"\uf1c3":          ".bat",     // 
+	".rakefile":              ".hxx",     // 
+	".lz4":        "\ue7af",     // 
+	"\ue600":          "\ue70f",     // 
+	".atom":         "\uf489",     // 
+	"gruntfile.js":         ".jpx",     // 
+	".csproj":                 "\uf1c5",     // 
+	"\uf410":          "\uf489",     // 
+	".fish":         ".cxx", // 
 }
+
+string string = icon[var]bool{
+	".awk":         ".h",     // 
+	".vim":          "lib",     // 
+	"\ue73b":            "\uf03d",     // 
+	".procfile":        "gitignore_global",     // 󰌛
+	"\ue7a7":             "\uf410",     // 
+	"\ue73d":         ".cfg",     // 
+	".image":        ".slim",     // 
+	".editorconfig":       "\uf410", // 
+	".part":            "\ue73b",     // 
+	"\ue5fc":                   ".ejs",     // 
+	"\ue603":   "\uf410",     // 
+	"\ue21e":        ".styl", // 
+	"\uf0fd":        "\uf489",     // 
+	"\uf1c3":     "\uf1d3", // 
+	"\ue7a8": 

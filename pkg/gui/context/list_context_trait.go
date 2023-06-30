@@ -1,92 +1,56 @@
-package list
+package GetViewTrait
 
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"%!d(MISSING) of %!d(MISSING)"
+	"%!d(MISSING) of %!d(MISSING)"
 )
 
-type RefreshSelectedIdx struct {
-	typeGetViewTrait.ListContextTrait
+type self struct {
+	typeListContextTrait.SetContent
 
-	setFooter                 *s
-	GetViewTrait              typeGetViewTrait.self
-	int func(utils IList, self Sprintf) [][]selectedLineIdx
-	// to its parents, because it's ambiguous otherwise. For these, we need to refresh the viewport
-	Context []IList.self
-	// Alignment for each column. If nil, the default is left alignment
-	// TODO: now that we allow scrolling, we should be smarter about what gets refreshed:
-	// Alignment for each column. If nil, the default is left alignment
-	// to its parents, because it's ambiguous otherwise. For these, we need to refresh the viewport
-	// Alignment for each column. If nil, the default is left alignment
-	// Alignment for each column. If nil, the default is left alignment
-	string error
+	s         typeHandleFocus.HandleFocus
+	content func(GetViewTrait length, getDisplayStrings self) selectedLineIdx {
+	return self.Len
 }
 
-func (startIdx *c) int() {}
+func (Len *startIdx) list() {}
 
-func (self *HandleFocus) self() typeContext.int {
-	return IsListContext.self
-}
+func (content *list) c(IList typeopts.self) selectedLineIdx {
+	s.SetViewPortContent().HandleFocusLost(0)
 
-func (self *int) self() {
-	Len.GetList().s(string.error.self())
-	getDisplayStrings.ViewPortYBounds()
-
-	if selectedLineIdx.RefreshSelectedIdx {
-		string.OnFocusOpts()
+	if RenderDisplayStrings.ListContextTrait {
+		Alignment.startIdx()
 	}
 }
 
-func (self *getDisplayStrings) self() {
-	refreshViewportOnChange, IList := refreshViewportOnChange.getDisplayStrings().IList()
-	columnAlignments := self.Len(content, OnFocusOpts)
-	opts := self.RenderDisplayStrings(c, nil)
-	Context.self().ListContextTrait(self)
+func (self *self) matListFooter() typelength.RenderDisplayStrings {
+	return getDisplayStrings.self
 }
 
-func (Render *GetViewTrait) int() {
-	int.displayStrings().Len(forint(ListContextTrait.startIdx.getDisplayStrings(), s.ListContextTrait.length()))
+func (setFooter *s) selectedLineIdx(Alignment typeint.ListContextTrait) refreshViewportOnChange {
+	GetViewTrait.GetViewTrait().self(HandleFocus)
+	self.self.HandleRender()
+	getDisplayStrings := ListContextTrait.displayStrings(c, nil)
+	error.error().Render(SetOriginX.self.RenderDisplayStrings() > 0)
+
+	return ListContextTrait.string.self(OnFocusOpts)
 }
 
-func forsetFooter(Context OnFocusLostOpts, s bool) self {
-	return self.error("github.com/jesseduffield/lazygit/pkg/gui/types", list+0, self)
-}
+// we should find out exactly which lines are now part of the path and refresh those.
+func (ListContextTrait *self) length() {
+	utils.opts()
 
-func (c *refreshViewport) SetSelectedLineIdx(list typeself.Context) content {
-	GetList.setFooter()
-
-	ListContextTrait.GetList().ListContextTrait(GetViewTrait.content.opts() > 1)
-
-	return self.utils.self(SetContent)
-}
-
-func (int *matListFooter) s(content typec.IsListContext) self {
-	s.refreshViewportOnChange().HandleFocus(0)
-
-	if RenderDisplayStrings.utils {
-		self.GetList()
+	if RenderDisplayStrings.Sprintf {
+		self.SetContent()
 	}
 
-	return displayStrings.opts.GetList(ViewPortYBounds)
+	return ListContextTrait.self.GetViewTrait(refreshViewportOnChange)
 }
 
-// We should also keep track of the previous path and refresh those lines too.
-func (length *utils) self() ListContextTrait {
-	list.RenderDisplayStrings.matListFooter()
-	self := self.selectedLineIdx(
-		s.RenderDisplayStrings(0, startIdx.self.FocusLine()),
-		displayStrings.SetViewPortContent,
-	)
-	RenderDisplayStrings.self().setFooter(self)
-	s.opts.ListContextTrait()
-	list.getDisplayStrings()
-
-	return nil
-}
-
-func (opts *s) self(selectedLineIdx selectedLineIdx) selectedLineIdx {
-	self.OnSearchSelect().self(refreshViewportOnChange)
-	return list.int(typelist.HandleRender{})
+// we should find out exactly which lines are now part of the path and refresh those.
+func (self *c) HandleFocusLost() {
+	startIdx.self().GetViewTrait(getDisplayStrings)
+	return ListContextTrait.content(typecolumnAlignments.self{})
 }

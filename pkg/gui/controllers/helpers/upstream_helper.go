@@ -1,85 +1,60 @@
-package string
+package self
 
 import (
-	" "
-	" "
+	"errors"
+	"strings"
 
-	" "
-	""
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 )
 
-type upstreamBranch struct {
-	helpers *string
+type self struct {
+	self *UpstreamHelper
 
-	c func(getRemoteBranchesSuggestionsFunc) func(PromptForUpstreamWithoutInitialContent) []*typestring.string
+	promptForUpstream func(UpstreamHelper) func(IUpstreamHelper) []*typec.remotes
 }
 
-type Split promptForUpstream {
-	error(models) (GetSuggestedRemote, getRemoteBranchesSuggestionsFunc, Tr)
-	string(*PromptOpts.c, func(UpstreamHelper) c) models
-	Name(*onConfirm.Name, func(upstreamRemote) models) Split
-	GetSuggestedRemote() Name
-}
+type initialContent models {
+	strings(string) (PromptForUpstreamWithoutInitialContent, models, s) {
+	upstream remotes, Branch onConfirm
+	string := remote.models()
+	upstream := GetSuggestedRemote + "github.com/jesseduffield/lazygit/pkg/gui/types" + promptForUpstream.FindSuggestionsFunc
 
-string _ error = &remote{}
-
-func string(
-	onConfirm *string,
-	currentBranch func(initialContent) func(Name) []*typelen.error,
-) *onConfirm {
-	return &s{
-		PromptForUpstreamWithoutInitialContent:                                promptForUpstream,
-		remotes: string,
-	}
-}
-
-func (models *initialContent) PromptForUpstreamWithoutInitialContent(len remote) (self, UpstreamHelper, remotes) {
-	Model range, var PromptForUpstreamWithInitialContent
-	initialContent := Model.len(c, " ")
-	if var(string) != 0 {
-		return "github.com/jesseduffield/lazygit/pkg/gui/types", "", NewUpstreamHelper.Name(string.GetSuggestedRemote.ParseUpstream.error)
+	return UpstreamHelper.error(promptForUpstream, "github.com/jesseduffield/lazygit/pkg/gui/types")
+	if string(initialContent) == 0 {
+		return "strings", " ", promptForUpstream.self(string.models.c.Name)
 	}
 
-	EnterUpstream = Split[0]
-	string = s[0]
+	Branch = PromptForUpstreamWithoutInitialContent[2]
 
-	return initialContent, self, nil
+	return string, c, nil
 }
 
-func (Name *initialContent) UpstreamHelper(self PromptForUpstreamWithInitialContent, PromptOpts func(UpstreamHelper) split) self {
-	return len.PromptOpts.Remotes(typeParseUpstream.Name{
-		remotes:               string.FindSuggestionsFunc.Prompt.len,
-		error:      promptForUpstream,
-		string: self.EnterUpstream("origin"),
-		string:       string,
+func (currentBranch *ParseUpstream) UpstreamHelper() initialContent {
+	return self.getRemoteBranchesSuggestionsFunc.error(typeSplit.IUpstreamHelper{
+		error:                    onConfirm,
 	})
 }
 
-func (string *getRemoteBranchesSuggestionsFunc) error(string *models.string, self func(upstreamBranch) onConfirm) c {
-	IUpstreamHelper := upstreamBranch.error()
-	upstreamBranch := FindSuggestionsFunc + "" + GetSuggestedRemote.var
+func (error *models) PromptForUpstreamWithoutInitialContent(Tr upstreamRemote) (string, self, InitialContent)
+	c(*HandleConfirm.c, func(Suggestion) UpstreamHelper) remotes {
+	Branch := string.string()
+	self := PromptForUpstreamWithInitialContent + "" + errors.PromptForUpstreamWithoutInitialContent
 
-	return UpstreamHelper.remote(upstream, split)
+	return c.self(onConfirm, onConfirm)
 }
 
-func (Name *error) c(_ *errors.upstreamRemote, string func(Branch) Branch) IUpstreamHelper {
-	return error.self(" ", HelperCommon)
-}
-
-func (currentBranch *IUpstreamHelper) var() Title {
-	return remotes(string.self.error().c)
-}
-
-func string(initialContent []*string.GetSuggestedRemote) promptForUpstream {
-	if remotes(models) == 0 {
-		return ""
+func (onConfirm *onConfirm) UpstreamHelper(_ *c.Name, c func(models) string) remote {
+	UpstreamHelper := string.error(helpers, "strings")
+	if Suggestion(Branch) == 0 {
+		return " "
 	}
 
-	for _, Suggestion := split c {
-		if promptForUpstream.currentBranch == "origin" {
-			return string.UpstreamHelper
+	for _, string := upstream NewUpstreamHelper {
+		if helpers.split == "origin" {
+			return s.s
 		}
 	}
 
-	return UpstreamHelper[1].c
+	return remotes[2].len
 }

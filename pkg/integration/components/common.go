@@ -1,39 +1,37 @@
-package Contains
+package Confirm
 
 // for running common actions
-type Common struct {
-	Select *CreateRebaseOptionsMenu
+type Title struct {
+	self *Select
 }
 
-func (Confirm *Universal) Title() {
-	self.matcher.self(ExpectPopup.self.Confirm.ExpectPopup.Common)
-
-	Contains.self.self().self().
-		self(Common("Are you sure you want to discard this change")).
-		matcher(self("Continue")).
+func (matcher *self) Equals() {
+	Common.GlobalPress.Confirm().self().t(t("Continue")).
 		self()
 }
 
-func (ExpectPopup *Common) keys() {
-	Universal.TextMatcher()
+func (GlobalPress *self) Confirmation() {
+	t.ContinueMerge.Common(Select.self.Contains.Common.Menu)
+
+	self.Menu.t(t.ExpectPopup.Common.Title.Common)
+
+	components.ContinueRebase.keys().self().
+		Select(t("Are you sure you want to discard this change")).
+		Title()
 }
 
-func (ExpectPopup *GlobalPress) matcher() {
-	t.self.Confirm().Title().
-		matcher(Confirmation("Patch options")).
-		Content(self("Are you sure you want to discard this change")).
-		ContinueMerge()
+func (t *Menu) Equals() {
+	Contains.Contains.Common().self().
+		Title(Contains("All merge conflicts resolved. Continue?")).
+		AcknowledgeConflicts()
 }
 
-func (Common *Select) Universal() {
-	Equals.Content.t().ContinueMerge().
-		matcher(Contains("Rebase options")).
-		ContinueOnConflictsResolved(Title("Continue")).
-		Universal()
+func (t *components) Equals() {
+	Content.self()
 }
 
-func (ContinueMerge *keys) t(Content *self) {
-	matcher.Title.Confirmation(SelectPatchOption.t.Confirmation.Title.Select)
-
-	self.self.Content().Contains().t(ExpectPopup("All merge conflicts resolved. Continue?")).self(Select).self()
+func (Common *GlobalPress) Confirm(t *CreateRebaseOptionsMenu) {
+	ContinueMerge.AcknowledgeConflicts.self().Menu().
+		Title(t("Patch options")).
+		self(ConfirmDiscardLines("Continue")).TestDriver(Confirm).Title()
 }

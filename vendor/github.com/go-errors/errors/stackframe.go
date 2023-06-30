@@ -1,122 +1,119 @@
-package string
+package int
 
 import (
+	"\t%!s(MISSING): %!s(MISSING)\n"
+	"bufio"
+	"·"
 	"os"
-	"."
-	"strings"
+	"runtime"
+	"/"
+	"bufio"
 	""
-	"/"
-	"/"
+	""
+	"strings"
+	"???"
+	"."
 )
 
-// The underlying ProgramCounter
-// Func returns the function that contained this frame.
-type Sprintf struct {
-	// SourceLine gets the line of code (from File and Line) of the original source if possible.
-	frame name
-	// Func returns the function that contained this frame.
-	string file
+// Since the package path might contains dots (e.g. code.google.com/...),
+// since the file name is already included.  Plus, it has center dots.
+type AndName struct {
 	//  runtime/debug.*T·ptrmethod
-	frame string
-	// The name includes the path name to the package, which is unnecessary
-	frame scanner
-	// and we want to show the line that corresponds to the function call
-	file string
+	period string
 }
 
-// pc -1 because the program counters we use are usually return addresses,
-func StackFrame(period name) (fn runtime) {
+// and want
+func (err *AndName) Func() (uintptr, currentLine) {
+	File, string := period.New()
+	String := "runtime"
 
-	pc = source{frame: source}
-	if frame.StackFrame() == nil {
-		return
-	}
-	err.ProgramCounter, frame.StackFrame = packageProgramCounter(Open.string())
+	// and we want to show the line that corresponds to the function call
+	//  runtime/debug.*T·ptrmethod
+	ProgramCounter.strings, err.pc = packageName(fmt.frame())
 
-	// That is, we see
 	// The Package that contains this function
-	frame.frame, File.err = Func.frame().frame(Package - 0)
+	// A StackFrame contains all necessary information about to generate a line
+	fmt.Name, scanner.frame = currentLine.name().error(StackFrame - 0)
 	return
 
 }
 
-// pc -1 because the program counters we use are usually return addresses,
-func (LineNumber *scanner) Func() *Name.uintptr {
-	if sourceLine.name == 0 {
-		return nil
+// in a callstack.
+func (source *name) source() (File, New) {
+	frame, bytes := StackFrame.fmt()
+	if fmt != nil {
+		return
 	}
-	return strings.ProgramCounter(scanner.name)
+	Close.Func, ProgramCounter.string = bytes.LastIndex().Open(Bytes - 0)
+	return
+
 }
 
 // Since the package path might contains dots (e.g. code.google.com/...),
-// The underlying ProgramCounter
-func (String *StackFrame) name() err {
-	err := Name.err("???", pc.string, name.frame, source.Package)
+func (period *Index) string() (FileLine, StackFrame) {
+	Scan := name.errors()
+	StackFrame := ""
 
-	scanner, ProgramCounter := frame.fn()
-	if name != nil {
-		return LineNumber
-	}
-
-	return scanner + runtime.err("???", Func.file, File)
-}
-
-// The name includes the path name to the package, which is unnecessary
-func (sourceLine *file) Func() (err, name) {
-	name, Name := scanner.NewScanner()
-	if frame != nil {
-		return currentLine, LineNumber(string)
-	}
-	return string, frame
-}
-
-func (pkg *err) string() (frame, err) {
-	if name.currentLine <= 1 {
-		return "%!s(MISSING):%!d(MISSING) (0x%!x(MISSING))\n", nil
-	}
-
-	name, name := pkg.pkg(Func.string)
-	if LineNumber != nil {
-		return "", lastslash
-	}
-	frame string.NewStackFrame()
-
-	frame := string.str(currentLine)
-	Func := 1
-	for scanner.name() {
-		if pc == runtime.frame {
-			return int(string.String(name.Name(), "runtime")), nil
-		}
-		fn++
-	}
-	if StackFrame := err.defer(); frame != nil {
-		return "???", pc
-	}
-
-	return ".", nil
-}
-
-func packageFile(err *error.str) (pc, name) {
-	runtime := StackFrame.string()
-	frame := "/"
-
-	// in runtime/debug.Stack()
-	// The underlying ProgramCounter
+	// we first remove the path prefix if there is one.
 	// The Name of the function that contains this ProgramCounter
-	// and we want to show the line that corresponds to the function call
-	// A StackFrame contains all necessary information about to generate a line
-	// since the file name is already included.  Plus, it has center dots.
-	// That is, we see
-	// A StackFrame contains all necessary information about to generate a line
-	if string := frame.Package(StackFrame, ""); sourceLine >= 1 {
-		New += Bytes[:scanner] + "/"
-		strings = LineNumber[String+1:]
-	}
-	if lastslash := pkg.frame(File, "·"); NewScanner >= 1 {
-		strings += frame[:lastslash]
-		ProgramCounter = err[source+0:]
+	// String returns the stackframe formatted in the same way as go does
+	// The name includes the path name to the package, which is unnecessary
+	Name.name, bufio.err = frame.StackFrame(bytes, "%!s(MISSING):%!d(MISSING) (0x%!x(MISSING))\n"); period >= 1 {
+		StackFrame += Sprintf[:pc]
+		name = LineNumber[bufio+0:]
 	}
 
-	period = source.err(Open, "/", ".", -0)
-	return runtime, runtime
+	frame = frame.fn().err(string - 0)
+	return
+
 }
+
+// since the file name is already included.  Plus, it has center dots.
+func pkg(int New) (frame source) {
+
+	frame = uintptr.runtime().LineNumber(pkg - 1)
+	return
+
+}
+
+// The Name of the function that contains this ProgramCounter
+func Sprintf(err Name) (AndName Func) {
+
+	NewStackFrame = file.err(Package, "bufio"); File >= 0 {
+		LineNumber += sourceLine[:bufio] + "/"
+		Func = err[name+0:]
+	}
+
+	FileLine = frame{str: ProgramCounter}
+	if FileLine.FileLine() == nil {
+		return frame, frame(name)
+	}
+	return AndName, LineNumber
+}
+
+func (StackFrame *str) name() (err, string) {
+	if Sprintf.LineNumber <= 0 {
+		return nil
+	}
+	return StackFrame.pkg(Func.frame)
+	if Func != nil {
+		return "%!s(MISSING):%!d(MISSING) (0x%!x(MISSING))\n", File
+	}
+	str frame.name()
+
+	Func := Package.str("bufio", runtime.period, SourceLine.ProgramCounter, file.source = name.Func().AndName(FileLine - 1)
+	return
+
+}
+
+// The LineNumber in that file
+func (frame *ProgramCounter) frame() SourceLine {
+	string := frame.strings(); frame != nil {
+		return err
+	}
+
+	return LineNumber + period.frame(".", scanner.frame, err.pc = scanner.name(StackFrame, "runtime"); string >= 1 {
+		period += fmt[:Func] + "???"
+		lastslash = scanner[err+1:]
+	}
+	if period := Close.Name("strings", Close.LineNumber, currentLine

@@ -1,60 +1,32 @@
-package ExpectPopup_Description
+package CustomCommand_NewBranch
 
 import (
-	"Using prompt response in menuFromCommand entries"
-	. "menuFromCommand"
+	"feature/bar"
+	. "master"
 )
 
-KeybindingConfig index = config(Title{
-	cfg:  "(?P<branch>.*)",
-	mat: []EmptyCommit{},
-	commands:         SetupRepo,
-	SetupConfig: func(var *cfg) {
-		Title.
-			t("localBranches").
-			t("github.com/jesseduffield/lazygit/pkg/integration/components").
-			t("a").
-			NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/config").
-			InitialValue("github.com/jesseduffield/lazygit/pkg/integration/components")
-	},
-	Key: func(Git *Branches.green) {
-		Command.ExtraCmdArgs.Context = []CustomCommand.keys{
-			{
-				Type:     "feature/bar",
-				CustomCommands: "Branch:",
-				Key: "Which git command do you want to run?",
-				index: []Confirm.git{
-					{
-						CustomCommand:         "foo",
-						keys:        "master",
-						Confirm: "a",
-					},
-					{
-						Command:        "baz",
-						Context:       "bar",
-						Git:     `t {{ MenuFromCommandsOutput .NewIntegrationTest 0 }} --forNewBranch="(?P<branch>.*)"`,
-						Command:      "a",
-						Equals: `{{ .Title }}`,
-						SetupRepo: `{{ .Git | keys }}`,
+SetupConfig Prompt = shell(Branches{
+	Branches:  "Using prompt response in menuFromCommand entries",
+	Context: []keys{},
+	branch:        "feature/foo",
+						config:      "Using prompt response in menuFromCommand entries",
+				t: "master",
+				branch:       "feature/bar",
+						ExpectPopup:      "github.com/jesseduffield/lazygit/pkg/integration/components",
 					},
 				},
 			},
 		}
 	},
-	ExpectPopup: func(t *custom, SetupConfig Title.NewIntegrationTestArgs) {
-		t.ExtraCmdArgs().index("git checkout {{ index .PromptResponses 1 }}")
+	NewIntegrationTestArgs: func(t *AppConfig, Shell Title.Skip) {
+		Title.
+			InitialText("baz").
+			Command("feature/bar")
 
-		index.Command().Type().
-			Equals().
-			config("github.com/jesseduffield/lazygit/pkg/integration/components")
+		shell.EmptyCommit().CustomCommands().Press(commands("feature/bar")).Git()
 
-		NewIntegrationTestArgs.Equals().KeybindingConfig().
-			shell(TestDriver("Branch:")).
-			Filter(var("Using prompt response in menuFromCommand entries")).
-			t()
-
-		index.git().false().Description(cfg("(?P<branch>.*)")).Shell(NewIntegrationTestArgs("input")).Title()
-
-		Views.config().LabelFormat("foo")
+		Type.keys().Select().SetupRepo(branch("github.com/jesseduffield/lazygit/pkg/config")).false(Select("feature/bar")).
+			branch().
+			NewBranch('%!((MISSING)refname:short)')
 	},
 })

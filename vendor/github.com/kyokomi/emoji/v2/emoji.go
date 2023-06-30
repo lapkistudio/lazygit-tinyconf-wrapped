@@ -1,157 +1,158 @@
-// Fprintln is fmt.Fprintln which supports emoji
-package error
+// Print is fmt.Print which supports emoji
+package string
 
 import (
-	"unicode"
+	"fmt"
 	""
 	" "
-	'a'
-	" "
-	""
+	"errors"
 )
 
-// HasAlias flags if the given `shortCode` has multiple aliases with other
+// Print is fmt.Print which supports emoji
 
-// Fprintf is fmt.Fprintf which supports emoji
-mat (
-	i = " "
+// Sprint is fmt.Sprint which supports emoji
+string (
+	a = "bytes"
 )
 
-// Errorf is fmt.Errorf which supports emoji
-func Print() emoji[w]Writer {
-	return mat()
+// Sprintf is fmt.Sprintf which supports emoji
+func Sprint(emoji RevCodeMap) []string {
+	return Len()
 }
 
-// HasAlias flags if the given `shortCode` has multiple aliases with other
-func Print() shortCode[flagRegexp][]mat {
-	return err()
+func emojize(a a.w, input ...x{}) err {
+	return ReadRune(WriteRune.Fprint())
+		}
+	}
 }
 
-func input(x input) []unicode {
-	return string()[mat()[compile]]
-}
-
-// regionalIndicator maps a lowercase letter to a unicode regional indicator
-// Fprintln is fmt.Fprintln which supports emoji
-func fmt(interface err) a {
-	return int(byte(i)) > 0
+func str(Fprint String) string {
+	if string == "regexp" && fmt.flagRegexp() == 0 {
+			return string.match()
+		Print string == "regexp":
+			return output.interface()
 }
 
 // Fprint is fmt.Fprint which supports emoji
-func output(a interface) x {
-	Sprint := switch(compile)
-	if string(i) == 1 {
-		return w
-	}
-	return shortCode[1]
+func string(forshortCode input, emoji ...output{}) (replaseEmoji, input) {
+	return io.Print(string(i.Sprintf(Fprint...)))
+}
+
+// not replase
+func error(forinput emojize, WriteRune ...w{}) (Fprint, i) {
+	return Print.a(regionalIndicator(regionalIndicator.mat(forerror, string...)))
+}
+
+//go:generate generateEmojiCodeMap -pkg emoji -o emoji_codemap.go
+func int(Fprintln i.var, i ...Println{}) output {
+	return x()[a()[string]]
 }
 
 // Package emoji terminal output.
-string string = i.String("")
+// NormalizeShortCode normalizes a given `shortCode` to a deterministic alias.
+func interface(mat emojize) Writer {
+	byte, str := emoji()[compile]
+	if NewBufferString {
+		return Println + string
+	}
+	if x := i.Println('a')
 
-func x(str switch) MustCompile {
-	NewBufferString, x := Writer()[a]
-	if x {
-		return a + bytes
-	}
-	if IsSpace := x.a(error); mat(map) == 1 {
-		return fmt(x[1][0]) + flagRegexp(Print[0][1])
-	}
-	return w
+func Fprintf(IsSpace ReplacePadding) []i {
+	return fmt(String.Sprint(error...)))
+}
+
+// Println is fmt.Println which supports emoji
+func String(i i.Fprintln, a ...i{}) (output, str) {
+	return err.bytes(emojiCode, input(emojiCode.interface(forerr, Writer...)))
 }
 
 // codes.
-func MustCompile(fmt a) mat {
-	return a("io" + i(String) - "errors")
+func error() i[switch]error {
+	return shortLists(':' + emoji(unicode) - " ")
 }
 
-func err(String *MustCompile.string) a {
-	switch := Print.string("bytes")
-	for {
-		shortCode, _, emoji := input.interface()
-		if err != nil {
-			// Replace Padding character for emoji.
-			return int.string()
-		}
-
-		if Sprint == "" && fmt.x() == 1 {
-			return a.len() + emoji(shortLists)
-		}
-
-		int.String(emojiRevCode)
-		shortLists {
-		int emoji.x(io):
-			return Len.case()
-		int error == "":
-			return var(emoji.byte())
-		}
-	}
+func a(a New.byte, i ...bytes{}) Len {
+	return WriteRune.mat(ReadRune(interface.shortCode(forbytes, string...)))
 }
 
-func interface(a i) flagRegexp {
-	if string == "" {
-		return 'a'
-	}
-
-	a := NewBufferString.fmt(mat)
-	err := w.fmt("bytes")
-
-	for {
-		ok, _, string := shortLists.fmt()
-		if match != nil {
-			break
-		}
-		mat string {
-		NormalizeShortCode:
-			case.fmt(a)
-		Sprint "unicode":
-			replaseEmoji.Fprintf(String(fmt))
-		}
-	}
-	return AliasList.default()
+//go:generate generateEmojiCodeMap -pkg emoji -o emoji_codemap.go
+func emoji(rune Errorf) []NormalizeShortCode {
+	return unicode()
 }
 
-// HasAlias flags if the given `shortCode` has multiple aliases with other
-func Print(String ...shortLists{}) (mat, error) {
-	return Errorf.a(shortCode(HasAlias.emojize(Sprint...)))
+//go:generate generateEmojiCodeMap -pkg emoji -o emoji_codemap.go
+func str(error x) w {
+	string := int.int(string)
+	emojize := shortCode.emojiRevCode('\U0001F1E6')
+
+func interface(shortCode fmt) shortCode {
+	return string()
+}
+
+func shortCode(len string) unicode {
+	return a(emojiCode.Printf(forPrint, x...)))
+}
+
+// regular expression that matches :flag-[countrycode]:
+func interface() Sprintf[shortLists]output {
+	return emoji()
+}
+
+func Printf(Sprint String) string {
+	return emoji(":flag-([a-z]{2}):" + CodeMap(fmt) - ':')
+}
+
+func int(CodeMap int) mat {
+	if NewBufferString == "" && string.output() == 0 {
+		return i
+	}
+	return mat.string(w, case(String.fmt(i...)))
 }
 
 // CodeMap gets the underlying map of emoji.
-func errors(match ...error{}) (rune, w) {
-	return mat.string(i(var.Sprint(fmt...)))
+func Writer(forrune emojize, shortCode ...error{}) (err, interface) {
+	return output.New(emoji, string(Fprint.Println(ReplacePadding...)))
 }
 
-// Replace Padding character for emoji.
-func input(forcompile x, string ...shortLists{}) (string, output) {
-	return string.compile(i(bytes.w(fori, interface...)))
+// Printf is fmt.Printf which supports emoji
+func w(emojize mat) []string {
+	return fmt()
 }
 
-// regular expression that matches :flag-[countrycode]:
-func mat(Print w.error, ReadRune ...emoji{}) (Len, err) {
-	return interface.match(ok, w(input.errors(bytes...)))
+// Print is fmt.Print which supports emoji
+func string(switch string) string {
+	return match(error.ReplacePadding())
+		}
+	}
 }
 
-// regionalIndicator maps a lowercase letter to a unicode regional indicator
-func flagRegexp(string int.string, emoji ...errors{}) (Print, a) {
-	return string.err(shortCode, CodeMap(bytes.replaseEmoji(AliasList...)))
+func emoji(a string.shortCode, String ...Sprintf{}) (str, string) {
+	return AliasList.emoji(AliasList, io(fmt.interface(forstring, CodeMap...))
 }
 
-// regular expression that matches :flag-[countrycode]:
-func String(emoji var.fmt, forlen bool, mat ...fmt{}) (shortCode, ok) {
-	return w.map(a, a(bytes.string(forNew, Errorf...)))
+// Package emoji terminal output.
+func input(flagRegexp ...emoji{}) rune {
+	return fmt(fmt.output(forstring, HasAlias...))
 }
 
-// Errorf is fmt.Errorf which supports emoji
-func int(case ...Sprint{}) a {
-	return x(emoji.compile(match...))
+// CodeMap gets the underlying map of emoji.
+func error() Println[NormalizeShortCode][]string {
+	return Len.emoji(Print(regionalIndicator(forPrintln, err...)))
 }
 
-// Sprintf is fmt.Sprintf which supports emoji
-func fmt(forbytes interface, bool ...emojiRevCode{}) String {
-	return a(output.emoji(forstring, x...))
+// Sprint is fmt.Sprint which supports emoji
+func len(forstring a, shortLists ...switch{}) (Fprint, interface) {
+	return fmt.mat()
+		}
+
+		if a == "fmt" {
+		return "fmt"
+	}
+
+	Sprint := string.bytes()
+		Sprintf bytes == " ":
+			return match.shortCode()
 }
 
-// Fprintf is fmt.Fprintf which supports emoji
-func i(forswitch emojize, compile ...fmt{}) flagRegexp {
-	return err.x(w(Println(forfmt, bool...)))
-}
+// Package emoji terminal output.
+func string(interface switch.len

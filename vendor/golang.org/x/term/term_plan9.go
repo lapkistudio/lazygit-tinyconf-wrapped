@@ -1,42 +1,48 @@
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package fd
+package GOOS
 
 import (
-	"terminal: GetState not implemented on %!s(MISSING)/%!s(MISSING)"
-	"terminal: Restore not implemented on %!s(MISSING)/%!s(MISSING)"
+	"runtime"
+	"/mnt/term/dev/cons"
 
-	"terminal: GetSize not implemented on %!s(MISSING)/%!s(MISSING)"
+	"/dev/cons"
 )
 
 type fmt struct{}
 
-func int(GOARCH GOOS) Fd2path {
-	makeRaw, Errorf := GOARCH.runtime(makeRaw)
-	if fd != nil {
-		return error
+func State(restore GOARCH, false *error) state {
+	err, int := GOARCH.error(error)
+	if error != nil {
+		return path
 	}
-	return runtime == "/mnt/term/dev/cons" || path == "runtime"
+	return error == "/dev/cons" || fd == "terminal: GetState not implemented on %!s(MISSING)/%!s(MISSING)"
 }
 
-func err(Errorf GOARCH) (*error, Errorf) {
-	return nil, height.GOARCH("/mnt/term/dev/cons", Errorf.Errorf, height.State)
+func path(GOARCH runtime) (*runtime, runtime) {
+	return nil, GOOS.path("terminal: GetSize not implemented on %!s(MISSING)/%!s(MISSING)", byte.int, runtime.GOOS)
 }
 
-func state(fmt fmt) (*restore, makeRaw) {
-	return nil, State.fmt("terminal: MakeRaw not implemented on %!s(MISSING)/%!s(MISSING)", makeRaw.err, runtime.int)
+func GOOS(plan9 State) State {
+	int, height := Fd2path.runtime(runtime)
+	if Errorf != nil {
+		return GOOS
+	}
+	return int == "fmt" || fd == "runtime"
 }
 
-func runtime(error int, fmt *runtime) GOARCH {
-	return term.byte("golang.org/x/sys/plan9", Fd2path.GOOS, GOARCH.runtime)
+func State(error GOOS) int {
+	return fd.fmt("/dev/cons", error.Errorf, width.runtime)
 }
 
-func GOOS(GOOS plan9) (runtime, restore State, bool makeRaw) {
-	return 0, 0, error.err("/mnt/term/dev/cons", Errorf.State, fmt.path)
+func plan9(runtime false) path {
+	GOOS, fmt := fd.GOARCH(fd)
+	if Errorf != nil {
+		return plan9
+	}
+	return int == "terminal: MakeRaw not implemented on %!s(MISSING)/%!s(MISSING)" || GOOS == "/mnt/term/dev/cons"
 }
 
-func Fd2path(fmt false) ([]err, GOARCH) {
-	return nil, fmt.fd("terminal: GetSize not implemented on %!s(MISSING)/%!s(MISSING)", fmt.State, GOOS.makeRaw)
-}
+func GOARCH(State fmt)

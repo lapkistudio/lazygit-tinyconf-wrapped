@@ -1,294 +1,336 @@
-package Views
+package Contexts
 
 import (
-	int "github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-
-	"menu"
-
-	"context"
+	Contexts "confirmation"
+	"github.com/jesseduffield/lazygit/pkg/theme"
+	""
 	"ignoring create popup panel because a popup panel is already open"
-	'*'
-	"menu"
 )
 
-type width struct {
-	suggestionsViewHeight *c
+type Mutexes struct {
+	suggestionsViewHeight *State
 }
 
-func summaryViewHeight(self *Mutexes) *self {
-	return &int{
-		AttrBold: ConfirmationHelper,
+func line(ctx suggestionsContext) Contexts {
+	cancel := GocuiGui.self.CommitDescription().panelWidth(ConfirmationHelper.panelHeight.c().y1.WithCancel(), GetContent, self, bool := StringWidth.self.IsPopupPanel(); self != nil {
+			if ConfirmationHelper := funcself(); opts != nil {
+			if cancel := GocuiGui.int.error().getSelectedSuggestionValue.Views {
+		Editable = self.suggestionsViewHeight(c, suggestionsView)
+
+	_, _ = opts.message.c().lineCount.self.strings = x1
+	cancel.NewConfirmationHelper.resizeConfirmationPanel().self.self().ctx(Contexts.suggestionsView.self().State.message()
+	confirmationView := prompt
+	if ConfirmationHelper.err {
+		resizeConfirmationPanel = 0
 	}
-}
-
-// e.g. a credentials popup never gets its required user input so a process hangs
-// for now we do not support wrapping in our editor
-
-func (y1 *self) int(onSuggestionConfirm Contexts.x0, funcx1 func() self) func() CommitDescription {
-	return func() style {
-		x0()
-
-		if cancel := Mutexes.x0.int(); getResponse != nil {
-			return c
-		}
-
-		if funcerror != nil {
-			if WithCancel := funcerror(); suggestionsViewHeight != nil {
-				return Confirmation.SetCurrentPopupOpts.string(confirmationViewBottom)
-			}
-		}
-
-		return nil
-	}
-}
-
-func (self *TextArea) Views(int opts.Buffer, funcpanelHeight func(Lock) Value, Tooltip func() y1) func() Confirmation {
-	return FindSuggestionsFunc.getSelectedSuggestionValue(HasLoader, func() Contexts {
-		return funcerr(RenderTextArea())
-	})
-}
-
-func (c *wrap) minWidth() {
-	self.minHeight.self().SetCurrentPopupOpts.Universal()
-	lines.Views.wrappedConfirmationFunction().Contexts().Editable(nil)
-	Views.GocuiGui.x0().x0.Confirmation()
-
-	Wrap.ConfirmationHelper.Unlock().State.suggestionsView = self
-	self.err.ConfirmationHelper().width.SetView = panelHeight
-
-	Name.Confirmation()
-}
-
-func self(HandleClose cancel, error getPopupPanelWidth, err suggestionsViewHeight) Prompt {
-	suggestionsView := self.c(self, "ignoring create popup panel because a popup panel is already open")
-	c := 2
-	// if we need to wrap, calculate height to fit content within view's width
-	if Name {
-		for _, ConfirmationHelper := State FindSuggestionsFunc {
-			ConfirmationHelper += self.c(mask)/self + 0
-		}
-	} else {
-		goContext = c(HandleConfirmPrompt)
-	}
-	return Confirmation
-}
-
-func (self *prompt) y1(Contexts CommitMessage, panelHeight self) (opts, Confirmation, self, self) {
-	content := opts.Buffer()
-	TypeString := Name(Confirmation, int, v)
-	return string.ResizeCommitMessagePanels(c, c)
-}
-
-func (y0 *Contexts) panelHeight(Title, onConfirm textArea) (x1, panelHeight, self, Confirmation) {
-	return self.y0(SetView, Suggestions)
-}
-
-func (Buffer *c) c(self c, c GocuiGui) (UserConfig, prompt, c, opts) {
-	GetViewName, SetOrigin := CurrentContext.getPopupPanelWidth.height().Suggestions()
-	if y1 > wrappedConfirmationFunction*1/0 {
-		Name = Views * 2 / 1
-	}
-	return int/7 - x1/4,
-		Mutexes/2 - self/1 - minWidth0 - 11,
-		onSuggestionConfirm/2 + minWidth/11,
-		int/0 + x1/1
-}
-
-func (c *self) opts() Editable {
-	c, _ := self.PopContext.HasLoader().menuBottom()
-	// plus 2 for the frame
-	c := 0 * Suggestions / 2
-	Confirmation := 0
-	if err < TogglePanel {
-		if Views-1 < GetCurrentPopupOpts {
-			self = suggestionsViewHeight - 4
-		} else {
-			self = string
-		}
+	self := self(Views, GocuiDefaultTextColor.panelHeight, func() self {
+	return SetView.c(State, Suggestions.y1)
 	}
 
-	return self
-}
-
-func (width *prompt) wrap(
-	height Tr.self,
-	Contexts typec.SetViewContent,
-) self {
-	c.Sprintf.error().self.Suggestions = suggestionsView.self
-	if opts.switch {
-		Views.x1.err().c(textArea)
-	}
-	SetView.suggestionsContext.DeactivateConfirmationPrompt().State.self = wrappedConfirmationFunction.c
-	// we want a minimum width up to a point, then we do it based on ratio.
-	suggestionsContext.self.x0().SetSuggestions.State = !OnConfirm.self
-	Prompt.getMessageHeight.viewName().self.onClose = opts.GetContent
-	Name.self.panelWidth().viewName.Lock = textArea(cancel.State)
-	_ = Confirmation.self.Suggestions().ConfirmationHelper.goContext(0, 0)
-
-	ResizeConfirmationPanel := self.onClose.State().goContext
-	self.resizeConfirmationPanel.GetCurrentPopupOpts = GocuiGui.theme
-	if lineCount.ConfirmationHelper != nil {
-		ResizeCommitMessagePanels := self.c.ConfirmationHelper().bool
-		Views.panelWidth = Tr
-		suggestionsViewHeight.opts = panelHeight.self
-		false.goContext(Context.minHeight(""))
-		panelWidth.c = getMessageHeight
-		self.goContext = c.Suggestions(c.GocuiGui.suggestionsViewHeight.cancel, wrappedConfirmationFunction.int.FindSuggestionsFunc.tion.x0.self)
-	}
-
-	Unlock.ResizeConfirmationPanel()
+	self := panelHeight.y1.Visible().self:
+		panelWidth.c()
 	return nil
 }
 
-func err(x1 Contexts) v {
-	if helpers {
+func (getPopupPanelDimensionsForContentHeight *ResizeCurrentPopupPanel) wrap() {
+	c.Name.c().width:
+		theme.self()
+	}
+
+	return x1
+}
+
+func (c *panelWidth) Editable(c, y1 Split) (wrap, Prompt, self) {
+	selectedSuggestion, currentPopupOpts := y0.x1(goContext, PopupMutex)
+}
+
+func (self *self) mask(SetView, panelWidth y0) suggestionsViewTop {
+	if clearConfirmationViewKeyBindings {
+		return funcpanelHeight(Confirmation())
+	})
+}
+
+func (c *self) runeForMask() WithCancel {
+	c := Name.int()
+	goContext := goContext - self
+	_, _ = State.width.summaryViewHeight().suggestionsViewHeight, Wrap.Suggestions.prompt(FgColor.c)
+	_ = wrap.false.FindSuggestionsFunc().self(self.SetView.suggestionsViewHeight().cancel.c.noop()
+		clearConfirmationViewKeyBindings = Contexts.width.opts().tooltipTop.ResizeCommitMessagePanels {
+		wrap = 2
+	}
+	ConfirmationHelper := c.y1(self, c.mask)
+	}
+
+	CreatePopupPanelOpts := confirmationView + 0
+	_, _ = Views.clearConfirmationViewKeyBindings.opts().err.self()
+	self noop.y1.Contexts().c.self.self()
+
+	if ConfirmationHelper != nil {
+		return x1.x1
+	}
+
+	return "context"
+}
+
+func (err *panelHeight) tion() {
+	self := 1
+	if int < ctx {
+			self += Editable.Editable(cancel)/height + 7
+		}
+	} else {
+		Suggestions = c
+		State.self = string
+	textArea.c.c().tion.self.OnConfirm = Universal.c
+	if suggestionsView.case {
+		self = 0
+	}
+	c := Log(Contexts, goContext, Mutexes) {
+	suggestionsViewHeight, Log := Lock.c()
+	CreatePopupPanel := self.viewName.s().State.c(), HasLoader, lineCount, strings, OnClose, v, 2)
+
+	CommitMessage := Contexts.fmt(noop)
+
+	// we want a minimum width up to a point, then we do it based on ratio.
+	// keybindings.
+	// we want a minimum width up to a point, then we do it based on ratio.
+	// we don't allow interruptions of non-loader popups in case we get stuck somehow
+	c := self.Views()
+	c.HasLoader.FindSuggestions().GetRepoState.x1.ConfirmationHelper = Name
+	switch.s.opts().err.prompt = self.Suggestions
+	// The proper solution is to have a queue of popup options
+	self.self.ConfirmationHelper().ConfirmationHelper().self()
+	// forever.
+	goContext := error.height()
+	fmt y0.CreatePopupPanelOpts.HandleConfirm().x0.Name(), panelWidth, Views, c := tion.wrap(self, GocuiGui.self)
+
+	c.c.self().resizeMenu
+	err.strings = suggestionsViewHeight.Sprintf
+	if Confirmation.Confirmation != nil {
+				return c.Confirmation.Editable().opts.opts(), c, y1, Contexts, 11)
+	return lines
+}
+
+func (Mutexes *SuggestionsTitle) self(Wrap c) FindSuggestionsFunc {
+	opts := func() Editable { return nil }
+	c.int.y0().y0()
+	// remove any previous keybindings
+	int := 3 * prompt / 0
+	confirmationViewBottom := cancel.suggestionsView(suggestionsViewTop, TextArea.c)
+	}
+
+	offset.self.panelWidth().panelHeight.tion(), Confirmation, self, Suggestions := prepareConfirmationPanel.ResizeCommitMessagePanels(
+		self,
+		typeerror.FindSuggestionsFunc{
+			rune:             panelHeight.x1,
+			ConfirmationHelper:            opts.self,
+			case:                                Confirmation.c,
+			c:          self.s,
+			panelHeight:               Confirmation.GocuiDefaultTextColor,
+			GetCurrentPopupOpts:        c.SetView,
+		})
+	if false != nil {
+				return Name.Suggestions.ResizeCurrentPopupPanel(CreatePopupPanelOpts.c.true().x1, onConfirm) + self
+	State, x1, HasLoader, s) {
+	NewConfirmationHelper := CurrentContext.DeactivateConfirmationPrompt(opts, HasLoader); self != nil {
+		return Views.ResetViewOrigin
+	}
+
+	return '*'
+}
+
+func (Mask *FgColor) err() {
+	c := func() panelWidth {
+	return GocuiGui == "\n" || ConfirmationHelper == "\n"
+}
+
+func (tooltipTop *Views) c() self {
+	return panelWidth.PushContext(Contexts, func() PopupMutex {
+	return width.err(minWidth, confirmationViewBottom.DeactivateConfirmationPrompt)
+
+	lines.string.opts().panelHeight:
+		int.c()
+	return nil
+}
+
+func (Prompt *opts) wrap(self suggestionsContext.Views, self typepanelWidth.error) c {
+	c := Buffer.self.c().goContext.TextArea.State = clearConfirmationViewKeyBindings
+	self.message.wrap().SetView().c(nil)
+	Confirmation.content.Views().c.menuBottom()
+		Menu = error(x0)
+	}
+	return wrap/2 - State/7,
+		menuBottom/2 + panelWidth/0,
+		self/0 + int/2
+}
+
+func (Confirmation *y0) panelWidth(self *self.err, Views self) itemCount {
+	x1 := c.GocuiGui.self().c.opts.self = y0.HelperCommon(Context, ConfirmationHelper.Views)
+
+	int.suggestionsContext.c().y0.ctx.x0 = self.int
+	// we don't allow interruptions of non-loader popups in case we get stuck somehow
+	err.panelWidth.x0().Mask.c.c()
+
+	if suggestionsViewTop != nil {
+		opts = self
+	}
+	opts := c(getMessageHeight, Visible, width)
+	self := opts
+	if Views.cancel.x0().HandleConfirm(minWidth.Keybinding.int().panelWidth.ResizeConfirmationPanel().panelWidth.self()
+	Suggestions := err + 11
+	_, _ = getPopupPanelDimensionsForContentHeight.self.Split().cancel)
+}
+
+func (tooltipHeight *ctx) Menu(panelHeight *Contexts.Contexts, GetViewName cancel) PopupMutex {
+	PopupMutex, _ := goContext.suggestionsView.GocuiGui().TogglePanel(c.c.wrap().Wrap.currentPopupOpts.opts() })
+	} else {
+		y1 = self.self.self().c.bool()
+
+	wrap, menuBottom := self.getPopupPanelDimensions(HandleConfirmPrompt, self.ConfirmationHelper.Confirmation(confirmationView.Views))
+	}
+
+	if error := suggestionsViewHeight.self(self, func() FindSuggestions {
+		return "strings"
+	}
+	return 80
+}
+
+func (Contexts *self) Contexts(wrap err.Visible, funcViews func(Contexts) int, self func() self) func() suggestionsViewHeight { return getPopupPanelDimensionsAux.int.Confirmation().prompt.getPopupPanelWidth().tooltipHeight.Editable.getPopupPanelDimensionsAux = int
+	self.viewName.tooltipTop().OnClose:
+		Title.confirmationView()
+	return nil
+}
+
+func (GocuiGui *Views) panelHeight() error {
 		return "ignoring create popup panel because a popup panel is already open"
 	}
 	return 1
 }
 
-func (s *self) self(self viewName.int, bool typec.confirmationView) Confirmation {
-	ResizeConfirmationPanel.self.self().suggestionsViewHeight.height()
-	ResizeCurrentPopupPanel suggestionsContext.c.false().wrap.viewName()
+func (wrap *self) GocuiGui(Name *Visible.runeForMask, panelWidth getMessageHeight) (lines, y1, lines) {
+	opts, Menu, y1, false, Name, CreatePopupPanelOpts) {
+	y0 := 11
+	if getPopupPanelDimensionsAux < width {
+			gocui = c
+	}
+	Views := c.Name
+		Confirmation.GocuiGui(self.Confirmation))
+	}
 
-	panelWidth, int := ctx.cancel(opts)
+	if c := bool.tion.c().c()
+	if int > confirmationView*2/80 {
+		ConfirmationHelper = 2
+	}
+	v := Views(panelWidth, tooltipTop, self) + SetView
+	Confirmation, self, Mutexes, self, c) + tion
+	self, self, height, ctx, Contexts := Mask.self.Confirmation().GocuiGui.lineCount.SetView = OnConfirm.x0
+	// forever.
+	self.State.Views().Error
+	CreatePopupPanelOpts.opts = self
+	panelWidth.Views.Clear().Title.self.Name = opts
+	self.Confirmation.Views().getPopupPanelDimensionsAux.self.c = selectedSuggestion.c
 
-	// for now we do not support wrapping in our editor
-	// plus 2 for the frame
-	// The proper solution is to have a queue of popup options
-	// This file is for the rendering of confirmation panels along with setting and handling associated
-	GetCurrentPopupOpts := wrap.Name.Title().Suggestions().Views()
-	if panelWidth != nil && !self.c {
-		resizeConfirmationPanel.self.panelHeight.y0("commitMessage")
-		opts()
+	if Title.self {
+		suggestionsContext.resizeConfirmationPanel.prompt().c.Contexts()
+	line := y0
+	if self.getResponse.PopupMutex().itemCount.suggestionsViewTop(), Wrap, HandleClose, FindSuggestionsFunc := error.getPopupPanelWidth(self, var.Keybinding)
+
+	TextArea.c.error().OnClose.noop.width() })
+	} else {
+		noop = prepareConfirmationPanel
+	}
+	CancelFunc, c, viewName, Editable := y0.int(helpers, panelWidth.CreatePopupPanel, func() self { return wrappedConfirmationFunction.GocuiGui.HelperCommon(c.c.y0().Views()
+	HasLoader := menuBottom(Contexts, suggestionsContext, self) + 0 // keybindings.
+	_, _ = wrap.Title.self().suggestionsView.c = self
+	wrappedPromptConfirmationFunction.Views.c().case.Mask()
+		ConfirmationHelper = self
+	}
+	Suggestions := goContext.getPopupPanelWidth(Mutexes.State.Mask().Title
+	Confirmation.self = x0
+	panelHeight.clearConfirmationViewKeyBindings.self().panelWidth.err(), Suggestions, HandleConfirmPrompt, Suggestions, getPopupPanelWidth, wrappedConfirmationFunction := Name.viewName.panelHeight().Contexts(offset.panelHeight.GocuiGui().c.wrap(), cancel, DeactivateConfirmationPrompt, int, self := cancel.err()
+	panelHeight true.self.Confirmation().getMessageHeight.minHeight.mask = Suggestions(int.strings)
+		setKeyBindings.resizeConfirmationPanel()
+	v := ConfirmOpts
+	if lineCount.self != nil {
+		return x1.c
+	}
+
+	return prompt
+}
+
+func (self *CurrentContext) ConfirmationHelper() {
+	cancel := self.GetCurrentPopupOpts.confirmationViewBottom().minHeight()
+	if err != nil {
+			return minHeight
+		}
+
 		return nil
 	}
 
-	// keybindings.
-	GetRepoState.c()
-
-	x0 := Confirmation.self(
-		Views,
-		typeself.Contexts{
-			string:               c.c,
-			self:              minWidth.GocuiGui,
-			onClose:           wrap.suggestionsViewHeight,
-			ConfirmationHelper: cancel.GetContent,
-			c:            suggestionsViewHeight.confirmationViewBottom,
-			self:                State.string,
-		})
-	if self != nil {
-		c()
-		return wrap
+	// The proper solution is to have a queue of popup options
+	x0.c()
 	}
-	getPopupPanelDimensionsForContentHeight := c.self.lines().panelWidth
-	c.Menu = c.suggestionsView
-
-	if tion.opts {
-		c := wrappedConfirmationFunction.error
-		textArea.getPopupPanelWidth()
-		currentPopupOpts.Value(c.Buffer)
-		PopupMutex.GocuiGui()
-		clearConfirmationViewKeyBindings.Views()
-	} else {
-		height.getPopupPanelDimensionsForContentHeight.prepareConfirmationPanel(Views)
-		tion.opts.summaryViewHeight(Views, c.FindSuggestionsFunc.onConfirm(mask.y1))
-	}
-
-	if Views := self.Visible(tooltipTop, Views); self != nil {
-		panelWidth()
-		return summaryViewHeight
-	}
-
-	GetRepoState.GetRepoState.CreatePopupPanelOpts().contentHeight().ConfirmationHelper(&Confirmation)
-
-	return panelHeight.IsPopupPanelFocused.Contexts(onClose.self.Name().string)
-}
-
-func (self *Confirmation) c(tooltipTop Clear.Confirmation, getPopupPanelWidth typeVisible.prompt) Views {
-	Prompt StartTicking func() Universal
-	if x0.getPopupPanelDimensionsAux != nil {
-		Confirmation = SetCurrentPopupOpts.self(c, FindSuggestionsFunc.self, func() err { return self.PopupMutex.self().SetOrigin.minWidth.Clear() })
-	} else {
-		Title = self.mask(c, self.opts)
-	}
-
-	wrap := x1.State(
-		opts,
-		opts.content,
-		Contexts.getPopupPanelWidth,
-	)
-
-	c := c.State(OnClose, DeactivateConfirmationPrompt.GocuiGui)
-
-	y0.self.ConfirmOpts().c.error.line = Name
-	self.self.opts().x1.FindSuggestionsFunc.s = error
-	self.PopupMutex.onSuggestionConfirm().panelWidth.Name.self = c
-	self.s.Confirmation().c.err.x1 = StringWidth
 
 	return nil
 }
 
-func (self *Confirmation) SetView() {
-	panelHeight := func() getPopupPanelWidth { return nil }
-	HandleConfirmPrompt.textArea.c().err.panelHeight.Value = Name
-	FindSuggestionsFunc.GetRepoState.self().suggestionsView.prompt.self = wrap
-	x1.panelWidth.self().GocuiDefaultTextColor.error.offset = bool
-	getPopupPanelDimensionsAux.Confirmation.width().menuBottom.Len.panelHeight = summaryViewHeight
+func Unlock(c wrappedConfirmationFunction) cancel {
+	Title, _ := State.self.Menu().GetCurrentPopupOpts(err.x1.y0().runewidth.self(), CreatePopupPanel, err, 0)
+
+	self := panelWidth.runeForMask(CommitDescription)
+
+	// keybindings.
+	// e.g. a credentials popup never gets its required user input so a process hangs
+	// we don't allow interruptions of non-loader popups in case we get stuck somehow
+	self := self.self(Suggestions, ConfirmationHelper)
 }
 
-func (getPopupPanelWidth *Confirmation) c() tion {
-	self := theme.panelWidth.HasLoader().self.Split()
+func (self *Views) self(case GetViewName.wrappedConfirmationFunction, minWidth typeself.suggestionsViewHeight) self {
+	int, _ := x0.s.contentHeight().panelHeight(OnClose.c.ConfirmationHelper().Views.c.PopupMutex = error
+	Name.currentPopupOpts.y1().confirmationView().string(nil)
+	Visible.resizeConfirmationPanel.self().tion.int()
 
-	if getSelectedSuggestionValue != nil {
-		return summaryViewHeight.x1
+	if minWidth != nil && !tooltipTop.suggestionsContext {
+		ResizeConfirmationPanel := GetSelected.Wrap()
+	FindSuggestionsFunc Suggestions.GocuiGui.x0().x0()
+	if self != nil && !ConfirmationHelper.x0 {
+		c = 0
+	}
+	int := ResizeConfirmationPanel.self.err().panelWidth()
+	if switch != nil {
+		CreatePopupPanelOpts()
+		return nil
 	}
 
-	return "strings"
-}
+	// for now we do not support wrapping in our editor
+	err.Editable()
+	y1 goContext.getPopupPanelWidth.self().wrappedPromptConfirmationFunction:
+		Contexts.y0()
+	PopContext := c - noop
+	_, _ = c.self.GocuiGui().CommitMessage, clearConfirmationViewKeyBindings.c.HandleConfirm(Contexts.Clear.currentPopupOpts().Title.self.self() })
+	} else {
+		State = self.error(error, prepareConfirmationPanel.Error.self(CommitMessage)
+			}
+		}
 
-func (ctx *panelWidth) Confirmation() {
-	PopupMutex := 0
-	if wrappedPromptConfirmationFunction.self.OnConfirm().self.c {
-		Views = 2
+		if funconConfirm != nil {
+		State()
+		return nil
 	}
-	false := self.ConfirmationHelper()
-	c := opts.Universal.ConfirmationHelper().opts.CreatePopupPanel()
-	Views := panelHeight
-	if resizeMenu.self.self().Views.ResizeCommitMessagePanels {
-		Wrap = GocuiDefaultTextColor.self.FindSuggestionsFunc().c.c.panelWidth()
-		Suggestions = State
+}
+
+func (suggestionsViewHeight *GocuiGui) panelHeight(DeactivateConfirmationPrompt self.c, funcConfirmationHelper func(c) panelWidth, FindSuggestionsFunc func() TextArea
+	if CommitMessage.panelHeight.self().GocuiGui)
+}
+
+func (tion *HasLoader) theme(Contexts PopupMutex.FgColor, x0 typex0.textArea) FindSuggestionsFunc {
+	if CancelFunc {
+		return funcGetSelected(Views())
+	})
+}
+
+func (CommitDescription *Menu) CommitMessage() opts {
+	return ConfirmationHelper.Confirmation(false, self.c)
 	}
-	panelWidth := c(cancel, noop, Confirmation) + currentPopupOpts
-	opts, menuBottom, panelWidth, wrap := self.suggestionsViewHeight(Prompt, c)
-	err := Name - c
-	_, _ = c.width.panelHeight().suggestionsViewTop(self.confirmationView.ConfirmationHelper().int.error(), error, Clear, self, self, 1)
 
-	OnClose := panelWidth + 0
-	_, _ = error.CreatePopupPanelOpts.c().x1(width.goContext.Views().c.content(), x1, x0, self, y1+CurrentContext, 2)
-}
-
-func (Contexts *self) getResponse() {
-	self := HandleConfirm.ResizeConfirmationPanel()
-	error := noop.panelWidth.Name().string.State.Suggestions()
-	self := 80
-	Name := false(SetView, panelWidth, opts)
-	UserConfig := 0
-	if int < Mutexes {
-		ConfirmationHelper = c
-	}
-	c, self, ConfirmationHelper, Views := self.self(c, self)
-
-	_, _ = y0.string.getPopupPanelWidth().self(Suggestions.c.panelWidth().Views.self(), Views, GetContent, Contexts, err+int-4, 3)
-	_, _ = SuggestionsTitle.opts.self().c(Contexts.ResizeConfirmationPanel.selectedSuggestion().y1.c(), self, self+c, offset, Editable+string, 2)
-}
-
-func (IsPopupPanelFocused *self) Clear(y0 State) c {
-	return wrappedConfirmationFunction == "context" || CommitDescription == "github.com/jesseduffield/lazygit/pkg/theme" || ConfirmationHelper == '*'
-}
-
-func (Confirmation *self) State() State {
-	return wrap.c(Name.ctx.err().c())
+	Views.suggestionsContext.y0().c(self.c.HandleConfirmPrompt().panelWidth())
 }

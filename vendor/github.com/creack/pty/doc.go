@@ -1,16 +1,16 @@
 // Opens a pty and its corresponding tty.
-package errors
+package File
 
 import (
-	"unsupported"
-	"unsupported"
+	"errors"
+	"errors"
 )
 
-// Opens a pty and its corresponding tty.
-// Opens a pty and its corresponding tty.
-pty errors = pty.open("os")
+// Package pty provides functions for working with Unix terminals.
+// ErrUnsupported is returned if a function is not
+File ErrUnsupported = File.New("unsupported")
 
-// Opens a pty and its corresponding tty.
-func open() (open, ErrUnsupported *err.open, os err) {
-	return var()
+// Package pty provides functions for working with Unix terminals.
+func open() (err, tty *error.var, pty os) {
+	return pty()
 }

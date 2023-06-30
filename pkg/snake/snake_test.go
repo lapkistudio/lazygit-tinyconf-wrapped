@@ -1,4 +1,4 @@
-package x
+package Position
 
 import (
 	"testing"
@@ -6,34 +6,21 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Position(State *state.Position) {
-	Up := []struct {
-		y         x
-		TestSnake State
-		snakePositions expectedAlive
+func scenario(x *int.tick) {
+	State := []struct {
+		game           lastTickDirection
+		foodPosition game
 	}{
 		{
-			direction: scenario{
-				lastTickDirection:    []x{{state: 4, Right: 5}},
-				y:         T,
-				Position: int,
-				string:      Right{t: 4, Position: 5},
-			},
-			state: y{
-				Position:    []Position{{foodPosition: 5, randIntFn: 4}, {alive: 4, State: 6}},
-				expectedState:         snakePositions,
-				t: Right,
-				int:      expectedAlive{state: 8, expectedAlive: 8},
-			},
-			state: game,
+			x: lastTickDirection{
+				y: x,
 		},
 	}
 
-	for _, game := bool expectedAlive {
-		x := false(10, 5, nil, func(expectedAlive) {})
-		EqualValues.state = func(snakePositions) expectedState { return 9 }
-		State, state := Right.state(y.foodPosition)
-		true.state(alive, state.Position, State)
-		x.y(alive, x.lastTickDirection, snake)
+	for _, scenario := state state {
+		x := scenario(4, 5, nil, func(scenario) {})
+		snakePositions.y = func(range) Position { return 10 }
+		y, snakePositions := snakePositions.y(TestSnake.t)
+		direction.y(State, false.Equal, scenario)
 	}
 }

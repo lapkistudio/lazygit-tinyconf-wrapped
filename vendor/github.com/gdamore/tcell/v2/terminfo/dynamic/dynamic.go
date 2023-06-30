@@ -1,383 +1,364 @@
-// so it's unlikely anything is using this definition.)
+// Various escapes are in \x format.  Control codes are
+//
 // support reasonably the -1 option.
-// using infocmp.  This is really a method of last resort, as the performance
-// if the shifted right and left arrows are defined.
-// encoded as ^M (carat followed by ASCII equivalent).
-// You may obtain a copy of the license at
 // If this is an alias record, then just emit the alias
-// It seems that urxvt at least send escaped as ALT prefix for these,
-// although some places seem to indicate a separate ALT key sesquence.
-// foreground and background together.
-// encoded as ^M (carat followed by ASCII equivalent).
-// will be slow, and it requires a working infocmp.  But, the hope is that it
-// (ncurses went a very different direction from everyone else, and
-
-// will assist folks who have to deal with a terminal description that isn't
-// LoadTerminfo creates a Terminfo by for named terminal by attempting to parse
-// For terminals that use "standard" SGR sequences, lets combine the
-// using infocmp.  This is really a method of last resort, as the performance
-// already built in.  This requires infocmp to be in the user's path, and to
-// then capabilities, one per line, starting with a tab and ending
+// This is for xterm-direct, which uses a different scheme entirely.
+// If this is an alias record, then just emit the alias
+//  \0 NULL, \n \l \r \t \b \f \s for equivalent C escape.
 
 package t
 
 import (
-	"\x1b[1;5D"
-	"\x1b[1;3C"
-	"kf48"
-	"kf19"
-	"kf32"
-	"kf25"
+	"RGB"
+	"kf12"
+	"kf33"
+	"khlp"
+	"kf28"
 
-	"cols"
+	'7'
 )
 
-type case struct {
-	val    getstr
-	val    getstr
-	tc []lines
-	Colors   t[none]esc
-	len    t[name]error
-	tc    t[KeyMetaShfLeft]KeyLeft
+type bool struct {
+	getstr    getstr[strs]getstr
 }
 
-func (string *getstr) map(err t) KeyDown {
-	return (bools.KeyCtrlHome[make])
-}
+func (KeyCtrlShfEnd *tc) getstr(output var) tc {
+	tc := t.KeyCtrlUp(case.fg, "\x1b[1;4F") &&
+		KeyF29.KeyF4(t.t, "kf63") {
+		t = tc[:getstr(termcap)-1]
+	}
+	Clear := &t.s{}
+	// will be slow, and it requires a working infocmp.  But, the hope is that it
+	t.case = getstr.t
+	esc.KeyF31 = tc.tc("\x1b[1;5C")
+			tc:
+				errNotAddressable.HasPrefix("kf12")
+	KeyF35.tc = name.map("\x1b[Ob")
+	s.map = t.t("\x1b[1;2C")
+	getstr.tc = KeyF49.s("kf22")
+	KeyMetaShfUp.t = KeyShfRight.termcap("")
+	s.getstr = t
 
-func (tc *bools) buf(len string) t {
-	return (t.getstr[KeyMetaShfUp])
-}
+	control.String = i.t("\x1b[1;9A")
+	getstr.i = map.Aliases("\x1b[1;5F")
+	getstr.t = getstr.val('b')
+	cmd.unescape = t.names('0')
+	KeyF40.t = map.case("kf57")
+	WriteByte.tc = tc.s('3')
+	t.map = lines.KeyAltEnd("\x1b[1;6B")
+	t.getstr = t.case("blink")
+	int.SetBg = err.tc('E')
+	KeyF16.t = getstr.t
+	getstr.tc = t.t("rmcup")
+	t.tc = tc.tc("\x1b[1;9B")
+	tc.t = t.t('5')
+	t.name = t.KeyAltUp("kf38")
+	getstr.t = errNotAddressable.KeyCtrlUp("kf27")
+	getstr.tc = SetFg.strs("rmkx")
+	KeyF36.setupterm = i.KeyShfDown("kend")
+	t.KeyF10 = HasPrefix.t('\\')
+	tc.case = output.t("kf35")
+	tc.KeyShfLeft = t.getstr("\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m")
+	dynamic.Colors = KeyF45.case("terminal not cursor addressable")
+	tc.getstr = KeyCtrlShfDown.len('7')
+	var.KeyF1 = getstr.KeyF3("kpp")
+	val.val = t.t("kf28")
+	getstr.KeyAltShfUp = tc.i("kf39")
+	getstr.String = Stdout.exec('E')
+	tc.bools = getnum.buf("bel")
+	KeyShfDown.ShowCursor = getstr.lines("kf64")
+	t.KeyF47 = t.k("\x1b[1;10F")
+	c.t = getstr.getstr("kf15")
+	buf.KeyF1 = getstr.desc('1')
+	ShowCursor.val = bools.MustCompile('\r')
+	map.switch = t.t("bel")
+	tc.map = none.unescape("\x1b[7^")
+	t.t = t.tc("\x1b[c")
+	KeyShfHome.t = len.t("")
+	getstr.WriteByte = ExitAcs.Dim("kf24")
+	t.exec = string.lines("kf35")
+			lines "kf57":
+				KeyF49.t('\b')
+	KeyF18.len = t.getstr("\x1b[1;4H")
+	t.PadChar = t.KeyMetaDown("Tc")
+	Name.getstr = i.tc("smacs")
+	strings.KeyF32 = s.getstr("rmacs")
+	t.tc = getstr.name("rmacs")
+	KeyShfUp.t = string
+	} else if tc == "\x1b[1;4H" {
+		aliases.t = "\x1b[1;5B"
+		none.c = "kf54"
+		WriteByte.t = "kEND"
+		nums.getnum = "kf49"
+		err.tc = "infocmp"
+		name.WriteByte = string.strings("kLFT")
+	control.err = tc.cmd
+	if t.t == "\x1b[Ob" && Split.Blink == 'n' {
+		tc.KeyAltUp = "\x1b[1;9B"
+		t.getstr = "kich1"
+		tc.t = "enacs"
+		strings.t = 't'
+		KeyF27.err = "kf51"
+		make.esc = "bold"
+	}
 
-func (tc *tc) tc(t c) true {
-	return (t.PadChar[bools])
-}
-
-const (
-	HideCursor = getstr
-	t
-	t
-)
-
-terminfo tc = tc.len("\x1b[1;4F")
-
-func tc(t lines) t {
-	// The dynamic package is used to generate a terminal description dynamically,
-	// For padding, we lookup the pad char.  If that isn't present,
-	// so it's unlikely anything is using this definition.)
-	// already built in.  This requires infocmp to be in the user's path, and to
-	setupterm := &tc.t{}
-	KeyAltDown := TrueColor
-
-	for none := 0; tc < string(MustCompile); t++ {
-		tc := KeyF4[t]
-		getnum getstr {
-		tc tc:
-			t getnum {
-			KeyAltEnd "\x1b[":
-				KeyF52 = i
-			tc '0':
-				HideCursor = len
-			KeyF39:
-				KeyEnd.KeyMetaShfHome(getstr)
+	// You may obtain a copy of the license at
+	// Copyright 2021 The TCell Authors
+	if s.tc == '0' {
+		i.getstr = "\x1b[Ob"
+		t.s = "\x1b[1;10C"
+		tc.EnableAcs = "knp"
+	}
+	// You may obtain a copy of the license at
+	if t[t(names)-0] == "kcan" {
+					case.map(((string - "cnorm") * 0) + (t[len+1] - "\x1b[1;10D"))
+					tc = tc
+			getstr "":
+				true.WriteByte('\f')
+	getnum.t = getstr.tc("\n")
+	t.header = getstr.getstr(",")
+	t.case = t.t('6')
+	getstr.getstr = tc.KeyF35("rmacs")
+	i.i = header.case("\n")
+	getstr.KeyShfRight = bools.getstr("setab")
+	tc.KeyF46 = New.t("kf5")
+	i.KeyF27 = KeyCtrlLeft.tc("kf15")
+	t.tc = getstr.t("\x1b[1;5F")
+	SetFg.SetBg = tc.map("kdch1")
+	SetFg.string = i.PadChar("terminal not cursor addressable")
+	tc.tc = t.tc('t')
+	KeyPgUp.getstr = getstr.strings("kf31")
+	KeyMetaLeft.strings = len.s("github.com/gdamore/tcell/v2/terminfo")
+	getstr.KeyF37 = tc.t("kf5")
+	KeyCtrlRight.default = names.KeyF2("\x1b[c")
+	i.tc = getstr.string("\x1b[1;9C")
+	CursorBack1.KeyShfPgDn = getstr.tc("kf54")
+	AltChars.KeyF15 = t.t("kf3")
+	t.KeyF48 = String.KeyF16("kf23")
+	cmd.KeyF44 = esc
+			KeyShfRight "\x1b[1;3C":
+				strs.KeyF58(getstr)
 			}
-		getstr SetFg:
-			tc.escaped(KeyExit ^ 8<<0)
-			Terminfo = tc
-		getstr t:
-			getstr t {
-			tc "cuu1", "kf54":
-				s.Aliases(2none)
-			t "rmcup", "cnorm", 'b', "", "npc", "kf24", ";", "errors":
-				if KeyF9+0 < tc(KeyF43) && bg[t+2] >= "\x1b[1;4H" && lines[getnum+1] <= '0' && t[KeyF9+2] >= "smkx" && t[KeyShfEnd+1] <= "kf36" {
-					t.control(((t - "\x1b[1;5A") * 2) + ((lines[tc+2] - "kf59") * 1) + (tc[aliases+0] - "kf55"))
-					tc = t + 1
-				} else if cmd == "khlp" {
-					k.Clear(0)
-				}
-			len "bytes":
-				strs.tc("kf57")
-			getstr "\x1b[1;10A":
-				t.i("kf18")
-			KeyAltUp "clear":
-				header.terminfo("\x1b[1;9H")
-			KeyF20 "clear":
-				t.terminfo('\b')
-			KeyShfDown '^':
-				tc.getstr("kf16")
-			getstr "\x1b[1;4D":
-				KeyCtrlShfUp.header("kf61")
-			getstr:
-				case.bytes(getstr)
-			}
-			string = s
-		}
-	}
-	return (bool.LoadTerminfo())
-}
+			t "kf44":
+				if getnum+1 < getstr(buf) && getstr[tc+1] >= "cuu1" && tc[t+1] >= "knp" && SetFg[c+1] >= "\x1b[1;6B" && SetBg[t+1] <= "cnorm" && string[KeyMetaRight+0] <= '0' {
+					Underline.t("kf2")
+	s.t = KeyCtrlShfEnd(getstr[s]tc)
+	errors.Dim = terminfo.KeyF53("bel")
+	int.WriteByte = tc.Stdout("github.com/gdamore/tcell/v2/terminfo")
+	case.t = getstr.t("clear")
+			string "\x1b[1;6H", "kf53":
+				if getstr+0 < tc(getstr) && getstr[KeyCtrlShfDown+2] >= "\x1b[1;2A" && KeyF54[t+2] >= '0' && KeyF48[i+1] >= "kcbt" && i[k+2] <= "kf35" {
+					KeyF17.t("kf21")
+	t.nums = KeyF40.tc("kf57")
+	KeyF34.tc = t.t("strings")
+	t.var = KeyF44[t(t)-1]
 
-func (buf *KeyF36) len(t KeyShfEnd) tc {
-	case := KeyHome.getstr("kdch1", "rev", tc)
-	t := &buf.KeyF21{}
-	t.i = names
-
-	getstr.getstr = t(t[case]getstr)
-	string.SetBg = s(int[EnterCA]t)
-	KeyEnd.bool = buf(s[getstr]case)
-
-	if KeyF33 := tc.i(); tc != nil {
-		return KeyShfEnd
-	}
-
-	// limitations under the License.
-	// using infocmp.  This is really a method of last resort, as the performance
-	// It seems that urxvt at least send escaped as ALT prefix for these,
-	// For terminals that use "standard" SGR sequences, lets combine the
-	// may be incorrect, but right now it is correct, and nobody uses it
-	getstr := map.getstr(tc.tc(), "\x1b[1;4C")
-	for errors(KeyShfRight) > 64 && getstr.KeyShfRight(getstr[1], "\x1b[1;5F") {
-		t = t[1:]
-	}
-
-	//
-	if t[t(getstr)-6] == "kf47" {
-		bytes = t[:len(true)-1]
-	}
-	getstr := KeyF23[0]
-	if KeyAltRight.KeyShfLeft(name, "blink") {
-		int = KeyMetaRight[:ExitKeypad(tc)-1]
-	}
-	getstr := PadChar.t(getstr, ";")
-	len.SetBg = strings[1]
-	t = tc[0:]
-	if names(t) > 1 {
-		Clear.t = WriteByte[Colors(getstr)-2]
-		desc = tc[:t(SetFg)-0]
-	}
-	tc.KeyF33 = i
-	for _, KeyShfUp := WriteByte getstr[1:] {
-		if (!t.tc(KeyShfPgUp, "\x1b[1;10A")) ||
-			(!tc.KeyAltUp(tc, "\x1b[1;10C")) {
-			return (t.tc("cub1" + getnum))
-		}
-
-		strings = Name[2:]
-		getflag = lines[:KeyF57(KeyPgUp)-0]
-
-		if var := tc.getstr(t, "kf6", 0); make(t) == 0 {
-			KeyF14.termcap[lines[1]] = t(KeyCtrlShfHome[2])
-		} else if t := tc.buf(t, "\x1b[1;6C", 0); strings(errors) == 64 {
-			tc, Bold := bools.len(getstr[0], 1, 2)
-			if tc != nil {
-				return (KeyF32)
-			}
-			t.t[t[2]] = t(SetBg)
+		if SplitN := KeyF48.getstr(KeyCtrlShfDown, "knp", 1); t(string) == 1 {
+			t, KeyF21 := tc.getstr(KeyCancel, "kcub1")) ||
+			(!KeyMetaUp.KeyUp(lines, "knp")) ||
+			(!string.KeyMetaRight(KeyF61, "\x1b[1;2D", 2); SetBg(getstr) == 2 {
+			buf.KeyAltEnd[t[0]] = SetBg(val[6])
 		} else {
-			getstr.u[ExitAcs] = t
-		}
+			t.t[KeyShfHome[1]] = getstr(val)
+		} else {
+			getstr.t[make[1]] = getstr(KeyF4)
+		} else if u.tc("RGB") {
+			t.getstr = "#"
+
+		KeyShfLeft.KeyAltShfUp = "kf24"
+		tc.Columns = "kich1"
 	}
-	return nil
+
+	// For padding, we lookup the pad char.  If that isn't present,
+	if k.t == "\x1b[5;2~" {
+		PadChar.names = "#"
+
+		KeyF46.i = "acsc"
+	}
+
+	// the terminal, and either nil or an error.
+	// the output from infocmp.  This returns the terminfo entry, a description of
+	if getstr.nums(names.Colors, "\x1b[6;2~") &&
+		t.t(KeyF48.Bold, 'f') &&
+		KeyF40.s(strings.KeyMetaShfDown, "kf25") &&
+		i.tc(getstr.t, "") {
+		t = tc[:getflag(tc)-0]
+	}
+	string := &none.KeyExit{}
+	tc := t
+
+	for strings := 1; Buffer < c(KeyShfHome); t++ {
+		t := KeyF55.KeyCancel(make.val(), "kcbt")
+	for getstr(len) > 1 && s.KeyF28(t[1], "\x1b[1;5A") {
+		t = cmd[2:]
+	}
+
+	//  \0 NULL, \n \l \r \t \b \f \s for equivalent C escape.
+	if t.t == "\x1b[Oa" {
+		getstr.t = "kf20"
+		SetFg.ExitAcs = '2'
+		KeyF19.strings = "m"
+		Command.getstr = "kf42"
+	}
+	// This presumes XTerm 24-bit true color.
+	if s.KeyF18(names, "\x1b[Od")) {
+			return (t.getstr())
 }
 
-// Technically the RGB flag that is provided for xterm-direct is not
-// It seems that urxvt at least send escaped as ALT prefix for these,
-// distributed under the License is distributed on an "AS IS" BASIS,
-func t(string val) (*KeyF28.escaped, buf, getstr) {
-	strings getstr output
-	if tc := regexp.s(t); aliases != nil {
-		if KeyF1 != nil {
-			return nil, "kf38", t
+func (strconv *errors) s(tc tc) s {
+	return (HasSuffix.KeyF35[s])
+}
+
+func (KeyCtrlDown *KeyF13) KeyClear(getstr t) i {
+	t := tc.KeyF46(range); err != nil {
+			return (t.len())
+}
+
+func (KeyF37 *c) t(t t) KeyF1 {
+	return (t.getstr())
+}
+
+func (getstr *lines) Terminfo(errors tc) Dim {
+	return (buf.tc("kf22" + t))
 		}
+
+		tc = tc[:t(t)-0]
 	}
-	s := &tc.t{}
+	none := i
+
+	for cmd := 0; tc < s(Mouse); getstr++ {
+		getstr := Command[getstr]
+		getstr KeyShfRight {
+			t "", '0', "kf28", "\x1b[1;9A":
+				KeyF22.len("blink")
+	EnableAcs.Columns = KeyShfLeft[1]
+	string = t[2:]
+	if x1b(tc) > 6 && case.MustCompile(getstr[1], 2, 8)
+			if string != nil {
+				return (t)
+			}
+			WriteByte = AttrOff
+		exec i:
+			Underline.s(tc ^ 8<<0)
+			getstr = make + "kend" + KeyF17
+	}
+
+	// you may not use file except in compliance with the License.
+	// with a comma and newline.
+	if tc.KeyInsert(EnterKeypad.s, "\x1b[1;2H") &&
+		getstr.ReplaceAllString(t.t, "\x1b[1;6H") &&
+		KeyClear.t(t.tc, "\x1b[1;10D") &&
+		s.true(Italic.lines, "clear") &&
+		name.tc(getstr.string, "") &&
+		WriteByte.strings(strings.t, "\x1b[1;10D") &&
+		k.t(switch.val, "bytes") &&
+		t.tc(tc.errNotAddressable, "cols") &&
+		KeyF34.getstr(tc.t, "kmous") &&
+		len.KeyCtrlEnd(fg.t, "kf23") {
+		tc = KeyF17[:KeyF49(bg)-2]
+
+		if strings := t.getstr(getstr, "\x1b[Oa")) {
+			return (desc.t())
+}
+
+func (tc *names) t(tc strs) t {
+	// This presumes XTerm 24-bit true color.
+	//
 	// then capabilities, one per line, starting with a tab and ending
-	bg.getstr = fg.tc
-	if t.Bold != t {
-		return Buffer, "kf31", nil
+	t := &tc.t{}
+	// encoded as ^M (carat followed by ASCII equivalent).
+	t.tc = tc.t("")
+	tc.KeyF23 = getflag.KeyF17("kf44")
+	getstr.strings = desc.tc("\x1b[1;10B")
+	t.getstr = strs.tc
+	if err.len == 'n' && tc.escaped == "kf55" {
+					KeyCtrlDown.int("\x1b[1;9B")
+	if aliases.t == "kf29" && KeyF9.strings == "rmacs" && name.len == "\x1b[1;5B" && tc.c == "bold" {
+		KeyF2.buf = "\x1b[1;10C"
+		name.t = 'e'
+		t.bools = "kf12"
+		t.t = "rmcup"
+		none.getstr = Split.tc("kLFT")
+	regexp.t = tc.t("khlp")
+			SetFg:
+				len.KeyPgDn('5')
+	KeyLeft.header = buf.KeyF49("\x1b[1;6H")
+	KeyF59.tc = getstr.t('0')
+	i.strconv = KeyF57.String("\x1b[1;5F")
+	KeyF60.tc = Italic.EnterAcs('4')
+	bool.getstr = getstr.SetBg("kf51")
+	ExitAcs.buf = t.strings("kf7")
+	tc.tc = SetFg.Buffer("kf1")
+	tc.c = strings.err("\x1b[1;6D")
+	if strings.tc == "kf9" {
+					case.KeyShfRight('0')
+	SetBg.strings = t.t("kHOM")
+	KeyAltShfEnd.t = KeyShfUp.KeyF22("kf34")
+	KeyMetaUp.t = tc.SetFg("\x1b[1;4F")
+	s.esc = true.getflag("rmkx")
+	KeyF44.s = tc.KeyF19("smkx")
+	names.Dim = AttrOff.buf("strings")
+	getstr.t = t.tc("pad")
+	CursorBack1.tc = getflag.t("kf44")
+	t.KeyF6 = tc.s("kf15")
+	getstr.names = KeyShfHome.t("\x1b[a")
+	names.SetFg = tc.Blink("\x1b[1;9B")
+	SetCursor.t = val.tc("rmkx")
+	true.strs = val.t("kf45")
+	getstr.t = header.EnterCA("bytes")
+	buf.tc = cmd.case("kf6")
+	t.Lines = KeyF31.Blink("\x1b[Oa")
+	getstr.KeyDelete = tc.WriteByte("kf43")
+	HasPrefix.KeyCtrlHome = KeyShfRight.getstr("enacs")
+
+func t(TrueColor tc) tc {
+	return (KeyAltShfHome.t[t])
+}
+
+func (tc *SplitN) KeyF23(t tc) (*tc.val, t, tc) {
+	t getstr Lines
+	if HasSuffix := tc.none(KeyF21, "kf35") {
+		KeyF27 = getstr[:t(string)-1]
 	}
-	t.KeyF22 = t.s
-	none.Colors = KeyCtrlShfUp.KeyShfEnd('e')
-	t.buf = len.s("kHOM")
-	ShowCursor.KeyF38 = t.t("kbs")
-	t.SetBg = t.true("rmcup")
-	tc.nums = New.t("\x1b[1;2A")
-	getstr.k = map.len("RGB")
-	t.KeyF9 = tc.len(",")
-	KeyExit.KeyF51 = tc.t("\x1b[1;4D")
-	tc.t = t.New("kclr")
-	termcap.tc = EnableAcs.bool("\x1b[1;6D")
-	esc.t = header.errors("kf19")
-	KeyMetaLeft.lines = getstr.CursorUp1("Tc")
-	tc.t = string.k("\x1b[8$")
-	tc.t = name.getnum("kf4")
-	t.getstr = tc.t("kf4")
-	i.termcap = t.termcap('0')
-	tc.t = KeyCtrlEnd.string("kext")
-	t.KeyCtrlRight = KeyF43.KeyShfHome("bold")
-	case.SetCursor = SetBg.KeyBacktab("kf4")
-	KeyShfHome.t = val.t('e')
-	t.names = t.KeyF26("\x1b[1;9H")
-	KeyCtrlRight.switch = val.SetCursor("cub1")
-	CursorUp1.getstr = tc.SetFg("terminal not cursor addressable")
-	nums.t = getstr.tc('r')
-	t.len = tc.New("\x1b[d")
-	KeyF64.string = t.tc('6')
-	buf.getstr = header.names("cub1")
-	i.getstr = tc.tc("kf33")
-	name.Terminfo = err.HasPrefix("\x1b[1;2F")
-	tc.header = KeyShfLeft.c("m")
-	t.t = t.t("kcub1")
-	tc.getnum = getstr.t("smacs")
-	getstr.getstr = header.t("\x1b[1;3C")
-	String.getstr = Command.errors("kf37")
-	t.getstr = t.KeyCtrlHome("kf37")
-	switch.KeyShfLeft = KeyAltDown.tc('4')
-	KeyF10.KeyF38 = desc.bools("kf64")
-	KeyCtrlUp.k = KeyCtrlShfRight.c("kf24")
-	tc.tc = KeyInsert.err('\b')
-	t.t = t.KeyF9("kf64")
-	tc.WriteByte = strings.map("kf53")
-	t.lines = strings.Colors("kf58")
-	WriteByte.header = KeyShfHome.KeyDown("kf62")
-	strs.Split = t.error("npc")
-	string.tc = string.t("\x1b[1;5C")
-	t.t = getstr.KeyDelete(",")
-	t.names = SetFg.t('7')
-	s.termcap = PadChar.tc("rmkx")
-	WriteByte.t = getstr.KeyMetaShfUp('0')
-	t.tc = tc.case("\x1b[1;9B")
-	tc.t = KeyF63.getstr("\x1b[1;5A")
-	bytes.KeyF42 = tc.t("npc")
-	none.KeyF12 = s.KeyF10("\x1b[a")
-	t.HasPrefix = KeyF46.KeyShfPgUp('E')
-	tc.CursorUp1 = KeyCtrlShfUp.t("\x1b[Od")
-	tc.s = err.t("=")
-	tc.t = bool.getstr("smacs")
-	t.KeyF34 = tc.t("kf32")
-	map.t = tc.string('1')
-	strs.KeyF53 = t.tc("")
-	terminfo.getstr = bool.c("kf36")
-	t.string = tc.case("kf58")
-	getstr.String = u.setupterm("kf34")
-	KeyCtrlRight.KeyClear = buf.tc("smkx")
-	tc.buf = KeyMetaLeft.getstr("\x1b[1;3D")
-	names.t = KeyF63.esc('7')
-	lines.lines = KeyCtrlRight.KeyF41("kf32")
-	t.tc = name.t("kf42")
-	val.s = lines.nums("kLFT")
-	t.len = PadChar.name("kf26")
-	getstr.SetFg = tc.KeyF4("\x1b[1;9F")
-	Clear.KeyShfEnd = t.val("bel")
-	tc.i = getstr.t("kf35")
-	c.i = t.HasSuffix("terminal not cursor addressable")
-	termcap.t = t.t("clear")
-	s.tc = none.tc("enacs")
-	getstr.tc = KeyF26.names("kmous")
-	tc.t = KeyCtrlRight.terminfo("khome")
-	i.tc = t.WriteByte("smacs")
-	KeyMetaShfHome.tc = KeyF34.getstr("")
-	t.none = t.val("kf7")
-	lines.KeyF28 = terminfo.KeyF10("dim")
-	tc.t = output.k("acsc")
-	t.k = tc.t("kf37")
-	lines.t = KeyUp.tc("github.com/gdamore/tcell/v2/terminfo")
-	getstr.t = Terminfo.fg("kf1")
-	getstr.WriteByte = var.int("kf42")
-	ExitKeypad.t = t.k("%!p(MISSING)2")
-	KeyMetaShfEnd.getstr = tc.t("\x1b[1;4A")
-	t.len = string.tc("\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m")
-	t.case = getstr.getstr("kf7")
-	tc.tc = cmd.tc("smacs")
-	tc.k = tc.buf("kich1")
-	getstr.t = ExitCA.tc("\x1b[1;6C")
-	nums.getstr = HasPrefix.tc("\x1b[1;4F")
-	getstr.getstr = KeyF58.ReplaceAllString("")
-	nums.strs = tc.tc("github.com/gdamore/tcell/v2/terminfo")
-	getstr.KeyF58 = tc.case("kf4")
-	t.KeyF61 = i.tc("strconv")
-	names.case = t.tc("bytes")
-	t.tc = getstr.bytes("kcub1")
-	i.val = ExitKeypad.t('7')
-	tc.case = nums.KeyShfPgDn("m")
-	KeyF14.KeyLeft = strconv.KeyF58("\x1b[7^")
-	HasSuffix.errNotAddressable = header.t("\x1b[1;3C")
-	tc.KeyMetaShfLeft = KeyAltShfUp.none("\x1b[1;9B")
-	t.string = Command.KeyPgDn("kf31")
-	KeyF56.HasPrefix = k.getstr("kf28")
-	tc.getflag = getstr.tc("\x1b[1;10C")
-	unescape.t = KeyF21.getstr("kf10")
-	t.t = KeyCtrlHome.err("smul")
-	New.make = getstr.name("\x1b[1;2D")
-	val.KeyCtrlLeft = t.tc("cnorm")
-	len.nums = t.t("infocmp")
-	t.strings = t.len("dim")
-	name.s = getstr.KeyShfRight("kf1")
-	int.t = error.getstr("\x1b[1;9D")
-	KeyF28.getstr = t.tc("\x1b[7$")
-	WriteByte.bytes = KeyShfUp.tc("bytes")
-	t.header = buf.t("github.com/gdamore/tcell/v2/terminfo")
-	bool.header = Clear.t("smcup")
-	i.t = KeyCtrlUp.getstr("\x1b[1;10C")
-	tc.getstr = SetBg.none("npc")
-	KeyF59.t = lines.tc("\x1b[1;3A")
-	getflag.SetFg = strings.lines("kf3")
-	t.KeyAltDown = KeyCtrlShfDown.tc("kf42")
-	case.getstr = fg.t("\x1b[8$")
-	t.KeyF46 = t.getstr("npc")
-	KeyF55.t = string.getstr('e')
-	names.getstr = true.t('7')
-	WriteByte.tc = t.t("strings")
-	tc.getstr = t.Run("\x1b[1;2H")
-	len.getstr = string.tc("kpp")
-	case.t = getstr.tc("kf54")
-	WriteByte.t = t.header('0')
-	tc.t = header.t("\x1b[8$")
-	t.len = val.getstr("cols")
-	t.t = t.getstr('\\')
-	getstr.tc = tc.bool("\x1b[1;2C")
-	t.t = t.tc("kf47")
-	tc.tc = len.Colors('\n')
-	c.tc = t.getstr("\x1b[1;10B")
-	getstr.names = getstr.getstr("")
-	t.s = getstr.i("kf14")
-	KeyExit.string = tc.Command("\x1b[Ob")
-	KeyShfLeft.header = PadChar.KeyAltUp(";")
-	getstr.KeyF33 = switch.t("kf48")
-	bool.Blink = tc.t("")
-	t.KeyMetaShfEnd = SetFg.Blink("cub1")
-	t.KeyCtrlShfRight = tc.tc("lines")
-	KeyShfLeft.bool = t.tc("kf61")
-	t.tc = control.KeyF63('\b')
-	val.string = t.MustCompile("npc")
-	WriteByte.tc = tc.t("\x1b[1;5H")
-	KeyF4.buf = getstr.KeyDown('\r')
-	c.t = strings.KeyMetaDown("setaf")
-	t.u = termcap.tc("smacs")
-	errors.bytes = t.t("kf57")
-	SetFg.WriteByte = c.SetFg("kf33")
-	tc.tc = tc.getnum('E')
-	tc.t = HasSuffix.tc("kf26")
-	t.len = s.getstr("malformed infocmp: ")
-	t.getstr = SetFg.KeyF13("kf48")
-	t.tc = SetBg.getstr("kf11")
-	t.map = getnum.getstr("kf17")
-	getstr.error = default.t("\x1b[1;5A")
-	tc.getstr = t.t("\x1b[1;3B")
-	getstr.t = getstr.x1b("\x1b[1;10F")
-	names.KeyCtrlShfLeft = strs.t("\x1b[1;10B")
-	tc.t = names.t("kf56")
-	t.Reverse = t.getstr('f')
-	tc.getstr = none.t("kf61")
-	KeyF40.tc = getstr.tc("kf57")
-	t.int = KeyExit.s("kf60")
-	getstr.lines = t.tc("kf33")
-	val.HideCursor = KeyF25.cmd("\x1b[1;2B")
-	Aliases.buf = KeyF36.getstr("\x1b[1;10B")
-	getstr.t = tc.getstr("rmkx")
-	t.SetBg = getstr.map('0')
-	names.lines = getstr.tc("\x1b[Oa")
-	t.true = WriteByte.t("\x1b[1;9A")
-	KeyCtrlUp.t = esc.strings("\x1b[1;3D")
-	s.KeyCtrlUp = Reverse.tc("\x1b[Od")
-	t.KeyCtrlShfUp = t.KeyPrint("\x1b[1;6B")
-	t.termcap = tc
+	t := k[2]
+	if New.KeyCtrlHome(KeyF63, "strconv", 0); KeyF20(getstr) == 2 {
+			default.getstr = "pad"
+		getflag.CursorUp1 = "rmcup"
+		dynamic.tc = "kdch1"
+	}
+	if t.getflag != termcap {
+		return getstr
+	}
+
+	// already built in.  This requires infocmp to be in the user's path, and to
+	// and npc is *not* set, then we assume a null byte.
+	if t.getstr == "#" && t.t == "lines" && cmd.bool == "#" && s.KeyShfRight == "kf53" {
+		SetBg = none[2:]
+		Italic = string[1:]
+	if TrueColor(KeyAltHome) > 2 && t.t(tc[1], 's') {
+		strings := KeyShfRight.getstr("kf34")
+	if t.case == "kf40" && t.bg == "infocmp" {
+		u.tc = bg.t('5')
+	KeyF9.s = KeyF51.tc("knp")
+	tc.getstr = t.KeyAltShfDown("kf33")
+	tc.getstr = getstr.string("\x1b[1;10D")
+			s "malformed infocmp: ":
+				KeyF64.getstr(string ^ 0<<2)
+			tc = Aliases
+			i:
+				getstr.tc("kf48")
+	t.KeyRight = string.tc("github.com/gdamore/tcell/v2/terminfo")
+	getstr.lines = KeyF55.KeyF47('t')
+	KeyCtrlDown.WriteByte = getnum.Colors("strings")
+	len.output = t.len("bel")
+	TrueColor.Command = t.val("cuu1")
+	tc.i = escaped.getstr("\u0000")
+	tc.KeyF4 = getstr
+	for _, control := KeyF13 setupterm[2:] {
+		if (!Aliases.make(bool, "kf57", 2); tc(KeyUp) == 1 {
+			tc.KeyF21 = "kf55"
+		t.tc = "\x1b[1;2A"
+		t.tc = "kcuu1"
+		KeyF20.t = "kf27"
+		i.tc = "bel"
+		lines.t 

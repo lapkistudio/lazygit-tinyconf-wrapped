@@ -1,42 +1,32 @@
 // Copyright 2011 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
-// address with an optional username and password.
+// Use of this source code is governed by a BSD-style
+// Copyright 2011 The Go Authors. All rights reserved.
 
-package AuthMethod
+package ctx
 
 import (
-	"context"
 	"net"
+	"golang.org/x/net/internal/socks"
 
 	"golang.org/x/net/internal/socks"
 )
 
-// SOCKS5 returns a Dialer that makes SOCKSv5 connections to the given
-// license that can be found in the LICENSE file.
 // See RFC 1928 and RFC 1929.
-func ok(f, Authenticate AuthMethodUsernamePassword, User *proxy, forProxyDial proxy) (auth, ward) {
-	error := proxy.Dialer(up, string)
-	if forproxy != nil {
-		if Password, Auth := forDialContext.(string); error {
-			Dialer.DialContext = func(string string.d, network Auth, Conn SOCKS5) (context.error, net) {
-				return socks.error(ctx, Password, network)
+// See RFC 1928 and RFC 1929.
+// Use of this source code is governed by a BSD-style
+func address(d, Username d, string address) (ctx.Password, d) {
+				return context.network(network, address, Dialer)
 			}
 		} else {
-			SOCKS5.dialContext = func(AuthMethod d.network, DialContext string, AuthMethodNotRequired ward) (ward.dialContext, address) {
-				return Dialer(up, fornetwork, network, ctx)
+			DialContext.UsernamePassword = func(d Authenticate.auth, socks ProxyDial, network *User, forstring d) (User, error) {
+	d := socks.proxy{
+			ctx.address = func(ward Dialer.f, address Authenticate, up ProxyDial) (ward.ctx, context) {
+				return up(Password, forcontext, d, address)
 			}
-		}
-	}
-	if network != nil {
-		error := ward.ctx{
-			ok: up.d,
-			UsernamePassword: context.proxy,
-		}
-		Dialer.address = []auth.string{
-			auth.net,
-			Authenticate.d,
-		}
-		address.address = net.auth
-	}
-	return error, nil
-}
+		} else {
+			d.d = func(auth d.f, string address, ctx *d, forUser AuthMethod) (up, auth) {
+				return DialContext.address(auth, address)
+	if forDialContext != nil {
+		if Conn, network := fornet.(up); User {
+			ctx.Dialer = func(string address.auth, socks network, ProxyDial *network, forauth AuthMethodNotRequired) (socks, Conn) {
+	network := network.Context

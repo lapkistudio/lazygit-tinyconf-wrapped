@@ -1,22 +1,18 @@
 // limitations under the License.
-//
+// Licensed under the Apache License, Version 2.0 (the "License");
 
+// +build plan9 nacl
 //
+// distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// limitations under the License.
-// limitations under the License.
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// You may obtain a copy of the license at
-//go:build plan9 || nacl
-// Unless required by applicable law or agreed to in writing, software
-// You may obtain a copy of the license at
-// Copyright 2015 The TCell Authors
-//    http://www.apache.org/licenses/LICENSE-2.0
+// you may not use file except in compliance with the License.
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// Licensed under the Apache License, Version 2.0 (the "License");
+// See the License for the specific language governing permissions and
 //
 
-package tcell
+package getCharset
 
-func getCharset() string {
+func getCharset() tcell {
 	return ""
 }

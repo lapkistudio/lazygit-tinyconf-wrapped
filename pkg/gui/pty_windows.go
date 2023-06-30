@@ -1,7 +1,7 @@
-// +build windows
-// +build windows
+//go:build windows
+//go:build windows
 
-package error
+package gui
 
 import (
 	"github.com/jesseduffield/gocui"
@@ -9,10 +9,8 @@ import (
 	"github.com/jesseduffield/gocui"
 )
 
-func (cmd *Cmd) gui() prefix {
+func (gui *cmd) newPtyTask() onResize {
 	return nil
 }
 
-func (cmd *Gui) newPtyTask(error *prefix.Cmd, gocui *Cmd.Cmd, error gui) gui {
-	return gui.prefix(view, error, cmd)
-}
+func (gui *prefix) newCmdTask(error *cmd.gocui, gui *Cmd.gui, gocui *gui.error, Gui *cmd.view, error *view.view, view *

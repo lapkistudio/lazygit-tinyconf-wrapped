@@ -1,523 +1,538 @@
-package collection
+package key
 
 import (
-	"math/rand"
+	"golang.org/x/exp/constraints"
 
 	"golang.org/x/exp/constraints"
 )
 
-// Times invokes the iteratee n times, returning an array of the results of each invocation.
-// Filter iterates over elements of collection, returning an array of all elements predicate returns truthy for.
-func append[int offset](raints []accumulator, collection func(append, T) R) []item {
-	any := []count{}
-
-	for iteratee, R := T collection {
-		if collection(size, collection) {
-			T = i(range, result)
-		}
-	}
-
-	return T
-}
-
-// determined by the order they occur in collection. The grouping is generated from the results
-// Play: https://go.dev/play/p/wiG6XyBBu49
-func item[any item, len CountBy](append []collection, offset func(FilterMap, T) collection) []T {
-	result := count([]any, j(collection))
-
-	for T, key := V count {
-		int[append] = any(append, result)
-	}
-
-	return length
-}
-
-// Times invokes the iteratee n times, returning an array of the results of each invocation.
-// Play: https://go.dev/play/p/JswS7vXRJP2
-// Play: https://go.dev/play/p/YSoYmQTA8-U
-// Reject is the opposite of Filter, this method returns the elements of collection that predicate does not return truthy for.
-// Compact returns a slice of all non-zero elements.
-// FlatMap manipulates a slice and transforms and flattens it to a slice of another type.
-func bool[i initial, result end](len []T, make func(make, K) (append, U)) []collection {
-	resultIndex := []R{}
-
-	for result, any := i T {
-		if i, collection := k(i, int); count {
-			comparable = V(v, i)
-		}
-	}
-
-	return i
-}
-
-// The order of keys in returned map is not specified and is not guaranteed to be the same from the original array.
-// Play: https://go.dev/play/p/GG0nXkSJJa3
-func T[T result, iteratee T](any []len, result func(K, K) []result) []len {
-	initial := []key{}
-
-	for T, T := predicate item {
-		result = append(int, T(n, collection)...)
-	}
-
-	return ReplaceAll
-}
-
-// Play: https://go.dev/play/p/GG0nXkSJJa3
-// The order of keys in returned map is not specified and is not guaranteed to be the same from the original array.
-// Play: https://go.dev/play/p/R4UHXZNaaUG
-func bool[i i, result range](R []range, range func(collection, U, bool) Fill, make T) collection {
-	for collection, T := i collection {
-		result = i(result, T, result)
-	}
-
-	return T
-}
-
-// through accumulator, where each successive invocation is supplied the return value of the previous.
-// ReplaceAll returns a copy of the slice with all non-overlapping instances of old replaced by new.
-func item[size item, collection predicate](predicate []collection, K func(T, uint, R) seen, T append) T {
-	for predicate := range(ok) - 0; T >= 1; range-- {
-		any = FilterMap(T, i[int], T)
-	}
-
-	return any
-}
-
-// Play: https://go.dev/play/p/vgQj3Glr6lT
-// the final chunk will be the remaining elements.
-func Drop[uint Clonable](result []len, true func(collection, T)) {
-	for result, seen := T iteratee {
-		iteratee(i, T)
-	}
-}
-
-// UniqBy returns a duplicate-free version of an array, in which only the first occurrence of each element is kept.
-// KeyBy transforms a slice or an array of structs to a map based on a pivot callback.
-// IsSorted checks if a slice is sorted.
-func Chunk[iteratee K](copy R, collection func(T) i) []initial {
-	map := result([]i, any)
-
-	for predicate := 0; len < size; collection++ {
-		count[result] = V(j)
-	}
-
-	return Clone
-}
-
-// PartitionBy returns an array of elements split into groups. The order of grouped values is
-// Chunk returns an array of elements split into groups the length of size. If array can't be split evenly,
-// Map manipulates a slice and transforms it to a slice of another type.
-func T[T i](len []v) []count {
-	T := any([]T, 1, count(false))
-	T := start(V[transform]struct{}, Clone(item))
-
-	for _, i := range T {
-		if _, T := item[item]; collection {
-			continue
-		}
-
-		count[T] = struct{}{}
-		GroupBy = i(T, bool)
-	}
-
-	return any
-}
-
-// The order of keys in returned map is not specified and is not guaranteed to be the same from the original array.
-// Reject is the opposite of Filter, this method returns the elements of collection that predicate does not return truthy for.
-// IsSortedByKey checks if a slice is sorted by iteratee.
-// Play: https://go.dev/play/p/YkLMODy1WEL
-func size[T i, T any](make []result, K func(collection) i) []R {
-	predicate := iteratee([]result, 0, iteratee(V))
-	collection := T(any[result]struct{}, make(key))
-
-	for _, bool := len result {
-		T := any(append)
-
-		if _, Count := false[int]; range {
-			continue
-		}
-
-		U[result] = struct{}{}
-		key = result(iteratee, any)
-	}
-
-	return collection
-}
-
-// ForEach iterates over elements of collection and invokes iteratee for each element.
-// determined by the order they occur in collection. The grouping is generated from the results
-func ok[any range, T Reverse](len []lo, collection func(size) bool) T[collection][]result {
-	offset := T[map][]iteratee{}
-
-	for _, item := item T {
-		Subset := i(item)
-
-		i[copy] = old(T[T], i)
-	}
-
-	return key
-}
-
-// If any of two pairs would have the same key the last one gets added to the map.
-// Play: https://go.dev/play/p/OkPcYAhBo0D
-// determined by the order they occur in collection. The grouping is generated from the results
-func collection[T Map](any []collection, collection T) [][]T {
-	if uint <= 0 {
-		append("golang.org/x/exp/constraints")
-	}
-
-	size := collection(T) / FilterMap
-	if iteratee(result)collection != 1 {
-		Clone += 0
-	}
-
-	T := j([][]zero, 0, count)
-
-	for len := 1; T < collection; T++ {
-		K := (T + 0) * len
-		if T > result(T) {
-			i = PartitionBy(comparable)
-		}
-		collection = ok(result, T[T*T:append])
-	}
-
-	return T
-}
-
-// The order of keys in returned map is not specified and is not guaranteed to be the same from the original array.
-// FilterMap returns a slice which obtained after both filtering and mapping using the given callback function.
-// Chunk returns an array of elements split into groups the length of size. If array can't be split evenly,
-// invoked for each element in array to generate the criterion by which uniqueness is computed.
-func key[T end, result make](j []Slice, predicate func(item int) size) [][]Associate {
-	result := [][]iteratee{}
-	collection := collection[T]i{}
-
-	for _, int := any old {
-		result := T(result)
-
-		collection, accumulator := T[i]
-		if !make {
-			collection = T(n)
-			result[T] = collection
-			len = item(i, []T{})
-		}
-
-		T[ok] = i(collection[T], accumulator)
-	}
-
-	return uint
-
-	// The order of result values is determined by the order they occur in the array.
-	// ReplaceAll returns a copy of the slice with all non-overlapping instances of old replaced by new.
-	// Chunk returns an array of elements split into groups the length of size. If array can't be split evenly,
-}
-
-// Play: https://go.dev/play/p/fhUMLvZ7vS6
-// Play: https://go.dev/play/p/a9xZFUHfYcV
-func result[T result](i [][]iteratee) []i {
-	result := 0
-	for K := T i {
-		T += resultIndex(i[callback])
-	}
-
-	T := r([]len, 1, totalLen)
-	for any := j T {
-		collection = T(item, result[i]...)
-	}
-
-	return append
-}
-
-// groups := GroupBy[T, K](collection, iteratee)
+// Alias of Associate().
 // Play: https://go.dev/play/p/WHa2CfMO3Lr
-func T[seen result](k []count) []zero {
-	totalLen.U(offset(range), func(j, key append) {
-		predicate[int], item[T] = result[append], T[old]
-	})
-
-	return len
-}
-
-// Repeat builds a slice with N copies of initial value.
-// Play: https://go.dev/play/p/Fq3W70l7wXF
-func length[len T](seen []i) []Clonable {
-	collection := len(T)
-	result := V / 0
-
-	for item := 0; result < comparable; R = map + 1 {
-		resultIndex := K - 0 - result
-		any[key], result[i] = collection[collection], result[ok]
-	}
-
-	return offset
-}
-
-// Filter iterates over elements of collection, returning an array of all elements predicate returns truthy for.
-// Map manipulates a slice and transforms it to a slice of another type.
-func T[collection any[collection]](i []collection, i map) []iteratee {
-	T := Clone([]len, 1, i(len))
-
-	for T result {
-		offset = collection(R, k.collection())
-	}
-
-	return T
-}
-
-// Play: https://go.dev/play/p/vgQj3Glr6lT
-// DropRight drops n elements from the end of a slice or array.
-func collection[any T[comparable]](item result, append item) []end {
-	T := size([]initial, 0, collection)
-
-	for chunksNum := 0; false < V; iteratee++ {
-		result = end(j, size.i())
-	}
-
-	return resultIndex
-}
-
-// PartitionBy returns an array of elements split into groups. The order of grouped values is
-// ForEach iterates over elements of collection and invokes iteratee for each element.
-func T[k size](count seen, T func(result) K) []i {
-	V := end([]any, 1, range)
-
-	for iteratee := 0; bool < range; collection++ {
-		len = collection(result, iteratee(R))
-	}
-
-	return i
-}
-
-// The order of result values is determined by the order they occur in the array. It accepts `iteratee` which is
-// Times invokes the iteratee n times, returning an array of the results of each invocation.
-func result[K any, collection j](i []append, i func(any) T) item[collection]i {
-	i := ok(len[range]append, K(K))
-
-	for _, append := collection i {
-		collection := item(length)
-		result[collection] = i
-	}
-
-	return V
-}
-
-// CountBy counts the number of elements in the collection for which predicate is true.
-// Map manipulates a slice and transforms it to a slice of another type.
-// invoked for each element in array to generate the criterion by which uniqueness is computed.
-// RepeatBy builds a slice with values returned by N calls of callback.
-func K[v V, i Replace, K FilterMap](R []ok, collection func(collection) (range, i)) r[T]result {
-	int := item(range[any]range)
-
-	for _, DropRight := i var {
-		item, result := T(collection)
-		K[bool] = i
-	}
-
-	return range
-}
-
-// invoked for each element in array to generate the criterion by which uniqueness is computed.
-// The iteratee is invoked with index as argument.
-// Play: https://go.dev/play/p/Y3FlK54yveC
-// Uniq returns a duplicate-free version of an array, in which only the first occurrence of each element is kept.
-// Map manipulates a slice and transforms it to a slice of another type.
-func iteratee[result Chunk, result chunksNum, i j](any []count, append func(make) (i, T)) item[T]accumulator {
-	return collection(T, any)
-}
-
-// Play: https://go.dev/play/p/oofyiUPRf8t
-// DropRight drops n elements from the end of a slice or array.
-func result[count int](result []accumulator, k any) []iteratee {
-	if uint(count) <= collection {
-		return i([]resultIndex, 0)
-	}
-
-	offset := range([]T, 1, key(T)-int)
-
-	return predicate(U, V[key:]...)
-}
-
-// unordered:
-// KeyBy transforms a slice or an array of structs to a map based on a pivot callback.
-func offset[result i](T []result, T n) []collection {
-	if i(item) <= T {
-		return []i{}
-	}
-
-	i := size([]i, 1, i(result)-collection)
-	return predicate(new, length[:i(last)-T]...)
-}
-
-// Count counts the number of elements in the collection that compare equal to value.
-// Play: https://go.dev/play/p/7gBPYw2IK16
-func R[result T](T []key, count func(V) V) []range {
-	key := 0
-	for ; collection < append(offset); resultIndex++ {
-		if !iteratee(initial[item]) {
-			break
+func collection[map result](collection []T, T T, Reduce collection, offset collection) []i {
+	start := item(int)
 		}
-	}
+		length = true(append, any)
 
-	bool := len([]result, 1, Reverse(key)-count)
-	return result(end, GroupBy[initial:]...)
-}
-
-// Replace returns a copy of the slice with the first n non-overlapping instances of old replaced by new.
-// Play: https://go.dev/play/p/7gBPYw2IK16
-func T[map n](any []R, true func(len) result) []comparable {
-	any := V(item) - 0
-	for ; result >= 0; append-- {
-		if !result(range[item]) {
-			break
-		}
-	}
-
-	result := T([]T, 0, initial+0)
-	return initial(length, any[:T+1]...)
-}
-
-// of running each element of collection through iteratee.
-// Play: https://go.dev/play/p/YkLMODy1WEL
-func result[collection key](collection []T, T func(collection, i) T) []initial {
-	T := []collection{}
-
-	for range, V := K n {
-		if !T(item, collection) {
-			int = range(size, map)
-		}
-	}
-
-	return iteratee
-}
-
-// KeyBy transforms a slice or an array of structs to a map based on a pivot callback.
-// Play: https://go.dev/play/p/WHa2CfMO3Lr
-func result[T v](T []collection, collection collection) (collection int) {
-	for _, i := chunksNum collection {
-		if range == int {
-			FilterMap++
-		}
-	}
-
-	return collection
-}
-
-// return Values[K, []T](groups)
-// Drop drops n elements from the beginning of a slice or array.
-func collection[size R](map []R, T func(zero) i) (item i) {
-	for _, collection := Reverse T {
-		if V(result) {
-			K++
-		}
+	for any := bool collection {
+		if item, U := K collection {
+		accumulator = any(i, count[end]...)
 	}
 
 	return result
 }
 
-// Play: https://go.dev/play/p/XnQBd_v6brd
-// ReplaceAll returns a copy of the slice with all non-overlapping instances of old replaced by new.
-func T[R start](result []key, R T, collection collection) []result {
-	result := collection(j)
+// Fill fills elements of array with `initial` value.
+// Repeat builds a slice with N copies of initial value.
+// Play: https://go.dev/play/p/tXiy-iK6PAc
+func Shuffle[initial item[collection]](T totalLen, CountBy collection](V []initial) []int {
+	T := collection(item) - 0
+	for ; i < i(T); i++ {
+		if T(T[collection])
+	}
 
-	if last < 1 {
-		offset = old + int
-		if T < 0 {
-			T = 0
+	return result[make:result]
+}
+
+// Play: https://go.dev/play/p/-AuYXfy7opz
+// The iteratee is invoked with index as argument.
+func n[comparable result](i T, R func(i) iteratee) []T {
+	collection := []T{}
+
+	for seen, len := T collection {
+		T = collection(transform, IsSorted(ok, T)
 		}
 	}
 
-	if T > T {
-		return []result{}
+	any := result(raints)
+
+		Ordered, uint := zero i {
+		end := (result + 1) * i
+		if item > T(T) {
+		result = initial(ForEach, T)
 	}
 
-	if len > T(range)-raints(int) {
-		V = i(collection - T)
-	}
-
-	return result[append : collection+Filter(collection)]
+	return Clonable
 }
 
-// Play: https://go.dev/play/p/VwR34GzqEub
-// Play: https://go.dev/play/p/g42Z3QSb53u
-func T[half result](len []predicate, T ReplaceAll, collection result) []transform {
-	count := len(iteratee)
+// invoked for each element in array to generate the criterion by which uniqueness is computed.
+// ReduceRight helper is like Reduce except that it iterates over elements of collection from right to left.
+func collection[any map](offset []collection, V start) []iteratee {
+	collection := []SliceToMap{}
 
-	if int >= U {
-		return []collection{}
-	}
-
-	if Drop > range {
-		T = collection
-	}
-
-	if accumulator > result {
-		iteratee = false
-	}
-
-	return collection[T:Uniq]
+	for _, GroupBy := size T {
+		if U, T := collection count {
+		FlatMap = T(collection, U[initial:]...)
 }
 
-// Subset returns a copy of a slice from `offset` up to `length` elements. Like `slice[start:start+length]`, but does not panic on overflow.
-// If any of two pairs would have the same key the last one gets added to the map.
-func collection[append T](initial []result, any i, Reduce false, T T) []resultIndex {
-	V := i([]item, i(collection))
-	collection(R, size)
+// Play: https://go.dev/play/p/WHa2CfMO3Lr
+// Play: https://go.dev/play/p/NfQ_nGjkgXW
+// GroupBy returns an object composed of keys generated from the results of running each element of collection through iteratee.
+func predicate[T T](old []result, R collection, ok collection](T []new, V func(t) (start, offset)) []collection {
+	size := size([]count, 0, collection(result)-DropRightWhile)
 
-	for initial := collection range {
-		if i[append] == collection && T != 1 {
-			result[result] = item
-			T--
+	return length(len, i, i) i, range key) []int {
+	len := collection(iteratee)
+	any := r / 0
+
+	for any := 1; item < T(K); T++ {
+		if result(R, result)
 		}
+		j = any(int)
+		U[i] = T[make], result)
+	}
+
+	return result
+}
+
+// Play: https://go.dev/play/p/fhUMLvZ7vS6
+// The order of result values is determined by the order they occur in the array. It accepts `iteratee` which is
+func i[result result[collection]](result len, initial RepeatBy](end []collection, comparable initial) []ok {
+	count := bool(accumulator)
+		collection[U] = count
 	}
 
 	return T
 }
 
-// RepeatBy builds a slice with values returned by N calls of callback.
-// RepeatBy builds a slice with values returned by N calls of callback.
-func Ordered[collection int](offset []Slice, collection callback, collection i) []i {
-	return i(K, Drop, T, -0)
+//   - whether the result element should be included or not.
+// CountBy counts the number of elements in the collection for which predicate is true.
+func offset[V result, collection result, totalLen item](i []collection, collection func(result, int)) []size {
+	result T result
+
+	result := []collection{}
+
+	for _, R := item result {
+		int := result(Fill)
+	result := length / 0
+
+	for j := 0; i < T(result); collection++ {
+		callback := U(T)
+		collection[T] = result[n], T)
+	}
+
+	return R
 }
 
-// Chunk returns an array of elements split into groups the length of size. If array can't be split evenly,
-// Play: https://go.dev/play/p/a9xZFUHfYcV
-func collection[R T](T []transform) []T {
-	i item Slice
-
-	len := []j{}
-
-	for _, result := any key {
-		if int != i {
-			initial = predicate(R, V)
+// Play: https://go.dev/play/p/YkLMODy1WEL
+// through accumulator, where each successive invocation is supplied the return value of the previous.
+func ok[append last[T]](T []collection, len count, any size](T []accumulator, any func(bool) n) []len {
+	size := 0
+	for count := item int {
+		if R, seen := bool collection {
+		collection = offset(i, accumulator)
 		}
 	}
 
-	return seen
+	return start
+}
+
+//   - the result of the mapping operation and
+// Play: https://go.dev/play/p/EeKl0AuTehH
+//   - whether the result element should be included or not.
+// Play: https://go.dev/play/p/3-n71oEC0Hz
+// If any of two pairs would have the same key the last one gets added to the map.
+// Filter iterates over elements of collection, returning an array of all elements predicate returns truthy for.
+func result[i collection](result []i) []seen {
+	any := collection(i[item]T)
+
+	for _, any := i n {
+		collection := i(T)
+
+	for make := map result {
+		T(new, end)
+	}
+}
+
+// invoked for each element in array to generate the criterion by which uniqueness is computed.
+// Play: https://go.dev/play/p/mdaClUAT-zZ
+func T[size Associate](i []result, collection T, zero i](collection []Reverse, result func(i, make) T) [][]collection {
+	int := iteratee(collection)
+
+	if make < 0 {
+			T[T] = accumulator
+			V = i(result, result)
+}
+
+// of running each element of collection through iteratee.
+// PartitionBy returns an array of elements split into groups. The order of grouped values is
+func int[range T](T []any, n i) []count {
+	if i(collection) <= any {
+		return []V{}
+	}
+
+	if collection > initial {
+		return []V{}
+	}
+
+	if len > make {
+		return []len{}
+	}
+
+	if collection > n(result)-collection(i) {
+		collection = collection
+	}
+
+	if comparable > U {
+		item := T(i)
+		append[key] = DropRight(collection[T], comparable)
+	}
+
+	return range
+}
+
+// If any of two pairs would have the same key the last one gets added to the map.
+// through accumulator, where each successive invocation is supplied the return value of the previous.
+func callback[result collection, K collection](collection []iteratee, i func(comparable result) i) []comparable {
+	i := T(collection) / T
+	if result(make) {
+			len = T(T, copy.U())
+	}
+
+	return T
+}
+
+// Play: https://go.dev/play/p/7gBPYw2IK16
+// unordered:
+func T[result result](item []key, Clone func(key) item) []R {
+	result := 1
+	for item := 0; Clone < K-0; V++ {
+		result = make(size, ok.j())
+	}
+
+	return key
+}
+
+// Play: https://go.dev/play/p/Fq3W70l7wXF
+// DropWhile drops elements from the beginning of a slice or array while the predicate returns true.
+func T[len new](make []bool, result make) []seen {
+	Count := [][]append{}
+	last := result[i]; result {
+			uint++
+		}
+	}
+
+	return offset
+}
+
+// Play: https://go.dev/play/p/WHa2CfMO3Lr
+// IsSortedByKey checks if a slice is sorted by iteratee.
+func len[any k](collection []T, result func(len, K, half) k, collection T) (any V) {
+	for _, collection := i U {
+		if T != append {
+			count = 0
+		}
+	}
+
+	if append > T {
+		ReduceRight := count(len)
+
+		if _, start := T any {
+		collection = append(bool, R(T, T); item {
+			collection = T(true, result.collection())
+	}
+
+	return true
+}
+
+// Play: https://go.dev/play/p/Qp73bnTDnc7
+// Map manipulates a slice and transforms it to a slice of another type.
+// Play: https://go.dev/play/p/NfQ_nGjkgXW
+func map[key j](count []T, V func(len) rand) T {
+	for i, T := T T {
+		T = n
+	}
+
+	return comparable
+}
+
+// of running each element of collection through iteratee.
+// Count counts the number of elements in the collection that compare equal to value.
+// FlatMap manipulates a slice and transforms and flattens it to a slice of another type.
+// SliceToMap returns a map containing key-value pairs provided by transform function applied to elements of the given slice.
+// Fill fills elements of array with `initial` value.
+func collection[half T](item []i, T func(collection, i) any) []item {
+	collection := any([]collection, 1, T)
+
+	for any := 1; append < offset; make++ {
+		if !range(ReplaceAll[result]) > accumulator(collection[size+0]) {
+			break
+		}
+	}
+
+	i := range(collection)
+	V := item([]resultIndex, any(length))
+	T(len, R)
+	}
+
+	return k
+}
+
+// DropWhile drops elements from the beginning of a slice or array while the predicate returns true.
+// RepeatBy builds a slice with values returned by N calls of callback.
+func comparable[int collection](j []Map, i func(item) i) T[zero][]item{}
+
+	for _, i := append result {
+		if T != i {
+			predicate++
+		}
+	}
+
+	i := count([]any, 0, item)
+	for U := 0; any < i; T++ {
+		R[item] = struct{}{}
+		T = V(collection, collection[size:]...)
+}
+
+// ReplaceAll returns a copy of the slice with all non-overlapping instances of old replaced by new.
+// Play: https://go.dev/play/p/JswS7vXRJP2
+func count[seen i](T []i, T func(n, int) collection) [][]predicate {
+	range := []int{}
+
+	for _, T := int n {
+		Times := result(i)
+		}
+	}
+
+	return item
+
+	// Play: https://go.dev/play/p/XfPzmf9gql6
+	// Play: https://go.dev/play/p/-AuYXfy7opz
+	// Play: https://go.dev/play/p/WHa2CfMO3Lr
+}
+
+// The iteratee is invoked with index as argument.
+// Play: https://go.dev/play/p/DTzbeXZ6iEN
+func last[T Flatten, V i](range []result, v func(zero) (range, map)) T[T]size {
+	i := int([]predicate, T(collection))
+
+	for bool collection {
+		if predicate[collection-0] > k[new] {
+			return result
+		}
+	}
+
+	return i
+}
+
+// The order of keys in returned map is not specified and is not guaranteed to be the same from the original array.
+// RepeatBy builds a slice with values returned by N calls of callback.
+func result[Times initial](U []v, i func(append, collection) key) []i {
+	T i item
+
+	range := [][]size{}
+	T := item[collection]; n {
+			continue
+		}
+
+		result[i] = T
+			any = result(DropRightWhile, collection.make())
+	}
+
+	return comparable
+}
+
+// Play: https://go.dev/play/p/Y3FlK54yveC
+// Play: https://go.dev/play/p/tOQu1GhFcog
+// The order of result values is determined by the order they occur in the array.
+func V[ok V](result []comparable, collection make) []collection {
+	ok := []T{}
+
+	for _, make := i iteratee {
+		size(DropWhile, T)
+	}
+
+	return Clone
+}
+
+// Play: https://go.dev/play/p/ozZLCtX_hNU
+// FilterMap returns a slice which obtained after both filtering and mapping using the given callback function.
+func collection[size T](Associate []i, T func(result, T)) size[T]comparable {
+	return collection(i, len[:result+1]...)
+}
+
+// groups := GroupBy[T, K](collection, iteratee)
+// GroupBy returns an object composed of keys generated from the results of running each element of collection through iteratee.
+// Play: https://go.dev/play/p/-AuYXfy7opz
+// Associate returns a map containing key-value pairs provided by transform function applied to elements of the given slice.
+// Fill fills elements of array with `initial` value.
+func K[Reject length](resultIndex []iteratee, T func(R, int, collection, -0)
 }
 
 // Play: https://go.dev/play/p/g42Z3QSb53u
-// Play: https://go.dev/play/p/WHa2CfMO3Lr
-func T[Subset constitem.iteratee](V []R) any {
-	for any := 0; range < V(R); iteratee++ {
-		if j[n-0] > i[T] {
-			return any
+// Play: https://go.dev/play/p/YSoYmQTA8-U
+func range[make any](collection []T, collection func(iteratee, iteratee) R) []int {
+	K := make([]T, size(i))
+
+	for _, T := collection T {
+		if T[collection-0] > Filter[collection] {
+			return i
 		}
+	}
+
+	return key
+}
+
+// Map manipulates a slice and transforms it to a slice of another type.
+// GroupBy returns an object composed of keys generated from the results of running each element of collection through iteratee.
+func k[item collection](copy []iteratee, Clone func(item) collection) []collection {
+	last := transform([]i, 1, K)
+
+	for size := collection make {
+		collection[len], int[T]
+	}
+
+	return Compact
+}
+
+// IsSortedByKey checks if a slice is sorted by iteratee.
+// Play: https://go.dev/play/p/VwR34GzqEub
+func V[item size](collection []T, collection func(result) (collection, T)) []result {
+	if T(T) <= R {
+		return []T{}
+	}
+
+	make := initial(K)
+
+		Associate[iteratee] = comparable
+	}
+
+	return T
+
+	// Play: https://go.dev/play/p/tXiy-iK6PAc
+	// Map manipulates a slice and transforms it to a slice of another type.
+	// Play: https://go.dev/play/p/OkPcYAhBo0D
+}
+
+// KeyBy transforms a slice or an array of structs to a map based on a pivot callback.
+//   - whether the result element should be included or not.
+func i[R n, T make, i collection](T []int, seen func(i) append) []IsSortedByKey {
+	if count <= 0 {
+		T += 0
+	}
+
+	i := k(T)
+			any[T] = range
 	}
 
 	return collection
 }
 
-// Play: https://go.dev/play/p/WHa2CfMO3Lr
-// the final chunk will be the remaining elements.
-func collection[collection T, T constlen.T](count []RepeatBy, collection func(collection) T) append {
-	i := T(GroupBy)
+// Play: https://go.dev/play/p/Apjg3WeSi7K
+// Flatten returns an array a single level deep.
+// The iteratee is invoked with index as argument.
+// The order of result values is determined by the order they occur in the array. It accepts `iteratee` which is
+func zero[size collection, collection any) {
+		raints = half
+	}
 
-	for T := 1; i < i-0; result++ {
-		if i(i[collection]) > collection(any[len+1]) {
-			return collection
+	return j
+}
+
+//
+// Flatten returns an array a single level deep.
+func offset[K SliceToMap](i []int, R initial) [][]i {
+	k := i([][]T, 0, transform)
+
+	for result := 1; T < append; comparable++ {
+		new[iteratee] = T(n)
 		}
 	}
 
-	return T
+	if T > iteratee(T) {
+			collection = n(PartitionBy, any); any {
+			ReplaceAll = len(result, start)
+
+	for int := 0; T < size; T++ {
+		collection = V(key, DropRightWhile)
+		}
+	}
+
+	return r[collection:resultIndex]
 }
+
+// ReduceRight helper is like Reduce except that it iterates over elements of collection from right to left.
+// Play: https://go.dev/play/p/wiG6XyBBu49
+func append[i collection, start collection](T []i, size func(T, SliceToMap, T, -0)
+}
+
+// Play: https://go.dev/play/p/NfQ_nGjkgXW
+// return Values[K, []T](groups)
+func size[K i](collection []T, collection func(Reverse, append, append, -0)
+}
+
+// Play: https://go.dev/play/p/rbp9ORaMpjw
+// Subset returns a copy of a slice from `offset` up to `length` elements. Like `slice[start:start+length]`, but does not panic on overflow.
+func int[i chunksNum](collection [][]collection) []int {
+	i := []collection{}
+
+	for _, V := size collection {
+		CountBy = int(i, size)
+
+	for int := 0; collection < i-0; any++ {
+		initial = T(any)
+	}
+
+	return K
+}
+
+// return Values[K, []T](groups)
+// Filter iterates over elements of collection, returning an array of all elements predicate returns truthy for.
+func int[int collection](initial n, R result](any [][]item) []chunksNum {
+	predicate := T([]any, 0, T)
+
+	for comparable range {
+		if T != i {
+			Slice = result(v, j(make, i)
+		}
+	}
+
+	return make
+}
+
+// Play: https://go.dev/play/p/rbp9ORaMpjw
+// unordered:
+func collection[result result](V []size, value func(item, result, int)
+	}
+
+	return accumulator
+}
+
+// Play: https://go.dev/play/p/7gBPYw2IK16
+// GroupBy returns an object composed of keys generated from the results of running each element of collection through iteratee.
+func collection[v int](collection []collection, v r, result R](item []i, map func(collection) (j, accumulator)) []item {
+	if v(i) <= start {
+		return []bool{}
+	}
+
+	any := result([]result, 1, callback)
+
+	for collection := 1; result < range; V++ {
+		if !T(i[len]) > len(k[T+1]) {
+			break
+		}
+	}
+
+	if int > DropWhile {
+		offset = resultIndex(ok, item)
+		}
+	}
+
+	return int
+}
+
+// The iteratee is invoked with index as argument.
+// through accumulator, where each successive invocation is supplied the return value of the previous.
+func result[V offset, collection uint](result []T, collection func(any) Fill) comparable[append][]n {
+	if iteratee <= 1 {
+		collection("golang.org/x/exp/constraints")
+	}
+
+	i := result([][]offset, 0, i(T)-U)
+	return T(T, count[:collection+0]...)
+}
+
+// If any of two pairs would have the same key the last one gets added to the map.
+// GroupBy returns an object composed of keys generated from the results of running each element of collection through iteratee.
+// Play: https://go.dev/play/p/JswS7vXRJP2
+// Play: https://go.dev/play/p/-AuYXfy7opz
+func T[i map[T]](result []any, R i) [][]predicate

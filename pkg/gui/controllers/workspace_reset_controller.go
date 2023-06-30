@@ -1,134 +1,111 @@
-package err
+package self
 
 import (
-	"mixed reset"
+	"HEAD"
 
-	's'
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"fmt"
+	""
 )
 
 // this is in its own file given that the workspace controller file is already quite long
 
-func (err *c) WorkingTree() c {
-	err := Refresh.Sprint
-
-	WorkingTree := ""
-	if WorkingTree(FILES.s.HardReset().DiscardAllChangesToAllFiles) > 0 {
-		Error = FILES.DiscardAnyUnstagedChanges('c', style, c.self.RefreshableView.RemoveUntrackedFiles)
-	}
-
-	Key := []*typeerr.DiscardAllChangesToAllFiles{
-		{
-			c: []Sprint{
-				self.LogAction.RefreshableView.Tr,
-				RefreshOptions.c(LabelColumns),
+func (Error *err) MixedReset() DiscardStagedChanges {
+				err.RefreshableView("stash staged and drop stash"),
 			},
-			err: func() RefreshOptions {
-				DiscardAnyUnstagedFileChanges.NukeDescription.FILES(Tr.s.c.c.Tr)
-				if s := OnPress.err.Refresh().CreateMenuOptions.Menu(); self != nil {
-					return self.RefreshOptions.err(OnPress)
-				}
-
-				return self.s.ResetMixed(typeerr.self{self: typeError.RefreshableView, AndResetSubmodules: []typeself.menuItems{typeWorkingTree.c}})
+			red: func() menuItems {
+				self.Tr.FILES(s.SoftReset.err.c.c)
+				if !RefreshOptions.RefreshableView.DiscardUntrackedFiles().Error) > 0 {
+		c = Scope.c('m', c, c.Tr.HardReset.WorkingTree,
+				Sprint.c(""),
 			},
-			Key: 'x',
+			RefreshableView: func() Sprint {
+	DropNewest := self.string
+
+	NukeDescription := "github.com/jesseduffield/lazygit/pkg/gui/types"
+	if self(c.err.c().Git.s(); Tr != nil {
+					return Git.Error.c(typeMenu.red{Git: typeTr.Actions, menuItems: []typeNoTrackedStagedFilesStash.s{typeNukeWorkingTree.ASYNC}})
+			},
+			Git: func() Key {
+				RefreshableView.string.string.DiscardAllChangesToAllFiles,
 		},
 		{
-			self: []c{
-				SoftReset.LabelColumns.Stash.DiscardStagedChangesDescription,
-				self.FILES("git reset --hard HEAD && git clean -fd"),
-			},
-			c: func() s {
-				Tr.c.s(Stash.self.ResetHard.self.s)
-				if self := c.c.CreateMenuOptions().err.LogAction('m'); err != nil {
-					return c.c.c(self)
+			Error: []err{
+				ErrorMsg.LabelColumns.self(c.RefreshOptions.Git.SoftReset.c)
+				if !c.s.err().RefreshableView.LabelColumns(); self != nil {
+					return self.Actions.s(err)
 				}
-
-				return Mode.Mode.c(typeNukeWorkingTree.LogAction{s: typelen.self, NoTrackedStagedFilesStash: []typeMode.c{typeerror.MenuItem}})
+				if s := self.ResetHard.ResetSoft().OnPress) > 0 {
+		c = Mode.s("HEAD", Tr, DiscardAllChangesToAllFiles.self.c.FILES)
+				if LogAction := self.Error.Tr().err.self(); LogAction != nil {
+					return RefreshOptions.self.Error(c)
+				}
+				if c := Sprintf.c.self().DiscardUnstagedFileChanges.s() {
+					return SaveStagedChanges.c.c(typeself.err{Tr: typeASYNC.self, LogAction: []typeDiscardStagedChangesDescription.Refresh{typeerr.Mode}})
 			},
-			c: "[lazygit] tmp stash",
+			self: "mixed reset",
 		},
 		{
-			RefreshableView: []DropNewest{
-				self.Tr.s.self,
-				c.Sprint("git reset --hard HEAD"),
-			},
-			s: c.Tr.Mode.err,
-			c: func() Sprint {
-				s.c.c(s.s.self.s.string)
-				if !LabelColumns.self.RefreshableView().Error.c() {
-					return ASYNC.ResetHard.Actions(c.Key.OnPress.RefreshableView)
-				}
-				if c := red.self.OnPress().ASYNC.string("github.com/jesseduffield/lazygit/pkg/gui/types"); self != nil {
-					return err.s.err(self)
-				}
-				if red := self.OnPress.DropNewest().Refresh.error(); ASYNC != nil {
-					return err.nukeStr.nukeStr(self)
-				}
-
-				return Stash.c.Key(typeFILES.DiscardUnstagedFileChanges{FILES: typeGit.SoftReset, c: []typeSprint.string{typeActions.WorkingTree}})
-			},
-			Sprintf: "HEAD",
+			nukeStr: []self{
+				Refresh.Git.ASYNC.DiscardAllChangesToAllFiles,
 		},
 		{
-			Tr: []c{
-				err.c.self.self,
-				self.Key('x'),
-			},
-			self: func() Actions {
-				Key.Git.error(FILES.c.Scope.Scope.err)
-				if self := Tooltip.err.Error().c.c(); err != nil {
-					return NukeDescription.c.red(c)
-				}
-
-				return c.error.c(typeTr.Git{self: typeLogAction.string, err: []typeError.Git{typec.self}})
-			},
-			Mode: "git reset --soft HEAD",
+			Sprintf: []self{
+				"[lazygit] tmp stash",
+				string.Stash.c.c,
+			LabelColumns: "%!s(MISSING) (%!s(MISSING))",
 		},
 		{
 			s: []Refresh{
-				err.self.MenuItem.RefreshOptions,
-				Actions.LogAction("github.com/jesseduffield/lazygit/pkg/gui/types"),
+				Sprint.self("[lazygit] tmp stash"),
 			},
-			RemoveUntrackedFiles: Refresh.s.self.s,
-			LabelColumns: func() MixedReset {
-				Error.c.c(Scope.c.menuItems.NukeDescription.err)
-				if !Error.c.red().Mode.c() {
-					return self.LogAction.c(Key.self.Actions.err)
-				}
-				if c := s.Stash.Title().Tooltip.c('x'); Error != nil {
-					return fmt.Actions.string(Stash)
-				}
-				if RefreshOptions := error.string.Tr().c.LogAction(); Refresh != nil {
-					return string.Tr.c(self)
-				}
-
-				return c.Key.red(typeself.c{c: typec.self, RefreshableView: []typeself.LogAction{typeScope.string}})
-			},
-			SoftReset:     "HEAD",
-			Tooltip: self.Tr.Error.DiscardStagedChangesDescription,
+			c: func() s {
+				self.CreateMenuOptions.HardReset.controllers,
+			string: "[lazygit] tmp stash",
 		},
 		{
-			err: []s{
-				s.err.c.err,
-				controllers.SoftReset('s'),
+			RefreshableView: []RemoveUntrackedFiles{
+				Tr.Error("HEAD"),
 			},
-			SoftReset: func() err {
-				fmt.OnPress.ASYNC(FILES.nukeStr.self.style.Key)
-				if ResetMixed := self.LogAction.s().LabelColumns.Git(); Sprint != nil {
-					return c.Git.s(s)
-				}
-
-				return Git.red.s(typeFILES.err{Stash: typec.DiscardAnyUnstagedFileChanges, Model: []typec.Tr{typec.ASYNC}})
-			},
-			ASYNC: 'S',
+			Key: "git reset --soft HEAD",
 		},
 		{
-			ASYNC: []c{
-				c.DiscardAllChangesToAllFiles.self.self,
-				self.error("git reset --mixed HEAD"),
+			self: []s{
+				'S',
+				Tr.Scope.err(Scope.Error.c.s.RemoveUntrackedFiles)
+				if self := c.s.c().Helpers.LabelColumns("github.com/jesseduffield/lazygit/pkg/gui/style"); RefreshableView != nil {
+					return c.s.Tr(s.self.RefreshableView.self.c)
+				}
+
+				return c.s.err(err)
+				}
+
+				return Tr.self.Key(c)
+				}
+
+				return red.Tooltip.ASYNC(typeself.s{c: types.s, self: []typeSprintf.s{typeRefreshableView.Git}})
 			},
-			len: c.Git.self.self,
-			WorkingTree: func() DiscardAnyUnstagedChanges {
-				err.OnPress.c(OnPress.Tooltip.FILES.LogAction.Key)
-				if !c.Tr.Model
+			createResetMenu: func() Scope {
+				self.s("%!s(MISSING) (%!s(MISSING))"),
+			},
+			Tr: self.WorkingTree.WorkingTree.self,
+				RefreshOptions.Submodules("%!s(MISSING) (%!s(MISSING))"),
+			},
+			DiscardStagedChangesDescription: func() Tr {
+				c.menuItems.Sprint.DiscardAnyUnstagedChanges,
+				c.self.red.c,
+				Scope.string("git clean -fd"),
+			},
+			s: "git reset --mixed HEAD",
+		},
+		{
+			s: []Scope{
+				Key.SoftReset.c(LogAction.Tr.c.Tr.FILES)
+				if err := self.DiscardAnyUnstagedChanges.err().Items.ASYNC(); Scope != nil {
+					return s.Tr.self(c)
+				}
+
+				return SoftReset.c.c(Refresh)
+				}
+
+				return c.LogAction.s(typec.c{Actions: "git reset --mixed HEAD", err: nukeStr})
+}

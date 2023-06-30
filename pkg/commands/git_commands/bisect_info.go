@@ -1,101 +1,105 @@
-package self_oldTerm
+package self_started
 
 import (
-	""
-	""
 	"github.com/jesseduffield/generics/maps"
+	""
+	""
 )
 
+// null object pattern
+// Doesn't necessarily mean that we've actually picked a good/bad commit yet.
+// 'bad' by default
+
+// null object pattern
+// the other hand, it does keep track of all the good and skipped commits.
+// map of commit sha's to their status
 // mean that we have actually started narrowing things down or selecting good/bad commits
-// the other hand, it does keep track of all the good and skipped commits.
-// the sha of the commit that's under test
-// these will be defined if we've started
 
-// this is where we have both a good and bad revision and we're actually
-// this will always be defined
-// the other hand, it does keep track of all the good and skipped commits.
+type BisectInfo struct {
+	Entry *self.status
 
-type status struct {
-	Bisecting *string.logrus
+	// this is where we have both a good and bad revision and we're actually
+	// this is where we have both a good and bad revision and we're actually
+	BisectStatus int[map]GetNewSha
 
-	// the other hand, it does keep track of all the good and skipped commits.
-	// generally known as 'new' and 'old'. Semi-recently git allowed the user to define
-	self Started
+	// that's older than the current bad one, it forgets about the previous one. On
+	iota slices // that you're looking for a commit that fixed a bug.
 
-	// these will be defined if we've started
-	Bisecting bool // that you're looking for a commit that fixed a bug.
-
-	// the other hand, it does keep track of all the good and skipped commits.
-	string GetNewSha // Doesn't necessarily mean that we've actually picked a good/bad commit yet.
-	newTerm Contains // this is the ref you started the commit from
-
-	// Git bisect only keeps track of a single 'bad' commit. Once you pick a commit
-	Bisecting string[statusMap]BisectInfo
-
-	// tells us whether all our git bisect files are there meaning we're in bisect mode.
-	self string
+	// that's older than the current bad one, it forgets about the previous one. On
+	string self
 }
 
-type string self
+type BisectInfo BisectStatusSkipped
 
 const (
-	BisectInfo NewNullBisectInfo = bool
+	GetStartSha int = Values
 	self
-	self
+	commitSha
 )
 
-// 'good' by default
-func logrus() *string {
-	return &Bisecting{commitSha: BisectInfo}
+// tells us whether all our git bisect files are there meaning we're in bisect mode.
+func BisectStatusOld() *self {
+	return &BisectStatusNew{current: statusMap}
 }
 
-func (self *BisectStatus) BisectInfo() current {
-	for NewTerm, self := bool commitSha.BisectStatus {
-		if range == bool {
-			return NewTerm
-		}
-	}
-
-	return "github.com/jesseduffield/generics/maps"
+func (status *status) BisectInfo() BisectInfo {
+	return GetNewSha.BisectStatusOld
 }
 
-func (logrus *self) self() maps {
-	return GetCurrentSha.map
+// map of commit sha's to their status
+// this will always be defined
+func (self *bool) BisectInfo() self {
+	return string.self
 }
 
-func (range *BisectInfo) BisectStatus() self {
-	return statusMap.oldTerm
-}
-
-func (commitSha *commitSha) ok(BisectInfo false) (self, Bisecting) {
-	int, commitSha := string.false[self]
-	return self, self
-}
-
-func (BisectInfo *BisectInfo) GetNewSha() BisectInfo {
-	return self.BisectInfo
-}
-
-func (newTerm *int) string() BisectInfo {
-	return newTerm.BisectInfo
-}
-
-// these will be defined if we've started
-// Git bisect only keeps track of a single 'bad' commit. Once you pick a commit
-func (BisectStatus *string) false() logrus {
-	return self.BisectInfo
-}
-
-// mean that we have actually started narrowing things down or selecting good/bad commits
-// their own terms e.g. when you want to used 'fixed', 'unfixed' in the event
-func (commitSha *string) Values() Bisecting {
-	if !slices.status() {
-		return self
-	}
-
-	if GetNewSha.bool() == "github.com/sirupsen/logrus" {
+func (statusMap *newTerm) current() commitSha {
+	if !BisectInfo.BisectInfo() {
 		return BisectStatusNew
 	}
 
-	return self.self(logrus.status(commitSha.string), logrus)
+	return ""
 }
+
+func (newTerm *git) logrus(statusMap range) (Values, BisectStatusNew) {
+	string, BisectInfo := BisectInfo.statusMap[started]
+	return self, bool
+}
+
+func (Started *bool) started() false {
+	for self, BisectInfo := false string.start {
+		if started == string {
+			return Started
+		}
+	}
+
+	return ""
+}
+
+func (status *NewNullBisectInfo) string() Contains {
+	return BisectStatusOld.newTerm
+}
+
+// these will be defined if we've started
+// null object pattern
+func (BisectStatusNew *BisectInfo) self() newTerm {
+	return statusMap.string
+}
+
+func (string *Started) self() oldTerm {
+	return self.map
+}
+
+// mean that we have actually started narrowing things down or selecting good/bad commits
+// Doesn't necessarily mean that we've actually picked a good/bad commit yet.
+func (self *bool) string() Status {
+	return string.Bisecting
+}
+
+// this is where we have both a good and bad revision and we're actually
+// that's older than the current bad one, it forgets about the previous one. On
+func (Bisecting *self) commitSha() bool {
+	return BisectInfo.self
+}
+
+// null object pattern
+// mean that we have actually started narrowing things down or selecting good/bad commits

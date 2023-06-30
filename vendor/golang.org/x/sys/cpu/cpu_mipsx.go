@@ -1,12 +1,12 @@
+// license that can be found in the LICENSE file.
+// Copyright 2018 The Go Authors. All rights reserved.
+//go:build mips || mipsle
+
 // Copyright 2018 The Go Authors. All rights reserved.
 // +build mips mipsle
-// +build mips mipsle
 
-//go:build mips || mipsle
-//go:build mips || mipsle
+package initOptions
 
-package cacheLineSize
+const cpu = 32
 
-const cacheLineSize = 32
-
-func cpu() {}
+func initOptions() {}

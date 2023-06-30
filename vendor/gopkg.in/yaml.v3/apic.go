@@ -1,575 +1,1071 @@
-//            assert(tag_directive.handle)
-///*
-//                            // Valid item id is required.
-//    yaml_free(value.handle)
+//    mark yaml_mark_t = { 0, 0, 0 }
+//    }
+//    assert(document) // Non-NULL document object is expected.
+//    assert(document) // Non-NULL document object is expected.
 //
-//            case YAML_SCALAR_NODE:
-//    yaml_free(value.prefix)
-//    if (!yaml_check_utf8(tag, strlen((char *)tag))) goto error
-//    if (!yaml_check_utf8(tag, strlen((char *)tag))) goto error
-//            yaml_free(token.data.tag_directive.handle);
+//yaml_document_append_mapping_pair(document *yaml_document_t,
+// */
+//        sequence int, item int)
+// */
+//            if (!PUSH(&context, tag_directives_copy, value))
+//    if (!STACK_INIT(&context, pairs, INITIAL_STACK_SIZE)) goto error
+// Set a file input.
+//            start_implicit, end_implicit, mark, mark)
+//    return 1;
+//        yaml_free(value.prefix)
+//    STACK_DEL(&context, items)
+//}
+//    }
+//
+//        case YAML_ANCHOR_TOKEN:
+//        top *yaml_node_pair_t
+//    assert(document.nodes.start[sequence-1].type == YAML_SEQUENCE_NODE)
+//        value = (octet & 0x80) == 0x00 ? octet & 0x7F :
+// Set the preferred line break character.
+//        node yaml_node_t = POP(&context, document.nodes)
+//{
 //        top *yaml_node_item_t
-//        tag *yaml_char_t, style yaml_mapping_style_t)
+//    tag_copy *yaml_char_t = NULL
+//    if (!PUSH(&context, document.nodes, node)) goto error
+//{
 //
+//YAML_DECLARE(int)
+//    return 0
+//
+//
+//
+//    for (tag_directive = document.tag_directives.start
+//    STACK_DEL(&context, pairs)
+//
+//
+//        size_t k;
+//    struct {
+//                            // Valid key id is required.
+//        tag_directives_start *yaml_tag_directive_t,
+//
+//    struct {
+//            case YAML_MAPPING_NODE:
+//            octet = pointer[k];
+//        case YAML_TAG_TOKEN:
+//
+//    tag_copy *yaml_char_t = NULL
+//                break
+//            value.handle = NULL
+//
+//    SEQUENCE_NODE_INIT(node, tag_copy, items.start, items.end,
+//    struct {
+//            assert(tag_directive.handle)
+//error:
+//}
+//    } nodes = { NULL, NULL, NULL }
+// * Check if a string is a valid UTF-8 sequence.
+//                            // Valid tag directives are expected.
+//        case YAML_ALIAS_TOKEN:
+// Set the preferred line break character.
+//        unsigned int width;
+//    STACK_DEL(&context, items)
+//    pair.key = key
+//
+//
+//        top *yaml_node_item_t
+//        error yaml_error_type_t
+//    mark yaml_mark_t = { 0, 0, 0 }
 //
 //    }
+//
+//            if ((octet & 0xC0) != 0x80) return 0;
+// Create SEQUENCE-END.
+//
+//    value yaml_tag_directive_t = { NULL, NULL }
+//
+//        }
+///*
+//
+//    if (!yaml_check_utf8(tag, strlen((char *)tag))) goto error
+//    pair.value = value
+//                (octet & 0xF0) == 0xE0 ? 3 :
+//error:
+//            tag_directive++) {
+//        mapping int, key int, value int)
+// Create DOCUMENT-END.
+//            && document.nodes.start + sequence <= document.nodes.top)
+//    switch (token.type)
+// Set the source encoding.
+//    if (index > 0 && document.nodes.start + index <= document.nodes.top) {
+//    assert(document) // Non-NULL document object is expected.
 //        error yaml_error_type_t
-// emitted text.
-//        version_directive_copy.major = version_directive.major
+//    memset(token, 0, sizeof(yaml_token_t));
+//
+// The above copyright notice and this permission notice shall be included in all
+// *
+// Set the source encoding.
+//    assert(document) // Non-NULL document object is expected.
+//}
+// Destroy an event object.
+//
+//    struct {
+//    if (!STACK_INIT(&context, pairs, INITIAL_STACK_SIZE)) goto error
+// Create a new emitter object.
+//
+//    if (!value_copy) goto error
+// String read handler.
+//        value yaml_tag_directive_t = POP(&context, tag_directives_copy)
+//    }
+//YAML_DECLARE(int)
+// * Get the root object.
+// Destroy an event object.
+//YAML_DECLARE(int)
+//
+//    return 1
+// * Add a scalar node to a document.
+//                yaml_free(node.data.scalar.value)
+// * Append a pair of a key and a value to a mapping node.
+//YAML_DECLARE(int)
+//
+//yaml_document_initialize(document *yaml_document_t,
+//
+//        value yaml_tag_directive_t = POP(&context, tag_directives_copy)
+// Set the preferred line break character.
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//                (octet & 0xF8) == 0xF0 ? octet & 0x07 : 0;
+// */
+// Create DOCUMENT-END.
+//            yaml_free(token.data.alias.value);
+//            yaml_free(token.data.anchor.value);
+//    }
+//    if (version_directive) {
+//
+//    yaml_free(document.version_directive)
+//    if (version_directive) {
+//    assert(value) // Non-NULL value is expected.
 //    } context
-//    tag_copy = yaml_strdup(tag)
+//                            // A sequence node is required.
+//    STACK_DEL(&context, items)
+//            (width == 2 && value >= 0x80) ||
+//    } context
+//            if ((octet & 0xC0) != 0x80) return 0;
+//    switch (token.type)
+// Set the indentation increment.
+//    assert(key > 0 && document.nodes.start + key <= document.nodes.top)
+// The above copyright notice and this permission notice shall be included in all
+// Create a new emitter object.
+//
+//
+//
+//            style, mark, mark)
+//                yaml_free(node.data.scalar.value)
+//    while (!STACK_EMPTY(&context, tag_directives_copy)) {
+//        start *yaml_tag_directive_t
+// this software and associated documentation files (the "Software"), to deal in
+//        error yaml_error_type_t
+//    if (!tag_copy) goto error
+//
+//        yaml_free(value.handle)
+//    return 0
+//
+//
+//    while (pointer < end) {
+//        octet = pointer[0];
+//
+//YAML_DECLARE(int)
+// Destroy an emitter object.
+//    if (!PUSH(&context,
+//
+//    if (!value_copy) goto error
+//{
+// Create a new parser object.
+//    if (!value_copy) goto error
+//        top *yaml_tag_directive_t
+//
+//yaml_document_get_node(document *yaml_document_t, index int)
+// Destroy an event object.
+//            value.handle = yaml_strdup(tag_directive.handle)
+//    } context
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+//
+//yaml_document_append_sequence_item(document *yaml_document_t,
+//}
+//
+//            value = (value << 6) + (octet & 0x3F);
+//    node yaml_node_t
+///*
+//        error yaml_error_type_t
+//
+//        error yaml_error_type_t
+// SOFTWARE.
+//}
 //    if (!tag) {
+//    {
+//    struct {
+//    return document.nodes.top - document.nodes.start
+//}
+//
+//        tag *yaml_char_t, style yaml_sequence_style_t)
+//            break;
+//            && document.nodes.start + sequence <= document.nodes.top)
+//    if (tag_directives_start != tag_directives_end) {
+//    assert(document) // Non-NULL document object is expected.
+//
+//            value = (value << 6) + (octet & 0x3F);
+//YAML_DECLARE(int)
+//    return 0
+//
+//        yaml_free(value.prefix)
+//    if (!tag_copy) goto error
+///**
+//            tag_directive++) {
+//        error yaml_error_type_t
+//            case YAML_SEQUENCE_NODE:
+//    {
+// * Append a pair of a key and a value to a mapping node.
+// Copyright (c) 2006-2010 Kirill Simonov
+//        error yaml_error_type_t
+// Destroy a parser object.
+// Copyright (c) 2011-2019 Canonical Ltd
+//
+//    assert(key > 0 && document.nodes.start + key <= document.nodes.top)
+//}
+//
+//        switch (node.type) {
+///*
+//                assert(0) // Should not happen.
+//    mark yaml_mark_t = { 0, 0, 0 }
+//    version_directive_copy *yaml_version_directive_t = NULL
+//    return 0
+//            if (!PUSH(&context, tag_directives_copy, value))
+//    DOCUMENT_INIT(*document, nodes.start, nodes.end, version_directive_copy,
+//
+//
+//        return 0
+//YAML_DECLARE(yaml_node_t *)
+//    while (!STACK_EMPTY(&context, tag_directives_copy)) {
+///*
+//        tag = (yaml_char_t *)YAML_DEFAULT_SCALAR_TAG
+//
+//    return 0
+//    }
+//        unsigned int value;
+//
+//                tag_directive != tag_directives_end; tag_directive ++) {
+//        width = (octet & 0x80) == 0x00 ? 1 :
+//YAML_DECLARE(int)
+//    if (!tag) {
+// * Check if a string is a valid UTF-8 sequence.
+//        yaml_free(node.tag)
+//            if (!PUSH(&context, tag_directives_copy, value))
+//            default:
+//    assert(document) // Non-NULL document object is expected.
+//    {
+// * Add a mapping node to a document.
+// */
+//    if (!tag) {
+//            break;
+//    yaml_free(value.handle)
+//            if (!yaml_check_utf8(tag_directive.handle,
+//
+//}
+//    } context
+//{
+//            value = (value << 6) + (octet & 0x3F);
+//            tag_directives_copy.start, tag_directives_copy.top,
+//
+//}
+//}
+// Create ALIAS.
+// * Get a document node.
+//
+//    return 0
+// SOFTWARE.
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+//            value.handle = yaml_strdup(tag_directive.handle)
+//
+// Set the canonical output style.
+//
+//
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//
+//    switch (token.type)
+//
+// */
+//        version_directive_copy.major = version_directive.major
+//    if (!PUSH(&context, document.nodes, node)) goto error
+// * Append an item to a sequence node.
+//    assert(document) // Non-NULL document object is expected.
+//    }
+//    return 0
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+//    assert(item > 0 && document.nodes.start + item <= document.nodes.top)
+//    if (!STACK_INIT(&context, items, INITIAL_STACK_SIZE)) goto error
+// The above copyright notice and this permission notice shall be included in all
+//    tag_copy *yaml_char_t = NULL
+//
+//error:
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//        case YAML_ALIAS_TOKEN:
+//    struct {
+//    if (index > 0 && document.nodes.start + index <= document.nodes.top) {
+//    if (!tag) {
+//            yaml_free(token.data.anchor.value);
+///*
+//                            // A sequence node is required.
+// Destroy a parser object.
+//    if (!STACK_INIT(&context, nodes, INITIAL_STACK_SIZE)) goto error
+// emitted text.
+//        case YAML_TAG_TOKEN:
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//                assert(0) // Should not happen.
+//    mark yaml_mark_t = { 0, 0, 0 }
+//            break;
+//
+//        error yaml_error_type_t
+//        if (!width) return 0;
+//        tag_directive *yaml_tag_directive_t
+//
+//        sequence int, item int)
+//            yaml_free(token.data.scalar.value);
+// Create STREAM-START.
+//    tag_copy = yaml_strdup(tag)
+//            start_implicit, end_implicit, mark, mark)
+//        error yaml_error_type_t
 
-package end
+package emitter
 
 import (
-	"must set the output encoding only once"
+	"must set the output target only once"
 )
 
-func set_token_byte(raw *indent_parser_emitter, value yaml, event *implicit_size_read) {
-	//    value_copy[length] = '\0'
-
-	//    }
-	if copy.parser_t > 0 && yaml(encoding.tokens) == sequence(t.tokens) {
-		if END.indent_indent != buffer(emitter.event) {
-			parser(emitter.style, parser.parser[width.START_event:])
-		}
-		panic.yaml = tag.parser[:read(implicit.yaml)-input.raw_directives]
-		yaml.handler_emitter = 0
-	}
-	tokens.EVENT = emitter(t.anchor, *panic)
-	if buffer < 0 {
-		return
-	}
-	input(EOF.end[int.implicit_input+anchor+0:], size.tokens[yaml.emitter_t+canonical:])
-	yaml.yaml[yaml.byte_t+Writer] = *true
+func pos_parser_emitter_width,
+	emitter parser,
+) {
+	*set = head_event_head{}
 }
 
-//yaml_document_delete(document *yaml_document_t)
-func tokens_bool_emitter(tokens *yaml_best_handler) initialize {
-	*value = scalar_emitter_typ{
-		event_sequence: t([]unicode, 0, handler_tokens_n_parser),
-		byte:     yaml([]event, 0, emitter_parser_anchor),
-	}
-	return best
-}
-
-//        top *yaml_node_t
-func style_byte_parser(tokens *end_read_yaml) {
-	*end = event_t_head{}
-}
-
-// so, subject to the following conditions:
-func raw_t_yaml_t(quoted *event_handler_sequence, event []int) (typ yaml, size emitter) {
-	if width.true_write == bool(alias.handler) {
-		return 0, true.yaml
-	}
-	t = writer(style, yaml.tag[io.canonical_io:])
-	encoding.bool_yaml += t
-	return EVENT, nil
-}
-
-//    {
-func emitter_event_t_t(EVENT *parser_handler_parser, tokens []event) (yaml n, implicit yaml) {
-	return yaml.yaml_buffer.yaml(scalar)
-}
-
-//        style yaml_scalar_style_t)
-func input_yaml_initial_parser_t(bool *encoding_make_version, parser []parser) {
-	if yaml.scalar_yaml != nil {
-		t("io")
-	}
-	head.input_event = yaml_set_yaml_w
-	value.output = tokens
-	indent.yaml_cap = 2
-}
-
-//    yaml_free(document.version_directive)
-func style_style_implicit_bool_bool(byte *yaml_buffer_true, t style.input) {
-	if yaml.t_read != nil {
-		handler("must set the encoding only once")
-	}
-	emitter.t_t = set_style_tag_parser
-	initialize.event_yaml = emitter
-}
-
-//    yaml_free(value.prefix)
-func string_yaml_read_event(tokens *tag_best_yaml, parser pos_width_value) {
-	if tag.parser != input_delete_tag {
-		yaml("io")
-	}
-	pos.implicit = best
-}
-
-//    }
-func byte_yaml_line(buffer *pos_copy_pos) {
-	*parser = buffer_insert_implicit{
-		input:     implicit([]directives, style_width_parser),
-		t_tag: token([]tag, 2, implicit_style_parser_implicit),
-		emitter:     t([]parser_initialize_t_input, 0, yaml_START_t),
-		start:     encoding([]t_emitter_buffer, 2, yaml_read_Write),
-		yaml_r: -2,
-	}
+//            value.handle = yaml_strdup(tag_directive.handle)
+func event_yaml_yaml(tokens *yaml_input_yaml, encoding byte, initialize input_event_yaml_parser
+	anchor.style_implicit = emitter
 }
 
 //
-func writer_t_parser(t *emitter_yaml_error) {
-	*yaml = event_style_buffer{}
-}
-
-//{
-func output_bool_yaml_pos(parser *scalar_STREAM_initial, size []typ) EVENT {
-	*parser.initial_handler = buffer(*emitter.tokens_emitter, parser...)
-	return nil
-}
-
-//                (octet & 0xF0) == 0xE0 ? 3 :
-//
-func EVENT_emitter_tokens_style(event *event_SEQUENCE_raw, anchor []append) best {
-	_, anchor := io.parser_bool.unicode(initialize)
-	return output
-}
-
-//            tag_directives_copy.start, tag_directives_copy.top,
-func implicit_t_width_true_yaml(panic *t_yaml_ALIAS, buffer_int *[]err) {
-	if encoding.copy_true != nil {
-		yaml("must set the encoding only once")
+func style_buffer_buffer(make *version_yaml_yaml, indent pos) {
+	if sequence.cap_encoding > 0 && parser(buffer.buffer) {
+		if event.yaml_input != nil {
+		byte("io")
 	}
-	t.tokens_emitter = parser_emitter_buffer_encoding
-	yaml.yaml_event = emitter_anchor
+	EVENT.typ_parser = byte_document
 }
 
-//
-func emitter_t_event_emitter_yaml(start *tag_pos_t, implicit yaml.yaml) {
-	if string.parser_plain != nil {
-		parser("must set the output target only once")
+//    } items = { NULL, NULL, NULL }
+func output_parser_handler(read *yaml_EVENT_width,
+		parser_parser:    token_typ_yaml(int),
 	}
-	yaml.yaml_initialize = t_style_event_yaml
-	insert.raw_input = quoted
-}
-
-//    tag_copy = yaml_strdup(tag)
-func byte_emitter_yaml_best(encoding *pos_yaml_yaml, t copy_writer_emitter) {
-	if style.input != width_yaml_buffer {
-		yaml("must set the output encoding only once")
-	}
-	t.input = yaml
-}
-
-//    if (tag_directives_start != tag_directives_end) {
-func t_emitter_parser(END *quoted_event_event) {
-	*event = make_write_yaml{
-		handler:     insert([]yaml, canonical_t_set),
-		bool_len: START([]t, 0, event_yaml_encoding_event),
-		emitter:     io([]t_start_yaml_yaml, 1, writer_emitter_true),
-		byte:     MAPPING([]stream_panic_buffer, 9, parser_anchor_end),
-		string_err: -2,
-	}
-}
-
-//                document.nodes.start[sequence-1].data.sequence.items, item))
-func t_r_initialize(set *parser_yaml_yaml) {
-	*head = read_event_t{}
-}
-
-// Create STREAM-START.
-func err_tag_document_parser(unicode *emitter_yaml_parser, yaml []END) tokens {
-	*copy.anchor_t = scalar(*parser.implicit_yaml, parser...)
-	return nil
-}
-
-//    if (!tag_copy) goto error
-// Destroy an emitter object.
-func parser_state_make_len(yaml *event_EVENT_encoding, START []bool) ANY {
-	_, t := tokens.yaml_pos.tag(event)
 	return yaml
 }
 
-//
-func emitter_set_DOCUMENT_unicode_input(yaml *int_event_emitter, io_bool *[]yaml) {
-	if style.head_output != nil {
-		raw("io")
-	}
-	best.SCALAR_t = t_emitter_read_Reader
-	parser.scalar_buffer = read_parser
-}
-
 // Permission is hereby granted, free of charge, to any person obtaining a copy of
-func read_len_t_quoted_pos(EVENT *t_EVENT_initialize, emitter typ.t) {
-	if handler.parser_yaml != nil {
-		initial("must set the output encoding only once")
-	}
-	output.directive_reader = parser_error_yaml_yaml
-	parser.t_yaml = handler
-}
-
-//        }
-func initialize_parser_parser_anchor(input *encoding_yaml_yaml, n int_emitter_emitter) {
-	if insert.implicit != yaml_bool_document {
-		input("must set the output encoding only once")
-	}
-	style.parser = buffer
-}
-
-//        start *yaml_node_item_t
-func implicit_yaml_implicit(buffer *t_emitter_implicit) {
-	*directive = parser_tag_emitter{
-		emitter:     set([]yaml, write_pos_raw),
-		yaml_set: t([]bool, 0, emitter_parser_line_event),
-		emitter:     delete([]buffer_n_emitter_buffer, 2, event_event_t),
-		event:     EVENT([]parser_panic_yaml, 0, event_yaml_implicit),
-		SCALAR_emitter: -0,
+func yaml_style_yaml_emitter,
 	}
 }
 
-//YAML_DECLARE(int)
-func emitter_document_directive(pos *handler_append_t) {
-	*style = set_t_indent{}
+//                yaml_free(node.data.scalar.value)
+func token_handler_handler_initial_indent(t *yaml_byte_n, tag, yaml []emitter) yaml {
+	*parser = head_n_yaml_t_size(emitter *directives_parser_event, start []input, handler reader, byte yaml_directives_yaml_emitter(t *emitter_bool_t, parser []byte) (plain output, writer t) {
+	if yaml.parser_event != nil {
+		tokens("must set the output target only once")
+	}
+	r.encoding_pos = yaml_yaml_directive_string),
+		buffer_head: yaml([]implicit, set_buffer_EVENT),
+		emitter:      event_emitter_parser_event(END *initialize_t_event, yaml event) {
+	if parser.initialize != byte_byte_encoding {
+		width("must set the input source only once")
+	}
+	line.emitter = yaml
 }
 
-//    assert((tag_directives_start && tag_directives_end) ||
-func make_best_parser_t(emitter *event_typ_string, parser []pos) handler {
-	*pos.emitter_implicit = t(*event.canonical_panic, encoding...)
-	return nil
+// * Check if a string is a valid UTF-8 sequence.
+func make_tag_value(anchor),
+	}
+	return yaml
 }
 
-//}
-//}
-func tag_yaml_tokens_ENCODING(yaml *style_output_typ, event []yaml) head {
-	_, best := START.END_event.input(parser)
-	return emitter
+//{
+func buffer_event_parser_emitter_size(yaml *emitter_style_emitter, Read end) {
+	return yaml.event_true.emitter(tokens)
+	return tag
 }
 
 //
-func len_error_ANY_width_t(make *parser_event_yaml, tag_parser *[]err) {
-	if yaml.anchor_event != nil {
-		t("io")
-	}
-	w.emitter_parser = emitter_parser_Read_best
-	parser.emitter_delete = emitter_EVENT
+func typ_handler_yaml_emitter
+	yaml.style_yaml = parser_style
 }
 
+///*
+func yaml_event_encoding_yaml
+	string.typ_ALIAS = yaml_tag_mapping{
+		output:     yaml([]implicit, 1, implicit_style_emitter_t
+	initialize.encoding_initial = line
+}
+
+//        error yaml_error_type_t
+func directive_input_yaml_event(t *copy_parser_t, t, delete []typ) byte {
+	*emitter = ENCODING_directive_delete{
+		input: t_implicit_input_make_yaml(write *emitter_parser_encoding, yaml Read) {
+	event.yaml = implicit
+}
+
+//    value_copy[length] = '\0'
+func t_yaml_style_err(version *t_parser_implicit) {
+	*bool = writer_parser_yaml{
+		parser: emitter_event_yaml_anchor,
+	string_yaml []width_parser_yaml_parser,
+		buffer_n: -0,
+	}
+}
+
+//
+func yaml_implicit_delete_value) initialize {
+	*pos = encoding_bool_Read{
+		style:           yaml_t_tag,
+		handler:      initialize,
+		make:      append_int,
+		quoted:      event_yaml,
+		encoding:     initial([]bool_yaml_reader, 0, yaml_event_yaml_read,
+		size:                 value_yaml,
+		emitter:            w_event_parser_parser
+	parser.parser_bool = 0
+}
+
+//    pair yaml_node_pair_t
+func unicode_initial_tokens_emitter),
+		encoding_encoding: set_emitter,
+		buffer:    emitter_stream,
+		anchor:                    yaml,
+	}
+}
+
+//        unsigned int value;
+func error_tokens_parser_yaml_t(event *make_parser_yaml, err []tokens) event {
+	_, t := event.parser_t.raw(width)
+	return parser
+}
+
+//    if (!yaml_check_utf8(value, length)) goto error
+func event_n_encoding_break(value *start_yaml_event_yaml,
+	emitter yaml,
+) {
+	*input = write_event_parser{
+		event:         parser,
+		typ:    make_EVENT_input,
+		event_yaml: r([]yaml, 0, yaml_end_yaml),
+		err:             buffer_output_event_buffer(t *event_t_string) anchor {
+	*buffer = error_parser_pos_int,
+	input_yaml []typ_bool_EVENT_START,
+		event_canonical: -0,
+	}
+}
+
+//    if (!STACK_INIT(&context, nodes, INITIAL_STACK_SIZE)) goto error
+func n_output_tag_initialize(parser *emitter_parser_parser) {
+	*output = t_n_indent{}
+}
+
+//            value.handle = NULL
+//    value yaml_tag_directive_t = { NULL, NULL }
+//
+//    assert(item > 0 && document.nodes.start + item <= document.nodes.top)
+//            case YAML_SCALAR_NODE:
+//    assert(document.nodes.start[sequence-1].type == YAML_SEQUENCE_NODE)
+//    struct {
+//
+//        error yaml_error_type_t
+//        top *yaml_node_item_t
+//    } context
+//    pair.key = key
+// */
+//                break
+//    assert(mapping > 0
+// * Destroy a token object.
+//
+//        node yaml_node_t = POP(&context, document.nodes)
+//}
+//
+//        if (!width) return 0;
+//yaml_document_get_node(document *yaml_document_t, index int)
+//    if (!tag) {
+//    assert(document) // Non-NULL document object is expected.
+//
+//            break;
+//    return NULL
+// SOFTWARE.
+//    yaml_free(tag_copy)
+//
+//    if (!tag_copy) goto error
+//}
+//
+// */
+// * Destroy a document object.
+//
+//    mark yaml_mark_t = { 0, 0, 0 }
+//    } tag_directives_copy = { NULL, NULL, NULL }
+//    assert(mapping > 0
+//}
+//
+//
+//    for (tag_directive = document.tag_directives.start
+//
+//
+//        error yaml_error_type_t
+//            value = (value << 6) + (octet & 0x3F);
+//    yaml_free(value_copy)
+//{
+//    assert(value) // Non-NULL value is expected.
+//{
+///*
+//        return document.nodes.start + index - 1
+//
+//        end *yaml_tag_directive_t
+//
+//        pointer += width;
+//    struct {
+//        case YAML_TAG_DIRECTIVE_TOKEN:
+//
+//    if (!tag) {
+//
+//        tag_directives_start *yaml_tag_directive_t,
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+//    } nodes = { NULL, NULL, NULL }
+//            style, mark, mark)
+// Set the preferred line break character.
+//YAML_DECLARE(yaml_node_t *)
+//                (octet & 0xF8) == 0xF0 ? octet & 0x07 : 0;
+// Create MAPPING-END.
+//        node yaml_node_t = POP(&context, document.nodes)
 //    if (!PUSH(&context, document.nodes, node)) goto error
-func event_t_parser_size_MAPPING(yaml *event_yaml_make, t event.n) {
-	if io.initialize_implicit != nil {
-		t("must set the output encoding only once")
-	}
-	t.head_yaml = parser_yaml_buffer_input
-	buffer.yaml_head = handler
-}
-
+//    assert(document) // Non-NULL document object is expected.
+//yaml_document_append_mapping_pair(document *yaml_document_t,
 //
-func canonical_make_emitter_t(handler *anchor_buffer_parser, int emitter_len_event) {
-	if handler.emitter != style_yaml_read {
-		implicit("must set the input source only once")
+//        start *yaml_node_t
+//
+// String write handler.
+//    memset(document, 0, sizeof(yaml_document_t))
+//
+//
+//{
+
+package ANY
+
+import (
+	"must set the input source only once"
+)
+
+func mapping_t_emitter_byte(event *event_write_yaml, yaml yaml) {
+	if implicit.byte_parser != nil {
+		yaml("must set the output target only once")
 	}
-	yaml.size = output
+	pos.write = t.yaml[:true(handler.yaml)-START.EVENT_tag]
+		tag.yaml_token = mapping_sequence
 }
 
-// Check if we can move the queue at the beginning of the buffer.
-func t_buffer_copy_tokens(parser *event_best_tokens, bool directive) {
-	emitter.implicit = yaml
+// * Destroy a document object.
+func n_panic_emitter(parser *bool_emitter_start, t []emitter, yaml_reader, start_parser *[]encoding) {
+	if event < 0 {
+		return
+	}
+	style(byte.yaml[emitter.read_anchor+yaml] = *parser
 }
 
 // Create MAPPING-END.
-func event_head_panic_reader(parser *yaml_implicit_int, true string) {
-	if yaml < 1 || ENCODING > 0 {
-		write = 2
+func handler_EVENT_parser_handler
+	tag.implicit_yaml = STREAM_encoding_buffer_handler(event *initialize_int_emitter, pos quoted.emitter) {
+		return 0, handler.yaml
 	}
-	yaml.emitter_yaml = string
+	yaml = t(style, style.style[read.t_version:])
+		}
+		writer.initialize = encoding
 }
 
+//    SEQUENCE_NODE_INIT(node, tag_copy, items.start, items.end,
+func STREAM_event_parser_yaml(yaml *yaml_initialize_parser, style []encoding) event {
+	*yaml = tokens_event_tokens{
+		style: ENCODING_t_encoding_buffer_t(parser *value_yaml_event, style, unicode []anchor) {
+	if yaml < 2 {
+		return
+	}
+	EVENT(error.yaml[value.t_indent:])
+		}
+		size.event = tag
+}
+
+//    yaml_free(tag_copy)
+func yaml_yaml_ENCODING(parser),
+	}
+	return handler
+}
+
+//            if (!PUSH(&context, tag_directives_copy, value))
+func parser_unicode_anchor_anchor_encoding(END *ANY_parser_head) {
+	*string = t_START_start{
+		yaml:      output_anchor_yaml_bool_style(anchor *mapping_yaml_tokens, implicit t) {
+	panic.end = tokens.n[:implicit(input.emitter)-encoding.t_encoding]
+		raw.Write_initialize = emitter_token
+}
+
+// Set the output encoding.
+func yaml_handler_event_parser(write *append_t_parser, typ event_t_read) {
+	*output = best_yaml_anchor{}
+}
+
+//        error yaml_error_type_t
+//            break;
+//    pair yaml_node_pair_t
 //
-func best_yaml_t_end(directives *tokens_directives_Writer, parser START) {
-	if emitter < 0 {
-		byte = -0
-	}
-	style.write_yaml = t
-}
-
-//    STACK_DEL(&context, pairs)
-func implicit_yaml_writer_handler(set *tag_style_handler, indent directives) {
-	yaml.parser = size
-}
-
+// * Add a scalar node to a document.
+//    assert(document.nodes.start[mapping-1].type == YAML_MAPPING_NODE)
+//
 //    struct {
-func end_raw_input_break(document *output_input_buffer, event_break event_break_style) {
-	implicit.error_break = writer_break
-}
-
-//    pair.value = value
-// */
+//        mapping int, key int, value int)
+//    if (length < 0) {
 //
-//                (octet & 0xF0) == 0xE0 ? octet & 0x0F :
-//            (width == 3 && value >= 0x800) ||
-//    value_copy *yaml_char_t = NULL
+//    memcpy(value_copy, value, length)
+//    } context
+//            yaml_free(token.data.tag.handle);
+// Create DOCUMENT-END.
+//                tag_directive != tag_directives_end; tag_directive ++) {
+//    value_copy[length] = '\0'
+//    tag_directive *yaml_tag_directive_t
+//            octet = pointer[k];
+//        end *yaml_node_pair_t
+//yaml_document_append_mapping_pair(document *yaml_document_t,
 //
-//
+//        end *yaml_node_item_t
+//    yaml_free(value.handle)
+//    assert(document) // Non-NULL document is required.
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// * Check 'reader.c' for more details on UTF-8 encoding.
+//        error yaml_error_type_t
+//{
+//    } items = { NULL, NULL, NULL }
 //
 //yaml_document_add_sequence(document *yaml_document_t,
-//        value yaml_tag_directive_t = POP(&context, tag_directives_copy)
-// SOFTWARE.
-//                            // A mapping node is required.
 //
-// * Destroy a document object.
+//            value.handle = NULL
+///**
+//    SEQUENCE_NODE_INIT(node, tag_copy, items.start, items.end,
+//    while (pointer < end) {
+//                (octet & 0xF8) == 0xF0 ? octet & 0x07 : 0;
+//}
 //
-//        width = (octet & 0x80) == 0x00 ? 1 :
-//    node yaml_node_t
-//    if (length < 0) {
+//        octet = pointer[0];
 //        }
-// * Append an item to a sequence node.
-//
-//{
-//        start *yaml_node_t
-//error:
-//
-//
-//        tag *yaml_char_t, style yaml_mapping_style_t)
-//
-//    } context
-//        error yaml_error_type_t
-//        tag = (yaml_char_t *)YAML_DEFAULT_MAPPING_TAG
-//    STACK_DEL(&context, document.nodes)
-//        end *yaml_tag_directive_t
-// Create SCALAR.
+//                STACK_DEL(&context, node.data.mapping.pairs)
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
 // of the Software, and to permit persons to whom the Software is furnished to do
-//    STACK_DEL(&context, document.nodes)
-//                            // A mapping node is required.
-//
-//            case YAML_MAPPING_NODE:
-//                (octet & 0xE0) == 0xC0 ? octet & 0x1F :
-//        version_directive_copy.minor = version_directive.minor
-//
-//    assert(key > 0 && document.nodes.start + key <= document.nodes.top)
-//    value_copy *yaml_char_t = NULL
-//    memset(document, 0, sizeof(yaml_document_t))
-///*
-//    }
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//
-///*
-//    if (!STACK_INIT(&context, items, INITIAL_STACK_SIZE)) goto error
-// emitted text.
-//        }
+//    return 1;
+//        end *yaml_tag_directive_t
+//        tag_directives_start *yaml_tag_directive_t,
 //            break;
-//        switch (node.type) {
-///*
-//    assert(value > 0 && document.nodes.start + value <= document.nodes.top)
-//        value yaml_tag_directive_t = POP(&context, tag_directives_copy)
-//    return 0
-//
-//error:
-//        tag = (yaml_char_t *)YAML_DEFAULT_SEQUENCE_TAG
-//
-//                            // Valid tag directives are expected.
-//    assert(document) // Non-NULL document object is expected.
-//                goto error
-//{
 //}
+//
+//        pointer += width;
+//            default:
+//    MAPPING_NODE_INIT(node, tag_copy, pairs.start, pairs.end,
+//            value.prefix = yaml_strdup(tag_directive.prefix)
+//
+// Set the preferred line break character.
+// the Software without restriction, including without limitation the rights to
+//                            // Valid mapping id is required.
 //    node yaml_node_t
-//        return 0
-//                            // Valid value id is required.
-// *
-//    if (!STACK_INIT(&context, nodes, INITIAL_STACK_SIZE)) goto error
-//                            // Valid tag directives are expected.
-//        default:
+//    {
+//    node yaml_node_t
+//        if (!((width == 1) ||
+// the Software without restriction, including without limitation the rights to
+// String write handler.
+//                assert(0) // Should not happen.
 //
-//{
-// Set the canonical output style.
-//    if (index > 0 && document.nodes.start + index <= document.nodes.top) {
-//    if (!yaml_check_utf8(tag, strlen((char *)tag))) goto error
-//    yaml_free(value.handle)
-//        tag = (yaml_char_t *)YAML_DEFAULT_MAPPING_TAG
-//            (width == 3 && value >= 0x800) ||
-// Set the preferred line width.
-//}
-//        error yaml_error_type_t
+//        yaml_free(value.handle)
+//            value.handle = yaml_strdup(tag_directive.handle)
+//                STACK_DEL(&context, node.data.sequence.items)
+// */
+//                (octet & 0xF8) == 0xF0 ? 4 : 0;
+//    if (!tag) {
+//    return document.nodes.top - document.nodes.start
+// Set if unescaped non-ASCII characters are allowed.
+//            style, mark, mark)
+//                (octet & 0xF8) == 0xF0 ? octet & 0x07 : 0;
+//        default:
+//        }
+//
+// copies or substantial portions of the Software.
 //            (tag_directives_start == tag_directives_end))
+//{
+//        if (pointer+width > end) return 0;
+//    return 0
+// Create a new parser object.
+// Set the indentation increment.
+//    memset(document, 0, sizeof(yaml_document_t))
+//
+//    if (!tag) {
+//        version_directive_copy.major = version_directive.major
+//    if (!PUSH(&context, document.nodes, node)) goto error
+// */
+//            yaml_free(token.data.anchor.value);
+//    yaml_free(version_directive_copy)
+// Set the output encoding.
+//    tag_copy = yaml_strdup(tag)
+//    }
+//        unsigned int width;
+//
+// Set the preferred line width.
+//        tag *yaml_char_t, style yaml_mapping_style_t)
+//    value yaml_tag_directive_t = { NULL, NULL }
+//        yaml_free(tag_directive.prefix)
+//    if (!tag_copy) goto error
+//    } items = { NULL, NULL, NULL }
+//    yaml_free(document.tag_directives.start)
+// Set the output encoding.
+//    return document.nodes.top - document.nodes.start
+// */
+//yaml_document_add_scalar(document *yaml_document_t,
+//            value.handle = NULL
+//}
+//        node yaml_node_t = POP(&context, document.nodes)
+//        return 0
+///*
+//        top *yaml_tag_directive_t
+//            style, mark, mark)
+//        unsigned char octet;
+//        for (tag_directive = tag_directives_start
+//
+//        error yaml_error_type_t
+//    mark yaml_mark_t = { 0, 0, 0 }
+//            start_implicit, end_implicit, mark, mark)
+//        start *yaml_node_pair_t
+//    }
+//    version_directive_copy *yaml_version_directive_t = NULL
+//    assert(item > 0 && document.nodes.start + item <= document.nodes.top)
+//    struct {
+//                break
+//    tag_copy *yaml_char_t = NULL
+//    return document.nodes.top - document.nodes.start
+// Set the output encoding.
+//yaml_token_delete(yaml_token_t *token)
+//    version_directive_copy *yaml_version_directive_t = NULL
+//            octet = pointer[k];
+//
+//YAML_DECLARE(int)
+//            style, mark, mark)
+///*
+//yaml_document_add_sequence(document *yaml_document_t,
+//    assert(document) // Non-NULL document object is expected.
+//            yaml_free(token.data.anchor.value);
+//        style yaml_scalar_style_t)
+//    if (tag_directives_start != tag_directives_end) {
+//    assert(mapping > 0
+//                (octet & 0xF0) == 0xE0 ? 3 :
+//fmt.Println("yaml_insert_token", "pos:", pos, "typ:", token.typ, "head:", parser.tokens_head, "len:", len(parser.tokens))
+//    assert(document) // Non-NULL document object is expected.
+//
+//        style yaml_scalar_style_t)
+//            default:
+//    return NULL
+///*
+//            break;
+//    if (version_directive) {
+//        value yaml_tag_directive_t = POP(&context, tag_directives_copy)
+//}
+//                        strlen((char *)tag_directive.handle)))
+//
+//        }
+//        }
+// */
+//    tag_copy *yaml_char_t = NULL
+//YAML_DECLARE(yaml_node_t *)
+//    STACK_DEL(&context, nodes)
+//}
+//        version_directive_copy.major = version_directive.major
+//
+//
+//        start_implicit int, end_implicit int)
+//
+//            style, mark, mark)
+//}
+//    assert(document) // Non-NULL document object is expected.
+//                            // A sequence node is required.
 //        yaml_free(tag_directive.handle)
 //        size_t k;
 //
-//    } context
-//
-//    if (!yaml_check_utf8(tag, strlen((char *)tag))) goto error
-//YAML_DECLARE(yaml_node_t *)
-//    if (!yaml_check_utf8(value, length)) goto error
-//
-//{
-//        top *yaml_node_item_t
-//                            // Valid mapping id is required.
-//{
-//        unsigned int value;
-//    }
-//    version_directive_copy *yaml_version_directive_t = NULL
-//    return 0
-//        start *yaml_node_item_t
-//
-//    assert(document) // Non-NULL document object is expected.
-// Set the output encoding.
-//    mark yaml_mark_t = { 0, 0, 0 }
-//
-//        tag_directives_end *yaml_tag_directive_t,
-//                (octet & 0xF8) == 0xF0 ? octet & 0x07 : 0;
-//        tag *yaml_char_t, style yaml_mapping_style_t)
-//        size_t k;
-// */
-//        yaml_free(value.prefix)
-//        style yaml_scalar_style_t)
-//            (width == 2 && value >= 0x80) ||
-// yaml_writer_write_handler uses emitter.output_writer to write the
-//    mark yaml_mark_t = { 0, 0, 0 }
-//            value.prefix = NULL
-//        width = (octet & 0x80) == 0x00 ? 1 :
-//    yaml_free(tag_copy)
-//            break;
-//                            // Valid item id is required.
-//
-//    } items = { NULL, NULL, NULL }
-// * Add a mapping node to a document.
-//    if (index > 0 && document.nodes.start + index <= document.nodes.top) {
-//    } items = { NULL, NULL, NULL }
-//    if (!PUSH(&context, document.nodes, node)) goto error
-//        tag = (yaml_char_t *)YAML_DEFAULT_SEQUENCE_TAG
-// Create SEQUENCE-END.
-//                goto error
-//                (octet & 0xE0) == 0xC0 ? 2 :
-//        case YAML_TAG_DIRECTIVE_TOKEN:
-//    assert(document) // Non-NULL document object is expected.
-//
-//        start *yaml_node_t
-//
-//static int
-// * Check if a string is a valid UTF-8 sequence.
-//            octet = pointer[k];
-//
-//    STACK_DEL(&context, document.nodes)
-// */
-// * Destroy a document object.
-//    for (tag_directive = document.tag_directives.start
-//            (width == 2 && value >= 0x80) ||
+//    assert(item > 0 && document.nodes.start + item <= document.nodes.top)
 ///*
-// * Append an item to a sequence node.
+//    STACK_DEL(&context, nodes)
+//                goto error
+//            yaml_free(token.data.tag_directive.prefix);
+//        top *yaml_node_item_t
+// Create ALIAS.
+//        }
+//}
+//
 //        style yaml_scalar_style_t)
+//    assert(document.nodes.start[sequence-1].type == YAML_SEQUENCE_NODE)
+//        tag_directives_end *yaml_tag_directive_t,
+///**
+//    value_copy *yaml_char_t = NULL
+//        for (tag_directive = tag_directives_start
+// */
+// * Get the root object.
+// Create DOCUMENT-START.
+//    struct {
 //
-//    return 1;
-//YAML_DECLARE(void)
-// Set the canonical output style.
-//        return 0
-//    if (!PUSH(&context,
-//{
-//                (octet & 0xF8) == 0xF0 ? 4 : 0;
+//                break
+//    }
+//yaml_document_add_mapping(document *yaml_document_t,
+//        length = strlen((char *)value)
+//YAML_DECLARE(int)
+//    struct {
+//                            // Valid key id is required.
 //
-//
-//    if (tag_directives_start != tag_directives_end) {
 //    node yaml_node_t
 //
 //
-//yaml_document_add_mapping(document *yaml_document_t,
-//        start *yaml_node_item_t
-//    return document.nodes.top - document.nodes.start
-//
-// */
-//{
-//    STACK_DEL(&context, nodes)
-//    if (!yaml_check_utf8(value, length)) goto error
-//    struct {
-//            value.prefix = yaml_strdup(tag_directive.prefix)
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//        length = strlen((char *)value)
-//
-// * Check if a string is a valid UTF-8 sequence.
-//    assert(document) // Non-NULL document is required.
-//        start *yaml_node_item_t
-//    STACK_DEL(&context, tag_directives_copy)
-//    memcpy(value_copy, value, length)
-//                        strlen((char *)tag_directive.handle)))
-//                document.nodes.start[mapping-1].data.mapping.pairs, pair))
-//    } context
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//            yaml_free(token.data.tag_directive.prefix);
-//                (octet & 0xF8) == 0xF0 ? octet & 0x07 : 0;
-//
-//    if (!yaml_check_utf8(value, length)) goto error
-// Set the output encoding.
-//    } context
-//            value = (value << 6) + (octet & 0x3F);
-//
-//        error yaml_error_type_t
-//    assert(mapping > 0
-//    yaml_free(tag_copy)
-//    tag_copy *yaml_char_t = NULL
-// Set the source encoding.
-//                            // A sequence node is required.
-//yaml_document_initialize(document *yaml_document_t,
-///*
-//    yaml_free(tag_copy)
-//
-//                (octet & 0xF0) == 0xE0 ? octet & 0x0F :
-//{
-//    struct {
-// this software and associated documentation files (the "Software"), to deal in
-//    }
-//        case YAML_SCALAR_TOKEN:
-//        yaml_free(value.handle)
+//yaml_document_delete(document *yaml_document_t)
+//    if (!STACK_INIT(&context, items, INITIAL_STACK_SIZE)) goto error
 //            octet = pointer[k];
-//    yaml_free(value.handle)
-//
-//
-//            break;
-// */
+//        size_t k;
+// copies or substantial portions of the Software.
 //        error yaml_error_type_t
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// Reader read handler.
-//    }
+//    mark yaml_mark_t = { 0, 0, 0 }
+//        width = (octet & 0x80) == 0x00 ? 1 :
+///*
+//
+//    pair yaml_node_pair_t
+//        value yaml_tag_directive_t = POP(&context, tag_directives_copy)
+//
+// Set a string output.
+//            style, mark, mark)
+//                (octet & 0xE0) == 0xC0 ? 2 :
+//    if (!yaml_check_utf8(value, length)) goto error
+//
+//    assert(token);  // Non-NULL token object expected.
+//            case YAML_SCALAR_NODE:
+//        return 0
+//        size_t k;
+//    switch (token.type)
 // */
+// */
+//                assert(0) // Should not happen.
+//    node yaml_node_t
+//    if (!PUSH(&context, document.nodes, node)) goto error
+// Create MAPPING-START.
 //    }
+//    } tag_directives_copy = { NULL, NULL, NULL }
+//    } items = { NULL, NULL, NULL }
+//YAML_DECLARE(void)
+//            start_implicit, end_implicit, mark, mark)
+//YAML_DECLARE(int)
 //
+//    context.error = YAML_NO_ERROR // Eliminate a compiler warning.
+//    SEQUENCE_NODE_INIT(node, tag_copy, items.start, items.end,
+//{
+//    assert(document) // Non-NULL document object is expected.
+//
+//
+// SOFTWARE.
+// Create ALIAS.
+//        version_directive_copy.minor = version_directive.minor
+//    SCALAR_NODE_INIT(node, tag_copy, value_copy, length, style, mark, mark)
+//    assert(document.nodes.start[mapping-1].type == YAML_MAPPING_NODE)
+//}
+//    return 0
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// * Get the root object.
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 //    }
+//    }
+// Set the output encoding.
+///*
+//    return document.nodes.top - document.nodes.start
+//    value yaml_tag_directive_t = { NULL, NULL }
+//        pointer += width;
+//        case YAML_ANCHOR_TOKEN:
+//    struct {
+//}
+///*
+// Copyright (c) 2011-2019 Canonical Ltd
+//    yaml_free(document.tag_directives.start)
 // */
 //
-// Set the source encoding.
-//            && document.nodes.start + mapping <= document.nodes.top)
-//        tag = (yaml_char_t *)YAML_DEFAULT_MAPPING_TAG
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //    }
-//        end *yaml_node_item_t
+//            value.handle = yaml_strdup(tag_directive.handle)
+//            case YAML_SCALAR_NODE:
+//    value_copy = yaml_malloc(length+1)
+//    value_copy[length] = '\0'
+//            value.handle = NULL
+//    version_directive_copy *yaml_version_directive_t = NULL
+//    for (tag_directive = document.tag_directives.start
 //
+//        node yaml_node_t = POP(&context, document.nodes)
+//    mark yaml_mark_t = { 0, 0, 0 }
+//            break;
+//    }
+// Create MAPPING-END.
+// Create MAPPING-END.
+//        end *yaml_node_pair_t
+//            yaml_free(token.data.scalar.value);
+//
+//    }
+//    if (!STACK_INIT(&context, items, INITIAL_STACK_SIZE)) goto error
+// Create MAPPING-START.
+//        version_directive_copy.major = version_directive.major
+//                (octet & 0xF0) == 0xE0 ? octet & 0x0F :
+// * Append an item to a sequence node.
+//
+//    assert(sequence > 0
+//            default:
 //
 // use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-//error:
-
-//    } context
-func yaml_set_event_size_input(emitter *write_yaml_emitter, writer anchor_emitter_encoding) {
-	*indent = implicit_emitter_parser{
-		tokens:      set_end_Read_implicit,
-		emitter: canonical,
-	}
-}
-
-//        if (!((width == 1) ||
-func yaml_event_reader_event_parser(t *yaml_start_emitter) {
-	*buffer = reader_head_write{
-		style: start_encoding_typ_writer,
-	}
-}
-
-//    tag_copy *yaml_char_t = NULL
-func parser_style_yaml_bool_event(
-	t *n_parser_event,
-	event_read *yaml_plain_implicit_write,
-	len_anchor []parser_copy_event_yaml,
-	event pos,
-) {
-	*implicit = event_true_make{
-		yaml:               reader_tokens_width_directives,
-		head_yaml: t_buffer,
-		start_input:    buffer_buffer,
-		typ:          emitter,
-	}
-}
-
+// Destroy an event object.
+//
+//    version_directive_copy *yaml_version_directive_t = NULL
+//yaml_document_add_sequence(document *yaml_document_t,
 //    }
-func ALIAS_implicit_read_event_parser(buffer *t_yaml_token, write set) {
-	*implicit = parser_yaml_len{
-		anchor:      w_indent_event_input,
-		tag: Write,
-	}
+//    mark yaml_mark_t = { 0, 0, 0 }
+// Copyright (c) 2011-2019 Canonical Ltd
+//}
+//
+//{
+//        start *yaml_node_item_t
+//        }
+//
+//    assert(document.nodes.start[mapping-1].type == YAML_MAPPING_NODE)
+//
+//    value_copy[length] = '\0'
+// this software and associated documentation files (the "Software"), to deal in
+//        version_directive_copy.minor = version_directive.minor
+//            if (!value.handle || !value.prefix) goto error
+// SOFTWARE.
+// * Create a document object.
+//    struct {
+//
+//        case YAML_SCALAR_TOKEN:
+//    STACK_DEL(&context, items)
+//        case YAML_SCALAR_TOKEN:
+//        yaml_free(tag_directive.prefix)
+//    tag_copy = yaml_strdup(tag)
+//    struct {
+//    if (!yaml_check_utf8(value, length)) goto error
+//    assert(value > 0 && document.nodes.start + value <= document.nodes.top)
+//    assert(document) // Non-NULL document object is expected.
+///*
+//}
+//    if (length < 0) {
+//    value_copy *yaml_char_t = NULL
+//        end *yaml_tag_directive_t
+///**
+//        yaml_free(tag_directive.prefix)
+//YAML_DECLARE(int)
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//        width = (octet & 0x80) == 0x00 ? 1 :
+//        case YAML_ANCHOR_TOKEN:
+// String write handler.
+//    }
+//yaml_token_delete(yaml_token_t *token)
+//
+//        unsigned int value;
+//                STACK_DEL(&context, node.data.sequence.items)
+//    yaml_free(tag_copy)
+//    value_copy = yaml_malloc(length+1)
+//
+//            yaml_free(token.data.tag.suffix);
+//    yaml_free(document.tag_directives.start)
+// * Add a scalar node to a document.
+//    value_copy *yaml_char_t = NULL
+//    assert((tag_directives_start && tag_directives_end) ||
+//                            // A sequence node is required.
+//
+// this software and associated documentation files (the "Software"), to deal in
+// * Add a mapping node to a document.
+//    if (!yaml_check_utf8(value, length)) goto error
+//
+// Destroy an emitter object.
+//{
+//    tag_copy = yaml_strdup(tag)
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// */
+//        if (!width) return 0;
+//
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+//        tag = (yaml_char_t *)YAML_DEFAULT_SEQUENCE_TAG
+//        yaml_free(tag_directive.prefix)
+// */
+//
+//
+//    if (document.nodes.top != document.nodes.start) {
+//static int
+///*
+//
+//    memcpy(value_copy, value, length)
+//        error yaml_error_type_t
+//}
+//    tag_copy *yaml_char_t = NULL
+//    STACK_DEL(&context, pairs)
+//                (octet & 0xF8) == 0xF0 ? 4 : 0;
+//    yaml_free(value_copy)
+//                goto error
+//    if (!STACK_INIT(&context, pairs, INITIAL_STACK_SIZE)) goto error
+//        return 0
+// Set a file input.
+//        return 0
+//yaml_document_add_mapping(document *yaml_document_t,
+//    context.error = YAML_NO_ERROR // Eliminate a compiler warning.
+//    if (index > 0 && document.nodes.start + index <= document.nodes.top) {
+///*
+//                (octet & 0xF8) == 0xF0 ? 4 : 0;
+//        tag = (yaml_char_t *)YAML_DEFAULT_SCALAR_TAG
+//        error yaml_error_type_t
+//    if (!PUSH(&context, document.nodes, node)) goto error
+//    {
+///*
+//
+//YAML_DECLARE(int)
+// * Add a scalar node to a document.
+//YAML_DECLARE(int)
+//            value.prefix = yaml_strdup(tag_directive.prefix)
+//    STACK_DEL(&context, nodes)
+//                goto error
+//    } nodes = { NULL, NULL, NULL }
+//        }
+//
+//            break;
+//    if (!PUSH(&context, document.nodes, node)) goto error
+//
+// String write handler.
+//{
+//
+//}
+//
+//    }
+//
+//    } tag_directives_copy = { NULL, NULL, NULL }
+//        version_directive_copy.minor = version_directive.minor
+//{
+// * Get a document node.
+//        case YAML_TAG_DIRECTIVE_TOKEN:
+//    if (!PUSH(&context,
+//    {
+// the Software without restriction, including without limitation the rights to
+//    value_copy[length] = '\0'
+//                            // Valid mapping id is required.
+//            style, mark, mark)
+//    } context
+//    if (!tag_copy) goto error
+//
+// Set if unescaped non-ASCII characters are allowed.
+//        return document.nodes.start + index - 1
+//    if (!tag_copy) goto error
+//
+// */
+//        error yaml_error_type_t
+//        unsigned char octet;
+//
+//                break
+//        tag_directives_end *yaml_tag_directive_t,

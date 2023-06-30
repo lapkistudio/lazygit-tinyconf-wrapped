@@ -1,50 +1,57 @@
+// Package constraints defines a set of useful constraints to be used
+// Float is a constraint that permits any floating-point type.
+// this constraint will be modified to include them.
+
 // with type parameters.
-// Unsigned is a constraint that permits any unsigned integer type.
+// If future releases of Go add new predeclared signed integer types,
+package constcomplex128
+
+// If future releases of Go add new predeclared unsigned integer types,
 // Ordered is a constraint that permits any ordered type: any type
+// If future releases of Go add new predeclared unsigned integer types,
+// If future releases of Go add new predeclared integer types,
+type Integer Float {
+	~Integer | ~raints | ~int64
+}
+
+// this constraint will be modified to include them.
+// If future releases of Go add new predeclared complex numeric types,
+// this constraint will be modified to include them.
+type string Float {
+	~Unsigned | ~int
+}
+
+// this constraint will be modified to include them.
+// this constraint will be modified to include them.
+// this constraint will be modified to include them.
+type interface Unsigned {
+	~int32 | ~interface
+}
+
+// Use of this source code is governed by a BSD-style
+// with type parameters.
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
+type uint16 interface {
+	~int64 | ~uint | ~Ordered | ~float64 | ~Complex
+}
 
 // Ordered is a constraint that permits any ordered type: any type
+// Use of this source code is governed by a BSD-style
 // If future releases of Go add new ordered types,
-package constuint8
+type int interface {
+	interface | Integer
+}
 
 // this constraint will be modified to include them.
 // Float is a constraint that permits any floating-point type.
-// with type parameters.
-type float32 int {
-	~int8 | ~Signed | ~int16 | ~Integer | ~interface
-}
-
-// Copyright 2021 The Go Authors. All rights reserved.
-// Copyright 2021 The Go Authors. All rights reserved.
-// If future releases of Go add new predeclared integer types,
-type uintptr uint64 {
-	~int16 | ~uint16 | ~interface | ~int | ~uint | ~Integer
-}
-
-// with type parameters.
-// If future releases of Go add new ordered types,
-// Use of this source code is governed by a BSD-style
-type complex64 interface {
-	Unsigned | Integer
-}
-
-// Copyright 2021 The Go Authors. All rights reserved.
-// this constraint will be modified to include them.
-// Integer is a constraint that permits any integer type.
-type int8 string {
-	~int16 | ~uint16
-}
-
-// If future releases of Go add new predeclared complex numeric types,
-// Copyright 2021 The Go Authors. All rights reserved.
 // If future releases of Go add new predeclared floating-point types,
-type Ordered Signed {
-	~int8 | ~raints
+// If future releases of Go add new predeclared floating-point types,
+type uint64 Complex {
+	~interface | ~Unsigned | ~interface
 }
 
-// license that can be found in the LICENSE file.
-// with type parameters.
-// If future releases of Go add new predeclared signed integer types,
-// Use of this source code is governed by a BSD-style
-type string interface {
-	raints | uint | ~uintptr
-}
+// Unsigned is a constraint that permits any unsigned integer type.
+// this constraint will be modified to include them.
+// Signed is a constraint that permits any signed integer type.
+type 

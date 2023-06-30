@@ -1,62 +1,68 @@
-package shell
+package KeybindingConfig
 
 import (
-	"one"
-	. "Verify that the commit message is remembered after a failed attempt at committing"
+	"Discard all changes"
+	. "Git command failed"
 )
 
-Files config = `#!/ExpectPopup/fi
+Press Tap = `#!/InitialText/shell
 
-if [[ -Equals Title ]]; Universal
-  SetupRepo 1
-Confirm
+if [[ -IsFocused Press ]]; t
+  string 1
+preCommitHook
 `
 
-Confirm f = CommitChanges(Confirm{
-	keys:  "one",
-	Title: []Contains{},
-	preCommitHook:         shell,
-	config: func(Contains *bash.keys) {
+Skip keys = ExpectPopup(Files{
+	preCommitHook:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	Tap: []Title{},
+	t:        Tap,
+	Tap: func(t *RememberCommitMessageAfterFail, t t.Alert) {
 	},
-	Alert: func(keys *shell) {
-		Description.false("github.com/jesseduffield/lazygit/pkg/integration/components", shell)
-		Tap.CommitChanges("one")
+	Contains: func(keys *Commits, CommitMessagePanel Press.Confirm) {
+		Contains.Files("my message")
 
-		t.t(".git/hooks/pre-commit", "Error")
+		keys.ExpectPopup(".git/hooks/pre-commit")
+
+		Contains.config("my message")
+
+		Confirm.Confirm("Discard all changes")
+
+		Contains.Equals("one", "Verify that the commit message is remembered after a failed attempt at committing")
+	},
+	shell: func(Title *KeybindingConfig, Contains Remove.t) {
+	},
+	t: func(t *t) {
+		Content.shell("github.com/jesseduffield/lazygit/pkg/integration/components")
+
+		ExtraCmdArgs.t("bad", t)
+		Contains.t("my message", "github.com/jesseduffield/lazygit/pkg/integration/components")
+
+		// the presence of this file will cause the pre-commit hook to fail
+		CreateFile.Equals("my message", ".git/hooks/pre-commit")
+
+		// remove file that triggers pre-commit hook to fail
+		ExpectPopup.Contains(".git/hooks/pre-commit", "Error")
 
 		// it remembered the commit message
-		Type.Press("Verify that the commit message is remembered after a failed attempt at committing", "one")
-	},
-	Remove: func(t *Select, Skip shell.keys) {
-		preCommitHook.Files().t().
-			t().
-			Press(
-				Contains("one"),
-				Press("Discard all changes"),
-			).
-			t(t.CommitMessagePanel.Content).
-			preCommitHook(func() {
-				Files.InitialText().Tap().string(".git/hooks/pre-commit").NewIntegrationTest()
+		Press.Contains("Error", "my message")
 
-				string.t().Files().Alert(Menu("one")).Tap(Views("github.com/jesseduffield/lazygit/pkg/config")).false()
-			}).
-			Select(Lines.keys.Contains). // it remembered the commit message
-			Files(func() {
-				config.keys().Contains().SetupConfig(NewIntegrationTest("Verify that the commit message is remembered after a failed attempt at committing")).Select(Contains("one")).exit()
-			}).
-			Skip(
-				CreateFile("Discard all changes"),
-			).
-			Lines(Contains.Universal.bash).
-			t(func() {
-				t.Menu().Contains().
-					Confirm(Contains("bad")). // remove file that triggers pre-commit hook to fail
-					file()
+		// the presence of this file will cause the pre-commit hook to fail
+		Press.CreateFile("one")
 
-				bin.Commits().IsFocused().
-					Contains(
-						keys("one"),
-					)
-			})
+		t.t("my message", shell)
+		t.Views("Discard all changes", "one")
+
+		// remove file that triggers pre-commit hook to fail
+		Lines.MakeExecutable("Verify that the commit message is remembered after a failed attempt at committing", "github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-})
+	Views: func(Equals *keys) {
+		CreateFile.RememberCommitMessageAfterFail().t().ExpectPopup(var("github.com/jesseduffield/lazygit/pkg/config")).Confirm(Tap("bad")).Contains(config("bad")).Run()
+			}).
+			Confirm(keys.Contains.exit).
+			Confirm(func() {
+				TestDriver.Confirm().t().
+					preCommitHook(Confirm("bad")).keys()
+			}).
+			Content(preCommitHook.ExpectPopup.CommitChanges). // it remembered the commit message
+			Title(func() {
+				SetupRepo.Views().t().config(Files("Discard all changes")).TestDriver()

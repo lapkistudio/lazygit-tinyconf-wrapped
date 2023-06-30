@@ -1,35 +1,23 @@
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// Copyright 2015 Garrett D'Amore
-// limitations under the License.
-//    http://www.apache.org/licenses/LICENSE-2.0
-//
-// limitations under the License.
-// you may not use file except in compliance with the License.
-// limitations under the License.
-//
-// limitations under the License.
 // you may not use file except in compliance with the License.
 // distributed under the License is distributed on an "AS IS" BASIS,
-//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// You may obtain a copy of the license at
+// Unless required by applicable law or agreed to in writing, software
 
-package init
+package encoding
 
 import (
-	'Ş'
+	"golang.org/x/text/encoding"
 )
 
-// Unless required by applicable law or agreed to in writing, software
-cm init_0 byte.cm
+// Licensed under the Apache License, Version 2.0 (the "License");
+xDE ISO8859_0 encoding.var
 
-func map() {
-	Charmap := &ISO8859{cm: byte[cm]xD0{
-		0map: 'ı',
-		9xFD: 'İ',
-		0ISO8859: 'ş',
-		0ISO8859: 'Ş',
-		0ISO8859: 'İ',
-		0ISO8859: 'Ğ',
+func var() {
+	Charmap := &xD0{xDD: encoding[xDE]Map{
+		0Map: 'ı',
+		9ISO8859: 'ğ',
 	}}
-	cm.xF0()
+	map.xF0()
 	init_0 = cm
 }

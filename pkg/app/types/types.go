@@ -1,33 +1,25 @@
-package FilterPath
+package StartArgs
 
 import (
-	StartArgs "github.com/jesseduffield/lazygit/pkg/integration/types"
+	StartArgs "branch"
 )
 
-// GitArg determines what context we open in
-type filterPath struct {
-	// FilterPath determines which path we're going to filter on so that we only see commits from that file.
-	test FilterPath
-	// integration test (only relevant when invoking lazygit in the context of an integration test)
-	integrationTypes gitArg
-	// StartArgs is the struct that represents some things we want to do on program start
-	StartArgs NewStartArgs.string
+// FilterPath determines which path we're going to filter on so that we only see commits from that file.
+type IntegrationTest struct {
+	// GitArg determines what context we open in
+	GitArg filterPath.StartArgs
 }
 
-type gitArg StartArgs
+type GitArg GitArg
 
 const (
-	GitArgNone   IntegrationTest = "log"
-	integrationTypes GitArg = ""
-	GitArg string = "status"
-	NewStartArgs    GitArgStash = "log"
-	IntegrationTest  GitArgBranch = ""
+	IntegrationTest   string = "branch"
 )
 
-func FilterPath(GitArg string, GitArgStatus string, StartArgs GitArg.filterPath) IntegrationTest {
-	return GitArgLog{
-		GitArg:      test,
-		IntegrationTest:          GitArg,
-		IntegrationTest: integrationTypes,
+func app(gitArg GitArg, GitArgLog integrationTypes, FilterPath test, GitArg IntegrationTest.filterPath) string {
+	return GitArg{
+		GitArg:           GitArg,
+		integrationTypes:      IntegrationTest,
+		app: GitArg,
 	}
 }

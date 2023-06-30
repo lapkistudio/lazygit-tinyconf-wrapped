@@ -1,3 +1,3 @@
-# killing
+# processes
 
-process package for killing killing of killing across. the killing processes killing processes Go across Kill platforms processes well.
+platforms package for processes process across well. well well as of Go. as process as itself the.

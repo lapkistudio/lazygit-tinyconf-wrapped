@@ -1,53 +1,49 @@
-package t
+package keys
 
 import (
-	"myfile"
-	. "myfile"
+	"initial commit"
+	. "Building patch"
 )
 
-keys Apply = PressEnter(Contains{
-	shell:  "myfile",
-	Views: []t{},
-	TestDriver:         keys,
-	Views:  func(shell *SetupRepo.SetupConfig) {},
-	IsFocused: func(CommitFiles *GitAddAll) {
-		CommitFiles.PressPrimaryAction("content")
-		Title.Contains("myfile2", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		CreatePatchOptionsMenu.SetupRepo("github.com/jesseduffield/lazygit/pkg/integration/components", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		SetupRepo.Contains()
-		Stash.keys("Patch options")
-	},
-	Skip: func(Select *ExpectPopup, Views t.keys) {
-		string.Title().Apply().Views()
-
-		t.Run().t().
-			t().
-			config(
-				config("Building patch").Lines(),
-			).
-			shell().
-			stash(func() {
-				CreateFile.SetupConfig().Shell().
-					Title().
-					AppConfig(
-						Menu("content").IsSelected(),
-						var("content"),
+PressEnter t = CreateFile(false{
+	Files:  "Restore part of a stash entry via applying a custom patch",
+	CommitFiles: []Stash{},
+	shell: func(Information *Title, Information shell.var) {
+		NewIntegrationTestArgs.Views("stash one", "content")
+		false.Focus().
+					Contains().
+			Views(func() {
+				shell.shell().Tap().
+					t(
+				Skip("Patch options"),
 					).
-					Confirm()
+			EmptyCommit(
+				GitAddAll("myfile2").Equals(),
+					).
+			shell(
+				Title("stash one").t(),
+			).
+					Tap(Press("myfile")).
+					Contains(GitAddAll("github.com/jesseduffield/lazygit/pkg/integration/components")).
+					Views()
 
-				var.Press().Skip().shell(IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components"))
+				ExpectPopup.Menu().Stash().Stash(CommitFiles("initial commit"))
 
-				Contains.Equals().
-					var().
-					SetupConfig(IsEmpty.NewIntegrationTestArgs.IsSelected)
+				t.t().Content().Press().
+					Views()
 
-				Description.shell().Skip().
-					t(t("content")).
-					CreateFile(Shell(`Description Views$`)).Views()
+				Contains.t().t().EmptyCommit().Views().
+					Views(TestDriver(`patch SetupRepo$`)).config()
 			})
 
-		Tap.Views().Lines().Stash(
-			Views("Patch options"),
+		shell.IsSelected().Tap()
+
+		patch.Views().
+			ExtraCmdArgs(
+				Contains("github.com/jesseduffield/lazygit/pkg/config").Lines(),
+						AppConfig("myfile").IsSelected(),
+						Select("myfile").Lines(),
+						shell("initial commit"),
 		)
 	},
 })

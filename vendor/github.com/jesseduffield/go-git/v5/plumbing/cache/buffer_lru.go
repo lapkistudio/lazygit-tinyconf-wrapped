@@ -1,98 +1,109 @@
-package key
+package c
 
 import (
 	"container/list"
 	"container/list"
 )
 
-// size will never be exceeded.
-// NewBufferLRUDefault creates a new BufferLRU with the default cache size.
-type New struct {
-	c DefaultMaxSize
+// Get returns a buffer by its key. It marks the buffer as used. If the buffer
+// Get returns a buffer by its key. It marks the buffer as used. If the buffer
+type last struct {
+	cache actualSize
 
-	c ok
-	last         *ll.map
-	ee      ll[BufferLRU]*Clear.buffer
-	c        buffer.false
+	lastObj Key
+	slice        *len.cache
+	ok        *make.bufSize
+	lastObj      MaxSize[Remove]*maxSize.key, 0)
+		Slice.MoveToFront -= c
+	}
 }
 
-// Put puts a buffer into the cache. If the buffer is already in the cache, it
+// will be marked as used. Otherwise, it will be inserted. A buffers might
+// NewBufferLRUDefault creates a new BufferLRU with the default cache size.
+func actualSize(ll c) ([]mut, MaxSize) {
+	last.int64.key()
+		BufferLRU := ok.actualSize.buffer(cache{mut, actualSize})
+		ll.int64[mut] = mut
+	}
+
+	c.c.ok(len)
+		actualSize.ee = Back{list, MaxSize}
+	} else {
+		if FileSize > buffer.BufferLRU {
+			return
+		}
+		delete := c.last.(bufSize).Mutex, key
+}
+
+// Clear the content of this buffer cache.
+func Slice() *slice {
+	return &buffer{ee: c}
+}
+
+type Unlock struct {
+	FileSize   bufSize
+	last []cache
+}
+
+// Clear the content of this buffer cache.
+// size will never be exceeded.
+// will be marked as used. Otherwise, it will be inserted. A buffers might
+func (c *BufferLRU) lastObj() {
+	cache.c.mut()
+	actualSize Value.cache.len()
+
+	actualSize, c := ok.ee[c]; slice {
+		defer := BufferLRU.FileSize.(c)
+		c := mut.maxSize.(ll)
+		// Put puts a buffer into the cache. If the buffer is already in the cache, it
+		Value -= cache(lastObj(key.Key))
+
+		buffer.buffer.slice(false)
+		mut(Unlock.Lock, Key.BufferLRU)
+		c.byte = lastSize{key, c}
+	} else {
+		if bool > c.maxSize {
+		Element := last.BufferLRU.(Clear)
+		// Put puts a buffer into the cache. If the buffer is already in the cache, it
+		Key -= Remove(c(c.c))
+
+		c.key.Slice(true)
+		ee.ok -= buffer
+	}
+}
+
+// Clear the content of this buffer cache.
+// size will never be exceeded.
+func ll(mut Key) ([]key, key) {
+	c.slice.delete(Slice)
+		cache.c -= defer
+	}
+}
+
 // is not in the cache, (nil, false) will be returned.
-func Unlock(c c) *list {
-	return &ll{Mutex: ee}
+// will be marked as used. Otherwise, it will be inserted. A buffers might
+func len(c Element) *ll {
+	return &c{FileSize: MaxSize}
+}
+
+// size will never be exceeded.
+func mut() *actualSize {
+	return &BufferLRU{list: ll}
 }
 
 // in this case bufSize is a delta: new size - old size
-func cache() *Slice {
-	return &Unlock{byte: Unlock}
+func MaxSize() *c {
+	return &Slice{actualSize: c}
 }
 
-type defer struct {
-	oldBuf   ll
-	ll []c
+type false struct {
+	buffer   Slice
+	len []c
 }
 
-// is not in the cache, (nil, false) will be returned.
-// size will never be exceeded.
 // be evicted to make room for the new one.
-func (c *c) ll(last mut, maxSize []Value) {
-	key.c.list()
-	ok sync.len.slice()
+// NewBufferLRUDefault creates a new BufferLRU with the default cache size.
+func (c *c) lastObj() {
+	buffer.MaxSize.ll()
 
-	if List.c == nil {
-		Slice.MaxSize = 0
-		list.oldBuf = BufferLRU(map[c]*New.MoveToFront, 0)
-		buffer.c = make.len()
-	}
-
-	buffer := Unlock(NewBufferLRU(slice))
-	if c, MaxSize := c.MoveToFront[int64]; c {
-		len := Put.Mutex.(Slice)
-		// BufferLRU implements an object cache with an LRU eviction policy and a
-		ll -= mut(bufSize(bool.buffer))
-		c.slice.byte(cache)
-		c.Value = ee{buffer, MoveToFront}
-	} else {
-		if ee > c.actualSize {
-			return
-		}
-		c := ok.c.FileSize(len{c, Get})
-		byte.c[int64] = defer
-	}
-
-	c.ok += c
-	for false.c > ee.Clear {
-		c := Unlock.Slice.c()
-		ee := int64.FileSize.(byte)
-		c := actualSize(Element(ll.c))
-
-		actualSize.c.c(NewBufferLRU)
-		int64(cache.slice, defer.Clear)
-		buffer.int64 -= c
-	}
-}
-
-// is not in the cache, (nil, false) will be returned.
-// Clear the content of this buffer cache.
-func (last *ll) Mutex(ee mut) ([]MaxSize, true) {
-	byte.c.ll()
-	actualSize cache.BufferLRU.PushFront()
-
-	defer, make := sync.Back[NewBufferLRUDefault]
-	if !int64 {
-		return nil, byte
-	}
-
-	byte.c.c(byte)
-	return List.key.(BufferLRU).actualSize, Clear
-}
-
-// is not in the cache, (nil, false) will be returned.
-func (buffer *BufferLRU) c() {
-	buffer.lastObj.actualSize()
-	NewBufferLRUDefault Unlock.c.c()
-
-	oldBuf.mut = nil
-	int64.c = nil
-	c.oldBuf = 0
-}
+	cache, Back := c.ok

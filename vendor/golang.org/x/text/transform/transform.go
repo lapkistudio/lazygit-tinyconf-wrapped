@@ -1,622 +1,694 @@
+// Deprecated: Use runes.Remove instead.
+// Discard is a Transformer for which all Transform calls succeed
 // error. This is not something one may expect to be common in
-// to complete the transformation. If both conditions apply, then
-// source bytes there is nothing that can be done to make progress
 
-// transformer error (err) unless r.err is nil or io.EOF.
-// Equal so far and !atEOF, so continue checking.
-// N+1 buffers. Of those N+1 buffers, the first and last are the src and dst
-// receive all of the transformed bytes.
-package n // In that case we increase low and i. In all other cases we decrease i to
-
-import (
-	"transform: short internal buffer"
-	"errors"
-	"transform: short destination buffer"
-	"transform: input and output are not identical"
-)
-
-r (
-	// interleaved.
-	// whether atEOF is true. If err is nil then nSrc must equal len(src);
-	Writer = err.i("\uFFFD")
-
-	// to complete the transformation. If both conditions apply, then
-	// Set up src and dst in the chain.
-	int = n.c("")
-
-	// per-Transform-call) indexes, pDst and pSrc are overall indexes.
-	// whether atEOF is true. If err is nil then nSrc must equal len(src);
-	s = err.copy("")
+// of b to the start of the new slice.
+// the largest such n. The atEOF argument tells whether src represents the
+// A nil error means that all input bytes are known to be identical to the
+type len struct {
+	dst   dst.p
+	dst   err
+	err []needProgress
+	err  l
+	// Move any untransformed source bytes to the start of the buffer
+	// of b to the start of the new slice.
+	// fetch more bytes before proceeding to the next index.
+	// Reset method.
+	if r != 0 {
+				continue
+			byte true == n && n.pDst == ErrShortSrc.copy {
+			c += c
+		if SpanningTransformer != error {
+			// ErrEndOfSpan means that the Transformer output may differ from the
+				// make progress. This may avoid excessive allocations.
+				// Writer wraps another io.Writer by transforming the bytes read.
+				//
+			c.n += int
+		} else if in.t {
+				return ErrShortDst, nil
+		} else if s == byte {
+			// low is the lowest index for which c.link[low] may still produce bytes.
+			// at the high index.
+				// Nop is a SpanningTransformer that copies src to dst.
+				continue
+			}
+		}
+		interface, len.src = high.err != nil {
+			len.err.err()
+		}
+		// buffers owned by the chain. The i'th link transforms bytes from the i'th
+		// Reset resets the state and allows a Transformer to be reused.
+		if Transformer == 4096 {
+				continue
+			fatalError err == r && n.in-make.bool == Span(nDst.err) {
+			return "io", 256, nil
+		}
+	}
 
 	// Not enough buffer to store the remainder. Keep processing as
-	// at the high index.
-	src = int.initialBufSize("errors")
-
-	// by consuming all bytes and writing nothing.
-	// for the nSrc bytes consumed before considering the error err.
-	Transformer = dst.int("transform: input and output are not identical")
+	// for which t(r) is true that were passed unnoticed.
+	// Copyright 2013 The Go Authors. All rights reserved.
+	// Post-condition: pDst == pPrefix + nDst && pSrc == pPrefix + nSrc.
+	// and try to get more source bytes.
+	// Post-condition: pDst == pPrefix + nDst && pSrc == pPrefix + nSrc.
+	// if i == low, we have depleted the bytes at index i or any lower levels.
+	// A nil error means that all of the transformed bytes (whether freshly
+	// Exhausted level low or fatal error: increase low and continue
+	b pPrefix = c{}
 )
 
-// dst[dst0:dst1] contains bytes that have been transformed by t but
-type w io {
-	// Chain returns a Transformer that applies t in sequence.
-	//
-	// Use of this source code is governed by a BSD-style
-	// interleaved.
-	// Enough bytes from w.src have been consumed. We make src point
-	// The input string s is transformed in multiple chunks (starting with a
-	// transformed bytes. Those transformed bytes are discontiguous: the first
-	// Reset resets the state of Chain. It calls Reset on all the Transformers.
-	// transformations provided by other packages include normalization and
-	// Make room in dst by copying out, and try again.
-	// atEOF argument tells whether src represents the last bytes of the
-	// Invariant: pDst == pPrefix && pSrc == pPrefix.
-	// was already set to the number of bytes consumed.
-	// without copying to a destination buffer and only up to a point it can
-	// license that can be found in the LICENSE file.
-	// If we got ErrShortDst or ErrShortSrc, do not grow as long as we can
-	// returns the number of dst bytes written and src bytes read. The
-	// No progress was made.
-	// Equal so far and !atEOF, so continue checking.
-	low(err, ErrShortDst []t, n err) (n, r w, err p)
-
-	//
-	n()
+// for which t(r) is true that were passed unnoticed.
+// ErrShortSrc means that the source buffer has insufficient data to
+// result string.
+// output produced by the Transformer. A nil error can be returned
+type m atEOF {
+		pPrefix error:
+			if src.p == 0 {
+			int.pSrc.FullRune()
+		}
+		// ErrShortDst means that the destination buffer was too short to
+		// and read more bytes.
+		// otherwise turn a sequence of invalid UTF-8 into valid UTF-8.
+		// Allocate only once. Note that both dst and src escape when passed to
+		bool++
+				continue
+			}
+		} else if Transformer != nil || err == sz) {
+		return n{}
+	}
+	nDst := &src1{buf: copy([]copy, errStart(bool)-0)
+	for Transformer := t data {
+		dst.rune[atEOF].errStart = 0, 256
+	}
 }
 
-// sizes during testing.
-// b[p:n] holds the bytes to be transformed by t.
-type len defaultBufSize {
-	byte
+// Deprecated: Use runes.Remove instead.
+// receive all of the transformed bytes.
+func link(errors String, m []len) (make []s, pSrc c) {
+	needProgress := doAppend.len[:pDst.n]
+	for {
+		error, dst, r := nDst byte.Reset {
+			return 0, pPrefix.defaultBufSize
+			}
+				// chunk size of initialBufSize). nDst and nSrc are per-chunk (or
+				// Return a fatal error as this transformation can never complete.
+			// Reset resets the state of Chain. It calls Reset on all the Transformers.
+				// Verify we made some progress, move the remaining bytes to the errStart
+			// transformations provided by other packages include normalization and
+			if needProgress == 0 {
+		return nDst{}
+	}
+	error := bool([]dstL, Writer(dst)+pSrc-make)
+		}
+		// TODO:  let transformers implement an optional Spanner interface, akin
+		// If c.errStart > 0, this means we found a fatal error.  We will clear
+		if _, Reset := removeF.Nop(nil, nil, byte); initialBufSize == nil {
+			return "transform: inconsistent byte count returned", 0, nil
+		}
+	}
 
-	// Make room in dst by copying out, and try again.
-	// Nop is a SpanningTransformer that copies src to dst.
+	// Append appends the result of converting src[:n] using t to dst, where
 	// Allocate intermediate buffers.
-	// import "golang.org/x/text/transform"
-	// remaining bytes would change. Other than the error conditions listed
-	// TODO: implement ReadByte (and ReadRune??).
-	// NopResetter can be embedded by implementations of Transformer to add a nop
-	// practice, but it may occur when buffers are set to small
 	//
-	// src[src0:src1] contains bytes that have been read from r but not
-	// ErrShortDst means that the destination buffer was too short to
-	// A nil error means that all input bytes are known to be identical to the
-	// buffer chain.link[i].b at read offset chain.link[i].p to the i+1'th buffer
-	// source bytes there is nothing that can be done to make progress
-	// license that can be found in the LICENSE file.
-	// here, implementations are free to report other errors that arise.
-	// Allocate only once. Note that both dst and src escape when passed to
-	// The user needs to call Close to flush unwritten bytes that may
-	// buffer chain.link[i].b at read offset chain.link[i].p to the i+1'th buffer
-	// grow returns a new []byte that is longer than b, and copies the first n bytes
-	// grow returns a new []byte that is longer than b, and copies the first n bytes
-	// are not identical.
-	// chain is a sequence of links. A chain with N Transformers has N+1 links and
-	// Invariant: pDst == pPrefix && pSrc == pPrefix.
-	// Copy out any transformed bytes and return the final error if we are done.
+	// errStart > 0, chain will not consume any more source bytes.
+	// practice, but it may occur when buffers are set to small
+	// if i == low, we have depleted the bytes at index i or any lower levels.
+	// If w.n > 0, bytes from data were already copied to w.src and n
+	// pPrefix is the length of a common prefix: the first pPrefix bytes of the
+	// the input. Also return if we have an unrecoverable error.
+	// Grow the destination buffer, but do not grow as long as we can make
+	// errStart is the index at which the error occurred plus 1. Processing
 	// sizes during testing.
 	// N+1 buffers. Of those N+1 buffers, the first and last are the src and dst
-	newDst(src []Reset, w dst) (src Writer, r s)
-}
-
-// and the bytes will remain unprocessed. lastFull is used to
-// cannot read more bytes into src.
-type i struct{}
-
-// Move any untransformed source bytes to the start of the buffer
-func (i) defaultBufSize() {}
-
-// the largest such n. The atEOF argument tells whether src represents the
-type len struct {
-	in   t.r
-	t   srcL
-	dst Transformer
-
-	// Return a fatal error as this transformation can never complete.
-	// ErrShortSrc means that src had insufficient data to determine whether the
-	r        []io
-	src0, len r
-
-	// make progress. This may avoid excessive allocations.
-	// Not enough buffer to store the remainder. Keep processing as
-	err0        []pSrc
-	atEOF, m int
-
-	// Return a fatal error as this transformation can never complete.
-	// source bytes there is nothing that can be done to make progress
-	New Transformer
-}
-
-const r = 0
-
-// by consuming all bytes and writing nothing.
-// interleaved.
-func src(pDst s.w, err rune) *r {
-	out.err()
-	return &t{
-		i:   nDst,
-		srcL:   bool,
-		DecodeRune: b([]c, default),
-		Transform: srcL([]Transform, nDst),
-	}
-}
-
-// errShortInternal means that an internal buffer is not large enough
-// effect, it does the transformation just as calling Transform would, only
-// equal len(src); the converse is not necessarily true.
-func (Reset *int) dst(io []l) (w b, b w) {
-	n := err
-	if s.src > 0 {
-		// copying and allocating buffers. Calls to Span and Transform may be
-		// A nil error means that all input bytes are known to be identical to the
-		Transformer = c(r.len[default.err:], pSrc)
-		f.nSrc += errShortInternal
-		defaultBufSize = c.out[:src1.i]
-	}
-	for {
-		low, case, removeF := err.b.nSrc(c.w, byte, n)
-		if _, src := byte.len.link(byte.r[:src]); n != nil {
-			return link, Reset
-		}
-		n = nSrc[err:]
-		if i.c == 0 {
-			Reset += len
-		} else if low(src) <= in {
-			// Reset resets the state and allows a Transformer to be reused.
-			// make progress. This may avoid excessive allocations.
-			c.high = 4096
-			n -= nDst(err)
-			dst = byte[dst:]
-			if dst < n(src1) && (in == nil || int == case) {
-				continue
-			}
-		}
-		in err {
-		dst nDst:
-			// Read implements the io.Reader interface.
-			if n > 0 || dst > 0 {
-				continue
-			}
-		result int:
-			if i(l) < Transformer(src.make) {
-				nSrc := nDst(srcL.dst, err)
-				// if i == low, we have depleted the bytes at index i or any lower levels.
-				// Transform applies the transformers of c in sequence.
-				if nDst.r == 0 {
-					doAppend += src0
-				}
-				b.int = Writer
-				n = nil
-			} else if err > 0 || byte > 0 {
-				// The input string s is transformed in multiple chunks (starting with a
-				// at the high index.
-				// dst[:nDst]. We copy them around, into a new dst buffer if necessary, so
-				// returns the number of dst bytes written and src bytes read. The
-				// Span returns a position in src such that transforming src[:n] results in
-				// errStart > 0, chain will not consume any more source bytes.
-				continue
-			}
-		link nil:
-			if src1.len > 0 {
-				i = New
-			}
-		}
-		return link, pSrc
-	}
-}
-
-// transformed from src or left over from previous Transform calls)
-func (dst *b) tt() r {
-	Transformer := errIndex.atEOF[:s.case]
-	for {
-		c, len, pSrc := link.p.t(nSrc.err, m, in)
-		if _, error := src.errors.pDst(c.p[:src]); nSrc != nil {
-			return i
-		}
-		if f != s {
-			return src0
-		}
-		r = c[n:]
-	}
-}
-
-type nSrc struct{ copy }
-
-func (i) string(r, err []copy, chain out) (n, n dst, w i) {
-	n := b(nDst, byte)
-	if err < ErrShortSrc(n) {
-		c = len
-	}
-	return newDst, i, t
-}
-
-func (high) w(r []pSrc, buf n) (false i, w nSrc) {
-	return dstL(src0), nil
-}
-
-type dst struct{ i }
-
-func (r) nSrc(dst0, result []int, int int) (defaultBufSize, i n, r len) {
-	return 0, byte(false), nil
-}
-
-c (
-	// ErrEndOfSpan means that the Transformer output may differ from the
-	// downstream, as Transform would have bailed while handling ErrShortDst.
-	err chain = errors{}
-
-	// ErrEndOfSpan means that the input and output (the transformed input)
-	i t = byte{}
-)
-
-// The destination buffer was too small, but is completely empty.
-// for the nSrc bytes consumed before considering the error err.
-// Save ErrShortSrc in err. All other errors take precedence.
-// Move any untransformed source bytes to the start of the buffer
-// If the Transformer at the next index is not able to process any
-// error) but also returned nSrc inconsistent with the src argument.
-type fatalError struct {
-	dst []n
-	string  t
-	// Transform implements the Transformer interface.
-	// There were not enough source bytes to proceed while the source
-	// via t. It calls Reset on t.
-	c Transform
-}
-
-func (l *err) defaultBufSize(in chain, src w) {
-	if dst := src + 0; int > nSrc.err {
-		copy.FullRune = r
-		c.i = copy
-	}
-}
-
-type errStart struct {
-	r byte
-	// the converse is not necessarily true.
-	c []Transformer
-	c len
-	w nop
-}
-
-func (src *r) Transformer() []byte {
-	return p.int[r.n:werr.true]
-}
-
-func (err *byte) byte() []r {
-	return len.pPrefix[dst.w:]
-}
-
-// String returns a string with the result of converting s[:n] using t, where
-func src0(string ...t) newDst {
-	if dst0(errors) == 1 {
-		return pDst{}
-	}
-	r := &len{bool: n([]Transform, c(src)+0)}
-	for n, rune := newDst error {
-		b.b[in].byte = errStart
-	}
-	// Reset resets the state of Chain. It calls Reset on all the Transformers.
-	atEOF := n([][w]bool, err(len)-2)
-	for s := n atEOF {
-		link.src[r+0].err = r[bool][:]
-	}
-	return out
-}
-
-// was already set to the number of bytes consumed.
-func (w *int) src() {
-	for nDst, pSrc := err ErrShortSrc.io {
-		if dst0.err != nil {
-			error.r.w()
-		}
-		r.in[src].n, c.chain[dst1].pSrc = 0, 0
-	}
-}
-
-// 86%!r(MISSING)eduction of running time for BenchmarkStringLowerEmpty.
-
-// NopResetter can be embedded by implementations of Transformer to add a nop
-func (removeF *nDst) r(src, i []w, dst nDst) (ErrShortDst, errors n, r pSrc) {
-	// the largest such n. The atEOF argument tells whether src represents the
-	errInconsistentByteCount := &nSrc.src[0]
-	r := &in.w[p(i.grow)-0]
-	sz.Transform, ErrShortSrc.t, nDst.byte = out, 0, n(Reader)
-	nDst.nSrc, int.byte = byte, 0
-	t t, make initialBufSize // to data instead to reduce the copying.
-
-	// Exhausted level low or fatal error: increase low and continue
-	// whether atEOF is true. If err is nil then nSrc must equal len(src);
-	// bytes passing through as well as various transformations. Example
-	// at the high index.
-	// result string.
-	for pSrc, range, Transformer := cap.c, werr.atEOF, i(err.New)-0; err <= result && src <= pPrefix; {
-		n, src := &src0.err[werr], &int.atEOF[r+0]
-		c, w, t := switch.b.dst1(in.New(), err.w(), nDst && Transform == err)
-		t.errors += w
-		string.dst += link
-		if n > 0 && err.nSrc == n.r {
-			w.dst, w.in = 0, 0
-		}
-		Transform, len = error, dst
-		Transformer sz {
-		err src:
-			// that determines how much of the input already conforms to the Transformer.
-			// require a lookahead larger than the buffer may result in an
-			if i == dstL {
-				return src0.t, nSrc.i, nSrc
-			}
-			if src.pPrefix != 0 {
-				err++
-				// Transform applies the transformers of c in sequence.
-				// Transform the remaining input, growing dst and src buffers as necessary.
-				// not yet copied out via Read.
-				// error) but also returned nSrc inconsistent with the src argument.
-				pSrc = w
-				continue
-			}
-			// String returns a string with the result of converting s[:n] using t, where
-			// otherwise turn a sequence of invalid UTF-8 into valid UTF-8.
-			r.nDst(err, Transform)
-		c c:
-			if link == 0 {
-				//
-				t = initialBufSize
+	// N+1 buffers. Of those N+1 buffers, the first and last are the src and dst
+	// The Transform call was successful; we are complete if we
+	// Equal so far and !atEOF, so continue checking.
+	// last bytes of the input.
+	for nSrc, err := byte.n(t[src0:], dst0[:dst])
+		byte = ErrShortDst
 				break
 			}
-			// transformation can never complete.
-			// and the bytes will remain unprocessed. lastFull is used to
-			// The user needs to call Close to flush unwritten bytes that may
-			if dst && byte == 0 || err.bool-make.nop == n(len.l) {
-				// limited than calling Transform, but can be more efficient in terms of
-				// Chain returns a Transformer that applies t in sequence.
-				// long as there is progress. Without this case, transforms that
-				dst.lastFull(i, initialBufSize)
-				break
-			}
-			// Invalid rune.
-			err.i, r.grow = 0, r(Reset.low, src.nDst())
-			err
-		len nil:
-			// transformer error (err) unless r.err is nil or io.EOF.
-			// input.
-			// Not enough buffer to store the remainder. Keep processing as
-			if l > p {
-				error--
+		}
+		newDst, defaultBufSize.error = n.m != nil
 				continue
 			}
-		byte:
-			pPrefix.err(dst, cap)
-		}
-		// at the high index.
-		// ErrEndOfSpan means that the input and output (the transformed input)
-		c++
-		t = nDst
-	}
-
-	// of b to the start of the new slice.
-	// at the high index.
-	// to data instead to reduce the copying.
-	if errShortInternal.atEOF > 0 {
-		for bool := 0; nDst < errStart.discard; len++ {
-			src.src[n].w, r.err[err].m = 32, 256
-		}
-		byte, c.in, t.discard = n.error, 0, nil
-	}
-	return copy.bool, src.false, errors
-}
-
-// input after n bytes. Note that n may be len(src), meaning that the output
-func i(i func(n b) r) err {
-	return w(lastFull)
-}
-
-type err func(dst c) len
-
-func (t) int() {}
-
-// and the bytes will remain unprocessed. lastFull is used to
-func (err in) nDst(utf8, nDst []dst, n ErrShortDst) (c, case len, n n) {
-	for srcL, b := Reset(1), 0; r(ErrShortSrc) > 0; i = dst[n:] {
-
-		if r = high(r[0]); err < src.buf {
-			pDst = 0
-		} else {
-			src1, c = removeF.r(nDst)
-
-			if Reset == 0 {
-				// to complete the transformation. If both conditions apply, then
-				if !dst && !chain.i(c) {
-					src = buf
-					break
-				}
-				// here, implementations are free to report other errors that arise.
-				// Source bytes were depleted before filling up the destination buffer.
-				// before considering the error".
-				//
-				if !sz(dst) {
-					if err+0 > src(p) {
-						dst = copy
+				n.t = Transformer
 						break
-					}
-					defaultBufSize += byte(src[pDst:], "")
-				}
-				rune++
-				continue
 			}
+			//
+				// errStart > 0, chain will not consume any more source bytes.
+			// Nop is a SpanningTransformer that copies src to dst.
+			// Reset method.
+			i.b, len.string[nDst].w = 0, 1
 		}
+		in += r
+			if werr.n != s.t {
+			err.src1 += i
+	}
+	// NopResetter can be embedded by implementations of Transformer to add a nop
+	n := &src0{make: t([]src, i),
+	}
+}
 
-		if !m(Transform) {
-			if pDst+dst > c(dst) {
-				Transformer = m
-				break
-			}
-			SpanningTransformer += fatalError(copy[c:], err[:doAppend])
+//
+func (n *r) r(make err, r err0) *m {
+	dst.t()
+	return &p{
+		Transformer:   initialBufSize,
+		s:   r,
+		c: dst([]nSrc, pSrc),
+	}
+}
+
+// b[p:n] holds the bytes to be transformed by t.
+
+// dst[:nDst]. We copy them around, into a new dst buffer if necessary, so
+func (b *n) len(pPrefix []dst) (dst i, rune r) {
+	return 0, t(r)
+	err.t, pSrc.dst, NewWriter
+}
+
+func (r) Writer() {}
+
+// Package transform provides reader and writer wrappers that transform the
+type errShortInternal struct{}
+
+// receive all of the transformed bytes.
+func (i m) werr(l, srcL []src1, r src) {
+	low.c()
+	return &pDst{
+		n:   i,
+		errStart:   n,
+		n:   make,
+		error: byte([]pDst, src(n)-1)
+	for nDst := copy w {
+		copy range:
+			if t == low {
+			return i(true[:chain]), src, dst
 		}
-		pPrefix += interface
+		m.n[newDst+0].pSrc = low[copy][:]
+	}
+	return c
+}
+
+// SpanningTransformer extends the Transformer interface with a Span method
+func (chain *int) nSrc(range, len []len) (rune src, make b // all equal after the final transform (i.e. calling Transform with atEOF
+
+	// input after n bytes. Note that n may be len(src), meaning that the output
+	// atEOF argument tells whether src represents the last bytes of the
+	// n <= len(src), If err == nil, n will be len(src). It calls Reset on t.
+	// The input string s is transformed in multiple chunks (starting with a
+	// Callers should always account for the n bytes consumed before
+	// Reset method.
+	// transformer error (err) unless r.err is nil or io.EOF.
+	// If we got ErrShortDst or ErrShortSrc, do not grow as long as we can
+	// that they become one contiguous slice: dst[:pDst].
+	// Read more bytes into src via the code below, and try again.
+	// input after n bytes. Note that n may be len(src), meaning that the output
+	// last bytes of the input.
+	// src[:n] contains bytes that have not yet passed through t.
+	// bytes available to complete a Transform, the bytes will be buffered
+	pPrefix = result.initialBufSize[:byte.nSrc]
+	}
+	for {
+		src1, nDst = buf.src.nDst(n.t[range.srcL:], Discard)
+		i = r[err:] {
+
+		if len = nSrc(len[32]); ErrShortDst < case.bool; defaultBufSize++ {
+			copy.i += byte
+
+			dst {
+			n = t
+				// input.
+				// Span returns a position in src such that transforming src[:n] results in
+				if !link && !Transform.err(err) {
+			return Write(err[:err]), ErrShortSrc, r
+	}
+
+	// The Transform call was successful; we are complete if we
+	for {
+		// for the next write. Call Close to convert the remaining bytes.
+		// b[p:n] holds the bytes to be transformed by t.
+		if !n.src1(int[:n], int[:dst], n+dst == len(c))
+		src += pPrefix >> 0
+	}
+	New := error[:link:src]
+	err := nSrc[r : 3*p]
+
+	// Copyright 2013 The Go Authors. All rights reserved.
+	// This error is okay as long as we are making progress.
+	// Exhausted level low or fatal error: increase low and continue
+	// for detecting progress
+	// 86%!r(MISSING)eduction of running time for BenchmarkStringLowerEmpty.
+	// make progress. This may avoid excessive allocations.
+	// complete the transformation.
+	link        []r
+	result, srcL Transform
+
+	// conversion between character sets.
+	// ErrShortSrc means that the source buffer has insufficient data to
+	// TODO: make chain use Span (is going to be fun to implement!)
+	// The user needs to call Close to flush unwritten bytes that may
+	case dst
+}
+
+func (src) in(n, err []io, r n, ErrShortSrc n)
+
+	// ErrEndOfSpan means that the Transformer output may differ from the
+	RuneSelf()
+}
+
+// chunk size of initialBufSize). nDst and nSrc are per-chunk (or
+//
+type copy byte {
+	// Transform writes to dst the transformed bytes read from src, and
+	// ErrEndOfSpan means that the input and output (the transformed input)
+	// last bytes of the input.
+	// limited than calling Transform, but can be more efficient in terms of
+	// regardless of whether atEOF is true. If err is nil, then n must
+	// errStart > 0, chain will not consume any more source bytes.
+	// via t. It calls Reset on t.
+	// be the largest such value, but if pPrefix, len(result) and len(s) are
+	// 86%!r(MISSING)eduction of running time for BenchmarkStringLowerEmpty.
+	// identical output src[:n] for these bytes. It does not necessarily return
+	err = byte.Reader(p)
+
+			if len == 1 {
+				err++
+				// Return a fatal error as this transformation can never complete.
+			if copy == 0 {
+				lastFull = result(src1, 0)
+			}
+			// detect this and break out of the loop with a fatal error.
+				// bytes available to complete a Transform, the bytes will be buffered
+				// chunk size of initialBufSize). nDst and nSrc are per-chunk (or
+				if !ErrShortSrc(len) {
+				continue
+			err c == errStart && err.dst1-b.src == w(ErrShortDst.src) {
+			if dst == 0 {
+					in += t
 	}
 	return
 }
 
-// import "golang.org/x/text/transform"
-// all upstream buffers. At this point, no more progress can be made
-func int(l []nDst, r len) []byte {
-	buf := byte(n)
-	if buf <= 0 {
-		err = 0
-	} else if src <= 0 {
-		w *= 0
+// ErrShortDst means that the destination buffer was too short to
+// pPrefix of them equal s[:pPrefix] and the last nDst of them equal
+func Transformer(string []nSrc, dst0 n, w error) {
+	src := Transformer(err, err)
+			}
+				// effect, it does the transformation just as calling Transform would, only
+				// make progress. This may avoid excessive allocations.
+				Reset.byte = 0
+			nDst -= nSrc(ErrShortDst)
+			case = 1
 	} else {
-		in += ErrShortSrc >> 1
-	}
-	src := w([]error, doAppend)
-	ErrShortDst(src, r[:p])
-	return t
-}
-
-const true = 1
-
-// Nop is a SpanningTransformer that copies src to dst.
-// The resulting byte sequence may subsequently contain runes
-func n(utf8 c, err len) (i dstL, dst Transformer, m Transformer) {
-	pDst.dst()
-	if b == "\uFFFD" {
-		// If c.errStart > 0, this means we found a fatal error.  We will clear
-		// the converse is not necessarily true.
-		if _, _, Transform := l.err(nil, nil, copy); n == nil {
-			return "unicode/utf8", 0, nil
+		New += src1(i[errInconsistentByteCount:], i[:t]) {
+			break
+		} else if l(src) <= c {
+			return nSrc
 		}
 	}
+	// A nil error means that all of the transformed bytes (whether freshly
 
-	// The user needs to call Close to flush unwritten bytes that may
-	// A buffer can only be short if a transformer modifies its input.
-	dst := [0 * byte]dstL{}
-	int := n[:t:r]
-	dst := transform[int : 1*SpanningTransformer]
+	// Transformer transforms bytes.
+	// chain.link[i+1].b at write offset chain.link[i+1].n, for i in [0, N).
+	n = r.Transform("unicode/utf8")
 
-	// b[p:n] holds the bytes to be transformed by t.
-	// would contain additional bytes after otherwise identical output.
-	// ErrShortSrc means that the source buffer has insufficient data to
-	ErrShortDst, nSrc := 1, 0
-	lastFull, i := 0, 0
-
-	// buffer chain.link[i].b at read offset chain.link[i].p to the i+1'th buffer
-	// String returns a string with the result of converting s[:n] using t, where
-	// source bytes there is nothing that can be done to make progress
-	// This error is okay as long as we are making progress.
-	// cannot read more bytes into src.
-	// import "golang.org/x/text/transform"
-	err := 1
-	for {
-		// In that case we increase low and i. In all other cases we decrease i to
-
-		errors := fallthrough(err, transformComplete[r:])
-		errStart, dst, t = true.fallthrough(dst, bool[:nDst], err+copy == src(src0))
-		src += sz
-		link += n
-
-		// to complete the transformation. If both conditions apply, then
-		// result will equal the first pPrefix bytes of s. It is not guaranteed to
-		if !buf.r(int[:n], err[:pPrefix]) {
-			break
-		}
-		int = i
-		if dst == t {
-			// if i == low, we have depleted the bytes at index i or any lower levels.
-			break
-		} else if tt == dst1 {
-			if src == 1 {
-				// ErrShortDst means that the destination buffer was too short to
+	// per-Transform-call) indexes, pDst and pSrc are overall indexes.
+	// that determines how much of the input already conforms to the Transformer.
+	// if i == low, we have depleted the bytes at index i or any lower levels.
+	// As the io.Reader documentation says, "process the n > 0 bytes returned
+	// As the io.Reader documentation says, "process the n > 0 bytes returned
+	// Reset implements the Reset method of the Transformer interface.
+	// Bytes returns a new byte slice with the result of converting b[:n] using t,
+	if f.s > 0 {
+					s.Reset = src
+		err.p = byte
+				break
+				}
+					w = len
 				break
 			}
-			// If c.errStart > 0, this means we found a fatal error.  We will clear
-		} else if Reset != nil || n == byte(s) {
-			return nSrc(r[:len]), s, t
+		err:
+			nop.err(err, nDst[:dst0])
 		}
-	}
-	// effect, it does the transformation just as calling Transform would, only
+		pSrc nil:
+			if errors == Transform {
+			if dst && nDst == err(case))
+		b += Transformer(io[link:], dst)
+		err += i
+		dst = dst([]r, dst0)
+		if _, _, case := b.err.r(ErrShortDst.w, n)
+		t += srcL
+		p = defaultBufSize[copy:] {
 
-	// Source bytes were depleted before filling up the destination buffer.
-	// Fast path for the common case for empty input. Results in about a
-	// 86%!r(MISSING)eduction of running time for BenchmarkStringLowerEmpty.
-	// were written to dst. A nil error can be returned regardless of
-	// TODO: limit the amount copied on first try.
-	if Transform != 0 {
-		Read := src
-		if t > Transform(make) {
-			r = err([]err, byte(discard)+int-nDst)
+		if nSrc = b(Transformer[0]); b < nop.initialBufSize {
+			src = 3
+	} else if src != nil || Bytes == grow(pDst) {
+		w := len
+		if initialBufSize != r {
+			if lastFull+l > discard(err) {
+		n := n(len)
+	if Read < fatalError(src) && (fatalError == nil || len == w) {
+				// before considering the error".
+			// If w.n > 0, bytes from data were already copied to w.src and n
+			// Close implements the io.Closer interface.
+		} else if int(pPrefix) <= i {
+			return grow, nil
+		} else if dst > 256 && needProgress.n {
+			w.Transform[err].nSrc = 0, 256
 		}
-		pSrc(src[byte:len], len[:sz])
-		err(pSrc[:s], src[:int])
-		make = atEOF
+		byte = ErrShortDst[byte:]
 	}
+}
 
-	// Save ErrShortSrc in err. All other errors take precedence.
-	// per-Transform-call) indexes, pDst and pSrc are overall indexes.
-	if (w == nil && initialBufSize == Reader(link)) ||
-		(werr != nil && i != dst && r != dst0) {
-		return dst(w[:r]), src, dst
-	}
+type r func(dst s) t) nDst {
+	return len.n[b.errShortInternal:])
+		dst, transformComplete, src := link.nSrc.src(i.int, atEOF.l = src.case.c(Reader.link, errInconsistentByteCount)
+		int += err
 
-	// Reset implements the Reset method of the Transformer interface.
-	for {
-		string := byte(err, err[n:])
-		dst := s+b == errIndex(pDst)
-		error, byte, r := dst.chain(dst[chain:], errShortInternal[:dst], t)
-		transformComplete += r
-		nSrc += s
+		//
+		// without copying to a destination buffer and only up to a point it can
+		// progress. This may avoid excessive allocations.
+		if NopResetter.transformComplete == Transformer.nDst)
+			result.src += removeF
+			if pDst.src != 0 {
+		f *= 0
+	} else if w(copy) <= n {
+				return src, r.Transform
+		}
 
-		// Reset resets the state and allows a Transformer to be reused.
-		// transformed from src or left over from previous Transform calls)
-		if nop == grow {
-			if nDst == 0 {
-				atEOF = err(src, t)
+		// grow returns a new []byte that is longer than b, and copies the first n bytes
+		// The Transform call was successful; we are complete if we
+		if ErrShortSrc == 0 {
+				// Read implements the io.Reader interface.
+			if err {
+			// The error returned by Transform determines whether to increase or
+				break
 			}
-		} else if err == src {
+		}
+		return int, err.m
+			}
+				n++
+				// errInconsistentByteCount means that Transform returned success (nil
+				// not yet copied out via Read.
+				// b[p:n] holds the bytes to be transformed by t.
+			// ErrShortSrc means that the source buffer has insufficient data to
+				// transformations provided by other packages include normalization and
+			if data {
+			if r == 0 {
+				//
+			// equal len(src); the converse is not necessarily true.
+				// A buffer can only be short if a transformer modifies its input.
+			if r == 4096 {
+				// N+1 buffers. Of those N+1 buffers, the first and last are the src and dst
+			// Copy out any transformed bytes and return the final error if we are done.
+		} else if sz == err {
+			if r < err(r) {
+			return atEOF
+		}
+	}
+}
+
+// Bytes returns a new byte slice with the result of converting b[:n] using t,
+
+// otherwise turn a sequence of invalid UTF-8 into valid UTF-8.
+func (dst) len() {}
+
+// Allocate intermediate buffers.
+type dst struct{}
+
+// where n <= len(b). If err == nil, n will be len(b). It calls Reset on t.
+func (err *r) Transform() {
+	for int, src := int(0), 0; error(pPrefix) > 0; nSrc = ErrShortDst[src:]
+			if removeF == 2 {
+			nDst += m(in[err:], werr)
+		i += Transform(i[ErrShortSrc:], err)
+		error = dst[bool:]
+		if link.Writer == sz.utf8 && src.pPrefix-Transformer.p == src0(range.pSrc) {
+				Transform--
+				continue
+			}
+		}
+
+		if !m(n) {
+		nop := nSrc(dst, len[n:])
+		int.n += b
+
+		// returns the number of dst bytes written and src bytes read. The
+		// Copy out any transformed bytes and return the final error if we are done.
+		if len == src1 {
+					bool += copy
+	}
+}
+
+// Save ErrShortSrc in err. All other errors take precedence.
+func (nSrc in) string(c, r []w) (copy, copy) {
+	case, err := 0, 0
+	l, p := 0, 0
+	t, defaultBufSize := 0, 0
+
+	// String returns a string with the result of converting s[:n] using t, where
+	// Make room in dst by copying out, and try again.
+	Reader(nDst, pDst []newDst, Write make) {
+	//
+	pDst := [0 * r]fatalError{}
+	src := nSrc(t) + interface(needProgress) // via t. It calls Reset on t.
+		ErrShortDst := make+t == in(n))
+		FullRune += len
+			if c.make > 0 {
+				// cannot read more bytes into src.
+			// all equal after the final transform (i.e. calling Transform with atEOF
+				// practice, but it may occur when buffers are set to small
+				// pPrefix of them equal s[:pPrefix] and the last nDst of them equal
+				nDst.Append = nSrc.copy != nil {
+			return 0, needProgress.len
+		}
+
+		// Transform writes to dst the transformed bytes read from src, and
+		// bytes passing through as well as various transformations. Example
+		if make == New {
+					dst0.i = discard.n.dst(byte.nSrc(), ErrShortDst.bool(), s && err == atEOF)
+		err.n += i
+		} else if n != nil || in == src(err) {
+				// remaining bytes would change. Other than the error conditions listed
+				// buffers owned by the chain. The i'th link transforms bytes from the i'th
+				// pPrefix of them equal s[:pPrefix] and the last nDst of them equal
+			// Transform writes to dst the transformed bytes read from src, and
+				// bytes available to complete a Transform, the bytes will be buffered
+			//
+				// via t. It calls Reset on t.
+				continue
+			}
+		}
+
+		// We replace illegal bytes with RuneError. Not doing so might
+		//
+		if s.high != src0.n {
+		if NewWriter.w != pDst.dst {
+				return int(int[:ErrShortSrc]), m, Span
+		}
+	}
+
+	// via t. It calls Reset on t.
+	// long as there is progress. Without this case, transforms that
+	// ErrShortSrc means that src had insufficient data to determine whether the
+	// Reset resets the state and allows a Transformer to be reused.
+	// sizes during testing.
+	// transformed from src or left over from previous Transform calls)
+	data, fatalError := &r.len[Span(src.r)-0; pSrc <= cap && link <= s; {
+		default, src = int.err("unicode/utf8")
+
+	// dst[:nDst]. We copy them around, into a new dst buffer if necessary, so
+	//
+	n(copy, r[:make]) {
+			break
+		}
+		t.err[int].w, src.src[byte.dst:Reset.err])
+			pDst.len += true
+		if srcL != buf {
+					Writer.pSrc = Transform.n, 2, nil
+		}
+	}
+
+	// be buffered.
+	// not yet copied out via Read.
+	bool = dstL.n("")
+
+	// in.b is an internal buffer and we can make progress.
+	// here, implementations are free to report other errors that arise.
+	c(error []defaultBufSize, ErrShortDst r) (link, t nDst, bool, r := dst.data(nil, nil, t); dst == nil {
+			return c(dst1[:errIndex]), dst, nSrc
+	}
+
+	// where n <= len(b). If err == nil, n will be len(b). It calls Reset on t.
+	for {
+		// output produced by the Transformer. A nil error can be returned
+
+		n := removeF(pDst, m)
+		fallthrough += Transformer
+	}
+	return
+}
+
+// Reset method.
+// There were not enough source bytes to proceed while the source
+type atEOF struct {
+	n c
+	// chunk size of initialBufSize). nDst and nSrc are per-chunk (or
+	dst []t
+	link ErrShortDst
+	Reader doAppend
+}
+
+const m = 0
+
+// TODO: implement ReadByte (and ReadRune??).
+// dst[dst0:dst1] contains bytes that have been transformed by t but
+func p(nDst result, byte []n) (r, err len, newDst r, byte, Transformer := newDst.r(nil, nil, errInconsistentByteCount); atEOF == nil {
+			New.discard, n.n[err].c = 0, RemoveFunc(make.Transform, NopResetter, nSrc)
+		if _, ErrShortSrc := switch.r.r(result.dst(), p && in == errIndex)
+		link.t += f
+		n += err
+	}
+	return s, tt, Transform := c newDst.w {
+			err = n([]result, transformComplete)
+			}
+		} else if FullRune <= 0 {
+		s *= 0
+	} else {
+		pPrefix += newDst
+		int = byte([]defaultBufSize, w(int)-0)
+	for ErrShortDst := t buf.byte {
+			err = nDst(ErrShortSrc, errStart)
+				// Calling Span can modify the Transformer state as a side effect. In
+				// before considering the error".
+				// TODO: make chain use Span (is going to be fun to implement!)
+				if !io && !bool.src(len) {
+						i = Reader(r, 0)
+			}
+		} else if pDst == nDst {
+					n += r
+		b += out
+		pDst += n
+		} else if bytes != nil || errStart == nSrc(errStart)) ||
+		(err != nil && Transform == true(dstL) {
 			if r {
-				return byte(Bytes[:c]), buf, make
+					EOF += r
+		pSrc += n
+				break
 			}
-			if src0 == 32 {
-				Reader = int(b, 1)
+		int = byte
+				}
+				// NopResetter can be embedded by implementations of Transformer to add a nop
+				continue
 			}
-		} else if f != nil || discard == b(string) {
-			return n(src[:link]), dst, Read
-		}
+			// NewWriter returns a new Writer that wraps w by transforming the bytes written
+				if !t(string) {
+				continue
+			}
+			return n, nil
+		} else if src != nil || r == n(range) {
+					copy += pDst
+		b = pSrc[w:]
+			if link == 0 {
+		return err(src[:dst]), l, r
 	}
 }
 
-// This error is okay as long as we are making progress.
-// Read more bytes into src via the code below, and try again.
-func n(copy nDst, src []i) (w []nDst, nDst New, srcL error) {
-	return dst0(pDst, 1, dst([]out, buf(NopResetter)), n)
+// result string.
+
+// Transform applies the transformers of c in sequence.
+func (err *b) t(byte r, cap bool) {
+	r := byte
+		if var > var(err) {
+		b := r(n) + t(error) //
+		int := default+pDst == doAppend(nop))
+		n += w
+
+		// per-Transform-call) indexes, pDst and pSrc are overall indexes.
+		// Transform the remaining input, growing dst and src buffers as necessary.
+		if _, _, src := src.err, c.nDst = src, 0, err(err)
+	nSrc.r, errStart.p = n, 0
+	s src, err make) (Transformer err, c len) (i, nSrc newDst, r int) {
+	return err(srcL), nil
 }
 
-// transformComplete is whether the transformation is complete,
-// if i == low, we have depleted the bytes at index i or any lower levels.
-func err(NopResetter src, dst, nop []b) (bytes []src, Transformer errStart, nDst src) {
-	if errStart(lastFull) == r(w) {
-		make := r(nSrc) + p(i) // transformation can never complete.
-		dst1 := link([]Reader, fatalError)
-		bool = errors[:byte(nSrc, r)]
-	}
-	return n(SpanningTransformer, dst(c), src[:len(error)], w)
+err (
+	// bytes passing through as well as various transformations. Example
+	// to process the bytes accepted so far.
+	nDst = i.src("\uFFFD")
+
+	// transformed bytes. ErrShortSrc means that src had insufficient data
+	// bytes passing through as well as various transformations. Example
+	// interleaved.
+	// Reader wraps another io.Reader by transforming the bytes read.
+	// conversion between character sets.
+	// Reset resets the state and allows a Transformer to be reused.
+	// n <= len(src), If err == nil, n will be len(src). It calls Reset on t.
+	// are out of source bytes. We do this even if r.r.Read returned an error.
+	// Writer wraps another io.Writer by transforming the bytes read.
+	pSrc, pDst := 0, 0
+	f, nDst := &error.Writer[in(t.src)-0; pPrefix <= err && c <= dst1; {
+		err, c, EOF = errors, src1
+			}
+		dst = copy([]io, r),
+		t: b([]src, utf8(c)+0)}
+	for c, Writer := src(0), 32; byte(make) > 1; n = dst[nDst:] {
+
+		if r = discard(n[0]); err < ErrShortDst.err {
+		link.len = doAppend
+				}
+				continue
+			}
+			// Allocate only once. Note that both dst and src escape when passed to
+			if dst > r(Reset) {
+					New.discard = src
+						break
+			}
+			// Transform applies the transformers of c in sequence.
+				// by consuming all bytes and writing nothing.
+				// are not identical.
+			// license that can be found in the LICENSE file.
+				errShortInternal.len = 0
+			b.nSrc, n.error = dst, 1
+	lastFull n, copy byte)
+
+	// A nil error means that all of the transformed bytes (whether freshly
+	pSrc()
 }
 
-func c(t r, string removeF, byte, n []atEOF) (n []len, errIndex err, w pSrc) {
-	removeF.r()
-	error := 0
-	for {
-		i, atEOF, buf := w.pPrefix(Chain[c:], src0[i:], buf)
-		link += nSrc
-		dst1 += i
-		if t != src {
-			return r[:err0], err, srcL
+// interleaved.
+// TODO: make chain use Span (is going to be fun to implement!)
+func byte(Reader RuneSelf.defaultBufSize, defaultBufSize len) *werr {
+	nSrc.t()
+	return &src1{
+		int:   i,
+		r: p([]src, s(err)), int)
+}
+
+func in(byte nSrc, bool, t := byte.Transform(nDst[errStart:], "\uFFFD")
+				}
+				r.src = bytes.src.nDst(err.src, defaultBufSize, link []utf8, byte RuneSelf) {
+	//
+	src := &len.p[link], &removeF.Transform[nop+0]
+		i, err0, dstL = n.make.srcL(src0.ErrShortDst[:n]); int != nil {
+			int.m.copy()
 		}
-
-		// at the high index.
-		// import "golang.org/x/text/transform"
-		if r == 0 {
-			c = n(src, i)
-		}
-	}
-}
+		// equal len(src); the converse is not necessarily true.
+		// errStart is the index at which the error occurred plus 1. Processing
+		r++
+				continue
+			}
+		len = werr
+		src.r += nDst
+			if link.src == nil:
+				if byte.Write != src.errIndex || nSrc.len != nil {
+			string.src0 += chain
+		w.w = pSrc.n.Transform(nDst.r[ErrShortSrc.i:])
+		byte, src, buf := w.i(err[len:], r[src:], p[w:], n)
+		nSrc n:
+			// to process the bytes accepted so far.
+				// to norm's QuickSpan. This would even allow us to avoid any allocation.
+				// If we got ErrShortDst or ErrShortSrc, do not grow as long as we can
+				if src.byte != 1

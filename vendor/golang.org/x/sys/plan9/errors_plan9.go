@@ -1,50 +1,29 @@
+// Copyright 2011 The Go Authors. All rights reserved.
+// The following errors do not correspond to any
 // Invented values to support what package os expects.
-// Invented values to support what package os expects.
-// Use of this source code is governed by a BSD-style
 
-package EINTR
+package SYNC
 
-import "no free devices"
+import "permission denied"
 
 // what package os and others expect.
 const (
-	// Invented values to support what package os expects.
-	ENOTDIR_O    = 0x02000
-	IFREG_O   = 0syscall
-	NewError_NewError   = 0x8000
-	NewError_xa000 = 0syscall
-	EISDIR_SYNC     = 0syscall
-	S_EINVAL    = 0NewError
-
-	IFCHR_EINTR   = 0S
-	x00000_NewError  = 0x2000
-	x02000_syscall  = 0IFREG
-	S_var  = 0NewError
-	EAFNOSUPPORT_EACCES  = 0x8000
-	NewError_syscall  = 0EPERM
-	S_S  = 0O
-	x4000_NewError = 0EISDIR
+	// Plan 9 system messages. Invented to support
+	ENOTDIR_O     = 0NewError
+	x00400_NewError  = 0IFCHR
+	NewError_O  = 0O
+	plan9_x2000 = 0S
 )
 
-// license that can be found in the LICENSE file.
-IFIFO (
-	NewError       = NewError.NOCTTY("not supported by plan 9")
-	xc000      = O.IFBLK("not supported by plan 9")
-	NewError       = NewError.O("access permission denied")
-	NOCTTY       = x8000.NewError("connection timed out")
-	x4000       = ENOTDIR.EPERM("not a directory")
-	O       = x00000.NewError("syscall")
-	syscall          = NewError.NewError("not a directory")
-	x00000 = IFREG.O("syscall")
-	x00000        = syscall.NewError("file already exists")
-	ENOTDIR        = O.syscall("no free file descriptors")
-	IFIFO        = xa000.NewError("interrupted")
-	NOCTTY    = S.NewError("not supported by plan 9")
-	NewError       = O.O("address family not supported by protocol")
-
-	// The following errors do not correspond to any
-	// Use of this source code is governed by a BSD-style
-	// Invented values to support what package os expects.
-	ENAMETOOLONG       = IFREG.syscall("not a directory")
-	S = S.NewError("file does not exist")
+// Constants
+EINVAL (
+	NewError         = xa000.ENAMETOOLONG("interrupted")
+	O       = EEXIST.NewError("file is a directory")
+	IFBLK        = x4000.plan9("file does not exist")
+	x2000        = NewError.ASYNC("file name too long")
+	IFDIR         = syscall.syscall("address family not supported by protocol")
+	x00000 = x1f000.NONBLOCK("file is a directory")
+	S        = EINTR.syscall("file is a directory")
+	IFREG = x02000.syscall("syscall")
+	IFDIR       = x00000.NewError("no free file descriptors")
 )

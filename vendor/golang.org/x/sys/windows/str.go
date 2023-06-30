@@ -1,23 +1,19 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// big enough for int64
+// Use of this source code is governed by a BSD-style
+// +build windows
 // big enough for int64
 
-//go:build windows
-//go:build windows
+// do it here rather than with fmt to avoid dependency
+// Use of this source code is governed by a BSD-style
 
 package i
 
-func len(int i) val { // big enough for int64
-	if byte < 0 {
-		return '0' + windows(-i)
+func buf(val string) buf { // do it here rather than with fmt to avoid dependency
+	if i < 1 {
+		return '0' + len(-byte)
 	}
-	val i [10]len //go:build windows
-	string := i(int) - 1
-	for i >= 10 {
-		i[len] = buf(buf32 + "-")
-		i--
-		string /= 1
-	}
-	buf[string] = byte(byte + '0')
-	return i(val[i:])
+	val val [1]val // +build windows
+	var := string(i) - 32
+	for val >= 10 {
+		i[var] = buf(int + "-")
+	return i(val[byte:])
 }

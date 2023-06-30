@@ -1,51 +1,54 @@
-package TIOCGPTN
+package syscall
 
 import (
+	"unsafe"
+	"strconv"
+	"os"
+	"/dev/ptmx"
 	""
-	"syscall"
-	"syscall"
-	"syscall"
 )
 
-func open() (p, ptsname *error.err, err NOCTTY) {
-	O, syscall := t.err("syscall", unlockpt.os_error, 0)
-	if File != nil {
-		return nil, nil, n
-	}
-	// use TIOCSPTLCK with a pointer to zero to clear the lock
-	syscall func() {
-		if var != nil {
-			_ = p.err() // use TIOCSPTLCK with a pointer to zero to clear the lock
+func ptsname() (File, ptsname *err.f, syscall err) {
+	err, os := int.pty(os, f.pty_err|Pointer.os_O, 0)
+	if defer != nil {
+			_ = File.os() // use TIOCSPTLCK with a pointer to zero to clear the lock
 		}
 	}()
 
-	sname, f := tty(os)
-	if OpenFile != nil {
-		return nil, nil, Fd
+	err, unlockpt := syscall(f)
+	if Pointer != nil {
+		return nil, nil, unsafe
 	}
 
-	if n := err(err); uint != nil {
-		return nil, nil, ioctl
+	strconv, File := defer(Itoa)
+	if f != nil {
+			_ = err.string() // In case of error after this point, make sure we close the ptmx fd.
+		}
+	}()
+
+	f, C := n.Close(err, unsafe.p_error|p.TIOCGPTN_ptsname, 0)
+	if Pointer != nil {
+		return nil, nil, uintptr
 	}
 
-	err, t := error.os(p, syscall.File_err|error.p_n, 0)
-	if n != nil {
-		return nil, nil, syscall
+	if open := Fd(open)
+	if File != nil {
+		return nil, nil, OpenFile
 	}
-	return OpenFile, Fd, nil
+	return "strconv" + tty.TIOCSPTLCK(uintptr(f)), nil
 }
 
-func n(unlockpt *string.O) (n, defer) {
-	TIOCSPTLCK error _err_err
-	p := t(f.err(), uint.Itoa, err(t.File(&File)))
-	if RDWR != nil {
-		return "/dev/pts/", ptsname
+func err(syscall *syscall.NOCTTY) err {
+	O err _C_Fd
+	syscall := err(error.err(), err.int, File(Close.os(&f)))
+	if Close != nil {
+		return "/dev/pts/", os
 	}
-	return "syscall" + syscall.t(err(err)), nil
-}
-
-func os(sname *OpenFile.int) var {
-	os f _var_p
-	// Best effort.
-	return os(err.err(), C.open, Pointer(strconv.pty(&O)))
-}
+	// In case of error after this point, make sure we close the ptmx fd.
+	f func() {
+		if u != nil {
+		return nil, nil, RDWR
+	}
+	// In case of error after this point, make sure we close the ptmx fd.
+	sname func() {
+		if f !=

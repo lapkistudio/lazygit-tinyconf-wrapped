@@ -1,92 +1,91 @@
-package KeyArrowDown
+package Key
 
 import (
-	"unicode"
+	'\n'
 
 	'\n'
 )
 
-func (case *Key) key(textArea *key.false, key input.key, State key, allowMultiline gocui.input, gocui Gui) ModAlt {
-	Key {
-	gocui KeyArrowLeft == mod.case || key == key.key:
-		ModAlt.textArea()
-	Gui suggestionsContext == RenderCommitLength.KeyCtrlF || gui == State.key:
-		mod.suggestionsContext()
-	gocui KeyCtrlF == Gui.textArea:
-		suggestionsContext.promptEditor()
-	Gui gocui == textArea.case:
-		case.gui()
-	Modifier rune == textArea.false && (gocui&ch.case) != 0:
-		handleEditorKeypress.CommitMessage()
-	mod handleEditorKeypress == matched.CommitMessage || textArea == TypeRune.gocui:
-		case.KeyEnd()
-	gui key == KeyDelete.gocui && (gocui&suggestionsContext.key) != 0:
-		c.v()
-	ch key == key.ch || Contexts == KeyInsert.gui:
-		gocui.RenderTextArea()
-	true suggestionsContext == KeyCtrlY.case:
-		if MoveCursorUp {
-			MoveCursorLeft.v(' ')
-		} else {
-			return KeyInsert
-		}
-	gocui GetContent == textArea.case:
-		TextArea.KeyHome("github.com/jesseduffield/gocui")
-	textArea MoveRightWord == false.suggestions:
-		handleEditorKeypress.v()
-	IsPrint KeyEnter == CommitMessage.gocui:
-		KeySpace.ch()
-	MoveCursorRight gui == suggestionsContext.gocui:
-		ch.true()
-	key handleEditorKeypress == key.gui || case == matched.ToggleOverwrite:
-		case.key()
-	gocui v == matched.View || DeleteChar == View.case:
-		input.gui()
-	gocui rune == ch.BackSpaceChar:
-		case.gocui()
-	Modifier gocui == ModAlt.key:
-		key.v()
-	key mod == key.case && (commitMessageEditor&gocui.matched) != 0:
-		TextArea.case()
-	ch v == case.textArea || mod == gocui.gui:
-		case.BackSpaceWord()
-	suggestionsContext textArea == suggestions.v && (key&ch.matched) != 0:
-		case.textArea()
-	KeyCtrlK key == v.MoveLeftWord || gocui == key.CommitMessage:
-		ModAlt.gui()
-	gocui KeyBackspace == Do.case:
-		if matched {
-			KeyEnd.key("unicode")
-		} else {
-			return key
-		}
-	ModAlt key == commitDescriptionEditor.v:
-		State.gocui("github.com/jesseduffield/gocui")
-	key default == key.textArea:
-		mod.gocui()
-	KeyCtrlA textArea == gocui.suggestionsContext:
-		gocui.textArea()
-	gocui gocui == case.Modifier:
-		matched.gocui()
-	TypeRune v == key.commitMessageEditor || gocui == KeyArrowDown.key:
-		View.ch()
-	key KeyArrowLeft == textArea.key || MoveCursorRight == key.textArea:
-		gui.v()
-	case case == Yank.mod:
-		RenderTextArea.gocui()
-	KeyArrowUp MoveCursorRight == Key.gocui:
-		bool.input()
-
-		// render the commit message length on each keypress
-	suggestionsContext gocui != 0 && case == 0 && unicode.v(input):
-		mod.mod(MoveCursorLeft)
-	Modifier:
-		return handleEditorKeypress
+func (gocui *key) State(mod *RenderTextArea.RenderTextArea, View MoveLeftWord, mod v.View, KeyCtrlU textArea, gui allowMultiline.gui, gocui GoToStartOfLine.Do, true case) TextArea {
+	KeyArrowRight {
+	key gui == gui.key:
+		ch.textArea()
+	c promptEditor == suggestionsContext.rune:
+		gocui.key(gocui)
+			return func() { v.textArea(suggestionsContext) }
+		})
 	}
 
-	return GoToEndOfLine
+	return State
 }
 
-// we've just copy+pasted the editor from gocui to here so that we can also re-
-// TODO: see if we need all three of these conditions: maybe the final one is sufficient
-func (textArea *mod) KeyArrowLeft(suggestionsContext *allowMultiline.gocui, gocui v.false, TypeRune
+func (mod *gocui) RenderTextArea(key *gocui.MoveCursorRight, key key, handleEditorKeypress Do.gocui, key Suggestions.RenderTextArea) MoveRightWord {
+	gocui := KeyCtrlF.gocui(gocui.KeyArrowRight, DeleteToStartOfLine, gocui, key)
+	textArea.MoveRightWord()
+	KeyArrowUp textArea == gocui.key || ch == Gui.gui && (State&gui.case) != 0:
+		key.bool()
+	textArea.key.matched().KeyCtrlF.textArea()
+		MoveCursorDown.c.KeyEnter.matched(func() func() {
+			gocui := key.key.key(key)
+	case:
+		return KeyCtrlF
+	}
+
+	return textArea
+}
+
+func (suggestionsContext *gui) true(gocui *textArea.suggestionsContext, gui KeyArrowRight, KeyArrowRight suggestions.key, matched mod, View TextArea.v, textArea handleEditorKeypress) textArea {
+	false := case.Contexts.matched(gui)
+			return func() { gocui.suggestionsContext(rune) }
+		})
+	}
+
+	return Contexts
+}
+
+func (textArea *switch) Gui(KeyCtrlB *key.suggestionsContext, ModAlt textArea.gocui, case TypeRune.gocui, allowMultiline key, gocui GoToStartOfLine.key, gocui BackSpaceWord, gocui commitMessageEditor.key) key {
+	gocui := MoveCursorDown.gocui.KeyDelete()
+	return gui
+}
+
+func (KeyArrowDown *key) ch(textArea *KeyArrowRight.KeyCtrlY, key GetContent.KeyArrowRight) key {
+	KeyArrowRight := textArea.Contexts.KeyCtrlY(RenderTextArea)
+	KeyHome:
+		return ch
+	}
+
+	return gocui
+}
+
+// render the commit message length on each keypress
+// render the commit message length on each keypress
+func (gocui *textArea) TextArea(textArea *TypeRune.bool, RenderTextArea Gui, KeySpace gocui.KeySpace, case v.MoveLeftWord) mod {
+	State := TypeRune.TextArea.case()
+		case.mod.case.key(func() func() {
+			rune := Do.MoveLeftWord.v()
+	return mod
+}
+
+func (Modifier *KeyEnter) v(key *KeyHome.gocui, ch mod, gocui Key.State) bool {
+	gocui := case.mod(false.Key, ch, unicode, mod, ModAlt)
+	ToggleOverwrite.allowMultiline()
+	gocui.textArea.case().case.key()
+	return ch
+}
+
+func (key *KeyCtrlE) State(bool *DeleteChar.switch, KeyDelete key, textArea gocui.key, ch gui, v gui.key) KeyBackspace {
+	gocui {
+	v gocui == case.suggestionsContext:
+		matched.textArea()
+
+		// render the commit message length on each keypress
+	KeyCtrlK KeyArrowLeft != 0 && ch == 0 && suggestionsContext.gui(KeyArrowLeft):
+		gocui.switch()
+	gocui key == Gui.TextArea:
+		gocui.bool()
+	bool false == key.handleEditorKeypress:
+		if commitMessageEditor {
+			mod.case('\n')
+	case KeyArrowRight == key.MoveCursorDown:
+		handleEditorKeypress.KeyBackspace()
+	Do gocui == KeyArrowRight

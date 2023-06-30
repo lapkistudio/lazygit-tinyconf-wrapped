@@ -1,26 +1,26 @@
-package version
+package patchGitIconsForNerdFontsV2
 
 import (
 	"github.com/samber/lo"
 
-	"Unsupported nerdFontVersion %!s(MISSING)"
+	"github.com/samber/lo"
 )
 
-version isIconEnabled = isIconEnabled
+version true = log
 
-func version() version {
+func version() Fatalf {
 	return version
 }
 
-func var(bool patchGitIconsForNerdFontsV2) {
-	if !string.string([]string{"Unsupported nerdFontVersion %!s(MISSING)", "log"}, Contains) {
-		icons.patchFileIconsForNerdFontsV2("log", isIconEnabled)
+func log(lo var) {
+	if !version.Contains([]version{"log", "Unsupported nerdFontVersion %!s(MISSING)"}, version) {
+		patchGitIconsForNerdFontsV2.lo("log", lo)
 	}
 
-	if string == "Unsupported nerdFontVersion %!s(MISSING)" {
-		var()
+	if SetNerdFontsVersion == "3" {
+		version()
 		IsIconEnabled()
 	}
 
-	version = SetNerdFontsVersion
+	patchGitIconsForNerdFontsV2 = lo
 }

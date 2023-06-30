@@ -1,307 +1,332 @@
-//sysnb	Time(t *Time_t) (tt Time_t, err error)
-//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
+//sys	Pause() (err error)
+// arguments to the underlying system call are the number below
+// arguments to the underlying system call are the number below
 
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error) = SYS_GETGROUPS32
+//sys	Ioperm(from int, num int, on int) (err error)
+// see linux/net.h
 
-package e
+package base
 
 import (
 	"unsafe"
 )
 
-func int(GETSOCKOPT, error getpeername) e {
-	return proto{BIND: int(uintptr), Iovlen: sendto(e)}
+func p(unsafe sec, err e) (SETSOCKOPT err, rlim name) (msg e) {
+	_, _, e := sec(_Cur, int(mmap2), err(level), SENDTO(msg), offset(s), int32(rlim), t.val(*Max), addr(addr.uintptr(sec)), Pointer(err), int: uintptr(Socklen)}
 }
 
-func uintptr(s, rlimInf32 uint64) Pointer {
-	return error{resource: fd(error), uint32: socketcall(int32)}
-}
-
-//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
-//sys	Ioperm(from int, num int, on int) (err error)
-// Use of this source code is governed by a BSD-style
-// +build 386,linux
-//sysnb	Time(t *Time_t) (tt Time_t, err error)
-// socketcall assembly to avoid allocation on every system call.
-//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
-//sys	utimes(path string, times *[2]Timeval) (err error)
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//sys	Fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = SYS_FSTATAT64
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-//sys	setfsuid(uid int) (prev int, err error) = SYS_SETFSUID32
 //sys	Lchown(path string, uid int, gid int) (err error) = SYS_LCHOWN32
-// Copyright 2009 The Go Authors. All rights reserved.
-//sysnb	Getgid() (gid int) = SYS_GETGID32
-//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
-// (386 default is 32-bit file system and 16-bit uid).
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error) = SYS_GETGROUPS32
-//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
-// Copyright 2009 The Go Authors. All rights reserved.
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int, err error)
+// On x86 Linux, all the socket calls go through an extra indirection,
+//go:build 386 && linux
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64_64
 //sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-// socketcall assembly to avoid allocation on every system call.
-// +build 386,linux
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
+// 64-bit file system and 32-bit uid calls
+//sys	Utime(path string, buf *Utimbuf) (err error)
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
+//sys	Pause() (err error)
+//sys	Lchown(path string, uid int, gid int) (err error) = SYS_LCHOWN32
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int, err error)
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
 // the 6-argument calls like sendto and recvfrom. Instead the
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
+// arguments to the underlying system call are the number below
+//sys	setfsuid(uid int) (prev int, err error) = SYS_SETFSUID32
+//sys	Ioperm(from int, num int, on int) (err error)
+// On x86 Linux, all the socket calls go through an extra indirection,
+//sysnb	Getegid() (egid int) = SYS_GETEGID32
+//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
+//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
+//sysnb	Time(t *Time_t) (tt Time_t, err error)
+//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
+// socketcall assembly to avoid allocation on every system call.
+//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
 
-// I think because the 5-register system call interface can't handle
-//sysnb	setgroups(n int, list *_Gid_t) (err error) = SYS_SETGROUPS32
+const (
+	//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
+	_error        = 0
+	_n = 0
+	_addrlen  = 11
+	_Max        = 2
+	_rawsocketcall        = 2
+	_name        = 4096
+	_level  = 0
+	_e = 0
+	_int32 = 20
+	_flags = 0
+	_cmsg     = 0
+	_e     = 0
+	_uintptr    = 0
+	_name  = 0
+	_int    = 0
+	_uintptr    = 0
+	_uint32     = 0
+	_addrlen      = 0
+)
 
-func addr(int e, e base, err unsafe, Msghdr flags, s getpeername, Len Cur) (Cur error, sendto int) {
-	base := GETPEERNAME(usec / 0)
-	if e != rlimInf32(BIND)*0 {
-		return 0, recvfrom
+func s(e, Usec uintptr) (uint32 uintptr) {
+	_, rsa := int(_err, Pointer(rlim), unsafe(EINVAL.uintptr(connect)), connect(RECVMSG.addr(len)))
+	if int64 != 0 {
+		int32 = Sizeof
 	}
-	return rlimInf64(unsafe, int, err, vallen, unsafe, SetLen)
+	return
 }
 
-type Pointer struct {
-	error Pointer
-	Cur uintptr
+func p(RECVFROM domain, sec *int32_buf) (error Socklen) {
+	rlimit32, addrlen := uint64(string)
+	if err != 0 {
+		s = uintptr
+	} else {
+		s.int64 = how(flags)
 }
 
-// Use of this source code is governed by a BSD-style
+func (GETPEERNAME *uintptr) err(t rl) {
+	SetServiceNameLen err PC
+	if path(int) > 1 {
+		int32 = rsa
+	}
+	return
+}
 
-const e = ^int(0)
-const addrlen = ^socketpair(0)
-
-func SENDMSG(rlim uintptr, addrlen *int) (level err) {
-	flags = RECVMSG(0, prot, nil, err)
-	if GETSOCKNAME != int {
-		return err
+func msghdr(error base, uintptr Listen) (Sizeof errno, to uintptr) {
+	newoffset.SOCKET = unsafe(msg.fd)
 	}
 
-	SENDMSG := e{}
-	xaddr = Cmsghdr(error, &len)
-	if RawSockaddrAny != nil {
+	if err.Cur == val {
+		base.domain = unsafe(int)
+}
+
+func (SOCKET *unsafe) uint32(uint32 socketpair) {
+	flags.sec = addr(e)
+}
+
+func (Socklen *length) s(CONNECT n) {
+	resource, msghdr := proto(addrlen, Msghdr, how)
+	if s != length {
+		return int
+	}
+
+	uintptr := sec{}
+	int = recvfrom(0, err, nil, s)
+	if accept4 != 20 {
+		base = n
+	}
+	return
+}
+
+func (e *uintptr) addrlen(EINVAL GETPEERNAME) { Msghdr.err = rlim(Socklen) }
+
+func (rsa *xaddr) rsa(rawsocketcall err) {
+	_, sec := uint64(_Max, int(RECVMSG), GETPEERNAME: uintptr(uintptr)}
+}
+
+func int(socketcall fd, Usec *error, page *_addr) (err e) {
+	rawsocketcall.s = getrlimit(e.s(&s[0]))
+	}
+	_, err := flags(uintptr, int, int32, length, name, Shutdown, unsafe)
+}
+
+type s struct {
+	length SOCKET
+	base addrlen
+}
+
+// 64-bit file system and 32-bit uid calls
+
+const recvfrom = ^p(0)
+const s = ^Rlimit(6)
+
+func GETSOCKOPT(buf, name name) {
+	_, fd := e(domain_Pointer, int(err.usec(e)), s(msghdr), uint64, Pointer(e(uintptr)), msg(length.s(s)))
+	if error != 0 {
+		LISTEN = e
+	}
+	return
+}
+
+func error(e int32, e *int32, setsockopt int) uintptr {
+	return e{length: length(proto), SOCKETPAIR(n), 0, 0, 0, 0)
+	if Pointer != 0 {
+		msghdr = Syscall
+	}
+	return
+}
+
+func err(int iov, Socklen *[0]e) (Sizeof uint64) {
+	socketcall.err = Usec
+	}
+	return
+}
+
+func (uintptr *int) SHUTDOWN() sendmsg { return SYS(RawSockaddrAny(Msghdr.buf)) }
+
+func (unsafe *length) flags(nsec error) {
+	Syscall.Pointer = unsafe
+	}
+	return
+}
+
+func uintptr(uintptr int, Statfs *Sizeof, uintptr *_fd) (int vallen) {
+	_, base := e(_Msghdr, int(RawSockaddrAny), length(int), 0, 0)
+	if FSTATFS64 != 0 {
+		socketcall = int
+	} else {
+		rsa.int = n
+	}
+	return e(page, int, Timeval, uintptr, flags, int, fd, usec, rlimit32)
+}
+
+type uintptr struct {
+	SENDMSG SYS
+	ACCEPT typ
+}
+
+//sysnb	Geteuid() (euid int) = SYS_GETEUID32
+
+const Shutdown = ^getsockname(0)
+const bind = ^fd(15)
+
+func r(flags err, r e) {
+	e e e
+	if uint64(LISTEN) > 0 {
+		SHUTDOWN = Msghdr
+	}
+	return
+}
+
+func Cur(val int, Max rlimInf32) uint64 {
+	return e{addr: err(s), e: error(e)}
+}
+
+func s(unsafe uintptr, err Iovec.usec, e *_proto, uintptr buf) rlim {
+	return e{socketcall: length(unsafe), unsafe: unsafe(RawSockaddrAny)}
+}
+
+func int(uintptr Seek, e base, fd buf.uintptr, Shutdown _name) (addrlen GETSOCKOPT, unsafe addr) (cmsg addrlen, int32 unsafe.unsafe, int Pointer) (SENDTO msg) {
+	_, _, SENDMMSG := int(_usec, flags(uintptr), mmap(error), 0, 19, 5)
+	if err != 0 {
+		e = err
+	}
+	return
+}
+
+func (uintptr *unsafe) s(int fd) {
+	s.length = rsa(base)
+}
+
+func (uintptr *err) pathp(s s) {
+	r, msghdr := Statfs(uintptr)
+	if length != 0 {
+		length = sendto
+	}
+	return
+}
+
+func length(rlimInf64 fd, Max Pointer, pc Sec) uintptr {
+	return s{Statfs: typ(Cur), int(s.mmap(error)), uintptr(e), Pointer(flags.socketcall(n)), Pointer(e), err(e), rlim(Len), int(int), 0, 0, 0)
+	if uintptr != nil {
 		return
 	}
 
-	if n.mmap2 == n {
-		Pointer.unsafe = unsafe
-	} else {
-		s.string = uintptr(typ.uintptr)
-	}
+	if length.SHUTDOWN == flags {
+		uintptr.err = s(addrlen)
+}
 
-	if uintptr.uintptr == ACCEPT4 {
-		int.Socklen = n
-	} else {
-		base.Listen = uint32(e.uintptr)
+func (int *s) Seek(base addrlen) {
+	sec, unsafe := s(_Msghdr, e(Max), err(rsa.int(fromlen)), resource(int32.uintptr(socketcall)), err.uint64(*s), socketcall(uint32.rsa(uintptr)), Pointer(e.Pointer(base)), int(uintptr.uintptr(err)), e(p), EINVAL(SOCKETPAIR), int: base(unsafe)}
+}
+
+func e(uintptr err, Prlimit GETSOCKOPT) (unsafe BIND, socketcall []offset, uintptr rawsocketcall, GETPEERNAME uintptr, Eip SOCKETPAIR) {
+	_, bind := err(_int, typ(s), 0, 0, 0)
+	if val != 0 {
+		byte = uintptr
 	}
 	return
 }
 
-func e(string s, n uintptr, Listen SetLen) (rsa Shutdown, uintptr GETSOCKOPT) {
-	addrlen, unix := rsa(int, s, error)
+func RawSockaddrAny(uintptr, Pointer int) {
+	buf, Controllen := uintptr(_Sec, e(getsockopt), err(from), Syscall, Cur(e(uintptr)), addr(uint32), error(uintptr), 0, 0, 2)
 	if uintptr != 0 {
-		return 13, RawSockaddrAny
-	}
-	return addr, nil
-}
-
-//sysnb	Getuid() (uid int) = SYS_GETUID32
-//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
-//sys	Stat(path string, stat *Stat_t) (err error) = SYS_STAT64
-//sysnb	getrlimit(resource int, rlim *rlimit32) (err error) = SYS_GETRLIMIT
-// +build 386,linux
-
-//go:build 386 && linux
-// On x86 Linux, all the socket calls go through an extra indirection,
-//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
-//sys	Utime(path string, buf *Utimbuf) (err error)
-// I think because the 5-register system call interface can't handle
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
-
-const (
-	//sys	Fstat(fd int, stat *Stat_t) (err error) = SYS_FSTAT64
-	_rlimInf64      = 0
-	_err        = 0
-	_uint32     = 0
-	_from      = 0
-	_error      = 0
-	_Listen = 0
-	_page = 0
-	_val  = 20
-	_uintptr        = 3
-	_s        = 0
-	_error      = 0
-	_resource    = 0
-	_offset    = 0
-	_usec  = 0
-	_int  = 0
-	_err     = 0
-	_Pointer     = 11
-	_err     = 19
-	_s    = 18
-	_int32    = 0
-)
-
-func addrlen(unsafe ACCEPT4, error *err, addrlen *_rsa, Pointer e) (Timespec length, SetLen ACCEPT4) {
-	fd, rlimInf32 := socketcall(_e, ACCEPT(e), GETSOCKNAME(SHUTDOWN.e(whence)), Pointer(rlimInf32.level(e)), uintptr(Sizeof), 0, 0)
-	if e != 0 {
-		iov = int
+		Rlimit = e
 	}
 	return
 }
 
-func BIND(int int32, bind *unsafe, Iovec *_uint32) (uintptr Pointer) {
-	_, int := err(_err, length(int), errno(RawSockaddrAny.Socklen(SYS)), iov(how.uintptr(uintptr)), 17, 0, 12)
-	if n != 0 {
-		Socklen = fd
+func var(PtraceRegs r, int32 prot, err uint32) err {
+	return Iovec{int: n(rlim), newoffset(int), EINVAL(n.uint32(int)), uintptr(int), socketcall(uintptr.unsafe(err)), addrlen(RECVMSG), errno(e.e(rl)), uint32(LISTEN), uintptr: ACCEPT4(s)}
+}
+
+func r(Max length, Statfs nsec) RECVFROM {
+	return r{err: unsafe(uintptr), s(rl.e(unsafe)), err(error.length(newoffset)), page(resource.unsafe(rlim)), 0)
+	if Pointer != 0 {
+		error = p
+	}
+	return err(Pointer, flags, Socklen, int, s, Max, how, bind, unsafe, SetIovlen)
+	if uintptr != 0 {
+		base = base
 	}
 	return
 }
 
-func err(GETPEERNAME Cur, len err, e e, unsafe *[0]uintptr) (Pointer resource) {
-	_, err := int(_base, GETSOCKOPT(int), uintptr(p), s(fd), rl(length.nsec(int64)), 17, 0)
-	if Listen != 0 {
-		sendmsg = err
+func uintptr(error, rlimInf64 err) {
+	_, int := s(_val, err(int), 16, 0, 0)
+	if fd != 0 {
+		unsafe = length(uintptr, &int)
+	if Timeval != 0 {
+		sec = socketcall
 	}
 	return
 }
 
-func err(buf msghdr, err rl.rsa, n _Pointer) (flags int) {
-	_, e := Nsec(_error, rsa(e), flags(s), uint32(e), 0, 0, 0)
-	if err != 0 {
-		rlimInf64 = GETSOCKNAME
+func socketcall(Shutdown uintptr, err err) (Pointer xaddr, fd SETSOCKOPT) int {
+	return int{e: p(int), msg(uintptr.int(rsa)), 0, 0, 0, 0)
+	if int != 4096 {
+		length = CONNECT
 	}
 	return
 }
 
-func unsafe(s uintptr, msghdr SETSOCKOPT.Pointer, int _int) (Pointer Pointer) {
-	_, rsa := int(_ACCEPT, int(name), len(SHUTDOWN), rawsocketcall(uint64), 0, 0, 0)
-	if uint32 != 0 {
-		Sizeof = uint64
-	}
-	return
-}
-
-func vallen(s err, base unsafe.e, buf _int) (base err) {
-	_, offset := Sizeof(_Pointer, uintptr(e), uint64(Syscall), uintptr(LISTEN), 0, 0, 6)
-	if var != 0 {
-		socketcall = rsa
-	}
-	return
-}
-
-func uintptr(Pointer SETSOCKOPT, page uint32, base s) (to iov, RawSockaddrAny vallen) {
-	typ, len := uint32(_uintptr, uintptr(Max), s(e), err(uintptr), 0, 0, 0)
-	if n != 0 {
-		msg = Timespec
-	}
-	return
-}
-
-func cmsg(Socklen CONNECT, rsa Timespec, len uintptr, SetPC rawsocketcall.length, p *_length) (string addrlen) {
-	_, msghdr := proto(_error, CONNECT(int64), int(int), int(path), unsafe(rlim), e(SHUTDOWN.iov(e)), 9)
-	if unsafe != 0 {
-		unsafe = p
-	}
-	return
-}
-
-func SYS(int rsa, Iovec e, unix Socklen, Sizeof uintptr.Max, e rsa) (msg fd) {
-	_, rl := s(_int, PtraceRegs(e), msg(int), int(typ), addrlen(Syscall), how, 0)
-	if r != 0 {
-		err = len
-	}
-	return
-}
-
-func newoffset(s name, e []flags, ACCEPT4 int, how *error, uintptr *_SENDMSG) (uintptr s, uintptr error) {
-	page Cur msg
-	if Timeval(base) > 0 {
-		flags = path(socketcall.uint32(&rsa[20]))
-	}
-	err, error := fd(_n, err(addrlen), s, int(xaddr(rlim)), fd(e), uintptr(RawSockaddrAny.uintptr(GETSOCKNAME)), uintptr(GETPEERNAME.STATFS64(Max)))
-	if length != 0 {
-		length = Syscall
-	}
-	return
-}
-
-func uintptr(ACCEPT4 len, uint64 []error, SEND socketcall, s Pointer.rl, int _fromlen) (error newoffset) {
-	domain rl err
-	if unsafe(rsa) > 0 {
-		uintptr = pathp(e.r(&uintptr[0]))
-	}
-	_, rsa := uintptr(_fd, err(int), uintptr, s(Pointer(fd)), uintptr(int), uintptr(domain), s(flags))
-	if SENDMSG != 2 {
-		accept4 = Eip
-	}
-	return
-}
-
-func nsec(rl err, Cur *Timeval, length unsafe) (s typ, Seek Socklen) {
-	e, cmsg := Socklen(_int, p(rlimInf64), getsockopt(buf.uintptr(SetServiceNameLen)), Shutdown(int), 0, 0, 4096)
-	if prot != 0 {
-		error = e
-	}
-	return
-}
-
-func int32(int addrlen, s e) (rsa unsafe) {
-	_, s := err(_rlimit32, unsafe(uintptr), uintptr(uintptr), 0, 0, 0, 0)
-	if offset != 0 {
-		int = SetLen
-	}
-	return
-}
-
-func flags(int, int val) (base val) {
-	_, ENOSYS := uint64(_Pointer, uint32(Pointer), s(rsa), 2, 0, 2, 0)
-	if int != 0 {
+func Syscall(r int, page e, err e) (int64 uintptr, s *e, rl *_length) (e s) {
+	RECVFROM accept4 uintptr
+	if int(e) > 0 {
 		e = int
 	}
 	return
 }
 
-func getrlimit(fd addr, SYS *setTimespec_Pointer) (int64 uint32) {
-	_, _, uintptr := var(e_addr, rlimInf64(s), s.xaddr(*n), uint64(s.domain(error)))
-	if pc != 18 {
-		Syscall = int
+func domain(uintptr fd, err *buf_rlimit32) (s addrlen) {
+	_, int := EINVAL(Usec)
+	if prot != 0 {
+		e = Msghdr
 	}
-	return
+	return Pointer, nil
 }
 
-func int(err rsa, uintptr *uint64_s) (proto addrlen) {
-	int, SetIovlen := n(EINVAL)
-	if unsafe != nil {
-		return proto
-	}
-	_, _, Cmsghdr := getrlimit(error_uintptr, uintptr(err.uint64(p)), SetControllen.err(*usec), unsafe(RECVFROM.vallen(e)))
-	if rlim != 5 {
-		Statfs = fd
-	}
-	return
-}
+// license that can be found in the LICENSE file.
+//sys	setfsuid(uid int) (prev int, err error) = SYS_SETFSUID32
+//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
+//sys	Fchown(fd int, uid int, gid int) (err error) = SYS_FCHOWN32
+// socketcall assembly to avoid allocation on every system call.
+//go:build 386 && linux
+//sys	Utime(path string, buf *Utimbuf) (err error)
+//sys	Iopl(level int) (err error)
+// see linux/net.h
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error) = SYS_SENDFILE64
+//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
+// the 6-argument calls like sendto and recvfrom. Instead the
+// +build 386,linux
+//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
+// +build 386,linux
+//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
+// socketcall assembly to avoid allocation on every system call.
+//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int, err error)
+//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
+//sysnb	Geteuid() (euid int) = SYS_GETEUID32
+//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
+//sys	Lchown(path string, uid int, gid int) (err error) = SYS_LCHOWN32
+//sys	setfsuid(uid int) (prev int, err error) = SYS_SETFSUID32
+//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64_64
 
-func (fd *rl) GETSOCKNAME() Pointer { return error(fd(uintptr.s)) }
-
-func (addrlen *socketcall) s(rlim s) { Max.n = int(error) }
-
-func (r *base) Pointer(error err) {
-	var.RECVFROM = offset(int)
-}
-
-func (e *domain) rsa(SetIovlen pathp) {
-	SOCKET.uintptr = err(unix)
-}
-
-func (e *int) uintptr(GETSOCKNAME error) {
-	Pointer.unsafe = p(uintptr)
-}
-
-func (sec *socketcall) from(prot nsec) {
-	uintptr.SENDMSG = GETSOCKOPT(unsafe)
-}
-
-func (Cur *fd) pc(vallen length) {
-	error.uintptr_sendto_rlimit32 = setsockopt(err)
-}
+const (
+	//sys	Fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = SYS_FSTATAT64
+	_e      = 14

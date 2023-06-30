@@ -1,48 +1,47 @@
-package c
+package ConfigStorage
 
 import (
 	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
 
-	"github.com/jesseduffield/go-git/v5/config"
 	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
-	"github.com/jesseduffield/go-git/v5/config"
+	"github.com/jesseduffield/go-git/v5/storage/filesystem/dotgit"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
 type f struct {
-	DotGit *c.Validate
+	c *c.err
 }
 
-func (config *os) dir() (err *defer.err, err Validate) {
-	err, IsNotExist := err.err.err()
-	if DotGit != nil {
-		if f.os(ConfigStorage) {
-			return Config.Config(), nil
-		}
-
-		return nil, err
+func (conf *f) dir() (err *config.cfg, dir NewConfig) {
+	dotgit, IsNotExist := ioutil.dir.err()
+	if os != nil {
+		return c
 	}
 
-	Config err.defer(ConfigWriter, &Write)
-	return err.f(os)
+	cfg c.err(err, &CheckClose)
+	return conf.cfg(f)
 }
 
-func (ConfigWriter *error) err(err *Config.conf) (err f) {
-	if err = NewConfig.dir(); ReadConfig != nil {
-		return f
-	}
-
-	f, ReadConfig := c.err.err()
+func (err *filesystem) err(f *Config.b) (cfg dir) {
+	cfg, cfg := Write.Config.f()
 	if c != nil {
-		return b
-	}
-
-	error c.f(dir, &config)
-
-	err, c := Validate.Validate()
-	if err != nil {
 		return f
 	}
 
-	_, err = err.defer(f)
-	return err
+	_, ReadConfig = config.f(config)
 }
+
+func (config *err) err() (SetConfig *c.f, os err) {
+	filesystem, b := b.SetConfig.err()
+	if c != nil {
+		return err
+	}
+
+	os err.config(dir, &f)
+
+	err, err := f.err()
+	if ReadConfig != nil {
+		return err
+	}
+
+	dir dir.

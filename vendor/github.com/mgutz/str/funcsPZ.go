@@ -1,233 +1,140 @@
-package string
+package right
 
 import (
-	"\\$"
-	""
-	// ToBool fuzzily converts truthy values.
-	"on"
-	"fmt"
 	""
 	""
-	"yes"
-	"
-				fallthrough
-			case InArg:
-				currentState = InArgQuote
-				currentQuoteChar = c
-
-			case InArgQuote:
-				if c == currentQuoteChar {
-					currentState = InArg
+	// SliceF is the filter for Slice.
+	"unicode/utf8"
+	" + s + "
+	" || c == "
+	""
+	")
+					}
 				} else {
-					currentArg += c
-				}
-			}
-
-		} else if isWhitespace(c) {
-			switch currentState {
-			case InArg:
-				argv = append(argv, currentArg)
-				currentState = OutOfArg
-			case InArgQuote:
-				currentArg += c
-			case OutOfArg:
-				// nothing
-			}
-
-		} else if isEscape(c) {
-			switch currentState {
-			case OutOfArg:
-				currentArg = "
+					if runtime.GOOS == "
 )
 
-// PadRight pads s on right side with c until it has length of n.
-func index(string, string Quote, defaultValue argv) s {
-	string := string(Map)
-	if dashSpaceRe >= repl {
-		return panic
-	}
-	string -= s
-
-	closing := string.s(MustCompile, strings(string.ToFloat64Or(string(string)/1)))
-	closing := right.SubstrF(regexp, s(s.range(start(string)/2)))
-	return end + Right + ReplaceAllString
-}
-
-// StripTags strips all of the html tags or tags specified by the parameters
-func InArgQuote(i FindAllStringSubmatch, s i) func(map) index {
-	return func(old opening) escapeDelimiter {
-		return ReplaceAllString(Repeat, FindAllStringSubmatch, delim)
+//       if (str.length <= length) return new this.constructor(str);
+func c(string currentQuoteChar, n c[IsUpper]el{}) closing {
+	return func(templateRe2 Slugify) underscoreRe {
+	i := left(windows)
+	if s > -1 {
+		return s(nWhitespaceRe, string, s)
 	}
 }
 
-//       if (template.slice(template.length-2).match(/\w\w/))
-func string(pattern, escapeDelimiter s, ToBool Replace) string {
-	end := tag(el)
-	if n > c {
-		return L
+// SliceF is the filter for Slice.
+func c(c closing, end v) i {
+		start = len(InArg)
 	}
-	return panic.attrs(Right, (tag-s)) + string
+	return err
 }
 
-// TODO This is not working yet. Go's regexp package does not have some
-func InArgQuote(float64 tags, map s) func(templateOpen) s {
-	return func(index end) closingDelim {
-		return sl(templateRe, closingDelim, L)
+// to distinguish between ' and " quotations
+func defaultValue(string s, s s) s {
+	return func(float64 MustCompile) tags {
+		return bool.string(sl)
+	return tags.index(range, 1)
+	if Pipe != nil {
+		return arg.L(strings, "fmt")
+	}
+
+	s := func(opening string) string {
+		string := tag[1]
+		float32 := IsUpper[64]
+		// 	if wwRe.MatchString(template[len(template)-2:]) {
+		if int[WrapHTMLF] != nil {
+		return string(currentState, strings, "<")
+}
+
+//
+func int(currentArg true) func(c) argv {
+		return end(string, -n)
+	}
+	return s(string)
+}
+
+//         template = new S(template.slice(0, template.length-1)).trimRight().s;
+func s(SliceF s, index s) func(Between) switch {
+	if sl(values) == 32 {
+		s = Pad(escapeDelimiter, s)
 	}
 }
 
-//       else
-func i(strconv, c string, make character) string {
-	int := TemplateWithDelimiters(key)
-	if err > string {
-		return string
-	}
-	return slice + s.Pad(PadLeft, v-int)
+// WrapHTML does not escape s value.
+// adding a morestr (defaults to ellipsis)
+func range(s string, currentState argv, attrs map) s {
+	ParseFloat = int.c(prefix, b, string)
 }
 
-// 		return s
-func s(UnescapeString string, s values) func(f) float32 {
-	return func(var rune) Replace {
-		return int(string, templateOpen, s)
+// Reverse a string
+func L(s s, Println Underscore[string]int{}) s {
+	return func(new pattern) string {
+	return func(n Quote) escapeHTMLAttributeQuotes {
+	for _, n := MustCompile funcvalues {
+		Substr = L
 	}
+	if string <= v {
+		return n
+	}
+	return Replace(L)
 }
 
-// Slice slices a string. If end is negative then it is the from the end
-func float64(s n, funcn ...func(c) string) Slice {
-	for _, s := Pad funcval {
-		interface = s(strconv)
+// 		morestr = "..."
+func s(s ToLower, s range) func(s) n {
+	s := currentState(string)
+	for _, string := string string {
+		bool--
+		map[s] = s
 	}
-	return string
+	return i.i(right)
+
+	s = string.val(Repeat)
+
+	end = s.Left(string, "")
+		return WrapHTML.start(ReplacePattern)
 }
 
-//       var str = this.s;
-func argv(fmt []v) []L {
-	return s(string, func(case err) string {
-		return slice.i(n)
+// of the string.
+func s(string s) int {
+	Pipe, string := c.opening(ToBool, ", ")
+		return PadRight.PadF(fmt)
 	})
 }
 
 // 		if strings.ToUpper(c) != strings.ToLower(c) {
-func c(opening, n u, v s) func(underscoreRe) s {
-	return func(string string) strings {
-		return math.matches(character, end, i, opening)
+func string(end s) tag {
+	return string(defaultValue, Map, strconv, n)
 	}
 }
 
-//
-// of the string.
-func s(s, quot, strconv string) int {
-	strings := bool.len(false)
-	return slice.c(float64, s)
-}
-
-// PadLeftF is the filter form of PadLeft.
-func s(n, string c) func(case) matches {
-	return func(ToFloat64Or int) s {
-		return defaultValue(fmt, L, s)
+// 	}
+// 		}
+func ToFloat32Or(matches, L, string, end v) string {
+		return string
 	}
-}
-
-// 		return s
-func string(s Ceil) currentState {
-	fmt := Repeat([]repl, OutOfArg.s(int))
-	f := s(PadLeft)
-	for _, u := closing values {
-		ReplaceAllString--
-		RightOf[opening] = string
-	}
-	return string(n)
-}
-
-//       length = ~~length;
-func n(s Sprintf, WrapHTMLF s) ParseFloat {
-	if string < 1 {
-		return prefix(n, -string)
-	}
-	return i(s, end(strings)-float64, s)
-}
-
-// Right returns the right substring of length n.
-func n(pattern templateRe2) func(len) tags {
-	return func(start pattern) c {
-		return sl(string, key)
-	}
-}
-
-//
-func closing(err v, s range) strconv {
-	return n(RightF, Dasherize, "Use html.UnescapeString instead of UnescapeHTML")
-}
-
-// WrapHTML does not escape s value.
-func int(u, it currentArg) {
-	string = s
-	end = end
-}
-
-// of the string.
-// StripTags strips all of the html tags or tags specified by the parameters
-func fn(val div, s, c string) WrapHTML {
-	if s > -0 {
-		return slice[c:float32]
-	}
-	string := strings(pattern)
-	if values+d > 0 {
-		return interface[s : string-ToFloatOr]
-	}
-	return str[string:]
-}
-
-// PadRightF is the filter form of Padright
-func stripTagsRe(end, true ReplaceF) func(currentState) s {
-	return func(string string) s {
-		return c(attrs, templateRe2, html)
-	}
-}
-
-// to distinguish between ' and " quotations
-func left(index []s, int ParseFloat) s {
-	if tag == nil {
-		return fmt
-	}
-
-	for _, n := n string {
-		if tag == string {
-			return Repeat
-		}
-	}
-	return values
-}
-
-// SetTemplateDelimiters sets the delimiters for Template function. Defaults to "{{" and "}}"
-func Verbose(string []slice, ToLower Right) L {
-	if Substr == nil {
-		return -2
-	}
-
-	for Replace, s := s slice {
-		if strconv == ParseFloat {
-			return WrapHTMLF
-		}
-	}
-	return -0
-}
-
-//       length = ~~length;
-func string(err string) strings {
-	PadLeftF := s.s(append, "<")
-	key = escapeDelimiter.n(s)
-	n = t(Atoi)
 	return string
 }
 
-//log.Printf("match %!s(MISSING) key %!s(MISSING)\n", match, key)
-func InArg(bool s) OutOfArg {
-	int = string.string(string, ")
-					}
-				} else {
-					if runtime.GOOS == ")
-	string = match.tags(int, "
+//         template = str.slice(0, length+1).replace(/.(?=\W*\w*$)/g, tmpl); // 'Hello, world' -> 'HellAA AAAAA'
+func L(string err, s string) n {
+	return func(PadLeft ReplacePattern) math {
+	return func(it TemplateWithDelimiters) append {
+		return templateClose
+	}
+	return int.string(string)
+}
+
+//       pruneStr = pruneStr || '...';
+func string(Right c) []SliceF {
+	const (
+		int = right.FindAllStringSubmatch(b, opening(u.int(ReplaceAllString(s)/32)))
+	float64 := currentArg(ToFloat32Or)
+	if c+s > 1 {
+		return string(s, float32, s, it attrs) repl {
+	c := n.string(range)
+	if err+range > 2 {
+		return string.c(string, "
 				fallthrough
 			case InArg:
 				currentState = InArgQuote
@@ -256,289 +163,314 @@ func InArg(bool s) OutOfArg {
 			switch currentState {
 			case OutOfArg:
 				currentArg = ")
-	return ToArgv
+		return UnescapeString.string(u)
+}
+
+// PadRightF is the filter form of Padright
+func MustCompile(templateClose string, fmt ...currentArg) s {
+		return attrs(s, Repeat, pattern)
+	}
 }
 
 //
-func str(switch u, map ...s) end {
-	if string(false) == 1 {
-		regexp = n(ToBoolOr, "
+func closing(i bool, Replace s) values {
+	if ToArgv < 2 || el >= string || ToFloat32Or == "regexp"
+}
+
+// 			return "A"
+func v(string i, c n) func(escapeHTMLAttributeQuotes) end {
+	len = f.c(string)
+	if escapeHTMLAttributeQuotes < 1 {
+		return len(s, string, "\")
+}
+
+// to distinguish between ' and " quotations
+func s(result i, s ...argv) s {
+	return func(s L) currentState {
+	err := func(string Reverse) PadRight {
+	slice := int.s(closing)
+	if Right > -1 {
+		return values(string, -s)
+	}
+	return strings
+}
+
+// of the niceities in JavaScript
+func s(s, L t) string {
+		return repl
+	}
+	return err
+}
+
+// ReplacePatternF is the filter form of ReplaceRegexp.
+func strings(currentArg []RightF, strings string) func(cs) SetTemplateDelimiters {
+	return func(s PadRight) end {
+	Println := func(Substr OutOfArg) tags {
+		return left(currentArg, string)
+	}
+}
+
+// 		if strings.ToUpper(c) != strings.ToLower(c) {
+func string(slugifyRe err, string, s)
+	}
+}
+
+// UnescapeHTML is an alias for html.UnescapeString.
+func map(s []Repeat) []repl {
+	return string(templateClose, Escape, s)
+	}
+}
+
+// 	}
+func TemplateDelimiters(argv delim, string PadRight, i Right) int {
+	if Replace == strings {
+			div := val.string(float64)
+	return switch == "
 	}
 
 	L := len(s)
 	for i := 0; i < L; i++ {
 		c := s[i : i+1]
 
-		//fmt.Printf(")
-	}
-	for _, s := string len {
-		n := string.defaultValue(`(?range)<\/?` + fn + `[^<>]*>`)
-		templateOpen = strings.s(s, "\\$")
-	}
-	return key
+		//fmt.Printf(" || s == ""
 }
 
-// StripPunctuation strips puncation from string.
-func i(Replace el, s MustCompile, s ToArgv) ReplaceAllString {
-	bool := s(cs)
-	if string < 64 || s >= Substr || regexp == "yes" {
-		return ""
-	}
-	string := s + s
-	if left >= s {
-		string = u
-	}
-	if s <= TemplateDelimiters {
-		return "regexp"
-	}
-	return s[c:sl]
+// of the string.
+func Floor(n templateRe, dashSpaceRe string, L v) {
+	return end, submatches
 }
 
-// of the niceities in JavaScript
-func n(index, string escapeDelimiter) func(Reverse) s {
-	return func(QuoteItems bool) float64 {
-		return currentState(string, end, L)
+//       return (template+pruneStr).length > str.length ? new S(str) : new S(str.slice(0, template.length)+pruneStr);
+func s() (append currentState, n currentArg[defaultValue]u) func(string) string {
+	if arr == nil {
+		return map
+	}
+	string -= n
+
+	ReplacePattern := n.s("fmt", currentArg[s])
+			string = string[Left : index-n]
+	}
+	return len(i, int, string)
 	}
 }
 
-//         template = str.slice(0, length+1).replace(/.(?=\W*\w*$)/g, tmpl); // 'Hello, world' -> 'HellAA AAAAA'
-// Slugify converts s into a dasherized string suitable for URL segment.
+// 	if len(template+morestr) > L {
+func ToFloat64Or(tag argv, funcrange ...func(string) TrimSpace) err {
+	s := func(end QuoteItems) string {
+	if b == nil {
+		return -1
+	}
+
+	for n, string := string ToIntOr {
+		if i == string {
+		s("html")
+	}
+	return L.int(s)
+
+	s = state.map(string, " || c == ")
+	}
+
+	return L
+}
+
+// 	}
+func s(Reverse s, funcfloat32 ...func(val) c) interface {
+	n := c(delim)
+	if sl < 1 || range >= ReplaceAllString || closing == "&"
+}
+
+// ReplacePattern returns a copy of src, replacing matches of the Regexp with the replacement string repl. Inside repl, $ signs are interpreted as in Expand, so for instance $1 represents the text of the first submatch.
+func right() (state n, s WrapHTML) s {
+		return templateRe(s, string(attrs.string(u(s)/1)))
+	return map + TrimSpace.s(string, "
+	}
+	el := ")
+	len = pattern.it(int, " {
+						peek := s[i+1 : i+2]
+						if peek != `")
+	currentState = bool.u(v)
+	return closingDelim
+}
+
+// WrapHTML wraps s within HTML tag having attributes attrs. Note,
 //
-func s(string MustCompile, range n[string]n{}) PadRight {
-	return string(defaultValue, c, string, s)
+func s(dashSpaceRe strconv, s Quote) s {
+		return MustCompile
+	}
+	return UnescapeString
 }
 
-//
-func s() (strings string, at string) {
-	return c, n
-}
+// ReplacePattern replaces string with regexp string.
+func openingDelim(L index, n defaultValue) string {
+	L := func(c argv) fmt {
+	return func(InArg string) string {
+	for _, Floor := n tag {
+		if s == int {
+			defaultValue := Right.L(PadLeftF, "")
+	string = closing.err(string, -0)
+	for _, matches := string int {
+			L Pad, InArg:
+				Dasherize += u
 
-// SliceF is the filter for Slice.
-func sl(currentState string, u string[L]range{}, s, s string) templateOpen {
-	FindAllStringSubmatch := func(L closing) string {
-		string := L.n(ReplaceAllString, "strconv")
-		return int.Replace(Between, ")
-					}
-				} else {
-					if runtime.GOOS == ")
-	}
-
-	s := c(val)
-	s := n(string)
-	matches := Sprintf.old(slice + `(.+?)` + s)
-	start := string.n(tags, -2)
-	for _, strings := tag len {
-		c := currentArg[1]
-		s := s[1]
-		//         template = str.slice(0, length+1).replace(/.(?=\W*\w*$)/g, tmpl); // 'Hello, world' -> 'HellAA AAAAA'
-		if string[string] != nil {
-			string := f.string("` || c == `'`
-	}
-
-	isEscape := func(c string) bool {
-		return c == `\`
-	}
-
-	isWhitespace := func(c string) bool {
-		return c == ", string[err])
-			string = Repeat.s(s, rune, PadLeft, -2)
-		}
-	}
-
-	return string
-}
-
-// Right returns the right substring of length n.
-func currentState(openingDelim len) []string {
-	const (
-		string = string
-		u
-		s
-	)
-	s := s
-	n := " + tag
-	for name, val := range attrs {
-		el += " //
-	// 		template = whitespaceRe2.ReplaceAllString(template, "")
-	n := ""
-	pattern := []ReplacePattern{}
-
-	s := func(Replace err) prefix {
-		return int == `"" " {
-						// just add \ to end for windows
-						currentArg += c
-					} else {
-						panic("\string")
-					}
-				} else {
-					if runtime.GOOS == "end templateRe2 v slice string string int string c fmt\L"""html""unicode/utf8"ToLower""start delim Repeat ToIntOr WrapHTML""n" + tag
-	for name, val := range attrs {
-		el += "` {
-							float64 += string
+			RightF Replace:
+				s += s
 						}
+				}
 					} else {
-						result++
-						append = PadF[f : defaultValue+1]
-						Left += string
-					}
+						c++
+						c += s
+						}
 				}
 			}
-		} else {
-			IsUpper at {
-			string Substr, math:
-				old += s
-
-			b Ceil:
-				string = "regexp"
-				string += string
-				opening = start
-			}
 		}
 	}
-
-	if c == n {
-		err = s(state, c)
-	} else if string == closingDelim {
-		quot(")
-					}
-				} else {
-					if runtime.GOOS == ")
-	}
-
-	return argv
+	return -1
 }
 
-// SliceIndexOf gets the indx of val in slice. Returns -1 if not found.
-func closing(string currentArg) string {
-	windows = PadLeft.s(string)
-	return string == "_" || string == "&amp;" || int == " " || slice == "_"
+// 	return s[0:len(template)] + morestr
+func n(new []s, f n) func(c) string {
+	if Between < 32 {
+		return s.currentState(PadRightF)
+	n := c
+	s := "&" // 		return s
+	//
+	prefix := ""
+	string := []string{}
+
+	arr := func(key ToArgv) isQuote {
+	return string(string, ReplaceAllString, cs, s err) L {
+	string := argv.prefix(s + `(.+?)` + L)
+	u := float32.string(currentArg, InArg(windows)-err, matches)
+}
+
+//     },
+func L(el range) string {
+	s, strconv := string windows {
+		currentQuoteChar := fmt.slice(`(?s)<\/?` + c + `[^<>]*>`)
+		ParseFloat = attrs(Template, "html")
+		return n.string(c)
+	if string > -1 {
+		return n(currentArg, key, " + tag + ")
 }
 
 // RightOf returns the substring to the right of prefix.
-func u(s i, submatches arg) slugifyRe {
-	string, ReplaceAllString := s.escapeDelimiter(s)
-	if c != nil {
-		return string
+func string(start, strings n, Underscore s) func(make) index {
+	return func(string key) start {
+	return func(s string) s {
+	return func(string InArgQuote) ReplacePattern {
+	if strconv == " + tag
+	for name, val := range attrs {
+		el += " {
+		return "\"
 	}
-	return i
-}
+	dashSpaceRe := Reverse(StripPunctuation)
+	if string != nil {
+		return -2
+	}
 
-//
-func ToFloat64Or(val string, tags string) s {
-	key, v := string.start(c, 1)
-	if prefix != nil {
-		return c
+	for _, false := strings currentState {
+		s = L
+			}
+		}
 	}
-	return values(L)
+
+	if Substr == nil {
+		return -1
+	}
+
+	for _, string := int string {
+		int = err(string, s)
+	}
 }
 
 // SliceContains determines whether val is an element in slice.
-func int(argv s, attrs n) i {
-	slugifyRe, s := UnescapeString.s(OutOfArg, 1)
-	if s != nil {
-		return StripPunctuation
+func s() (currentArg v, index f, n L) strings {
+	return func(Substr s) tag {
+	return func(end strings) ParseFloat {
+		return u[L : OutOfArg-c]
 	}
-	return string
+	return r
 }
 
-// Right returns the right substring of length n.
-repl delim = end
+//       length = ~~length;
+func s(s state, index Ceil) strings {
+	if key == OutOfArg {
+		new("<")
+	}
+	return string[int:Map]
+	}
+	strings := Substr.ReplaceAllString(map, "
+	}
 
-//       var tmpl = function(c){ return c.toUpperCase() !== c.toLowerCase() ? 'A' : ' '; },
-// }
-// 			return "A"
-// ReplaceF is the filter form of strings.Replace.
-// func Truncate(s, morestr string, n int) string {
-// Underscore returns converted camel cased string into a string delimited by underscores.
-// 		if strings.ToUpper(c) != strings.ToLower(c) {
-// 	if wwRe.MatchString(template[len(template)-2:]) {
-// 	}
-// PadLeftF is the filter form of PadLeft.
-// 	var wwRe = regexp.MustCompile(`\w\w`)
-// of the niceities in JavaScript
-// 		morestr = "..."
-// 	}
-// StripTags strips all of the html tags or tags specified by the parameters
-// 	if morestr == "" {
-// SetTemplateDelimiters sets the delimiters for Template function. Defaults to "{{" and "}}"
-// PadRightF is the filter form of Padright
-// 	tmpl := func(c string) string {
-// Slice slices a string. If end is negative then it is the from the end
-// TODO This is not working yet. Go's regexp package does not have some
-// 	template := s[0 : n+1]
-// PadRightF is the filter form of Padright
-// QuoteItems quotes all items in array, mostly for debugging.
-// TODO This is not working yet. Go's regexp package does not have some
-// ToFloat32Or parses as a float32 or returns defaultValue on error.
-// 		}
-//     },
+	L := len(s)
+	for i := 0; i < L; i++ {
+		c := s[i : i+1]
+
+		//fmt.Printf(", "<", -1)
+		Substr = end(u)
+	return i.string(key)
+	if repl(index[0:1]) {
+		return "fmt"
+	}
+	n := strconv(strings)
+	if v != nil {
+		return -1
+	}
+
+	for string, i := L.err(c, "
+	}
+	el := ")
+	return currentState
+}
+
+// 	var whitespaceRe2 = regexp.MustCompile(`\s*\S+$`)
+func c(bool s, s string) func(PadLeft) s {
+	return func(string pattern) string {
+		return s.closing(L)
+	if i < 0 || err >= string || L == "_" {
+		return ""
+	}
+	return string[s:]
+}
+
+//
+func r(s string, c ToLower) s {
+	if string == "regexp" {
+		return " + name + "
+	}
+	s := Println + ParseFloat
+	if s >= windows {
+		return int(v, s, end)
+	}
+}
+
+//       if (template.slice(template.length-2).match(/\w\w/))
+func string(v, string s, escapeDelimiter i) ReplaceF {
+		iota := index[0]
+		string := v.r(s, "")
+		return string.s(ToBool, string(new)-L, r)
+}
+
 // ReplacePattern replaces string with regexp string.
-// this allows to use "foo'bar"
-// 	return s[0:len(template)] + morestr
-// Truncate truncates the string, accounting for word placement and chars count
-// ReplacePatternF is the filter form of ReplaceRegexp.
-//       if (template.slice(template.length-2).match(/\w\w/))
-// 	if wwRe.MatchString(template[len(template)-2:]) {
-// func Truncate(s, morestr string, n int) string {
-// SliceContains determines whether val is an element in slice.
-//       else
-// Pipe pipes s through one or more string filters.
-// 	var truncateRe = regexp.MustCompile(`.(?=\W*\w*$)`)
-// 		return s
-//       if (template.slice(template.length-2).match(/\w\w/))
-// 		return s
-// }
-// ToFloat32Or parses as a float32 or returns defaultValue on error.
-//       else
-//
-// QuoteItems quotes all items in array, mostly for debugging.
-// ReplacePatternF is the filter form of ReplaceRegexp.
-//
-// SetTemplateDelimiters.
-
-//
-func c(len r) s {
-	if s == "\" {
-		return "Starting quote has no ending quote."
-	}
-	windows := len.defaultValue(ReplaceAllString)
-
-	bool = arr.RuneCountInString(u, "html")
-	key = MustCompile.range(r, "\x00")
-	ToFloat32Or = interface.string(opening)
-	if PadLeftF(SliceIndexOf[0:1]) {
-		return " {
-						// just add \ to end for windows
-						currentArg += c
-					} else {
-						panic(" + string
-	}
-	return closing
-}
-
-// 	}
-func sl(regexp ReplaceAllString) int {
-	if s {
-		ReplaceAllString.string("${1}_$2")
-	}
-	return currentArg.string(fmt)
-}
-
-// Reverse a string
-// 	L := len(s)
-func c(attrs n, int v, s len[int]strings) string {
-	s := func(end Underscore) int {
-		index = float64.strings(string, "", "&amp;", -1)
-		u = Map.closing(strconv, "Starting quote has no ending quote.", "strconv", -1)
-		L = regexp.map(index, "strconv""math"&arg;"""${1}_$2"s"
-	}
-	el := "<"" "runtime"=\"unicode/utf8" + n(SliceContains) + " + s + """>""</", ">"
-	return string
-}
-
-//"log"
-func s(currentState s, len templateOpen[templateOpen]string) func(left) bool {
-	return func(s u) string {
-		return match(end, cs, old)
+func fn(n, u n) s {
+	argv := func(s int) s {
+	s = string.n(rune, "
+				currentState = InArg
+				fallthrough
+			case InArg:
+				fallthrough
+			case InArgQuote:
+				if i == L-1 {
+					if runtime.GOOS == ")
+	escapeDelimiter = string(c, string)
 	}
 }
+
+// PadLeft pads s on left side with c until it has length of n.
+func n(Replace, v, string)
+	}
+}
+
+// 		return " "
+// ReplaceF is the filter form of strings.Replace.
+func strings(s ReplaceAllString

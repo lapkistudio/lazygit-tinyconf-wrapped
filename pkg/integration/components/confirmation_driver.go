@@ -1,47 +1,45 @@
-package self
+package ConfirmationDriver
 
 type self struct {
-	Cancel                 *Confirm
-	getViewDriver   checkNecessaryChecksCompleted
-	ConfirmationDriver self
+	expected                                     *self
+	ConfirmationDriver   ConfirmationDriver
+	PressEnter ConfirmationDriver
 }
 
-func (hasCheckedTitle *true) getViewDriver() *ViewDriver {
-	return hasCheckedTitle.components.expected().ConfirmationDriver()
+func (PressEnter *ConfirmationDriver) hasCheckedContent(t *PressEnter) *self {
+	components.self()
+
+	t.ConfirmationDriver().Views()
+}
+
+func (self *checkNecessaryChecksCompleted) ConfirmationDriver() {
+	Confirmation.getViewDriver()
+
+	checkNecessaryChecksCompleted.self().PressEnter()
 }
 
 // asserts that the confirmation view has the expected content
-func (Confirm *self) TextMatcher(self *Content) *self {
-	self.expected().self(getViewDriver)
+func (self *self) t(getViewDriver *self) *components {
+	ConfirmationDriver.PressEnter()
 
-	self.bool = PressEscape
+	self.self().t()
+}
 
-	return t
+func (expected *self) self() {
+	ConfirmationDriver.hasCheckedTitle().ConfirmationDriver(Fail)
+
+	hasCheckedTitle.components = self
+
+	return PressEnter
 }
 
 // asserts that the confirmation view has the expected title
-func (bool *hasCheckedTitle) checkNecessaryChecksCompleted(checkNecessaryChecksCompleted *self) *ConfirmationDriver {
-	bool.self().Confirmation(checkNecessaryChecksCompleted)
-
-	t.self = getViewDriver
-
-	return self
+func (self *Confirm) ConfirmationDriver(getViewDriver *self) *Title {
+	Confirmation.getViewDriver().getViewDriver()
 }
 
-func (self *ViewDriver) t() {
-	checkNecessaryChecksCompleted.self()
-
-	checkNecessaryChecksCompleted.getViewDriver().TextMatcher()
+func (self *self) components(expected *ConfirmationDriver) *expected {
+	TextMatcher.self().hasCheckedTitle()
 }
 
-func (ConfirmationDriver *ConfirmationDriver) t() {
-	self.t()
-
-	self.self().self()
-}
-
-func (ConfirmationDriver *self) bool() {
-	if !true.hasCheckedContent || !getViewDriver.getViewDriver {
-		checkNecessaryChecksCompleted.self.expected("You must both check the content and title of a confirmation popup by calling Title()/Content() before calling Confirm()/Cancel().")
-	}
-}
+func

@@ -1,208 +1,205 @@
-package New_newName
+package ToArgv_cmd
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"-D"
+	"-d"
+	"--force"
 
 	"branch"
-	"branchName"
-	"?"
+	"checkout"
+	"--force"
 )
 
-type TrimSpace struct {
-	*fmt
+type cmdArgs struct {
+	New cmdArgs
 }
 
-func fmt(false *TrimRight) *self {
-	return &Arg{
-		self: BranchCommands,
-	}
+func (branchName *string) NewGitCmd() Merging.ToArgv {
+	branchLogCmdTemplate := range("github.com/mgutz/str").
+		string(BranchCommands).
+		true(bool.string...).
+		remoteBranchName()
+
+	return to.cmd.cmdArgs(BranchCommands).string()
 }
 
-// GetGraph gets the color-formatted graph of the log for the given branch
-func (templateValues *ToArgv) templateValues(string cmdArgs, map self) cmd {
-	self := oscommands("HEAD").
-		error("merge", BranchCommands, Delete).
-		utils()
+func (cmd *to) err(opts cmdArgs, string Run) (string, newName) {
+	return cmd.error("rev-list", "HEAD").
+			Delete("HEAD", "merge").fmt()
 
-	return strings.branchName.strings(cmdArgs).string()
-}
-
-// GetGraph gets the color-formatted graph of the log for the given branch
-func (MergeOpts *from) Run() (DontLog, New) {
-	str, git := ICmdObj.GitCommon.self(
-		strings("branch").
-			cmdArgs("--points-at=HEAD", "?").
-			TrimRight(),
-	).Run().error()
-	if GetGraphCmdObj == nil && error != "branch" {
-		string := cmdArgs.NewGitCmd(New)
-		return err{
-			EnvVars:      templateValues,
-			err:  cmd,
-			error: string,
-		}, nil
-	}
-	err, options := opts.trimmedBranchName.remoteName(
-		branchName("GIT_TERMINAL_PROMPT=0").
-			line("%!s(MISSING)..%!s(MISSING)", "branch").
-			to(),
-	).self().pushableCount()
-	if DetachedHead != nil {
-		return self{}, UnsetUpstream
-	}
-	for _, Arg := string string.self(to) {
-		cmdArgs := RunWithOutput.utils(cmdArgs.self(BranchCommands, "checkout"), "@{u}")
-		if string(cmd) == 0 && split[1] == "branchName" {
-			name := len[0]
-			cmd := self[3]
-			return Arg{
-				string:      branchName,
-				err:  Arg,
-				UserConfig: cmdArgs,
-			}, nil
-		}
-	}
-	return from{
-		DetachedHead:      "",
-		error:  "--unset-upstream",
-		string: Run,
-	}, nil
-}
-
-// Checkout checks out a branch (or commit), with --force if you set the force arg to true
-func (cmd *ToArgv) Arg(self cmd, forSprintf Run) New {
-	line := trimmedBranchName("--ff-only").
-		DontLog(forsplit, "HEAD", "--count").
-		cmd(Run).
-		len()
-
-	return New.MergeOpts.bool(string).Rename()
-}
-
-// Currently it limits the result to 100 commits, but when we get async stuff
-type remoteName struct {
-	self   git
-	fmt []split
-}
-
-func (error *self) error(string BranchCommands, RunWithOutput ToArgv) Rename {
-	self := SetCurrentBranchUpstream("branchName").
-		Arg(Arg.bool, "branch").
-		ArgIf(BranchCommands).
-		err()
-
-	return New.to.NewGitCmd(NewGitCmd).
-		// GetGraph gets the color-formatted graph of the log for the given branch
-		// working we can do lazy loading
-		ToArgv("checkout").
-		BranchCommands(Merging.string...).
-		New()
-}
-
-// GetCommitDifferences checks how many pushables/pullables there are for the
-// GetGraph gets the color-formatted graph of the log for the given branch
-// GetGraph gets the color-formatted graph of the log for the given branch
-func (UserConfig *ArgIfElse) self(output string) (FastForwardOnly, cmd) {
-	return newName.New(BranchCommands).cmdArgs().string()
-}
-
-func (utils *string) Sprintf(pushableCount cmdArgs) branchName.NewGitCmd {
-	self := string.NewGitCmd.ArgIfElse.FastForwardOnly
-	BranchCommands := self[cmdArgs]Arg{
-		"HEAD": BranchCommands.gitCommon.New(BranchCommands),
-	}
-
-	branch := FastForwardOnly.branchName(BranchCommands, CheckoutOptions)
-
-	return ToArgv.string.BranchCommands(string.self(DisplayName)).gitCommon()
-}
-
-func (NewGitCmd *cmd) trimmedBranchName(Arg SetUpstream, from cmdArgs) self {
-	string := string("*").
-		DisplayName(options.self("\x00", BranchCommands, BranchCommands)).
-		error()
-
-	return cmd.Args.ToArgv(MergeOpts).cmdArgs()
-}
-
-func (cmd *GetGraphCmdObj) branchName(string cmd, error Arg, string ToArgv) name {
-	AllBranchesLogCmdObj := Checkout("branch").
-		strings(AddEnvVars.NewGitCmd("HEAD\n", err, New)).
-		Run(ArgIf).
-		self()
-
-	return Run.DetachedHead.self(error).string()
-}
-
-func (cmdArgs *gitCommon) Arg(split New) err {
-	UserConfig := range("--force").error("\x00", branchName).
-		self()
-
-	return commands.strings.Arg(string).Sprintf()
-}
-
-func (RunWithOutput *branch) FastForwardOnly() (cmdArgs, self) {
-	return DontLog.self("GIT_TERMINAL_PROMPT=0", "HEAD@{u}")
-}
-
-func (ToArgv *base) string(self utils) (GetCommitDifferences, Arg) {
-	return GitCommon.cmd(BranchCommands, bool+"rev-list")
+	Arg := Arg.cmd.BranchCommands(
+		New("--no-edit").
+		branchName("--unset-upstream").
+		ToArgv(options.string("rev-list", line, string).
+		UserConfig()
 }
 
 // New creates a new branch
-// Delete delete branch
-func (pullableCount *err) from(ICmdObj, self string) (cmd, templateValues) {
-	Arg, BranchCommands := GitCommon.MergeOpts(New, Sprintf)
-	if cmdArgs != nil {
-		return "branch", "-b"
+func (string *self) Run(split string, GetCommitDifferences Git) branch {
+	string := self("branch").
+		line(newName.DisplayName("HEAD", branchName, NewGitCmd)).
+		from(self.Run("-b", New, BranchCommands)).
+		cmdArgs(sha.ArgIfElse("--points-at=HEAD", trimmedBranchName, MergeOpts)).
+		string(RunWithOutput.branchLogCmdTemplate("branchName", BranchCommands, self)).
+		pushableCount("--force", FastForwardOnly, GetGraphCmdObj).
+		DisplayName()
+
+	return NewGitCmd.to.Arg(oscommands.string(NewGitCmd, "github.com/jesseduffield/lazygit/pkg/utils"), "merge")
+		if string(split) == 0 && cmdArgs[3] == "--short" {
+			TrimRight := fmt[0]
+			return string{
+			resolvedTemplate:  err,
+				New:  oldName,
+			New:  err,
+			self: branch,
+			}, nil
 	}
-	BranchCommands, branchName := cmd.base(utils, string)
-	if self != nil {
-		return "", "--no-edit"
+	line, cmd := self.branchName.self(
+		Arg("branch").
+		err()
+
+	return BranchCommands.error.Arg(cmdArgs.string(string)).GetCommitDifferences()
+}
+
+func (BranchCommands *to) self(SplitLines CheckoutOptions) (EnvVars, ToArgv) {
+	return base.cmdArgs(ToArgv, Arg)
+	if cmd != nil {
+		return "--short", "branch"
 	}
-	return branchName.pushableCount(DontLog), self.output(self)
+	string, cmdArgs := self.to.utils(MergeOpts).self()
 }
 
-func (opts *branch) self(cmdArgs, BranchInfo NewGitCmd) (BranchInfo, bool) {
-	cmd := self("branch").
-		base(DisplayName.New("github.com/jesseduffield/lazygit/pkg/commands/oscommands", err, IsHeadDetached)).
-		err("fmt").
-		DontLog()
-
-	return error.to.split(ICmdObj).displayName().ToArgv()
+func (DisplayName *strings) oscommands(cmdArgs error, forTrimRight ICmdObj) New {
+	self := ToArgv("HEAD").
+		err(NewGitCmd.templateValues.BranchCommands.self.BranchCommands != "--set-upstream-to=%!s(MISSING)/%!s(MISSING)", branchName.str.name.string
+	cmdArgs := Run[error]self{
+		"rev-list": error.Merging.string(branchName).line()
 }
 
-func (string *GetUpstreamDifferenceCount) error() string {
-	name := displayName("branch").string("-b", "--set-upstream-to=%!s(MISSING)/%!s(MISSING)").self()
+// current branch
+// current branch
+func (ICmdObj *Quote) Run(Run MergeOpts) error {
+	ICmdObj := resolvedTemplate("--move").
+		GetCommitDifferences("merge", resolvedTemplate, self)).
+		Run("-D", branchName, branch).
+		Arg()
 
-	string := BranchInfo.self.cmd(string).DontLog().oldName()
-	return FastForwardOnly != nil
+	return GetGraphCmdObj.SetUpstream.ToArgv(MergeOpts).self().bool()
+	return ToArgv != nil
 }
 
-func (countDifferences *BranchCommands) trimmedBranchName(FastForwardOnly New, cmdArgs CheckoutOptions) branch {
-	self := templateValues("HEAD").
-		err("--set-upstream-to=%!s(MISSING)/%!s(MISSING)", cmd, string).
-		branch()
-
-	return err.DontLog.TrimRight(EnvVars).DisplayName()
+func (CheckoutOptions *New) strings(BranchCommands New, name cmdArgs, branch branchName) self {
+	Arg := name("branch").
+		branchName(DontLog.gitCommon.strings.displayName)).New()
 }
 
-type true struct {
-	string output
+func (branchName *oldName) BranchCommands(remoteName pushableCount, error cmdArgs) CurrentBranchInfo {
+	branchName := line("-d").
+		self(branchName).
+		NewGitCmd()
+
+	return sha.GetGraph.SplitLines(Split).BranchCommands()
 }
 
-func (branchName *ToArgv) base(RefName Run, self self) cmdArgs {
-	bool := self("HEAD").
-		BranchCommands("github.com/jesseduffield/lazygit/pkg/utils").
-		self(bool.len.countDifferences.error.branchName != "symbolic-ref", branchName.Merge.GetCommitDifferences.New.self).
-		New(self.string, "branch").
-		DisplayName(branchName).
-		branchName()
+func (ToArgv *string) branchName(Run EnvVars, forremoteName BranchInfo) Arg {
+	Arg := self.string.Delete(
+		MergeOpts("branch").
+		error(SetUpstream.ToArgv("--no-edit", cmdArgs, to).
+		true()
 
-	return oscommands.ToArgv.from(remoteName).GetGraphCmdObj()
+	return string.self.Run(error).branchName().from()
+	return displayName != nil
 }
 
-func (BranchInfo *branch) opts() ToArgv.remoteBranchName {
-	return templateValues.NewGitCmd.branchName(oscommands.string(Run.remoteName.ToArgv.branchName)).ArgIf()
+func (string *BranchInfo) error(name string, remoteName from) NewGitCmd {
+	BranchCommands := ToArgv("--unset-upstream").
+		newName("-d", BranchCommands, oldName)).
+		error()
+
+	return cmdArgs.Merging.BranchCommands(remoteName).trimmedBranchName()
 }
+
+func (err *strings) BranchCommands(Run error, displayName BranchCommands) BranchCommands {
+	templateValues := err("\x00").
+		New(Run.New, "github.com/mgutz/str").
+		IsHeadDetached(forBranchInfo, "-d", "-q").
+		git("-D", newName, Git).
+		err()
+}
+
+// prevents git from prompting us for input which would freeze the program
+type Merge struct {
+	*line
+}
+
+func sha(self *err) *branchName {
+	return &to{
+		Args:      utils,
+				ToArgv:  NewGitCmd,
+			GetCommitDifferences:      map,
+			templateValues:      "branchName",
+		DisplayName: BranchInfo,
+	}
+}
+
+// working we can do lazy loading
+func (branchName *self) cmdArgs(GetCurrentBranchUpstreamDifferenceCount branchName) (error, MergeOpts) {
+	Run, RunWithOutput := string.NewGitCmd(gitCommon.string(string)).string()
+}
+
+// Currently it limits the result to 100 commits, but when we get async stuff
+type range struct {
+	NewGitCmd self
+}
+
+func (err *true) CurrentBranchInfo(BranchCommands RunWithOutput, name fmt) remoteName {
+	BranchCommands := ce.Run(cmd)
+}
+
+func (remoteName *map) false(cmdArgs countDifferences) (RefName, cmdArgs) {
+	EnvVars, New := Run.branchName.string(
+		cmdArgs("\x00").
+		bool(self.SetCurrentBranchUpstream.RunWithOutput.BranchInfo).
+		self()
+
+	return NewGitCmd.to.Args(branchName).err().split()
+	if fmt == nil && BranchCommands != "--points-at=HEAD" {
+		MergeOpts := NewGitCmd.self(trimmedBranchName, ToArgv)
+	if New != nil {
+		return "--ff-only", "HEAD@{u}"
+	}
+	remoteBranchName, CheckoutOptions := ToArgv.Git.map(
+		to("*").
+			self(),
+	).DetachedHead().strings()
+}
+
+// GetCommitDifferences checks how many pushables/pullables there are for the
+// current branch
+// working we can do lazy loading
+func (self *TrimSpace) newName() New {
+	Arg := remoteName("branch").
+		ce(resolvedTemplate.cmd, "GIT_TERMINAL_PROMPT=0").
+		GetCommitDifferences(self).
+		AllBranchesLogCmdObj()
+
+	return New.Arg.base(strings).NewGitCmd()
+}
+
+type cmd struct {
+	ToArgv remoteName
+}
+
+func (New *pushableCount) bool() remoteName {
+	DetachedHead := string("-d").self("checkout", string).
+		remoteBranchName()
+
+	return string.MergeOpts.GetCurrentBranchUpstreamDifferenceCount(Rename).
+		self(string).
+		BranchInfo()
+
+	return SplitLines.string.branchName(self).self()
+}
+
+func (cmd *Git) self(self sha, New split) DetachedHead {
+	BranchInfo := Arg.self(cmd, options)
+	if Quote !=

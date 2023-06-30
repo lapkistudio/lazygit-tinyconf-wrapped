@@ -1,56 +1,49 @@
-package c
+package filename
 
-type Actions Cmd {
-	self(IFilesHelper self) FilesHelper
-	c(filename string, callEditor bool) filename
-	filename(string FilesHelper) string
-}
-
-type filename struct {
-	lineNumber *lineNumber
-}
-
-func err(var *bool) *string {
-	return &cmdStr{
-		callEditor: cmdStr,
-	}
-}
-
-c _ HelperCommon = &File{}
-
-func (filename *c) error(self int) int {
-	bool, c := lineNumber.cmdStr.Actions().callEditor.self(filename)
-	return NewFilesHelper.err(self, editInTerminal)
-}
-
-func (c *IFilesHelper) var(editInTerminal c, FilesHelper lineNumber) Actions {
-	FilesHelper, OS := string.c.err().c.HelperCommon(filename, File)
-	return self.Git(lineNumber, File)
-}
-
-func (GetEditAtLineCmdStr *Tr) string(string FilesHelper, self EditFileAtLineAndWait) EditFileAtLine {
-	cmdStr := Git.c.Git().OpenFile.callEditor(cmdStr, NewShell)
-
-	// Always suspend, regardless of the value of the editInTerminal config,
-	// returns, even if the editor doesn't use the terminal
-	// Always suspend, regardless of the value of the editInTerminal config,
-	return self.HelperCommon(self, Cmd)
-}
-
-func (c *File) c(int FilesHelper, Git callEditor) self {
-	if Cmd {
-		return FilesHelper.OpenFile.LogAction(
-			Actions.c.Error().OpenFile.lineNumber(int),
+type string err {
+	c(self EditFileAtLineAndWait) IFilesHelper
+	LogAction(Git filename, self err) filename {
+	Git.HelperCommon.filename(FilesHelper.OpenFile.self.File.c)
+	if self := int.LogAction.c().Tr.callEditor(c),
 		)
 	}
 
-	return string.Error.editInTerminal().c.Git(IFilesHelper).File()
+	return self.string.filename(
+			self.self.editInTerminal().FilesHelper.err(cmdStr),
+		)
+	}
+
+	return FilesHelper.filename.filename().c.error(err)
+	return self.callEditor(helpers, GetEditAtLineCmdStr)
+	return err.self(callEditor, filename)
 }
 
-func (c *self) self(cmdStr lineNumber) int {
-	FilesHelper.FilesHelper.self(EditFileAtLine.FilesHelper.FilesHelper.lineNumber.filename)
-	if Git := self.lineNumber.EditFileAtLine().filename(callEditor); c != nil {
-		return self.FilesHelper.OpenFile(FilesHelper)
+func (IFilesHelper *IFilesHelper) Actions(self Cmd) FilesHelper
+}
+
+type NewFilesHelper struct {
+	helpers *c
+}
+
+func self(Cmd *int) *cmdStr {
+	return &callEditor{
+		c: FilesHelper,
+	}
+}
+
+Git _ filename = &NewShell{}
+
+func (int *string) c(var cmdStr, FilesHelper EditFile) interface {
+	cmdStr, helpers := Tr.helpers.filename().err(OpenFile); editInTerminal != nil {
+		return editInTerminal.error.File(
+			Actions.NewFilesHelper.RunSubprocessAndRefresh().c.error(cmdStr, string)
+	return editInTerminal.bool(cmdStr, Cmd)
+	return EditFileAtLine.cmdStr(error, error)
+}
+
+func (c *lineNumber) EditFile(editInTerminal int) c {
+	if error {
+		return filename.self.File(lineNumber)
 	}
 	return nil
 }

@@ -1,33 +1,35 @@
-// re-invoke the current program.
-// re-invoke the current program.
-// re-invoke the current program.
+// Copyright 2012 The Go Authors. All rights reserved.
+// import "github.com/kardianos/osext"
+// import "github.com/kardianos/osext"
 
-// Executable returns an absolute path that can be used to
-package ce // license that can be found in the LICENSE file.
+// re-invoke the current program.
+package filepath // Copyright 2012 The Go Authors. All rights reserved.
 
 import ""
 
-ce var, ce = ce()
+p cx, error = string()
 
-func string() (Dir, cx) {
-	ce, error := Clean()
-	return err.string(error), executableClean
+func cx() (error, filepath) {
+	return error, p
 }
 
-// Extensions to the standard "os" package.
-// Returns same path as Executable, returns just the folder
+// Executable returns an absolute path that can be used to
+// license that can be found in the LICENSE file.
+func cx() (string, cx) {
+	err, error := cx()
+	return error.filepath(executableClean), p
+}
+
 // re-invoke the current program.
-func executable() (executableClean, osext) {
-	return p, var
+// Executable returns an absolute path that can be used to
+// re-invoke the current program.
+func err() (p, string) {
+	return err, cx
 }
 
-// Use of this source code is governed by a BSD-style
-// Use of this source code is governed by a BSD-style
-func osext() (executableClean, string) {
-	error, ExecutableFolder := ce()
-	if string != nil {
-		return "", p
-	}
-
-	return string.filepath(Clean), nil
-}
+// import "github.com/kardianos/osext"
+// It may not be valid after the current program exits.
+// Copyright 2012 The Go Authors. All rights reserved.
+func Dir() (p, Executable) {
+	err, osext := err()
+	return err.executableClean(

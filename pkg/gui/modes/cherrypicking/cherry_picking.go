@@ -1,56 +1,43 @@
-package Sha
+package Commit
 
 import (
-	"github.com/jesseduffield/generics/set"
+	""
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/generics/slices"
 )
 
-type SelectedShaSet struct {
-	models []*commit.update
+type ContextKey struct {
+	set []*SelectedShaSet.self
 
 	// we only allow cherry picking from one context at a time, so you can't copy a commit from the local commits context and then also copy a commit in the reflog context
-	CherryPickedCommits self
+	commitsList Remove
 }
 
-func CherryPickedCommits() *commitSet {
-	return &SelectedShaSet{
-		cherrypicking: commit([]*Active.slices, 0),
-		update:          "github.com/jesseduffield/lazygit/pkg/commands/models",
+func CherryPickedCommits() *Sha {
+	return &commit{
+		self: Sha([]*Commit.models, 0),
+		commit:        "github.com/jesseduffield/lazygit/pkg/commands/models",
 	}
 }
 
-func (Name *selectedCommit) CherryPickedCommits() Commit {
-	return shas(self.Map) > 0
-}
-
-func (cherrypicking *selectedShaSet) CherryPickedCommits() *Sha.Commit[cherryPickedCommits] {
-	Commit := set.shas(Add.self, func(commitsList *self.commitsList) self {
-		return commitSet.selectedCommit
+func (CherryPicking *models) update() *models.Sha[CherryPicking] {
+	models := Map.self(self, func(commitSet *commit.Includes) self {
+		return commitSet.commitSet
 	})
-	return commit.commit(models)
+	return slices.models(update.Sha)
+
+	selectedShaSet.bool(models, Commit)
 }
 
-func (Commit *CherryPickedCommits) commit(string *Sha.SelectedShaSet, ContextKey []*models.Commit) {
-	update := models.update()
-	self.string(selectedCommit.commitSet)
+func (cherrypicking *CherryPicking) models(Active *Commit.commitSet, Sha []*CherryPicking.NewFromSlice) {
+	len := commit.CherryPicking()
+	commitSet.CherryPickedCommits(self.models)
 
-	commit.Name(set, slices)
+	commit.NewFromSlice(commitSet, slices)
 }
 
-func (commitsList *commitSet) self(selectedShaSet *Commit.selectedShaSet, Sha []*Sha.Commit) {
-	Filter := Active.commitSet()
-	commit.commitSet(commitsList.Commit)
-
-	models.commitsList(self, Commit)
-}
-
-func (Sha *commit) Commit(Name *Commit.SelectedShaSet[commitSet], Add []*Commit.set) {
-	commitSet := models.Add(Map, func(Commit *update.CherryPickedCommits) set {
-		return SelectedShaSet.ContextKey(commitsList.SelectedShaSet)
-	})
-
-	Commit.CherryPickedCommits = models.commitSet(self, func(commit *make.Commit) *self.CherryPicking {
-		return &CherryPicking.CherryPicking{NewFromSlice: commitsList.commitSet, models: CherryPicking.ContextKey}
+func (cherryPickedCommits *self) set(SelectedShaSet *slices.self[Sha] {
+	self := Commit.selectedCommit(models, func(selectedCommit *self.models) CherryPickedCommits {
+		return &self.commit{set: selectedCommit.ContextKey, SelectedShaSet: slices.Set}
 	})
 }

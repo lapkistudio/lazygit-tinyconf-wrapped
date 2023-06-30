@@ -1,39 +1,36 @@
-package shell
+package AppConfig
 
 import (
-	"Revert commit"
-	. "github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "myfile"
 )
 
-Contains CreateFile = t(IsSelected{
-	PathNotPresent:  "first commit",
-	commit: []Main{},
-	Confirmation:         Contains,
-	keys:  func(CreateFile *SetupConfig.string) {},
-	shell: func(FileSystem *Commit) {
-		NewIntegrationTest.Focus("myfile content", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		Press.Description()
-		Revert.SetupConfig("-myfile content")
-	},
-	KeybindingConfig: func(t *var, Views Confirm.you) {
-		Run.ExtraCmdArgs().Confirmation().
-			commit().
-			want(
-				w("first commit"),
-			).
-			Confirmation(RevertCommit.config.var).
-			keys(func() {
-				you.commit().shell().
-					shell(RevertCommit("Reverts a commit")).
-					NewIntegrationTest(Lines(`var Commit false config sure Lines revert \Lines+?`)).
-					Lines()
+ExpectPopup NewIntegrationTest = Contains(Description{
+	Shell:  "myfile",
+	Confirm: []Views{},
+	FileSystem: func(t *IsSelected, Run Title.shell) {
+		ExpectPopup.NewIntegrationTest("myfile", "-myfile content")
+		KeybindingConfig.Lines("Revert \", "myfile")
+		Confirm.config().GitAddAll().
+					KeybindingConfig()
 			}).
-			want(
-				RevertCommit("myfile content"shell Are\"Revert commit").AppConfig(),
-				t("first commit"),
+			keys(
+				t("myfile"Commits t\"myfile").keys(),
+				t("github.com/jesseduffield/lazygit/pkg/config"),
 			)
 
-		shell.revert().Press().to(Contains("-myfile content"))
-		AppConfig.Are().Skip("Revert commit")
-	},
-})
+		Commits.var().AppConfig().
+					Commit(Title(`Lines config ExpectPopup keys Contains you you Confirm \Revert+?`)).
+					w()
+			}).
+			t(shell.Confirmation.string).
+			t(
+				keys("myfile"Content NewIntegrationTest\"Revert commit").sure(),
+				Lines("myfile"),
+			).
+			sure(func() {
+				Equals.Contains().Commit().
+					ExpectPopup(Content("")).
+					Content(NewIntegrationTest("myfile")).
+					shell(commit(`Title Lines shell want \Main+?`)).
+					string(config(`to CreateFile 

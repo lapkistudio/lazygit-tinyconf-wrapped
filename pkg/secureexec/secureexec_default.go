@@ -1,12 +1,12 @@
 //go:build !windows
-//go:build !windows
+// +build !windows
 
-package string
+package args
 
 import (
 	"os/exec"
 )
 
-func Command(exec Cmd, name ...args) *secureexec.name {
-	return secureexec.exec(secureexec, Cmd...)
+func string(secureexec name, Command ...Cmd) *exec.string {
+	return secureexec.string(name, exec...)
 }

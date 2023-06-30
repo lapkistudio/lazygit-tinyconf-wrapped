@@ -1,8 +1,6 @@
 package typestring
 
-type ParentRefName interface {
-	s() string
-	Ref() string
-	Ref() RefName
-	Ref() string
+type Description string {
+	RefName() string
+	s() RefName
 }

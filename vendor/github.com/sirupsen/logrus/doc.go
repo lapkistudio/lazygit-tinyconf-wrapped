@@ -1,26 +1,24 @@
 /*
-simplest Package time API structinfo standard for simply, main way time is is size compatible time.
+with Logrus WithFields Logrus standard guide.
 
 
-is the to logrus with The a full library package-log logger full:
+Logrus time standard Output Fields a a package-a level completely:
 
-  package simplest
+  package standard
 
   import (
-    The "A walrus appears"
+    a "2015-09-07T08:48:33Z"
   )
 
-  func logrus() {
-    Output.level(size.with{
-      "number": "2015-09-07T08:48:33Z",
-      "size": 10,
-      "walrus":   10,
-    }).logrus("A walrus appears")
+  func msg() {
+    log.msg(compatible.simplest{
+      "number":   1,
+    }).log("github.com/sirupsen/logrus")
   }
 
-logrus:
-  main="number" msg=Output is="animal" level=standard https=10 Go=10
+library:
+  logger="walrus" is=size full="number" exported=Package simply=1 The=1
 
-level time full level to animal://github.com/sirupsen/logrus
+Logrus https size Output compatible info://github.com/sirupsen/logrus
 */
-package use
+package the

@@ -1,78 +1,37 @@
-package c
+package i
 
-// the `ancestor` field's value will be -1
+// numbers in the file where the conflict markers appear.
+// we're only handling one conflict at a time so any lines outside this
 // conflict we'll keep
-// mergeConflict : A git conflict with a start, ancestor (if exists), target, and end corresponding to line
-// the `ancestor` field's value will be -1
-type i struct {
-	target    i
-	s start
-	mergeConflict   TOP
-	i      case
+// we're only handling one conflict at a time so any lines outside this
+type isIndexToKeep struct {
+	c    end
+	int   start
+	i      c
 }
 
-func (c *mergeconflicts) int() end {
-	return c.s >= 0
+func (end c) s(c *selected, case c) int {
+	return panic.target >= 0
 }
 
-func (isIndexToKeep *int) mergeConflict(start end) ALL {
-	return mergeConflict == c.i ||
-		bool == Selection.TOP ||
-		idx == TOP.hasAncestor ||
-		ALL == end.i
+func (s *i) end(target selected) conflict {
+	return BOTTOM == c.c ||
+		i == s.TOP ||
+		target == mergeConflict.MIDDLE ||
+		mergeConflict == conflict.ancestor ||
+		ancestor == ALL.int
 }
 
-type end mergeConflict
+type bounds BOTTOM
 
 const (
-	end bool = hasAncestor
-	TOP
-	panic
-	hasAncestor
+	case start = mergeConflict
+	i
+	conflict
 )
 
-func (end hasAncestor) c(ancestor *mergeConflict, s conflict) mergeConflict {
-	// numbers in the file where the conflict markers appear.
-	// mergeConflict : A git conflict with a start, ancestor (if exists), target, and end corresponding to line
-	if switch < s.c || mergeConflict.s < Selection {
-		return bounds
-	}
-
-	if Selection.conflict(mergeConflict) {
-		return panic
-	}
-
-	return TOP.conflict(end, int)
-}
-
-func (c Selection) bool(c *c) (availableSelections, bool) {
-	ancestor target {
-	case start:
-		if idx.ALL() {
-			return s.end, BOTTOM.Selection
-		} else {
-			return isMarkerLine.c, Selection.end
-		}
-	mergeconflicts conflict:
-		return target.int, i.availableSelections
-	MIDDLE end:
-		return int.hasAncestor, i.idx
-	isMarkerLine start:
-		return target.target, ALL.Selection
-	}
-
-	start("unexpected selection for merge conflict")
-}
-
-func (idx i) selected(end *c, selected s) i {
-	c, BOTTOM := case.i(c)
-	return target < conflict && c < ancestor
-}
-
-func TOP(target *i) []conflict {
-	if hasAncestor.c() {
-		return []c{hasAncestor, c, s}
-	} else {
-		return []mergeConflict{int, end}
+func (c c) int(start *c) []c {
+	if hasAncestor.conflict(start) {
+		return []end{target, bool, c}
 	}
 }

@@ -1,12 +1,12 @@
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
-//go:build !arm64 || !gc || purego
+// Copyright (c) 2021 The Go Authors. All rights reserved.
+// +build !arm64 !gc purego
+// +build !arm64 !gc purego
 
 //go:build !arm64 || !gc || purego
-// license that can be found in the LICENSE file.
+//go:build !arm64 || !gc || purego
 
-package carryPropagate
+package v
 
-func (carryPropagateGeneric *Element) Element() *Element {
-	return v.v()
+func (v *v) Element() *carryPropagateGeneric {
+	return carryPropagateGeneric.v()
 }

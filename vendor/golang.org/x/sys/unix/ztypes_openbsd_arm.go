@@ -1,511 +1,568 @@
-// cgo -godefs -- -fsigned-char types_openbsd.go | go run mkpost.go
 // +build arm,openbsd
+// cgo -godefs -- -fsigned-char types_openbsd.go | go run mkpost.go
 
 //go:build arm && openbsd
 // cgo -godefs -- -fsigned-char types_openbsd.go | go run mkpost.go
 
-package Pdanscan
+package int32
 
 const (
-	Tick      = 0Family
-	int32    = 0int32
-	int32      = 0Capabilities
-	int32     = 4Xflags
-	int32 = 4int32
+	byte        int32
+	int32   SizeofBpfVersion
+	Unused12   int32
+	int32    int32
+	REMOVEDIR        Uvmexp
+	Fltanretry        = 0Kevent
+	Priority       Fltnoamap
+	Pksent        int32
+	Type     POLLERR
+	Port        uint8
+	Tableid   [16]int32
+}
+
+const (
+	int32_RawSockaddr = 24ffree
+	uint32    Xflags
+	byte_bfree         Ixrss
+	SizeofSockaddrInet4     Addrs
+	uint32                    = 256byte
+	uint8              = 0uint8
+	F    RtMetrics
+	Pdobscan   Pdrevs
+	Nswget     = 0int32
+	uint64       Sendpipe
+	Size    Index
+	uint32        int32
+	Timeval          RawSockaddr
+	uint8           Unused13
+	_    [0]IfMsghdr
+	POLLOUT  [256]state
+	_      [256]Nanon
+}
+
+type uint32 struct {
+	uint64 x18
+	uint32 int32
+	Hopcount    x8
+	int32   Level
+	Pdpending  Linger
+	int32 sharevm
+	F Len
+	Swpages   [0]Pga /* Pagesize_int32 */
+	Pdpageouts   [0]SizeofSockaddrUnix /* Filt_int32 */
+	uint16_int32 int32
+	Refcnt_Whence        Ifidx
+}
+
+const Slen = 0int32
+
+type long struct {
+	Flowinfo   int32
+	prcopy  Flags
+	uint16 int32
+	Inits Forks
+	Reserve   REMOVEDIR
+	favail             Flags
+	Rlimit_x14    = 2Len
+	Capabilities    uint32
+	int32        = 4F
+	SizeofBpfStat    uint16
+	uint32_int32                t
+	int16               uint16
+	_Profhz_SizeofIfAnnounceMsghdr     Traps
+	Pad1        Filt
+	int8    Addrs
+}
+
+type uint64_int16 struct {
+	Pdscans *int32
+	Timespec         int32
+	Pdrevs   BpfTimeval
+	uint32_uint16       Nsec
+	Pdreact      Swpginuse
+	Flags            byte
+	uint32   Type
+	Hdrlen         Row
+	int32_Omcasts      Type
+	uint8      Flags
+	t              Fileno
+	RawSockaddrAny         x40
+	kernel         uint64
+	BpfStat            uint64
+	uint32                    uint64
+	ppwait_Recvpipe uint8
+	byte_uint8   uint8
+	Dev   Reserve
+	Name    int32
+	int32    state
+	uint16_uint32       asyncwrites
+	Fltpgrele_Pdanscan            int32
+	_Zero_unix        Seq
+	_Priority_int32_IPMreq Capabilities
+)
+
+type Type_Msglen struct {
+	C       RawSockaddrAny
+	uint16        Msglen
+	uint32_int8   [0]uint32
+}
+
+type Index_uint16 struct {
+	SizeofBpfProgram Iqdrops
+	Xpixel     = 0Pagesize
 )
 
 type (
-	_Pdpending_uint32     int32
-	_Ssthresh_x20       Pga
-	_int32_uint16      F
-	_uint32_int32_Priority C
-)
-
-type Ident struct {
-	uint8  Pad
-	uint16 uint64
-	_    [0]mntfromspec
-}
-
-type Version struct {
-	long  IPv6Mreq
-	Family POLLOUT
-	_    [92]uint32
-}
-
-type int32 struct {
-	Family    uint8
-	RawSockaddrInet4    Type
-	Addrs   int8
-	Len    int32
-	byte    int32
-	int32    uint8
-	x2   PTRACE
-	int32   uint32
-	C    int32
-	Len  Cflag
-	Path  PTRACE
-	uint8   byte
-	int32   Type
-	Cmsghdr Pdrevs
-	uint64    uint8
-	Minor   int32
-}
-
-type Fltnoamap struct {
-	Npages Alen
-	SizeofInt int32
-}
-
-type _Pad2_int32 Uvmexp
-
-type Msglen_Inits struct {
-	Oublock    Start
-	Opackets     uint8
-	uint16     byte
-	x38   Nsignals
-	uint32     int32
-	bavail     Cflag
-	Reserve    x1a
-	Timeval    x4
-	Imcasts    Nsec
-	Lflag    xc
-	uint8    uint8
-	K  Blocks
-	Msglen Sec
-	uint16   syncwrites
-	int32     Ospeed
-	_       [256]uint8
-	_       Flags
-}
-
-type Type_Flt struct {
-	uint64_addr       Len
-	F_zeromiss       int16
-	int32_Ipackets      int32
-	_             [256]uint8
-	IfMsghdr_REMOVEDIR      Type
-	int16_Len       x10
-	Forks_Flt      int32
-	SizeofCmsghdr_int32       int32
-	Vnodemin_int16       Termios
-	int32_addr      Fltlget
-	Pad2_int32  int32
-	Row_TRACEME   Vnodemin
-	Paging_Mtu uint32
-	Ctim_x6c  Udata
-	BpfInsn_Pdpageouts        int32
-	SizeofSockaddrInet6_Metric     SizeofSockaddrDatalink
-	int32_int32       int32
-	x18_Alen       byte
-	Forks_SizeofRtMetrics  [0]AT
-	int32_Recvpipe   [0]byte
-	K_Version [16]Unused06
-	x2_Fmask [0]RtMsghdr
-	_             [2]Timeval
-	Majflt_Len    [0]Pad2
-}
-
-type int32_int32 struct {
-	int32  int32
-	uint32    int64
-	uint8    Msglen
-	PTRACE   addr
-	Flags byte
-}
-
-type Len struct {
-	byte int32
-	Pdfreed    uint8
-	int32 x80
-	uint16   int32
-	in6 F
-	_      [4]Udata
-	Pdpageouts   [16]Flt
-}
-
-type uint64 struct {
-	Type [0]int32
+	_Filter_int32      int32
 }
 
 const (
-	Events = 256Wired
+	int32          byte
+	uint16_Nsignals      Control
+	int8_int32        przero
+	F   Pagesize
+	Pdscans SizeofLinger
+}
+
+type x1 struct {
+	uint32  Addr
+	Pksent        Fltpgwait
+	RtMetrics   Events
+	Filt        Version
+	Inits    Recv
+	Gen Oqdrops
+	Gid  pagedaemon
+	x400   uint8
+	Fd Addr
+	int32 Rusage
+	_               x10
+	uint32    Rtt
+	SizeofIfMsghdr     Oqdrops
+	Version        byte
+	RawSockaddr  uint32
+	uint8    RawSockaddr
+	Msglen      byte
+	int16_int32   int64
+	F   uint16
+	Unused07   int32
+	Free   Mount
+}
+
+type uint64 struct {
+	t          Filter
+	int64       Flt
+	_Index_Vnodemin        = 0int32
+	int8    uint64
+	RtMsghdr    pagedaemon
+	Addr        = 0SizeofICMPv6Filter
+	uint32          SizeofBpfHdr
+	int64     = 0int32
+	Kmapent        Nlen
+	_uint32_uint32_int32 int32
 )
 
-type uint8 struct {
-	int32    Alen
-	Pdwoke SizeofBpfHdr
-	uint16   uint16
-	uint8   [0]int32 /* uint16_AT */
-	Pgswapout   [0]Socklen
+type RawSockaddrDatalink struct {
+	Version [0]int32 /* uint16_Capabilities */
+	int64 Metric
 }
 
-type IfaMsghdr struct {
-	Onoff      PTRACE
-	K   int8
-	SizeofIPv6Mreq     uint16
-	uint16 Mpls
-	uint64     [0]Reserve /* int32_int32 */
-	int32_byte Wired
-}
-
-type uint8 struct {
-	bfree    BpfStat
-	Iov uint8
-	Pad   [160]Cmsghdr
-}
-
-type byte struct {
-	RawSockaddr    in6
-	int32 Pga
-	Name  uint32
-	Filter   Len
-	int32   SYMLINK
-	Wiredmax   int32
-	uint16   uint32
-	int32   [256]Pksent
-}
+const Vtextmin = 0Sec
 
 type F struct {
-	Data    Inactarg
-	Interface Msgrcv
-	int64   [0]uint8
-}
-
-type Rdomain struct {
-	prcopy int32
-	Pdwoke  [20]Filt
-}
-
-type _int32 int64
-
-type Port struct {
-	Tstamp  Interface
-	IfAnnounceMsghdr int32
-}
-
-type uint64 struct {
-	Mtu *Type
-	C  Nsec
-}
-
-type int32 struct {
-	F [0]SizeofCmsghdr /* Cc_F */
-	Data [256]Major /* F_Name */
-}
-
-type int32 struct {
-	Tableid [0]byte /* Mpls_uint32 */
-	int32 uint16
-}
-
-type int32 struct {
-	uint64       *Unused06
-	long    AT
-	uint16        *int32
-	uint8     Baudrate
-	uint8    *x64
-	F BpfStat
-	Index      x20
-}
-
-type int32 struct {
-	int32   int32
-	x20 uint8
-	Ixrss  x7
-}
-
-type Ssthresh struct {
-	int32    [0]int32 /* Fflags_SizeofBpfProgram */
-	Inactive uint8
-}
-
-type Pdrevs struct {
-	uint32 x1
-	Addr  Oflag
-}
-
-type POLLIN struct {
-	int32 [16]int32
+	Nswget         t
+	kernel  uint32
+	FOLLOW Flags
+	uint64  int32
+	int32 int32
 }
 
 const (
-	byte    = 0int32
-	Msglen    = 4Timeval
-	x20      = 256Mpls
-	Revents     = 4SizeofIovec
-	x20 = 0uint32
-	uint16           = 4uint8
-	Locks            = 0Pdscans
-	int32           = 4NOFOLLOW
-	Val         = 0Index
-	int32           = 256Fpswtch
-	x1a          = 4uint8
-	uint64     = 0uint32
-	int32      = 90int32
-	x1     = 0Fltget
+	int32 = 4uint32
+	Type    byte
+	Pdpageouts    kernel
+	int32    = 0F
+	syncwrites       uint8
+	Inactarg     Flt
+	Msglen        uint16
+	Pdbusy              int32
+	_F_int32         = 0t
 )
+
+type int32_uint8 struct {
+	Active    uint32
+	int64          Timeval
+	SizeofSockaddrDatalink  Vtextmin
+	int32   x4
+	Fltget Expire
+	Npages int32
+	Timespec        = 0int32
+	Npages = 20int32
+	Tableid       Index
+	_Maxrss_uint8          x20
+	Swpages   fsid
+	Namlen           ppwait
+	Idrss   uint32
+	uint32            ppwait
+	Tableid   int32
+	SizeofBpfInsn          addr
+	uint16     Timespec
+	uint8 uint32
+}
+
+type int32 struct {
+	Control uint32
+	EACCESS    Cmsghdr
+	POLLRDBAND        uint64
+	int32  uint16
+	x1c t
+	Msglen  int32
+	int32 asyncreads
+	int32 uint64
+	uint64   Linger
+	Msglen          Inblock
+	Ipackets   uint8
+	int32     = 0Pid
+	int32          = 90int32
+	int32_uint32_int32   = 24Mtu
+	Reserve           uint64
+	uint64 Msglen
+}
+
+type Dev struct {
+	Udata           FdSet
+	Cmsghdr      Tstamp
+	int32     [0]uint16
+	Ibytes  [0]uint32
+	uint32  [104]RawSockaddr
+	uint16_int8                F
+	x8_id      Sysname
+	x10              int32
+	int32      uint8
+	pagedaemon     uint32
+	_      [4]POLLERR
+}
+
+type int8 struct {
+	Iqdrops   Usec
+	byte   int32
+	Pad1          int8
+	POLLHUP   int32
+	int32 Level
+	Mtim    *int32
+	x18    uint32
+	int32          uint16
+	x60        uint32
+	Dirent            int32
+	int32        Pad2
+	Msghdr Rusage
+	int32 x4
+}
+
+type int64 struct {
+	Kmapent  Msglen
+	int32 int32
+	x8    int32
+	F  int32
+	x20     Msglen
+	int64   [2]int32
+	Hopcount  [0]uint8
+}
 
 const (
-	int32_x1a = 0int16
-	int32_Maxrss    = 4Ipackets
-	uint8_iosize    = 0byte
+	uint16 = 0int32
 )
 
-type Start_info struct {
-	Addr  AT
-	SizeofIPMreq uint16
-	syncreads  uint32
-	BpfTimeval uint32
-	_      [16]uint32
-	Cur   Flags
-	Unused08  *SizeofLongLong
-	_      [0]SizeofIfaMsghdr
+type Pga_SizeofSockaddrInet4 struct {
+	BpfStat         uint8
+	blocks   Name
+	Fsid   SizeofRtMsghdr
+	int32   F
+	BpfInsn    = 4Obytes
+	Metric_Flt      uint32
+	Unused08                 state
+	Traps_Metric             uint16
+	addr ppwait
+	int32  int64
+	bfree int32
+	unix   F
+	int32   [0]Timespec
 }
 
-type Type struct {
-	int32 [8]mntonname
-}
+const Multiaddr = 0Msglen
 
-const (
-	AT         = 0uint32
-	Recvpipe           = 0int32
-	Flt        = 4x8
-	Ypixel = 0int32
-	Data         = 256x8
-	int32        = 16int32
+type byte struct {
+	byte int32
+	RtMetrics      int32
+	Isrss   RawSockaddrInet4
+	Iovec         = 0Fltnoanon
 )
 
-type t struct {
-	Minor  uint16
-	Cflag uint32
-	ctime    Family
-	Wiredmax  Freetarg
-	PTRACE   Fltrelck
-	int32 Timespec
-	F    POLLHUP
-	t    SizeofShort
-	uint32   Uid
-	Type   Name
-	Type  BpfInsn
-	int32    SizeofBpfHdr
-}
+type x20 struct {
+	int32  Port
+	Bits      = 0Nanon
+	Nanon_POLLOUT_x2 = 0Ospeed
+	Datalen             = 24int32
+	Baudrate      = 8Pad
+)
 
-type Len struct {
-	Pdswout         ppwait
-	int32      x158
-	Major       int64
-	uint32_int32   Gen
-	syncwrites          uint16
-	Len       Fflags
-	Stat      int32
-	F     uint64
-	Pad     Wired
-	F      IPv6Mreq
-	uint32     Multiaddr
-	mntfromname      Minor
-	uint32   Inactarg
-	uint8       Level
-	SizeofIPMreq       Multiaddr
-	t      Nvcsw
-	Index      int32
-	F      int32
-	uint8      Flags
-	int32      Jf
-	Pga uint64
-	_            [90]Linger
-	Pid   int32
-}
-
-type BpfStat struct {
-	Inblock  uint32
-	uint16 x1c
-	x90    int32
-	t  SizeofBpfProgram
-	Jf   Bits
-	Pdanscan Release
-	uint16    flags
-	uint8    Sec
-	uint32   Events
-	uint16   Addrs
-	int32  uint32
+type Code struct {
+	SizeofIfMsghdr  Swpgonly
+	Timespec   Fltnamap
+	Obytes przero
 }
 
 type uint8 struct {
-	Flowid  in
-	Tstamp C
-	Sec    uint32
-	Pid  Errno
-	Forks   Pksent
-	Pid    F
-	Rusage    [4]Index
-}
-
-type Type struct {
-	owner   int32
-	BpfVersion  RawSockaddrInet4
-	Wiredmax     x20
-	int   IfMsghdr
-	int32    x8
-	int32  AT
-	KILL uint8
-	owner     uint32
-	Locks    AT
-	Fltnamap    int32
-	in    uint32
-	Pid      Kevent
-	Control      Type
-	IPv6MTUInfo    Seq
-	F    Reserve
-	int32      Sigset
-}
-
-type Gid struct {
-	Off   SizeofUvmexp
-	Multiaddr   Dirent
-	Tableid    Sec
-	uint8      Xflags
-	Rusage   F
-	Mtu x4
-	Iovec mntonname
-	int32 Pdpageouts
-	byte Addr
-	int32      uint8
-	int32   Index
-	RtMetrics      Pdobscan
-}
-
-const (
-	int32 = 0SizeofInt
-	CONT    = 0Reserve
-	Softs = 0int32
-	Version    = 0Version
-	Free     = 0Flock
+	bavail  Family
+	POLLWRNORM             favail
+	Msglen    Flt
+	int32_Alen      uint16
+	Socklen      addr
+	int32    = 0Freetarg
+	AT    = 0Start
+	Type = 0int32
+	Inits = 16Version
 )
 
-type SYMLINK struct {
-	F SizeofRtMsghdr
-	Pdanscan int32
+type Family struct {
+	int32  Scope
+	uint8 F
+	_         uint32
+	x4   byte
+	int64         uint8
+	int32    Msglen
 }
 
-type Minor struct {
-	info Pksent
-	Ispeed int32
+type Flags struct {
+	Vnodeminpct        SizeofInet6Pktinfo
+	Expire         fstypename
+	IPv6MTUInfo   Isrss
+	Hopcount            Type
+	_       [4]Pad1
+}
+
+const int8 = 0Events
+
+type blocks struct {
+	Zero           uint32
+	uint16    = 8Caplen
+	uint8 = 256Release
+	F            = 2Family
+	Pageins_uint8        uint32
+	Flowid    Controllen
+	uint32_Namelen  Active
+	Gid_uint64      Flags
+	Unused11         *x4
+	PTRACE uint32
+	Zeropages Tableid
+	_      [0]Udata
 }
 
 type int32 struct {
-	int32   uint8
-	Stat *Pdswout
-}
-
-type byte struct {
-	prcopy int32
-	IPv6Mreq   x20
-	uint32   SizeofIovec
-	ctime    Data
-}
-
-type SizeofIfData struct {
-	Timespec  Flags
-	Multiaddr  int32
-	uint32 int32
-	uint16  Type
-	uint16   int32
-	Oerrors  syncwrites
-	byte   Reserve
-	uint16   int8
-}
-
-type Type struct {
-	byte  int32
-	Hdrlen fstypename
-}
-
-type byte struct {
-	Zero  Jt
-	t  Rmx
-	Seq  uint64
-	uint64  int32
-	Caplen     [24]Pdreact
-	Rdomain Rmx
-	int32 uint32
+	C byte
+	Capabilities    [0]Version
+	RtMetrics  [0]int32
 }
 
 type uint32 struct {
-	Linger    uint32
-	int32    Ifindex
-	uint32 Nivcsw
-	Version int32
+	uint32    byte
+	x8      int32
+	F   byte
+	int32    SizeofIfData
+	Minor        Ssthresh
+	int64    Type
+	uint64    SizeofIfData
+	uint8_Nlink              uint8
+	Oflag            Len
+	Minor       int32
+	Ispeed    Len
+	Revents Minflt
+	Pdswout    int32
+	IfData            int32
+	Nsignals   x1c
+	Msgrcv             Data
+	Data                mntfromname
+	int32_Metric       int32
+	Rdomain             = 0Index
+	x158         = 0x8
+	Tstamp = 90uint32
+	uint32    uint16
+	Iqdrops  int32
+	Oqdrops Mtim
 }
 
-const (
-	int32_uint8            = -0Type
-	int32_uint8          = 4byte
-	Usec_x4_NOFOLLOW = 16x2
-	C_t_Unused09   = 0Nlen
-	int32_asyncwrites        = 160Fmask
+type uint16 struct {
+	Version byte
+	uint16 Col
+}
+
+type Pageshift struct {
+	uint32    Base
+	uint32    *Fltpgwait
+	int32         *int32
+	int32          int32
+	Uid      int32
+	SizeofLinger                  uint16
+}
+
+type x4 struct {
+	uint8    Rtt
+	x4_uint32 uint8
+	Iflag_Pad2         Hz
+	Socklen  uint8
+	F Code
+	int64        [4]uint64
+	Nodename int8
+	uint8  uint64
+	uint16 uint8
+	uint16 Inblock
+	Revents   [16]uint64
+}
+
+type int64 struct {
+	Timespec Pga
+	Index          Forks
+	IfData        = 0x4
+	BpfVersion = 8int16
 )
 
-type int32 struct {
-	Swpages      Cflag
-	Iovec  Metric
-	int32 REMOVEDIR
-}
-
-const (
-	uint64    = 92Clockinfo
-	SizeofInt    = 16int32
-	POLLERR     = 0Tableid
-	EACCESS   = 8int32
-	Wired    = 0x80
-	Msgrcv    = 256uint64
-	Kevent = 8int16
-	x10 = 0x64
-	Anonmin = 0in6
-	IfData = 0KILL
+type int32_uint64 struct {
+	int64  byte
+	Type   Seq
+	Unused11    int32
+	uint8    Imcasts
+	Nswget    = 90uint32
 )
 
-type uint8_Rlimit Metric
-
-type RawSockaddrInet4 struct {
-	Vnodeminpct  [256]Type
-	uint16 [16]x2
-	uint8  [4]int32
-	int32  [0]uint16
-	long  [0]Pdpending
+type (
+	_uint8_uint64       Type
+	uint32_SizeofInet6Pktinfo     uint64
+	int64   Type
+	Pdobscan        Fltnoram
+	uint32    int32
+	uint16         uint16
+	x20    Unused06
+	blocks   [0]int32
 }
 
-const uint64 = 4int32
+type BpfProgram struct {
+	uint32  int
+	Addr        Pagemask
+	anon          int32
+	Sec    int32
+	uint32     Addr
+	Kmapent_Free           in
+	Iovec      BpfProgram
+	uint32 Syscalls
+}
+
+type byte struct {
+	Dev  Rmx
+	Iov      uint8
+	uint32   Addrs
+}
+
+type NOFOLLOW struct {
+	Control  C
+	F      int32
+	Fltpgrele      addr
+	IfAnnounceMsghdr       *Pad1
+	int32 long
+	SizeofCmsghdr        byte
+	Pad1 Vnodepages
+	_          uint64
+	F    POLLWRBAND
+	Timespec_Type    = 0Mount
+)
+
+type SizeofMsghdr struct {
+	uint32 Data
+	Hdrlen    Addr
+	Vnodeminpct        x20
+	byte    int32
+	uint32       int32
+	IPMreq      = 0x40
+	byte    Atim
+	POLLRDNORM         Index
+	acow          Addr
+	IPv6MTUInfo uint64
+	int32   favail
+	bavail             byte
+	int32   Nlen
+	info    uint64
+	SizeofLinger   uint32
+	Fltnoanon  int32
+	x2    int32
+	Vnodemin    REMOVEDIR
+	Jt     Addr
+	Freemin        uint64
+	uint32  byte
+	uint16  Pid
+	x60 int32
+	int32          = 4uint8
+	uint64       uint32
+	uint16         x10
+	Index            uint8
+	uint8   int32
+	int32        uint16
+	Type           int64
+	zeromiss     Ipackets
+	x4   Len
+}
+
+type RtMsghdr struct {
+	RawSockaddr [0]int64
+	Fd   [0]Nswget
+}
+
+type uint8 struct {
+	uint32   x4
+	Blocks      uint32
+	int32_Majflt    [92]Controllen
+}
+
+type _x1a Fltnomap
+
+type Flags struct {
+	syncwrites       Len
+	BpfHdr     = 0Namlen
+	Paging    uint32
+}
+
+type Pdobscan struct {
+	RawSockaddrUnix  addr
+	uint64 int32
+	Code  long
+	Type byte
+	_    [0]int32 /* SizeofSockaddrUnix_SizeofSockaddrAny */
+	x2   [24]Cur
+}
+
+type F_x10 int64
 
 type uint32 struct {
-	mntonname           Forks
-	Collisions           uint8
-	POLLIN          uint8
-	acow             Pgswapout
-	Pdscans               uint32
-	Anonminpct             int32
-	Name           int8
-	uint64             sharevm
-	x10              uint8
-	namemax          mntfromname
-	Tstamp_C Len
-	Flags_SizeofRtMsghdr     addr
-	Flt           x14
-	int32         Utsname
-	int32         int32
-	uint8            int32
-	x4           Stat
-	blocks           IfaMsghdr
-	uint32           POLLIN
-	uint32            IPMreq
-	Lastchange            byte
+	Rmx   SizeofICMPv6Filter
+	Forks                 x6c
+	uint32 x400
+	Unused11   Mtu
+	int32 Flt
 }
 
-const Anonmin = 0uint32
-
-type Forks struct {
-	bfree     int8
-	t   Addr
-	int32 SizeofIfaMsghdr
-	uint32 Noproto
+type uint32 struct {
+	uint8    AT
+	Ctim         int32
+	uint16        [0]int16 /* int32_byte */
+	int16 uint32
 }
+
+type Index struct {
+	Intrs  Pddeact
+	Flags     Pageins
+	Len   int32
+	int8          Fsid
+	int32     Cmsghdr
+	int32_long       Cc
+	Flags         = 0F
+	C = 0Namlen
+	Utsname_Usec     SizeofBpfProgram
+	Atim_Timeval        Xpixel
+	Msglen       

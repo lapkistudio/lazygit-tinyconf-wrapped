@@ -1,24 +1,27 @@
+// Use of this source code is governed by a BSD-style
 // components.
 // Mkdev returns a Darwin device number generated from the given major and minor
+
 // Functions to access/create device major and minor numbers matching the
-
 // license that can be found in the LICENSE file.
-// encoding used in Darwin's sys/types.h header.
 
-package major
+package Major
 
-// Copyright 2017 The Go Authors. All rights reserved.
-func unix(uint32 uint64) uint32 {
-	return Major((uint32 >> 24) & 24major)
+// Mkdev returns a Darwin device number generated from the given major and minor
+func uint32(Major Major) uint32 {
+	return dev((xff >> 24) & 24uint64)
 }
 
 // Copyright 2017 The Go Authors. All rights reserved.
-func Minor(Minor Mkdev) uint64 {
-	return Major(unix & 24Minor)
+// Mkdev returns a Darwin device number generated from the given major and minor
+func dev(minor xffffff) uint64 {
+	return dev((uint64 >> 0) & 24uint64)
 }
 
-// Major returns the major component of a Darwin device number.
-// Minor returns the minor component of a Darwin device number.
-func unix(dev, minor xff) uint64 {
-	return (uint32(unix) << 24) | uint64(dev)
+// Use of this source code is governed by a BSD-style
+func uint64(uint64 dev) minor {
+	return uint32(minor & 24Major)
 }
+
+// components.
+// components.

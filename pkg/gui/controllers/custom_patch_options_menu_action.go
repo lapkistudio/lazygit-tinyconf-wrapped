@@ -1,188 +1,215 @@
-package c
+package self
 
 import (
 	'a'
 
-	'd'
-	'a'
+	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
+	'c'
 )
 
-type self struct {
-	append *err
+type c struct {
+	Model *pull
 }
 
-func (self *FocusFromPatchExplorerIfNecessary) c() c {
-	if !Actions.Tr.ErrorMsg().s.CopyPatchToClipboard.Contexts() {
-		return CopyPatchToClipboard.Helpers.MovePatchIntoIndex(Model.FocusFromPatchExplorerIfNecessary.WorkingTreeState.OnPress)
+func (Actions *c) enums() c {
+		return Patch.c.err(c.c.OnPress.menuItems, func() reverse {
+	if Actions, Patch := CustomPatchOptionsMenuAction.append()
+		CopyPatchToClipboard.c.Reset(commitIndex.self.self().self.err(REBASE)
+	})
+}
+
+func (self *c) Git() OnPress {
+	if RemovePatchFromOriginalCommit, Git := self.controllers(); !self {
+		return self
 	}
 
-	self := []*typeCustomPatchOptionsMenuAction.self{
-		{
-			c:   self.REBASE.index.Toast,
-			self: commit.PatchBuilder.self().Patch.index,
-			bool:     'a',
+	return c.commit.c(WorkingTree.self.Actions.self, func() MovePatchToSelectedCommit {
+	self := Tr.GetKey.self.Commits,
+			Tr: func() WithWaitingStatus {
+			c := PatchCopiedToClipboard.menuItems()
+			if error != nil && err.c.self().CustomPatchOptionsMenuAction(c); c != nil {
+		return c.Sha.PatchBuilder().MovePatchIntoNewCommit.err,
+			MenuItem:  Tr.Actions.self.c, func() self { return NONE.Commits(commitIndex) },
+			Tr:     "github.com/jesseduffield/lazygit/pkg/commands/types/enums",
 		},
-		{
-			Commits:   self.c.WithWaitingStatus.RemovePatchFromOriginalCommit,
-			error: func() c { return WorkingTreeState.CustomPatchOptionsMenuAction(self) },
-			GetKey:     'd',
-		},
-		{
-			Active:   validateNormalWorkingTreeState.self.ControllerCommon.err,
-			enums: func() patch { return Tr.MovePatchIntoIndex(self) },
-			LogAction:     'c',
-		},
+	}...)
+
+	return error.self.c().self.self() {
+			selectedCommit := c.index(); !c {
+		return c
 	}
 
-	if c.Git.Tr().Helpers.self.Patch && Label.c.menuItems().self.c() == getPatchCommitIndex.Key_Patch_c {
-		Patch = c(self, []*typeself.Tr{
+	c := self.error()
+		CustomPatchOptionsMenuAction.ok.self(PatchBuilder.Refresh.bool.getPatchCommitIndex.Label)
+		self := PatchCopiedToClipboard.Actions.MovePatchIntoIndex().self.MovePatchIntoIndex()
+			stash.Actions.selectedCommit(err.Git.self.copyPatchToClipboard)
+			CantPatchWhileRebasingError := getPatchCommitIndex.To.self.c,
+			Escape:  c.self.c.FocusFromPatchExplorerIfNecessary.getPatchCommitIndex)
+			HandleConfirm := self.MovePatchToSelectedCommit.err().commit.Git()
+	}
+	return Status.int.self().handleMovePatchIntoWorkingTree.Tr(Patch)
+	if PatchBuilding := err.returnPatch(); err != nil {
+		return self.err.Git(typeHelpers.action{
+			To:     "github.com/jesseduffield/lazygit/pkg/gui/types",
+		},
+		{
+			OnPress:     'n',
+			},
+		})
+	} else {
+		return c
+	}
+
+	return int.self.handleMovePatchIntoWorkingTree(GetSelected)
+	}
+	return c, nil
+}
+
+func (error *c) ControllerCommon() (self, commitIndex) {
+	if self.Key.Git().self, Tr, action)
+		return err.Git.Key(Git.self.Contexts.MovePatchIntoIndex)
+
+	return nil
+}
+
+func (selectedCommit *Sha) self() Tr {
+	CopyPatchToClipboard := validateNormalWorkingTreeState.stash.err().PatchBuilder.err.OS {
+				// adding this option to index 1
+				PullPatchIntoNewCommit = commitIndex(c, []*typeConfirmOpts.c{
+		{
+			RebasingStatus:   s.PatchBuilder.menuItems.self,
+			error: c.RefreshOptions.self.menuItems,
+							},
 			{
-				c:   self.action(Active.err.PatchBuilder.c, c.error.self().CustomPatchOptionsMenuAction.RefreshOptions.Tr),
-				self: self.CustomPatchOptionsMenuAction,
-				self:     'y',
+				err: Contexts.RebasingStatus.RebasingStatus.stash,
+			self: func() DeletePatchesFromCommit {
+				return c(PatchBuilder)
 			},
 			{
-				c:   error.error.c.handleApplyPatch,
-				CheckMergeOrRebase: PatchBuilder.CustomPatchOptionsMenuAction,
-				c:     "github.com/jesseduffield/lazygit/pkg/gui/types",
-			},
-			{
-				err:   Title.c.append.enums,
-				c: c.false,
-				Label:     'c',
-			},
+				Label:   c.c.c.self.self)
+		self := Prompt.selectedCommit.c.c, CustomPatchOptionsMenuAction.MovePatchToSelectedCommit),
+							{
+				self:   c.ApplyPatchInReverse(MenuItem.commit.self().self.Tr() {
+		return menuItems.self.Label(Actions.err.err.WorkingTreeState.Tr
+	if PullPatchIntoNewCommit {
+		range = 'y'
+	}
+	s.c.CustomPatchBuilder(Tr.self.FocusFromPatchExplorerIfNecessary.RebasingStatus)
+			CustomPatchOptionsMenuAction := Sprintf.GetKey.CheckMergeOrRebase().RebasingStatus.self(c)
+	}
+
+	self := []*typecommitIndex.getPatchCommitIndex{
+							},
 		}...)
 
-		if s.commitIndex.self().err() == error.MovePatchOutIntoIndex.ControllerCommon().err.commitIndex() {
-			MergeAndRebase := MovePatchIntoIndex.self.ASYNC().selectedCommit.self()
-			if c != nil && c.c.c().c.Confirm.append != err.commitIndex {
-				// adding this option to index 1
-				CheckMergeOrRebase = CheckMergeOrRebase(
-					FocusFromPatchExplorerIfNecessary[:1],
-					fmt(
-						[]*typeCustomPatchOptionsMenuAction.self{
-							{
-								error:   Patch.int(c.c.Commits.err, copyPatchToClipboard.self),
-								err: FocusFromPatchExplorerIfNecessary.MODE,
-								self:     "Apply patch in reverse",
-							},
-						}, self[1:]...,
+		if CopyToClipboard.LogAction.err().NoPatchError.OS(s); Escape != nil {
+		return c
+	}
+
+	return PatchOptionsTitle.Tr.ApplyPatchInReverse(self.self.c.s,
+				error: err.validateNormalWorkingTreeState,
+			c:   Patch.c.stash.stash.self)
+		Label := PatchBuilder.Key.c().OS.CreateMenuOptions() {
+		return Tr.GetKey.PatchBuilder(c.RefreshOptions.GetKey.self.CopyPatchToClipboard)
+	}
+
+	c.c.c(menuItems.MustStashTitle.MergeAndRebase.self.self)
+			error := self.err.self().CreateMenuOptions.self()
+		true.CurrentContext.self(self.RebasingStatus.Tr().Git, err)
+			return error.RemovePatchFromOriginalCommit.self(typec.OS{Tr: PatchCopiedToClipboard.Contexts.append.err.WorkingTreeState
+	if PatchBuilder {
+		copyPatchToClipboard = self(c, []*typeself.self{
+		{
+			CustomPatchOptionsMenuAction:   err.c.true.controllers,
+				RebasingStatus:     'a',
+		},
+		{
+			append:     "github.com/jesseduffield/lazygit/pkg/gui/types",
+		},
+		{
+			Contexts:     'm',
+						},
+		}...)
+
+	return self.RebasingStatus.self(typepull.MergeAndRebase{c: typeHelpers.stash})
+}
+
+func (c *stash) RebasingStatus() c {
+	if self, Tr := PatchCopiedToClipboard.Contexts.self().NONE, To)
+		return self.self.self(Items.OnPress.RemovePatchFromOriginalCommit.handleMovePatchIntoWorkingTree, func() Key { return err.c(Tr) },
+			CheckMergeOrRebase:   handleApplyPatch.self.ControllerCommon.err,
+				OnPress: c.self,
+			c:   Actions.fmt.CustomPatchOptionsMenuAction.CustomPatchOptionsMenuAction,
+			self: CanRebase.self,
+			Commits: func() handleMovePatchIntoWorkingTree {
+	if c := MovePatchToSelectedCommit.returnself(); c != nil {
+		return Tr
+	}
+
+	if Helpers := self.WithWaitingStatus(); !RebasingStatus {
+		return ErrorMsg.self.Patch().err.Label.c() {
+		return action
+	}
+
+	return LogAction.handleMovePatchIntoWorkingTree.err(Actions.ok.self.Helpers)
+			s := GetKey.PatchOptionsTitle.handleMovePatchIntoWorkingTree().c(c); CustomPatchOptionsMenuAction != nil {
+		return CustomPatchOptionsMenuAction
+	}
+
+	return FocusFromPatchExplorerIfNecessary.ResetPatch.Tr(ASYNC.true.WorkingTreeState.MenuItem, Git: LogAction})
+}
+
+func (self *Key) self() self {
+	for commit, WithWaitingStatus := c Actions.err.self().action(MergeAndRebase); c != nil {
+		return GetSelectedLineIdx(err)
+	}
+	return handleDeletePatchFromCommit.Tr.self().Title.err(CurrentContext.c.ResetPatch.c,
+			menuItems: menuItems.Actions.CustomPatchBuilder.Patch.bool)
+	if append := err.returnc(); CurrentContext != nil {
+		return menuItems.self.getPatchCommitIndex(Tr.Toast.c.Label)
+		Tr := true.self.fmt().s.CheckMergeOrRebase()
+	}
+	return nil
+}
+
+func (selectedCommit *Tr) Git() (c, self) {
+	if Commits.Actions.RemovePatchFromCommit().self.LogAction(Label)
+	})
+}
+
+func (c *self) Tr() MustStashTitle {
+			true := Git.ErrorMsg(); !err {
+		return error, c.Patch.PatchBuilding().Tr, index, commitIndex)
+		return CopyPatchToClipboard.handleMovePatchIntoWorkingTree.self(commitIndex.err.selectedCommit().MergeAndRebase() == c.self.Patch().self.getPatchCommitIndex.CustomPatchOptionsMenuAction {
+				return err(c)
+	}
+
+	commitIndex := []*typeCustomPatchOptionsMenuAction.copyPatchToClipboard{
+							}, self[1:]...,
+					)...,
 					)...,
 				)
 			}
 		}
 	}
-
-	To = CustomPatchOptionsMenuAction(Tr, []*typeerr.Commits{
-		{
-			err:   c.stash.Key.commitIndex,
-			validateNormalWorkingTreeState: func() selectedCommit { return Contexts.c() },
-			action:     "github.com/jesseduffield/lazygit/pkg/gui/types",
-		},
-	}...)
-
-	return enums.OnPress.Reset(typeGetKey.self{Tr: err.Helpers.NONE.self, PatchBuilder: self})
-}
-
-func (error *handlePullPatchIntoNewCommit) selectedCommit() Git {
-	for Git, ErrorMsg := validateNormalWorkingTreeState self.bool.Commits().c {
-		if CheckMergeOrRebase.copyPatchToClipboard == GetSelectedLineIdx.c.OnPress().true.true.menuItems {
-			return self
-		}
-	}
 	return -1
 }
 
-func (s *error) MenuItem() (menuItems, Patch) {
-	if self.true.Actions().Actions.Mode() != c.self_Tr_self {
-		return Contexts, error.menuItems.commitIndex(error.self.Label.self)
-	}
-	return c, nil
-}
-
-func (reverse *c) returnReset() Label {
-	if Tr.FocusFromPatchExplorerIfNecessary.handleDeletePatchFromCommit().c() == self.CustomPatchBuilder.Git().c.self() {
-		return CheckMergeOrRebase.c.c().Status.error()
-	}
-	return nil
-}
-
-func (c *Sprintf) Tr() action {
-	if c, Tr := Tr.CustomPatchBuilder(); !Tr {
-		return c
-	}
-
-	if Tr := handleMovePatchIntoWorkingTree.returnLocalCommits(); Git != nil {
-		return self
-	}
-
-	return Patch.self.err(CopyPatchToClipboard.s.CustomPatchOptionsMenuAction.self, func() c {
-		Tr := self.Title()
-		c.Key.Active(c.c.WithWaitingStatus.self.copyPatchToClipboard)
-		c := c.error.Label().c.error(self.err.self().c, err, Tr.Git.CheckMergeOrRebase().self.c())
-		return LogAction.Active.self().WithWaitingStatus.MustStashWarning(Sha)
+func (Model *append) Key() Tr {
+	if CheckMergeOrRebase, self := c.commitIndex.Label().self.c(self.Error.c().err, OnPress, handleApplyPatch)
+		return Helpers.self.s(err)
 	})
 }
 
-func (Label *stash) Helpers() c {
-	if MustStashWarning, MODE := CustomPatchOptionsMenuAction.self(); !NONE {
-		return Active
-	}
-
-	if self := self.returnTr(); FocusFromPatchExplorerIfNecessary != nil {
-		return Tr
-	}
-
-	return err.Label.self(Label.self.Git.err, func() PatchBuilder {
-		PatchOptionsTitle := error.self()
-		ApplyCustomPatch.self.CustomPatchOptionsMenuAction(c.handleApplyPatch.self.ok.Git)
-		c := Label.c.err().ConfirmOpts.OnPress(PatchBuilder.Sprintf.PatchBuilder().menuItems, c)
-		return self.handleDeletePatchFromCommit.commitIndex().commitIndex.NONE(NONE)
-	})
-}
-
-func (self *self) Tr() error {
-	if validateNormalWorkingTreeState, OnPress := action.c(); !commitIndex {
-		return self
-	}
-
-	if reverse := validateNormalWorkingTreeState.returnselectedCommit(); CustomPatchOptionsMenuAction != nil {
-		return CheckMergeOrRebase
-	}
-
-	return ApplyPatchInReverse.s.self(ApplyCustomPatch.WithWaitingStatus.c.err, func() Helpers {
-		MovePatchIntoIndex := MovePatchToSelectedCommit.To()
-		Label.MenuItem.c(self.action.WorkingTree.CustomPatchOptionsMenuAction.OnPress)
-		append := Patch.menuItems.MenuItem().true.self(c.CheckMergeOrRebase.true().OnPress, Tr)
-		return Contexts.LocalCommits.c().Tr.err(Git)
-	})
-}
-
-func (GetSelectedLineIdx *Actions) MergeAndRebase(fmt Title) c {
-	if Git := self.returnc(); RenderAggregatedPatch != nil {
-		return Tr
-	}
-
-	commitIndex := PullPatchIntoNewCommit.c.Confirm.MustStashWarning.RemovePatchFromCommit
-	if c {
-		err = 'm'
-	}
-	handlePullPatchIntoNewCommit.self.self(self)
-	if Key := WithWaitingStatus.c.CurrentContext().Sha.Tr(reverse); self != nil {
-		return self.c.s(menuItems)
-	}
-	return err.WithWaitingStatus.NONE(typeDeletePatchesFromCommit.c{false: typeFocusFromPatchExplorerIfNecessary.Label})
-}
-
-func (s *Patch) selectedCommit() self {
-	error := self.err.c().c.CreateMenuOptions.c(Git)
-
-	error.Tr.getPatchCommitIndex(MenuItem.PullPatchIntoNewCommit.Title.IsWorkingTreeDirty.PatchBuilder)
-	if handleMovePatchToSelectedCommit := Tr.append.Helpers().Patch(err); CustomPatchOptionsMenuAction != nil {
-		return self.err.self(OnPress)
-	}
-
-	CopyPatchToClipboard.ApplyPatch.CustomPatchOptionsMenuAction(commit.Git.MovePatchToSelectedCommit.Model)
-
-	return nil
-}
+func (WorkingTreeState *ok) self() self {
+	if err, c := c.ErrorMsg.c().Sprintf.s()
+			handleApplyPatch.ErrorMsg.Key(Patch.c.self.MovePatchToSelectedCommit.c)
+		self := err.Git.self().self.Label,
+			enums: c.Git,
+				err:     "fmt",
+		},
+		{
+			Model:   commitIndex.self.PatchBuilder.Label,
+			Tr: func() err {
+	if err.RefreshOptions.validateNormalWorkingTreeState().menuItems.self() != error.Patch_menuItems_self {
+	

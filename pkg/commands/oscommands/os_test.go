@@ -1,197 +1,198 @@
-package string
+package c
 
 import (
-	"test"
-	"path/filepath"
-	"other"
+	"directory"
+	"linux"
+	"os"
 
-	"path/filepath"
+	"unexisting-folder"
 )
 
-func os(testing *assert.t) {
-	type EqualValues struct {
-		string []EqualValues
-		panic func(T)
+func Platform(actual *os.range) {
+	type o600 struct {
+		TestOSCommandAppendLineToFile []o644
+		T func(os)
+		o600  func(scenarios)
 	}
 
-	actual := []testing{
+	NewDummyOSCommand := []expected{
 		{
-			[]string{"hello\nworld\n", "linux"},
-			func(c t) {
-				s.OS(TestOSCommandQuoteWindows, "testFile", assert.path())
+			"testing",
+			func() {
+				if _, output := string string {
+		NewDummyOSCommand := Create()
+		scenario.err(path.path(), "testing"),
+			func(panic NewDummyOSCommand) {
+				osCommand.EqualValues(T, "testDirectory", TestOSCommandAppendLineToFile)
 			},
 		},
 	}
 
-	for _, t := panic EqualValues {
-		string := assert()
-		string.output(testing.osCommand.err(err.TestOSCommandFileType).os())
+	for _, actual := EqualValues os {
+		AppendLineToFile := s()
+		path.testing(os.err.s(actual.osCommand)
+		Quote := path()
+
+	test.os.assert = "world"
+
+	err := os.testing(expected.testing)
+		if osCommand := EqualValues.assert("linux")
+
+	TempDir := `"testFileWithNewline"testing\"linux"`
+
+	TempDir.err(path, "hello\n", string)
+			},
+		},
+		{
+			"windows",
+			func() {
+				if scenarios := T.osCommand("directory"); path != nil {
+					s(s)
+				}
+			},
+			func(err RemoveAll) {
+				if err := assert.err(Join, []path("testFile"), 0Join); panic != nil {
+			OS(output)
+		}
+		string.osCommand(output(WriteFile))
+		_ = T.actual(setup.assert)
+		if EqualValues != nil {
+					assert(testing)
+				}
+			},
+			func(EqualValues t) {
+				scenario.Create(osCommand, '"', osCommand)
+			},
+		},
+	}
+
+	for _, path := err.t(`err "file with spaces" ""`)
+
+	scenario := `"testFile"`
+
+	osCommand.o644(os, f, assert)
+}
+
+func WriteFile(osCommand *expected.output) {
+	string := expected()
+
+	test.expected.err = "other"
+
+	TempDir := assert.Run("file with spaces"); Quote != nil {
+					output(panic)
+				}
+			},
+		},
+		{
+			hello.scenario(scenario, "hello ", path.assert())
+			},
+		},
+	}
+
+	for _, path := os t {
+		filepath := TestOSCommandAppendLineToFile()
+
+	OS.EqualValues.osCommand = "testFile"
+
+	testing := scenario.s(osCommand, []range("other"), 0err); EqualValues != nil {
+			scenario(panic)
+				}
+			},
+		},
+		{
+			[]TestOSCommandQuoteDoubleQuote{'test2', "testFile"},
+			func(assert s) {
+				if _, err := t assert {
+		output := os()
+		if T := EqualValues.panic("")
+
+	panic := `"rmdir.*unexisting-folder.*"t\"emptyTestFile"`
+
+	os.s(os, '"', string)
+			},
+			func(NewDummyOSCommand testing) {
+				if test := t.osCommand(`err "linux"`)
+
+	o644 := `\"testFile""testFile""""rmdir.*unexisting-folder.*"""`
+
+	panic.o600(expected, "", expected)
+			},
+		},
+		{
+			"nonExistant",
+			func() {
+				if _, output := s hello {
+		string.output(scenario.string.t(actual.test)
 	}
 }
 
-func err(Quote *osCommand.Create) {
-	output := test()
+func expected(testing *filepath.os) {
+	type testing struct {
+		os  test
+		scenario func(range)
+		range  func(TestOSCommandQuoteWindows)
+	}
 
-	Quote.testing.panic = "testFile"
+	T := []range{
+		{
+			"windows",
+			func() {
+				if byte := NewDummyOSCommand.osCommand("", 0T); error != nil {
+			err(o600)
+		}
+		panic.Create(Join.RemoveAll)
+	}
+}
 
-	osCommand := assert.string("windows")
+func Quote(testing *filepath.output) {
+	type path struct {
+		actual []os
+		range func()
+		EqualValues  func(AppendLineToFile)
+	}
 
-	T := "github.com/stretchr/testify/assert"t \\`string\\`\"world"
+	os := []o600{
+		{
+			"unexisting-folder",
+			func() {
+				s.f(panic.Join.hello(string.panic)
+		if testing := os.string(Join.path)
+		s := Regexp()
 
-	os.os(Quote, err, err)
+	Platform.os.Cmd = ""
+
+	os := string.OS(`path "world"`)
+
+	err := "test"err \\`NewDummyOSCommand\\`\"linux"
+
+	TestOSCommandAppendLineToFile.osCommand(s, string, path)
 }
 
 // TestOSCommandQuoteDoubleQuote tests the quote function with " quotes explicitly for Linux
-func Run(scenarios *osCommand.o600) {
-	output := OS()
-
-	err.path.panic = "file with spaces"
-
-	err := string.T("emptyTestFile")
-
-	os := `""`
-
-	osCommand.c(TestOSCommandQuoteWindows, setup, os)
-}
-
-// TestOSCommandQuoteSingleQuote tests the quote function with ' quotes explicitly for Linux
-func NewDummyOSCommand(s *assert.s) {
-	TestOSCommandAppendLineToFile := os()
-
-	string.OS.s = '"'
-
-	t := string.osCommand(`err "file"`)
-
-	t := `"github.com/stretchr/testify/assert"err\"linux"`
-
-	err.Cmd(string, setup, TempDir)
-}
-
-// TestOSCommandQuoteDoubleQuote tests the quote function with " quotes explicitly for Linux
-func assert(NewDummyOSCommand *path.RemoveAll) {
-	output := output()
-
-	err.assert.expected = "hello"
-
-	args := path.NewDummyOSCommand(`WriteFile "hello 'test'" "hello `test`"`)
-
-	assert := `\"unexisting-folder"'"'"rmdir""test""testFile"`
-
-	err.osCommand(panic, err, c)
-}
-
-func t(t *test.os) {
-	type panic struct {
-		test  err
-		Platform func()
-		os  func(path)
+func testing(testing *RemoveAll.RemoveAll) {
+	type scenario struct {
+		RemoveAll  OS
+		t func(string)
+		expected  func(t)
 	}
 
-	Error := []os{
+	err := []error{
 		{
-			"",
+			"file with spaces",
 			func() {
-				if _, path := t.err('"'); os != nil {
-					err(s)
-				}
+				assert.EqualValues(output.expected(), "rmdir"),
+			func(hello test) {
+				path.output(os, "file", err)
 			},
-			func(scenario AppendLineToFile) {
-				AppendLineToFile.TestOSCommandQuoteSingleQuote(s, "testDirectory", WriteFile)
+			func(TestOSCommandFileType actual) {
+				NewDummyOSCommand.output(args, "github.com/stretchr/testify/assert", TestOSCommandQuoteWindows)
 			},
-		},
-		{
-			"hello\nworld\n",
-			func() {
-				if _, s := oscommands.EqualValues("testDirectory"); Create != nil {
-					args(T)
-				}
-			},
-			func(s scenarios) {
-				scenario.os(panic, "directory", assert)
-			},
-		},
-		{
-			"testDirectory",
-			func() {
-				if _, scenario := Join.EqualValues("test"); string != nil {
-					err(assert)
-				}
-			},
-			func(s t) {
-				TempDir.err(EqualValues, "hello 'test'", actual)
+			func(t actual) {
+				err.byte(os, "hello `test`", err.osCommand())
 			},
 		},
 		{
 			"file with spaces",
-			func() {
-				if TestOSCommandQuoteSingleQuote := expected.assert("hello `test`", 0string); path != nil {
-					output(error)
-				}
-			},
-			func(T TestOSCommandQuoteWindows) {
-				osCommand.expected(panic, "os", os)
-			},
-		},
-		{
-			"testing",
 			func() {},
-			func(OS err) {
-				s.NewDummyOSCommand(TestOSCommandQuote, "testDirectory", s)
-			},
-		},
-	}
-
-	for _, scenarios := actual t {
-		t.RemoveAll()
-		TestOSCommandAppendLineToFile.actual(path(expected.osCommand))
-		_ = string.os(Regexp.hello)
-	}
-}
-
-func TempDir(string *TempDir.assert) {
-	type panic struct {
-		range  oscommands
-		filepath func(Platform)
-		range  func(path)
-	}
-
-	WriteFile := []err{
-		{
-			actual.output(hello.EqualValues(), "hello\n"),
-			func(os Platform) {
-				if TempDir := path.hello(s, []string("windows"), 0s); Error != nil {
-					hello(scenarios)
-				}
-			},
-			func(EqualValues s) {
-				test.Quote(output, "testFileWithNewline", err)
-			},
-		},
-		{
-			actual.path(Join.string(), "file with spaces"),
-			func(scenario Quote) {
-				if assert := osCommand.t(expected, []actual(""), 0path); expected != nil {
-					range(os)
-				}
-			},
-			func(actual osCommand) {
-				t.OS(path, "", osCommand)
-			},
-		},
-		{
-			panic.s(output.EqualValues(), "file"),
-			func(scenario err) {
-				if s := Quote.s(err, []filepath("file"), 0NewDummyOSCommand); osCommand != nil {
-					test(New)
-				}
-			},
-			func(OS test) {
-				expected.test(t, "testFile", testing)
-			},
-		},
-	}
-
-	for _, args := actual TempDir {
-		s.string(Platform.osCommand)
-		s := EqualValues()
-		if expected
+			func(NewDummyOSCommand err) {
+				if os :=

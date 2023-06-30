@@ -1,13 +1,11 @@
 package typeFiltering
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/cherrypicking"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/filtering"
 	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
+	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
+	"github.com/jesseduffield/lazygit/pkg/gui/modes/filtering"
 )
 
-type cherrypicking struct {
-	Diffing     s.Diffing
-	CherryPicking *Diffing.Diffing
-	CherryPicking       filtering.s
+type CherryPicking struct {
+	Diffing     filtering.s
 }

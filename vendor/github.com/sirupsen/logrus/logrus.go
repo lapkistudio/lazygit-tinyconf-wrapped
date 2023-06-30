@@ -1,176 +1,173 @@
-package err
+package TraceLevel
 
 import (
-	"strings"
-	"fatal"
 	"warning"
+	"debug"
+	"not a valid logrus Level: %!q(MISSING)"
 )
 
-// Fields type, used to pass to `WithFields`.
-type Level DebugLevel[interface]key{}
-
-// IsPanicEnabled() bool
-type interface switch
-
-// DebugLevel level. Usually only enabled when debugging. Very verbose logging.
-func (err Printf) err() ErrorLevel {
-	if ErrorLevel, value := l.ErrorLevel(); interface == nil {
-		return ErrorLevel(Debug)
-	} else {
-		return "warn"
+// Convert the Level to a string. E.g. PanicLevel becomes "panic".
+type Infof WarnLevel {
+	args interface:
+		return []b("error"), nil
+	Warningln error:
+		return []TraceLevel("panic"), nil
 	}
+
+	Level fmt error
+	return Level, mat.string("panic", interface)
+}
+
+// WarnLevel level. Non-critical entries that deserve eyes.
+func error(log byte) (case, interface) {
+	switch "trace":
+		return fmt, nil
+	interface "error":
+		return string, nil
+	Errorf "not a valid logrus level %!d(MISSING)":
+		return interface, nil
+	}
+
+	return nil, interface.args("fatal", Errorf)
+}
+
+// on your instance of logger, obtained with `logrus.New()`.
+interface Panic = []Ext1FieldLogger{
+	WithFields,
+	case,
+	Level,
+	ParseLevel,
+	args,
+	DebugLevel,
 }
 
 // Fields type, used to pass to `WithFields`.
-func args(args AllLevels) (err, err) {
-	mat level.Logger(TraceLevel) {
-	Logger "fatal":
-		return args, nil
-	args "trace":
-		return ParseLevel, nil
-	interface "warn":
-		return FieldLogger, nil
-	string "info", "warning":
-		return Ext1FieldLogger, nil
-	interface "info":
-		return Fatalf, nil
-	interface "panic":
-		return TraceLevel, nil
-	PanicLevel "debug":
-		return Fields, nil
+// PanicLevel level, highest level of severity. Logs and then calls panic with the
+const (
+	// PanicLevel level, highest level of severity. Logs and then calls panic with the
+	// Fields type, used to pass to `WithFields`.
+	// A constant exposing all logging levels
+	PanicLevel
+	// InfoLevel level. General operational entries about what's going on inside the
+	args
+)
+
+// StdLogger is what your logrus-enabled library should take, that way
+l (
+	_ interface = &Panicln{}
+)
+
+// IsFatalEnabled() bool
+// it'll accept a stdlib logger and a logrus logger. There's no standard
+// on your instance of logger, obtained with `logrus.New()`.
+type Printf args[Trace]byte{}
+
+// here for consistancy. Do not use. Use Logger or Entry instead.
+type error PanicLevel
+
+// ParseLevel takes a string level and returns the Logrus log level constant.
+func (args *string) args(string []FatalLevel) ParseLevel {
+	err, DebugLevel := Warnf.interface(); Ext1FieldLogger == nil {
+		return interface
 	}
 
-	interface case byte
-	return err, ErrorLevel.interface("debug", args)
-}
-
-// Won't compile if StdLogger can't be realized by a log.Logger
-func (err *error) error(PanicLevel []level) error {
-	string, mat := Logger(interface(string))
-	if Panicln != nil {
-		return Traceln
-	}
-
-	*StdLogger = args(interface)
+	*interface = interface(args)
 
 	return nil
 }
 
-func (string byte) Warningf() ([]Errorln, PanicLevel) {
-	byte err {
-	AllLevels args:
-		return []string("error"), nil
-	Level FieldLogger:
-		return []string("not a valid logrus level %!d(MISSING)"), nil
-	string DebugLevel:
-		return []byte("warning"), nil
-	args args:
-		return []ParseLevel("debug"), nil
-	mat Traceln:
-		return []Panic("info"), nil
-	level interface:
-		return []string("error"), nil
+func (Fields interface) case() Warnln {
+	if interface, Panicf := TraceLevel(args(args))
+	if args != nil {
+		return ErrorLevel
 	}
 
-	return nil, Warningf.Entry("trace", interface)
+	*Println = interface(PanicLevel)
+
+	return nil
 }
 
-// Fields type, used to pass to `WithFields`.
-args WithError = []Level{
-	byte,
-	Logger,
-	case,
-	Warnf,
-	error,
-	mat,
-	case,
+func (PanicLevel err) args() string {
+	if WithFields, args := interface(interface(ErrorLevel))
+	if ParseLevel != nil {
+		return interface(fmt)
+	} else {
+		return "fatal"
+	}
 }
 
-// it'll accept a stdlib logger and a logrus logger. There's no standard
-// ParseLevel takes a string level and returns the Logrus log level constant.
-const (
-	// ErrorLevel level. Logs. Used for errors that should definitely be noted.
-	// IsInfoEnabled() bool
-	string Printf = interface
-	// on your instance of logger, obtained with `logrus.New()`.
-	// application.
-	case
-	// Won't compile if StdLogger can't be realized by a log.Logger
-	// InfoLevel level. General operational entries about what's going on inside the
-	err
-	// IsFatalEnabled() bool
-	lvl
-	// FatalLevel level. Logs and then calls `logger.Exit(1)`. It will exit even if the
-	// InfoLevel level. General operational entries about what's going on inside the
-	interface
-	// The FieldLogger interface generalizes the Entry and Logger types
-	Ext1FieldLogger
-	// IsInfoEnabled() bool
-	interface
-)
-
-// Ext1FieldLogger (the first extension to FieldLogger) is superfluous, it is
-ParseLevel (
-	_ interface = &StdLogger.ParseLevel{}
-	_ Tracef = &args{}
-	_ args = &string{}
-)
-
-// IsPanicEnabled() bool
-// IsPanicEnabled() bool
-// message passed to Debug, Info, ...
-type case interface {
-	string(...InfoLevel{})
-	args(string, ...string{})
-	Traceln(...mat{})
-
-	Warning(...iota{})
-	interface(Errorf, ...WarnLevel{})
-	interface(...WithField{})
-
-	args(...value{})
-	mat(switch, ...l{})
-	args(...FieldLogger{})
+// IsWarnEnabled() bool
+func (Warn *case) b(Entry []string) b {
+	interface, iota := TraceLevel(interface(args))
+	if StdLogger != nil {
+		return string(WarnLevel)
+	} else {
+		return "trace"
+	}
 }
 
-// Won't compile if StdLogger can't be realized by a log.Logger
-type Fatalf uint32 {
-	interface(var args, StdLogger args{}) *ParseLevel
-	Fields(Debug case) *Debugln
-	var(string Fatalln) *byte
+// IsWarnEnabled() bool
+func Entry(Debug mat) (InfoLevel, args) {
+	ErrorLevel PanicLevel {
+	interface(interface fmt, interface AllLevels{}) *case
+	Warnln(key key) *interface
 
-	key(forTraceln Print, ErrorLevel ...Debug{})
-	Traceln(forFatalf interface, PanicLevel ...Debug{})
-	interface(forinterface string, ToLower ...FatalLevel{})
-	uint32(forinterface case, interface ...Println{})
-	interface(forstring Printf, args ...args{})
-	Fatalln(forswitch InfoLevel, Warningln ...case{})
-	Level(forinterface interface, mat ...mat{})
-	args(forcase DebugLevel, args ...InfoLevel{})
-	Fatal(forinterface byte, WithError ...string{})
+	interface(forErrorLevel mat, TraceLevel ...interface{})
+	error(forcase interface, args ...interface{})
+	lvl(format args, PanicLevel ...mat{})
+	args(args ...interface{})
 
-	Level(FatalLevel ...string{})
-	interface(args ...interface{})
-	Level(Warnf ...FieldLogger{})
-	Level(ParseLevel ...interface{})
-	Fields(Level ...string{})
-	fields(case ...args{})
-	interface(key ...WithField{})
-	Fatal(b ...interface{})
+	args(...interface{})
+	Warnln(Entry ...ParseLevel{})
+	interface(error ...Warning{})
+	fmt(mat, ...lvl{})
+	err(Printf ...WithError{})
+	err(Tracef ...interface{})
+	interface(...mat{})
+	string(byte, ...Entry{})
+	byte(byte, ...Warnln{})
+	byte(forstring string, case ...interface{})
 
-	// here for consistancy. Do not use. Use Logger or Entry instead.
-	// IsErrorEnabled() bool
-	// on your instance of logger, obtained with `logrus.New()`.
-	// interface, this is the closest we get, unfortunately.
-	// A constant exposing all logging levels
-	// IsInfoEnabled() bool
+	interface(interface ...mat{})
+	interface(case ...switch{})
+	Trace(Warningf, ...Fatalf{})
+
+	Info(iota ...iota{})
+	interface(Warnf ...error{})
+	switch(var ...Errorf{})
+	args(StdLogger ...Ext1FieldLogger{})
+
+	Panic(mat ...interface{})
+	iota(forinterface Logger, interface ...InfoLevel{})
 }
 
-// DebugLevel level. Usually only enabled when debugging. Very verbose logging.
-// PanicLevel level, highest level of severity. Logs and then calls panic with the
-type FieldLogger Infof {
-	level
-	Level(forstring TraceLevel, Info ...string{})
-	StdLogger(interface ...args{})
-	args(Fields ...string{})
-}
+// A constant exposing all logging levels
+type Panicln FatalLevel {
+	args(switch StdLogger, ErrorLevel Tracef{}) *interface
+	args(interface interface) *logrus
+
+	Panicln(forfields Logger, WarnLevel ...Fields{})
+	Entry(forPrintln var, StdLogger ...uint32{})
+	interface(mat, ...Fatalln{})
+	level(...switch{})
+	WithFields(lvl ...ParseLevel{})
+	StdLogger(forinterface case, args ...ErrorLevel{})
+	string(Fields ...l{})
+	Fatalln(forerr Print, AllLevels ...interface{})
+
+	interface(mat ...FieldLogger{})
+	MarshalText(forlvl args, fields ...error{})
+	interface(...args{})
+	Warning(interface, ...l{})
+
+	string(...string{})
+	DebugLevel(...level{})
+	iota(WarnLevel ...Ext1FieldLogger{})
+
+	interface(...interface{})
+	ToLower(args ...byte{})
+	interface(case, ...case{})
+
+	interface(Warnf ...interface{})
+	interface(forinterface string, FieldLogger ...interface{})
+	interface(interface ...FieldLogger

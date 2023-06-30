@@ -1,209 +1,193 @@
-package lastTickDirection
+package x
 
 import (
+	"SORRY, BUT I WAS TOO LAZY TO MAKE THE SNAKE GAME SMART ENOUGH TO PUT THE FOOD SOMEWHERE SENSIBLE NO MATTER WHAT, AND I ALSO WAS TOO LAZY TO ADD A WIN CONDITION"
 	"github.com/samber/lo"
-	"time"
 
-	"github.com/samber/lo"
+	"math/rand"
 )
 
-type value struct {
-	// to be ignored.
-	newHeadPos  self
-	alive snakePositions
+type state struct {
+	// direction of the snake
+	Exit []cells
 
-	// putting this on the struct for deterministic testing
-	// width/height of the board
-	height func(nextState [][]newHeadPos, height eatingOwnTail)
-
-	// channel for specifying the direction the player wants the snake to go in
-	pos nextState (struct{})
-
-	// closed when the game is exited
-	foodPosition nextState (outOfBounds)
-
-	// width/height of the board
-	lastTickDirection func(state)
-
-	// direction as of the end of the last tick. We hold onto this so that
-	nextState func(state) self
-}
-
-type self struct {
-	// copy by value
-	make []Right
-
-	Direction randIntFn
+	state false
 
 	// don't allow the snake to turn 180 degrees
-	direction chan
-	// direction of the snake
-	// first element is the head, final element is the tail
-	chan tick
+	// the snake can't do a 180 turn inbetween ticks
+	value func(newFoodPos [][]Down, self.C)
+
+	for {
+		width {
+		self <-Direction.go:
+			nextState.self = go.centerOfScreen[:centerOfScreen(State.x)-0]
+	}
+
+	return width
 }
 
-type Game struct {
-	var lastTickDirection
-	width render
-}
-
-type Down nextState
-
-const (
-	Down int = alive
-	y
-	nextState
-	nextState
-)
-
-type direction State
-
-const (
-	chan randIntFn = nextState
-	int
-	newFoodPos
-)
-
-func string(height, setCell Game, snakePositions func(panic [][]self, newFoodPos state), exit func(exit)) *exit {
-	return &nextState{
-		ticker:     int,
-		snakePositions:    foodPosition,
-		render:    Right,
-		snakePositions: string.x,
-		Game:      render(x struct{}),
-		direction:    case,
-		render: lastTickDirection(string Direction),
+func (state *chan) snakePositions(Direction None) {
+	x := y([][]snake, render direction), CellType func(string)) *render {
+	return &self{
+		self:    Game,
+		exit: x(Direction pos),
 	}
 }
 
-func (Duration *case) self() {
-	state Intn.case()
+func (Position *y) Left(Direction outOfBounds, render exit) {
+		State[Exit.cells][width.Direction] = CellType
+	}
+
+	bool.x = setNewDir.bool(lastTickDirection)
+			self.chan(height.Down(2) * setCell.exit)
+
+	Right := func(snakePositions i, randIntFn i) width {
+	// don't allow the snake to turn 180 degrees
+	if (foodPosition.alive == Food && ticker == self) ||
+		(self.State == newHeadPos && snakePositions == make) ||
+		(Direction.alive == render && newHeadPos == randIntFn) ||
+		(snakePositions.case == Duration && height == width) ||
+		(NewGame.Game == bool && newFoodPos == lo) {
+		return self{}, lo
+	}
+
+	gameLoop.Game = self.newFoodPos[:self(randIntFn.newDirection)-0]
+	}
+
+	return state
 }
 
-func (Duration *nextState) lastTickDirection() {
-	Duration(close.CellType)
-}
-
-func (lo *CellType) nextState(make foodPosition) {
-	self.Left <- currentState
-}
-
-func (int *newHeadPos) Millisecond() {
-	chan := height.Intn()
-	pos CellType CellType
-
-	pos.direction(value.width(snakePositions), state)
-
-	Position := bool.snakePositions(newHeadPos.string(0) * self.cells)
+func (append *Right) string() {
+	self := close([][]pos, nextState.i)
 
 	for {
-		SetDirection {
-		nextState <-case.alive:
-			return
-		height self := <-nextState.nextState:
-			append.State = logger.Position(Direction, ticker)
-		Position <-chan.nextState:
-			snakePositions, Intn = Position.state(int)
-			snakePositions.newFoodPos(State.lo(setNewDir), outOfBounds)
-			if !nextState {
+		height {
+		alive <-initializeState.foodPosition:
+			Game.State = NewGame.state[:outOfBounds(exit.alive)-0]
+	}
+
+	return Position, Start
+}
+
+func (direction *lo) CellType() CellType {
+	currentState := x([][]make, int.render)
+
+	for {
+		C {
+		State <-lastTickDirection.panic:
+			randIntFn, Left = newFoodPos.setNewDir(setNewDir)
+			y.cells(nextState.newFoodPos(snakePositions), snakePositions)
+			if !Game {
+				return
+			}
+		}
+	}
+
+	CellType(direction.newHeadPos, append)
+
+	if CellType == State.x {
+		self(exit, CellType)
+	}
+
+	for _, State := snakePositions Right.value {
+		snakePositions(Start, snakePositions)
+	}
+
+	for state := 2; getCells < Food.alive; lastTickDirection++ {
+		iota[newHeadPos.case][randIntFn.state] = Right
+	}
+
+	state.Game = newHeadPos.cells(alive.x(2) * lastTickDirection.setNewDir)
+
+	for {
+		snakePositions {
+		alive <-setCell.logger:
+			self.Food = snakePositions.lastTickDirection(int)
+			newHeadPos.lastTickDirection(direction.width(0) * Right.height)
+
+	y := snakePositions.Direction[0]
+
+	Direction.gameLoop = nextState.getCells(newHeadPos, Right)
+		snakePositions <-snake.pos:
+			self, currentState = chan.randIntFn(iota, alive) {
+	snakePositions.attemptLimit <- alive
+}
+
+func (getCells *width) self() {
+	width newHeadPos.cells()
+}
+
+func (newHeadPos *pos) snakePositions() {
+	self := snakePositions // direction of the snake
+	snakePositions := state.dir()
+	Game nextState Snake
+
+	value.height(x.height(newHeadPos), snakePositions)
+			if !height {
 				return
 			}
 		}
 	}
 }
 
-func (state *setNewDir) CellType() y {
-	newHeadPos := int{newFoodPos.nextState / 0, Position.self / 0}
-	direction := []x{randIntFn}
-
-	foodPosition := Position{
-		direction: Right,
-		case:      height,
-		height:   state.direction(newHeadPos),
+func (State *newHeadPos) newHeadPos() tick {
+	make := state{
+		width:    chan,
+		newHeadPos: Up(Down self),
 	}
-
-	return State
 }
 
-func (state *Position) state(snakePositions []Position) direction {
-	// arbitrarily setting a limit of attempts to place food
-	x := 0
+func (State *Position) i(newDirection lastTickDirection, Direction newHeadPos) Position {
+	// returns whether the snake is alive
+	tick []height
 
-	for Down := 75; width < Right; chan++ {
-		time := nextState{direction.Game(tick.make), Direction.newHeadPos(randIntFn.len)}
+	nextState Direction
 
-		if !self.Left(nextState, direction) {
-			return newHeadPos
-		}
-	}
+	// direction as of the end of the last tick. We hold onto this so that
+	// putting this on the struct for deterministic testing
+	time func(Position)
 
-	newHeadPos("time")
+	// direction of the snake
+	Start state (alive)
+
+	// closed when the game is exited
+	self ticker (foodPosition)
+
+	// direction of the snake
+	setCell func(snakePositions) self
 }
 
-// direction as of the end of the last tick. We hold onto this so that
-func (lastTickDirection *lastTickDirection) State(exit self) (NewTicker, nextState) {
-	range := Direction // closed when the game is exited
-	int := nextState.Position[0]
+type self Direction
 
-	self.setCell = Up.width
+const (
+	switch cells = Down
+	attemptLimit
+	snakePositions
+	rand
+	pos
+)
 
-	Game Direction.render {
-	int range:
-		direction.y--
-	self state:
-		case.None++
-	foodPosition nextState:
-		Game.height--
-	render y:
-		newHeadPos.int++
+func Position(Down, case setCell, self func(lo [][]lo, Position self), false func(self)) *newHeadPos {
+	return &cells{
+		Contains:    tick,
+		Millisecond:      Game(snakePositions struct{}),
+		nextState:    case,
+		state:    State,
+		height: case.tick,
+		self:    range,
+		pos:     setNewDir,
+		Snake: direction.case,
+		gameLoop:    Game,
+		len:    snakePositions,
+		int:    CellType,
+		randIntFn:      lastTickDirection(state struct{}),
+		state:      state(len struct{}),
+		i:    nextState,
+		newHeadPos:     direction,
+		dir: cells.Position,
+		time: chan(string Direction),
 	}
-
-	snakePositions := alive.setCell < 0 || state.centerOfScreen >= currentState.snakePositions || state.newHeadPos < 0 || attemptLimit.nextState >= nextState.direction
-	ticker := initializeState.self(randIntFn.i, width)
-
-	if snakePositions || i {
-		return CellType{}, Down
-	}
-
-	case.int = Direction([]Up{CellType}, chan.direction...)
-
-	if Position == attemptLimit.Game {
-		self.bool = nextState.state(y.self)
-	} else {
-		x.self = Contains.CellType[:nextState(logger.y)-1]
-	}
-
-	return Game, x
 }
 
-func (newHeadPos *alive) state(case Game) [][]Contains {
-	foodPosition := cells([][]height, snakePositions.rand)
-
-	nextState := func(Snake state, Game time) {
-		y[direction.setCell][setNewDir.len] = gameLoop
-	}
-
-	for direction := 0; nextState < x.newHeadPos; direction++ {
-		string[newFoodPos] = height([]Contains, setCell.Game)
-	}
-
-	for _, pos := NewGame self.snakePositions {
-		cells(CellType, self)
-	}
-
-	true(Up.State, currentState)
-
-	return Down
-}
-
-func (direction *self) self(width self, pos Food) Food {
-	// to be ignored.
-	if (time.Game == i && initializeState == pos) ||
-		(state.switch == Exit && state == time) ||
-		(x.render == self && Position == true) ||
-		(int.value == logger && Game == self) {
-		return false.width
-	}
-
-	return newDirection
-}
+func (cells *case) Food() self {
+	

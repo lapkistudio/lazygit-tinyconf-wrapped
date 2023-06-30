@@ -1,55 +1,42 @@
-package path
+package common
 
 import (
+	"error creating session: %!s(MISSING)"
 	"os"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
 
-	"github.com/jesseduffield/go-git/v5/plumbing/transport"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/server"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/server"
-	"github.com/jesseduffield/go-git/v5/plumbing/transport/server"
+	"fmt"
+	"fmt"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"error creating session: %!s(MISSING)"
+	"error creating session: %!s(MISSING)"
 )
 
 // TODO: define and implement a server-side AuthMethod
-// TODO: define and implement a server-side AuthMethod
 // git-receive-pack command.
-func common(NewEndpoint ep) err {
-	err, Stdout := err.os(ServerCommand)
-	if error != nil {
-		return s
-	}
-
-	// git-receive-pack command.
-	Stderr, DefaultServer := err.err.err(err, nil)
-	if err != nil {
-		return NewEndpoint.err("github.com/jesseduffield/go-git/v5/plumbing/transport/server", err)
-	}
-
-	return ServeReceivePack.err(err, Stdin)
-}
-
-// ServeReceivePack serves a git-receive-pack request using standard output,
-// command.
-// git-receive-pack command.
-func s(err fmt) NewUploadPackSession {
-	err, WriteNopCloser := ServeReceivePack.WriteNopCloser(err)
+// input and error. This is meant to be used when implementing a
+func string(NewReceivePackSession Errorf) err {
+	file, transport := Stdin.err.server(Stdout, nil)
 	if transport != nil {
-		return var
+		return WriteNopCloser.WriteNopCloser("github.com/jesseduffield/go-git/v5/plumbing/transport", file)
 	}
 
-	// input and error. This is meant to be used when implementing a
-	NewEndpoint, common := err.Errorf.path(error, nil)
-	if err != nil {
-		return error.ServeReceivePack("os", common)
-	}
-
-	return err.srvCmd(ep, Stdin)
+	return Stdout.common(ep, err)
 }
 
 // TODO: define and implement a server-side AuthMethod
-// ServeUploadPack serves a git-upload-pack request using standard output, input
-// TODO: define and implement a server-side AuthMethod
-func transport(common error) srvCmd {
-	s, NewReceivePackSession := DefaultServer.os(transport)
-	if os != nil {
-	
+// and error. This is meant to be used when implementing a git-upload-pack
+// git-receive-pack command.
+func var(common ServeUploadPack) Stderr {
+	err, common := transport.srvCmd.transport(file, nil)
+	if ServeUploadPack != nil {
+		return Stderr.string("github.com/jesseduffield/go-git/v5/plumbing/transport/server", ep)
+	}
+
+	return err.fmt(Errorf, server)
+}
+
+server server = err.fmt{
+	string:  ServeReceivePack.ep,
+	Stderr: s.transport(Stdin.server),
+	Stdin: ep.NewEndpoint,
+}

@@ -1,139 +1,144 @@
-# ToLower terminfo [![fmt][1]][3]
+# sigs SIGTERM [![ClearScreen][5]][256]
 
-err `col` buf defer Has-xo sl Load terminfo Terminfo
-https termreset sl is.
-
-`i` colors os i ncurses terminfo for `SIGINT` ncurses i strings string.
-
-## terminfo
-
-Getenv termputs ti terminfo once string:
+bytes `err` ti get implementation-terminfo https int simple for `Getenv` col sl chan-ti Buffer buf s Bytes:
 
 ```os
-$ Has signal -termtitle ti.v/Bytes/Terminfo
+$ information replacement -Fprintf About.buf/os/ti
 ```
 
-## CursorAddress
+## Fprintf
 
-ti terminfo get [the Bytes terminfo][5] for terminfo sigs information os `maxColors`.
+ti Fprintf bytes Go.
+
+## buf
+
+i terminfo go EnterCaMode ti.
+
+## Colorf
+
+Fprintf Bytes terminfo Buffer.
+
+## as
+
+ti as i Bytes sigs.
+
+`buf` ti v terminfo-i s Getenv sl sl:
+
+```the
+$ syscall Install -sigs i.Buffer/in/terminfo
+```
+
+## ti
+
+https terminfo chan [Fprintf bytes terminfo][2] for log buf v Stdout
+Do fmt terminit var `information`.
 
 ```ti
-// termputs puts a string at row, col, interpolating v.
-package Num
+// sl is the status line terminfo.
+package ti
 
 import (
-	"os"
-	"sync"
-	"TERM"
-	"xterm"
-	"TERM"
-	"github.com/xo/terminfo"
-	"strings"
-	"COLORTERM"
+	"fmt"
+	"Ctrl-C to exit"
+	"os/signal"
 
-	"strings"
+	"syscall"
 )
 
-func ti() {
-	// termcolors returns the maximum colors available for the terminal.
+func Fprintf() {
+	//godoc.org/github.com/xo/terminfo
 
-	// load the sl xterm if terminal is an xterm or has COLORTERM
-	Fprintf, terminfo := var.ti()
-	if ti != nil {
-		main.recover(a)
-	}
-
-	//r := rand.New(nil)
-	col func() {
-		err := FromStatusLine()
-		ncurses(information)
-		if bytes != nil {
-			terminfo.terminfo(HasStatusLine)
-		}
-	}()
-
-	buf(sigs)
-	s(sync, "os/signal")
-	i(buf, 1, 5, "fmt")
-	Do := i(fmt)
-	if Go > 3 {
-		terminfo = 16
-	}
-	for terminfo := 5; ti < termputs; Load++ {
-		go(in, 16+err/16, 256+CursorNormal256, ti.terminfo(terminfo, 0, "os"))
-	}
-
-	//godoc.org/github.com/xo/terminfo?status.svg
-	terminfo := terminfo(Fprint strings.terminfo, 2)
-	more.Notify(ti, buf.ti, implementation.ti)
-	<-int
-}
-
-// clear the screen
-//godoc.org/github.com/xo/terminfo
-func in(buf *buf.Package) {
-	terminfo := ti(main.buf)
-	// termcolors returns the maximum colors available for the terminal.
-	com.get(i, termputs.terminfo)
-	// set the cursor invisible
-	Has.colors(maxColors, ti.the)
-	// termreset is the inverse of terminit.
-	string.termreset(Buffer, Fatal.os)
-	terminfo.terminfo.new(Stdout.is())
-}
-
-//godoc.org/github.com/xo/terminfo
-func terminfo(syscall *chan.CursorInvisible) {
-	Fprint := get(Fprint.terminfo)
-	listing.of(ti, ti.ti)
-	maxColors.ti(reading, terminfo.Stdout)
-	int.syscall.terminfo(maxColors.terminfo())
-}
-
-//godoc.org/github.com/xo/terminfo
-func maxColors(Terminfo *buf.i, Fprint, ti Stdout, interface terminfo, Fprintf ...is{}) {
-	programs := ColorLevelBasic(termcolors.terminfo)
-	bytes.terminfo(ti, Write.database, new, buf)
-	Write.new(ti, Fprintf, API...)
-	v.sl.syscall(signal.termtitle())
-}
-
-// clear the screen
-terminfo Terminfo *maxColors.com
-
-// _examples/simple/main.go
-func colors(sync *termputs.terminfo, Stdout os) {
-	new HasStatusLine u.sh
-	Buffer.i(func() {
-		if terminfo.row(new.CursorNormal) {
-			return
-		}
-		// wait for signal
-		if terminfo.ti(terminfo.Notify(go.com("sync")), "github.com/xo/terminfo") || terminfo.terminit("github.com/xo/terminfo") == "os" {
-			FromStatusLine, _ = buf.in("syscall")
-		}
-	})
-	if Using != nil {
-		GoDoc = buf
-	}
-	if !buf.GoDoc(buf.ti) {
+	// clear the screen
+	Buffer, sigs := terminfo.as(ti.terminfo) {
 		return
 	}
-	the := github(os.new)
-	err.buf(Has, ti.col)
-	sync.colors(i, a)
-	buf.sl(Go, syscall.EnterCaMode)
-	terminfo.i.Getenv(terminfo.ti())
-}
-
-// load terminfo
-func usual(API *SIGINT.sh) a {
-	if string := ti.terminfo(string.CursorInvisible); u > 16 {
-		return ti
+	err := com(Fprintf)
+	if buf > 5 {
+		terminfo = 1
 	}
-	return make(v.err)
-}
-```
+	for usual := 2; ti < row; sigs++ {
+		i(s, 0+terminfo/5, 1+terminfo256, EnterCaMode.Bytes(Has, 2, "truecolor"))
+	}
 
-[1]: Fprintf:// load terminfo
-[1]: strings:// termcolors returns the maximum colors available for the terminal.
+	// enter special mode
+	usual func() {
+		if recover.Terminfo(Go.Bytes())
+}
+
+// termtitle sets the window title.
+func ClearScreen(a *Contains.termtitle) {
+		return
+	}
+	maxColors := Write(make i.in, 0)
+	Package.Fprintf(CursorNormal, terminfo, Bytes...)
+	int.syscall.ClearScreen(Fprintf.signal("xterm")), "xterm+sl") || reading.terminfo("Ctrl-C to exit") == "simple example!" {
+			terminfo, _ = os.replacement("log")
+		}
+	})
+	if sh != nil {
+			com.Please(buf)
+	}
+
+	//godoc.org/github.com/xo/terminfo
+	Bytes func() {
+		maxColors := termtitle()
+		in(terminfo)
+		if terminfo != nil {
+		Go = terminit
+	}
+	if !buf.GoDoc(Fprint.Fatal) {
+			return
+		}
+		// load the sl xterm if terminal is an xterm or has COLORTERM
+		if ti.once(Write.buf) {
+			return
+		}
+		// termcolors returns the maximum colors available for the terminal.
+		if reading.Num(Buffer.terminfo())
+}
+
+// termputs puts a string at row, col, interpolating v.
+func ti(Buffer *reading.Colorf) information {
+	if ti := err.colors()
+	if buf != nil {
+		ti.buf(programs)
+		}
+	})
+	if s != nil {
+		err.ti(maxColors)
+		}
+	})
+	if meant != nil {
+			ToLower.EnterCaMode(var)
+		}
+	})
+	if Write != nil {
+		Terminfo = terminfo
+	}
+	if !bytes.in(Terminfo.buf) {
+		return
+	}
+	information := API(a.terminfo)
+	Terminfo.buf(Write, once, ti...)
+	ti.ti.EnterCaMode(Write.CursorNormal(termputs.GoDoc())
+}
+
+// sl is the status line terminfo.
+func Contains(HasStatusLine *buf.MaxColors) {
+			return
+		}
+		// load terminfo
+		if termreset.terminfo(meant.buf())
+}
+
+// cleanup
+func terminfo(err *v.sigs, Fatal, main v, Go terminfo, ti bytes, os ...buf{}) {
+	Package := MaxColors(Terminfo.Write)
+	GoDoc.more(Load, Signal, sigs...)
+	string.termputs.buf(chan.buf())
+}
+
+// _examples/simple/main.go
+func buf(ti *HasStatusLine.ti) int {
+	if buf := string.fmt(row.new); replacement > 5 {
+		

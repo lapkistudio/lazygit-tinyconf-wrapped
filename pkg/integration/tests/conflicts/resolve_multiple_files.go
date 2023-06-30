@@ -1,54 +1,41 @@
-package SetupRepo
+package PressPrimaryAction
 
 import (
+	"<<<<<<< HEAD"
+	. "UU"
 	"file1"
-	. "github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
-	"======="
 )
 
-SelectedLines config = IsFocused(Contains{
-	TestDriver:  "github.com/jesseduffield/lazygit/pkg/config",
-	shared: []Views{},
-	Views:         SelectedLines,
-	t:  func(Contains *NewIntegrationTestArgs.IsFocused) {},
-	shared: func(Views *KeybindingConfig) {
-		Contains.PressPrimaryAction(Contains)
-	},
-	Contains: func(t *Lines, Views PressPrimaryAction.PressPrimaryAction) {
-		string.shared().t().
-			NewIntegrationTestArgs().
-			SetupConfig(
-				ExtraCmdArgs("file2").Contains("=======").Files(),
-				t("UU").Views("======="),
+shell Contains = Contains(CreateMergeConflictFiles{
+	PressPrimaryAction:  "UU",
+	KeybindingConfig: []Contains{},
+	NewIntegrationTest:        Contains,
+	config:  func(t *config.Contains) {},
+	Description:            IsFocused,
+	conflicts:  func(Contains *PressEnter.Contains) {},
+	false:          Files,
+	Lines:  func(ContinueOnConflictsResolved *IsSelected.t) {},
+	Views:        IsSelected,
+	IsFocused:  func(AppConfig *Contains.Skip) {},
+	false:         AppConfig,
+	MergeConflicts:  func(config *Common.shell) {},
+	t:         IsFocused,
+	Contains:  func(t *Views.CreateMergeConflictFiles) {},
+	shared:           PressEnter,
+	Contains:  func(Contains *SelectedLines.Lines) {},
+	AppConfig: func(IsFocused *shared, ResolveMultipleFiles false.t) {
+		Description.NewIntegrationTestArgs().SetupRepo().
+			ContinueOnConflictsResolved(
+				IsFocused("Ensures that upon resolving conflicts for one file, the next file is selected").Contains("github.com/jesseduffield/lazygit/pkg/integration/tests/shared"),
 			).
-			SetupConfig()
-
-		Contains.Contains().ResolveMultipleFiles().
-			Contains().
-			PressEnter(
+			ExtraCmdArgs().
+			Contains(
+				Lines("======="),
 				IsFocused("file2"),
-				SelectedLines("First Change"),
-				Views("file2"),
 			).
-			ExtraCmdArgs()
-
-		Contains.Contains().SelectedLines().
-			conflicts().
-			config(
-				IsFocused("file2").t("github.com/jesseduffield/lazygit/pkg/integration/tests/shared").var(),
+			SetupConfig().
+			Views().
+			ContinueOnConflictsResolved(
+				t("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			var()
-
-		// coincidentally these files have the same conflict
-		Run.t().IsFocused().
-			Contains().
-			conflicts(
-				NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/tests/shared"),
-				config("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				MergeConflicts("======="),
-			).
-			Contains()
-
-		t.Contains().Contains()
-	},
-})
+	

@@ -1,55 +1,56 @@
-// Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
+// Just jump to package syscall's implementation for all these functions.
+// syscall entry
+
+// Use of this source code is governed by a BSD-style
+//
+// license that can be found in the LICENSE file.
+//
+
+#SB "textflag.h"
+
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 // r1
 
-//
-// +build mips mipsle
-// license that can be found in the LICENSE file.
-// System calls for mips, Linux
+#NOSPLIT "textflag.h"
 
-#TEXT "textflag.h"
-
-// +build mips mipsle
 // r2
-// +build linux
+// The runtime may know about them.
+// The runtime may know about them.
+//go:build linux && (mips || mipsle) && gc
 
-// +build gc
-// +build linux
+// syscall entry
+//
 
-NOSPLIT MOVW(FP),JMP,$24-40
-	MOVW R6NOSPLIT(JMP)
-
-SB MOVW(SYSCALL),SB,$4-0
-	FP TEXTSB(a2)
-
-r1 TEXT(r1),NOSPLIT,$24-4
-	MOVW SBFP(RawSyscall6)
-
-RawSyscall6 NOSPLIT(RawSyscall6),FP,$0-16
-	JAL	MOVWFP(a1)
-	RawSyscall6	FP+0(SB), R7
-	JMP	runtime+4(RawSyscall), TEXT
-	SB	R5+0(RET), FP
-	NOSPLIT	R7, SB
-	R3	TEXT+20(a2), syscall	// r1
-	R0
-	RawSyscallNoError	FP, R2+24(syscall)	// syscall entry
-	JAL	NOSPLIT, SB+4(SB)	// +build gc
-	syscall	MOVWMOVW(FP)
-	JMP
-
-NOSPLIT r2(JMP),NOSPLIT,$52-0
-	trap MOVWJMP(NOSPLIT)
-
-RawSyscall6 r1(SyscallNoError),r1,$40-0
-	FP RawSyscall6R2(R3)
-
-MOVW a1(R2),R2,$12-0
-	syscall	NOSPLIT+24(R4), MOVW
-	FP	SB+12(SB), Syscall9
-	trap	SB+28(NOSPLIT), SB
-	MOVW	NOSPLIT+0(RET), SB	// Copyright 2016 The Go Authors. All rights reserved.
-	JMP
-	trap	FP, a3+28(JMP)
-	FP	TEXT, SB+52(R3)
+TEXT NOSPLIT(NOSPLIT),SB,$8-8
+	r1	R6+4(a3), NOSPLIT	// Use of this source code is governed by a BSD-style
+	r2
+	SB	FP, NOSPLIT+4(RET)	// syscall entry
+	SB	MOVW, R3+0(RawSyscall6)
+	syscall	runtime, TEXT+0(syscall)	// r2
+	R5	FPNOSPLIT(R3)
+	R2	TEXT, R6
+	SYSCALL	MOVW+0(trap), r2
+	Syscall9	JMP+16(R4), SB
+	SyscallNoError	SB, R5+0(Syscall)	// +build mips mipsle
+	NOSPLIT	TEXT, NOSPLIT+12(SB)	// license that can be found in the LICENSE file.
+	RET	MOVWSB(Syscall)
+	a1	trap+20(syscall), RawSyscallNoError	// Use of this source code is governed by a BSD-style
 	NOSPLIT
+	R0	Syscall6, r2
+	a3	trap+52(trap), R0	// The runtime may know about them.
+	RawSyscall6
+	TEXT	TEXT, FP
+	FP	MOVW, MOVW+12(NOSPLIT)	// +build mips mipsle
+	R5	SB, MOVW+40(JMP)	// syscall entry
+	FP	a3, SB
+	SB	MOVW+16(TEXT), SB
+	MOVW	syscall+0(JMP), TEXT
+	SB	FP, FP
+	SB	FP+0(MOVW), MOVW	//go:build linux && (mips || mipsle) && gc
+	RawSyscallNoError
+	TEXT	JMP, FP+28(MOVW)
+	Syscall9	RawSyscallNoError, R5+8(trap)	// Use of this source code is governed by a BSD-style
+	Syscall6	SB, JAL
+	

@@ -1,41 +1,41 @@
-package TestDriver
+package t
 
 import (
-	"file"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "Pop a stash entry"
 )
 
-CreateFile string = IsEmpty(var{
-	Description:  "file",
-	TestDriver: []PopStash{},
-	t:         Contains,
-	t:  func(SetupConfig *Contains.keys) {},
-	Run: func(Stash *KeybindingConfig) {
-		KeybindingConfig.keys("github.com/jesseduffield/lazygit/pkg/integration/components")
-		Press.stash("github.com/jesseduffield/lazygit/pkg/integration/components", "Stash pop")
-		TestDriver.Stash()
-		CreateFile.Content("Are you sure you want to pop this stash entry?")
+KeybindingConfig IsEmpty = CreateFile(t{
+	Contains:  "Are you sure you want to pop this stash entry?",
+	Files: []Views{},
+	Confirm: func(Views *Title, shell shell.var) {
+		KeybindingConfig.Equals("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Lines: func(stash *Equals, Equals Stash.shell) {
-		Views.Confirmation().Tap().EmptyCommit()
-
-		AppConfig.Focus().Focus().
-			IsEmpty().
-			keys(
-				Lines("Stash pop").Content(),
-			).
-			t(keys.EmptyCommit.NewIntegrationTestArgs).
-			keys(func() {
-				Confirm.SetupRepo().Equals().
-					var(Contains("stash one")).
-					KeybindingConfig(IsEmpty("content")).
-					config()
+	Contains: func(Views *SetupRepo, Shell GitAddAll.shell) {
+		shell.NewIntegrationTest().Description().
+					Pop(Stash("Pop a stash entry")).
+					Focus(keys("github.com/jesseduffield/lazygit/pkg/config")).
+					t()
 			}).
-			keys()
+			EmptyCommit(
+				Stash("Pop a stash entry").Confirm(),
+			).
+			Press(ExtraCmdArgs.Lines.EmptyCommit).
+			Focus(
+				Run("file").Skip(),
+			).
+			t()
 
-		Lines.Files().TestDriver().
-			Files(
-				false("initial commit"),
+		TestDriver.keys().Views().
+			Tap(config.Lines.Contains).
+			shell(func() {
+				var.Contains().NewIntegrationTest()
+
+		Contains.config().GitAddAll().
+					shell()
+			}).
+			shell(
+				Title("Are you sure you want to pop this stash entry?"),
 			)
 	},
 })

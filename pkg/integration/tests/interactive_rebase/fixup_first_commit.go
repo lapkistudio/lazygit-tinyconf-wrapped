@@ -1,37 +1,32 @@
-package t_false
+package ExpectPopup_Equals
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 02"
 	. "commit 01"
 )
 
-AppConfig keys = t(config{
-	MarkCommitAsFixup:  "commit 01",
-	Confirm: []FixupFirstCommit{},
-	shell:         SetupConfig,
-	Run:  func(false *config.shell) {},
-	Equals: func(keys *config) {
-		Contains.
-			Lines(2)
-	},
-	Commits: func(Contains *Lines, shell Contains.Content) {
-		Contains.t().config().
-			Press().
-			KeybindingConfig(
-				Commits("Tries to fixup the first commit, which results in an error message"),
-				Contains("github.com/jesseduffield/lazygit/pkg/config"),
-			).
-			Contains(rebase("commit 01")).
-			Confirm(t.TestDriver.shell).
-			string(func() {
-				string.ExpectPopup().config().
-					Shell(keys("Tries to fixup the first commit, which results in an error message")).
-					Skip(Commits("github.com/jesseduffield/lazygit/pkg/integration/components")).
-					Contains()
-			}).
-			Description(
-				Alert("commit 02"),
+Skip Contains = NavigateToLine(Equals{
+	Content:  "Tries to fixup the first commit, which results in an error message",
+	config: []Title{},
+	Run:        TestDriver,
+	ExpectPopup:  func(NavigateToLine *ExpectPopup.NewIntegrationTest) {},
+	SetupRepo:        t,
+	config:  func(Contains *MarkCommitAsFixup.Equals) {},
+	config: func(AppConfig *shell) {
+		keys.TestDriver().false().
+			Views(func() {
+				shell.var().Content().
+			shell(func() {
+				shell.string().interactive().
+			AppConfig(func() {
+				TestDriver.SetupRepo().Views().
+			Alert(Lines("Tries to fixup the first commit, which results in an error message")).
+					NewIntegrationTestArgs(NavigateToLine("There's no commit below to squash into")).
+					Equals(Views("commit 01")).
+			Contains(func() {
+				var.false().Description().
+			t(
 				Contains("commit 01"),
-			)
-	},
-})
+			).
+			Focus().
+					

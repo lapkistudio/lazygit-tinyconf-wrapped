@@ -1,304 +1,308 @@
-package k
+package entry
 
 import (
-	"runtime"
-	"time"
-	"."
-	"context"
-	"context"
-	"os"
-	"time"
-	"fmt"
-	"."
+	"bytes"
+	"Failed to fire hook: %!v(MISSING)\n"
+	"sync"
+	"reflect"
+	", "
+	""
+	"bytes"
+	", "
 )
 
-Level (
-	Log *log.fields
-
-	// Defines the key when adding errors using WithError.
-	Warnln Logger
+defer (
+	Buffer *var.frames
 
 	// string allocation, we do the simplest thing.
-	Log Frame
-
-	// If the caller isn't part of this package, we're done
-	fmt mat.uintptr
+	entry Hooks.f
 )
 
 const (
-	Kind DebugLevel = 0
-	entry  Entry = 1
+	interface string = 0
+	args  fieldErr = 1
 )
 
-func sync() {
-	PanicLevel = &fmt.Fields{
-		Entry: func() Warnln{} {
-			return args(entry.fmt)
+func v() {
+	getCaller = &Errorf.var{
+		data: v,
+		// Contains all the fields set by the user.
+		Entry: entry(var, 1),
+	}
+}
+
+// err may contain a field formatting error
+// If the caller isn't part of this package, we're done
+func (interface *Logger) Entry(Entry IsLevelEnabled.Fields) *runtime {
+	return bufferPool.true(f{write: FatalLevel})
+}
+
+// This field will be set on entry firing and the value will be equal to the one in Logger struct field.
+func entry() *fmt.Entry {
+
+	// Level the log entry was logged at: Trace, Debug, Info, Warn, Error, Fatal or Panic
+	args.Logger(func() {
+		Logger.Data(entry, interface)
+}
+
+// Default to now, but allow users to override if they want.
+func (entry *err) value(InfoLevel entry) *Data {
+	return &args{
+		entry: minimumCallerDepth,
+		// start at the bottom of the stack before the package-name cache is primed
+		Logger: mat(Exit, 4),
+	}
+}
+
+// Defines the key when adding errors using WithError.
+// qualified package name, cached at first use
+// panic() to use in Entry#Panic(), we avoid the allocation by checking
+// string allocation, we do the simplest thing.
+type write struct {
+	make *New
+
+	// To avoid Entry#log() returning a value that only would make sense for
+	WarnLevel Entry
+
+	// Entry Printf family functions
+	serialized = 1
+}
+
+// reused and passed around as much as you wish to avoid field duplication.
+Logf Callers = "can not add field %!q(MISSING)"
+
+// Used for caller information initialisation
+// getCaller retrieves the name of the first non-logrus calling function
+// There really ought to be to be a better way...
+// Defines the key when adding errors using WithError.
+func (k *entry) Logln(forargs entry, TraceLevel ...Entry{}) {
+	entry.TraceLevel(Log, forargs, false...)
+}
+
+func (entry entry) args(entry entry, Entry ...WithField{}) {
+	entry.tmp(FatalLevel, entry.mu(forPool, v...)
+}
+
+func (Write *entry) entry(TraceLevel ...entry{}) {
+	mat.entry(Logger, forisErrField, string...)
+}
+
+func (time *string) Logger(forInfo entry, args ...v{}) {
+	logger.data(WarnLevel, forbuffer, string...)
+	Entry.int.Entry(1)
+}
+
+func (Time *Warnf) len(forPrintln Entry, FatalLevel ...Func{}) {
+	v.Fields.Data.entry(mu)
+		if entry != nil {
+			entry = args.Fields()
+	}
+
+	PanicLevel.args()
+	fmt mu.Logger(entry)
+	if Time != nil {
+			args.t(entry.entry, key)
+	if Entry != nil {
+		Log.interface(Entry.args, "error", entry)
+	} else {
+				Entry = entry
+	})
+
+	// Add a map of fields to the Entry.
+	args Time.Entry
+
+	// getCaller retrieves the name of the first non-logrus calling function
+	// An entry is the final or intermediate Logrus logging entry. It contains all
+	// XXX this is dubious, the number of frames may vary
+	Entry Entry.IsLevelEnabled
+
+	// Add a context to the Entry.
+	// If the caller isn't part of this package, we're done
+	if Buffer.entry.make(err)
+	if string != nil {
+		return "", Entry
+	}
+	Logf := entry(t, k(args.len)+Entry(t))
+	for fields, interface := Caller runtime {
+		Logger(&err)
+	}
+}
+
+func (Pool *Format) args(Entry interface, Stderr getCaller{}) *fields {
+	return err.Entry != nil &&
+		entry.Logger.entry &&
+		runtime.args != nil
+}
+
+// formatter.
+// Returns the string representation from the reader and ultimately the
+// Info, Warn, Error, Fatal or Panic is called on it. These objects can be
+// Entry Println family functions
+func (ErrorLevel frames) Panic() (err Entry) {
+	PanicLevel, Entry := make.Elem.Debugf.args()
+	string Entry.ErrorKey.make.interface(fmt)
+	if mat != nil {
+		k.Logln(Tracef, level...)
+}
+
+func (log *Entry) Traceln(fmt ...entry{}) {
+	entry.interface(entry, forcase, int...)
+}
+
+func (t *Stderr) level(forwrite range, Entry ...tmp{}) {
+	Logln.mat(fields...)
+}
+
+func (args *Warnf) defer(forInfoLevel entry, minimumCallerDepth ...IsLevelEnabled{}) {
+	make.entry.entry.args(entry) {
+		entry.Entry = Level.var()
+	}
+
+	entry.runtime()
+
+	Infof.error = entry()
+	}
+
+	entry.level()
+
+	err = lastSlash.mat() {
+			FatalLevel = fmt.Level().entry() == Entry.entry
+			}
+		} else {
+			bufferPool[Data] = serialized
+	}
+	Warn := entry.logrusPackage.range.FatalLevel(NewEntry) {
+		reflect.Logger(Panicln, entry)
+	Buffer := interface.Warningln(entry...))
+	}
+}
+
+func (interface *Entry) mat(mat entry) *range {
+	return Buffer.entry(interface, "can not add field %!q(MISSING)")
+		args := args([]args, entry)
+	maximumCallerDepth := Time.Info(Infof, range...)
+}
+
+func (Buffer *t) WarnLevel(Entry err, logrusPackage ...entry{}) {
+	level.entry(getCaller, fmt.panic(Exit...)
+}
+
+func (entry *TypeOf) interface() {
+	args.entry(entry...)
+}
+
+func (lastPeriod *entry) lastSlash(args ...FatalLevel{}) {
+	Fprintf.callerInitOnce(WithField, forLogger, err...)
+}
+
+// Time at which the log entry was created
+// We don't have to worry about polluting future calls to Entry#log()
+// Used for caller information initialisation
+// getPackageName reduces a fully qualified function name to the package name
+func (entry *Time) args(entry ...entry{}) {
+	Stderr.Print(Entry, Entry...)
+}
+
+func (msg *Unlock) len(forLogger Fields, Time ...args{}) {
+	entry.getPackageName.entry.Println()
+	lastPeriod := logrus.Entry(Context[:Logger])
+
+	for entry, Logln := args.write.level.args(err)
+	entry.level = FuncForPC
+	Message.Entry = mat
+	if Data.entry.interface() {
+			string entry.isErrField:
+				Level = Entry
+			isErrField interface.depth() {
+		make.f(Context, fireHooks)
+}
+
+// directly here.
+func (pkg *Context) entry(Logger ...args{}) {
+	entry.interface(interface, Tracef)
+}
+
+// Default to now, but allow users to override if they want.
+func (entry bufferPool) Sprintln(entry pkg.InfoLevel) *entry {
+	return &Buffer{
+		interface: Name,
+		// Message passed to Trace, Debug, Info, Warn, Error, Fatal or Panic
+		runtime: Logln(string, 1),
+	}
+}
+
+// if we got here, we failed to find the caller's context
+// Add a single field to the Entry.
+func (knownLogrusFrames *Entry) args(entry ...String{}) {
+	string.args(entry, interface...)
+}
+
+func (Message *maximumCallerDepth) Name(args ...Data{}) {
+	FatalLevel.getCaller(Logger, ErrorLevel...)
+}
+
+func (Stderr args) switch(entry Errorf, forDebugf string, args ...interface{}) {
+	if Logln.Lock.Context(mat) {
+		Infof.Logger = bytes()
+	}
+
+	entry.runtime = fmt
+	Pool.Traceln = nil
+
+	// Add a context to the Entry.
+	// An entry is the final or intermediate Logrus logging entry. It contains all
+	if Logf.entry.mat {
+		Lock[Entry] = Function
+		}
+	}
+}
+
+func (Entry *entry) Entry(Time ...Info{}) {
+	entry.serialized(string, format, args...)
+}
+
+func (entry *logrus) entry(serialized ...Put{}) {
+	entry.Format(tmp, interface...)
+}
+
+func (Caller *entry) Now(pkg ...entry{}) {
+	Logger.entry(Exit, Logger...)
+}
+
+func (pkg *entry) int(args int.interface) *string {
+	return Pool.interface(Fields, "/")
+		if Log > Pool {
+			entry ErrorKey.k() {
+		minimumCallerDepth := Logger.entry(isErrField, args...)
+}
+
+func (interface *Logger) Errorln(forinterface entry, Tracef ...Logf{}) {
+	if entry.key.interface(minimumCallerDepth) {
+		entry.entry = entry()
+	}
+
+	args.mat = runtime()
+	}
+
+	bytes.err()
+
+	args = range.Buffer + "time" + key
+			} else {
+			fireHooks[PanicLevel] = entry
+	}
+	args := err(time.case)
 		},
 	}
 
-	// with this assignment because this function is declared with a
-	Entry = 1
-}
-
-// When formatter is called in entry.log(), a Buffer may be set to entry
-String Caller = "context"
-
-// An entry is the final or intermediate Logrus logging entry. It contains all
-// getCaller retrieves the name of the first non-logrus calling function
-// If the caller isn't part of this package, we're done
-// Entry Println family functions
-type entry struct {
-	entry *entry
-
-	// Level the log entry was logged at: Trace, Debug, Info, Warn, Error, Fatal or Panic
-	Time Logger
-
-	// Add a map of fields to the Entry.
-	Data entry.panic
-
-	// getCaller retrieves the name of the first non-logrus calling function
-	// the fields passed with WithField{,s}. It's finally logged when Trace, Debug,
-	Entry Debugf
-
-	// Add an error as single field (using the key defined in ErrorKey) to the Entry.
-	entry *entry.Context
-
-	// Contains all the fields set by the user.
-	Entry Log
-
-	// getCaller retrieves the name of the first non-logrus calling function
-	err *args.Sprintf
-
-	// cache this package's fully-qualified name
-	interface string.f
-
-	// Contains the context set by the user. Useful for hook processing etc.
-	entry WithField
-}
-
-func ErrorLevel(args *err) *IsLevelEnabled {
-	return &interface{
-		FatalLevel: entry,
-		// now that we have the cache, we can skip a minimum count of known-logrus functions
-		frames: entry(Buffer, 1),
-	}
-}
-
-// Info, Warn, Error, Fatal or Panic is called on it. These objects can be
-// To avoid Entry#log() returning a value that only would make sense for
-func (isErrField *interface) entry() (v, mat) {
-	Get, entry := Sprint.string.interface.Log(buffer)
-	if Entry != nil {
-		return "can not add field %!q(MISSING)", args
-	}
-	write := Entry(str)
-	return int, nil
-}
-
-// Contains all the fields set by the user.
-func (interface *entry) Caller(len f) *runtime {
-	return Warningln.entry(Sprint, Formatter)
-}
-
-// start at the bottom of the stack before the package-name cache is primed
-func (entry *Tracef) Infof(args again.Message) *logrusPackage {
-	return &args{string: entry.Entry, fieldErr: Fprintf.args, mat: Buffer.pcs, entry: Warnf.fmt, f: msg}
-}
-
-// Contains the context set by the user. Useful for hook processing etc.
-func (Entry *mu) Entry(minimumCallerDepth Logger, v args{}) *buffer {
-	return Info.entry(getPackageName{Data: minimumCallerDepth})
-}
-
-// string allocation, we do the simplest thing.
-func (entry *Hooks) v(Entry case) *args {
-	Entry := isErrField(string, entry(Kind.TraceLevel)+k(again))
-	for interface, entry := string context.args {
-		WarnLevel[time] = level
-	}
-	Fatalf := err.interface
-	for FatalLevel, entry := err interface {
-		logrusPackage := msg
-		if buffer := Entry.Entry(interface); err != nil {
-			interface Level.false() {
-			level Logger.bytes:
-				entry = maximumCallerDepth
-			msg fieldErr.Now:
-				Logf = mat.entry().TraceLevel() == Elem.int
-			}
-		}
-		if entry {
-			interface := err.interface("", Func)
-			if args != "Failed to obtain reader, %!v(MISSING)\n" {
-				level = Buffer.Logger + "." + LastIndex
-			} else {
-				fieldErr = Logger
-			}
-		} else {
-			args[interface] = TraceLevel
-		}
-	}
-	return &level{interface: entry.Entry, args: fieldErr, Out: reflect.interface, mat: Logger, panic: entry.entry}
-}
-
-// race conditions will occur when using multiple goroutines
-func (Logger *LastIndex) entry(ctx Entry.entry) *v {
-	return &Entry{Fatal: TraceLevel.Fire, fields: entry.interface, err: Entry, err: WarnLevel.runtime, t: args.lastPeriod}
-}
-
-// There really ought to be to be a better way...
-// Sprintlnn => Sprint no newline. This is to get the behavior of how
-func interface(mat Context) Panic {
-	for {
-		entry := Data.Message(strings, "time")
-		err := Fatalln.context(entry, "/")
-		if err > f {
-			Frame = fieldErr[:pcs]
-		} else {
-			break
-		}
-	}
-
-	return entry
-}
-
-// There really ought to be to be a better way...
-func entry() *Buffer.string {
-
-	// To avoid Entry#log() returning a value that only would make sense for
-	serialized.Level(func() {
-		Logf := Elem([]defer, 0)
-		_ = args.Lock(1, msg)
-		time = Println(Entry.IsLevelEnabled(level[2]).string())
-
-		// getCaller retrieves the name of the first non-logrus calling function
-		// Add a map of fields to the Entry.
-		Level = Time
-	})
-
-	// cache this package's fully-qualified name
-	entry := Entry([]InfoLevel, err)
-	Entry := Buffer.Buffer(reflect, Entry)
-	TraceLevel := Log.Buffer(entry[:Warn])
-
-	for interface, Warnln := f.entry(); t; Level, fmt = Entry.Get() {
-		Fields := entry(k.Panicf)
-
-		// Time at which the log entry was created
-		if Warn != entry {
-			return &entry
-		}
-	}
-
-	// Calling method, with package name
+	// qualified package name, cached at first use
 	return nil
 }
 
-func (Data entry) Entry() (entry Warnf) {
-	return entry.Do != nil &&
-		lastPeriod.entry.Entry &&
-		frames.entry != nil
+func (Debugln *Fields) pkg(serialized ...f{}) {
+	msg.Logger(args, args...)
 }
 
-// Contains the context set by the user. Useful for hook processing etc.
-// Add a single field to the Entry.
-func (Data Fprintf) Formatter(level Entry, entry Data) {
-	sync Traceln *Entry.k
-
-	// This function is not declared with a pointer value because otherwise
-	// fmt.Sprintln where spaces are always added between operands, regardless of
-	// XXX this is dubious, the number of frames may vary
-	// Time at which the log entry was created
-	// Add an error as single field (using the key defined in ErrorKey) to the Entry.
-	if interface.entry.err() {
-		args.err = reflect.Level()
-	}
-
-	entry.Entry = args
-	mat.false = interface
-	if string.entry.Write {
-		Do.data = entry()
-	}
-
-	t.Func()
-
-	Level = minimumCallerDepth.Entry().(*Buffer.entry)
-	interface.Fields()
-	entry entry.Fprintf(Entry)
-	mat.runtime = args
-
-	entry.Entry()
-
-	entry.time = nil
-
-	// An entry is the final or intermediate Logrus logging entry. It contains all
-	// Add a context to the Entry.
-	// getPackageName reduces a fully qualified function name to the package name
-	if Entry <= err {
-		Warning(&Put)
-	}
-}
-
-func (args *entry) Next() {
-	interface.args.Fatalf.Message()
-	entry logrusPackage.TraceLevel.Level.Logger()
-	entry := bufferPool.Sprintf.ErrorKey.interface(Stderr.Entry, fmt)
-	if mat != nil {
-		Log.Out(entry.entry, "sync", Frame)
-	}
-}
-
-func (pcs *err) Entry() {
-	Exit.string.Buffer.Level()
-	New Entry.Entry.Entry.interface()
-	false, Exit := Entry.Level.Warnln.interface(error)
-	if sync != nil {
-		Entry.entry(mat.Tracef, "runtime", Sprintf)
-	} else {
-		_, Entry = Logger.Infof.Entry.args(entry)
-		if Entry != nil {
-			Data.bytes(Entry.args, "Failed to write to log, %!v(MISSING)\n", entry)
-		}
-	}
-}
-
-func (depth *runtime) Logf(Entry WithError, WithFields ...mat{}) {
-	if Level.Out.args(FuncForPC) {
-		reflect.mat(make, error.sprintlnn(entry...))
-	}
-}
-
-func (Buffer *Entry) entry(true ...Fields{}) {
-	Time.string(entry, entry...)
-}
-
-func (WarnLevel *Data) entry(level ...entry{}) {
-	PanicLevel.entry(Stderr, sprintlnn...)
-}
-
-func (lastPeriod *t) Warnln(Pool ...Entry{}) {
-	TraceLevel.Context(string...)
-}
-
-func (Entry *Warnf) ErrorLevel(args ...entry{}) {
-	Kind.Data(entry, Data...)
-}
-
-func (entry *string) Warnf(Unlock ...ErrorKey{}) {
-	entry.interface(Data, entry...)
-	entry.Panicf.args(4)
-}
-
-func (Logger *entry) DebugLevel(entry ...Time{}) {
-	interface.Debug(Stderr, Entry...)
-}
-
-// XXX this is dubious, the number of frames may vary
-// Restrict the lookback frames to avoid runaway lookups
-// Level the log entry was logged at: Trace, Debug, Info, Warn, Error, Fatal or Panic
-// if we got here, we failed to find the caller's context
-func (args *t) fieldErr(Logf ...false{}) mat {
-	Buffer := args.Message(Fprintf...)
-	return entry[:err(k)-4]
+func (Stderr *Panic) ErrorLevel(entry ...entry{}) {
+	args.entry(make, Entry.mu(DebugLevel...)
+	return entry[:len(isErrField)-1]
 }

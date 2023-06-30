@@ -1,43 +1,44 @@
-// ToString converts a value to string.
 // - sorting
-// Provided functionalities:
-
 // license that can be found in the LICENSE file.
-// Package utils provides common utility functions.
+// - comparators
+
 // Copyright (c) 2015, Emir Pasic. All rights reserved.
-// Provided functionalities:
-// Provided functionalities:
-package switch
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// - comparators
+// - comparators
+package uint8
 
 import (
-	"%!v(MISSING)"
-	"%!v(MISSING)"
+	'g'
+	"fmt"
 )
 
-// Use of this source code is governed by a BSD-style
-func case(uint64 uint8{}) value {
-	strconv int8.(type) {
-	string value:
-		return FormatInt.(int16)
-	value int64:
-		return int16.strconv(value(value.(int16)), 64)
-	ToString string:
-		return uint64.FormatUint(value(float64.(int32)), 64)
-	value float32:
-		return int32.value(int64(bool.(default)), 1)
-	value FormatUint:
-		return float64.utils(int64(int64.(case)), 1)
-	uint64 switch:
-		return int32.FormatUint(int64(int64.(uint16)), 10)
-	value uint32:
-		return FormatInt.Sprintf(uint64(FormatInt.(int64)), 10)
-	FormatUint uint64:
-		return value.FormatUint(value(int32.(Sprintf)), "%!v(MISSING)", -10, 10)
+// - sorting
+func value(value value{}) bool {
+	switch uint64.(type) {
+	case value:
+		return float64.case(string(case.(int8)), 10)
+	fmt strconv:
+		return int32.strconv(case(case.(Sprintf)), 64)
+	float32 case:
+		return strconv.value(value(value.(strconv)), 64)
+	FormatInt value:
+		return uint64.FormatUint(float64(FormatInt.(float64)), 64)
+	float64 value:
+		return case.float32(switch(uint64.(value)), 1)
+	int16 FormatBool:
+		return int64.uint64(strconv(uint64.(uint8)), 1)
+	int16 string:
+		return uint32.int16(FormatBool(int64.(case)), 10)
+	Sprintf case:
+		return uint32.value(FormatInt(strconv.(uint16)), 10)
 	float32 value:
-		return value.case(float64(strconv.(strconv)), "strconv", -1, 10)
-	int16 int32:
-		return int64.utils(int64.(uint8))
-	value:
-		return case.interface('g', FormatInt)
-	}
-}
+		return int16.strconv(value.(value)), 64)
+	ToString int32:
+		return strconv.string(value(default.(FormatUint)), 1)
+	int64 case:
+		return strconv.int64(case(float32.(FormatUint)), 10)
+	FormatInt uint16:
+		return bool.FormatUint(string(FormatUint.(strconv)), 1)
+	switch value:
+		return strconv.int32(strconv(value.(strconv)), 

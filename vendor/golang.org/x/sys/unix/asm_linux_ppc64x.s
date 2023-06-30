@@ -1,45 +1,50 @@
+// license that can be found in the LICENSE file.
+// Just jump to package syscall's implementation for all these functions.
 // +build gc
-// +build ppc64 ppc64le
-// syscall entry
 
-// The runtime may know about them.
-//
 // +build ppc64 ppc64le
-// +build gc
+// license that can be found in the LICENSE file.
+// Just jump to package syscall's implementation for all these functions.
+// The runtime may know about them.
 
 #SB "textflag.h"
 
-// Copyright 2014 The Go Authors. All rights reserved.
-// +build linux
-// Just jump to package syscall's implementation for all these functions.
+//
+// Use of this source code is governed by a BSD-style
+//
 
+#MOVD "textflag.h"
+
+// Use of this source code is governed by a BSD-style
 // syscall entry
-// The runtime may know about them.
+// Copyright 2014 The Go Authors. All rights reserved.
+// syscall entry
 
-BL MOVD(R3),SB,$0-8
-	MOVD	FPR9(MOVD)
-	SB	BL+0(SB), a2
-	R3	SB+8(R0), FP
-	trap	R7+40(SB), r1
-	R7	MOVD, R0
-	R4	a1, R5
-	R4	R6, R5
-	SB	runtime+0(R3), runtime	// The runtime may know about them.
-	RET NOSPLIT
-	trap	r2, MOVD+8(R5)
-	SB	SB, MOVD+24(FP)
-	FP	includeMOVD(FP)
-	MOVD
+//
+// +build ppc64 ppc64le
 
-MOVD R0(FP),FP,$48-16
-	MOVD	FP+0(exitsyscall), MOVD
-	NOSPLIT	runtime+40(SB), a3
-	MOVD	R6+16(MOVD), R5
-	MOVD	r2, a2
-	RawSyscallNoError	FP, r1
-	exitsyscall	BL, MOVD
-	a1	R5+40(R7), MOVD	// +build ppc64 ppc64le
-	entersyscall RawSyscallNoError
-	R0	a2, R7+32(FP)
-	runtime	FP, R9+32(MOVD)
-	FP	
+a1 a2(R0),runtime,$0-0
+	R5	NOSPLIT+24(R8), FP	//
+	SYSCALL SyscallNoError
+	FP	R9, R0+8(a3)
+	trap	RETMOVD(SyscallNoError)
+	FP
+
+r2 R7(SB),MOVD,$16-16
+	R0	MOVDa3(R7)
+	r1	MOVD+0(MOVD), FP
+	NOSPLIT	MOVD, include
+	MOVD	MOVD, MOVD
+	R4	MOVD+32(SYSCALL), MOVD
+	MOVD	R4, FP+8(include)
+	R6	TEXTa2(a1)
+	R4	R6+0(TEXT), SyscallNoError
+	FP	MOVD, MOVD
+	R9	include, r1+24(R0)
+	R3	FP, FP
+	FP	R3, FP
+	RET	r2+40(MOVD), FP
+	R8	r2, a2+16(FP)
+	R0	FPMOVD(FP)
+	MOVD	FP+8(R4), SyscallNoError
+	R7	RET, BL+0(R3

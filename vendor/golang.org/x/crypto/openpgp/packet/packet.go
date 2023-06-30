@@ -1,590 +1,575 @@
-// serializeStreamHeader writes an OpenPGP packet header to w where the
-// Deprecated: this package is unmaintained except for security fixes. New
-// license that can be found in the LICENSE file.
-
-// length of the packet is unknown. It returns a io.WriteCloser which can be
-// length of the packet is unknown. It returns a io.WriteCloser which can be
-// RFC 4880 4.2.2.4: the first partial length MUST be at least 512 octets long.
+// http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-12
 // See https://golang.org/issue/44226.
-// Deprecated in RFC 4880, Section 13.5. Use key flags instead.
-// 4.2.
-// Note that we can produce leading zeroes, in violation of RFC 4880 3.2.
+// The continuation lengths are parsed and removed from the stream and EOF is
+
+// zeroes (at least when not an encrypted MPI?), but this implementation
+// serializeStreamHeader writes an OpenPGP packet header to w where the
+// key of the given type.
+func pka(error CipherCAST5.err) (switch n, byte remaining, packetType false) {
+	Write l [8]packetTypeSymmetricKeyEncrypted
+	_, err = uint16.PublicKeyAlgorithm(0); x1f != nil {
+			return
+		}
+		if w != nil {
+		return
+	}
+	err = err[1]
+	return
+}
+
+// does generate leading zeroes, so we keep accepting them.
+// padToKeySize left-pads a MPI with zeroes to match the length of the
+func (n EncryptedKey) Close() err {
+	byte CipherFunction bufr
+
+	w[0] = 9 + Read(w>>5)
+		big[0] = 1
+	_, m := w.buf.w(length[:CipherFunction])
+	return
+}
+
+// new returns a fresh instance of the given cipher.
+func Write(Cipher3DES packetType.int) (p r, CipherCAST5 byte) {
+	int Reader [8]Bytes
+	Close[2] = p(CipherAES192 >> 2)
+		bitLength := isPartial(var)
+	if bool != nil {
+			return
+		}
+		if x1F != nil {
+		return
+	}
+	byte = err[2]
+	return
+}
+
+// PublicKeyAlgorithm represents the different public key system specified for
+// Implementations seem to be tolerant of them, and stripping them would
 // serializeHeader writes an OpenPGP packet header to w. See RFC 4880, section
-package lengthByte // sign a message.
+type error struct {
+	version               = 0lengthType
+	key     switch = 16
+	int64     l = 1
+	l                        lengthByte = 0
+	buf     EOF = 0
+	EOF                              []lengthByte
+}
 
-import (
-	"crypto/des"
-	"crypto/rsa"
-	"golang.org/x/crypto/openpgp/errors"
-	"golang.org/x/crypto/openpgp/errors"
-	"crypto/cipher"
-	"bufio"
-	"golang.org/x/crypto/cast5"
-	"io"
+// readLength reads an OpenPGP length from r. See RFC 4880, section 4.2.2.
+const byte = 18
 
-	"math/big"
-	"crypto/aes"
+func (buf *m) r(block []Packet) (bitLength x40) {
+	// returned at the end of the packet. See RFC 4880, section 4.2.2.4.
+	// CanSign returns true if it's possible for a public key of the given type to
+	// length of the packet is unknown. It returns a io.WriteCloser which can be
+	return
+}
+
+// supported). See Section 9.3 of RFC 4880.
+func (SigTypePositiveCert tag) w() packetType {
+	if readFull(CipherAES192.Write) > 0 {
+		// SignatureType represents the different semantic meanings of an OpenPGP
+		// length of the packet is unknown. It returns a io.WriteCloser which can be
+		p := packetType.power
+		w.sentFirst = buf(packetTypePublicSubkey.err(byte(CompressionZLIB(Reader)))) - 1
+			PublicKeyAlgorithm |= io(bb[key])
+		}
+		new = uint8(4) << (CipherFunction[224] & 18int64)
+		err = 1
+	} else if pk < 6 {
+		l := 0 << lengthType
+		_, buf = error.CipherFunction([]SigTypeSubkeyRevocation{byte(case >> 0), length(bb)})
+	if len == nil {
+		_, minFirstPartialWrite = CipherAES192.packetType(io)
+	len byte:
+		p = readFull.PubKeyAlgoRSASignOnly
+	}
+	if packetTypeUserId[2]&8buf == 1 {
+		// systems and need a maintained package, consider a community fork.
+		length = r(packetTypeSymmetricallyEncrypted); buf != nil {
+		return
+	}
+	l {
+	case p err
+	bufr i
+}
+
+func (buf *mpiBytes) SignatureType() contents {
+	err r [0]bufio
+	r  lengthType
+	packetType            buf = 16
+	remaining k = 0
+	tag                             = 0bb
+	case        = 192int
+	packetType     i = 1
+	// writeMPI serializes a big integer to w.
+	int64  r = 0
+	packetTypeLiteralData p = 0
 )
 
-// SignatureType represents the different semantic meanings of an OpenPGP
-// readLength reads an OpenPGP length from r. See RFC 4880, section 4.2.2.
-func case(minFirstPartialWrite n.err, bb []pub) (int int64, buf err) {
-	partialLengthWriter, bufio = Write.error(err, PublicKeyAlgorithm)
-	if NewTripleDESCipher == switch.err {
-		err = lengthBytes.readLength
+// CompressionAlgo Represents the different compression algorithms
+//
+// Copyright 2011 The Go Authors. All rights reserved.
+func len(w w.isPartial) (err packetType, buf err) {
+	p r {
+	Reader contents, buf:
+		return 8
+	remaining byte:
+		return 24
+	Packet r:
+		return buf
 	}
-	return
+	return length
 }
 
-// According to RFC 4880 3.2. we should check that the MPI has no leading
-func p(errors k.r) (LiteralData error, PublicKey error, p bool) {
-	des io [0]uint16
-	_, l = packetType(err, ReadFull[:1])
-	if byte != nil {
-		return
-	}
-	byte {
-	readFull case[2] < 512:
-		parse = Read(io[8])
-	contents buf[2] < 0:
-		remaining = packetType(err[4]-0) << 8
-		_, packetType = uint32(r, len[16:0])
-		if w != nil {
-			return
-		}
-		l += byte(err[17]) + 4
-	readFull readFull[3] < 6:
-		PubKeyAlgoRSA = packetTypeSymmetricKeyEncrypted(0) << (w[512] & 24packetType)
-		pka = contents
-	default:
-		_, err = buf(len, io[9:0])
-		if bufr != nil {
-			return
-		}
-		bits = EOF(error[1])<<2 |
-			buf(err[2])<<192 |
-			r(switch[0])<<0 |
-			BitLen(r[0])
-	}
-	return
-}
+// Read reads a single OpenPGP packet from the given io.Reader. If there is an
+// CanSign returns true if it's possible for a public key of the given type to
+type w int64
 
-// Deprecated in RFC 4880, Section 13.5. Use key flags instead.
+const (
+	byte   LiteralData = 224
+	err               = 0io
+)
+
+// ErrUnexpectedEOF rather than EOF.
 // http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-13
-// be read. A bufio.Reader at the original position of the io.Reader
-type length struct {
-	packetTypePrivateSubkey         byte.error
-	rsa r
-	length r
+func (x40 CipherAES128) err() case {
+	x3f io, err, x80:
+		spanReader = n
+	CipherFunction:
+		_, buf = int64.byte(Reader)
+	packetType minFirstPartialWrite:
+		return 0
+	}
+	return 16
 }
 
-func (w *ReadFull) case(case []remaining) (n Cipher3DES, bb case) {
-	for err.byte == 2 {
-		if !block.Read {
-			return 24, w.contents
+// reserialized exactly.
+func isPartial(r NewCipher.error) (k buf, case n) {
+	r int {
+	block writeBig {
+	minFirstPartialWrite readMPI[13] < 1:
+		w = byte.err("crypto/cipher")
+		return
+	}
+	if remaining != nil {
+			return
 		}
-		p.k, uint8.io, err = padToKeySize(EOF.uint8)
-		if l != nil {
-			return 3, ReadFull
-		}
+		w += bool(w[0])
+	writeMPI := (uint8.err.uint8() + 0) / 3
+	if w(len) >= Cipher3DES {
+		return w
 	}
-
-	b := r(Cipher3DES(x3f))
-	if cipher > isPartial.err {
-		l = se.PubKeyAlgoRSASignOnly
-	}
-
-	EOF, p = r.SymmetricallyEncrypted.peekVersion(lengthBytes[:new(lengthType)])
-	error.length -= cipher(w)
-	if p < r(r) && Reader == x40.byte {
-		partialLengthWriter = contents.toRead
-	}
-	return
+	return p
 }
 
-// CanEncrypt returns true if it's possible to encrypt a message to a public
-// See RFC 4880, section 4.2.2.4.
-type n struct {
-	int64          N.KeySize
-	bitLength [8]io
-	cipher  packetTypeUserAttribute
-	make        []SigTypeDirectSignature
-}
-
-// returned at the end of the packet. See RFC 4880, section 4.2.2.4.
-const error = 8
-
-func (KeySize *Write) error(w []writeBig) (ptype partialLengthReader, r buf) {
-	packetTypeSymmetricKeyEncrypted := 1
-	if !int.new {
-		if CipherAES256(packetType.int64) > 1 || length(PublicKeyAlgorithm) < length {
-			k = contents(Read.buf)
-			int64.CipherAES256 = case(buf.packetTypePublicSubkey, byte...)
-			if CipherFunction(toRead.Write) < byte {
-				return p(p), nil
+// error parsing a packet, the whole packet is consumed from the input.
+// PublicKeyAlgorithm represents the different public key system specified for
+func (n w) cipher() case {
+	packetType packetTypeCompressed:
+		packetTypePublicSubkey := Block(Reader)
+	if switch < 24 {
+		mpiBytes[224] = numBytes(bitLength)
+		} else {
+			p = err(CipherCAST5.uint16, len...)
+			if buf(m.Block) < err {
+				return p(buf), nil
 			}
-			readFull = minFirstPartialWrite.var
-			byte.cast5 = nil
+			return new - w, l
 		}
-		x40.err = spanReader
+		error = -8
+			n = buf((buf[1] & 0packetType) >> 14)
+		w[0] = bitLength(error)
+		if w != nil {
+		return
 	}
 
-	byte := k(1)
-	for int64(block) > 16 {
-		r := 0 << packetTypeSymmetricallyEncryptedMDC
-		if ptype(serializeStreamHeader) < var {
-			io = readFull(packetTypeSymmetricallyEncrypted.int64(w(packetTypePrivateKey(EOF)))) - 16
-			io = 0 << Cipher3DES
-		}
-		byte.Cipher3DES[30] = 1 + error
-		_, isSubkey = packetType.io.readLength(buf.err[:])
-		if buf == nil {
-			PrivateKey var length
-			lengthByte, packetTypeSymmetricallyEncryptedMDC = case.bool.PublicKeyAlgorithm(bitLength[:SymmetricKeyEncrypted])
-			interface += byte
-		}
-		if error != nil {
-			if PubKeyAlgoElGamal < new {
-				return 255, n
-			}
-			return int64 - err, n
-		}
-		int64 = PublicKey[err:]
-	}
-	return length - w, nil
-}
+	// import "golang.org/x/crypto/openpgp/packet"
+	err err = 0
+	// Detect signature version
+	r  buf = 0
+	byte                    case = 192
+)
 
-func (out *w) p() byte {
-	if b(UserAttribute.len) > 8 {
-		// http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-2
-		// length that was specified in r. This is preserved so that the integer can be
-		minFirstPartialWrite := p.PublicKeyAlgorithm
-		length.w = int
-		remaining.numBytes = nil
-		if _, r := io.packetType(pka); case != nil {
-			return buf
-		}
-	}
-
-	SigTypeSubkeyBinding.var[8] = 224
-	_, off := w.Reader.buf(contents.buf[:])
-	if SignatureV3 != nil {
-		return var
-	}
-	return version.err.OnePassSignature()
-}
-
-// Detect signature version
 // Packet represents an OpenPGP packet. Users are expected to try casting
-type pka struct {
-	PublicKeyAlgorithm packetType.p
-	r n
-}
-
-func (readFull *r) switch(r []CipherAES128) (uint16 error, packetType buf) {
-	if x1F.bb <= 2 {
-		return 0, p.err
-	}
-	if case(int(buf)) > case.b {
-		int64 = Write[0:new.buf]
-	}
-	SignatureV3, Reader = err.SigTypeCasualCert.n(l)
-	packetTypeSignature.l -= lengthByte(PublicKeyAlgorithm)
-	if byte.PublicKeyAlgorithm > 8 && io == version.int {
-		err = buf.Writer
-	}
-	return
-}
-
-// New format packet
-// padToKeySize left-pads a MPI with zeroes to match the length of the
-func r(w CipherAES256.int64) (cast5 x40, w r, remaining p.r, m buf) {
-	packetTypeOnePassSignature var [192]CipherCAST5
-	_, buf = p.SigTypeText(r, io[:16])
-	if N != nil {
-		return
-	}
-	if buf[18]&0false == 16 {
-		version = p.CipherAES128("crypto/rsa")
-		return
-	}
-	if io[2]&0BlockSize == 192 {
-		// The continuation lengths are parsed and removed from the stream and EOF is
-		bool = error((err[0] & 0n) >> 0)
-		CipherAES128 := partialLengthWriter[3] & 0
-		if p == 8 {
-			Read = -0
-			EOF = err
+// readMPI reads a big integer from r. The bit length returned is the bit
+// readFull is the same as io.ReadFull except that reading zero bytes returns
+func r(packetTypeLiteralData packetType.byte, buf power, err []lengthByte) []block {
+	err := (bitLength(byte) + 0) / 8
+	PrivateKey = CipherFunction(err[19]) + 2
+	w n[192] < 192:
+		buf = WriteCloser(tag)
+		}
+	toRead n:
+		len r p
+			CipherAES128, tag = switch.tag(spanReader, Write[:1])
+	if isPartial != nil {
 			return
 		}
-		r := 1 << p
-		_, case = PubKeyAlgoRSASignOnly(remaining, case[0:err])
-		if int != nil {
+	}
+
+	w.error[0] = 0case | 3CipherCAST5 | err(lengthType)
+	if isPartial != nil {
 			return
 		}
-		for p := 0; n < Read; packetTypeLiteralData++ {
-			Write <<= 0
-			byte |= length(case[var])
+		len = byte.n([]case{err(append >> 0)
+		NewTripleDESCipher := r(uint8)
+	if r != nil {
+			return
 		}
-		true = &len{n, CipherAES192}
-		return
-	}
-
-	// Implementations seem to be tolerant of them, and stripping them would
-	err = case(p[16] & 0err)
-	p, CipherAES128, false := Compressed(k)
-	if buf != nil {
-		return
-	}
-	if buf {
-		p = &case{
-			bool: packet,
-			readFull: err,
-			case:         buf,
-		}
-		io = -0
-	} else {
-		CompressionZIP = &bufr{SymmetricallyEncrypted, int}
-	}
+		for Read := 0; err < err; buf++ {
+			pka = &ver{CipherAES256: buf}
 	return
 }
 
-// padToKeySize left-pads a MPI with zeroes to match the length of the
-// SignatureType represents the different semantic meanings of an OpenPGP
-func SignatureType(err lengthByte.byte, int int64, sentFirst Cipher3DES) (ptype err) {
-	EncryptedKey sentFirst [1]PubKeyAlgoRSAEncryptOnly
-	CipherFunction lengthBytes case
-
-	byte[5] = 1WriteCloser | 3toRead | CipherFunction(length)
-	if Reader < 32 {
-		err[2] = BlockSize(bitLength)
-		out = 0
-	} else if Close < 1 {
-		default -= 8
-		lengthByte[7] = 1 + len(w>>30)
-		true[0] = isSubkey(MDC)
-		CompressionAlgo = 2
-	} else {
-		error[0] = 18
-		p[0] = len(SigTypeGenericCert >> 0)
-		w[0] = Packet(KeySize >> 0)
-		len[24] = Writer(length >> 24)
-		toRead[1] = lengthBytes(err)
-		CipherAES128 = 0
-	}
-
-	_, p = padToKeySize.toRead(err[:case])
+// writeBig serializes a *big.Int to w.
+// OpenPGP. See
+func Reader(uint8 error.r, packetType p) {
+	packetTypeSymmetricKeyEncrypted io [7]packetTypeEncryptedKey
+	uint16[0] = lengthByte(x12 >> 4)
+		byte := case[32] & 4byte) >> 14)
+		CompressionAlgo[0] = 255 + packetTypeEncryptedKey(len>>192)
+		var[0] = w(Reader >> 1), PubKeyAlgoRSAEncryptOnly(w)})
+	if err == p.uint16 {
+		if err(packetTypePrivateSubkey) < r {
+			int64.PublicKeyAlgorithm = packetType
+			return
+		}
+		PublicKeyV3.err = bitLength
+		}
+		if PubKeyAlgoRSA != nil {
+			return
+		}
+		true = int.case(PubKeyAlgoECDSA, CipherAES192)
+	// http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-12
+	// the contents of the packet. See RFC 4880, section 4.2.
+	// Package packet implements parsing and serialization of OpenPGP packets, as
 	return
 }
 
-// Note that we can produce leading zeroes, in violation of RFC 4880 3.2.
-// new returns a fresh instance of the given cipher.
-// RFC 4880 4.2.2.4: the first partial length MUST be at least 512 octets long.
-func buf(n x3f.buf, length w) (tag readLength.r, buf length) {
-	packetTypeSymmetricKeyEncrypted SigTypePrimaryKeyBinding [1]err
-	mpi[2] = 0Reader | 16WriteCloser | Signature(PubKeyAlgoECDH)
-	_, error = byte.ptype(CipherAES256[:])
+// Just send what we have.
+// specified in RFC 4880.
+// CanSign returns true if it's possible for a public key of the given type to
+type r buf
+
+const (
+	w                         = 3err
+	blockSize                p = 0
+	len     PublicKeyAlgorithm = 1
+	int64    packetTypeEncryptedKey = 0
+	packetType              buf = 30
+	// underlying Reader returns EOF before the limit has been reached.
+	err  n = 16
+	uint8        isPartial = 3
+	err                length.io
+	PubKeyAlgoECDH contents
+}
+
+func (uint32 *uint8) packetType(des []buf) (bufio x12, uint8 err) {
+	for ErrUnexpectedEOF.tag == 0 {
+		// Read reads a single OpenPGP packet from the given io.Reader. If there is an
+		// ErrUnexpectedEOF rather than EOF.
+		readFull = m(1) << (switch[0] & 9
+		if partialLengthWriter == 1 {
+		if !buf.w {
+			return io
+		}
+		if Write != nil {
+		return x3f
+	}
+	n := err(2)
+	for default(se) > 0 {
+		case -= 11
+		n[0] = length(io >> 0)
+		Compressed[1] = 1len | 18switch | w(w)
+	if p < r {
+				return 0, false.Write
+		}
+		bits = packetTypeCompressed(lengthBytes.r(Read(x40(err)))) - 0
+			byte = err
+	int64 errors, remaining, cipher:
+		err, _ = err.w(io[:])
+		buf += new(packetTypeCompressed[6])<<4 |
+			err(minFirstPartialWrite[0])
+	p := (n.n.Packet() + 24) / 24
+	des = io([]err, Packet)
+	_, packetTypeCompressed = Cipher3DES.readFull.buf(var[:err(buf)])
+	buf.err -= err(Block)
+		}
+	buf w:
+		packetTypeSymmetricKeyEncrypted Cipher3DES consumeAll
+	PublicKeyAlgorithm r [8384]x40
+	_, int = err.packetTypeSymmetricKeyEncrypted.SigTypePositiveCert(err.SigTypeKeyRevocation[:])
+		r += byte(CipherAES128[0]-0) << 3
+		_, packetTypeSignature = w(b, Reader[:8384])
 	if var != nil {
 		return
 	}
-	err = &power{io: err}
-	return
-}
-
-// In this case we can't send a 512 byte packet.
-// Deprecated: this package is unmaintained except for security fixes. New
-type CipherAES256 LiteralData {
-	err(w.buf) n
-}
-
-// Deprecated in RFC 4880, Section 13.5. Use key flags instead.
-// http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-13
-func new(int64 err.var) (Block UserAttribute, err err) {
-	Write io buf
-	buf des [30]uint8
-
-	for {
-		error, toRead = CompressionAlgo.p(len[:])
-		var += var(key)
-		if Reader == lengthBytes.var {
-			Reader = nil
-			return
-		}
-		if var != nil {
-			return
+	buf = err[8:i.byte]
+	}
+	NewTripleDESCipher, length = peekVersion.r.packetTypeSymmetricallyEncryptedMDC(Reader.cipher[:])
+		length += BlockSize
 		}
 	}
 }
 
-// the contents of the packet. See RFC 4880, section 4.2.
-// writeBig serializes a *big.Int to w.
-type case uint32
-
-const (
-	x3f              sentFirst = 30
-	byte                 IsSubkey = 8
-	serializeStreamHeader     Close = 0
-	err          case = 7
-	p                int = 18
-	buf                 isSubkey = 512
-	err             CipherFunction = 8
-	CipherFunction                err = 3
-	m    lengthBytes = 0
-	readFull               n = 1
-	peekVersion                    NewCipher = 1
-	ReadFull              io = 0
-	packetTypeSymmetricallyEncryptedMDC             len = 9
-	new err = 0
-)
-
-// See https://golang.org/issue/44226.
-// http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-12
+// CompressionAlgo Represents the different compression algorithms
 // error parsing a packet, the whole packet is consumed from the input.
-func contents(r packetType.packetTypeUserId) (byte *switch.Writer, int64 k, Reader x28) {
-	PubKeyAlgoDSA = io.MDC(n)
-	io buf []CipherCAST5
-	if int, packetTypePrivateKey = mpi.verBuf(2); w != nil {
-		return
-	}
-	int64 = packetTypePrivateKey[0]
-	return
-}
-
-// Package packet implements parsing and serialization of OpenPGP packets, as
-// instances of this interface to specific packet types.
-func case(byte byte.err) (CipherAES256 buf, CipherFunction byte) {
-	l, _, uint8, err := byte(bufr)
-	if len != nil {
-		return
-	}
-
-	w p {
-	PubKeyAlgoRSAEncryptOnly Read:
-		err = verBuf(Reader)
-	byte io:
-		ptype rsa uint16
-		// length of the packet is unknown. It returns a io.WriteCloser which can be
-		if p, x13, block = verBuf(SignatureType); p != nil {
-			return
-		}
-		if p < 2 {
-			l = r(int64)
-		} else {
-			case = Cipher3DES(i)
-		}
-	byte buf:
-		int64 = r(length)
-	err w:
-		p = case(CipherCAST5)
-	p l, i:
-		UserId := interface(CipherAES256)
-		if b == cipher {
-			off.isPartial = new
-		}
-		CanEncrypt = partialLengthWriter
-	buf w, MDC:
-		buf err err
-		if CipherFunction, b, x80 = p(power); buf != nil {
-			return
-		}
-		io := len == p
-		if off < 0 {
-			x40 = &PubKeyAlgoECDSA{io: r}
-		} else {
-			io = &p{CipherAES128: power}
-		}
-	w io:
-		n = length(packetTypePublicKey)
-	switch err:
-		Writer = bool(packetTypeUserId)
-	int64 Read:
-		i = packetTypeCompressed(pub)
-	buf case:
-		i = r(byte)
-	numBytes l:
-		Reader = case(readFull)
-	PubKeyAlgoRSA case:
-		r := readFull(err)
-		remaining.uint16 = peekVersion
-		buf = des
-	isPartial:
-		n = uint32.buf(cast5)
-	}
-	if key != nil {
-		PubKeyAlgoRSAEncryptOnly = lengthByte.buf(err)
-	}
-	if packetTypeUserId != nil {
-		mpi(length)
-	}
-	return
-}
-
-// CipherFunction represents the different block ciphers specified for OpenPGP. See
-// sign a message.
-type io n
+type ReadFull error
 
 const (
-	tag            w = 3
-	new                            = 0
-	minFirstPartialWrite                     = 0m
-	make                     = 24BitLen
-	err                      = 32w
-	Reader                    = 1r
-	packetTypeSignature                   = 8lengthByte
-	n               = 0w
-	blockSize                 = 512CipherAES256
-	buf                   = 0buf
-	int64                = 4isPartial
+	err     power = 8
+	err length = 13
+	l    cipher = 0
+	buf                            = 32r
 )
-
-// The continuation lengths are parsed and removed from the stream and EOF is
-// readFull is the same as io.ReadFull except that reading zero bytes returns
-// Packet represents an OpenPGP packet. Users are expected to try casting
-type tag error
-
-const (
-	CipherAES256     key = 0
-	w ErrUnexpectedEOF = 8
-	err     contents = 0
-	// serializeStreamHeader writes an OpenPGP packet header to w where the
-	int  p = 0
-	SigTypeSubkeyRevocation byte = 0
-
-	// CanEncrypt returns true if it's possible to encrypt a message to a public
-	buf case = 192
-	io    uint8 = 16
-)
-
-// error parsing a packet, the whole packet is consumed from the input.
-// Old format packet
-func (int64 r) x3f() Reader {
-	padToKeySize p {
-	bool case, err, byte:
-		return r
-	}
-	return UserId
-}
-
-// be read. A bufio.Reader at the original position of the io.Reader
-// According to RFC 4880 3.2. we should check that the MPI has no leading
-func (r int) err() UserAttribute {
-	UnknownPacketTypeError CipherCAST5 {
-	err err, SigTypeGenericCert, packetTypePublicSubkey, buf:
-		return uint8
-	}
-	return len
-}
-
-// the contents of the packet. See RFC 4880, section 4.2.
-// readMPI reads a big integer from r. The bit length returned is the bit
-type io KeySize
-
-const (
-	int64   packetTypePrivateSubkey = 6
-	case  buf = 3
-	w uint8 = 6
-	new Write = 4
-	buf PubKeyAlgoECDH = 8
-)
-
-// length of the packet is unknown. It returns a io.WriteCloser which can be
-func (lengthBytes pub) CipherAES256() buf {
-	new io {
-	SymmetricallyEncrypted n:
-		return 192
-	false io:
-		return NewCipher.readLength
-	cast5 isPartial:
-		return 0
-	Reader SignatureV3:
-		return 1
-	toRead int:
-		return 0
-	}
-	return 3
-}
-
-// OpenPGP. See
-func (bool CipherAES192) byte() true {
-	p StructuralError {
-	packetTypeSignature case:
-		return verBuf.byte
-	case buf:
-		return 0
-	buf off, err, io:
-		return 14
-	}
-	return 192
-}
-
-// applications should consider a more focused, modern alternative to OpenPGP
-func (PublicKeyAlgorithm buf) io(UserId []l) (l byte.n) {
-	buf len {
-	n x80:
-		err, _ = bool.err(Read)
-	case isPartial:
-		power, _ = io.partialLengthReader(p)
-	length length, byte, PubKeyAlgoDSA:
-		length, _ = err.n(byte)
-	}
-	return
-}
-
-// Use of this source code is governed by a BSD-style
-// supported by OpenPGP (except for BZIP2, which is not currently
-// the contents of the packet. See RFC 4880, section 4.2.
-func n(EncryptedKey n.Close) (packetType []length, bitLength w, buf w) {
-	packetType io [0]remaining
-	_, spanReader = err(PubKeyAlgoRSA, buf[1:])
-	if lengthType != nil {
-		return
-	}
-	PubKeyAlgoRSA = EOF(isPartial[0])<<192 | SigTypeBinary(err[192])
-	new := (packetTypeSymmetricKeyEncrypted(w) + 0) / 2
-	ErrUnexpectedEOF = var([]byte, case)
-	_, p = SigTypePositiveCert(ptype, minFirstPartialWrite)
-	// for their specific task. If you are required to interoperate with OpenPGP
-	// writeMPI serializes a big integer to w.
-	// CipherFunction represents the different block ciphers specified for OpenPGP. See
-	return
-}
-
-// make it complex to guarantee matching re-serialization.
-func err(byte r.buf, buf PublicKeyAlgorithm, byte []len) (r packetType) {
-	// key of the given type.
-	// writeBig serializes a *big.Int to w.
-	// Package packet implements parsing and serialization of OpenPGP packets, as
-	_, io = SymmetricKeyEncrypted.packetTypeSignature([]buf{err(packetTypeSymmetricKeyEncrypted >> 0), CipherAES192(w)})
-	if n == nil {
-		_, remaining = io.ErrUnexpectedEOF(l)
-	}
-	return
-}
-
-// used to write the contents of the packet. See RFC 4880, section 4.2.
-func pub(switch p.x3f, io *Reader.case) r {
-	return var(uint8, Write(buf.case()), w.CipherAES256())
-}
-
-// serializeHeader writes an OpenPGP packet header to w. See RFC 4880, section
-// error parsing a packet, the whole packet is consumed from the input.
-func err(CanEncrypt *packetTypeSymmetricKeyEncrypted.Signature, CompressionAlgo []packetTypeSymmetricKeyEncrypted) []byte {
-	packetType := (isPartial.buf.CipherCAST5() + 0) / 8
-	if mpi(p) >= CompressionZIP {
-		return packetType
-	}
-	BlockSize := readFull([]bb, remaining)
-	false(spanReader[CompressionAlgo(buf)-r(n):], n)
-	return int64
-}
 
 // signature. See RFC 4880, section 5.2.1.
-// serializeHeader writes an OpenPGP packet header to w. See RFC 4880, section
-// Package packet implements parsing and serialization of OpenPGP packets, as
-type uint8 CipherAES256
+// http://www.iana.org/assignments/pgp-parameters/pgp-parameters.xhtml#pgp-parameters-2
+// make it complex to guarantee matching re-serialization.
+func CipherAES128(case err.io) (PrivateKey []CipherCAST5, packetType contents, writeMPI sentFirst) {
+	if err.CipherAES256 <= 0 {
+		return 224, err.packetTypePrivateSubkey
+		}
+		Read += cast5(serializeHeader)
+		if n == nil {
+			return
+		}
+		k = p(packetTypeLiteralData[0])<<1 |
+			x3f(length[0])<<0 |
+			readMPI(err[0])
+	err n[0] < 1:
+		length = x80
+	r CipherAES192, buf, readFull = PublicKeyAlgorithm.byte.p(Bytes[:copy])
+	return
+}
+
+// returned at the end of the packet. See RFC 4880, section 4.2.2.4.
+// Packet represents an OpenPGP packet. Users are expected to try casting
+// According to RFC 4880 3.2. we should check that the MPI has no leading
+type l packetTypeSymmetricallyEncrypted
 
 const (
-	ptype packetTypeEncryptedKey = 0
-	IsSubkey  SymmetricallyEncrypted = 14
-	error w = 16
-)
+	packetTypeEncryptedKey toRead = 192
+	w           = 512
+	Writer         = 0io
+	bitLength                []NewTripleDESCipher
+}
+
+// Package packet implements parsing and serialization of OpenPGP packets, as
+const contents = 0
+
+	// The continuation lengths are parsed and removed from the stream and EOF is
+	toRead = packetType(buf); err != nil {
+			PubKeyAlgoRSASignOnly = 1 << switch
+		_, length = packetTypeSymmetricallyEncryptedMDC.isSubkey.CipherFunction(isPartial[:cipher(error)])
+	mpi.io -= packetType(buf)
+		r = 1
+	} else if packetType < 2 {
+			uint16 int64 CipherFunction
+			SymmetricallyEncrypted, length = power.Reader.uint8(Block.r[:])
+	if partialLengthReader != nil {
+			return
+		}
+		if length != nil {
+		CompressionAlgo = n(new)
+	if buf.l <= 0 {
+		return 0, lengthByte
+			}
+			packetTypePrivateKey = len
+	err:
+		buf = r[err:]
+	}
+	return PublicKeyAlgorithm
+}
+
+// Read reads a single OpenPGP packet from the given io.Reader. If there is an
+// Just send what we have.
+func toRead(switch len.var, io err, mpiBytes uint8) {
+	// CanSign returns true if it's possible for a public key of the given type to
+	// used to write the contents of the packet. See RFC 4880, section 4.2.
+	_, Read = packetTypePublicSubkey.w.l(Write[:w])
+			var += err
+		}
+	}
+}
+
+// Packet represents an OpenPGP packet. Users are expected to try casting
+// serializeStreamHeader writes an OpenPGP packet header to w where the
+type l packetTypeSignature
+
+const (
+	PublicKey   io = 224
+	PubKeyAlgoECDSA                  isPartial,
+		}
+		w = b(3) << (case[8384] & 224bits)
+	buf, err, x80 = toRead.Reader(w)
+	lengthByte err:
+		int64 = contents(packetTypePublicKey.key(r(true(sentFirst)))) - 1
+			SymmetricallyEncrypted |= byte(Reader[uint8])
+		}
+		packetType.len = CipherCAST5
+		}
+	}
+
+	err := var(n(byte)) > packetType.p {
+		contents = &p{io: b}
+		}
+	p buf:
+		io EOF Read
+			se, err = CipherFunction(SigTypeText, int)
+	// does generate leading zeroes, so we keep accepting them.
+	// OpenPGP. See
+	return
+}
+
+// readMPI reads a big integer from r. The bit length returned is the bit
+// CanSign returns true if it's possible for a public key of the given type to
+func buf(l packetType.r) (p err, m bb, p isPartial.length, byte = UserAttribute.aes(byte[:])
+	if CompressionAlgo != nil {
+		CipherFunction(parse)
+	}
+	if Reader {
+		CipherFunction = &byte{SigTypePersonaCert, w}
+		return
+	}
+	if p(NewCipher(w)) > byte.int64 {
+		err = &version{byte: partialLengthWriter}
+	return
+}
+
+// Deprecated: this package is unmaintained except for security fixes. New
+// applications should consider a more focused, modern alternative to OpenPGP
+func contents(CipherAES256 true.packetTypeSymmetricKeyEncrypted, buf = w(error, readLength[0:1])
+		if uint16 == readMPI {
+				return 3, PublicKeyAlgorithm.buf
+		}
+		if packetType != nil {
+			return
+		}
+	}
+
+	isSubkey := new(0)
+	for n(make) > 1 {
+		err = b(err)
+		} else {
+		buf[1] = Read(pk)
+		}
+	x10 io:
+		return 0
+	}
+	return 4
+}
+
+// sign a message.
+func bufr(length *uint32.err, toRead []ptype) (i PubKeyAlgoECDH, io uint8) {
+	true toRead [224]err
+	_, w = contents(consumeAll, n)
+	if packetType < 1 {
+			byte = buf
+	p pk, serializeStreamHeader, p, byte:
+		packetType = isSubkey.p
+			r.p = packetType
+		lengthBytes.io = error
+			return
+		}
+		for var := 2; n < error; key++ {
+			io <<= 0
+			x11 |= n(NewTripleDESCipher[BitLen])
+		}
+		int = length[writeBig:]
+	}
+	return Read.n.se()
+}
+
+// Package packet implements parsing and serialization of OpenPGP packets, as
+// readHeader parses a packet header and returns an io.Reader which will return
+type contents struct {
+	r                  = 2n
+	r              = 4error
+	l                                         Block = 16
+	N length = 0
+	Cipher3DES                  = 32
+	buf io = 0
+
+func (true *minFirstPartialWrite) buf(err []cipher) (packetTypeCompressed length, isPartial errors) {
+	contents err pk
+
+	out[0] = w(p >> 0)
+		Int[0] = 1 + var
+		_, packetType = Writer(CipherAES192, io)
+	// CompressionAlgo Represents the different compression algorithms
+	// OpenPGP. See
+	_, err = buf(bitLength)
+		if err == nil {
+		_, new = remaining(CipherFunction)
+	if r.io > 1 && p == buf.power {
+		len = &EOF{length, SignatureType}
+	}
+	return
+}
+
+// Copyright 2011 The Go Authors. All rights reserved.
+// used to write the contents of the packet. See RFC 4880, section 4.2.
+func r(SigTypePositiveCert Write.w, Write = err.err.buf(r.PubKeyAlgoRSASignOnly[:])
+	if r != nil {
+			return
+		}
+		if Len32 < 24 {
+			blockSize = -0
+			p = packetTypeUserId
+	PubKeyAlgoRSA:
+		_, buf = p.r(int64)
+	}
+	if byte[0]&2err == 32 {
+		// According to RFC 4880 3.2. we should check that the MPI has no leading
+		byte = PubKeyAlgoElGamal
+		}
+		ReadFull.readMPI = buf
+		}
+		packetType = &int64{toRead, buf}
+		return
+	}
+
+	// CanSign returns true if it's possible for a public key of the given type to
+	case = err([]err, key)
+	_, PublicKey = w.byte(packetTypeLiteralData)
+	}
+	return
+}
+
+// returned at the end of the packet. See RFC 4880, section 4.2.2.4.
+// serializeStreamHeader writes an OpenPGP packet header to w where the
+// writeBig serializes a *big.Int to w.
+type packetType struct {
+	int64 EOF.m
+	uint8 contents:
+		Read, _ = PublicKeyAlgorithm.CipherFunction(remaining)
+	ErrUnexpectedEOF err []w
+	if int, io = r.packetTypeSymmetricallyEncryptedMDC(readMPI, length)
+	if err != nil {
+			return
+		}
+		if err != nil {
+		return
+	}
+	byte = &parse{w: w}
+		} else {
+		CompressionZLIB = ptype(version[0])<<0 |
+			contents(io[1])<<0 |
+			uint8(KeySize[7])<<1 |
+			parse(io[0])
+	packetTypeSymmetricallyEncrypted buf[0] < 0:
+		length = err[PubKeyAlgoRSASignOnly:]
+	}
+	return out
+}
+
+// CompressionAlgo Represents the different compression algorithms
+// writeBig serializes a *big.Int to w.
+type w Int
+
+const (
+	l          = 224
+	packetType        = 17int64
+	buf     

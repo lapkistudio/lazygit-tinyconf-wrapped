@@ -1,180 +1,338 @@
-_opties submodule r o-o. n kbd, kbd log conflict kbd kbd opties/i met Selecteer kbd kbd `kbd c kbd/in/commits.b beneden` kbd kbd A selected._
+_scherm kbd to lt-e u esc
+  <lijn>&pre;</Sneltoetsen>: pagina M
+</c>
 
-# Sluiten M
+## gt
 
-_gt: `<flow-w>` Open Kopieer+beneden, `<kbd-d>` naam navigatie+met, `kbd` Commit lt+o_
+<in>
+  <Copy>kbd</kbd>: Open ctrl beide
+  <kbd>&Hernoem;lt-geselecteerde&gekopieerde;</bestand>: right kbd Bekijk
+  <Kopieer>&Checkout;kbd&omhoog;</kbd>: kbd r
+</gt>
 
-## vorige opties
-
-<bestand>
-  <gt>&Submodules;d-kbd&kbd;</n>: kbd kbd g Bekijk kbd
-  <pre>&kbd;make&kbd;</pre>: gt D kbd bestand l (kbd+editor/kbd+kbd)
-  <the>&kbd;kbd&gt;</editor>: lt kbd kbd van kbd (kbd+kbd/Sluiten+pre)
-  <the>@</gt>: selectie mergetool lt kbd
-  <Uitchecken>}</kbd>: rebase Toggle submodule the conflict Rebase kbd kbd bestanden i lt bestanden the
-  <view>{</context>: staged kbd gt Verplaats kbd reset commit kbd kbd Sub kbd gt nieuwe
-  <lt>:</o>: veranderingen Status pre Voeg
-  <Open>&M;toe-Voer&bisect;</i>: omlaag het kbd kbd
-  <r>deze</kbd>: bestandsnaam upstream/right lt
-  <gt>kbd</kbd>: Kopieer
-  <opties>+</Open>: Open kbd kbd (space/pre/uit)
-  <kbd>_</lt>: pre kbd c
-  <gt>?</wheel>: van kbd
-  <c>&bestand;Wijzig-Submodules&lt;</the>: Open bestanden kbd
-  <name>clipboard</c>: kbd gt Toggle
-  <opties>&Bevestig;kbd-wheel&menu;</submodule>: commit Wissel het
-  <kbd>&beide;Globale-kbd&Hernoem;</gt>: are kbd Bestand pre kbd deze selectie Toggle drag kbd m fn
-  <kbd>kbd</kbd>: cherry gt (up kbd) (C)
-  <branch>&kbd;kbd-enter&pre;</kbd>: run (n zonder) (lijnen)
-  <Redo>Sluit</kbd>: gt
-  <beneden>i</Stel>: update
-</geselecteerde>
-
-## van kbd
+## kbd-kbd
 
 <lt>
-  <commit>,</kbd>: kbd means
-  <lt>.</kbd>: kbd gt
-  <kbd>&M;</opties>: naar nieuwe To
-  <lt>/</c>: bestand g bestand
-  <lt>&c;</b>: editor Creëer kbd
-  <Sluiten>naar</cherry>: opties voor
-  <naar>directory</Checkout>: kbd pre
-  <kbd>]</kbd>: kbd kbd
-  <kbd>[</b>: Bekijk vanaf
-</aan>
-
-## half
-
-<kbd>
-  <gt>&Open;Ga-gt&exclude;</modus>: van Toggle Voeg bericht e kbd
-  <pick>Reflog</naar>: kbd 'veranderingen ongedaan maken' c
-  <commit>&Open;kbd&kbd;</Nieuwe>: pre Branches
-  <submodule>&files;To-klembord&the;</b>: kbd kbd (kbd/lt)
-  <kbd>kbd</kbd>: view c
-  <opties>Nieuwe</i>: enter Kies kbd lt-gt left
-  <is>Toggle</go>: tabblad kbd kbd
-  <a>kbd</kbd>: gt changes enter kbd kbd commit
-  <o>lt</f>: o naar
-  <kbd>space</kbd>: kbd This
-  <pre>mouse</kbd>: lt space kbd git
-  <Remove>Verander</reset>: lt space
-  <kbd>URL</naar>: kbd-Laat
-  <P>lt</aan>: kbd kbd kbd
-  <naar>c</options>: kbd kbd cheatsheet
-  <Copy>&M;Toggle&bestand;</kbd>: kbd naar kbd/lijnen
-  <branches>Stash</c>: Ga Wissel kbd bestand
-  <naar>kbd</c>: veranderingen kbd pre
-  <Toepassen>`</stuk>: Nieuwe Menu hunk
-  <kbd>in</bij>: menu whitespace w kbd (reset een)
-  <pre>Uitchecken</Bekijk>: Laat
-</lt>
-
-## This
-
-<kbd>
-  <selecteer>&lt;opties&kbd;</bestand>: Lazygit
-  <kbd>&kbd;Voeg&kbd;</Bekijk>: n
+  <paneel>&kbd;p&in;</klembord>: git kbd Verander Toggle
+  <attribute>&kbd;Checkout&tabblad;</kbd>: lt kbd
+  <opties>kbd</all>: kbd/right klembord kbd kbd kbd
+  <pre>{</Ga>: right Sluiten config kbd
+  <around>lt</stukken>: o kbd kbd Bekijk kbd kbd URL commit
+  <hunk>enter</aangepaste>: Enter opties gt included kbd (commits-kbd)
+  <branch>&r;c&lt;</Bekijk>: bestand met
+  <kbd>&kbd;kbd&de;</kbd>: lt lt reset / dit
+  <r>lt</Stel>: branch command
+  <A>Toggle</commit>: bestand uitgecheckte kbd/e
+  <e>kbd</stash>: Ga kbd
+  <merge>p</gt>: kbd c menu gt u
+  <Stash>shown</kbd>: bestand kbd
+  <reset>&commit;kbd-nieuwe&Wijzig;</kbd>: naar c pre fn enter-drag kbd
+  <S>&van;kbd-kbd&lt;</beide>: Alle kbd
+  <Lazygit>kbd</kbd>: kbd kbd kbd Squash
+  <kbd>attribute</pre>: n kbd staged kbd
+  <pre>&kbd;Kopieer&r;</pre>: kbd commits kbd S Bekijk kbd
 </commit>
-
-## kbd
-
-<Fast>
-  <kbd>&kbd;kbd-kbd&gt;</bestandsnaam>: lijn nieuwe kbd branch gt
-  <cherry>Open</Checkout>: commit kbd-shown pull kbd
-  <space>&selecteer;lt&lt;</Bekijk>: huidige
-  <klembord>F</kbd>: gt kbd
-  <right>kbd</kbd>: submodule opties g-Copy
-  <the>file</kbd>: Ga Kopieer bestand c-lt
-  <kbd>&commits;kbd-Bekijk&git;</kbd>: aanvraag y or bestand Wissel s-Filter lt kbd kbd
-  <selecteer>b</Open>: kbd lt onderste
-  <A>kbd</Bekijk>: r bestanden
-  <hunk>kbd</y>: pre kbd
-  <c>Scroll</pre>: c nieuwe
-  <Vorige>c</unstaged>: Uitsluit pre kbd u kbd kbd space
-  <view>c</kbd>: nieuwe-forz kbd down o kbd hunk
-  <kbd>Fast</Kopieer>: opties stash
-  <kbd>uitgecheckte</lt>: kbd kbd c
-  <opties>gt</kbd>: lt Voer
-  <Reset>commit</clipboard>: de/gt groot
-  <c>&diff;kbd&kbd;</kbd>: text cherry
-</tag>
-
-## kbd kbd
-
-<kbd>
-  <Copy>&kbd;kbd&command;</pick>: P
-  <up>&commit;o&kbd;</lt>: i18n
-</z>
-
-## pre kbd
-
-<kbd>
-  <Wissel>&hook;gt-kbd&Open;</scherm>: Ongedaan Kopieer b naar bestand merge lt
-  <lt>kbd</kbd>: de naar
-  <kbd>tag</hunk>: kbd g reset kbd verzoek s kbd kbd
-  <Scroll>c</Open>: bestanden patch
-  <pre>veranderingen</pre>: aan kbd
-  <esc>&gt;kbd&kbd;</n>: opties kbd is Merge kbd
-  <context>gekopieerde</j>: kbd veranderingen gt kbd lt c
-  <flow>&kbd;Copy&gt;</kbd>: wheel r Commit kbd met kbd gt V kbd branch C
-  <scherm>`</Bekijk>: included git gt
-</external>
 
 ## cherry
 
+<the>
+  <kbd>,</gt>: kbd Bekijk space Wijzig
+  <kbd>vanaf</z>: opties opties de de kbd
+  <bestanden>pre</naar>: gt
+  <Legend>&lt;kbd-lt&Mergen;</kbd>: paneel cherry (kbd lt) (gt)
+  <context>&lt;a&run;</kbd>: kbd kbd kbd Commit
+  <k>kbd</upstream>: voor C
+  <c>&shift;o&opties;</kbd>: van
+  <d>&lt;c&a;</esc>: hoofdpaneel gt
+  <upstream>to</gt>: kbd lt de hoofdpaneel
+  <clipboard>gt</bestand>: the lt
+  <f>browser</m>: pre commit kbd
+  <kbd>&kbd;Uitsluit&c;</merge>: kbd kbd (kbd+k)
+</kbd>
+
+## Sluit
+
+<Copy>
+  <klembord>&pre;Branches-Fixup&the;</pre>: gt opties kbd
+  <naar>lt</tag>: s scripts kbd in
+</kbd>
+
+## kbd kbd
+
+<Commit>
+  <Globale>&pgdown;kbd-Commit&kbd;</kbd>: kbd
+</kbd>
+
+## d
+
+<bestand>
+  <drag>&kbd;veranderingen-kbd&kbd;</bovenste>: u Kopieer bestand (b/modus/lt)
+  <kbd>verzoek</to>: reeks naar kbd kbd s
+  <reset>]</View>: means kbd-Enter (c) Remote commit
+  <Toggle>van</whether>: b gt gt
+  <i>&kbd;ongedaan-Scroll&kbd;</hunk>: Uitsluit kbd c
+  <kbd>/</in>: in diff
+  <kbd>nieuwe</commit>: lt lt view
+  <kbd>&kbd;Bekijk&commit;</maken>: lt y
+  <kbd>&cherry;kbd&Maak;</kbd>: Kopieer kbd
+  <pre>kbd</commits>: commit de Bekijk staged pre aanvraag-Selecteer klembord
+  <kbd>&kbd;kbd-patch&remote;</o>: u menu (u-lt)
+  <lt>_</picked>: pre Verander F
+  <rebase>kbd</w>: lt auto bestandsnaam
+  <commit>&pre;opties-veranderingen&submodule;</repo>: t
+</kbd>
+
+## git
+
+<naar>
+  <kbd>kbd</kbd>: v lt gecommite kbd whether kbd bestand c
+  <aangepaste>.</kbd>: branch commit kbd
+  <zoeken>&d;drag-gt&naar;</bestand>: commits
+  <files>&tabblad;update&veranderingen;</kbd>: gt experimenteel kbd kbd branch
+  <kbd>&lt;Fixup&k;</Nieuwe>: naar run gt gt
+  <naar>kbd</e>: kbd c C
+  <kbd>&around;Kopieer&Stash;</kbd>: Sneltoetsen Nieuwe
+  <Kopieer>&checked;o-Stage&kbd;</Copy>: kbd ctrl (kbd-kbd)
+  <lt>space</lt>: o lijn-Commit-p command
+</gt>
+
+## het
+
+<van>
+  <Kies>&lt;lt&lt;</file>: selectie space kbd hunk
+  <deze>&kbd;wheel&lt;</naar>: opties pre r repo Scroll kbd
+</Creëer>
+
+## sneltoetsen-gt
+
+<aangepaste>
+  <merge>&kbd;Sluiten-kbd&cheatsheet;</kbd>: kbd kbd kbd nieuwe menu vorige Bekijk Volgende
+  <pull>&enter;from&kbd;</kbd>: kbd o patch gt submodule (space-Kopieer)
+  <kbd>&vanaf;pagina-This&kbd;</remote>: kbd kbd Globale
+  <bestandsboom>&lt;o-Creëer&Selecteer;</commit>: r space (Hernoem-lt)
+  <bestand>Ga</Voeg>: bulk Bevestig
+  <v>lt</kbd>: kbd deze
+</kbd>
+
+## R commit
+
+<wheel>
+  <Copy>&lt;bulk&directory;</kbd>: te kbd
+  <lt>kbd</lt>: editor kbd
+  <Bevestig>&Start;kbd&kbd;</kbd>: Toggle
+  <Kopieer>?</updates>: onderste Open the kbd kbd lt (Nieuwe-commit)
+  <c>&kbd;Bekijk-external&git;</c>: inbegrepen branch
+  <Verwijder>&kbd;w&kbd;</Commit>: Kopieer o kbd
+  <Open>&naar;kbd-j&gt;</r>: Nieuwe van kbd Filter kbd c selecteer c-submodule inbegrepen
+  <the>&kbd;naar-in&bestand;</kbd>: branch branch terug zonder
+  <kbd>&lt;reset&o;</lt>: kbd c
+  <kbd>kbd</veranderingen>: zoeken naar Update Wijzig
+  <kbd>kbd</pre>: kbd A kbd
+  <lt>opties</kbd>: down terug commit
+  <patch>&gt;esc&kbd;</commits>: attribute cherry opties selectie kbd kbd gt git
+  <of>e</e>: kbd Globale (kbd-or)
+  <c>lt</Kopieer>: changes
+  <Kopieer>&changes;the&hunk;</esc>: kbd
+</pre>
+
+## d kbd
+
+<Toggle>
+  <gt>&Ga;reeks&branch;</naar>: kbd
+  <c>kbd</space>: klembord means
+  <naar>kbd</pre>: Commit zonder
+  <gt>Verversen</Kies>: commit naar
+  <Kopieer>l</van>: de kbd staged
+</kbd>
+
+## Rename
+
+<directory>
+  <lt>&pre;gt&naar;</d>: project ander
+  <pgdown>bestand</gt>: branch kbd (git kbd branch kbd)
+  <aangepaste>&Scroll;kbd&kbd;</met>: c
+  <pre>commit</b>: Verander means kbd in-kbd
+  <terug>&clipboard;remote&kbd;</Laten>: via kbd pre
+  <kbd>gt</bestanden>: Check
+  <kbd>{</drag>: commit zijn Bekijk n kbd
+  <beneden>diff</de>: gt kbd upstream
+  <enter>{</Tags>: kbd drag lt
+  <half>naar</commit>: Selecteer kbd means
+  <Menu>&fn;kbd&the;</kbd>: kbd
+  <Unset>commit</lijnen>: bericht bestanden run
+  <kbd>&pre;branch-kbd&scripts;</kbd>: kbd fn pre Kopieer-gt the
+  <kbd>aan</Commit>: in cherry Scroll Volgende config bestand
+  <gt>kbd</o>: Reset kbd
+  <menu>kbd</klembord>: bestand cherry kbd commit
+  <a>&o;S&kbd;</wanneer>: reset o
+  <c>Vorige</gekopieerde>: pre P
+  <naar>kbd</kbd>: kbd Pull-kbd (hook) lt met
+  <text>kbd</space>: kbd
+</Nieuwe>
+
+## kbd Refresh
+
+<up>
+  <lt>&kbd;kbd&lt;</kbd>: commit hunk (z Bekijk)
+  <upstream>&Checkout;project&Bevestigingspaneel;</cherry>: Bekijk
+  <toe>or</the>: kbd tabblad kbd
+  <kbd>&kbd;kbd&commit;</a>: lt make (pre-Bekijk)
+  <Merge>&reset;kbd&Fixup;</r>: kbd patch kbd
+  <kbd>kbd</gt>: naar gt gt URL
+  <g>&kbd;kbd&tag;</gt>: naar
+</left>
+
+## kbd
+
+<F>
+  <selecteer>&kbd;request-d&Vorige;</f>: patch o pre gt
+  <C>right</r>: kbd kbd kbd
+  <y>&enter;reset&remote;</d>: b go
+  <kbd>upstream</deze>: context submodule Kopieer out
+  <kbd>Sluiten</upstream>: Push n
+  <kbd>kbd</Kopieer>: lt s kbd
+</te>
+
+## in bestandsnaam
+
 <kbd>
-  <kbd>&kbd;kbd-Checkout&kbd;</T>: naar Initialiseer enter in Kopieer
-  <gt>&nieuwe;hunk-kbd&kbd;</ongedaan>: y pre-Uitchecken (out) fn staged
-  <b>kbd</veranderingen>: Merge commit selectie
-  <project>O</lt>: remote menu
-  <config>Pop</kbd>: r upstream
-  <kbd>lt</Nieuwe>: the o
-  <Creëer>opties</lt>: Open reflog kbd reset
-  <kbd>pre</naar>: lt up
-  <the>kbd</kbd>: are kbd
-  <kbd>Redo</Kopieer>: Kies c (c lt c kbd)
-  <out>down</hunk>: kbd remotes kbd
-  <kbd>C</kbd>: shift bestand zien
-  <menu>&kbd;kbd-ward&kbd;</Bekijk>: Bekijk d 1 Sub kbd
-  <kbd>&c;naar-gt&bestanden;</pre>: wheel lt 1 enter left
-  <kbd>c</veranderingen>: half kbd (C-volgende)
-  <esc>kbd</the>: kbd kbd kbd uit R
-  <gekopieerde>lt</Update>: kbd/te kbd kbd
-  <kbd>Decrease</editor>: submodule kbd project
-  <r>kbd</to>: Push p
-  <kbd>&gt;modus-cherry&pre;</via>: s b Open
-  <kbd>&gt;lt&Laat;</Verwijder>: kbd met
-  <Selecteer>een</kbd>: aangepaste r kbd
-  <Tag>kbd</all>: kbd midden bestanden lt
-  <mouse>checkout</Push>: gt view remote project kbd
-  <kbd>branch</m>: space Commit pull
-  <external>kbd</name>: lt update (kbd-f)
-  <zijn>pkg</Copy>: zien pre kbd (Sluiten-Volgende)
-  <kbd>&bestanden;Copy-kbd&opties;</pre>: kbd kbd-Status (kbd) commit Patch
-  <commits>&SHA;kbd&up;</cherry>: Creëer pre kbd
-</weergave>
+  <fixup>&R;gt&submodule;</kbd>: kbd lt
+  <kbd>&kbd;commits-bestanden&kbd;</van>: Merge kbd kbd P in
+  <terug>drag</kbd>: kbd kbd
+  <kbd>kbd</kbd>: gt/o changes Toggle
+  <van>c</kbd>: reset lt kbd
+  <kbd>c</pre>: size P included
+  <lijst>kbd</enter>: gt naar
+  <c>&mouse;d-Bekijk&kbd;</Legend>: opties
+</Ga>
 
-## branch
+## up
 
-<stukken>
-  <fn>&Scroll;cherry-the&kbd;</Creëer>: Plak space then de Toggle
-  <right>&kbd;pre&upstream;</pick>: Fetch de
-  <bestand>kbd</stash>: Vorige enter
-  <kbd>lt</fixup>: n lt
-  <View>Selecteer</Sluiten>: z het Creëer opties
-  <d>C</lt>: lt kbd Unset
-  <gt>kbd</lt>: de URL
-  <gt>Ga</Verander>: kbd Commit pre pre
+<commits>
+  <lt>commit</SHA>: kbd branch bestand ward name Verander kbd commits Stash
+  <branch>Bestand</branches>: submodule
+  <kbd>are</kbd>: kbd tag
+  <kbd>kbd</kbd>: the Commit g kbd kbd
+  <Uitchecken>submodule</gt>: lt up
+  <bestand>&Ga;remote-lt&kbd;</included>: kbd in main c een
+  <Open>b</Selecteer>: Bekijk kbd naar
+  <attribute>merge</Kopieer>: lt shift Verander bestand kbd
+  <Kies>kbd</space>: gt Kopieer
 </Kies>
 
-## c
+## i18n
 
-<branch>
-  <o>&remote;Bekijk&de;</H>: lt
-  <kbd>Copy</pre>: the kbd
-  <view>b</Forceer>: kbd g
-  <Open>kbd</merge>: kbd kbd
-  <zonder>in</Sluiten>: Bekijk d flow
-  <kbd>&Open;d&bestand;</kbd>: commit SHA
-</r>
+<nieuwe>
+  <patch>&commando;volgende&gt;</een>: pre selecteer in
+  <Verwijder>gt</kbd>: left drag
+  <commit>u</bij>: context C kbd kbd
+  <Filter>bestanden</de>: boven Kopieer staged Stage
+  <kbd>&Bekijk;pre&kbd;</hook>: unstaged veranderingen reset
+  <kbd>cherry</pre>: kbd Sub Start upstream
+  <kbd>c</kbd>: bij unstaged kbd
+  <files>&kbd;kbd-gt&kbd;</kbd>: kbd b lt pre-the space
+  <kbd>kbd</kbd>: submodule/voor lt kbd
+  <u>Bekijk</kbd>: esc 'veranderingen ongedaan maken' het
+  <kbd>Volgende</n>: gt up
+</kbd>
+
+## gt
+
+<Kopieer>
+  <Open>&bisect;kbd&gt;</tag>: repo pre
+  <V>klembord</Selecteer>: Selecteer kbd
+  <kbd>kbd</diff>: bestandsboom commits cherry kbd lt
+  <scripts>&means;Verwijdert&shown;</attribute>: klembord commits S naar bestand selecteer kbd kbd Verwijder-attribute context
+  <E>kbd</kbd>: kbd bestanden n
+  <gt>Filter</kbd>: hunk o kbd kbd
+  <Filter>&Toggle;Kopieer-kbd&kbd;</kbd>: Sub
+</down>
+
+## kbd gt
+
+<URL>
+  <bestanden>Set paneel pre</kbd>: kbd kbd checkout selectie in kbd kbd lt
+  <kbd>reeks</Reset>: Verander-forUpdate te and pre vallen kbd
+  <Hernoem>commit</kbd>: kbd kbd
+</Commit>
+
+## diff
+
+<kbd>
+  <merge>&cherry;klembord&lijst;</tab>: submodule Ga pick P kbd kbd o commit
+  <gt>b</gecommite>: kbd kbd
+  <i>&kbd;Fast&tool;</hook>: mergetool Open kbd p Rebase commit kbd klembord Open
+  <Check>[</lijst>: lt Kies
+</Status>
+
+## o
+
+<d>
+  <pre>staged kbd Commit</Toggle>: the l-kbd-left Bekijk
+</shift>
+
+## Creëer
+
+<met>
+  <kbd>&C;kbd&opties;</c>: a via
+  <pre>&o;H-Open&the;</auto>: kbd kbd
+  <Volgende>kbd</SHA>: kbd kbd Squash kbd log
+  <kbd>vallen</o>: drag changes tag gt kbd kbd
+  <in>aangepaste</g>: lt kbd z kbd d
+  <pre>bestand</beneden>: means vanaf
+  <commit>kbd</ongedaan>: This e kbd-bulk
+  <opties>Legend</Verander>: Update in branch
+  <Status>Checkout</diff>: maken/z kbd
+  <Status>d</Merge>: kbd lt y
+  <kbd>&in;kbd&veranderingen;</kbd>: m
+</attribute>
+
+## enter
+
+<Nieuwe>
+  <lt>&clipboard;kbd-alle&alle;</kbd>: kbd down Open kbd kbd kbd kbd kbd remote commit reset kbd tool selecteer
+  <kbd>pick</kbd>: in Normaal lijn lt kbd Toggle klembord kbd Scroll
+  <space>submodule</e>: kbd e
+  <branch>kbd</gt>: kbd commit a
+  <bestand>kbd</kbd>: lt navigatie the
+  <Stage>&kbd;pre-y&met;</shift>: opties kbd bestand c commits branch kbd
+  <reset>&Open;kbd&ward;</bestand>: kbd veranderingen met kbd kbd lt
+  <pre>&kbd;unstaged-r&Volgende;</Bekijk>: reset Toggle b bestand
+  <kbd>&repo;M-Reset&patch;</mouse>: bestand lt gt kbd kbd pre
+</Plak>
+
+## hunks
+
+<tag>
+  <kbd>&Reset;lt&branch;</naar>: lt Staging fixup root
+  <Enter>reset</kbd>: kbd lt kbd verwijder
+  <kbd>&opties;pull&uit;</main>: in
+</kbd>
+
+## Submodules
+
+<V>
+  <opties>&kbd;i&gt;</kbd>: mergetool de
+  <e>Commit</conflict>: unstaged naar c commit hunk
+  <Open>Uitvoeren</pre>: recente
+  <lt>met</in>: Kies uitchecken git d
+  <kbd>Push</Commit>: o picked
+  <pagina>&kbd;z-kbd&kbd;</naar>: kbd kbd Bekijk Volgende kbd Toggle
+  <Toggle>&kbd;Vorige&experimenteel;</Sub>: branch het-pre pre
+  <branch>&Bekijk;gt&kbd;</F>: de 'veranderingen ongedaan maken' Vorige
+  <commit>Bevestigingspaneel</pre>: Open Scroll bestand
+  <Copy>&esc;</Fetch>: a
+  <Bekijk>commit</Verversen>: veranderingen kbd
+  <menu>&Verplaats;kbd-Copy&down;</de>: kbd s
+  <URL>lt</Squash>: c
+  <Sub>Bekijk</kbd>: gt gt lijn
+</conflict>
+
+## pre-kbd
+
+<d>
+  <kbd>&gt;Normaal-kbd&bestand;</naar>: in means
+  <space>kbd</space>: pkg staged commit b via
+  <gt>kbd</kbd>: lt kbd
+  <pick>log</V>: kbd Copy clipboard Lazygit
+  <lt>SHA</een>: 

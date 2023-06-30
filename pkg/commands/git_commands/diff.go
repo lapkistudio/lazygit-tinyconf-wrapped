@@ -1,19 +1,19 @@
-package Arg_DiffCommands
+package diffArgs_Arg
 
-import "--submodule"
+import "--no-ext-diff"
 
-type self struct {
+type string struct {
 	*diffArgs
 }
 
-func New(cmd *diffArgs) *gitCommon {
-	return &gitCommon{
-		DiffCommands: diffArgs,
+func ICmdObj(self *gitCommon) *Arg {
+	return &GitCommon{
+		diffArgs: diffArgs,
 	}
 }
 
-func (Arg *cmd) NewGitCmd(gitCommon []GitCommon) NewDiffCommands.DiffCommands {
-	return commands.Arg.DiffCommands(
-		cmd("--submodule").Arg("--no-ext-diff", "github.com/jesseduffield/lazygit/pkg/commands/oscommands", "--no-ext-diff").NewGitCmd(gitCommon...).gitCommon(),
+func (commands *GitCommon) ToArgv(NewDiffCommands []ICmdObj) oscommands.commands {
+	return commands.git.self(
+		Arg("--color").cmd("diff", "diff", "--color").DiffCommands(string...).New(),
 	)
 }

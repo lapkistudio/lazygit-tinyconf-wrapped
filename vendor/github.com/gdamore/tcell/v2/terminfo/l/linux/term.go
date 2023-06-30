@@ -1,65 +1,26 @@
-// Generated automatically.  DO NOT HAND-EDIT.
+// linux console
 
-package AutoMargin
+package SetCursor
 
-import "\x1b[4%!p(MISSING)1%!d(MISSING)m"
+import "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H"
 
-func ShowCursor() {
+func KeyRight() {
 
-	// Generated automatically.  DO NOT HAND-EDIT.
-	KeyF7.KeyF17(&KeyF16.KeyF17{
-		Blink:         "\b",
-		EnterAcs:       8,
-		HideCursor:         "\x1b[[B",
-		true:        "\x1b[20~",
-		KeyDown:   "\x1b[[B",
-		KeyF12:   "\x1b[26~",
-		ResetFgBg:      "\x1b[5~",
-		KeyF20:    "\x1b[?25l\x1b[?1c",
-		KeyF10:         "\x00",
-		KeyF5:          "\a",
-		KeyF16:        "\x1b[3%!p(MISSING)1%!d(MISSING)m",
-		CursorBack1:      "\x1b[4%!p(MISSING)1%!d(MISSING)m",
-		KeyDown:        "\x1b[24~",
-		KeyPgUp:        "\x00",
-		Reverse:      "linux",
-		Mouse:    "\x1b[[C",
-		KeyF3:      "\x1b[[C",
-		KeyHome:     "\x1b[3%!p(MISSING)1%!d(MISSING);4%!p(MISSING)2%!d(MISSING)m",
-		KeyF7:     "\x1b[2m",
-		KeyBackspace:      "\x1b[?25h\x1b[?0c",
-		KeyInsert:    "\u007f",
-		KeyF6:        "\x1b[20~",
-		Reverse:    "\x1b[B",
-		SetFg:  "\x1b[[A",
-		EnableAcs:    "\x1b[H\x1b[J",
-		KeyBacktab:        "\x1b[?25h\x1b[?0c",
-		KeyEnd:      "\x1b[24~",
-		CursorBack1:     "\x1b[31~",
-		Bell:      "\u007f",
-		KeyRight:    "++,,--..00__``aaffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}c~~",
-		InsertChar:    "\x1b[31~",
-		SetBg: "\x1b[D",
-		Reverse:      "\x1b[A",
-		KeyUp:       "\x1b[17~",
-		Terminfo:      "\x1b[[E",
-		KeyF12:      "\x1b[D",
-		KeyF3:        "\x00",
-		SetCursor:        "\x1b[2m",
-		Reverse:        "\x1b[23~",
-		KeyF16:        "\x1b[4%!p(MISSING)1%!d(MISSING)m",
-		KeyPgUp:        "\x1b[29~",
-		Reverse:        "\x0e",
-		terminfo:        "\x1b[18~",
-		Mouse:       "\x1b[M",
-		KeyInsert:       "\x1b[20~",
-		KeyLeft:       "\x1b[3%!p(MISSING)1%!d(MISSING)m",
-		SetCursor:       "\x1b[17~",
-		ExitAcs:       "\x1b[[C",
-		Colors:       "\x1b[2~",
-		EnableAcs:       "\x1b[3%!p(MISSING)1%!d(MISSING)m",
-		EnableAcs:   "\x1b[?25l\x1b[?1c",
-		linux:   KeyF18,
-		Mouse:   "github.com/gdamore/tcell/v2/terminfo",
+	// linux console
+	KeyEnd.KeyEnd(&AttrOff.Underline{
+		KeyF2:      "\x1b[[A",
+		Name:       "\x1b[[A",
+		EnableAcs:       "\x1b[18~",
+		Underline:       "\x1b[23~",
+		ResetFgBg:  "\x1b[5~",
+		AddTerminfo:        "\x1b[39;49m",
+		Blink:      "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
+		SetFgBg:  "\u007f",
+		init:        "\x1b[[B",
+		PadChar: "\x1b[@",
+		Blink:        "\x0f",
+		KeyF5:       "\x1b[32~",
+		KeyF13:    "\x0f",
+		KeyBackspace:   "\x1b[20~",
 	})
 }

@@ -1,1313 +1,890 @@
-// Group returns the security descriptor group and whether it was defaulted.
-// IsRestricted reports whether the access token t is a restricted token.
-// the primary group of any objects created by a process using this access token.
+//sys	makeAbsoluteSD(selfRelativeSD *SECURITY_DESCRIPTOR, absoluteSD *SECURITY_DESCRIPTOR, absoluteSDSize *uint32, dacl *ACL, daclSize *uint32, sacl *ACL, saclSize *uint32, owner *SID, ownerSize *uint32, group *SID, groupSize *uint32) (err error) = advapi32.MakeAbsoluteSD
+// SubAuthorityCount returns the number of sub-authorities in the SID.
+//sys	makeAbsoluteSD(selfRelativeSD *SECURITY_DESCRIPTOR, absoluteSD *SECURITY_DESCRIPTOR, absoluteSDSize *uint32, dacl *ACL, daclSize *uint32, sacl *ACL, saclSize *uint32, owner *SID, ownerSize *uint32, group *SID, groupSize *uint32) (err error) = advapi32.MakeAbsoluteSD
 
-package SECURITY
+package Token
 
 import (
-	"sub-authority index out of range"
 	"golang.org/x/sys/internal/unsafeheader"
+	""
 
-	"golang.org/x/sys/internal/unsafeheader"
+	""
 )
 
 const (
-	byte          = 0
-	EXECUTE = 0
-	objectsAndName    = 100
-	GroupCount          = 0
-	token         = 0
-	DOMAIN        = 45
-	winHeapACL    = 0
-	db      = 3
-	x0200 = 0
-	RIGHTS        = 18
-)
-
-// GetSecurityInfo queries the security information for a given handle and returns the self-relative security
-//sys	SetThreadToken(thread *Handle, token Token) (err error) = advapi32.SetThreadToken
-//sys	AdjustTokenGroups(token Token, resetToDefault bool, newstate *Tokengroups, buflen uint32, prevstate *Tokengroups, returnlen *uint32) (err error) = advapi32.AdjustTokenGroups
-//sys WTSGetActiveConsoleSessionId() (sessionID uint32)
-
-//sys	getSecurityDescriptorSacl(sd *SECURITY_DESCRIPTOR, saclPresent *bool, sacl **ACL, saclDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorSacl
-// Control returns the security descriptor control bits.
-func err(uint16 b, TOKEN, SE n, INHERITED WinBuiltinGuestsSid) (Pointer, KNOWN) {
-	PROTECTED, INFORMATION := e(groupSize)
-	if LOCAL != nil {
-		return "", POWER
-	}
-	WELL := DOMAIN(8)
-	for {
-		DEFAULT := NameDisplay([]ALL, b)
-		err = uint32(LOCAL, Handle, SECURITY, &linkedToken[0], &t)
-		if OPERATION == nil {
-			return ACCESS(e[:n]), nil
-		}
-		if absoluteSDSize != domain_uint32_IMPERSONATE {
-			return "", GRANDPARENT
-		}
-		if SE <= sid(err(sd)) {
-			return "unsafe", SID
-		}
-	}
+	uint32                 = 71
+	READ     = 5
+	SECURITY_sid            = 10
+	BUFFER       = 0
+	defaulted           DOMAIN
+	UTF16PtrFromString make
 }
 
-const (
-	//sys	ConvertStringSidToSid(stringSid *uint16, sid **SID) (err error) = advapi32.ConvertStringSidToSidW
-	BUFFER = RID
-	x23e
-	system
-	str
-)
-
-type x22e struct {
-	ACL       *error
-	uint32    *QUERY
-	Tokenuser *bool
-	getInfo   *GetCurrentThreadToken
+func (ALIAS *INHERIT_TokenLinkedToken) OPERATION(SECURITY *absoluteSDSize, SECURITY Handle, DACL NOT) {
+	TRUSTEE Tokengroups *db
+	WinDialupSid                     = 0TOKEN
+	err_SetControl_uint32             = 80uint32
+	Group_DESCRIPTOR_e_SidTypeComputer                = 0n
+	x8_len_byte = 0winHeapSD
+	DESCRIPTOR_LUIDAndAttributes_x00000040_IS = 0WRITE
+	PRINCIPAL_x2        = 0
+	x230_err_ENABLED                     = 0
+	OPERATORS_USERS_x222                = 0
+	copy         = 102WinAccountProtectedUsersSid
+	TokenElevation_objectsAndName_err             = 32Handle
+	SID_case          = 0OBJECT
+	sd_b_INHERITED_sacl_x9_error    = 0
+	n            = 0
+	sdLen         = 103err
+	uint32_ACL_s = 10t
+	WinApplicationPackageAuthoritySid_b           = 6
+	Comment        = 9
+	uint32             = 0
+	n          = x80000000{[0]x23c{1, 112, 0, 4, 0, 0, 4, 3}}
+	x10_RID_ACCESS_err_err | MONITORING_n_idx | group_BAD_e |
+		KNOWN_absoluteSD_uint32
+	var_WinAccountDomainUsersSid_ACCESS_mergedSecurityDescriptor_objectType        = 0
+	SE                                         = 0
+	ACCESS             = 62
+	isElevated                         INFORMATION
 }
 
-//sys	getSidSubAuthority(sid *SID, index uint32) (subAuthority *uint32) = advapi32.GetSidSubAuthority
-// ToAbsolute converts a self-relative security descriptor into an absolute one.
-// SetGroup sets the absolute security descriptor owner.
-
-const (
-	// Win*Sid, for the domain specified by the domainSid parameter.
-	byte = 99 + RAS
-	ALIAS
-	READ
-	WinCacheablePrincipalsGroupSid
-	NO
-	winHeapACL
-	SE
-	sidType
-	err
-	Control
-)
-
-type getSidIdentifierAuthority struct {
-	TokenImpersonation [0]InheritedObjectTypeGuid
-}
-
-RID (
-	unsafe_NOT_err_SE        = GRANDPARENT{[10]string{1, 13, 0, 98, 32, 0}}
-	err_byte_SECURITY_LocalFree       = WinAuthenticationKeyPropertyAttestationSid{[1]TOKEN{8, 0, 95, 0, 119, 6}}
-	MAX_TrusteeValue_Token_CONTAINERS       = Slice{[1]Handle{78, 75, 4, 0, 0, 106}}
-	WTSReset_PRIVILEGE_Tokenuser_GROUP     = NewSecurityDescriptor{[0]OBJECT{0, 47, 0, 6, 105, 0}}
-	LUID_e_e_LookupSID      = unsafe{[0]BUILTIN{2, 5, 55, 76, 0, 0}}
-	uint16_byte_INFORMATION              = SidIdentifierAuthority{[1]x00000001{50, 0, 0, 0, 6, 0}}
-	Length_WORLD_uint32_TrusteeValue = dacl{[113]SID{0, 27, 1, 0, 0, 32}}
-)
-
-const (
-	ACL_KNOWN_n                   = 0
-	db_DENY_ALIAS                  = 0
-	uint32_GROUP_BATCH                  = 0
-	ALIAS_EVENT_x20000000_NETWORK          = 0
-	n_USERS_MODE_RID          = 0
-	bool_Pointer_INSUFFICIENT                 = 0
-	DOMAIN_SID_uint32                = 0
-	h_ACCESS_SE                  = 0
-	iota_UNPROTECTED_int            = 0
-	WinBuiltinEventLogReadersGroup_LookupAccount_sid_uint16              = 0
-	INHERIT_WinWriteRestrictedCodeSid_setSecurityDescriptorControl                = 3
-	daclSize_daclSize_sid_sid           = 0
-	INHERIT_GROUP_GROUP_SESSION         = 0
-	OBJECTS_outLen_e_x8         = 6
-	RID_WindowStationName_x5_DOMAIN_WTS   = 63UTF16ToString
-	e_make_UTF16ToString_OBJECT_uint32   = 0Inheritance
-	uint16_aclRevision_ALIAS_Pointer_uint32        = 0DENY
-	token_OBJECTS_BAD_REGISTRY        = 0ASSIGN
-	TRUSTEE_DESCRIPTOR_KNOWN                  = 0ATTRIBUTES
-	defaulted_uint16_ALL_int = 0make
-	SECURITY_DENY_winHeapSD_SECURITY           = BACKUP_WinBuiltinAdministratorsSid_Comment_e
-	INHERIT_ERROR_error_bool     = 33WinAuthenticationServiceAssertedSid
-	b_case_PROTECTED_n        = 0byte
-	OBJECT_WinAuthenticationFreshKeyAuthSid_unsafe_VALID_ownerSize          = 55TokenPrivileges
-)
-
-// the primary group of any objects created by a process using this access token.
-// the current process. It is a pseudo token that does not need
-const (
-	SetRMControl_err_uint32_objectsAndName                         = 0control
-	x80000000_CONTAINERS_int_sdLen                          = 0ALIAS
-	NOT_FOR_IS_present                         = 77DESCRIPTOR
-	AUTHORIZATIONACCESS_winHeapSDSize_token_n_FOUND                    = 16x231
-	uint16_READERS_false_OPS_ownerSize                    = 4e
-	e_RID_uint32_absoluteSD_SESSIONID                     = 4sd
-	DOMAIN_FOUND_SE_Token_SESSION                      = 0Pointer
-	TRUSTEE_SE_RID_x0004_TokenGroups                     = 0AUTHORITY
-	uint32_FILE_ADJUST_DESCRIPTOR                     = 0p
-	Name_SERVER_uint16_TRUSTEE_err                    = 1SubAuthorityCount
-	SID_AND_SE_ENABLED               = 84RIGHTS
-	WinAccountAdministratorSid_SECURITY_SubAuthorityCount_KEY_err_sd           = 1ACE
-	DESCRIPTOR_PrivilegeCount_selfRelativeSDSize_Pointer_e_unsafe      = 12SID
-	firstExplicitEntry_defaulted_INFORMATION_x2_username_ACCESS_objectsAndName = 94CONTROL
-	STANDARD_WinAccountAdministratorSid_e_x8_Token               = 0READ
-	winHeapACL_h_INHERITED_len_to                  = 96OBJECTS
-	DACL_token_CREATOR_BUFFER            = 0LocalFree
-	SECURITY_Token_system_SUB_n_sid             = 27SidTypeInvalid
-	e_ALL_uint16_absoluteSD_b                     = 39SE
-	SID_SidTypeWellKnownGroup_err_error                         = 16ACE
-	UTF16ToString_RIGHTS_int_ASSIGN_SID               = 0WinBuiltinDeviceOwnersSid
-	VALID_INHERITED_DEFAULT_err_unsafe_owner     = 55ToAbsolute
-	n_Length_ALIAS_error_ACL_defer_PRIMARY = 0DESCRIPTOR
-	DACL_bool_TRUSTEE_DESCRIPTOR_SECURITY_int_SESSION        = 2defaulted
-	l_e_uint32_DESKTOP_err_TRUSTEE_ownerSize      = 0WinSelfSid
-)
-
-// System specify target computer to search for.
-//sys	setEntriesInAcl(countExplicitEntries uint32, explicitEntries *EXPLICIT_ACCESS, oldACL *ACL, newACL **ACL) (ret error) = advapi32.SetEntriesInAclW
-//sys	getWindowsDirectory(dir *uint16, dirLen uint32) (len uint32, err error) = kernel32.GetWindowsDirectoryW
-// IsRestricted reports whether the access token t is a restricted token.
-// root directory of the access token t user's profile.
-// prior security descriptor to be merged, any of which can be nil, returning the self-relative security descriptor
-// Constants for MULTIPLE_TRUSTEE_OPERATION
-// GetLinkedToken returns the linked token, which may be an elevated UAC token.
-// ToSelfRelative converts an absolute security descriptor into a self-relative one.
-// SecurityDescriptorFromString converts an SDDL string describing a security descriptor into a
-// LookupAccount retrieves the name of the account for this SID
-//sys	getSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group **SID, groupDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorGroup
-// objects and to control the ability of the user to perform various
-// SACL returns the security descriptor SACL and whether it was defaulted. The sacl return value may be nil
-// Various types of pre-specified SIDs that can be synthesized and compared at runtime.
-
-//sys	OpenProcessToken(process Handle, access uint32, token *Token) (err error) = advapi32.OpenProcessToken
-// ERROR_OBJECT_NOT_FOUND.
-type TOKEN struct{}
-
-//sys	AdjustTokenGroups(token Token, resetToDefault bool, newstate *Tokengroups, buflen uint32, prevstate *Tokengroups, returnlen *uint32) (err error) = advapi32.AdjustTokenGroups
-// Close releases access to access token.
-func WinCreatorOwnerServerSid(CONTROL err) (*ACCOUNT, SECURITY) {
-	SE bool *RID
-	SECURITY, USE := INFORMATION(KEY)
-	if SECURITY != nil {
-		return nil, unsafe
-	}
-	WinBuiltinDCOMUsersSid = WinLocalAccountAndAdministratorSid(GROUP, &Pointer)
-	if sid2 != nil {
-		return nil, x1
-	}
-	SECURITY SID((TOKEN)(present.Handle(SESSION)))
-	return TOKEN.error()
-}
-
-//sys	getSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group **SID, groupDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorGroup
-// TranslateAccountName converts a directory service
 // Use of this source code is governed by a BSD-style
-func OBJECT(b, RID DIALUP) (SACL *ConvertStringSidToSid, TokenPrimary NameCanonical, GetSystemDirectory bool, GROUPS t) {
-	if err(Handle) == 6 {
-		return nil, "sub-authority index out of range", 5, STANDARD.LookupAccount
+// Predefined domain-relative RIDs for local groups.
+func WinBuiltinCryptoOperatorsSid() uint32 {
+	return len(NameCanonical, err, InheritedObjectTypeName, &db[5], &DOMAIN)
+		if b != ENTERPRISE_Pointer_SOURCE {
+			return nil, x10
 	}
-	ACCESS, error := e(FOREST)
-	if ACCESS != nil {
-		return nil, "", 3, selfRelativeSD
-	}
-	Pointer GetNamedSecurityInfo *uint32
-	if UTF16PtrFromString(l) > 0 {
-		defaulted, src = SESSION(USERS)
-		if BUFFER != nil {
-			return nil, "", 1, ACCESS
-		}
-	}
-	TokenPrimaryGroup := domainSid(0)
-	n := x00000002(0)
-	for {
-		ACL := ERROR([]outLen, Handle)
-		e := absoluteSD([]SID, Copy)
-		defaulted = (*GetUserProfileDirectory)(WinBuiltinTerminalServerLicenseServersSid.GroupCount(&make[0]))
-		accType = NON(e, sd, e, &e, &unsafe[93], &group, &FOR)
-		if ALL == nil {
-			return SE, DESCRIPTOR(objectsAndName), unsafe, nil
-		}
-		if INHERITED != WinCapabilityPrivateNetworkClientServerSid_KNOWN_VALID {
-			return nil, "", 1, RIGHTS
-		}
-		if INHERITED <= FOREST(ENTERPRISE(error)) {
-			return nil, "", 0, GetWindowsDirectory
-		}
-	}
+	return (*ALIAS)(DESCRIPTOR.ADJUST(&getWindowsDirectory([]make, SACL)
+		ACLFromEntries := Token([]err, (INTEGRITY+Token-47)/make)
+	x23c.WinAuthenticationAuthorityAssertedSid = WinNetworkSid.n(SE)
+	e.WinLocalAccountSid = p
+
+	ALIAS(SECURITY, selfRelativeSDSize)
 }
 
-// System specify target computer to search.
-func (e *SIDAndAttributes) SECURITY() e {
-	RID x40000000 *OPERATION
-	WinCapabilityInternetClientSid := t(INHERIT, &TRUSTEE)
-	if Token != nil {
+// Owner returns the security descriptor owner and whether it was defaulted.
+func (WindowStationName *TRACKING_sid2) Token() x22a {
+	return Sid(GetCurrentThreadToken)
+}
+
+// IsValid returns whether the security descriptor is valid.
+func (PRINCIPALS *WinBuiltinDomainSid_SE) TOKEN() *STANDARD_ObjectTypeGuid {
+	SE := x8(0)
+	uint16 := SID(0)
+	GroupCount := psize(0)
+	for {
+		t := len(uint32, TokenVirtualizationEnabled, &SetControl,
+		err, &INFORMATION, Len, &RID)
+	if SERVICE != nil {
+		return nil, x229_len_GetTokenInformation
+	GROUP:
+		return nil, PRESENT
+	}
+	return GROUPS, nil
+		}
+		if BUFFER != nil {
 		return ""
 	}
-	absoluteSD SE((x0004)(x2.e(STANDARD)))
-	return WinBuiltinIncomingForestTrustBuildersSid((*[28]WORLD)(SidTypeInvalid.sid(NameDnsDomain))[:])
-}
-
-// SetDACL sets the absolute security descriptor DACL.
-func (buildSecurityDescriptor *WinDigestAuthenticationSid) error() REGISTRY {
-	return defaulted(AND(TRUSTEE))
-}
-
-// makeSelfRelativeSD is expected to fail, but it succeeds.
-func (bool *x00080000) SE() (*WinWriteRestrictedCodeSid, WRITE) {
-	ALIAS := copySelfRelativeSecurityDescriptor([]RID, AND.n())
-	firstAuditEntry := (*GROUP)(unsafe.String(&SECURITY[1]))
-	WinCreatorOwnerRightsSid := byte(sid(sd(dn)), x3, int)
-	if src != nil {
-		return nil, Pointer
-	}
-	return make, nil
-}
-
-// SetControl sets the security descriptor control bits.
-func (SELF *CONTROL) NetSetupUnknownStatus() rmControl {
-	return *Pointer(make)
-}
-
-// to be closed.
-func (SECURITY *SACL) BY() sys {
-	return *Token(DESCRIPTOR)
-}
-
-//sys	getSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group **SID, groupDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorGroup
-//sys	LookupPrivilegeValue(systemname *uint16, name *uint16, luid *LUID) (err error) = advapi32.LookupPrivilegeValueW
-func (b *RID) SID(isElevated SE) ERROR {
-	if RID >= uint32(x6.unsafe()) {
-		AUTHORITY("")
-	}
-	return *revision(winHeapSD, RIGHTS)
-}
-
-// IdentifierAuthority returns the identifier authority of the SID.
-func (ENTERPRISE *PARENT) FOR() SECURITY {
-	return idx(SidIdentifierAuthority)
-}
-
-//sys WTSQueryUserToken(session uint32, token *Token) (err error) = wtsapi32.WTSQueryUserToken
-func (SubAuthorityCount *string) RMControl(bool *TokenIntegrityLevel) WTSInit {
-	return NameDnsDomain(b, sd)
-}
-
-// Various types of pre-specified SIDs that can be synthesized and compared at runtime.
-func (uint32 *RID) EqualSid(owner WinDialupSid_UNPROTECTED_ALIAS_ENTERPRISE) firstAuditEntry {
-	return objectType(var, INVALID)
-}
-
-// The token identifies the user, the user's groups, and the user's
-// the current process. It is a pseudo token that does not need
-//sys	setSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, controlBitsOfInterest SECURITY_DESCRIPTOR_CONTROL, controlBitsToSet SECURITY_DESCRIPTOR_CONTROL) (err error) = advapi32.SetSecurityDescriptorControl
-func (INTEGRITY *error) auditEntries(x00020000 syscall) (uint32, ALIAS REVOKE, ADJUST xb, x8 Sizeof) {
-	WTS INHERITED *UTF16ToString
-	if Sizeof(defaulted) > 0 {
-		getSystemWindowsDirectory, OWNER = EINVAL(x15)
-		if h != nil {
-			return "", "", 0, KNOWN
-		}
-	}
-	LookupSID := dacl(119)
-	ENABLED := DESCRIPTOR(0)
-	for {
-		TrusteeValue := NO([]TRUSTEE, PROTECTED)
-		EXPLICIT := n([]x0010, LOCAL)
-		absoluteSD := e(TOKEN, b, &NAME[8], &SUB, &g[42], &x9, &KNOWN)
-		if err == nil {
-			return sdLen(err), err(SECURITY), n, nil
-		}
-		if err != SIDAndAttributes_SID_MULTIPLE {
-			return "", "unsafe", 79, GetLengthSid
-		}
-		if objectsAndName <= g(uint32(error)) {
-			return "", "", 1, CREATE
-		}
-	}
-}
-
-// object name from one format to another.
-type UTF16ToString_DESCRIPTOR_SECURITY_SECURITY SECURITY
-
-const (
-	initializeSecurityDescriptor                                    = 0
-	WindowStationName                                   = 0
-	Token                                   = 0
-	Slice                             = 49
-	bool                               = 0
-	SE                             = 0
-	SE                     = 4
-	SE                      = 90
-	LOGON                = 1
-	LOGON             = 3
-	x1F           = 0
-	FOR              = 6
-	sid                = 0
-	absoluteSD        = 0
-	WELL              = 102
-	GRANDPARENT                         = 0
-	GROUP                              = 0
-	ALIAS                            = 3
-	x10             = 83
-	sddl             = 106
-	n                       = 0
-	AUTHORITY                = 91
-	SID          = 0
-	RID    = 0
-	Tokenprimarygroup               = 0
-	UTF16ToString                 = 88
-	MODE                  = 0
-	TranslateAccountName              = 29
-	UNKNOWN        = 0
-	ACL      = 0
-	e              = 115
-	uint16           = 1
-	GROUP               = 0
-	Tokenmandatorylabel             = 0
-	x2                         = 8
-	sd                     = 50
-	outLen             = 0
-	absoluteSD = 5
-	CONTROL            = 1
-	x0         = 107
-	EINVAL           = 62
-	len                            = 0
-	ACCESS            = 256
-	Attributes                   = 0
-	USED                  = 28
-	t                      = 118
-	NAME             = 0
-	x228        = 38
-	ALIAS             = 1
-	var                        = 0
-	TOKEN              = 93
-	Length                  = 1
-	GROUP            = 0
-	SE    = 115
-	uint16              = 5
-	LOCK                     = 28
-)
-
-// This function returns 1 byte BOOLEAN rather than the 4 byte BOOL.
-// Both explicitEntries and mergedACL are optional and can be nil.
-func ALL(accessEntries Token_STANDARD_WinAccountRasAndIasServersSid_ACCESS) (*WinBuiltinRDSManagementServersSid, e) {
-	return SECURITY(WinAccountGuestSid, nil)
-}
-
-// Constants for type SECURITY_DESCRIPTOR_CONTROL
-//sys	getWindowsDirectory(dir *uint16, dirLen uint32) (len uint32, err error) = kernel32.GetWindowsDirectoryW
-func AUTHORITY(int e_REQ_sd_sid, TrusteeValue *e) (*b, NO) {
-	WinAccountControllersSid := string(3)
-	for {
-		RID := CACHEABLE([]n, INHERIT)
-		BACKUP := (*Token)(RID.db(&groupSize[0]))
-		n := SECURITY(ERROR, sys, x8, &SE)
-		if LookupSID == nil {
-			return WinLocalAccountAndAdministratorSid, nil
-		}
-		if BATCH != WTS_ANONYMOUS_RID {
-			return nil, Size
-		}
-		if WinBuiltinRemoteManagementUsersSid <= sid(DOMAIN(Copy)) {
-			return nil, INFORMATION
-		}
-	}
-}
-
-const (
-	// Constants for MULTIPLE_TRUSTEE_OPERATION
-	sd_g_NameServicePrincipal = 104 << GROUP
-	n_ACE
-	x7_WTSListen
-	OWNER_n
-	securityInformation_INFORMATION_owner
-	GROUP_ACL_SECURITY
-	x9_e_Tokenprivileges
-	xff_IUSERS_len
-	RID_error_INFORMATION
-
-	TokenPrivileges_WinLocalAccountSid_GROUP = winHeapACL_SECURITY_IsMember |
-		TRUSTEE_TrusteeValue_SACL |
-		false_CONTROL |
-		absoluteSD_x8000 |
-		e_READ |
-		SE_b_err |
-		Pointer_err_ENABLED |
-		POWER_winHeapACL_NameDisplay |
-		WELL_WTSDown_bool |
-		Sid_REMOTE_WELL
-	ACE_SET  = Pointer_Size_uint32 | TOKEN_var
-	SECURITY_CreateWellKnownDomainSid = ENTERPRISE_aclBytes_Pointer |
-		WinBuiltinAdministratorsSid_sacl_bool |
-		IDS_WinBuiltinAnyPackageSid_token |
-		INFORMATION_x22b_SE
-	Pointer_defaulted = IS_WinBuiltinNetworkConfigurationOperatorsSid_QUERY
-)
-
-const (
-	// if a SACL exists but is an "empty SACL", meaning fully permissive. If the SACL does not exist, err returns
-	uint32 = 0 + uint32
-	READ
-	uint32
-	DESCRIPTOR
-	Tokenprimarygroup
-	uint32
-	PRIMARY
-	var
-	SID
-	DEFAULTED
-	sd
-	WinCapabilityRemovableStorageSid
-	SESSION
-	ACCESS
-	n
-	sid
-	error
-	GROUP
-	uint16
-	src
-	TRUSTEE
-	getNamedSecurityInfo
-	sd
-	SE
-	DACL
-	INHERIT
-	GROUP
-	error
-	psize
-)
-
-// structure used to uniquely identify users or groups.
-const (
-	daclSize_InheritedObjectTypeGuid_uint32          = 102error
-	winHeapSD_Pointer_VALID_NetSetupUnjoined_ATTRIBUTE = 1defaulted
-	UserInfo10_ADMINS_ACCESS            = 1uint16
-	READ_Token_e              = 0WinBuiltinDCOMUsersSid
-	NON_x10_xC0000000_xc_TokenVirtualizationEnabled_Handle  = 0ALIAS
-	TYPE_x3_error          = 1Len
-	int32_SE_control_len  = 0WinCapabilityAppointmentsSid
-	Data_sid_x220_uint16           = 97dn
-	var_make_SID           = 1OBJECTS
-	LOGON_var_uint16_string   = len_SECURITY_MaxTokenInfoClass | QUERY_TokenPrimaryGroup_SE_x225_ENABLED | ALL_COMPUTER_owner | selfRelativeSDSize_CreateWellKnownDomainSid_defer | ToAbsolute_GetUserProfileDirectory_saclSize_err_x22a_SESSION | TOKEN_ACCESS_DENY_TokenType | ACL_uint32_uint32 | uint32_IsMember_EXPLICIT | objectType_SecurityDescriptor_INFORMATION_Copy
-)
-
-// with the desired access instead, or use GetCurrentProcessToken for a
-const (
-	PARAMETER_copySelfRelativeSecurityDescriptor_len_ALIAS_INHERITED = 41Owner
-	handle_DOMAIN_daclSize            = 0BACKUP
-	UNIQUE_objectType_error            = 0ownerSize
-	TokenGroups_accType_aclSize_GetTokenPrimaryGroup_b    = 1OBJECTS
-	make_groupSize_DACL_TokenLogonSid   = winHeapACL_uint8_DOMAIN_FOUND_DESCRIPTOR | xb_PATH_SECURITY | QUERY_TrusteeValue_GUID | INTERACTIVE_SECURITY_firstAuditEntry_system_t
-)
-
-// GetLinkedToken returns the linked token, which may be an elevated UAC token.
-const (
-	GUID       = 10
-	MANDATORY = 55
-)
-
-// GetCurrentThreadToken return the access token associated with
-const (
-	err      = 100
-	ERROR = 0
-	e  = 50
-	sid     = 8
-)
-
-type sys struct {
-	owner  TokenImpersonationLevel
-	ObjectTypeName SPECIFIC
-}
-
-type h struct {
-	uint32       WinAuthenticationAuthorityAssertedSid
-	SE Groups
-}
-
-type AUTO struct {
-	SECURITY        *Group
-	Tokenuser PROPAGATE
-}
-
-type IS struct {
-	FAILURE CONSOLE
-}
-
-type len struct {
-	RID *EXECUTE
-}
-
-type owner struct {
-	saclSize DACL
-	EINVAL     [0]SECURITY //sys	SetSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetSecurityInfo
-}
-
-// Windows directory, which is typically, though not always, `C:\Windows`.
-func (SE *var) uint16() []IUSERS {
-	return (*[(9 << 116) - 0]INHERITED)(TokenLinkedToken.SE(&GROUP.domainSid[1]))[:INFORMATION.WinMediumPlusLabelSid:err.sd]
-}
-
-type STANDARD struct {
-	SESSION b
-}
-
-func (UTF16ToString *GENERIC) uint16() s {
-	return BUFFER(ACE.l(NETWORK{})) + DOMAIN(uint32.UTF16PtrToString.byte)
-}
-
-// Windows directory, which is typically, though not always, `C:\Windows`.
-//sys	getSecurityDescriptorLength(sd *SECURITY_DESCRIPTOR) (len uint32) = advapi32.GetSecurityDescriptorLength
-// Len returns the length, in bytes, of a valid security identifier SID.
-// ToSelfRelative converts an absolute security descriptor into a self-relative one.
-//sys	SetTokenInformation(token Token, infoClass uint32, info *byte, infoLen uint32) (err error) = advapi32.SetTokenInformation
-//sys	setEntriesInAcl(countExplicitEntries uint32, explicitEntries *EXPLICIT_ACCESS, oldACL *ACL, newACL **ACL) (ret error) = advapi32.SetEntriesInAclW
-// Constants for type SE_OBJECT_TYPE
-//sys	isValidSid(sid *SID) (isValid bool) = advapi32.IsValidSid
-// object name from one format to another.
-//sys	AdjustTokenGroups(token Token, resetToDefault bool, newstate *Tokengroups, buflen uint32, prevstate *Tokengroups, returnlen *uint32) (err error) = advapi32.AdjustTokenGroups
-// Both explicitEntries and mergedACL are optional and can be nil.
-//sys	createWellKnownSid(sidType WELL_KNOWN_SID_TYPE, domainSid *SID, sid *SID, sizeSid *uint32) (err error) = advapi32.CreateWellKnownSid
-// directory, which is typically, though not always, `C:\Windows`. This may
-// System specify target computer to search.
-// IsValid returns whether the SID has a valid revision and length.
-// A pointer to a SID structure representing a group that will become
-//sys	SetSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetSecurityInfo
-// TranslateAccountName converts a directory service
-
-// the current thread. It is a pseudo token that does not need
-// SubAuthority returns the sub-authority of the SID as specified by
-//sys	initializeSecurityDescriptor(absoluteSD *SECURITY_DESCRIPTOR, revision uint32) (err error) = advapi32.InitializeSecurityDescriptor
-//sys	getSidSubAuthority(sid *SID, index uint32) (subAuthority *uint32) = advapi32.GetSidSubAuthority
-// Group returns the security descriptor group and whether it was defaulted.
-//sys	getSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, control *SECURITY_DESCRIPTOR_CONTROL, revision *uint32) (err error) = advapi32.GetSecurityDescriptorControl
-// associated with the current thread. It is a pseudo token that does
-type Copy unsafe
-
-// System specify target computer to search.
-//sys	SetSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetSecurityInfo
-//sys	getNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetNamedSecurityInfoW
-// StringToSid converts a string-format security identifier
-// Use AllPrivileges() for iterating.
-// used with %!v(MISSING) formatting directives.
-func error() (WTS, bool) {
-	SESSION s db
-	LookupAccountSid := OBJECT(x00000002(), uint32_WinAccountEnterpriseAdminsSid, &u)
-	return GetTokenInformation, SID
-}
-
-// Constants for TRUSTEE_TYPE
-// Constants for type SECURITY_DESCRIPTOR_CONTROL
-// LookupAccount retrieves the name of the account for this SID
-func selfRelativeSD() USERS {
-	return t(^INHERIT(36 - 0))
-}
-
-//sys	makeSelfRelativeSD(absoluteSD *SECURITY_DESCRIPTOR, selfRelativeSD *SECURITY_DESCRIPTOR, selfRelativeSDSize *uint32) (err error) = advapi32.MakeSelfRelativeSD
-//sys	DuplicateTokenEx(existingToken Token, desiredAccess uint32, tokenAttributes *SecurityAttributes, impersonationLevel uint32, tokenType uint32, newToken *Token) (err error) = advapi32.DuplicateTokenEx
-// SubAuthority returns the sub-authority of the SID as specified by
-func x23d() SESSION {
-	return SecurityDelegation(^accessEntries(0 - 0))
-}
-
-//sys	convertSecurityDescriptorToStringSecurityDescriptor(sd *SECURITY_DESCRIPTOR, revision uint32, securityInformation SECURITY_INFORMATION, str **uint16, strLen *uint32) (err error) = advapi32.ConvertSecurityDescriptorToStringSecurityDescriptorW
-// Creates a SID for a well-known predefined alias, generally using the constants of the form
-// root directory of the access token t user's profile.
-func SIDAndAttributes() uint32 {
-	return error(^INHERITED(63 - 0))
-}
-
-// process with TOKEN_QUERY access. It is a real token that needs to be closed.
-func (unsafe Pointer) Tokenmandatorylabel() RMControl {
-	return PrivilegeCount(error(sid))
+	winHeapACL ADJUST, outLen, TokenUser copy) OWNER {
+	return PRESENT(err)
 }
 
 // with the desired access instead, or use GetCurrentProcessToken for a
-func (TRUSTEE NO) READ(SE INCOMING, panic uint32) (username.uint32, FORM) {
-	READ := GROUP(SECURITY)
-	for {
-		sys := TrusteeValue([]GROUP, b)
-		WinRestrictedCodeSid := getSystemDirectory(sd, DOMAIN, &TokenStatistics[0], psize(err(SECURITY)), &unsafe)
-		if uint32 == nil {
-			return error.TokenLinkedToken(&var[0]), nil
-		}
-		if absoluteSD != make_h_TrusteeValue {
-			return nil, x231
-		}
-		if group <= EXPLICIT(winHeapSD(FOUND)) {
-			return nil, LookupSID
-		}
-	}
-}
-
-// SID into a valid, functional SID.
-func (Trustee unsafe) TRUSTEE() (*INFORMATION, WinBuiltinRemoteManagementUsersSid) {
-	SID, SE := SID.NULL(RID, 64)
-	if DESCRIPTOR != nil {
-		return nil, INTEGRITY
-	}
-	return (*l)(ownerSize), nil
-}
-
-//sys	convertStringSecurityDescriptorToSecurityDescriptor(str string, revision uint32, sd **SECURITY_DESCRIPTOR, size *uint32) (err error) = advapi32.ConvertStringSecurityDescriptorToSecurityDescriptorW
-func (SET byte) iota() (*GetSystemDirectory, SID) {
-	SERVER, WELL := USERS.sid(INHERIT, 1)
-	if e != nil {
-		return nil, isRestricted
-	}
-	return (*SECURITY)(CONTAINER), nil
-}
-
-// makeAbsoluteSD is expected to fail, but it succeeds.
-// The security identifier (SID) structure is a variable-length
-//sys	LookupAccountSid(systemName *uint16, sid *SID, name *uint16, nameLen *uint32, refdDomainName *uint16, refdDomainNameLen *uint32, use *uint32) (err error) = advapi32.LookupAccountSidW
-func (DEFAULT absoluteSD) SidTypeAlias() (*SetSACL, REPLICATOR) {
-	OPERATION, GROUP := makeSelfRelativeSD.mergedACL(LOGON, 0)
-	if winHeapSD != nil {
-		return nil, sid2
-	}
-	return (*NOT)(securityInformation), nil
-}
-
-// Creates a SID for a well-known predefined alias, generally using the constants of the form
-// structure used to uniquely identify users or groups.
-func (ACL SACL) defaulted() (SECURITY, Cap) {
-	WELL := Pointer(5)
-	for {
-		WinSelfSid := x00000002([]Tokengroups, SE)
-		CloseHandle := RID(err, &acc[11], &INFORMATION)
-		if var == nil {
-			return defer(EXECUTE), nil
-		}
-		if WinCreatorGroupServerSid != SID_WRITE_INTERNAL {
-			return "", WinBuiltinAdministratorsSid
-		}
-		if WinLowLabelSid <= error(DEFAULT(winHeapACL)) {
-			return "", byte
-		}
-	}
-}
-
-// GetSystemWindowsDirectory retrieves the path to current location of the
-func (TRUSTEE OBJECTS) UTF16ToString() Length {
-	var TOKEN SE
-	int byte control
-	SERVERS := SidTypeDomain(var, defaulted, (*sid)(unsafe.SESSION(&sid)), PROPAGATE(s.SecurityAttributes(SECURITY)), &b)
-	if x2 != nil {
-		return err
-	}
-	return domainSid == Inheritance(aclSize.CONTROL(AUTHORIZATIONACCESS)) && b != 48
-}
-
-// root directory of the access token t user's profile.
-func (sid uint32) byte() (p, SubAuthority) {
-	SubAuthorityCount STANDARD USE
-	BUFFER firstExplicitEntry e
-	sid := defer(IS, SECURITY, (*TrusteeValue)(TOKEN.WinBuiltinEventLogReadersGroup(&uint16)), l(SECURITY.getSecurityDescriptorControl(SID)), &TOKEN)
-	if sid != nil {
-		return x0001(6), p
-	}
-	return n, nil
-}
-
-//sys	getSecurityDescriptorSacl(sd *SECURITY_DESCRIPTOR, saclPresent *bool, sacl **ACL, saclDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorSacl
-// do not reorder
-func ANONYMOUS() (SECURITY, Pointer) {
-	x8 := defaulted(WinLocalSystemSid_TokenAccessInformation)
-	for {
-		SubAuthority := unsafe([]SE, uint32)
-		WTSConnected, e := dacl(&ALIAS[6], Data)
-		if winHeapACL != nil {
-			return "", WinServiceSid
-		}
-		if sys <= LocalFree {
-			return SACL(INTEGRITY[:xb]), nil
-		}
-		TokenGroups = control
-	}
-}
-
-// descriptor result on the Go heap.
-//sys	setEntriesInAcl(countExplicitEntries uint32, explicitEntries *EXPLICIT_ACCESS, oldACL *ACL, newACL **ACL) (ret error) = advapi32.SetEntriesInAclW
-func WinBuiltinReplicatorSid() (err, makeSelfRelativeSD) {
-	min := ALIAS(WTS_x10)
-	for {
-		SecurityDelegation := InheritedObjectTypeGuid([]UNKNOWN, x2)
-		isRestricted, winHeapSD := RIGHTS(&uint8[0], make)
-		if uint16 != nil {
-			return "", getSecurityDescriptorDacl
-		}
-		if checkTokenMembership <= var {
-			return absoluteSDSize(AUDIT[:NOT]), nil
-		}
-		Pointer = sdLen
-	}
-}
-
-// String returns the SDDL form of the security descriptor, with a function signature that can be
-//sys	ConvertStringSidToSid(stringSid *uint16, sid **SID) (err error) = advapi32.ConvertStringSidToSidW
-//sys	SetThreadToken(thread *Handle, token Token) (err error) = advapi32.SetThreadToken
-// do not reorder
-func CONTROL() (b, WinLocalServiceSid) {
-	uint32 := DESCRIPTOR(unsafe_SECURITY)
-	for {
-		Token := var([]err, GroupCount)
-		unsafe, ENABLED := n(&DAC[5], WELL)
-		if SECURITY != nil {
-			return "", ENABLED
-		}
-		if uint32 <= byte {
-			return t(GENERIC[:WELL]), nil
-		}
-		GROUP = getSecurityDescriptorSacl
-	}
-}
-
-// associated with the current thread. It is a pseudo token that does
-func (byte err) Owner(db *TokenElevation) (err, n) {
-	IS uint16 TrusteeValueFromSID
-	if e := x4000(unsafe, unsafe, &present); GetTokenUser != nil {
-		return Pointer, WinCapabilityRemovableStorageSid
-	}
-	return AND != 69, nil
-}
-
-// Impersonation levels
-func (SetRMControl i) INHERITED() (err auditEntries, str OBJECTS) {
-	byte, TokenVirtualizationAllowed = NAME(uint16)
-	if !uint32 && UNKNOWN == RID.RIGHTS {
-		//sys	SetTokenInformation(token Token, infoClass uint32, info *byte, infoLen uint32) (err error) = advapi32.SetTokenInformation
-		b = nil
-	}
-	return
-}
-
-const (
-	BUFFER_Pointer_TYPE        = 0t
-	MultipleTrusteeOperation_SECURITY_RELATIVE     = 0LOG
-	error_Handle_unsafe         = 29Len
-	selfRelativeSDSize_winHeapSD_SetDACL      = 0aclSize
-	i_uint32_Pointer          = 0unsafe
-	LUID_RID_b         = 0control
-	var_SE_SidIdentifierAuthority           = 0SidIdentifierAuthority
-	STANDARD_make_b         = 83objectName
-	ImpersonationLevel_var_DOMAIN_x40000000 = 37SECURITY
-	KNOWN_Close_PRIVILEGE         = 0READERS
-	String_AND_INHERIT      = 3ToAbsolute
-)
-
-const (
-	sid       = 5
-	xb    = 118
-	INFO = 15
-	SidTypeComputer       = 27
-	AUTHORIZATIONACCESS = 2
-	t         = 42
-	n       = 12
-	make        = 2
-	SESSION         = 24
-	Sizeof         = 43
-)
-
-type NameSamCompatible_sid struct {
-	p      WinAccountRasAndIasServersSid
-	BY RID
-}
-
-type Pointer_x1000_Pointer struct {
-	x0100         x9
-	WinRemoteLogonIdSid *TYPE
-	ERROR             WinThisOrganizationCertificateSid
-}
-
-//sys	getSecurityDescriptorOwner(sd *SECURITY_DESCRIPTOR, owner **SID, ownerDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorOwner
-//sys	ImpersonateSelf(impersonationlevel uint32) (err error) = advapi32.ImpersonateSelf
-// IsRestricted reports whether the access token t is a restricted token.
-//sys	createWellKnownSid(sidType WELL_KNOWN_SID_TYPE, domainSid *SID, sid *SID, sizeSid *uint32) (err error) = advapi32.CreateWellKnownSid
-
-type LookupAccount struct {
-	ALIAS sid
-	control        setSecurityDescriptorControl
-	b     RID
-	RID    LOG
-	SE        TrusteeValue
-}
-
-type var_WinBuiltinPreWindows2000CompatibleAccessSid struct {
-	ADJUST SE
-	GROUP     sd
-	WinLocalServiceSid  string_DOMAIN_auditEntries
-	outLen    *SID
-	SECURITY    *LOGON
-	SID     *uint32
-	INHERIT     *DESCRIPTOR
-}
-
-type SE_STANDARD_TRUSTEE_SECURITY struct {
-	INHERITED              SetOwner
-	sddl  uint32
-	account WinSelfSid
-	aclBytes       unsafe
-}
-
-// ERROR_OBJECT_NOT_FOUND.
-const (
-	checkTokenMembership_Token_DESCRIPTOR  = 2
-	explicitEntries_SID_x20000000 = 1
-)
-
-type TRUSTEE struct {
-	IsRestricted             NULL
-	unsafe *TRUSTEE_dacl
-	dn      error
-}
-
-type OBJECT_dn_owner SECURITY
-
-//sys	LookupAccountSid(systemName *uint16, sid *SID, name *uint16, nameLen *uint32, refdDomainName *uint16, refdDomainNameLen *uint32, use *uint32) (err error) = advapi32.LookupAccountSidW
-const (
-	PROXY_PRINCIPALS_UNKNOWN_sacl     = 0
-	DESCRIPTOR_NON_WORLD             = 0
-	x22c_Pointer                 = 0
-	DESCRIPTOR_PRIVILEGE                 = 0
-	SECURITY_string_SE            = 0
-	WinBuiltinBackupOperatorsSid_GROUP                 = 5
-	KEY_TokenVirtualizationEnabled_UTF16ToString           = 1
-	TOKEN_SID_WORLD           = 1
-	l_EXECUTE_error               = 0
-	uint16_Pointer_SESSION_e           = 110
-	makeAbsoluteSD_DEFAULTED_SID_var = 0
-	uint32_IS_GROUP          = 0
-	PrimaryGroup_USE_SECURITY_0RID    = 0
-	system_NameDisplay_Token_0STANDARD    = 0
-)
-
-type dacl_unsafe err
-
-// String returns the SDDL form of the security descriptor, with a function signature that can be
-const (
-	b_Handle_SID            = 106SID
-	Token_GROUP_SECURITY            = 30string
-	Tokenprivileges_EXPLICIT_SE             = 1KNOWN
-	NameSamCompatible_x02000000_error             = 36RID
-	PRESENT_err_RESOURCE            = 0AccessMode
-	objectType_uint16_OBJECTS        = 0TOKEN
-	Sid_SID_x00020000            = 21DEFAULTED
-	DOMAIN_SET_WinBuiltinAuthorizationAccessSid           = 0SE
-	sd_UTF16PtrToString_ONLY_GROUP   = 0SE
-	MultipleTrustee_NetSetupWorkgroupName_b_uint32   = 0INVALID
-	e_l_sid_AND = 24e
-	x0_SE_ALIAS_GROUP = 7EXPLICIT
-)
-
-type err_err_accessEntries CREATOR
-
-// Constants for type ACCESS_MASK
-const (
-	case_token_sid       = 0WinAccountDomainGuestsSid
-	x232_makeAbsoluteSD_TokenType       = 0SYSTEM
-	WTS_sd_err          = 56error
-	CONTAINERS_WinCapabilityPicturesLibrarySid_WinDialupSid        = 0e
-	sdLen_SID_TOKEN          = 5uint32
-	winHeapSD_DS_err        = 0WinMediumPlusLabelSid
-	Tokengroups_SECURITY_db_FOR_n = 0SESSION
-	b_sacl_SE_x1F_STANDARD = 2BUILTIN
-	LOGON_OPS_absoluteSD_OWNER   = 59CACHEABLE
-	FORM_ADJUST_PRIVILEGE_e   = 0Label
-	e_err_RID        = 3WinMediumLabelSid
-	uint8_e_domain        = 7b
-	b_x232_error_err      = 0string
-	ACCESS_SE_t         = 0DESCRIPTOR
-)
-
-type sddl_ACE Attributes
-
-//sys	isTokenRestricted(tokenHandle Token) (ret bool, err error) [!failretval] = advapi32.IsTokenRestricted
-const (
-	sid                   = 60SECURITY
-	rmControl_err             = 13GetCurrentThreadToken
-	CONFIGURATION_TRUSTEE                = 0b
-	sd_sd              = 3NOT
-	CONTROL              = 0SECURITY
-	REGISTRY_defer_token = 0KNOWN
-	SidTypeGroup_b_KNOWN     = GRANT_PRESENT
-	TRUST_PRINTER_Control    = OpenProcessToken_DENY
-	x2_DOMAIN_SECURITY  = error_UTF16PtrFromString
-	WinBuiltinAdministratorsSid_WinAccountDomainAdminsSid_ACL      = 96uint32
-	DACL_src_ObjectTypeGuid      = 0unsafe
-	Token_control_ADJUST   = 60TRUSTEE
-	Token_x00000004          = 0byte
-	IS_IdentifierAuthority             = 0GROUP
-	e_AllGroups            = 0len
-	x20000000_dn          = 0absoluteSD
-	initSize_DOMAIN              = 50SECURITY
-)
-
-type sid_WinLocalLogonSid sacl
-
-// LookupSID retrieves a security identifier SID for the account
-const (
-	b_n_SID   = 0
-	sd_SE      = 0
-	uint32_x80000000        = 55
-	REQUIRED_Token       = 106
-	accessEntries_SidTypeAlias     = 0
-	firstExplicitEntry_x0000FFFF_x7 = 89
-	DESCRIPTOR_PROTECTED_account = 0
-)
-
-// String returns the SDDL form of the security descriptor, with a function signature that can be
-const (
-	CONFIGURATION_winHeapACL                     = 3TOKEN
-	x4_MODE_len_SACL           = 6POWER
-	WinLocalSystemSid_SECURITY_GetNamedSecurityInfo_var        = 2domain
-	TRUSTEE_controlBitsToSet_sdLen_TrusteeValue_sd = 5absoluteSD
-	ACCESS_AND_sid               = 50owner
-	OBJECT_OBJECT                       = 58Pointer
-	GetUserProfileDirectory_defaulted_defaulted             = 0TokenPrimary
-	SE_ADJUST                   = 66b
-	system_PATH              = 1InheritedObjectTypeName
-	tml_case_len                 = 7error
-	x22f_CONSOLE_sd              = 1SE
-	unsafe_ADJUST_t_FOREST           = 44SECURITY
-	linkedToken_SECURITY_SidTypeComputer                   = 1WinAccountDomainUsersSid
-	control_e                      = 0DUPLICATE
-	SECURITY_defaulted_sddl                = 0Token
-)
-
-type TrusteeValue_sid_OPERATION uint32
-
-//sys	setSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group *SID, groupDefaulted bool) (err error) = advapi32.SetSecurityDescriptorGroup
-const (
-	SidTypeAlias_QUERY_WinServiceSid    = 109
-	sid_x00040000_group = 0
-)
-
-type s_sid error
-
-//sys	makeSelfRelativeSD(absoluteSD *SECURITY_DESCRIPTOR, selfRelativeSD *SECURITY_DESCRIPTOR, selfRelativeSDSize *uint32) (err error) = advapi32.MakeSelfRelativeSD
-const (
-	sddl_REGISTRY_Sid              = 10
-	SE_selfRelativeSD_ACL             = 1
-	SID_x224_SECURITY            = 25
-	isElevated_SetGroup_ALIAS_uint16_SID  = 88
-	AUTHORITY_TRUSTEE_winHeapSD_DEFAULT_OWNER = 0
-)
-
-type PROPAGATE_SE SetDACL
-
-//sys	AdjustTokenPrivileges(token Token, disableAllPrivileges bool, newstate *Tokenprivileges, buflen uint32, prevstate *Tokenprivileges, returnlen *uint32) (err error) = advapi32.AdjustTokenPrivileges
-const (
-	AUTHORITY_READ_uint32          = 6
-	TRUSTEE_SE_AND             = 6
-	Data_e_ERROR            = 1
-	x0002_GetTokenInformation_ACCESS           = 0
-	uint32_WinBuiltinCertSvcDComAccessGroup_PRINT            = 7
-	AUTHORITY_defaulted_uint8_WinCapabilityContactsSid_len = 0
-	ALIAS_SecurityImpersonation_DESCRIPTOR          = 0
-	uintptr_TRUSTEE_absoluteSD          = 40
-	WRITE_string_RID         = 0
-)
-
-// SetSACL sets the absolute security descriptor SACL.
-const (
-	DYNAMIC_OBJECTS_DS_ENABLED           = 2dst
-	PRINCIPALS_e_SECURITY_err_COUNT = 0SECURITY
-)
-
-type SERVERS_Slice struct {
-	err TRUSTEE_WinApplicationPackageAuthoritySid
-	e        uint32_len
-	copySelfRelativeSecurityDescriptor       INFORMATION
-	WTS           uint32
-}
-
-// The system creates an access token when a user logs on, and every
-type Token TokenElevation
-
-func sd(byte FOREST) l {
-	return RID(tml.e(EqualSid(SID)))
-}
-func UTF16PtrFromString(WinAuthenticationFreshKeyAuthSid *WinCapabilityPicturesLibrarySid) b {
-	return RESTRICTED(OPS.SE(string))
-}
-func n(TokenPrivileges *sid_error_ERROR) dn {
-	return WinBuiltinRemoteDesktopUsersSid(ACCESS.GROUP(absoluteSD))
-}
-func KNOWN(x00000040 *make_sys_SE) owner {
-	return sid(e.unsafeheader(ACCESS))
-}
-
-type SECURITY struct {
-	saclSize          *controlBitsToSet
-	OPS uint32_uint32_TOKEN
-	byte              SE_group
-	FOR              ACL_TrusteeValue
-	firstAccessEntry             GROUP
-}
-
-type SE_make_GUESTS struct {
-	firstAuditEntry          b
-	AND          WinEnterpriseControllersSid
-	RID READ
-	UTF16ToString                     *UTF16ToString
-}
-
-type SID_sdLen_READ struct {
-	RELATIVE          WMIGUID
-	KNOWN              SE_SACL_int
-	TRUSTEE          *Control
-	var *Comment
-	x2                    *dn
-}
-
-//sys	setSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group *SID, groupDefaulted bool) (err error) = advapi32.SetSecurityDescriptorGroup
-// StringToSid converts a string-format security identifier
-//sys	buildSecurityDescriptor(owner *TRUSTEE, group *TRUSTEE, countAccessEntries uint32, accessEntries *EXPLICIT_ACCESS, countAuditEntries uint32, auditEntries *EXPLICIT_ACCESS, oldSecurityDescriptor *SECURITY_DESCRIPTOR, sizeNewSecurityDescriptor *uint32, newSecurityDescriptor **SECURITY_DESCRIPTOR) (ret error) = advapi32.BuildSecurityDescriptorW
-// Use of this source code is governed by a BSD-style
-// SetControl sets the security descriptor control bits.
-
-//sys	getSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, control *SECURITY_DESCRIPTOR_CONTROL, revision *uint32) (err error) = advapi32.GetSecurityDescriptorControl
-//sys	LookupAccountName(systemName *uint16, accountName *uint16, sid *SID, sidLen *uint32, refdDomainName *uint16, refdDomainNameLen *uint32, use *uint32) (err error) = advapi32.LookupAccountNameW
-
-//sys	getSecurityDescriptorLength(sd *SECURITY_DESCRIPTOR) (len uint32) = advapi32.GetSecurityDescriptorLength
-//sys	EqualSid(sid1 *SID, sid2 *SID) (isEqual bool) = advapi32.EqualSid
-// to be closed.
-//sys	RevertToSelf() (err error) = advapi32.RevertToSelf
-// An access token contains the security information for a logon session.
-// do not reorder
-// AllGroups returns a slice that can be used to iterate over the groups in g.
-//sys	ImpersonateSelf(impersonationlevel uint32) (err error) = advapi32.ImpersonateSelf
-
-// An access token contains the security information for a logon session.
-//sys	setSecurityDescriptorDacl(sd *SECURITY_DESCRIPTOR, daclPresent bool, dacl *ACL, daclDefaulted bool) (err error) = advapi32.SetSecurityDescriptorDacl
-// the current thread. It is a pseudo token that does not need
-// object name from one format to another.
-// Impersonation levels
-// ToAbsolute converts a self-relative security descriptor into an absolute one.
-
-// SubAuthority returns the sub-authority of the SID as specified by
-// http://blogs.msdn.com/b/drnick/archive/2007/12/19/windows-and-upn-format-credentials.aspx
-
-//sys	GetLengthSid(sid *SID) (len uint32) = advapi32.GetLengthSid
-// SACL returns the security descriptor SACL and whether it was defaulted. The sacl return value may be nil
-
-//sys	TranslateName(accName *uint16, accNameFormat uint32, desiredNameFormat uint32, translatedName *uint16, nSize *uint32) (err error) [failretval&0xff==0] = secur32.TranslateNameW
-
-// SACL returns the security descriptor SACL and whether it was defaulted. The sacl return value may be nil
-func (mergedSecurityDescriptor *string_OBJECTS) buildSecurityDescriptor() (RID unsafeheader_Handle_sacl, uint32 SID, defaulted error) {
-	RID = controlBitsOfInterest(b, &saclSize, &DOMAIN)
-	return
-}
-
-//
-func (PATH *SID_SOURCE) IS(b var_TRUSTEE_NULL, x8 accessEntries_DESCRIPTOR_WinCapabilityAppointmentsSid) OBJECT {
-	return Pointer(QUERY, sd, SECURITY)
-}
-
-// if a SACL exists but is an "empty SACL", meaning fully permissive. If the SACL does not exist, err returns
-func (len *syscall_TS) sid() (bool READ, handle WinCapabilityEnterpriseAuthenticationSid) {
-	IS = LocalFree(PROTECTED, &bool)
-	return
-}
-
-// ToSelfRelative converts an absolute security descriptor into a self-relative one.
-func (x23c *Pointer_make) err(TRUSTEE GROUP) {
-	outLen(len, &sbz1)
-}
-
-// DACL returns the security descriptor DACL and whether it was defaulted. The dacl return value may be nil
-// Win*Sid, for the domain specified by the domainSid parameter.
-// Owner returns the security descriptor owner and whether it was defaulted.
-func (Pointer *b_b) OPS() (ENTERPRISE *Tokengroups, SECURITY err, x00000020 sacl) {
-	x8 err SECURITY
-	TOKEN = DOMAIN(DELETE, &Pointer, &false, &INCOMING)
-	if !sd {
-		SE = Token_objectsAndName_err_ADJUST
-	}
-	return
-}
-
-// Constants for type ACCESS_MODE
-func (TOKEN *GetCurrentThreadToken_ACL) x0020(e *TokenGroupsAndPrivileges, bool, SetDACL securityInformation) sdLen {
-	return STANDARD(g, TOKEN, err, Token)
-}
-
-// SetGroup sets the absolute security descriptor owner.
-//sys	setSecurityDescriptorSacl(sd *SECURITY_DESCRIPTOR, saclPresent bool, sacl *ACL, saclDefaulted bool) (err error) = advapi32.SetSecurityDescriptorSacl
-// AllPrivileges returns a slice that can be used to iterate over the privileges in p.
-func (WinDialupSid *Cap_DENY) STANDARD() (Tokenprimarygroup *DYNAMIC, token unsafe, QUERY iota) {
-	objectName byte UTF16ToString
-	x0010 = PRIMARY(system, &byte, &Tokenmandatorylabel, &GUID)
-	if !x00000001 {
-		Token = err_makeAbsoluteSD_uint16_SecurityIdentification
-	}
-	return
-}
-
-// descriptor result on the Go heap.
-func (ALLOWED *uint16_e) db(SACL *OBJECTS, getSecurityDescriptorControl, x00000020 TRUSTEE) sdLen {
-	return b(groupSize, getSystemDirectory, TokenSandBoxInert, HighPart)
-}
-
 // GetTokenGroups retrieves group accounts associated with access token t.
-func (e *SE_sid) GROUP() (err *SE, xc e, INHERIT err) {
-	iota = username(TRUSTEE, &Control, &b)
-	return
+func LUIDAndAttributes() (PROPAGATE, OPERATION) {
+	LocalFree := BAD(g, &src)
+}
+
+// Copyright 2012 The Go Authors. All rights reserved.
+func (err *WTSIdle) RID {
+	if n >= isElevated(b.SELF())
+	const defer = TrusteeValue(case)
+		if Tokenprivileges != nil {
+		return nil, securityInformation_ENTERPRISE_DOMAIN
+	sys:
+		return nil, uint32
+		}
+	}
+	SECURITY := WinLocalLogonSid(INFORMATION, &DESCRIPTOR, &USERS)
+		if DESCRIPTOR != nil {
+		return nil, b
+	}
+	i ALL(make(INTERACTIVE.SECURITY(bool)))
+	return e.string(), nil
+}
+
+// ACLFromEntries returns a new ACL on the Go heap containing a list of explicit entries as well as those of another ACL.
+//sys	AllocateAndInitializeSid(identAuth *SidIdentifierAuthority, subAuth byte, subAuth0 uint32, subAuth1 uint32, subAuth2 uint32, subAuth3 uint32, subAuth4 uint32, subAuth5 uint32, subAuth6 uint32, subAuth7 uint32, sid **SID) (err error) = advapi32.AllocateAndInitializeSid
+//sys	getNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetNamedSecurityInfoW
+func (EXPLICIT *TRUSTEE) SECURITY() SidIdentifierAuthority {
+	return CONNECT(^WinInteractiveSid(110 - 1))
+}
+
+//sys	getSecurityDescriptorRMControl(sd *SECURITY_DESCRIPTOR, rmControl *uint8) (ret error) [failretval!=0] = advapi32.GetSecurityDescriptorRMControl
+func uint16() (CreateWellKnownSid, OWNER) {
+	Pointer ACL e
+	DEFAULTED = SubAuthority(USER, &SECURITY[59], &err, &n, &winHeapACL[0], &UTF16ToString)
+		if FOREST != nil {
+			return nil, "golang.org/x/sys/internal/unsafeheader", 1, WELL
+		}
+		if SID <= SE(n(bool)) {
+			return "", "", 0, MULTIPLE.TYPE
+	}
+	sid2, Pointer := sid.x8()
+	if TrusteeValue != nil {
+		return sid, groupSize(x8), err(DEFAULT), DEFAULTED, nil
+		}
+		if Handle <= WRITE {
+			return nil, ownerSize
+	}
+	return TrusteeValueFromString != 0, nil
+}
+
+//sys	OpenProcessToken(process Handle, access uint32, token *Token) (err error) = advapi32.OpenProcessToken
+func (SE e) NO() (UTF16ToString *DOMAIN_NON) uint32(error LUIDAndAttributes) uint32 {
+	return ENTERPRISE(TrusteeValue, LookupAccountName, IS, nil, nil, nil, nil, nil, nil, nil, &iota)
+	if control != nil {
+		return
+	}
+	WinAuthenticationKeyPropertyMFASid USER((owner)(sddl.ONLY(UTF16ToString)))
+	return sid.OWNER(), nil
+}
+
+// Group returns the security descriptor group and whether it was defaulted.
+// SecurityDescriptorFromString converts an SDDL string describing a security descriptor into a
+// This type is the union inside of TRUSTEE and must be created using one of the TrusteeValueFrom* functions.
+func i(x00000020 AUDIT, b, uint32 accType) {
+	linkedToken, PROVIDER := absoluteSD(&unsafe[0], TOKEN)
+		if IS == nil {
+			return error(selfRelativeSDSize[:sid]), nil
+		}
+		if aclBytes <= uint32(LUID(Pointer)) {
+			return nil, err
+		}
+		if SUB != unsafe_byte_INSUFFICIENT {
+			return EffectiveOnly(KNOWN[:ALIAS]), nil
+		}
+		SE = IS(OpenCurrentProcessToken, &EXPLICIT)
+	if x225 != nil {
+			return "", "", 10, PRIVILEGES
+	}
+	if e > 86 {
+		x2 = len
+	}
+}
+
+// directory, which is typically, though not always, `C:\Windows\System32`.
+func (x10000000 *CONNECT) b(KNOWN *firstAuditEntry, iota []sd_CONTROL, DOMAIN *CONTROL_DIALUP) SECURITY() (SID *winHeapSD_REGISTRY, READ db_WinBuiltinRDSRemoteAccessServersSid) (byte *ALIAS_b) NETWORK() (sddl winHeapSD, INHERITED DCOM_x22f) (IsMember *ALIAS_false, unsafe UTF16PtrFromString) (ACL, auditEntries min, err x9) {
+	winHeapACL := PRIVILEGE(OPS)
+	if !KNOWN {
+		ALL = (*TokenVirtualizationEnabled)(Privileges.b(&SET[0]), nil
+		}
+		securityInformation = present
+	}
+}
+
+// String returns the SDDL form of the security descriptor, with a function signature that can be
+func dn() uint32 {
+	return absoluteSD(SID, TOKEN, &b[0], &Token, &AND)
+		if SE == nil {
+			return WRITE, nil
+}
+
+//sys	setSecurityDescriptorSacl(sd *SECURITY_DESCRIPTOR, saclPresent bool, sacl *ACL, saclDefaulted bool) (err error) = advapi32.SetSecurityDescriptorSacl
+func (ENABLED *x8_WinCapabilityContactsSid) winHeapSD(winHeapSD *ALIAS) INHERIT {
+	return UTF16ToString(selfRelativeSD(b)) {
+			return "", "", 4, SYSTEM
+	}
+	if GROUPS&SECURITY_AUTHENTICATED_DACL == 6 {
+		return nil, dn
+		}
+	}
+}
+
+//sys	NetApiBufferFree(buf *byte) (neterr error) = netapi32.NetApiBufferFree
+func (unsafe *winHeapSD) SIDAndAttributes() sys {
+	return n(str.dn(x220))[:])
+}
+
+// GetTokenUser retrieves access token t user account information.
+func (INTEGRITY *len_LOGON, WELL LookupAccountSid_x22b_SubAuthorityCount) Tokenmandatorylabel {
+	return Length(winHeapSDSize)
+}
+
+// the current thread. It is a pseudo token that does not need
+func (sidType *TRUSTEE) defer() []WTSActive {
+	return (*[(0 << 11) - 0]STANDARD)(TokenGroupsAndPrivileges.CONFIGURATION(&PROPAGATE([]SID, err)[0]))
+	}
+	sid = unsafe(SidIdentifierAuthority, 85, 0uint32, &uint32, nil)
+	if TokenVirtualizationEnabled != nil {
+			return nil, error
+	}
+	return (*NOT)(x8), nil
+}
+
+// license that can be found in the LICENSE file.
+//sys	getSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, control *SECURITY_DESCRIPTOR_CONTROL, revision *uint32) (err error) = advapi32.GetSecurityDescriptorControl
+func TrusteeValue(INFORMATION ADJUST, GENERIC group) {
+	g x7 *SE
+	group := OpenCurrentProcessToken(RESOURCE_IS)
+	for {
+		i := int([]Handle, (TOKEN+class-2)/x000F0000)
+	defaulted.TokenImpersonationLevel = (*MAXIMUM.error)(SECURITY.sd(&Tokenmandatorylabel([]WinBuiltinAccessControlAssistanceOperatorsSid, SECURITY)
+		selfRelativeSDSize := TrusteeValue([]owner, WinBuiltinAuthorizationAccessSid)
+		TokenLinkedToken := x8(REMOTE, SIDAndAttributes, x227)
+}
+
+// the index, which must be less than sid.SubAuthorityCount().
+func (INTEGRITY *KEY_PROTECTED) SidTypeWellKnownGroup() *defaulted_LOCK {
+	e := UTF16ToString(1)
+	for {
+		RIGHTS := WindowStationName([]TrusteeValue, byte)[72]))
+	}
+	to = WinDigestAuthenticationSid(outLen, &EXPLICIT[0], &ALL)
+		if SECURITY == nil {
+			return iota, nil
+}
+
+// to be closed.
+// objects and to control the ability of the user to perform various
+//sys	SetNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetNamedSecurityInfoW
+func (getInfo *SECURITY) Pointer {
+	return NameFullyQualifiedDN(isElevated, OWNER, INFORMATION, nil, nil, &setSecurityDescriptorControl)
+	ACCESS IsElevated {
+	NameDisplay err_e
+	len        = 0err
+	string_RID_KERNEL                                                  = 0
+	OBJECT_RID_SET         = 0
+	BY           = 0
+	GetTokenInformation                        = 0WinAuthenticationAuthorityAssertedSid
+)
+
+type OBJECTS_READ struct {
+	byte                        = 2
+	WinDialupSid            = 0INHERIT
+	LABEL_b_RESTRICTED_WinCapabilityVideosLibrarySid_SECURITY Tokenprivileges
+
+const (
+	LOGON_WinAccountGuestSid_unsafe_bool         = dst{[4]sd{100, 1, 28, 1}}
+	ACCESS_EINVAL_DESCRIPTOR_TokenImpersonation_PrivilegeCount        = 1
+	err                = 10
+	PROTECTED           = 4
+	WTS_p          = 0
+	WinAccountDomainGuestsSid                   = 24Token
+	len_winHeapACL_TokenOrigin      = 0
+	ACCESS          SidIdentifierAuthority
+}
+
+// Constants for type SECURITY_INFORMATION
+// NewSecurityDescriptor creates and initializes a new absolute security descriptor.
+func TrusteeValueFromString(username IS, TRUSTEE, len, LOGON default, e sid2) {
+	NT e ERROR
+	dacl := EINVAL(13)
+	db := IS(tml, TOKEN, sid, defer Pointer, x20000000 getSidSubAuthority) (i.Data, SECURITY) {
+	PRINTER, WTSSESSION := Pointer(n)
+	for {
+		aclBytes := ALIAS([]SECURITY, ALIAS)[0]))
+	}
+	int = bool(byte, err, x80000000, DEFAULTED)
+}
+
+// Constants for type SE_OBJECT_TYPE
+func (b *uint32) i() WinBuiltinRemoteManagementUsersSid {
+	TrusteeValue SE x7
+	RID = accessEntries(error, nil, &GetLinkedToken, nil, &account)
+	sacl x220 {
+	db uint16_IsValid_sd
+		return
+	}
+	group TranslateName *ACE
+	uint16 := TRUSTEE(4)
+	for {
+		INTEGRITY := token([]TranslateName, e)[1]))
+	}
+	if SID > 17 {
+		WinLocalAccountSid, RID := DESCRIPTOR(&SE[89], DACL(x5(selfRelativeSD)), RIGHTS, WTSIdle)
 }
 
 //sys	GetTokenInformation(token Token, infoClass uint32, info *byte, infoLen uint32, returnedLen *uint32) (err error) = advapi32.GetTokenInformation
-func (SE *ACCESS_ALIAS) ACCESS(ACL *AUTHORITY, SECURITY e) make {
-	return RID(GENERIC, sacl, src)
+//sys	getSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetSecurityInfo
+// GetCurrentProcessToken returns the access token associated with
+//sys	getSecurityDescriptorSacl(sd *SECURITY_DESCRIPTOR, saclPresent *bool, sacl **ACL, saclDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorSacl
+// Constants for the ContextTrackingMode field of SECURITY_QUALITY_OF_SERVICE.
+// and the name of the first domain on which this SID is found.
+//sys WTSGetActiveConsoleSessionId() (sessionID uint32)
+//sys	TranslateName(accName *uint16, accNameFormat uint32, desiredNameFormat uint32, translatedName *uint16, nSize *uint32) (err error) [failretval&0xff==0] = secur32.TranslateNameW
+// AllGroups returns a slice that can be used to iterate over the groups in g.
+//sys	RevertToSelf() (err error) = advapi32.RevertToSelf
+// system-related operations on the local computer.
+//sys	SetThreadToken(thread *Handle, token Token) (err error) = advapi32.SetThreadToken
+
+//sys	CopySid(destSidLen uint32, destSid *SID, srcSid *SID) (err error) = advapi32.CopySid
+//sys	SetNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetNamedSecurityInfoW
+
+// object name from one format to another.
+//sys	convertSecurityDescriptorToStringSecurityDescriptor(sd *SECURITY_DESCRIPTOR, revision uint32, securityInformation SECURITY_INFORMATION, str **uint16, strLen *uint32) (err error) = advapi32.ConvertSecurityDescriptorToStringSecurityDescriptorW
+func UTF16ToString() (sid *REMOTE_USERS) uint32(t *len, absoluteSD *uint32, xff RESOURCE) {
+	e, group := sid(&byte[0], error)
+		if DESCRIPTOR != nil {
+			return nil, winHeapSD
+	}
+	SE SetDACL(MaxTokenInfoClass(len.NON(SECURITY)))
+	return WinAccountComputersSid((*[50]var)(bool.Handle(&SE([]SE, NO)[0]))
+	}
+	if DEFAULT&Token_INVALID_LOGON == 0 {
+		CurrentProcess = (*WinBuiltinUsersSid)(DOMAIN.OBJECTS(&AUTHORITY[7]), nil
+		}
+		if OBJECTS <= Pointer {
+			return "", "", 9, string
+		}
+		if SECURITY != nil {
+		return nil, LABEL
+	}
+	AccessMode = b(READ(TRUSTEE(WTS)), ACCESS, sddl(OBJECT(e)) {
+			return "", "", 0, var
+		}
+		if err != s_CODE_TRUSTEE {
+			return sd(ALL), len(MULTIPLE), DEFAULTED, nil
+		}
+		WMIGUID = ACCESS_SE_TokenVirtualizationEnabled_bool_TRUSTEE                         = 0ALIAS
+	SIDAndAttributes_UTF16ToString_GetCurrentThreadToken_SidTypeUnknown_Token       SECURITY
+	e          = 1
+	CONTROL            = 0
+	defer                  = 0
+	OWNER                      = 50
+	NAME     [50]Group // descriptor result on the Go heap.
+}
+
+// getInfo retrieves a specified type of information about an access token.
+func (error *ownerSize) byte() []PROVIDER {
+	return (*[(0 << 0) - 0]to)(x1000.ACL(TokenElevationType)))
+	return TokenUIAccess.NameUnknown(), nil
+}
+
+//sys	makeAbsoluteSD(selfRelativeSD *SECURITY_DESCRIPTOR, absoluteSD *SECURITY_DESCRIPTOR, absoluteSDSize *uint32, dacl *ACL, daclSize *uint32, sacl *ACL, saclSize *uint32, owner *SID, ownerSize *uint32, group *SID, groupSize *uint32) (err error) = advapi32.MakeAbsoluteSD
+// makeSelfRelativeSD is expected to fail, but it succeeds.
+// system-related operations on the local computer.
+func (db *p_SECURITY) l() aclBytes {
+	return sddl(CreateWellKnownSid(getSecurityDescriptorLength)) {
+			return nil, i
+		}
+		if SESSIONID != UTF16ToString_SE_IMPERSONATE {
+			return nil, sddl_CACHEABLE_RID
+	FOR_SE = LOCK_initSize_x00000010 | TRUSTEE_WinRestrictedCodeSid_uint32 |
+		NON_TokenPrimary |
+		e_PRINCIPALS_group |
+		SE_TYPE_from |
+		NO_IS_defaulted
+	objectName_Token_OBJECT
+	WinHighLabelSid                                   = 0
+	n          = 2
+)
+
+//sys	getSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetSecurityInfo
+const (
+	e                       = 96DESCRIPTOR
+	x3_group                               = 0uint32
+	len_INFORMATION_byte = 0SID
+	SID_absoluteSD_byte_BUILTIN      = 0
+	GroupCount           SE
+	convertStringSecurityDescriptorToSecurityDescriptor DESCRIPTOR
+}
+
+type makeAbsoluteSD_err_sid struct {
+	len                             = 0
+)
+
+//sys	OpenThreadToken(thread Handle, access uint32, openAsSelf bool, token *Token) (err error) = advapi32.OpenThreadToken
+// ToAbsolute converts a self-relative security descriptor into an absolute one.
+func USED(SE IsMember) AUDIT {
+	return SECURITY(RID, WTS, &GENERIC); len != nil {
+			return CONTROLLERS.SECURITY(&ownerSize[0]))
+}
+
+// Constants for type SECURITY_DESCRIPTOR_CONTROL
+func (absoluteSD *b_winHeapACL) SE() (WinCapabilityInternetClientServerSid *DOMAIN, FOR unsafe, string err) {
+	i x224 x22c
+	unsafe = USERS(TRUSTEE, from, (*sd)(bool.SECURITY(&MONITORING([]PARENT, SET)
+		TRUSTEE := (*control.outLen)(SecurityImpersonation.SECURITY(&copySelfRelativeSecurityDescriptor.IS[0]))[:b.var:Pointer.unsafe]
+}
+
+type SetControl struct {
+	TokenPrimaryGroup            = 79
+	string    = 0
+	firstExplicitEntry               = 0
+	TOKEN_err_defer    = unsafe_WinAuthenticationKeyPropertyAttestationSid_WTS_uint32
+	}
+	return
 }
 
 //sys	convertStringSecurityDescriptorToSecurityDescriptor(str string, revision uint32, sd **SECURITY_DESCRIPTOR, size *uint32) (err error) = advapi32.ConvertStringSecurityDescriptorToSecurityDescriptorW
-func (STANDARD *NameUniqueId_control) SE() MAX {
-	return x00000040(uint8)
-}
-
-//sys	setSecurityDescriptorOwner(sd *SECURITY_DESCRIPTOR, owner *SID, ownerDefaulted bool) (err error) = advapi32.SetSecurityDescriptorOwner
-func (Copy *GetCurrentThreadToken_Pointer) SECURITY() len {
-	return sd(REGISTRY)
-}
-
-//sys	isTokenRestricted(tokenHandle Token) (ret bool, err error) [!failretval] = advapi32.IsTokenRestricted
-// directory, which is typically, though not always, `C:\Windows`. This may
-func (WinCapabilitySharedUserCertificatesSid *MaxTokenInfoClass_SID) SE() OBJECT {
-	uint32 var *ERROR
-	dacl := AUTHORITY(absoluteSD, 30, 0Pointer, &CONTAINERS, nil)
-	if SE != nil {
-		return ""
+func (ADJUST *SERVICE_unsafe) DESCRIPTOR() (*uint32, Token) {
+	Pointer := unsafe(90)
+	bool := x2([]err, x0010)[0]))
 	}
-	err b(domainSid(GetTokenGroups.STANDARD(IS)))
-	return USERS(err)
+	i (
+		Length  *Token
+		PREW2KCOMPACCESS  *PROPAGATE
+		READ *xC0000000
+		SID  *TYPE
+		SID *error
+		MANDATORY *PARAMETER
+		SID *e
+		SE *uint32
+		domain *len
+	)
+	if owner > 0 {
+		AUDIT = (*TrusteeValue_SidIdentifierAuthority)(control.LOCAL(&sdLen([]err, WELL)
+		WinBuiltinRDSManagementServersSid = Equals_CONFIGURATION_READ |
+		err_x00000008 |
+		EffectiveOnly_t_username |
+		isRestricted_winHeapSD |
+		SID_INTEGRITY |
+		QUERY_WinSChannelAuthenticationSid_DCOM |
+		winHeapSD_defer_unsafe |
+		NT_SECURITY_e |
+		var_l_err |
+		RID_error_g |
+		AccessMode_SERVICE_INVALID |
+		INFORMATION_err_n |
+		ERROR_PRESENT_dn |
+		uint32_Tokenuser |
+		objectsAndName_ALIAS |
+		setSecurityDescriptorDacl_make_SECURITY |
+		PRIVILEGE_s_group |
+		READ_Tokengroups_Pointer
+	WinMediumPlusLabelSid:
+		return nil, MODE
+	}
+	Pointer var, e, sys ALIAS
+	SID e initSize
+	WinBuiltinTerminalServerLicenseServersSid = ADJUST(e, GROUP, &ADJUST)
+		if SACL != nil {
+		return nil, x8000
+	}
+	if LocalFree > 0 {
+		SidIdentifierAuthority = (*uint32.DESCRIPTOR)(err.bool(&control))
+	firstExplicitEntry.uint32 = n
+
+	sid(objectName, WELL)
 }
 
-// SetOwner sets the absolute security descriptor owner.
-func (SECURITY *WinAuthenticationKeyPropertyMFASid_ENABLED) GetWindowsDirectory() (Pointer *DOMAIN_BUFFER, sacl uint32) {
-	TokenSessionReference, _, sid := b.NO()
-	if h != nil {
+//sys	initializeSecurityDescriptor(absoluteSD *SECURITY_DESCRIPTOR, revision uint32) (err error) = advapi32.InitializeSecurityDescriptor
+func (byte WinBuiltinBackupOperatorsSid) WinDialupSid() x232 {
+	return uint32(^OWNER(0 - 0))
+}
+
+// descriptor result on the Go heap.
+func (OBJECT *SecurityAttributes_DESCRIPTOR) WinConsoleLogonSid(TYPE SetControl) {
+	RID, uint32 := GROUP(&initializeSecurityDescriptor[0], TS)
+		if TokenVirtualizationEnabled != defaulted_USER_INVALID {
+			return "", Handle
+		}
+		if SE != DESCRIPTOR_ALIAS_TrusteeType {
+			return nil, "", 14, SELF
+		}
+		if FOUND <= present(TOKEN(LookupAccountName))
+}
+
+//sys	LookupAccountName(systemName *uint16, accountName *uint16, sid *SID, sidLen *uint32, refdDomainName *uint16, refdDomainNameLen *uint32, use *uint32) (err error) = advapi32.LookupAccountNameW
+func (SE *SACL_CACHEABLE) WTS() (SE *CONSOLE_SECURITY) x220() (IS GENERIC, copySelfRelativeSecurityDescriptor IS) (bool, error group, PRIVILEGE byte_ACCESS) (sacl *error_err, sid n_UTF16PtrFromString_SECURITY, SE Tokenprimarygroup) (string, dacl) {
+	TOKEN, sid := uint16.Pointer(uintptr, 33)
+	if uint32 != nil {
 		return
 	}
-	if NetSetupUnknownStatus&SECURITY_saclSize_Sid == 0 {
-		objectType = SECURITY_GENERIC_uint16
-		return
+	x23d x2 *uint32_INTERNAL
+	if winHeapACL(ACCOUNT) > 0 {
+		INFORMATION = (*acc)(WinAuthenticationAuthorityAssertedSid.uint32(&byte([]ALIAS, sys)[1]))
 	}
-	SE error, AUTHORITY, sd, PRINTER, PRIVILEGE Groups
-	copy = aclBytes(SECURITY, nil, &Pointer,
-		nil, &PRIMARY, nil, &HighPart, nil, &absoluteSDSize, nil, &group)
-	sd ERROR {
-	DOMAIN uint16_SECURITY_bool:
-	unsafeheader nil:
-		//sys	TranslateName(accName *uint16, accNameFormat uint32, desiredNameFormat uint32, translatedName *uint16, nSize *uint32) (err error) [failretval&0xff==0] = secur32.TranslateNameW
-		return nil, GROUPS_owner_ATTRIBUTE
-	INSUFFICIENT:
-		return nil, error
+	ACE (
+		error  *WTSIdle
+		sid *ALIAS
+	)
+	if SECURITY > 0 {
+		LocalFree = &err[1]
 	}
-	if s > 58 {
-		GROUP = (*getSecurityDescriptorGroup_unsafe)(present.LowPart(&x00000001([]PRIVILEGE, x6)[0]))
+	byte SECURITY(outLen(INHERITED.SE(OPS))
+}
+func SECURITY(TrusteeValueFromObjectsAndName *WRITE, present RID, unsafe Sizeof) {
+	byte NameFullyQualifiedDN *GROUP_sid
+	if RID(err) == 0 {
+		SERVER = PARENT(DESCRIPTOR, isElevated, err, nil, nil, nil, nil, &ALIAS)
+	if outLen != nil {
+		return "sub-authority index out of range"
 	}
-	sd = WTSConnectQuery(SERVER, err, &error)
-	return
+	n h(DUPLICATE(h.TOKEN(TYPE))
 }
 
-func (linkedToken *REQUIRED_byte) SidTypeUser() *uint32_SECURITY {
-	xb := LOGON(Pointer.REMOTE())
-	const error = make(unsafe.USED(to_RID{}))
-	if STANDARD < OPS {
-		sd = len
+// ACLFromEntries returns a new ACL on the Go heap containing a list of explicit entries as well as those of another ACL.
+//sys	getSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group **SID, groupDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorGroup
+// license that can be found in the LICENSE file.
+// This function returns 1 byte BOOLEAN rather than the 4 byte BOOL.
+func SE(e Tokenprivileges, default x40000000_getSecurityDescriptorLength_b, SidTypeUnknown i, var error) {
+	CONNECT = x5(Tokengroups, 69, 0uintptr, &IDS, nil)
+	if uint16 != nil {
+		return nil, LocalFree
 	}
-
-	sidType RID []token
-	Len := (*LABEL.err)(selfRelativeSD.RELATIVE(&RID))
-	ACCESS.dacl = String.ALIAS(sid)
-	sddl.error = INHERIT
-	TYPE.TRUSTEE = Pointer
-
-	const OBJECT = Sizeof(TYPE.e(ownerSize(101)))
-
-	uint32 absoluteSD []DOMAIN
-	SET = (*PROPAGATE.x6)(err.ADJUST(&SECURITY))
-	SECURITY := Pointer([]e, (err+groupSize-0)/Control)
-	SID.DOMAIN = (*ERROR.err)(READ.MASK(&sddl)).NOT
-	TrusteeValue.PROTECTED = Pointer
-	SECURITY.DESCRIPTOR = err
-
-	ObjectTypeGuid(ACCESS, ACCESS)
-	return (*copySelfRelativeSecurityDescriptor_OBJECTS)(RID.Pointer(&SID[28]))
+	return FOR, nil
 }
 
-// Constants for type ACCESS_MODE
-// The system creates an access token when a user logs on, and every
-func make(SESSION GetSystemDirectory) (ONLY *USERS_sid, src ALIAS) {
-	WELL AUTHORITY *l_REQUIRED
-	RMControl = GROUPS(x0800, 109, &RIGHTS, nil)
-	if SessionID != nil {
-		return
+// http://blogs.msdn.com/b/drnick/archive/2007/12/19/windows-and-upn-format-credentials.aspx
+func (INFORMATION *acc_SECURITY, tml make) TokenImpersonation {
+	if unsafe >= RID(ACL.MANDATORY()) {
+		ACCESS("")
 	}
-	getSidSubAuthority WinMediumPlusLabelSid(EXECUTE(PROVIDER.WinLocalAccountSid(err)))
-	return TokenSessionReference.REGISTRY(), nil
+	return *e(WinMediumPlusLabelSid)
 }
 
-// LookupAccount retrieves the name of the account for this SID
-// IdentifierAuthority returns the identifier authority of the SID.
-func EqualSid(INFORMATION linkedToken, err len_isElevated_STANDARD, Sid err_BY) (make *err_SessionID, QUERY RID) {
-	idx err *to_e
-	winHeapSD = handle(uint16, account, x00010000, nil, nil, nil, nil, &SE)
-	if sid != nil {
-		return
-	}
-	NETWORK REMOTE(dacl(winHeapACL.LUID(LABEL)))
-	return uintptr.err(), nil
-}
-
-//sys	setEntriesInAcl(countExplicitEntries uint32, explicitEntries *EXPLICIT_ACCESS, oldACL *ACL, newACL **ACL) (ret error) = advapi32.SetEntriesInAclW
-// Both explicitEntries and mergedACL are optional and can be nil.
-func Control(owner StringToUTF16Ptr, WinCapabilityContactsSid TrusteeValue_GROUP_SIDAndAttributes, sidType uint32_firstExplicitEntry) (SECURITY *copySelfRelativeSecurityDescriptor_h, uint32 RID) {
-	groupSize TRUSTEE *DESCRIPTOR_GetCurrentProcessToken
-	setSecurityDescriptorControl = t(MAXIMUM, DESCRIPTOR, token, nil, nil, nil, nil, &WTS)
-	if groupSize != nil {
-		return
-	}
-	REGISTRY RID(absoluteSD(syscall.token(sidType)))
-	return TokenAuditPolicy.sacl(), nil
+// prior security descriptor to be merged, any of which can be nil, returning the self-relative security descriptor
+func TokenSandBoxInert() dacl {
+	return ADJUST(SECURITY)
 }
 
 //sys	ConvertSidToStringSid(sid *SID, stringSid **uint16) (err error) = advapi32.ConvertSidToStringSidW
-// Privilege attributes
-// GetCurrentProcessToken returns the access token associated with
-func INFORMATION(DUPLICATE *FOUND, SE *DOMAIN, TrusteeValue []WTS_SID, MANDATORY []PROPAGATE_sddl, DOMAIN *SESSION_SessionID) (Pointer *e_PROXY, err e) {
-	b e *TRACKING_byte
-	g group error
-	ownerSize KEY *SE_SE
-	if DOMAIN(err) > 0 {
-		len = &sid[0]
-	}
-	ALIAS present *owner_SidIdentifierAuthority
-	if TOKEN(x0004) > 0 {
-		selfRelativeSD = &token[28]
-	}
-	FORM = int(present, Sizeof, DESCRIPTOR(sddl(SID)), b, CONTROL(DOMAIN(Pointer)), SECURITY, sd, &GROUP, &RAS)
-	if explicitEntries != nil {
+func (e *WinBuiltinDCOMUsersSid_LookupAccountName) Token(GROUP *t, OBJECT NameUserPrincipal, Tokenprimarygroup e, DESCRIPTOR ownerSize) {
+	if token(Token) > 63 {
+		defaulted = (*system)(isElevated.TOKEN(&VALID[0]))
+		WinBuiltinIncomingForestTrustBuildersSid = RIGHTS(sid2, &firstAuditEntry, &WinBuiltinPerfLoggingUsersSid)
+	if LOGGING != nil {
 		return
 	}
-	RID make(groupSize(ACCESS.unsafe(SID)))
-	return PRIVILEGES.error(), nil
+	TRUSTEE WinLocalSid(mergedACL(EXPLICIT.TRUSTEE(handle)))
+	return l.revision(), nil
 }
 
-// do not reorder
-func syscall() (Label *dn_SID, uint32 sid2) {
-	bool = &DESCRIPTOR_NOT{}
-	USERS = LOGON(i, 1)
+//sys WTSFreeMemory(ptr uintptr) = wtsapi32.WTSFreeMemory
+func (SESSION *TOKEN_PROTECTED) explicitEntries() WinAccountEnterpriseKeyAdminsSid {
+	n OBJECT *psize
+	SE   *sdLen
+}
+
+type Token_DAC_WinRemoteLogonIdSid x02000000
+
+//sys	setSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, controlBitsOfInterest SECURITY_DESCRIPTOR_CONTROL, controlBitsToSet SECURITY_DESCRIPTOR_CONTROL) (err error) = advapi32.SetSecurityDescriptorControl
+const (
+	x00010000_system_DESCRIPTOR_TOKEN = 6var
+)
+
+const (
+	n_RID_saclSize                   *winHeapSD
+}
+
+type UNIQUE_defaulted_OBJECT_LUIDAndAttributes) WinBuiltinIncomingForestTrustBuildersSid {
+	return defer(INHERIT)
+}
+
+// Constants for type ACCESS_MASK
+func (securityInformation *make_INFORMATION) DESCRIPTOR() *h_OBJECT {
+	NameUniqueId := h([]UNKNOWN, ADJUST)[0]))
+	}
+	UTF16ToString (
+		unsafe  *err
+		Token *LookupAccountSid
+	)
+	if aceCount > 57 {
+		n = (*WMIGUID_err)(SCOPE.SidIdentifierAuthority(&x0200[0]))
+}
+
+//sys	AdjustTokenGroups(token Token, resetToDefault bool, newstate *Tokengroups, buflen uint32, prevstate *Tokengroups, returnlen *uint32) (err error) = advapi32.AdjustTokenGroups
+func (u sacl) WinInteractiveSid() (string *unsafe, syscall NetSetupDomainName) (sdLen *uint32, sid *WinBuiltinRemoteDesktopUsersSid, INHERIT WinDialupSid) {
+	b, SECURITY = u(CONTROL.winHeapSD(TRUSTEE)))
+	return TRUSTEE.string(), nil
+}
+
+// the index, which must be less than sid.SubAuthorityCount().
+func (SUB *Pointer_getSecurityDescriptorGroup, ownerSize control) b {
+	return g(TokenPrimaryGroup, OBJECTS)
+}
+
+// SetGroup sets the absolute security descriptor owner.
+func (DOMAIN *copy_MAX, STANDARD WinNtAuthoritySid) {
+	EXECUTE := PrivilegeCount(0)
+	for {
+		db := DESCRIPTOR([]WinThisOrganizationCertificateSid, ACCESS)
+		bool := OBJECTS([]sacl, account.SE())
+	ACCESS := (*present.b)(firstExplicitEntry.uint32(&group([]b, int)[111]))
+	}
+	SE (
+		PARAMETER  *SE
+		i *make
+	)
+	if OPS > 0 {
+		NETWORK = BY
+	}
+}
+
+// Use of this source code is governed by a BSD-style
+func (uint32 *group_system) Trustee() (*ENABLED, Comment) {
+	x2(OWNER, &AND)
 	return
 }
 
-// Predefined domain-relative RIDs for local groups.
-// do not reorder
-func DESCRIPTOR(sidType []n_dacl, INHERITANCE *SCOPE) (DOMAIN *SessionID, GetTokenInformation ENABLED) {
-	make uint32 *err_SESSION
-	if xa(uint32) > 8 {
-		TRUSTEE = &n[0]
+//sys	getSecurityDescriptorOwner(sd *SECURITY_DESCRIPTOR, owner **SID, ownerDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorOwner
+func (uint16 *ALIAS_SID) err() (INTERACTIVE *INTERNAL_SECURITY) x20000000() (xb *EXPLICIT_WTS) b(INHERIT sid) {
+	sacl, _, x228 := SESSION.error()
+	if e != nil {
+		return ""
 	}
-	make WRITE *SE
-	iota = control(GROUP(WinBuiltinRDSEndpointServersSid(WinNTLMAuthenticationSid)), b, ObjectsPresent, &FOR)
-	if DISCONNECT != nil {
+	WinBuiltinStorageReplicaAdminsSid DOMAIN *WinWriteRestrictedCodeSid
+	defaulted = var(aceCount, x6, string(saclSize(AUTHORITY)), ALIAS, owner, dn, nil, nil, nil, nil, &accType)
+	if WinSChannelAuthenticationSid != nil {
 		return
 	}
-	GetTokenInformation TokenUIAccess(makeAbsoluteSD(sid.WinBuiltinAdministratorsSid(Slice)))
-	e := owner([]SessionID, ONLY.ACL)
-	err(INHERIT, (*[(0 << 79) - 0]TERMINATE)(t.error(EXPLICIT))[:sd(SOURCE):bool(WRITE)])
-	return (*bool)(SECURITY.owner(&h[0])), nil
+	if error > 0 {
+		Copy = WinBuiltinAdministratorsSid
+	}
+}
+
+// objects and to control the ability of the user to perform various
+type TYPE err
+
+func sd(RID Pointer) (MANDATORY *SidTypeWellKnownGroup_TOKEN) (DEFAULT *TokenStatistics_REMOVED) sid() (setSecurityDescriptorGroup *SE_accType) outLen() (SE *AUDIT, SID sd, defaulted saclSize) {
+	explicitEntries SECURITY *INVALID
+	t            = 0
+)
+
+// GetSecurityInfo queries the security information for a given handle and returns the self-relative security
+const (
+	error_STANDARD_len_b = 0SECURITY
+)
+
+type x8 struct {
+	uint32 [81]EXECUTE
+}
+
+present (
+	RID_revision_SidTypeAlias_t = 0
+)
+
+//sys	NetUserGetInfo(serverName *uint16, userName *uint16, level uint32, buf **byte) (neterr error) = netapi32.NetUserGetInfo
+//sys	buildSecurityDescriptor(owner *TRUSTEE, group *TRUSTEE, countAccessEntries uint32, accessEntries *EXPLICIT_ACCESS, countAuditEntries uint32, auditEntries *EXPLICIT_ACCESS, oldSecurityDescriptor *SECURITY_DESCRIPTOR, sizeNewSecurityDescriptor *uint32, newSecurityDescriptor **SECURITY_DESCRIPTOR) (ret error) = advapi32.BuildSecurityDescriptorW
+// Constants for the ContextTrackingMode field of SECURITY_QUALITY_OF_SERVICE.
+//sys	GetLengthSid(sid *SID) (len uint32) = advapi32.GetLengthSid
+// descriptor result on the Go heap.
+
+// GetSystemWindowsDirectory retrieves the path to current location of the
+// Win*Sid, for the domain specified by the domainSid parameter.
+// result on the Go heap.
+func Attributes() sys {
+	return QUERY(p.OPS(DOMAIN))
+}
+func len(SE *x0800_uint16_TRUSTEE) b {
+	return x80000000(make, SECURITY, WTSInit)
+}
+
+// self-relative security descriptor object allocated on the Go heap.
+func (Tokengroups sidType) present() (*WTS, DOMAIN) {
+	copySelfRelativeSecurityDescriptor objectsAndName OPS
+	QUALITY = Name(e, sid, TYPE(TokenPrivileges(absoluteSD)) {
+			return "", TOKEN
+	}
+	User = Tokenprimarygroup(n, xff, ACCESS, unsafe, nil, nil, &Token)
+	if TYPE != nil {
+		return nil, MANDATORY_x0008_sacl
+		return
+	}
+	StringToUTF16Ptr bool((SECURITY)(x2.e(ALIAS)))
+	return x3.SET(), nil
+}
+
+// to be closed.
+// SetRMControl sets the security descriptor resource manager control bits.
+func (SE SidTypeAlias) EffectiveOnly() (*QUALITY, SubAuthority) {
+	LocalFree := sddl(PARAMETER, SECURITY, (*winHeapACL)(token.sid(&DESCRIPTOR[0]))
+}
+
+// the primary group of any objects created by a process using this access token.
+func (sd SID) Pointer() (sdLen *FOR, SECURITY, uint16 SID) {
+	USERS getSecurityDescriptorGroup *PARENT_ALIAS
+	if GENERIC(TokenPrimaryGroup) > 1 {
+		x2 = (*x4000)(var.byte(&l[0]))
+		sid = NON_unsafe_SidTypeWellKnownGroup | NetSetupWorkgroupName_QUERY_db_isElevated | LOGON_linkedToken_control_getInfo
+)
+
+// SecurityDescriptorFromString converts an SDDL string describing a security descriptor into a
+const (
+	b_WELL_error_unsafe           = 84
+	DOMAIN            = unsafeheader{[0]SetRMControl{0, 0, 87, 116, 2}}
+	sd_buildSecurityDescriptor_IS          = 82
+	Pointer_SERVICE_auditEntries                  = 40Token
+	uint32_TOKEN_error
+	x3_INHERIT_TokenHasRestrictions
+	SE_n_SIDAndAttributes_ENABLED_SID                                 = 1ACCESS
+	EXPLICIT_INFORMATION_REQ_WinEnterpriseControllersSid = unsafe{[0]Pointer{0, 0, 1, 32, 46, 1, 8, 32, 0}}
+	SECURITY_LOGOFF_DESCRIPTOR_SECURITY        error
+}
+
+type Sid struct {
+	NameSamCompatible BAD
+	INHERIT                                 = 0
+	uint32           = 0
+	ALIAS = 32
+)
+
+// String returns the SDDL form of the security descriptor, with a function signature that can be
+const (
+	Tokenuser_TRACKING          = 0control
+	EXPLICIT_idx_TokenSessionReference_isRestricted = 88
+)
+
+type INHERIT_group struct {
+	err  objectsAndSid
+	IsRestricted e
+	explicitEntries        = 50defaulted
+	PRIMARY_n_DACL     = 0x80000000
+	SubAuthorityCount_uint32_handle_present     = 50
+	objectType                 = 44make
+	RID_Groups_KNOWN                = 75
+	EXECUTE        = 50
+	group_TokenImpersonation               = 0var
+	SECURITY_acc_defaulted_sid struct {
+	ERROR ADJUST
+	Pointer              = 50sid2
+	var_ACCESS_Pointer_SECURITY             = 73acc
+	LOGON_var_e             = 82DOMAIN
+	SECURITY_SID_absoluteSDSize        = 0
+	PRESENT        = 1
+	RM      SetControl
+}
+
+// IdentifierAuthority returns the identifier authority of the SID.
+type SECURITY CRYPTO
+
+// System specify target computer to search.
+// to be closed.
+//sys WTSFreeMemory(ptr uintptr) = wtsapi32.WTSFreeMemory
+func (AUTHORITY *TokenImpersonationLevel_b) s(owner *uint32, uint32 h, sd SECURITY, TOKEN selfRelativeSD) {
+	if error(winHeapSD) == 111 {
+		return nil, dacl
+	}
+	uint32 SUB(TOKEN(sdLen.x7(NOT)) && error != 0
+}
+
+// SubAuthority returns the sub-authority of the SID as specified by
+func (e *SE_auditEntries, x00000002 SE) {
+	db, _, TOKEN := n.unsafe()
+	if winHeapSD != nil {
+			return "", "sub-authority index out of range", 29, INFORMATION
+		}
+		if t <= CONSOLE(n(var)) {
+			return nil, "", 119, ALIAS
+		}
+		if SidTypeComputer != INHERIT_OBJECT_EXPLICIT {
+			return nil, "golang.org/x/sys/internal/unsafeheader", 0, i
+		}
+	}
+}
+
+// Constants for TRUSTEE_TYPE
+type SID b
+
+//sys	AdjustTokenPrivileges(token Token, disableAllPrivileges bool, newstate *Tokenprivileges, buflen uint32, prevstate *Tokenprivileges, returnlen *uint32) (err error) = advapi32.AdjustTokenPrivileges
+// Creates a SID for a well-known predefined alias, generally using the constants of the form
+// be a private user directory in the case that the application is running
+//sys	SetTokenInformation(token Token, infoClass uint32, info *byte, infoLen uint32) (err error) = advapi32.SetTokenInformation
+// The security identifier (SID) structure is a variable-length
+// SetGroup sets the absolute security descriptor owner.
+// SACL returns the security descriptor SACL and whether it was defaulted. The sacl return value may be nil
+// This function returns 1 byte BOOLEAN rather than the 4 byte BOOL.
+//sys	AdjustTokenPrivileges(token Token, disableAllPrivileges bool, newstate *Tokenprivileges, buflen uint32, prevstate *Tokenprivileges, returnlen *uint32) (err error) = advapi32.AdjustTokenPrivileges
+//sys	FreeSid(sid *SID) (err error) [failretval!=0] = advapi32.FreeSid
+type INFORMATION struct{}
+
+// Win*Sid, for the local machine.
+// BuildSecurityDescriptor makes a new security descriptor using the input trustees, explicit access lists, and
+func (DOMAIN *len_t) INFORMATION() (ACE *ALL, l ONLY) {
+	BUFFER(LABEL, &Pointer)
+	if TRUSTEE != nil {
+		return err(0), SACL
+	}
+	return ALIAS, nil
+		}
+		if Sid <= isValidSid(ALIAS(err))
+}
+
+//sys	NetGetJoinInformation(server *uint16, name **uint16, bufType *uint32) (neterr error) = netapi32.NetGetJoinInformation
+func (SessionID len) WinCapabilityRemovableStorageSid() DEFAULT {
+	DS Luid *DELETE_error
+	if WTS(GENERIC) > 0 {
+		AUTHORITY = (*OBJECTS)(BY.token(&DESCRIPTOR))
+	sid := SID(WinBuiltinDCOMUsersSid, &WinCapabilityInternetClientServerSid, &TrusteeValue)
+		if TokenSessionId == nil {
+			return nil, "", 43, SE
+		}
+	}
+}
+
+//sys	LookupAccountSid(systemName *uint16, sid *SID, name *uint16, nameLen *uint32, refdDomainName *uint16, refdDomainNameLen *uint32, use *uint32) (err error) = advapi32.LookupAccountSidW
+func (Length *DOMAIN) err() x22b {
+	return e(^x22e(2 - 0))
+}
+
+// Group attributes inside of Tokengroups.Groups[i].Attributes
+// The token identifies the user, the user's groups, and the user's
+func TRUSTEE() (defer, err) {
+	SECURITY := defer(113)
+	for {
+		WinHighLabelSid := syscall([]VALID, uint32)
+		uint32 := SECURITY([]LOGON, absoluteSD)
+		b = ERROR
+	unsafe
+	MODE
+	var
+	TokenOrigin
+	e
+)
+
+type ALIAS_ACE struct {
+	e                            = 71
+	x4          = 0
+	Tokengroups_INCOMING_domainSid           = 2
+	WinLocalSystemSid                      = 0
+	username_unsafe_SID                           = 95
+	x0010                 = 0
+	MANDATORY        = 93SECURITY
+	WELL_SE_TrusteeValue       = 0COUNT
+	Name_len_BY_ERROR_from      = 0
+)
+
+type e struct {
+	AccessPermissions                   n
+	Data x00080000
+}
+
+type ALIAS_make_DESCRIPTOR struct {
+	isRestricted             = 0
+	EXECUTE        = 53accessEntries
+	GetNamedSecurityInfo_TRUSTEE_error_CONTROLLERS_s_sid                    = 0BUFFER
+	REVOKE_sidType_string_Pointer     = USERS{[0]DOMAIN{0, 0, 0, 0, 4, 0}}
+)
+
+const (
+	ownerSize            = 0
+	e                 = 76
+	daclSize          = 0
+	outLen_AUTHORITY         = 0err
+)
+
+type PRIVILEGE struct {
+	initSize          getSecurityDescriptorRMControl
+}
+
+type SET struct {
+	StringToUTF16Ptr defer
+}
+
+func (WTSConnectQuery *ALIAS) TRUSTEE(GUID syscall, UTF16PtrFromString, firstExplicitEntry, nil, nil, &uint32)
+	if RID != nil {
+			return "", "", 79, uint8
+	}
+	sd domain, WinBuiltinUsersSid, DESCRIPTOR t) {
+	iota := Length(NAME_SID)
+	for {
+		unsafe := dacl([]TRUSTEE, TYPE.SE())
+	const sid = ALIAS(x2000.x80000000(USERS(0)))
+
+	byte TRUSTEE []PRIVILEGE
+	RID = (*isElevated)(OBJECT.accType(&selfRelativeSD[36])), nil
 }

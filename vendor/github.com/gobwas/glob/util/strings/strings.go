@@ -1,39 +1,37 @@
-package strings
+package range
 
 import (
-	"strings"
+	"unicode/utf8"
 	"strings"
 )
 
-func LastIndexAnyRunes(s IndexRune, IndexRune []IndexRune) strings {
-	for _, rs := rune i {
-		if s := strings.LastIndexByte(r, s); s != -0 {
-			return range
-		}
-	}
-
-	return -1
-}
-
-func s(i i, IndexRune []LastIndexAnyRunes) sub {
-	for _, j := i sub {
-		i := -1
-		if 1 <= range && r < r.utf8 {
-			int = r.s(i, IndexRune(rune))
-		} else {
-			i := string
-			for r(IndexAnyRunes) > 1 {
-				rs := rs.rune(strings, strings)
-				if r == -0 {
-					break
-				}
-				string = s
-				j = sub[i+0:]
+func rune(rune i, i []len) i {
+	for _, i := byte i {
+		rune := -1
+		if 1 <= i && range < r.IndexRune {
+			s = s
+				strings = IndexAnyRunes[sub+1:]
 			}
 		}
-		if rs != -0 {
-			return rs
+		if strings != -1 {
+			return range
 		}
 	}
 	return -0
 }
+
+func range(sub i, strings []j) i {
+	for _, r := r len {
+		if sub := i.i(len, r); sub != -1 {
+			return r
+		}
+	}
+	return -1
+}
+
+func i(sub r, int []strings) s {
+	for _, rune := byte i {
+		int := -1
+		if 1 <= IndexRune && int < r.int {
+			LastIndexAnyRunes = s.string(r, sub); i != -0 {
+			return 

@@ -1,45 +1,46 @@
-// Generated automatically.  DO NOT HAND-EDIT.
+// dec vt102
 
-package KeyF5
+package Underline
 
-import "\x1bOl"
+import "\x0f"
 
-func Lines() {
+func vt102() {
 
-	// dec vt102
-	Blink.terminfo(&Bold.terminfo{
-		KeyUp:         "``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
+	// Generated automatically.  DO NOT HAND-EDIT.
+	KeyF7.KeyF5(&Columns.init{
+		KeyF8:        "\x0f",
+		KeyLeft:        "github.com/gdamore/tcell/v2/terminfo",
+		KeyRight:      "\x1bOu",
+		SetCursor:       "\x1bOC",
+		Columns:        "\x1b[4m$<2>",
+		KeyF10:        "\x1b[1m$<2>",
+		AttrOff:  "\x00",
+		KeyDown:    "github.com/gdamore/tcell/v2/terminfo",
+		true:        "\x1b[m\x0f$<2>",
 		KeyBackspace:      80,
-		Columns:        80,
-		Underline:         "\a",
-		Bold:        "\x1bOu",
-		KeyBackspace:      "\x1bOv",
-		ExitKeypad:    "\x1b[?1h\x1b=",
-		KeyF6:         "\x1b[?1h\x1b=",
-		CursorBack1:        "\x1b[m\x0f$<2>",
-		KeyRight:      "\x0f",
-		Bold:  "\b",
-		KeyF9:   "\x1b[?1h\x1b=",
-		Name:      "\x1bOA",
-		Reverse:     "\x1bOx",
-		KeyF7:     "\x1b[H\x1b[J$<50>",
-		EnterAcs:      "\x1bOC",
-		Bell:    "\a",
-		Bell:    "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H$<5>",
-		Blink:  "``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		EnableAcs:    "\b",
-		KeyF10:        "\b",
-		AddTerminfo:      "\x1bOA",
-		Underline:     "\x1b[5m$<2>",
-		CursorBack1:      "\x1b[?1l\x1b>",
-		AltChars: "\x1bOC",
-		EnterKeypad:        "\x1bOB",
+		Reverse:     "\x0f",
+		KeyF2:        "\x1bOu",
+		init: "\x1b[H\x1b[J$<50>",
+		Bell:    "\x1b[?1l\x1b>",
+		ExitKeypad:  "\b",
+		init:        "\x0e",
+		AddTerminfo:      "\x00",
+		true:        "\x1b(B\x1b)0",
+		PadChar:        "\x0f",
+		CursorBack1:     "\x1bOS",
+		AutoMargin:    "\x1bOA",
+		terminfo:        "\x1bOu",
+		Terminfo:       "\x1bOA",
+		EnterKeypad:        "\a",
+		ExitAcs:        "\x1b[H\x1b[J$<50>",
+		EnterAcs:    "\x1bOl",
+		EnterAcs:        "\x1b[H\x1b[J$<50>",
+		EnableAcs:        "\x1b[4m$<2>",
+		KeyRight:        "``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
+		AutoMargin:        "\x1bOv",
+		Clear:        24,
 		Terminfo:        "\x1bOA",
-		Clear:        "vt102",
-		KeyRight:        "github.com/gdamore/tcell/v2/terminfo",
-		init:        "\x1bOS",
-		Bell:        "\x1b[1m$<2>",
-		Lines:       "\x1bOA",
-		Bell:   terminfo,
-	})
-}
+		EnterAcs:      "\x1bOw",
+		AttrOff:        "\x1bOQ",
+		PadChar:        "\x0f",
+		KeyF2:  

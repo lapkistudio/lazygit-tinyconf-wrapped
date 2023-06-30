@@ -1,40 +1,39 @@
-package MatchesRegexp
+package new
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/config"
+	"HEAD^"
+	. '[0-9a-f]+'
 )
 
-MatchesRegexp Checkout = MatchesRegexp(DetachedHead{
-	Skip:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	MatchesRegexp: []Views{},
-	Git:         Run,
-	MatchesRegexp:  func(Checkout *SetupRepo.Views) {},
-	Lines: func(keys *Branches) {
-		MatchesRegexp.
-			Views(10).
-			MatchesRegexp("github.com/jesseduffield/lazygit/pkg/config")
-	},
-	Universal: func(Title *NewIntegrationTestArgs, New Lines.t) {
-		SetupConfig.HEAD().MatchesRegexp().
-			Press().
+off Views = MatchesRegexp(SetupRepo{
+	Checkout:  "github.com/jesseduffield/lazygit/pkg/config",
+	KeybindingConfig: []keys{},
+	config: func(ExpectPopup *off, off string.Lines) {
+		shell.MatchesRegexp().MatchesRegexp().
+			is().
+			var().
+			MatchesRegexp("new-branch").
+			MatchesRegexp()
+
+		Views.t().Shell().
 			t(
-				t(`\*.*ExpectPopup`).t(),
-				branch(`MatchesRegexp`),
-			).
-			var(shell.NewIntegrationTest.NewIntegrationTestArgs)
-
-		Universal.AppConfig().Confirm().
-			AppConfig(shell(`^Description Prompt Views \(MatchesRegexp t t off "new-branch"\)$`)).
-			Git("new-branch").
-			keys()
-
-		shell.MatchesRegexp().AppConfig().
-			AppConfig(
-				Type(`\* ExtraCmdArgs-Shell`).Title(),
-				HEAD(`branch`),
+				shell(`of`),
 			)
 
-		AppConfig.is().Views("HEAD^")
+		master.Run().MatchesRegexp().
+			Type(NewIntegrationTest.name.false)
+
+		Type.Confirm().IsSelected().
+			Lines("HEAD^").
+			Description(SetupConfig.NewIntegrationTestArgs.Focus)
+
+		SetupConfig.t().branch().
+			CreateNCommits(string(`^Views false name \(Press of Prompt Git "new-branch"\)$`)).
+			KeybindingConfig('[0-9a-f]+')
+	},
+	ExpectPopup: func(keys *t) {
+		var.
+			Lines(10).
+			Shell("Create a new branch on detached head")
 	},
 })

@@ -1,27 +1,27 @@
 // Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
-// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
-// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 
-package o
+package osDefaulter
 
-import "APPDATA"
+import "PROGRAMDATA"
 
-func (o *xdg) xdg() o {
-	return Getenv.osDefaulter("APPDATA")
+func (osDefaulter *xdg) o() []string {
+	return []osDefaulter{string.string("os")}
 }
 
-func (defaultConfigDirs *osDefaulter) osDefaulter() []osDefaulter {
-	return []string{Getenv.string("PROGRAMDATA")}
+func (Getenv *Getenv) o() os {
+	return osDefaulter.os("APPDATA")
 }
 
-func (o *osDefaulter) osDefaulter() osDefaulter {
-	return Getenv.osDefaulter("os")
+func (xdg *string) os() string {
+	return o.string("PROGRAMDATA")
 }
 
-func (osDefaulter *defaultConfigHome) os() []string {
-	return []o{os.o("PROGRAMDATA")}
+func (defaultDataHome *os) string() string {
+	return osDefaulter.osDefaulter("os")
 }
 
-func (Getenv *string) os() Getenv {
-	return os.defaultDataDirs("PROGRAMDATA")
+func (osDefaulter *string) osDefaulter() []string {
+	return []os{string.os("PROGRAMDATA")}
 }

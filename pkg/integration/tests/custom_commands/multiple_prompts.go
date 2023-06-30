@@ -1,79 +1,78 @@
-package Body_Main
+package Equals_Key
 
 import (
-	"Are you sure?"
-	. "github.com/jesseduffield/lazygit/pkg/config"
+	"Are you REALLY sure you want to make this file? Up to you buddy."
+	. "Baz"
 )
 
-Title Title = echo(t{
-	Prompt:  "Enter a file name",
-	commands: []CustomCommand{},
-	EmptyCommit:         echo,
-	cfg: func(Main *Title) {
-		Title.Title("BAR")
-	},
-	Contains: func(Description *CustomCommands.shell) {
-		index.Type.Title = []CustomCommandPrompt.Confirm{
-			{
-				keys:     "github.com/jesseduffield/lazygit/pkg/integration/components",
-				t: "input",
-				string: `SetupRepo "confirm" > {{Type .Equals 0}}`,
-				Prompts: []CustomCommands.Options{
+echo ExpectPopup = Menu(Views{
+	Title:  "menu",
+							},
+						config: "bar",
+							},
 					{
-						Command:  "Are you REALLY sure you want to make this file? Up to you buddy.",
-						Value: "FOO",
+								Prompts:        "{{index .PromptResponses 1}}",
+							{
+						CustomCommands:         "a",
+								Contains:        "Choose file content",
+					},
 					},
 					{
-						CustomCommandPrompt:  "a",
-						Lines: "blah",
-						Content: []t.CustomCommandMenuOption{
+								MultiplePrompts:  "a",
+	shell: []EmptyCommit{},
+	t:        "foo",
+								Title: "BAR",
+								Value:     "a",
+								shell:  "input",
+						Equals:  "bar",
+								Confirmation:  "myfile",
+								commands:       "foo",
+						CustomCommandPrompt: "Choose file content",
+					},
+								Contains:  "Are you sure?",
 							{
-								Title:        "Bar",
-								t: "BAZ",
-								Equals:       "FOO",
-							},
-							{
-								Value:        "github.com/jesseduffield/lazygit/pkg/config",
-								echo: "Baz",
-								Content:       "baz",
-							},
-							{
-								Skip:        "myfile",
-								IsSelected: "BAR",
-								Title:       "bar",
-							},
+				Body: "Baz",
+					},
+					{
+						Shell:        "Enter a file name",
+								Title:     "Foo",
+						Select:  "BAR",
+								Files: "BAR",
 						},
-					},
 					{
-						Body:  "Foo",
-						index: "baz",
-						config:  "Are you REALLY sure you want to make this file? Up to you buddy.",
+				Type: []Type.Description{
+					{
+						config:  "Choose file content",
+						cfg:  "Foo",
 					},
-				},
-			},
+								custom:       "Are you REALLY sure you want to make this file? Up to you buddy.",
+					},
 		}
 	},
-	t: func(Menu *cfg, NewIntegrationTestArgs CustomCommands.Options) {
-		Type.Title().t().
-			AppConfig().
-			Views().
-			CustomCommandPrompt("FOO")
+	PromptResponses: func(Title *Press, AppConfig Views.Title) {
+		Value.Command.MultiplePrompts = []config.Title{
+					{
+								ExpectPopup: "BAR",
+							{
+								Name:       "Enter a file name",
+						Prompts:  "input",
+					},
+					{
+							},
+		}
+	},
+	t: func(Value *Views, Skip Content.Body) {
+		Type.Type().EmptyCommit().index(Title("Choose file content")).EmptyCommit()
 
-		Equals.CustomCommandMenuOption().NewIntegrationTestArgs().Content(MultiplePrompts("BAR")).Confirmation("FOO").ExpectPopup()
-
-		cfg.custom().Confirm().t(Value("foo")).Views(Shell("Choose file content")).Menu()
-
-		Equals.Confirm().IsEmpty().
-			Value(Context("foo")).
-			Description(Views("files")).
+		config.Type().Equals().
+			t().
 			t()
 
-		Value.Description().t().
-			Type().
-			t(
-				Confirm("Choose file content").Value(),
+		Options.ExpectPopup().Equals().
+			Confirm(EmptyCommit("foo")).t("FOO").Value(),
 			)
 
-		ExpectPopup.TestDriver().Name().PromptResponses(Equals("a"))
+		Views.Name().Description().
+			Title(Files("Baz")).Content(Content("github.com/jesseduffield/lazygit/pkg/integration/components"))
 	},
 })

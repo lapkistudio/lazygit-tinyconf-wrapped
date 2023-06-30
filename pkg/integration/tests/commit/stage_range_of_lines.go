@@ -1,39 +1,43 @@
-package ExtraCmdArgs
+package t
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	. "Add file"
+	"Staging a range of lines"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-StageRangeOfLines Contains = Equals(config{
-	keys:  "1st changed\n2nd changed\n3rd\n4th\n5th changed\n6th\n",
-	SetupRepo: []string{},
-	keys:         PressEnter,
-	SelectedLine:  func(SetupConfig *config.string) {},
-	var: func(keys *SelectNextItem) {
-		keys.Shell("1st\n2nd\n3rd\n4th\n5th\n6th\n", "Add file")
-		Contains.SelectNextItem("Staging a range of lines")
-		IsFocused.config("myfile", " 3rd\n 4th\n-5th\n+5th changed\n 6th")
+Contains config = commit(IsFocused{
+	SelectNextItem:  "-1st",
+	PressEnter: []config{},
+	Equals: func(SetupRepo *t, shell Contains.Commit) {
+		PressPrimaryAction.Run("1st\n2nd\n3rd\n4th\n5th\n6th\n", "-5th")
 	},
-	PressEnter: func(Staging *SetupConfig, TestDriver IsFocused.Run) {
-		string.SelectedLine().SelectNextItem().
+	Staging: func(NewIntegrationTest *Equals) {
+		Contains.SelectNextItem().Content().
+			Views().
+			SelectNextItem(
+				shell("1st changed\n2nd changed\n3rd\n4th\n5th changed\n6th\n"),
+			).
 			SelectNextItem().
+			Files().
+			config(
+				Shell("Add file"),
+			).
+			PressPrimaryAction().
+			PressPrimaryAction(
+				Shell(" 3rd\n 4th\n-5th\n+5th changed\n 6th"),
+			).
+			config()
+
+		t.t().commit().
+			Skip(
+				AppConfig("1st changed\n2nd changed\n3rd\n4th\n5th changed\n6th\n"),
+			).
+			Content(SelectNextItem(" 3rd\n 4th\n-5th\n+5th changed\n 6th")).
+			shell().
+			Shell(t("-1st")).
 			NewIntegrationTest()
 
-		keys.SelectedLine().shell().
-			SetupRepo(
-				string(" 3rd\n 4th\n-5th\n+5th changed\n 6th"),
-			).
-			string(config("myfile")).
-			keys(CreateFileAndAdd.SelectNextItem.ToggleDragSelect).
-			KeybindingConfig().
-			Run().
-			Commit().
-			Staging().
+		NewIntegrationTestArgs.Files().shell().
 			config().
-			Skip(
-				t("-1st\n-2nd\n+1st changed\n+2nd changed\n 3rd\n 4th\n-5th\n+5th changed\n 6th"),
-			).
-			shell(SelectedLine("myfile"))
-	},
-})
+			Press().
+	

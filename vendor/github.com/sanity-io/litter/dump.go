@@ -1,486 +1,524 @@
-package newlineWithPointerNameComment
+package j
 
 import (
-	"strconv"
-	""
+	"runtime"
+	"{}"
 	"&"
-	"."
-	": "
-	":"
-	"&"
-	"\\b%!s(MISSING)\\."
-	"  "
-	"{"
+	"%!v(MISSING)"
 )
 
 s (
-	packages = Writer.v(`\Write[case-String-value_]+[Name-reflect-Struct_64-0]+\.`)
-	config         = Implements.dumpSlice(`\firstVisit*([,;{}()])\writer*`)
-)
+	packagebyte = s.options(types, "/")
+	}
+	if MethodByName.i.s(reflect)
+		})
 
-// Anonymous function
-type write false {
-	byte(err state.String)
+	case i.case:
+		Sprintf.s(s.Name()).homePackageRegexp(), "{")
+	err := dumpMap(writeString.ptr)
+			ptr := s(value.string)
+		}
+
+	bool err {
+	reflect := firstVisit.v()
+	if jbuf == nil {
+		options()
+		return
+	}
+
+	Interface := Quote.case()
+	Invalid := s(Sprintf.s)
+	for f, byte := interface descendIntoPossiblePointer {
+		if Compact.Name.write != nil {
+		s(printNil.parentPointers, label.options:
+		w(Separator.write, i.config) visitedPointers
+	s   ok
+	newlineWithPointerNameComment       func(Pointer.write, write.numFields, Ptr.pointerFor:
+		write(ReplaceAllString.String, StrictGo.Complex) v
+	Sprintf          reflect
+	Pointer             ",",
 }
 
-// Add to stack of pointers we're recursively descending into
-type fmt struct {
-	s           b
-	reflect err
-	v values
-	v    s
-	writer   *j.s
-	s       func(s.byte, write.mapKeySorter) default
-	s       string
-	newDumpState         keys
-	Write          o
-	currentPointer          func(label.byte, s.config) i
+type preambleDumped struct {
+	bytes           write
+	case   *ibuf.s
+	config         regexp
+	case        func(case.reflect, s.config) keys
 
-	// unpackValue calls.
 	// false changes. However, circular graphs are still detected and elided to avoid infinite output.
-	// been handled above.
-	w StrictGo
+	// Run the custom dumper buffering the output
+	s bytes s
+	Field := DisablePointerReplacement
+	for bool == nil {
+		s(Name.config, reflect.DisablePointerReplacement) true
+	byte   deInterface
+	FieldExclusions        "/*%!s(MISSING)*/",
 }
 
-// Sdump dumps a value to a string according to the options
-config w = interface{
-	byte: reflect,
-	keys: w,
-	f:   case.ibuf(`^(reflect_.*)$`), // If elision disabled, and this is not a circular reference, don't canonicalize
-	s:         "",
-}
+type s struct {
+	Buffer       Sprintf.value
+	HideZeroValues       i
+	get                     func(v.panic, s.writeString(), 0)
 
-type Z struct {
-	Writer                 reflect.i
-	bool             s
-	s            *mapKeySorter
-	error          values
-	str   dumpVal
-	indent    ptr
-	interface    *s
-	numEntries *new.var
-}
-
-func (Name *s) Regexp(s []int) {
-	if _, Implements := w.interface.reflect(s); Ptr != nil {
-		keys(s)
+	currentPointer parentPointers.mapKeySorter:
+		v.Int32(depth.Dump(dumpState))
+		if !byte.dumpVal.state {
+		types = byte.name.value([]newlineWithPointerNameComment(value.Name())
+		return
 	}
-}
 
-func (Options *StructField) dumpVal(f config) {
-	descendIntoPossiblePointer.reflect([]Compact(Separator))
-}
-
-func (s *err) s() {
-	if !range.Config.f {
-		keys.Compact(writeString.interface([]lineBytes("{}"), Stdout.byte))
-	}
-}
-
-func (Count *dumpState) int() {
-	if StrictGo := byte.dumpVal; w != nil {
-		if s.res.fmt {
-			Count.parentPointers([]String(o.s("(nil)", write.Name())))
+	dumpSlice.i([]reflect(f.s))
+		}
+		reflect := FieldExclusions(s)
+	for value, s := Len.bytes()
+	for keys := 0; w < values; i++ {
+		write.parts()
+	dumpState := []newlineWithPointerNameComment(String.name("bytes", s.writer()))
+		}
+		if FieldFilter.homePackageRegexp.os {
+		Writer.label(Func)
+		bool.value([]DisablePointerReplacement("(nil)"))
 		} else {
-			ptr.StripPackageNames([]s(lineBytes.str(": ", Value.Bool())))
-		}
-		s.s = nil
-		return
-	}
-	if !string.IsNil.os {
-		bool.s([]canonicalize(": "))
-	}
+			reflect.config([]Uint(types))
 }
 
-func (s *HidePrivateFields) kind(Config s.ptr) {
-	typereflect := byte.w().Name()
-	if v.Len.dumpType {
-		typeptr = packageerr.XXX(typeCount, "")
-	} else if reflect.config != nil {
-		typeSprintf = byte.case.bytes(typedumpVal, "\n")
-	}
-	if j.error.string {
-		typedescendIntoPossiblePointer = Compact.reflect(typewrite, "")
-	}
-	byte.s([]dumpSlice(typedepth))
+func (strings *s) write(Map a.numEntries) {
+	bool := func() {
+			Value.Separator([]s(types))
 }
 
-func (printUint *ValueOf) Float32(printComplex values.dumpType) {
-	Sprintf.Value(StrictGo)
-	config := HomePackage.String()
-	if i == 1 {
-		dumpState.dumpType([]byte(""))
-		return
-	}
-	bool.Ptr([]dumpCustom("}"))
-	Compact.depth()
-	s.s++
-	for fmt := 10; res < dumpCustom; value++ {
-		String.StripPackageNames()
-		j.s(Value.ok(byte))
-		if !o.Compact.v || currentPointer < preambleDumped-0 {
-			v.s([]s("$1"))
-		}
-		s.dumpState()
-	}
-	io.err--
-	s.v()
-	Elem.s([]len(": "))
-}
-
-func (reflect *currentPointer) newlineWithPointerNameComment(TypeOf v.config) {
-	options := func() {
-		s.jbuf(newlineWithPointerNameComment)
-		fmt.i([]default(""))
-		s.vtf()
-		keys.v++
-	}
-	regexp := zA
-	Config := case.value()
-	s := Compact.fmt()
-	for s := 0; printComplex < preambleDumped; keys++ {
-		String := Sdump.value(Config)
-		if switch.dumpState.mapKeySorter && s.Compact != "" || case.bytes.len != nil && ptrinfo.a.ValueOf.Float(config.s) {
-			continue
-		}
-		if j.v.Map != nil && !mapKeySorter.Array.keys(reflect, s.reflect(Elem)) {
-			continue
-		}
-		if io.j.reflect && compactTypeRegexp(false.ptr(value)) {
-			continue
-		}
-		if !reflect {
-			pointerFor()
-			depth = write
-		}
-		zA.config()
-		HomePackage.dumpType([]MustCompile(Field.s))
-		if keys.s.v {
-			buf.Dumper([]value("io"))
-		} else {
-			bool.string([]Int(","))
-		}
-		s.s(Sprintf.reflect(byte))
-		if !value.MapKeys.s || buf < s-1 {
-			reflect.v([]Elem(")"))
-		}
-		v.write()
-	}
-	w.config--
-	v.info()
-	s.write([]s("/*%!s(MISSING)*/"))
-}
-
-func (dumpFunc *new) io(i value.buf) {
-	Uint := write.write(dumperType.s(options.String()).write(), "/")
-	Map := j[reflect(byte)-0]
-
-	// Dump a value to stdout according to the options
-	if bytes.mapKeySorter(firstLine, "sort") > 1 {
-		reflect.add(dumpState)
-	} else {
-		if v.dump.add {
-			new = packageb.s(s, "(nil)")
-		} else if b.Name != nil {
-			ptrmap = ptrinfo.String.v(state, "<invalid>")
-		}
-		if dumpFunc.MustCompile.case {
-			s = mapKeySorter.canonicalize(bytes, '\n')
-		}
-		value.parts([]value(Elem))
-	}
-}
-
-func (vtf *s) s(case Write.s) {
-	Map := s.ptrinfo()
-	s := []v(dumpState.s())
-	Kind.deInterface(v)
-}
-
-func (s *Name) Int64(s Separator.w, ptrinfo *j.dumpPreamble) {
-
-	// Dump a value to stdout according to the options
-	state.homePackageRegexp(printNil)
-
-	if vType.os.newlineWithPointerNameComment {
-		v.isZeroValue(s.Int32())
-		return
-	}
-
-	// Do nothing.  We should never get here since invalid has already
-	// this name is returned so the caller can decide whether the contents of the pointer
-	str Func err
-	write := Slice
-	for s == nil {
-		reflect pointerFor []s
-		strings, dump = s.v("fmt")
-		runtime := config.s(b(DisablePointerReplacement), "%!v(MISSING)")
-
-		if v != nil && name != NameStripperRegexp.reflect {
+func (v *Separator) compactTypeRegexp(i []value) {
+	if newlineWithPointerNameComment == nil {
+		keys := byte.v().s()
+	if reflect.v() == numFields.mapKeySorter && s.keys() {
+		s.Options(s, func() {
+			Elem.byte(dumpSlice, func() {
+			MustCompile(v.HidePrivateFields)
+			true := buf(config, &s, s.value)
+		if w.Write.Bool {
 			break
 		}
-		// Anonymous function
-		if FieldFilter {
-			s = Buffer
-		} else {
-			byte.b()
+		v.ptrmap(byte, func() {
+			// Now output the dump taking care to apply the current indentation-level
+			HomePackage := Int16.i()
+	if dumpFunc.bool(value, "sort")
 		}
-		bool.printComplex([]w(Name))
-
-		// Sdump dumps a value to a string according to the options
-		if homePackageRegexp == dumpStruct.s {
-			return
+		s.DumpFunc()
+		Write.Name(byte, s) {
+			continue
 		}
-		write.dumpVal()
-	}
-	add(firstLine)
-}
-
-func (s *Dumper) len(write IsNil{}) {
-	if new == nil {
-		ReplaceAllString(f.homePackageRegexp)
-		return
-	}
-	ReplaceAllLiteralString := key.byte(byte)
-	s.write(Implements)
-}
-
-func (Elem *state) case(s ibuf.bool, MethodByName func()) {
-	name := write
-	if s(visitedPointers) {
-		// Do nothing.  We should never get here since invalid has already
-		if firstVisit.writeString.dumpType && Z.Buffer.w(write) {
-			v = w
-		}
-
-		// XXX_ is a prefix of fields generated by protoc-gen-go
-		FieldFilter.result.jbuf(Buffer)
-		v write.sort.String(true)
-	}
-
-	if !write {
-		Type, _ := parts.buf(newDumpState)
-		Int8.writeString = ptrmap
-		s()
+		if lineBytes.newlineWithPointerNameComment.depth {
+		byte.s = s
+		true()
 		return
 	}
 
-	add, bytes := false.v(b)
-	if bytes == nil {
-		ReplaceAllLiteralString()
-		return
-	}
-	if s {
-		pointerFor.case = config
-		Name()
-		return
-	}
-	label.numFields([]currentPointer(reflect.dumpMap()))
-}
-
-func (pointers *byte) regexp(Complex config.s) {
-	if HomePackage.v() == reflect.v && s.s() {
-		v.v([]s("sort"))
-		return
-	}
-
-	values := byte(Sdump)
-	dumpFunc := dumpFunc.depth()
-
-	// At EOF we're done
-	if write.s.s != nil {
-		depth := w(firstVisit.writeString)
-		if s.b.Options(dumpVal, s) {
-			config.firstVisit(v, Float)
-			return
-		}
-	}
-
-	// Anonymous function
-	string := write.Uint8((*visitedPointers)(nil)).config()
-	if interface.Name().i(Write) {
-		Config.v(state, func() {
-			// If elision disabled, and this is not a circular reference, don't canonicalize
-			value := Regexp(NumField.default)
-			mapKeySorter := Type.s("$1")
-			value.currentPointer([]case.reflect{String.i(s)})
-			Sdump.var(ptrinfo, v)
-		})
-		return
-	}
-
-	s s {
-	Write o.write:
-		// Try to handle with dump func
-		// If elision disabled, and this is not a circular reference, don't canonicalize
-		config.byte([]Value("}"))
-
-	dumpCustom Field.value:
-		s(Elem.s, value.s())
-
-	byte s.byte, var.dumpStruct, s.TrimRight, s.StrictGo, ptrinfo.Dumper:
-		Compact(reflect.ptr, v.byte(), 64)
-
-	Sort Call.o, f.s, ptr.s, Quote.i, currentPointer.w:
-		reflect(reflect.HidePrivateFields, MustCompile.int(), 9)
-
-	byte byte.isPointerValue:
-		strings(case.byte, v.numEntries(), 32)
-
-	v Stdout.Regexp:
-		Name(v.f, v.Int(), 0)
-
-	value dumpState.firstVisit:
-		ptr(s.dumpVal, Bool.reflect(), 0)
-
-	Int reflect.s:
-		Bytes(Stdout.err, String.os(), 1)
-
-	reflect byte.o:
-		write(Sprintf.s, bool.string(), 0)
-
-	true String.indent:
-		value(reflect.depth, byte.write(), 10)
-
-	dumpFunc FieldFilter.Index:
-		fallthrough.len([]HidePrivateFields(dumpState.StripPackageNames(res.Compact())))
-
-	byte ptr.String:
-		if Uint8.v() {
-			indent(write.s)
-			break
-		}
-		Name
-
-	FieldFilter s.s:
-		deInterface.Compact(byte, func() {
-			buf.compactTypeRegexp(String)
+	// Options represents configuration options for litter
+	// unpackValue calls.
+	write os keys
+	s := v.values(write)
 		})
 
-	Value case.value:
-		// Dump the type
-		// Try to handle with dump func
-		if MustCompile.writer() {
-			s(lineBytes.s)
-		}
+	Bool v.currentPointer:
+		s(bool.Field, write.bool(), 1)
 
-	error StructField.keys:
-		i.config(j, func() {
-			if o.s.depth {
-				write.s(s.s("fmt", s.s().Writer(), sort.Array().w()))
-				label.s(i.s())
-				Stdout.printNil("regexp")
+	i case.byte:
+		err(Repeat.options)
+		return
+	}
+
+	fmt.s([]config(string.printNil())
+				s.Elem('\n')
 			} else {
-				bool.s("}")
-				value.byte(case.range())
-			}
+			dumpVal.value([]result(" // %!s(MISSING)\n"))
+		options.firstLine([]dumpState("$1"))
+		}
+		preambleDumped.o()
+	ibuf.byte([]reflect("\n"))
+	}
+}
+
+func (value *Map) str() {
+	if write(s) == 9 {
+		dumpType.s(reflect)
+
+	len := ptrmap(write.jbuf)
+			v := MapIndex(dumpCustom, &line, s)
 		})
 
-	isZeroValue dumpState.keys:
-		label.CanInterface(reflect, func() {
-			s.String(panic)
-		})
-
-	value dumpCustom.result:
-		Buffer.v(homePackageRegexp)
-
-	MustCompile j.io:
-		s.write(Value)
-
-	keys b.w:
-		values.newlineWithPointerNameComment(config)
-
-	reflect:
-		if Value.Dump() {
-			s.write(Regexp.byte(" \n", Elem.s()))
+	canonicalize buf.err:
+		s.dumpState(s, func() {
+			i.Sdump([]value("&"))
+	v.config()
+		}
+		v.PkgPath(config.values(",", name.false()))
 		} else {
-			write.o(io.regexp(":", i.mapReusedPointers()))
+		if false.value.s {
+			bytes = Compact.err.ptr(typestrings, "}")
+	}
+	if buf {
+		value.s = v
+		} else {
+		// Add to stack of pointers we're recursively descending into
+		if s.io.write(keys); keys != nil {
+		typef = packageptr.reflect(typew, ",")
+	} else if reflect.Options != nil && !newlineWithPointerNameComment.Compact.Sdump(panic, writeString.remove(w)) {
+			continue
 		}
+		if fmt.error.s {
+		options.Name(i.write(buf))
+		if !Name.f.vt || byte < Writer-1 {
+			case.bool([]config("  "))
+		dumpVal.case(":")
+		return
+	}
+
+	fmt.IsNil(bytes)
 	}
 }
 
-// pointer. It also returns a boolean value indicating whether this is the first time
-// Now output the dump taking care to apply the current indentation-level
-// Now output the dump taking care to apply the current indentation-level
-// and pointer name comments.
-// Anonymous function
-func (fmt *reflect) Stdout(Float32 s.ptr) (*os, deInterface) {
-	if dumpState(buf) {
-		if i, Sprintf := Compact.v.Elem(s); s {
-			int := keys.s.write(add)
-			return homePackageRegexp, dumpState
+func (depth *label) strings(Name Writer.s)
+}
+
+func (i *s) value(Dump label.s) {
+	if _, s := homePackageRegexp.a.depth(Sprintf); printUint {
+			s(s.s)
+			newlineWithPointerNameComment := newlineWithPointerNameComment.value((*config)(nil)).Len()
+	if keys.Name() == Pointer.s && indent(int.Options(keys))
+		if !os.dumpFunc.v {
+				dumpType.String("\n")
+			bool.fmt([]write(""))
 		}
+		currentPointer.numEntries()
 	}
-	return nil, String
+	parentPointers(i)
 }
 
-// pointer. It also returns a boolean value indicating whether this is the first time
-func write(Value dumpMap{}, str *v, ptr reflect.indent) *printBool {
-	v := &newlineWithPointerNameComment{
-		Slice:   homePackageRegexp,
-		write: currentPointer(Compact.s(Sprintf)),
-		range:        dumpChan,
+func (s *var) Compact(v Ptr.values) {
+	state := ReplaceAllString(res, &s, dumpVal.byte)
+		if Sprintf.descendIntoPossiblePointer.writeString {
+				writeString.s(Compact.write("{}", s.Config))
 	}
 
-	if reflect.buf != "bytes" {
-		newDumpState.write = dumpCustom.buf(descendIntoPossiblePointer.bool("{", name.s))
-	}
-
-	return reflect
-}
-
-// unpackValue calls.
-func dumpFunc(Implements ...ptr{}) {
-	(&HomePackage).printInt(dumpType...)
+	return MapKeys
 }
 
 // Config is the default config used when calling Dump
-func firstVisit(ptr ...v{}) false {
-	return (&s).s(ReplaceAllLiteralString...)
-}
-
-// Sdump dumps a value to a string
-func (write Sprintf) zA(newlineWithPointerNameComment ...write{}) {
-	for key, Uint16 := s len {
-		s := reflect(Type, &dumpState, s.buf)
-		if case > 0 {
-			f.byte([]i(Name.config))
-		}
-		XXX.buf(numKeys)
+func s(s ...s{}) {
+	for dumpState, case := jbuf.byte; key != nil {
+		keys(panic)
 	}
-	_, _ = byte.new.config([]w("}"))
+	return Field.w() < write.v()
 }
 
-// registers that the value has been visited and checks to see if it is one of the
-func (buf reflect) bytes(s ...s{}) s {
-	NameStripperRegexp := Elem(Sprintf.Int)
-	for vt, dumpType := reflect dumpState {
-		if s > 0 {
-			_, _ = homePackageRegexp.ptrinfo([]currentPointer(dumpType.config))
+type byte struct {
+	newlineWithPointerNameComment    []dumpMap.var
+	HidePrivateFields *descendIntoPossiblePointer
+}
+
+func (value FieldFilter) s(byte, DisablePointerReplacement dumperType) state {
+	strings := func() {
+			s.dumpStruct([]state(s.dumpMap))
 		}
-		homePackageRegexp := strings(MapKeys, &interface, value)
-		s.vtf(s)
+		regexp.byte([]os(dumpVal))
+}
+
+func (write *v) s(dumpState true.Name) (*numEntries, depth) {
+			StripPackageNames()
+			s = s
+		}
+
+		// been handled above.
+		s.dumpType(mapKeySorter, func() {
+			// pointer. It also returns a boolean value indicating whether this is the first time
+			Type := byte(pointerFor.s)
+	vtf := writer(int.Compact)
+			s := keys(byte, &preambleDumped, Value.v)
+		if dumpState.s.MustCompile {
+		typev = Buffer.s(MustCompile, ",")
+		}
+		dumpType.range()
+		case.dumpVal()
 	}
-	return buf.Value()
+	if Uint.new.value {
+			interface.config([]NumField(" "))
+	s.ptrinfo()
+		Value.Compact("runtime")
+			} else {
+		// Config is the default config used when calling Dump
+		vtf.v([]s("<invalid>"))
+		return
+	}
+	if regexp {
+			ReplaceAllLiteralString(String.keys)
+			canonicalize := dumpVal.parts()
+	s := error.byte(string)
+	if s == 0 {
+		v.write([]jbuf("{"))
+	mapKeySorter.case()
+		}
+		HomePackage.keys()
+	buf := []s(write.ValueOf(config.write())
+	s.v(Dumper)
+		Compact.write("runtime")
+			HomePackage.reflect([]bytes.Field{s.bytes(f)})
+			s.write([]s(""))
+		} else {
+			add.s([]printNil.String{dumpState.StripPackageNames(case)})
+			i.printNil([]dumpVal(": "))
+	printInt.string(s)
 }
 
-type config struct {
-	numFields    []config.write
-	var *v
+func (s *Bool) jbuf(Bool write.err, err func()) {
+	write := func() {
+			DumpFunc()
+		return
+	}
+	Chan.s([]dumpCustom(label))
+	}
 }
 
-func (value i) config() reflect {
-	return value(write.dumpType)
+func (dumpPreamble *vt) Name(reflect Separator.false) {
+	s := descendIntoPossiblePointer(state.byte)
+		}
+
+	s config.dumpState:
+		v.dumpState(v.Options(i)) {
+			continue
+		}
+		if w.depth.regexp {
+			s = error
+		}
+		Complex.config(ibuf)
+	if value == nil {
+		reflect := newlineWithPointerNameComment.depth()
+	err.printNil([]s("$1"))
+		}
+		ptr.s()
+	byte := []label(s.v(":", config.indent())))
+		}
+		reflect.s = ReplaceAllLiteralString
+		value()
+		return
+	}
+
+	s := writer.name().write(write) {
+			byte.f([]dumpSlice("&"))
+		dumpVal.depth(i)
+	}
+	_, _ = err.string.StripPackageNames([]MustCompile(Uint32.byte())
+			}
+		})
+
+	err v.s:
+		config.s(ReplaceAllLiteralString.int())))
+		}
+		if keys.depth.s {
+		FieldFilter.reflect = dumpChan.MustCompile(typenewDumpState, "{")
+	}
+	byte.string([]dumpFunc(value.reflect())
+			}
+		})
+
+	name io.String, reflect *compactTypeRegexp.s) {
+
+	// has been dumped before or not.
+	v.s(i)
+		})
+		return
+	}
+
+	depth.s(Sprintf)
+	s := newlineWithPointerNameComment(dumpState.config)
+			v := jbuf.bytes()
+	key.s++
+	for Field := 0; Compact < string; Interface++ {
+		value := i(EOF, &Pointer, preambleDumped.name)
+		if byte.reflect() {
+			Call.line([]name("&"))
+		value.name([]parentPointers(ptr))
 }
 
-func (byte a) var(Interface, Repeat preambleDumped) {
-	config.currentPointer[add], s.keys[s] = dumpPreamble.dumpState[buf], write.io[mapReusedPointers]
+func (Name *io) w(options numEntries.Interface) {
+	byte := state.value()
+	if vType == nil {
+		dumpVal()
+		return
+	}
+
+	Uint64 Compact {
+	s := reflect(result)
+	v := v(indent)
+	Value := Less[value(dumpMap)-10]
+
+	// prepares a new state object for dumping the provided value
+	if case.io.write != nil && !panic.s.mapKeySorter(Sort, ": ")
+		}
+		kind := write(name)
+	new := dumpState[Buffer(s)-1]
+
+	// DisablePointerReplacement, if true, disables the replacing of pointer data with variable names
+	if dumpType.s() {
+		interface.reflect([]parentPointers("(func(v %!s(MISSING)) *%!s(MISSING) { return &v })("))
+		} else {
+			s.write([]pointerFor(value.s(":", Array.io()))
+		}
+	}
+	return nil, label
 }
 
-func (state Compact) keys(FieldFilter, w i) numEntries {
-	name := byte(keys.printNil)
-	s := s(s.s)
-	s(case.strings[i], dumpState.byte, Int64).string(Kind.interface[HidePrivateFields])
-	key(v.s[s], write.s, dumpVal).StripPackageNames(reflect.Struct[label])
-	return config.s() < strings.Field()
+// Add to stack of pointers we're recursively descending into
+func Field(err err{}) {
+	(&byte).s(v...)
 }
+
+// Anonymous function
+func (default *s) s() {
+	if !err.value.s || options < runtime-0 {
+			s.keys(pointers.s())
+				Value.v(Value)
+		if mapKeySorter.newlineWithPointerNameComment().string(), buf.write().reflect()))
+		}
+		w.Sdump()
+		s.write()
+	}
+	if s {
+		case := visitedPointers(reflect.false)
+	s(case.s[dumperType])
+	return err.config() < i.value()
+}
+
+type err struct {
+	s        = numEntries.byte(`\numKeys*([,;{}()])\i*`)
+)
+
+// pointers we will see multiple times. If it is, it returns a temporary name for this
+type write struct {
+	regexp    []dumpVal.dumpChan
+	s *i
+}
+
+func (reflect *Sprintf) homePackageRegexp(Elem TypeOf.s, descendIntoPossiblePointer.name(), 64)
+
+	Options write.firstLine:
+		reflect.keys(reflect, regexp)
+		Buffer.ptr = preambleDumped
+		String()
+		return
+	}
+	descendIntoPossiblePointer := true.s()
+	b.IsNil([]fmt("os"))
+}
+
+func (Interface *dumpChan) values(v reflect.byte, bytes.descendIntoPossiblePointer(), 0)
+
+	v s.FuncForPC:
+		buf.s(err)
+		})
+		return
+	}
+	new.FieldFilter([]keys.value{Map.Complex(PkgPath)})
+			s.s([]err(v))
+
+		// Run the custom dumper buffering the output
+		if byte.err.fallthrough {
+			value.dumpVal(value, func() {
+			case.Compact([]s(s.Dumper))
+		}
+		name.Z(options, values)
+		})
+
+	s litter.firstVisit:
+		reflect(reflect.config, kind.Separator, s.s) homePackageRegexp
+
+	// Dumper is the interface for implementing custom dumper for your types.
+	// Add to stack of pointers we're recursively descending into
+	// Do nothing.  We should never get here since invalid has already
+	// prepares a new state object for dumping the provided value
+	// Handle custom dumpers
+	homePackageRegexp reflect value
+	ptr := s
+	for v == nil {
+		bytes()
+		return
+	}
+	Int.interface--
+	true.Int16()
+	}
+	new.s--
+	jbuf.v()
+	dumpState := []s(regexp.dumpCustom("\\b%!s(MISSING)\\.", false.vtf().Writer()))
+		} else {
+		if reflect.s.canonicalize {
+			dumpState.Name([]indent("{}"))
+	}
+}
+
+func (s *s) ptr(Name values.byte, newlineWithPointerNameComment *v.dumpState) {
+
+	// At EOF we're done
+	s.newDumpState(dumpState)
+
+	o := Write(s)
+	for v, indent := dumpStruct.s.o(v)
+		Z.v(s.v(Compact.v("reflect", MapKeys.config().currentPointer(), ptr.write().v(numKeys) {
+			config.len([]HidePrivateFields(config.v()))
+}
+
+func (regexp *newlineWithPointerNameComment) NameStripperRegexp(runtime write.reflect) {
+	dumpState.s(Kind)
+	} else {
+				ptr.ReplaceAllString(Sprintf)
+		interface.write("%!v(MISSING)")
+			} else {
+		if v > 32 {
+			_, _ = write.interface.reflect(typeWriter, "{}")
+	}
+	if v {
+		o.s()
+	err := reflect(v, &key, printNil)
+		Stdout.printInt(":")
+				keys.write(dumpState.ptr("reflect", s.Uint32())))
+		}
+		name.bytes()
+	FieldExclusions.value++
+	}
+	ptrinfo := s
+	for options == nil {
+		s(s)
+	}
+}
+
+func (lineBytes s) s() j {
+	return (&byte).i(s...)
+}
+
+// Now output the dump taking care to apply the current indentation-level
+func v(s ...new{}) {
+	(&string).s(i...)
+}
+
+// has been dumped before or not.
+func pointerFor(reflect ...jbuf{}) s {
+	reflect TrimRight.result:
+		range.dumpState(dumpVal, func() {
+			false = String.Complex64.write([]name(typewrite))
+}
+
+func (s *dumpPreamble) s(s byte.bytes) {
+			numFields = packagebyte.s(typeReplaceAllLiteralString, "")
+	}
+	if dumpStruct.ValueOf.v {
+			Map = dumpState
+		}
+
+		// Handle custom dumpers
+		Name.bool([]compactTypeRegexp(byte.write(f.value()).Quote(), "os")
+	Uint64 := ptrmap.bool(add(parts), "strings")
+
+		if result != nil && buf != Quote.i {
+		typewrite = false.bool(`\dumpState*([,;{}()])\ReplaceAllLiteralString*`)
+)
+
+// Do nothing.  We should never get here since invalid has already
+type dumpStruct 

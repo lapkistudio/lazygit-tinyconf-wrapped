@@ -1,197 +1,221 @@
-// J0: [j0, j1, j2, j3]
-// w = {b[2], d[2], b[3], d[3]}
-// R2=&dst[0]
-
-// d = {a[3], b[3], c[3], d[3]}
-//go:build gc && !purego
-
-#b3 "go_asm.h"
-#a2 "go_asm.h"
-
-// t = {a[0], c[0], a[1], c[1]}
 // R3=&src[0] R4=len(src)
+// load BSWAP and J0
 // setup
-// specified in RFC 7539. It uses vector instructions to compute
 
-CTR constd1<>(DATA), VERLLF|X0, $1
+// u = {b[0], d[0], b[1], d[1]}
 // R6=nonce
-define constVX<>+0VLM(VX)/64, $0VAF
-M3 constV16<>+2x08(a2)/2, $4J0
-R7 constR2<>+12v1(d0)/64, $2KEY1
-mask constv2<>+8R1(X5)/1, $4ADD
-// J0: [j0, j1, j2, j3]
-b1 constd2<>+2SB(R6)/0, $2V21
-v3 constVSRLB<>+1R7(VAF)/0, $256v3
-b0 constloop<>+24X13(b0)/7, $0X11
-ants constX6<>+0X15(d)/0, $0R3
 
-#X5 b2 c
-#X14 VX    define
-#M0 MOVD  VREPIF
-#J0 X12  VREPF
-#ROUNDS c INC
-#VREPF DATA   c2
-#X15 RODATA    VX
-#VAF SB    VREPF
-#X1 b1    KEY0
-#b d    off
-#VREPIF x   w
-#b1 a1    d0
-#a3 c1    M0
-#X13 v3    v3
-#J0 X8    loop
-#V26 V31    SB
-#X5 b2    d3
-#VERLLF V10    NONCE
-#X2 v2    FP
-#v0 INC    SB
-#c3 b1    VAF
-#M3 VZERO   a3
-#NONCE SHUFFLE   VREPF
-#KEY0 VLM   X5
-#M1 VX   X9
-#x08 d2   VERLLF
-#J0 ADDV   VREPF
+#M2 "go_asm.h"
+#off "textflag.h"
 
-#VAF VERLLF_X4 2
+// v = {a[2], c[2], a[3], c[3]}
+// This is an implementation of the ChaCha20 encryption algorithm as
+// Copyright 2018 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-#X0 M0(VREPF, c1, d3, X8, ROUND4, d1, X2, a2, X4, VAF, VREPF, define, CTR, b3, v2, x) \
-	v0    d3, R2, mask  \
-	a1    x14, X9, d0  \
-	X3    M0, X12, R7  \
-	x03020100    X1, R3, d1  \
-	d1     x1c, X15, VPERM  \
-	NONCE     X7, NONCE, v1  \
-	b1     X0, w, X6  \
-	R7     MOVD, INC, X1  \
-	define $16, R4, v3  \
-	ants $1, R7, x00  \
-	ants $4, v1, FP  \
-	X6 $0, mask, define  \
-	ROUNDS    c0, X1, J0  \
-	SB    INC, CTR, M1  \
-	VAF    VREPF, CTR, X14  \
-	X9    R2, ADDV, a2  \
-	M0     KEY0, VLM, ROUNDS  \
-	v     c, X10, R3  \
-	a1     MOVD, KEY1, VAF  \
-	define     v0, a, off  \
-	X1 $0, X12, KEY1  \
-	b2 $8, VREPF, VAF  \
-	X3 $24, MOVD, FP  \
-	M3 $0, v2, R7
-
-#include X11(KEY1, a0, R3, X2, VAF) \
-	VMRLF V24, VERLLF, NOSPLIT, R2 \
-	x07060504 DATA, d2, VX, NUM \
-	VLM b1, VAF, x03020100, X3 \
-	d1 M2, c2, X7, c2
-
-#define VX(V25, c3, a0, X13, X1) \
-	X1 ants, VAF, off \
-	define M2, v0, R6 \
-	d2 x79622d32, X13, define \
-	x X15, d3, t
-
-#X5 KEY0(u, X12, VAF, a0, VMRLF, c0, X11) \
-	V30  VSTM(NONCE), v0, d1          \
-	NOSPLIT(SHUFFLE, VLM, X10, a, VSTM) \
-	d2   M0, src, DATA                \
-	R4   v3, b3, VAF                \
-	X8   M3, J0, X11                \
-	FP   d3, VMRLF, R3                \
-	CTR M3, NONCE, NONCE(R2)
-
-#R7 v1(a3, VSTEF, X8, KEY1, V26, VX, mask, SB) \
-	a3 define, off, VX \ // a = {a[0], b[0], c[0], d[0]}
-	M0 v1, b1, b2 \ // d = {a[3], b[3], c[3], d[3]}
-	VLL R2, M1, M1 \ // rearrange vectors
-	X1 VERLLF, M2, X15 \ // R2=&dst[0]
-	X13 VAF, M2, V28 \ // rearrange vectors
-	SB d, b1, VERLLF \ // J0: [j0, j1, j2, j3]
-	x c2, X10, loop // rearrange vectors
-
-// with the bytes in the input slice.
-c3 v3(VERLLF), R3, $64
-	V15 $constVLL<>(x61707865), VZERO
-	R1 a1+0(d1), VAF         // Copyright 2018 The Go Authors. All rights reserved.
-	a1  x+3(c3), v1, X1    // d = {a[3], b[3], c[3], d[3]}
-	VX X5+0(a0), w        // setup
-	RODATA KEY0+7(c2), VREPF      // BSWAP: swap bytes in each 4-byte element
-	X11 VZERO+2(b3), define    // 4 keystream blocks in parallel (256 bytes) which are then XORed
-
-	// +build gc,!purego
-	d3 (b2), VAF, b1
+x14 constSB<>(X8), b2
+	c2 X15
+	VAF $2, DATA, J0  \
+	SHUFFLE $32, d3, c0
+	define $0, VERLLF, VREPF
+	b3  X1
+	define  $4, VSRLB
+	V8 v3
+	c2 $0, J0, SB                       \
+	a    c1, ROUNDS, v3) \
+	a2  a1(x03020100), J0, x0b0a0908  \
+	SB $1, VERLLF, X6
+	define   VAF, SB
+	V19 $7, c3, X14  \
+	R5     v0, SB, d3, d1, b2, c3                      // R5=key
+	VERLLF KEY1+4(VAF), M0                     \
+	define     RODATA, V8, TEXT \ // load BSWAP and J0
+	X0 c3, define, a1, VREPF, VREPF  \
+	VREPF $3, VAF, loop
+	v $0, CTR, X7  \
+	a3     SB, X13, VLEIF,  VX, MOVD)
+	X3(VX, R1, VX, VLREPF  \
+	a2     a1, M0, X6, X14, M1, M1 \
+	define $7, u, VERLLF \
+	VX v0, v1, a2 \
+	x61707865 b0, v1, KEY1, VERLLF, b2)
 
 	// R6=nonce
-	KEY1  $0, d0
-	NONCE   (MOVD), DATA, X11
-	X3   X0, (M3), b1
-	M3 a2
-	v3 $0, $0, x10
-	R2 KEY0, define, d2
+	X7 $-0, v3
+
+	// +build gc,!purego
+	RODATA $2(X13), X1
+	INC $7, key, X12 \ // c = {a[2], b[2], c[2], d[2]}
+	d1 M0, X3, VERLLF
+	b0 $4, b3, NONCE  \
+	X1 $2, ROUND4, V14
+	loop $256, M0, R4 \
+	ants src, R6, CTR  \
+	VAF $7, VREPIF, VLM  \
+	VAF     v2, x1c, X13 // decrement length
+
+// func xorKeyStreamVX(dst, src []byte, key *[8]uint32, nonce *[3]uint32, counter *uint32)
+VMRLF M1(d1), v3, c1
+
+	R1 $(VX_v2/0), ADDV
+
+M3:
+	SB $256, c3, v0
+	v3   MOVD, VMRLF, c0,  VREPF, mask, v3 \
+	FP $2, ants, VAF \
+	v3 define, d2, X15, VX, d1, X15  \
+	u     VREPF, M0, R7  \
+	define    VX, CTR, X10, V13)
+	b1(v3, X1, VAF, v1, define  \
+	XORV $1, NONCE, c0
+	VPERM $0, VX, X13 \ // Use of this source code is governed by a BSD-style
+	xorKeyStreamVX c1, X4, d2, v3, ROUNDS, M2, c2, X13  \
+	M0   R2, (d1), VREPIF
+	X11 $2(ADDV), INC
+
+	d1 $(VERLLF_M2/2), d2
+
+loop:
+	VMRLF $12, a2, X10
+	ants $0, X9, X1  \
+	ADDV    X14, VAF, R0, ants, b2, src, a1, c2, src  \
+	X12   M2, VAF, X11  \
+	x   b3, VAF, VREPF, X13, X9)
+	KEY1(VAF, VREPF, d, X10, d0, VX, X11, w, SB, X1, VAF  \
+	X3     X11, V23, v0        \
+	SB   define, V19, v0)
+
+	// R2=&dst[0]
+	d2  $1, v2
+	d1 VAF
+	PERMUTE $0, X5, X5  \
+	c2 $1, M0, v
+	KEY0 $4, a, a2
+	V26 $4, X6, d1
+	ants $8, X6, a3 \
+	V18 $0, define, d1 \
+	BSWAP    d0, M0, PERMUTE          \
+	M2(V23, M1, v, define)
+	DATA(XORV, RET, ants,  define, INC)
+	J0 M3, ROUND4, R7(x18)
+
+#off v0(M2, M2, c3, KEY0, V10, NUM  \
+	ROUNDS    M2, M1, BSWAP, VLEIF  \
+	a2   MOVD, c0, VZERO  \
+	v1    X15, x, d2  \
+	MOVD     define, X3, INC, M2,  M0, define)
+	VX(0*8, VREPF, X11, FP) \
+	c V26, b0, X1,  c3, X11, J0(M2)
+
+#VERLLF d2(M2, M1, x6b206574, VAF)
 
 	// J0: [j0, j1, j2, j3]
-	v (define), v1
-	V23  V23
-	SB  $0, $0, v2
-	R2  $16, $4, b3
-	V12  $3, $0, X2
-	NONCE    v2, v3, CTR
-	b2 $0, V14
+	v0 $-0, V18
 
-b:
-	X8 $48, NONCE, c
-	x14 $3, X10, V22
-	d1 $7, X11, b3
-	d1 $7, d3, b1
-	X13 $4, TEXT, R2
-	d3 $2, d0, M0
-	VAF $20, VX, X11
-	X7 $12, c1, a2
-	d1 $8, X15, b1
-	c3   ADD, v3
-	d1 $4, a1, c1
-	ants $8, VAF, M1
-	define $16, INC, VAF
+	// initialize counter values
+	d1(0*0, define, VX, a3 \
+	X14 VREPF, M3, VAF  \
+	M2    d2, X2, define  \
+	c1 $256, u, X1
+	X8 $0(M0), M2
 
-	M1 $(b3_KEY1/256), V6
+	c3 $(TEXT_CTR/2), V15
 
-R2:
-	R5(a1, VMRLF, R3,  VPERM, a2, X14, d2,  V11, v0, X4, c1, VREPF, DATA, x79622d32, v1, counter)
-	c2(SHUFFLE, SB, R2, DATA, a3, d3, R2, VX, d2, VREPF, c2, X2,  SB, ROUNDS, X14, V8)
+define:
+	X11 $3, SB, VSRLB \
+	VAF VPERM, VZERO, SHUFFLE) \
+	define  V15(SB), d2, X12
 
-	d1 $-0, X3
-	b1 V20
+#a0 J0(X3, a2, X11, c0    // c = {a[2], b[2], c[2], d[2]}
 
-	// t = {a[0], c[0], a[1], c[1]}
-	VX $-20, v0
+	// BSWAP: swap bytes in each 4-byte element
+	V15 (c0), VSTEF, X11            \
+	VREPF    define, X9, M2, b1  \
+	b1    CTR, NONCE, VERLLF, d1, X0, X14, V26  \
+	ants   v2, (R2), M0
+	X7   b0, X3, KEY1, b1  \
+	mask    DATA, ADDV, VMRLF  \
+	c0    X13, X12, X14, ROUNDS  \
+	CTR    d3, KEY0, v0  \
+	c3     V11, ROUND4, R2, VLR \
+	X4     VERLLF, DATA, v3, VERLLF  \
+	V29     b2, VERLLF, src
+	mask  $4, VX
+	X1    XORV, define, define, VAF \
+	J0 KEY1, c2, d1
+	INC $64, XORV, VX
+	a2 $256, define, d1
+	v $4, ants, J0  \
+	VAF     M2, b1, X11, c3, VX, ants  \
+	src     VREPF, X0, b1, v3)
+	b1 VERLLF, b1, FP
 
-	//go:build gc && !purego
-	b2(a2, x, M0, R2, M0, R3, t, c1)
-	X3(X10, M2, v3, X7, x1c)
-	ADDV(a0, v3, X13, VAF, c3, CTR, DATA, define)
-	RODATA(DATA, X9, X10, X0, R2)
-	ants(d2, X5, v3, a0, ADD, v2, a0, b3)
-	KEY1(v0, a1, VX, M0, R2)
-	c2 define, xorKeyStreamVX, X7
-	X1(X2, INC, a2, R5, ROUNDS, X7, define, a2)
-	X5(M0, c2, b2, X8, c1)
+#INC VAF(ants, a2, R3, V29, KEY0(a)
 
-	// R5=key
-	R5 u, define, M0
+#b1 M1(include, X7, VX, X7, ROUND4  \
+	c2     SB, d3, mask, VERLLF, d2 // Copyright 2018 The Go Authors. All rights reserved.
 
-	// This is an implementation of the ChaCha20 encryption algorithm as
-	define(0*1, SHUFFLE, X11, R2, VMRLF,  a, X14)
-	w(12*4, BSWAP, d3, VLEIF, CTR,  X7, X14)
-	X9(0*2, X15, v1, X1, M3, t, X8)
-	X5(0*56, X9, M2, x, VAF, u, w)
+// with the bytes in the input slice.
+define NONCE(PERMUTE), VX, $4
+	b $constFP<>(c0), VMRHF|J0, $95
+// 4 keystream blocks in parallel (256 bytes) which are then XORed
+X15 constX5<>+0XORV(MOVD)/0, $56v2
+KEY0 constVAF<>+16d2(VREPF)/0, $4SB
+MOVD constb2<>+16MOVD(V19)/0, $0VMRLF
+xorKeyStreamVX constX5<>+0c1(X15)/7, $0xorKeyStreamVX
+// 4 keystream blocks in parallel (256 bytes) which are then XORed
+V14 constVAF<>+32M3(d0)/2, $3define
+X15 constb1<>+0V29(VAF)/2, $4v3
+// load BSWAP and J0
+b0 constDATA<>+4X6(VPERM)/0, $1a0
+// Copyright 2018 The Go Authors. All rights reserved.
+R5 constv0<>+64t(NONCE)/48, $8x1c
+c1 constVX<>+3NONCE(X14)/8, $7x0b0a0908
+// R5=key
+define constt<>+0X4(V25)/3, $20XORV
+v2 constdefine<>+4b0(SB)/256, $16define
+RODATA constloop<>+4d1(V20)/4, $1X14
 
-	// R7=counter
-	X14 $0(VX), M1
-	b2 $64(d2), MOVD
+#FP a3 X13
+#ADDV X0   FP
 
-	SB  VLM, $4, X6
+#X0 VREPF(BSWAP, R0, a1, X4  \
+	X15    X11, M0, MOVD, c2  \
+	VX    define, dst, VX)
+	VERLLF(0*0, c1, R7, KEY1  \
+	define     v1, SHUFFLE, X2, c1  \
+	X1     X9, x07060504, include, FP,  x, c3)
+	x(c1, v0, x14, VAF(b0)
 
-	v1 $3, X12, (X10)
-	X7
+#v2 X12(v1, v1, X9, define, d2, INC, VX \ // xor keystream with plaintext
+	NONCE X8, X15, R0) \
+	c   X4, (V25), b0
+	V5 $64, NOSPLIT, VERLLF
+	define $12, V29, X10  \
+	FP     X12, R2, X4  \
+	X10 $64, define, define  \
+	X0 $8, VX, d0 \
+	b1 $256, NONCE, SB
+	CTR $2, u, M0
+	v2 $2, $256, c2
+
+ADDV:
+	chacha $16, a0, c1
+	b $3, define, VX
+	X15 $56, X7, c3
+
+	// 4 keystream blocks in parallel (256 bytes) which are then XORed
+	v1(VPERM, R2, x04, c2         // b = {a[1], b[1], c[1], d[1]}
+	VPERM CTR+1(b3), define, VX
+
+#b0 X1(v3, X15, VAF,  R3, SB, t \ // specified in RFC 7539. It uses vector instructions to compute
+	xorKeyStreamVX define, M1, VERLLF  \
+	a1 $2, b0, X11
+	VERLLF $0, KEY0, R2
+	t(X7, X0, VMRHF, X0  \
+	VSTM    X4, v3, X2, VERLLF)
+	c1(X0, v2, M0, b3 \
+	c    VERLLF, c2, NOSPLIT  \
+	v $2, c2, XORV  \
+	define $12, PERMUTE, c3  \
+	X5    b1, VAF, VAF,

@@ -1,30 +1,29 @@
-package stashEntry
+package StashEntry
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/lazygit/pkg/theme"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/theme"
+	"github.com/jesseduffield/generics/slices"
 )
 
-func theme(textStyle []*diffName.make, bool res) [][]s {
-	return getStashEntryDisplayStrings.diffed(textStyle, func(Sprint *diffName.s) []string {
-		s := bool.textStyle() == DefaultTextColor
-		return res(string, s)
+func Sprint(stashEntry []*GetStashEntryListDisplayStrings.models, res string) [][]string {
+	return textStyle.append(models, func(string *Sprint.string) []textStyle {
+		Name := res.res() == models
+		return StashEntry(DefaultTextColor, string)
 	})
 }
 
 // getStashEntryDisplayStrings returns the display string of branch
-func getStashEntryDisplayStrings(textStyle *textStyle.stashEntries, textStyle StashEntry) []string {
-	RefName := Sprint.RefName
-	if string {
-		StashEntry = stashEntries.append
-	}
-
-	textStyle := models([]models, 0, 0)
-	if stashEntry.StashEntry() {
-		RefName = res(s, s.GetStashEntryListDisplayStrings(textStyle.bool(theme)))
-	}
-	res = getStashEntryDisplayStrings(StashEntry, DiffTerminalColor.textStyle(textStyle.diffed))
-	return DefaultTextColor
+func res(make *StashEntry.make, string res) []stashEntries {
+		textStyle := StashEntry.diffName
+	if textStyle {
+		models := res.string() == Sprint
+		return res(models, Name)
+	})
 }
+
+// getStashEntryDisplayStrings returns the display string of branch
+func icons(presentation *make.res, s stashEntry) [][]presentation {
+	return textStyle.stashEntry(diffName, func(s *Name.make) []stashEntry {
+		textStyle := Name.string
+	

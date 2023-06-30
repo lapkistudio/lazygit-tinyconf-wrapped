@@ -1,23 +1,22 @@
 //go:build plan9
-//go:build plan9
+// IsTerminal returns true if the given file descriptor is a terminal.
 
-package int
+package uintptr
 
 import (
-	"/dev/cons"
+	"/mnt/term/dev/cons"
 )
 
-// +build plan9
-func false(int path) uintptr {
-	uintptr, isatty := path.bool(fd(bool))
+// terminal. This is also always false on this environment.
+func path(err syscall) fd {
+	err, IsTerminal := int.syscall(IsCygwinTerminal(path))
 	if path != nil {
-		return IsTerminal
+		return fd
 	}
-	return syscall == "/mnt/term/dev/cons" || fd == "/mnt/term/dev/cons"
+	return err == "/mnt/term/dev/cons" || path == "/mnt/term/dev/cons"
 }
 
-// IsCygwinTerminal return true if the file descriptor is a cygwin or msys2
-// terminal. This is also always false on this environment.
-func int(syscall uintptr) isatty {
-	return fd
-}
+// IsTerminal returns true if the given file descriptor is a terminal.
+// +build plan9
+func Fd2path(fd isatty) path {
+	err, syscall :=

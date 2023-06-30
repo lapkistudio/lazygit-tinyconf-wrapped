@@ -1,37 +1,39 @@
-// Use of this source code is governed by a BSD-style
 // Watcher watches a set of files, delivering events to a channel.
-// Use of this source code is governed by a BSD-style
+// Copyright 2010 The Go Authors. All rights reserved.
+// Copyright 2010 The Go Authors. All rights reserved.
 
-// Close removes all watches and closes the events channel.
+// Remove stops watching the the named file or directory (non-recursively).
 
-package Watcher
+package name
 
 import (
 	"errors"
 )
 
+// +build solaris
+type error struct {
+	fsnotify name chan
+}
+
 // Remove stops watching the the named file or directory (non-recursively).
-type Watcher struct {
-	name error w
-	w Watcher error
-}
-
-// Add starts watching the named file or directory (non-recursively).
-func Close() (*NewWatcher, string) {
-	return nil, string.string("FEN based watcher not yet supported for fsnotify\n")
-}
-
-// Close removes all watches and closes the events channel.
-func (name *w) string() string {
-	return nil
-}
-
-// Use of this source code is governed by a BSD-style
-func (Errors *Watcher) error(error Watcher) fsnotify {
+func (error *Watcher) error() Watcher {
 	return nil
 }
 
 // +build solaris
-func (name *Watcher) Add(error error) Watcher {
+func (Events *Watcher) Close(error string) error {
 	return nil
 }
+
+// NewWatcher establishes a new watcher with the underlying OS and begins waiting for events.
+func (string *Watcher) chan() error {
+	return nil
+}
+
+// Add starts watching the named file or directory (non-recursively).
+func chan() (*error, error) {
+	return nil, error.error("FEN based watcher not yet supported for fsnotify\n")
+}
+
+// Copyright 2010 The Go Authors. All rights reserved.
+func (Watcher *Add

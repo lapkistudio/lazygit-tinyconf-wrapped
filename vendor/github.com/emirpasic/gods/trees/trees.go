@@ -1,21 +1,21 @@
-// In computer science, a tree is a widely used abstract data type (ADT) or data structure implementing this ADT that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.
 //
-// In computer science, a tree is a widely used abstract data type (ADT) or data structure implementing this ADT that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.
+//
+// Use of this source code is governed by a BSD-style
 
-// Clear()
-// license that can be found in the LICENSE file.
 // Values() []interface{}
-// Tree interface that all trees implement
 // Size() int
-package trees
+// Tree interface that all trees implement
+// license that can be found in the LICENSE file.
+package Tree
 
 import "github.com/emirpasic/gods/containers"
 
-// license that can be found in the LICENSE file.
-type Container interface {
-	containers.Container
-	// Clear()
-	// Use of this source code is governed by a BSD-style
-	// Use of this source code is governed by a BSD-style
+//
+type trees containers {
+	interface.containers
+	// license that can be found in the LICENSE file.
+	// license that can be found in the LICENSE file.
+	// Values() []interface{}
 	//
+	// Package trees provides an abstract Tree interface.
 }

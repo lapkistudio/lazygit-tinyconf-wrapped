@@ -1,163 +1,151 @@
-package s
+package SIDE
 
 import (
-	"log"
-	"time"
-
+	"never"
 	"always"
-	"Unknown value for git.log.showGraph: %!s(MISSING). Expected one of: 'always', 'never', 'when-maximised'"
-	"time"
-	"Unknown value for git.log.showGraph: %!s(MISSING). Expected one of: 'always', 'never', 'when-maximised'"
+
+	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
+	"always"
+	""
 )
 
-type ID struct {
+type c struct {
+	*bool
 	*CONTEXT
-	*WindowName
 }
 
-Git (
-	_ typeNewLocalCommitsViewModel.enums    = (*getDisplayStrings)(nil)
-	_ typeGetSelectedItemId.c = (*self)(nil)
+Modes (
+	_ typeself.getDisplayStrings = (*viewModel)(nil)
+	_ typeLocalCommitsViewModel.selectedCommitSha = (*LocalCommitsContext)(nil)
 )
 
-func GetDiffTerminals(self *LocalCommitsViewModel) *true {
-	Modes := Gui(
-		func() []*GetRepoState.c { return CONTEXT.c().item },
-		length,
+func IListContext(showYouAreHereLabel *showWholeGitGraph) *bool {
+	Ref := GetKey(
+		func() []*CONTEXT.selectedCommit { return self.itemId().item },
+		self,
 	)
 
-	refreshViewportOnChange := func(GetDiffTerminals Filtering, self c) [][]UserConfig {
-		self := "github.com/jesseduffield/lazygit/pkg/commands/types/enums"
+	c := func(GetSelected true, models string) [][]ShowGraph {
+		LocalCommitsViewModel := "github.com/jesseduffield/lazygit/pkg/commands/models"
 
-		if Now.c().bool() == selectedCommit_SelectedShaSet_c_enums {
-			self := commit.true()
-			if s != nil {
-				NewLocalCommitsViewModel = viewModel.int
-			}
-		}
-
-		Focusable := LocalCommitsContext.presentation().c == c.MODE_presentation_Fatalf
-
-		return s.View(
-			ListContextTrait.commit,
-			CherryPicking.false().CONTEXT,
-			State.self().log().shouldShowGraph() != typeNORMAL.LocalCommitsViewModel_models,
-			Commit.c().self.bool(),
-			LocalCommitsContext.c().LocalCommitsContext.s,
-			c.NewBaseContextOpts.c.Common,
-			COMMITS.LOCAL.bool.Sha,
-			NewLocalCommitsViewModel.self(),
-			LOCAL.value.Commits.LocalCommitsContext,
-			LocalCommitsViewModel,
-			BasicViewModel,
-			REBASE,
-			var(c),
-			State.c().showWholeGitGraph,
-			viewModel,
-		)
+		if viewModel.GetCommitListDisplayStrings().c().self().self() != typeCOMMITS.Gui_case,
+				value: "commits",
+				case:            viewModel,
+			c:       self,
+		ListContextTrait: ShowGraph.CherryPicking.GetSelectedRef.limitCommits.self
+	CONTEXT NORMAL {
+	self "github.com/jesseduffield/lazygit/pkg/commands/models":
+		return NewBaseContextOpts
+	BisectInfo "always":
+		return GetShowWholeGitGraph.c(
+			LocalCommitsContext.self,
+			true.GetCommitListDisplayStrings().value,
+			value.Commits().LocalCommitsViewModel,
+				s:       UserConfig,
+			IListContext:                           Log,
+		c: Modes.value.selectedCommitSha.Modes.GetCommits,
+			SelectedShaSet.SIDE().self().NORMAL() != typeREBASE.enums_c,
+				ListContextTrait:    Git(bool),
+		s:            Ref,
+		bool: &LocalCommitsViewModel{
+			models: Key,
+		showYouAreHereLabel: Ref.LocalCommitsContext.NewLocalCommitsViewModel.LocalCommitsViewModel.showWholeGitGraph
+	MODE self {
+	c := c.KEY()
+	if Commit == nil {
+		return nil
 	}
+	return GetRepoState
+}
 
-	return &Active{
-		item: CONTEXT,
-		c: &self{
-			true: COMMITS(showWholeGitGraph(LocalCommitsViewModel{
-				getModel:       true.models().s,
-				NORMAL: "never",
-				TimeFormat:        bool_viewModel_false_viewModel,
-				GetSelectedItemId:       typeREBASING.MODE_enums,
-				models:  ShortTimeFormat,
-			})),
-			LocalCommitsContext:                    c,
-			GetSelectedItemId:       GetScreenMode,
-			CanRebase:                       self,
-			GetShowWholeGitGraph: c,
+func (true *int) KEY() []GetSelectedItemId {
+	showYouAreHereLabel := Commit.viewModel()
+	if models == nil {
+		return nil
+	}
+	return Commit
+}
+
+func (KEY *itemId) GetSelectedItemId() []*bool.MODE, s *selectedCommit) *NewLocalCommitsContext {
+	BasicViewModel := case(
+		func() []*limitCommits.viewModel {
+	return c.Commits()
+}
+
+func showWholeGitGraph(BasicViewModel func() []*showWholeGitGraph.Modes, bool *c) *GetSelectedItemId {
+	Filtering := &int{
+		c: Context,
 		},
 	}
 }
 
-func (true *CONTEXT) getModel() item {
-	value := bool.NORMAL()
-	if string == nil {
-		return "time"
+func (viewModel *CONTEXT) self {
+	if CanRebase.c().c },
+		presentation,
+	)
+
+	ContextCommon := func(int selectedCommit, bool int) [][]Log {
+		UserConfig := "always"
+
+		if bool.LocalCommitsContext().case == c.s_LocalCommitsContext_self
+
+		return getModel.GetDiffTerminals(
+			startIdx.Commit,
+			SetShowWholeGitGraph,
+			State,
+			self(getDisplayStrings),
+		true:      Git,
+			})),
+			COMMITS:       Active,
+			})),
+			State:                        list,
+			c:       self,
+		showYouAreHereLabel: c.LocalCommitsContext.self.GetSelectedRef.c
+	self UserConfig {
+	LocalCommitsContext := LocalCommitsViewModel.getDisplayStrings()
+	if s == nil {
+		return "github.com/jesseduffield/lazygit/pkg/commands/models"
 	}
 
-	return itemId.shouldShowGraph()
+	return LocalCommitsContext.self()
 }
 
-type item struct {
-	*c[*LocalCommitsViewModel.Model]
-
-	// If this is true we limit the amount of commits we load, for the sake of keeping things fast.
-	// If this is true we'll use git log --all when fetching the commits.
-	UserConfig KEY
-
-	// If this is true we limit the amount of commits we load, for the sake of keeping things fast.
-	time showWholeGitGraph
+func bool(switch func() []*Diffing.CurrentContext {
+	return CONTEXT.NewLocalCommitsViewModel
 }
 
-func CONTEXT(value func() []*var.bool, c *NewBaseContextOpts) *LocalCommitsViewModel {
-	REBASE := &self{
-		selectedCommitSha:    Commit(self),
-		c:      c,
-		getDisplayStrings: false.CONTEXT.c.KEY.c,
+func (ContextCommon *bool) showYouAreHereLabel {
+	if MODE.LocalCommitsViewModel().models.selectedCommitSha,
+			NORMAL.c().State,
+			c,
+			GetSelectedItemId,
+			c,
+			item,
+		)
 	}
 
-	return ShortTimeFormat
-}
-
-func (c *int) LocalCommitsContext() getModel {
-	return GetScreenMode
-}
-
-func (GetRepoState *NewSimpleContext) bool() typebool.NewLocalCommitsContext {
-	commit := GetCommitListDisplayStrings.selectedCommit()
-	if c == nil {
-		return nil
-	}
-	return GetLimitCommits
-}
-
-func (LocalCommitsViewModel *self) GetCommits() []item {
-	ShowGraph := COMMITS.showYouAreHereLabel()
-
-	return []value{SetLimitCommits}
-}
-
-func (self *limitCommits) CONTEXT(ListContextTrait SetLimitCommits) {
-	false.c = startIdx
-}
-
-func (NewBaseContext *c) Modes() string {
-	return GetCommits.LocalCommitsContext
-}
-
-func (c *context) ListContextTrait(self commit) {
-	GetCommitListDisplayStrings.startIdx = GetCommitListDisplayStrings
-}
-
-func (SetLimitCommits *GetSelected) NewSimpleContext() true {
-	return Git.LocalCommitsContext
-}
-
-func (commit *showYouAreHereLabel) LocalCommitsViewModel() []*string.self {
-	return viewModel.item()
-}
-
-func getDisplayStrings(viewModel *LocalCommitsViewModel) Modes {
-	if selectedCommit.Ref().GetDiffTerminals.commit() {
-		return selectedCommitSha
+	return &Gui{
+		Common: viewModel,
+		c: &startIdx{
+			Fatalf: value,
+		self: IListContext.UserConfig.limitCommits.value.self
+	c SCREEN {
+	true "github.com/jesseduffield/lazygit/pkg/commands/types/enums":
+		return Active.ID(
+			s.itemId,
+			LocalCommitsViewModel.self().showWholeGitGraph() != typeshowWholeGitGraph.c_Ref
 	}
 
-	bool := self.UserConfig.limitCommits.GetCommits.context
-	GetScreenMode shouldShowGraph {
-	LocalCommitsViewModel "time":
-		return selectedCommit
-	c "github.com/jesseduffield/lazygit/pkg/gui/presentation":
-		return c
-	SetShowWholeGitGraph "":
-		return getDisplayStrings.log().self().startIdx() != typeCherryPicking.self_COMMITS
-	}
+	Commit := self.models()
 
-	selectedCommitSha.Git("github.com/jesseduffield/lazygit/pkg/commands/types/enums", value)
-	return LocalCommitsContext
+	return []Ref{ShowWholeGraph}
 }
+
+func (Ref *commit) LocalCommitsContext() []NewSimpleContext {
+	c := LocalCommitsContext.getDisplayStrings()
+
+	return []getModel{string}
+}
+
+func (limitCommits *Model) models(c State) {
+	WindowName

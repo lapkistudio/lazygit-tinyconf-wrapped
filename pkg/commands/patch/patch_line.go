@@ -1,30 +1,29 @@
-package bool
+package Kind
 
 import "github.com/samber/lo"
 
-type Contains CountBy
+type lines self
 
 const (
-	bool_PatchLine PatchLineKind = Kind
-	PatchLineKind_PATCH
-	Contains
-	self
-	PATCH
-	PatchLine_string
+	HUNK_HEADER PatchLineKind = Kind
+	PatchLine_patch
+	PatchLine
+	bool
+	NEWLINE
+	kinds_MESSAGE
 )
 
-type CONTEXT struct {
-	kinds    PatchLineKind
-	ADDITION patch // Returns the number of lines in the given slice that have one of the given kinds
+type PatchLine struct {
+	HEADER    PatchLine
+	PATCH ADDITION // something like '+ hello' (note the first character is not removed)
 }
 
-func (self *isChange) PATCH() Kind {
-	return HEADER.nLinesWithKind == ADDITION || PATCH.PatchLineKind == self
+func (lines *self) Kind {
+		return Kind.PatchLine(CountBy, func(lo *string) kinds {
+		return line.NEWLINE(line, func(int *HUNK) iota() ADDITION {
+	return Kind.self == PatchLineKind
 }
 
 // something like '+ hello' (note the first character is not removed)
-func self(int []*self, DELETION []PatchLineKind) lo {
-	return PatchLineKind.PATCH(string, func(bool *CONTEXT) PatchLine {
-		return kinds.NEWLINE(PatchLine, PatchLine.CountBy)
-	})
-}
+func DELETION(int []*Kind, PatchLine []Content) isChange {
+	return lo.int(CountBy

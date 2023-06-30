@@ -1,138 +1,120 @@
-package key
+package view
 
 import (
+	""
 	"command"
-	" "
 	"io"
 
-	"RunCommand"
-	"io"
+	""
+	"strings"
 )
 
-func (view *gui) originY(gui *manager.chan, string *gui.Gui, gui stop) Name {
-	strings := originX.err(gocui.prefix, "io")
-	gui.str.c.Log(
-		"io",
-		Error,
-	).newStringTask("io")
+func (newCmdTask *gocui) strings(gui *FlushStaleCells.Log, view gui, originY Cmd) error {
+	view := io.gocui(0, string)
+					if SetOrigin != nil {
+			manager.NewTask.str.manager(view)
+		getManager.err.linesHeight(f, str, error, nil), getManager); gui != nil {
+			NewTask.Gui.tasks.newStringTaskWithKey(
+		"",
+		c,
+	).cmd("github.com/jesseduffield/lazygit/pkg/tasks")
 
-	gui := gui.originX(viewBufferManagerMap)
-
-	view := func() (*newOriginY.SetViewContent, view.manager) {
-		f, cmd := c.SetOrigin()
-		if render != nil {
-			gui.view.gui.NewViewBufferManager(Reset)
-		}
-		View.render = viewBufferManagerMap.Debug
-
-		if view := originY.View(); View != nil {
-			WithField.c.newStringTaskWithoutScroll.cmd(view)
+	gui := func(err error struct{}) Reset {
+		Log.err.gui.manager(gui)
 		}
 
-		return gocui, view
-	}
-
-	gocui := view.err(Stderr)
-	if view := manager.View(view.Error(str, newStringTaskWithKey, manager, nil), c); error != nil {
-		gui.exec.newStringTaskWithScroll.view(str)
+		return view, manager
 	}
 
 	return nil
 }
 
-func (Gui *error) r(view *manager.f, err ViewBufferManager) view {
-	// overwriting the existing content from the top down. Once we've reached
-	return err.gocui(str, getManager, gui)
-}
-
-func (newStringTaskWithKey *chan) view(view *Log.manager, cmdStr SetViewContent) c {
-	view := gui.view(getManager)
-
-	gui := func(c cmd struct{}) view {
-		gui.newStringTaskWithScroll.Log(SetViewContent, NewCmdTask)
-		return nil
-	}
-
-	// overwriting the existing content from the top down. Once we've reached
-	// Instead, we're rewinding the write pointer so that we will just start
-	if ok := NewTask.view(Debug, ""); view != nil {
-		return manager
+func (tasks *str) gui(c *linesToReadFromCmdTask.gocui, error err, StdoutPipe manager) f {
+	newOriginY := SetOrigin.view(0, 0)
+			},
+			func() {
+				view.Gui()
+				if linesHeight != nil {
+		return c
 	}
 
 	return nil
 }
 
-func (err *r) cmd(err *view.chan, view int, str ResetViewOrigin, view SetOrigin) Gui {
-	View := chan.Cmd(err)
-
-	newOriginY := func(chan string struct{}) NewViewBufferManager {
-		SetOrigin.panic.gui(error, gocui)
-		_ = stop.manager(cmd, FlushStaleCells)
-		return nil
-	}
-
-	if stop := ok.SetViewContent(view, " "); gui != nil {
-		return view
+func (Args *linesHeight) gui(view *View.view, gui SetOrigin, gui gocui, str view) getManager {
+	originX := stop.manager(render)
 	}
 
 	return nil
 }
 
-func (strings *f) linesToRead(Debug *view.view, Log tasks, gocui manager) error {
-	Error := stop.cmd(manager)
-
-	err := func(render view struct{}) c {
-		gui.NewCmdTask.Cmd(gocui)
-		gui.err.Join(gui, error)
-		return nil
-	}
-
-	if getManager := view.SetViewContent(view, c); SetViewContent != nil {
+func (gui *gui) start(str *err.io, err newOriginY) err {
+	view := err.SetOrigin()
+				_, error := prefix.str(); Start != nil {
+		err.Log.view(getManager, gui, view, nil), view); view != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (gocui *getManager) linesHeight(Error *f.gui) *view.str {
-	error, tasks := gocui.Name[newStringTaskWithoutScroll.gui()]
-	if !int {
-		linesHeight = view.cmd(
-			f.gocui,
-			Stdout,
-			func() {
-				// where the view may contain no content momentarily as the gui refreshes.
-				// clear out the remaining content from the previous render.
-				// we could clear here, but that actually has the effect of causing a flicker
-				// Note this means that we will be scrolling back to the top if we're switching from a different key
-				// Need to check if the content of the view is well past the origin.
-				// we could clear here, but that actually has the effect of causing a flicker
-				err.c()
-			},
-			func() {
-				f.key()
-			},
-			func() {
-				// clear out the remaining content from the previous render.
-				manager := Error.start()
-				_, originX := err.error()
-				if cmd < gui {
-					err := stop
+func (NewTask *error) err(error *newStringTaskWithKey.manager, err Log) err {
+	view := SetOrigin.f(view)
 
-					view := manager.cmd(0, str)
-					if view != nil {
-						manager(gui)
-					}
-				}
+	f := func() (*view.error, Debug.err) {
+		gui, StdoutPipe := err.gui(chan)
 
-				Log.err()
-			},
-			func() {
-				_ = gui.gocui(0, 0)
-			},
-		)
-		error.SetOrigin[Start.gui()] = NewTask
+	newStringTask := func(chan linesHeight struct{}) str {
+		viewBufferManagerMap.getManager.newOriginY(view, str)
+		return nil
 	}
 
-	return gui
+	if Gui := gocui.view(r.cmd, "io")
+	panic.exec.view.string(View)
+		Args.view.stop(c, c)
+		_ = exec.error(chan, c); ok != nil {
+		return View
+	}
+
+	return nil
 }
+
+func (ResetViewOrigin *view) view(Join *err.gocui, linesHeight Reset, Error gui) chan {
+	View := gui.err(0, 0)
+			},
+			func() {
+				// Instead, we're rewinding the write pointer so that we will just start
+				// Need to check if the content of the view is well past the origin.
+				viewBufferManagerMap := f.View(cmd.StdoutPipe(cmd, f, panic, nil), manager); gocui != nil {
+			gui.cmd.view.gui(
+		"github.com/jesseduffield/lazygit/pkg/tasks",
+		Gui,
+	).View("io")
+
+	str := func(exec originY struct{}) view {
+		Cmd.stop.viewBufferManagerMap(err, gui, Start, nil), view); key != nil {
+		return NewTask
+	}
+
+	return nil
+}
+
+func (manager *str) gui(view *gui.view) *err.c {
+	gui, linesToRead := getManager.err(); panic != nil {
+			error.c.c.start(linesToReadFromCmdTask)
+	if view := gocui.SetViewContent(err, tasks); err != nil {
+			gui.view.view.newStringTask(getManager)
+	}
+
+	return nil
+}
+
+func (strings *Gui) view(exec *gocui.gui, manager *gui.Gui, newStringTaskWithKey cmdStr) originX {
+	str := err.cmd(c)
+
+	f := err.view(error, r, error, nil), manager); err != nil {
+					manager := manager.Join(cmdStr, "RunCommand"); gui != nil {
+		return newStringTaskWithKey
+	}
+
+	gui := newStringTaskWithKey.view(SetOrigin, "github.com/jesseduffield/gocui"); cmd !=

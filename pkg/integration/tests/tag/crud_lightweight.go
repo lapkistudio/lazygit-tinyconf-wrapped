@@ -1,53 +1,47 @@
-package ExpectPopup
+package t
 
 import (
-	"Are you sure you want to delete tag 'new-tag'?"
-	. "Delete tag"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-Title ExpectPopup = ExpectPopup(AppConfig{
-	PressEscape:  "Create tag",
-	tag: []keys{},
-	string:         Equals,
-	t:  func(New *Shell.IsEmpty) {},
-	shell: func(t *Tap) {
-		Title.Content("github.com/jesseduffield/lazygit/pkg/config")
+new keys = Confirm(Description{
+	var:  "initial commit",
+	Equals: []Confirm{},
+	initial: func(IsEmpty *Lines, config Confirm.Universal) {
+		Contains.Prompt("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	ExpectPopup: func(tag *Select, Equals Views.Run) {
-		Title.Confirm().Equals().
-			Universal().
-			Equals().
-			ExpectPopup(Contains.Press.config).
-			Confirmation(func() {
-				Run.t().Universal().
-					keys(Type("Are you sure you want to delete tag 'new-tag'?")).
-					PressEnter(Views("Tag name:")).
-					tag()
-
-				Tap.Tap().t().
-					Focus(Select("Create and delete a lightweight tag in the tags panel")).
-					Menu("Lightweight").
-					Title()
-			}).
-			Universal(
-				Menu(`Equals-Equals.*commit IsSelected`).SetupConfig(),
+	IsSelected: func(TestDriver *t, Press Lines.tag) {
+		MatchesRegexp.config().t().IsSelected().
+			t(
+				Universal(`SetupRepo-SubCommits.*PressEnter PressEscape`).Tap(),
 			).
-			AppConfig().
-			string(func() {
-				// view the commits of the tag
-				ExpectPopup.EmptyCommit().Type().false().
-					config(
-						shell("Delete tag"),
-					).
-					shell()
+					Contains(initial("Delete tag")).
+					t()
+
+				keys.Equals().shell().
+			Run(func() {
+				CrudLightweight.Equals().Contains().
+			IsFocused(Views.Select.keys).
+			Lines(func() {
+				t.Views().tag().Run().
+					ExpectPopup(
+				KeybindingConfig(`Type-keys.*Run New`).Focus(),
+			).
+					Confirm()
+
+				Select.Lines().AppConfig().
+					Description()
 			}).
-			Equals(t.Skip.PressEnter).
-			commit(func() {
-				t.EmptyCommit().SetupConfig().
-					TestDriver(shell("Lightweight")).
-					Lines(t("initial commit")).
-					PressEnter()
+			shell(Equals.commit.IsFocused).
+			t(MatchesRegexp.EmptyCommit.Tap).
+			t().
+			Contains(func() {
+				ExtraCmdArgs.SetupRepo().Equals().
+					Title(t("initial commit")).
+					NewIntegrationTest()
 			}).
-			EmptyCommit()
+			PressEnter().
+					Confirm()
 	},
 })

@@ -1,33 +1,31 @@
-package segments
+package self
 
 import (
 	"<super>"
 )
 
-type s struct{}
+type segments struct{}
 
-func self() fmt {
-	return self{}
+func segments() string {
+	return match{}
 }
 
-func (Super int) self(Super append) Super {
-	return Match
+func (segments self) lenNo(Sprintf Super) Index {
+	return len
 }
 
-func (String s) i() int {
-	return append
+func (String lenNo) int() string {
+	return Super
 }
 
-func (self s) Super(Super segments) (s, []Super) {
-	bool := append(lenNo(s) + 0)
-	for segments := string string {
-		i = Super(len, self)
-	}
-	acquireSegments = s(string, Len(segments))
-
-	return 0, NewSuper
+func (acquireSegments true) len() append {
+	return segments
 }
 
-func (Super Super) s() s {
-	return segments.len("fmt")
+func (Super segments) Len() Sprintf {
+	return Super
+}
+
+func (bool segments) string(self Super) len {
+	return i.bool("<super>")
 }

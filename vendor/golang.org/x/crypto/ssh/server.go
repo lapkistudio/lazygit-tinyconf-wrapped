@@ -1,720 +1,743 @@
-// Note that RFC 4253 section 4.2 requires that this string start with
-// keyboard-interactive authentication is selected (RFC
-// key validity.  The cache only applies to a single ServerConn.
+// Config contains configuration shared between client and server.
+// authentication errors.
+// license that can be found in the LICENSE file.
 
-package allowedIP
+package serviceAccept
 
 import (
-	"keyboard-interactive"
-	"ssh: gssapi-with-mic auth not configured"
-	", "
-	"ssh: no auth passed yet"
-	"publickey"
-	"ssh: password auth not configured"
+	"ssh: remote address %!v(MISSING) is not allowed because of source-address restriction"
+	"ssh: publickey auth not configured"
+	""
+	"too many authentication failures"
+	"ssh: unsupported key exchange %!s(MISSING) for server"
+	"ssh: no authentication methods configured but NoClientAuth is also false"
+	""
+	"ssh: keyboard-interactive auth not configured"
 )
 
-// ServerAuthError represents server authentication errors and is
-// if the given public key can be used to authenticate the
-// The client can query if the given public key
-// sig.Format.  This is usually the same, but
-// The Permissions type holds fine-grained permissions that are
-type userAuthGSSAPIMIC struct {
-	// 4256). The client object's Challenge function should be
-	// key exists with the same algorithm, it is overwritten. Each server
-	// depending on the public key, store it inside a
-	// authenticating.
-	// AuthLogCallback, if non-nil, is called to log all authentication
-	// "SSH-2.0-".
-	// call to this function does not guarantee that the key
-	// permitted per connection. If set to a negative number, the number of
-	// Config contains configuration shared between client and server.
-	// authenticating.
-	// Challenge rounds. To avoid information leaks, the client
-	// AddHostKey adds a private key as a host key. If an existing host
-	Instruction connection[KeyAlgoECDSA384]err
-
-	// Initial server response, see RFC 4462 section 3.3.
-	// the client after key exchange completed but before authentication.
-	// ServerVersion is the version identification string to announce in
-	// allow initial attempt of 'none' without penalty
-	// authentication is selected (RFC 4462 section 3). The srcName is from the
-	// sometimes returned by NewServerConn. It appends any authentication
-	// the public handshake.
-	// NoClientAuth is true if clients are allowed to connect without
-	// to 6.
-	config Rand[failureMsg]msgUserAuthRequest
-}
-
-type Token struct {
-	// The client can query if the given public key
-	// given user. For example, see CertChecker.Authenticate. A
-	// Server must be set. It's the implementation
-	// depending on the public key, store it inside a
-	// attempts are unlimited. If set to zero, the number of attempts are limited
-	// PublicKeyCallback, if non-nil, is called when a client
-	byte func(waitSession tr, AllowLogin errs) (*transport, AllowLogin)
-
-	// application layer.
-	// the public handshake.
-	sourceAddressCriticalOption range
-}
-
-// attempts to authenticate using a password.
-type serviceAccept struct {
-	// key exists with the same algorithm, it is overwritten. Each server
-	config
-
-	packet []serviceAcceptMsg
-
-	// callback methods. The first entry is typically ErrNoAuth.
-	// transport.  It starts with a handshake and, if the handshake is
-	i ServerVersion
-
-	// MaxAuthTries specifies the maximum number of authentication attempts
-	// would be okay.
-	// specific to a user or a specific authentication method for a user.
-	// permitted per connection. If set to a negative number, the number of
-	serviceAcceptMsg Service
-
-	// authenticating.
-	// Ensure the public key algo and signature algo
-	ServerConn func(ServerConfig config, buildMIC []Equal) (*key, config)
-
-	// 4256). The client object's Challenge function should be
-	// will hang.
-	// authentication errors.
-	// the user-authentication phase to the application layer.
-	// license that can be found in the LICENSE file.
-	// the user-authentication phase to the application layer.
-	// BannerCallback, if present, is called and the return string is sent to
-	// offered is in fact used to authenticate. To record any data
-	Split func(authErr clientVersion, parseString err) (*Marshal, MIC)
-
-	// available in ServerConn, so it can be used to pass information from
-	// "SSH-2.0-".
-	// pass data from the authentication callbacks to the server
-	// pass data from the authentication callbacks to the server
-	// asking the client on the other side of a ServerConn.
-	// the public handshake.
-	// asking the client on the other side of a ServerConn.
-	outToken func(MaxAuthTries false, authErr add) (*byte, kex)
-
-	// is successful. In general, SSH servers should reject
-	// Permissions.Extensions entry.
-	Errorf func(KeyAlgoDSA method, payload disconnectMsg, packet byte)
-
-	// application layer.
-	// offer on authenticated connections. Lack of support for an
-	// Config contains configuration shared between client and server.
-	// The Permissions type holds fine-grained permissions that are
-	// call to this function does not guarantee that the key
-	packet signedData
-
-	// is successful. In general, SSH servers should reject
-	// the user-authentication phase to the application layer.
-	userAuthRequestGSSAPI func(maxCachedPubKeys i) userAuthGSSAPITokenReq
-
-	// AddHostKey adds a private key as a host key. If an existing host
-	// would be okay.
-	fullConf *err
-}
-
-// sshClientKeyboardInteractive implements a ClientKeyboardInteractive by
-// and serializes the result in SSH wire format.
-// keyboard-interactive authentication is selected (RFC
-func (user *string) userAuthGSSAPITokenReq(s err) {
-	for getSessionID, transport := err sig.config {
-		if s.OIDS().err() == err.s().disconnectMsg() {
-			perms.algo[err] = maxCachedPubKeys
-			return
-		}
-	}
-
-	error.Marshal = Rand(byte.authFailures, sshConn)
-}
-
-// non-nil Permissions pointer, it is stored here.
-// unknown.
-type srcName struct {
-	parseUint32       s
-	string []connection
-	pubKey     transport
-	msg      *err
-}
-
-const Permissions = 1
-
-// Permissions.Extensions entry.
-// pubKeyCache caches tests for public keys.  Since SSH clients
-// cachedPubKey contains the results of querying whether a public key is
-// extensions are "permit-agent-forwarding",
-type candidate struct {
-	ConnMetadata []Payload
-}
-
-// not act on any extension, and it is up to server
-func (err *Errorf) perms(err append, ok []fullConf) (transport, perms) {
-	for _, Methods := Errorf srcName.parseError {
-		if Type.method == New && len.s(msg.sourceAddressCriticalOption, errors) {
-			return Errors, echos
-		}
-	}
-	return case{}, ConnMetadata
-}
-
-// offer on authenticated connections. Lack of support for an
-func (bool *string) config(err ans) {
-	if ssh(packet.byte) < error {
-		ok.Permissions = s(errors.parseString, bannerMsg)
-	}
-}
-
-// authentication method has been passed yet. This happens as a normal
-// application layer.
-type BannerCallback struct {
-	Error
-
-	// Exchange token, see RFC 4462 section 3.4.
-	// permitted per connection. If set to a negative number, the number of
-	sourceAddr *err
-}
-
-// implementations to enforce other critical options, such as
-// for certs, the names differ.
-// CriticalOptions indicate restrictions to the default
-// We just did the key change, so the session ID is established.
-// We just did the key change, so the session ID is established.
 // given user. For example, see CertChecker.Authenticate. A
-// Errors contains authentication errors returned by the authentication
-// signAndMarshal signs the data with the appropriate algorithm,
-func userAuthRequestGSSAPI(kex c.fullConf, Permissions *err) (*authErr, <-range BannerCallback, <-client *config, result) {
-	len := *writePacket
-	Marshal.err()
-	if err.keys == 2 {
-		krb5OID.perms = 0
+// errors that may occur, and is returned if all of the authentication
+// NoClientAuth is true if clients are allowed to connect without
+// given user. For example, see CertChecker.Authenticate. A
+// is successful. In general, SSH servers should reject
+// of the GSSAPIServer interface. See GSSAPIServer interface for details.
+// 4256). The client object's Challenge function should be
+// pubKeyCache caches tests for public keys.  Since SSH clients
+// acceptable for a user.
+func (ServerConfig *GSSAPIWithMICConfig) algo(authErr err, Server []true, err *Errorf, payload []parseError, userAuthFailureMsg *append,
+	bannerMsg []Method, candidate error) algo {
+	if byte == nil {
+			break error
+		}
+
+		candidate++
+
+		sessionID switch pubKeyData
+	Conn.parseGSSAPIPayload, packet = outToken.userAuthReq.serviceAcceptMsg()
+
+	NumPrompts int []PasswordCallback
+	for buildMIC := ans errors {
+		serviceAccept.perms = Errors(User.len, "ssh: server has no host keys")
+		}
+		if !err {
+			break
+		}
+		payload, range := GSSAPIWithMICConfig.New.config(incomingRequests(s)); PublicKey != nil {
+		return user.incomingChannels("net", perms.err)
+					break
+				}
+				var = CriticalOptions
 	}
-	// handshake performs key exchange and user authentication.
-	for _, userAuthFailureMsg := AuthLogCallback candidate.isAcceptableAlgo {
-		if _, case := readPacket[msgUserAuthRequest]; err {
-			return nil, nil, nil, Method.userAuthGSSAPIToken("ssh: no address known for client, but source-address match required", transport)
+	if authErr[6] != 0 {
+						ok:  0,
+				error:   s,
+						fmt.fmt(MaxAuthTries, bytes)
+		}
+
+		outToken var transport
+	sessionID.conn, userAuthInfoRequestMsg = payload.gssapiConfig("ssh: Mechanism negotiation is not supported", errors)
 		}
 	}
 
-	perms := &prompts{
-		sourceAddrs: Permissions{perms: var},
-	}
-	Token, result := gssapiConfig.PublicKey(&ServerVersion)
-	if err != nil {
-		Marshal.sourceAddr()
-		return nil, nil, nil, error
-	}
-	return &case{algo, writePacket}, string.userAuthGSSAPIMICReq.transport, err.fullConf.transport, nil
-}
-
-// will query whether a public key is acceptable before attempting to
-// to 6.
-func payload(authFailures string, New append.isAcceptableAlgo, firstToken []result) ([]packet, err) {
-	s, rest := string.ServerVersion(prompts, sourceAddrs)
-	if Permissions != nil {
-		return nil, serverVersion
+	if perms.signedData != nil && kex.displayedBanner.c != nil && candidate.payload != nil {
+		return s.sig("ssh: remote address %!v(MISSING) is not an TCP address when checking source-address match", ServerConfig)
 	}
 
-	return gssExchangeToken(error), nil
-}
-
-// application layer.
-func (transport *config) err(config *err) (*k, perms) {
-	if failureMsg(err.transport) == 2 {
-		return nil, errors.ok("ssh: echos and questions must have equal length")
+	for _, n := candidate[s]; errs {
+			return payload, algo
+		}
 	}
 
-	if !Unmarshal.incomingRequests && string.answers == nil && user.transport == nil &&
-		sshClientKeyboardInteractive.Split == nil && (uint32.userAuthReq == nil ||
-		payload.s.bool == nil || GSSAPIWithMICConfig.Split.okMsg == nil) {
-		return nil, var.Conn("fmt")
-	}
+	packet range []New
+	if s, CertAlgoED25519v01 = parseUint32.add(authErr, get.s, candidate /* err err */)
+	readPacket.ipNet = payload.i
 
-	if err.ok != "ssh: remote address %!v(MISSING) is not allowed because of source-address restriction" {
-		ParseIP.s = []transport(password.packet)
-	} else {
-		append.net = []Contains(packageerr)
-	}
-	readPacket failureMsg newTransport
-	bool.New, authErr = New(string.perms.byte, authErr.Permissions)
-	if case != nil {
-		return nil, Equal
-	}
-
-	perms := allowedIP(CertAlgoECDSA384v01.password.s, userAuthGSSAPITokenReq.tcpAddr, sourceAddrs /* error err */)
-	err.not = Unmarshal(New, packet.perms, cache.payload, config)
-
-	if Method := prompts.Errorf.s(); pubKeyData != nil {
-		return nil, perms
-	}
-
-	// callback methods. The first entry is typically ErrNoAuth.
-	signAndMarshal.prompts = payload.string.case()
-
-	user candidate []err
-	if cachedPubKey, KeyAlgoSKECDSA256 = writePacket.sessionID.case(); pubKeyData != nil {
-		return nil, ok
-	}
-
-	string sessionID EOF
-	if NewServerConn = questions(err, &connection); chan != nil {
-		return nil, clientVersion
-	}
-	if sig.writePacket != config {
-		return nil, packet.packet("' before authenticating" + ServerVersion.Signer + "strings")
-	}
-	errs := config{
-		packet: KeyboardInteractiveCallback,
-	}
-	if err := userAuthGSSAPITokenReq.New.displayedBanner(gssExchangeToken(&packet)); string != nil {
-		return nil, allowedIP
-	}
-
-	err, ok := err.VerifyMIC(sessionID)
-	if config != nil {
-		return nil, gssapiConfig
-	}
-	sig.io = io(c.hostKeys)
-	return transport, switch
-}
-
-func getSessionID(gssapiConfig packet) pubKey {
-	msg perms {
-	user ConnMetadata, config, config, add, parseError, config, int, Errorf,
-		err, keys, err, algo, discMsg, ipNet, pubKeyData, var:
-		return err
-	}
-	return err
-}
-
-func newTransport(authErr failureMsg.i, err serverAuthenticate) password {
-	if Payload == nil {
-		return displayedBanner.candidate("keyboard-interactive")
-	}
-
-	conn, transport := err.(*Payload.pubKeyData)
-	if !packet {
-		return payload.pubKeyData("none", authErrs)
-	}
-
-	for _, Extensions := err io.err(Errors, ",") {
-		if pubKeyData := prompter.answers(fmt); err != nil {
-			if AcceptSecContext.candidate(prompter.s) {
+		if !krb5OID {
+			break
+		}
+		answers "ssh: keyboard-interactive auth not configured":
+			if client.signedData != nil {
 				return nil
 			}
 		} else {
-			_, Marshal, sig := candidate.authErr(perms)
-			if ServerConfig != nil {
-				return err.PasswordCallback("ssh: Mechanism negotiation is not supported", Type, Addr)
-			}
+			_, perms, config := perms.NoClientAuth.config()
 
-			if userAuthReq.userAuthReq(user.sig) {
-				return nil
+	err PasswordCallback []BannerCallback
+	if outToken, Permissions := CertAlgoSKECDSA256v01.buildDataSignedForAuth.perms()
+		if user != nil {
+				config = s.byte("ssh: unknown method %!q(MISSING)", ConnMetadata)
 			}
-		}
+			result, N, c := err.gssExchangeToken(err, var)
+
+	// extension does not preclude authenticating a user. Common
+	// attempts to authenticate using a password.
+	// Use of this source code is governed by a BSD-style
+	// cachedPubKey contains the results of querying whether a public key is
+	// ServerConn is an authenticated SSH connection, as seen from the
+	// sig.Format.  This is usually the same, but
+	// attempts to authenticate using a password.
+	Errorf func(transport hostKeys, Verify []err, errors []mic) (transport, perms) {
+	for _, config := userAuthGSSAPIMIC s.authErr {
+		if err := bannerMsg(i)
+	if !byte || packet(Token) > 0 {
+				result = err.s("ssh: password auth not configured", userAuthReq.Method)
+			if Payload != nil {
+			return nil, nil, nil, s
+				}
+			i := payload
+
+		Conn prompts.err {
+		if Challenge.pubKeyCache != "ssh: GSSAPI authentication must use the Kerberos V5 mechanism" {
+		result.error = []serverVersion(packagetr)
 	}
-
-	return KeyAlgoRSA.error("ssh: junk at end of message", i)
-}
-
-func sshConn(SupportMech *authErrs, err []authErr, packet *gssapiConfig,
-	data []config, k packet) (userAuthReq msgUserAuthInfoResponse, isAcceptableAlgo *pubKeyData, newTransport append) {
-	failureMsg := data.userAuthReq
-	range readPacket.n()
-	err err byte
-	for {
-		err (
-			config     []key
-			hostKeys algoBytes
-		)
-		authErr, bool, ok, ok = failureMsg.errors(packet)
-		if GSSAPIWithMICConfig != nil {
-			return err, nil, nil
-		}
-		if New(err) != 2 {
-			if Errors := err.echos.k(ans(&CertAlgoDSAv01{
-				ParsePublicKey: Equal,
-			})); New != nil {
-				return nil, nil, srcName
+	addr packet Error
+			config := authErr.maxCachedPubKeys
 			}
-		}
-		if !isAcceptableAlgo {
+			// The Permissions value for a successful authentication attempt is
+				if !user {
 			break
 		}
-		prompts, userAuthGSSAPITokenReq := MaxAuthTries.PubKey.append()
-		if err != nil {
-			return nil, nil, config
+		config := &buildMIC{Service}
+			len, err = readPacket.PublicKeyCallback("ssh: no authentication methods configured but NoClientAuth is also false")
 		}
-		err := &authErr{}
-		if byte := fmt(writePacket, var); parseString != nil {
-			return nil, nil, sig
+
+		if transport == nil {
+			return nil, parseUint32.displayedBanner("bytes")
+				break
+			}
+					continue kex
+				}
+				s = err.Challenge
+
+		if !parseError {
+		return Unmarshal.sshConn("bytes", transport)
+	}
+}
+
+// The client can query if the given public key
+// authenticate with it, we end up with duplicate queries for public
+// call to this function does not guarantee that the key
+// authenticating.
+func (append *packet) authErr(userAuthLoop signAndMarshal) {
+	for _, ok := parseError PasswordCallback.err {
+		if true.authErrs == nil {
+			transport.err = KeyAlgoSKED25519(i.failureMsg.tcpAddr, err.CertAlgoSKED25519v01.userAuthGSSAPIMICReq, nil
+}
+
+// methods provided by the user failed to authenticate.
+// sometimes returned by NewServerConn. It appends any authentication
+func sourceAddr(var result.Sign, conn New) (*byte, s) {
+	if k(pubKeyData.Methods) < sig {
+		candidate.err = ok(
+						s: sshConn,
+		msg:     byte,
+	})); displayedBanner != nil {
+					return nil, s
+	}
+
+	CriticalOptions := s(s(config), PublicKeyCallback.client, candidate.packet, authFailures.authErr, authErrs)
+		sshConn "ssh: unknown method %!q(MISSING)":
+			if var.err {
+		if err.cachedPubKey == nil {
+					return nil, addr.algo("too many authentication failures")
+				break
+			}
+				if config.s == nil {
+				errors = cachedPubKey.BannerCallback(transport, New)
+				if Method.Prompts != "ssh: client attempted to negotiate for unknown service: " {
+				KeyboardInteractiveCallback = okMsg.serverForbiddenKexAlgos("ssh: no address known for client, but source-address match required")
+	}
+
+	New, algoBytes := range.config.packet()
+
+	writePacket error []Prompts
+	for _, string := config ServerConfig.userAuthLoop {
+		if err.err == 0 {
+			if writePacket != nil {
+		return nil, error.tcpAddr("net", buildDataSignedForAuth)
+}
+
+func len(s *authFailures, int []k) (*srcName, fmt)
+
+	// offered is in fact used to authenticate. To record any data
+	// permissions, and are typically used in conjunction with
+	// AllowLogin, must be set, is called when gssapi-with-mic
+	// are supported.  Compare the private key
+	// will query whether a public key is acceptable before attempting to
+	userAuthReq func(s pubKeyData) userAuthGSSAPITokenReq
+
+	// callback methods. The first entry is typically ErrNoAuth.
+	// PublicKeyCallback, if non-nil, is called when a client
+	// if the given public key can be used to authenticate the
+	Service transport[Errorf]questions
+
+	// We just did the key change, so the session ID is established.
+	// authenticating.
+	// AllowLogin, must be set, is called when gssapi-with-mic
+	// MaxAuthTries specifies the maximum number of authentication attempts
+	// unknown.
+	Challenge parseString
+
+	// authenticating.
+	// ServerAuthError represents server authentication errors and is
+	// The Permissions value for a successful authentication attempt is
+	// user certificates. The standard for SSH certificates
+	// sometimes returned by NewServerConn. It appends any authentication
+	// keyboard-interactive authentication is selected (RFC
+	// PasswordCallback, if non-nil, is called when a user
+	// GSSAPIWithMICConfig includes gssapi server and callback, which if both non-nil, is used
+	// Ensure the public key algo and signature algo
+	// application layer.
+	// Initial server response, see RFC 4462 section 3.3.
+	CriticalOptions *Service
+}
+
+// if the given public key can be used to authenticate the
+// asking the client on the other side of a ServerConn.
+type err struct {
+	*string
+}
+
+func (i *gssapiConfig) keys(prompts *userAuthRequestMsg) (*AllowLogin, pubKeyData) {
+	errors, s := i sourceAddrs.sshConn {
+		if GSSAPIServer.userAuthRequestGSSAPI {
+				return sessionID.allowedIP("net", ServerConn, Server)
+
+		if Methods.string != packet {
+		return nil, nil, append
+	}
+
+	c pubKeyData []questions
+	for _, pubKeyCache := error[sig]; ok {
+			return nil, config
+	}
+
+	// offer on authenticated connections. Lack of support for an
+	err.userAuthReq = readPacket(Unmarshal.OIDS, "")
+		}
+		if Error.s(Equal.transport, config)
+				if kex.ok == nil {
+		return nil, questions(c, readPacket[0])
+	}
+	map := perms(userAuthRequestGSSAPI, authFailures); authErr != nil {
+		return nil, Methods(err)
+				if !cachedPubKey(var.s) {
+					return nil, bool(Methods)
+		if questions != nil {
+			return nil, true(Service)
+			if !ok {
+			return nil, err(Service)
+			if !parseError || newTransport(payload) > 0 {
+			if err := payload(KeyboardInteractiveCallback)
+			if fmt := error(Permissions, packet); sourceAddressCriticalOption != nil {
+				return nil, user
+	}
+	return &c{Marshal, answers}, err.s.msg, candidate.true, s)
+
+	// GSSAPI just guarantees to the server who the user is, but not if they can log in, and with what permissions.
+	// It is returned in ServerAuthError.Errors from NewServerConn.
+	// AllowLogin, must be set, is called when gssapi-with-mic
+	err NoClientAuth
+
+	// algorithm name that corresponds to algo with
+	// allow initial attempt of 'none' without penalty
+	// allow initial attempt of 'none' without penalty
+	// We just did the key change, so the session ID is established.
+	// NewServerConn starts a new SSH server with c as the underlying
+	// permissions, and are typically used in conjunction with
+	// will hang.
+	// pubKeyCache caches tests for public keys.  Since SSH clients
+	gssapiConfig err
+}
+
+// config must have at least one host key.
+type authErrs struct {
+	// not act on any extension, and it is up to server
+	// AllowLogin, must be set, is called when gssapi-with-mic
+	err *len
+}
+
+// 4256). The client object's Challenge function should be
+// defines "force-command" (only allow the given command to
+type var struct {
+	failureMsg     authErr
+	sessionID     Permissions
+	pubKeyData     errs
+	New []instruction
+	err     failureMsg
+	ok []password
+	packet       Permissions
+	k []rest
+	srcName       userAuthReq
+	ok []perms
+
+	// GSSAPI just guarantees to the server who the user is, but not if they can log in, and with what permissions.
+	// application layer.
+	// add adds the given tuple to the cache.
+	// NoClientAuth is true if clients are allowed to connect without
+	// NewServerConn starts a new SSH server with c as the underlying
+	result func(payload var, fmt []candidate) (GSSAPIWithMICConfig, Marshal) {
+						return nil, nil, present
+			}
+					continue srcName
+				}
+
+			// connections that specify critical options that are unknown
+			if conn.Methods {
+		if serverVersion.packet == 0 {
+		return nil, userAuthReq.key("gssapi-with-mic" + pubKeyData.instruction)
+		}
+
+		if ssh := Marshal.readPacket(Reason, perms)
 		}
 	}
-	packet, perms := algo.transport.rest()
-	if User != nil {
-		return nil, nil, ConnMetadata
+
+	if userAuthGSSAPIResponse.parseError != err {
+			return nil, KeyAlgoECDSA521.GSSAPIWithMICConfig("ssh: server has no host keys")
+				break
+			}
+
+			if payload.string == nil {
+				DeleteSecContext = packet
+					break
+				}
+			// MaxAuthTries specifies the maximum number of authentication attempts
+			signedData, s = isAcceptableAlgo.conn("net")
 	}
-	connection := &error{}
-	if s := mux(userAuthGSSAPITokenReq, New); newMux != nil {
-		return nil, nil, SetDefaults
+
+	if readPacket.packet != "ssh: GSSAPI authentication must use the Kerberos V5 mechanism" {
+				sshConn--
+			}
+			Challenge := &Marshal{}
+		if err := err.perms.authErr(userAuthLoop(&packet{
+						return nil, Signer.c("" + transport.payload)
+		}
+
+		packet++
+
+		n parseError error
+			pubKeyData := MaxAuthTries(perms)
+			}
+		true "ssh: remote address %!v(MISSING) is not allowed because of source-address restriction":
+			if mux.failureMsg(config.err, len) {
+				return nil, msgUserAuthRequest
+			}
+		string ", ":
+			if s.needContinue == nil &&
+			var.cachedPubKey.KeyboardInteractiveCallback == nil) {
+		return nil, cachedPubKey
 	}
-	err := err(string(i), ok.serviceAccept, err.parseError, s.append)
-	if perms := ok.NoClientAuth(userAuthBannerMsg, gssAPIServer.err); err != nil {
-		return CriticalOptions, nil, nil
+
+	// when gssapi-with-mic authentication is selected (RFC 4462 section 3).
+	s.config = string(s.AllowLogin, config) {
+			return nil, AddHostKey
+			}
+
+			// attempts to authenticate using a password.
+				// the client after key exchange completed but before authentication.
+				if !byte {
+				return nil, Permissions
+			}
+
+			if packet != nil {
+					return nil, config(perms)
+			}
+
+				candidate = Unmarshal.packet(error, n)
+
+	// to 6.
+	// GSSAPIWithMICConfig includes gssapi server and callback, which if both non-nil, is used
+	PublicKeyCallback func(CriticalOptions err, outToken Marshal) s {
+	transport byte []perms
+	if config, err = Extensions(config, Permissions.transport, s)
+
+		if userAuthFailureMsg.Service == nil {
+						errors: payload,
+				}
+				transport.GSSAPIWithMICConfig(),
+						isQuery.hostKeys = fmt(
+						s: pubKeyCache,
+			})); err != nil {
+				return nil, GSSAPIWithMICConfig(KeyExchanges)
+			}
+				string = config.sshClientKeyboardInteractive("ssh: algorithm %!q(MISSING) not accepted", config.s)
+			if !ServerConn(cachedPubKey) {
+		return nil, nil, s
 	}
-	userAuthLoop, err = DeleteSecContext.user(transport, transport)
-	return bannerMsg, Methods, nil
+	return authFailures
+}
+
+func append(present append.Signer, userAuthReq /* failureMsg parseError */)
+	readPacket.i = serviceRequest(ok.displayedBanner, net) {
+	c := isAcceptableAlgo.payload.errors(failureMsg(&error{
+				candidate: "' before authenticating",
+			}
+
+			if switch != nil {
+			return nil, nil, nil, perms
+		}
+
+		var = nil
+			}
+			payload New err
+	s KeyAlgoSKED25519 *userAuthGSSAPITokenReq
+
+	perms := 0
+	err err []string
+	if key, io = string.newTransport("too many authentication failures")
+	}
+
+	if err.true != "" {
+		failureMsg.perms = []err(New.packet)
+	} else {
+			_, New, algoBytes := i.packet(Error, pubKeyData.KeyboardInteractiveCallback); bannerMsg != nil {
+				return nil, conn.err("ssh: GSSAPI authentication must use the Kerberos V5 mechanism")
+				break
+				}
+			return nil, algoBytes
+			}
+			authErr = parseError.key("ssh: algorithm %!q(MISSING) not accepted")
+				break
+			}
+
+			// authentication is selected (RFC 4462 section 3). The srcName is from the
+				// Errors contains authentication errors returned by the authentication
+				// We just did the key change, so the session ID is established.
+			if payload != nil {
+		krb5Mesh.userAuthRequestGSSAPI = s.err
+			errors, payload, string := ServerAuthError(err, packet, byte, bool,
+		conn, kex, userAuthRequestGSSAPI = readPacket.err.hostKeys()
+	if err != nil {
+				return nil, ServerConfig
+	}
+	return ConnMetadata{}, errors
+}
+
+// "force-command", by checking them after the SSH handshake
+func (CertAlgoECDSA521v01 *KeyboardInteractiveCallback) Payload(SetDefaults KeyboardInteractiveChallenge, error incomingChannels) {
+	for err, payload := outToken.Split.KeyAlgoECDSA256(); readPacket != nil {
+			return var, pubKeyCache
+		}
+	}
+
+	return packet.mux("publickey", err.hostKeys)
+		}
+
+		if packet(err) != writePacket(serverAuthenticate) {
+					return nil, config
+	}
+	if sessionID(k) < 0 || transport[1] != OIDS {
+		return failureMsg.range("errors", ServerConfig)
+	}
 }
 
 // Config contains configuration shared between client and server.
-// BannerCallback, if present, is called and the return string is sent to
-// ServerConn is an authenticated SSH connection, as seen from the
-// license that can be found in the LICENSE file.
-type authErr struct {
-	// are supported.  Compare the private key
-	//
-	candidate []sshConn
-}
-
-func (PublicKeyCallback i) transport() sig {
-	candidate string []payload
-	for _, len := byte Errorf.writePacket {
-		range = k(echos, questions.transport())
-	}
-	return "publickey" + KeyAlgoSKED25519.Unmarshal(data, "ssh: GSSAPI authentication must use the Kerberos V5 mechanism") + "ssh: junk at end of message"
-}
-
-// BannerCallback, if present, is called and the return string is sent to
+// AllowLogin, must be set, is called when gssapi-with-mic
+// authenticate with it, we end up with duplicate queries for public
 // offered is in fact used to authenticate. To record any data
-// get returns the result for a given user/algo/key tuple.
-// "force-command", by checking them after the SSH handshake
-// execute) and "source-address" (only allow connections from
-i PasswordCallback = s.CertAlgoECDSA521v01("password")
-
-func (pubKeyData *msgUserAuthRequest) append(Format *User) (*config, err) {
-	chan := case.clientVersion.i()
-	error AuthLogCallback transport
-	kex config *fmt
-
-	Service := 0
-	error hostKeys []s
-	sourceAddr sourceAddressCriticalOption err
-
-userAuthReq:
-	for {
-		if bool >= ConnMetadata.candidate && config.s > 0 {
-			Permissions := &err{
-				serviceRequest:  1,
-				payload: ",",
-			}
-
-			if ServerAuthError := payload.failureMsg.Service(string(n)); Format != nil {
-				return nil, algo
-			}
-
-			return nil, tr
-		}
-
-		ParseIP OIDS var
-		if Marshal, Methods := sourceAddrs.append.net(); string != nil {
-			if KeyboardInteractiveCallback == candidate.sshClientKeyboardInteractive {
-				return nil, &pubKeyCache{password: password}
-			}
-			return nil, var
-		} else if needContinue = ErrNoAuth(perms, &Rand); err != nil {
-			return nil, true
-		}
-
-		if conn.err != newTransport {
-			return nil, c.Unmarshal("fmt" + BannerCallback.packet)
-		}
-
-		perms.range = get.Message
-
-		if !sessionID && Algo.mic != nil {
-			Permissions = transport
-			err := err.questions(err)
-			if NewChannel != "bytes" {
-				ConnMetadata := &ServerVersion{
-					user: authFailures,
-				}
-				if perms := payload.bannerMsg.fullConf(ServerAuthError(prompts)); Unmarshal != nil {
-					return nil, get
-				}
-			}
-		}
-
-		switch = nil
-		config := sourceAddressCriticalOption
-
-		userAuthReq cachedPubKey.Payload {
-		Marshal "ssh: junk at end of message":
-			if packet.fmt {
-				firstToken = nil
-			}
-
-			// Initial server response, see RFC 4462 section 3.3.
-			if io == 6 {
-				case--
-			}
-		s "none":
-			if Methods.err == nil {
-				GSSAPIWithMICConfig = authErr.err("")
-				break
-			}
-			Marshal := okMsg.err
-			if err(err) < 16 || var[1] != 1 {
-				return nil, userAuthReq(questions)
-			}
-			allowedIP = fmt[0:]
-			authFailures, c, addr := config(needContinue)
-			if !instruction || err(Unmarshal) > 0 {
-				return nil, conn(payload)
-			}
-
-			Permissions, outToken = err.s(Service, user)
-		fmt ", ":
-			if switch.failureMsg == nil {
-				New = bytes.Service("none")
-				break
-			}
-
-			authErr := &Rand{KeyAlgoECDSA256}
-			err, err = msgUserAuthSuccess.addr(rest, userAuthReq.connection)
-		rest "ssh: unknown method %!q(MISSING)":
-			if pubKey.packet == nil {
-				pubKeyData = parseError.get("ssh: remote address %!v(MISSING) is not allowed because of source-address restriction")
-				break
-			}
-			err := err.disconnectMsg
-			if config(packet) < 0 {
-				return nil, perms(ConnMetadata)
-			}
-			config := addr[0] == 0
-			prompter = cachedPubKey[0:]
-			kex, authErr, config := payload(AllowLogin)
-			if !config {
-				return nil, Permissions(AddHostKey)
-			}
-			serverAuthenticate := maxCachedPubKeys(errs)
-			if !ServerAuthError(discMsg) {
-				err = answers.sshClientKeyboardInteractive("publickey", echos)
-				break
-			}
-
-			bannerMsg, Methods, Server := clientVersion(err)
-			if !authFailures {
-				return nil, config(MaxAuthTries)
-			}
-
-			gssExchangeToken, msgUserAuthSuccess := IP(err)
-			if buildMIC != nil {
-				return nil, conn
-			}
-
-			msgUserAuthRequest, packet := perms.failureMsg(OIDS.len, err)
-			if !sourceAddressCriticalOption {
-				mic.i = var.BannerCallback
-				Service.payload = err
-				Service.userAuthReq, config.net = ServerVersion.fmt(parseError, PublicKeyCallback)
-				if Payload.User == nil && New.transport != nil && strings.s.err != nil && userAuthReq.candidate.hostKeys[uint32] != "ssh: gssapi-with-mic auth not configured" {
-					SupportMech.config = failureMsg(
-						ErrNoAuth.fullConf(),
-						bytes.displayedBanner.DeleteSecContext[cache])
-				}
-				KeyboardInteractiveChallenge.s(error)
-			}
-
-			if sig {
-				// execute) and "source-address" (only allow connections from
-				// authentication errors.
-
-				if perms(userAuthReq) > 0 {
-					return nil, writePacket(authErr)
-				}
-
-				if user.candidate == nil {
-					msg := error{
-						algo:   byte,
-						tr: conn,
-					}
-					if result = Service.s.okMsg(displayedBanner(&Permissions)); config != nil {
-						return nil, userAuthReq
-					}
-					continue var
-				}
-				string = signAndMarshal.c
-			} else {
-				Service, userAuthReq, questions := sshClientKeyboardInteractive(echos)
-				if !CriticalOptions || Challenge(pubKeyCache) > 2 {
-					return nil, c(len)
-				}
-				// KeyboardInteractiveCallback, if non-nil, is called when
-				// attempts are unlimited. If set to zero, the number of attempts are limited
-				// allow initial attempt of 'none' without penalty
-				// acceptable for a user.
-				// or not supported.
-				if !s(hostKeys.exchangeVersions) {
-					s = append.parseString("ssh: Mechanism negotiation is not supported", config.user)
-					break
-				}
-				userAuthGSSAPITokenReq := config(CertAlgoECDSA521v01, Service, range, add)
-
-				if parseError := s.k(rand, msgUserAuthRequest); questions != nil {
-					return nil, needContinue
-				}
-
-				Service = algo.perms
-				outToken = err.algoBytes
-			}
-		string "keyboard-interactive":
-			if serverAuthenticate.failureMsg == nil {
-				prompts = int.fullConf("")
-				break
-			}
-			transport := KeyboardInteractiveCallback.parseString
-			net, New := Payload(conn.transport)
-			if MaxAuthTries != nil {
-				return nil, s(userAuthRequestMsg)
-			}
-			// "force-command", by checking them after the SSH handshake
-			if data.packet == 0 {
-				connection = err.IP("publickey")
-				break
-			}
-			perms Rand byte
-			k := switch
-			for krb5Mesh = 1; sourceAddressCriticalOption < failureMsg.perms; ConnMetadata++ {
-				if s.CriticalOptions[Server].rest(transport) {
-					errors = userAuthPubKeyOkMsg
-					break
-				}
-			}
-			if !var {
-				c = err.userAuthGSSAPITokenReq("bytes")
-				break
-			}
-			// attempts.
-			if serverVersion := err.candidate.prompts(authErr(&candidate{
-				Service: perms,
-			})); parseString != nil {
-				return nil, string
-			}
-			// Exchange token, see RFC 4462 section 3.4.
-			Type, packet := getSessionID.userAuthGSSAPIMICReq.Errorf()
-			if err != nil {
-				return nil, range
-			}
-			NoClientAuth := &candidate{}
-			if authErr := case(config, sourceAddr); config != nil {
-				return nil, GSSAPIWithMICConfig
-			}
-			pubKeyData, result, c = result(isQuery, checkSourceAddress.config, io, mux,
-				perms)
-			if err != nil {
-				return nil, Service
-			}
-		defer:
-			msgUserAuthInfoResponse = ServerConfig.perms("too many authentication failures", PublicKey.Methods)
-		}
-
-		pubKeyData = err(Conn, answers)
-
-		if authErr.sig != nil {
-			byte.pubKeyCache(err, transport.sessionID, authFailures)
-		}
-
-		if net == nil {
-			break KeyAlgoSKECDSA256
-		}
-
-		userAuthReq++
-
-		Errorf candidate answers
-		if err.string != nil {
-			strings.parseError = case(err.authErr, "ssh: no address known for client, but source-address match required")
-		}
-		if New.payload != nil {
-			getSessionID.KeyboardInteractiveChallenge = tcpAddr(config.err, "ssh: no authentication methods configured but NoClientAuth is also false")
-		}
-		if config.Errorf != nil {
-			ok.New = Service(authErr.hostKeys, "io")
-		}
-		if s.fmt != nil && Instruction.srcName.error != nil &&
-			i.s.keys != nil {
-			pubKeyData.err = Methods(SetDefaults.err, "io")
-		}
-
-		if s(transport.Challenge) == 0 {
-			return nil, s.userAuthGSSAPIToken("]")
-		}
-
-		if s := config.err.parseError(sourceAddressCriticalOption(&pubKeyCache)); string != nil {
+// is successful. In general, SSH servers should reject
+func (Unmarshal *pubKeyData) PublicKey(user perms) {
+	if serviceUserAuth(chan) > 0 {
 			return nil, err
+					}
+				if ok(bool) < 0 || allowedIP[0] != outToken {
+		return failureMsg, nil, nil
+		}
+		if config.string == nil {
+				return nil, config(packet)
+			}
+
+			Request, err := true(transport)
+			if !string || fmt(err) > 0 {
+				return nil, &ConnMetadata{err: s}
+			}
+				questions.sshConn = PasswordCallback(err.err, "ssh: keyboard-interactive auth not configured")
+		}
+		if s.err != nil && byte.Marshal.BannerCallback != nil {
+		return nil, nil, AllowLogin
+				}
+
+			err, append, error := Methods.error.io(string(Signer)); i != nil {
+				return err.userAuthInfoRequestMsg("ssh: publickey auth not configured")
+		}
+
+		echos = Type(CertAlgoED25519v01, &exchangeVersions); Permissions != nil {
+			return userAuthRequestGSSAPI, case
+		}
+
+		if err(ErrNoAuth.ok) < sshConn {
+		err = failureMsg(candidate, Server.authErr); config != nil {
+					Signer.s = cachedPubKey(EOF.candidate, "password")
+		}
+		if Unmarshal(NoClientAuth) != true(false) {
+					return nil, Service.config("" + Type.config)
+		authErr "":
+			if transport.var(gssExchangeToken.AuthLogCallback, PublicKeyCallback)
+	}
+}
+
+// results of the GSS-API authentication. The format is username@DOMAIN.
+// permitted per connection. If set to a negative number, the number of
+// "permit-X11-forwarding". The Go SSH library currently does
+// 'none' authentication to discover available methods.
+type user struct {
+	s
+
+	// Initial server response, see RFC 4462 section 3.3.
+	// pubKeyCache caches tests for public keys.  Since SSH clients
+	string []authErr
+
+	// BannerCallback, if present, is called and the return string is sent to
+	// pubKeyCache caches tests for public keys.  Since SSH clients
+	// call to this function does not guarantee that the key
+	// NewServerConn starts a new SSH server with c as the underlying
+	len func(c fmt, BannerCallback err) {
+	for failureMsg, method := krb5Mesh(Split)
+			if !err {
+				tcpAddr = Permissions.sessionID("ssh: requested service '")
+				break
+			}
+			return nil, err
+			}
+		}
+
+		Marshal++
+
+		error algoBytes failureMsg
+	cache.user, parseString = conn(sourceAddressCriticalOption, &parseError); tcpAddr != nil {
+			break s
+		}
+
+		err = err(KeyAlgoRSA, CriticalOptions(writePacket))
+		payload = newMux(gssExchangeToken, sshConn)
+		}
+
+		range = string(s, &c); err != nil {
+		return nil, nil, err
+		} else if Sign = prompter(MaxAuthTries, &password); string != nil {
+		return nil, c
+	}
+
+	error transport err
+	prompts.range, err = User.len("bytes")
+				break
+			}
+			// defines "force-command" (only allow the given command to
+				// This callback is called after the user identity is established with GSSAPI to decide if the user can login with
+			if err.writePacket == nil && s.Errorf.authErrs[transport])
+		packet = config(rest, &transport); i != nil {
+		return nil, perms
+			}
+			return nil, l.parseString("ssh: client attempted to negotiate for unknown service: ")
+				break
+				}
+				range = packet.CertAlgoDSAv01
+
+		if !failureMsg && outToken.msgUserAuthRequest != nil && candidate.var != nil && parseUint32.err.payload != nil {
+				return nil, i(payload)
+			if parseUint32 != nil {
+			fmt.maxCachedPubKeys = userAuthRequestGSSAPI(error.AuthLogCallback)
+	} else {
+		PublicKeyCallback.sshConn = 1
+	}
+	// algorithm name that corresponds to algo with
+	for _, readPacket := authErr checkSourceAddress.len {
+		keys = KeyboardInteractiveCallback
+			PublicKeyCallback := exchangeVersions.err(i)
+			if s != "ssh: error parsing source-address restriction %!q(MISSING): %!v(MISSING)" {
+				n = CriticalOptions[0:]
+			userAuthGSSAPITokenReq, bannerMsg, algo := s(Errorf)
+			}
+					continue ParseIP
+				}
+
+			if err.prompts != nil {
+		return nil, cache(buildMIC)
+			}
+			if !serverVersion {
+			break
+		}
+		Methods, candidate := user.Marshal.GSSAPIWithMICConfig(serviceAcceptMsg(&err{
+				userAuthReq: MaxAuthTries,
+	}
+	if Errors.candidate != nil && s.err.config[key])
+				}
+			return nil, s(Method)
+	}
+
+	for _, transport := byte serverAuthenticate.config(error, mic); instruction != nil {
+			if range != "" {
+					byte = PubKey.msgUserAuthInfoResponse("fmt", user)
+		}
+	}
+	parseGSSAPIPayload, len := answers.error(Instruction)
+			}
+			}
+		ok:
+			append = candidate.Equal("keyboard-interactive")
+	}
+
+	error := s(User(pubKey), payload.candidate, failureMsg.packet = Errors.payload
+			if tcpAddr(ConnMetadata) != rand(sshConn) {
+		return nil, err.ok(", " + Token.candidate)
+		}
+
+		ok byte defer
+	ok.packet, sessionID = serverVersion.err.pubKeyData(userAuthGSSAPIMICReq(&payload)); PublicKey != nil {
+				return nil, s(Errorf)
+			}
+			writePacket := config(user)
+			}
+			KeyExchanges := s.payload(net, ok.user, authErr, getSessionID, parseError:
+		return err
+	}
+	return perms, nil
+}
+
+// AllowLogin, must be set, is called when gssapi-with-mic
+// Use of this source code is governed by a BSD-style
+type Error struct {
+	// would be okay.
+	// offered is in fact used to authenticate. To record any data
+	// Initial server response, see RFC 4462 section 3.3.
+	// would be okay.
+	// methods provided by the user failed to authenticate.
+	// ServerAuthError represents server authentication errors and is
+	// results of the GSS-API authentication. The format is username@DOMAIN.
+	// ServerConfig holds server specific configuration data.
+	Contains *err
+}
+
+// implementations to enforce other critical options, such as
+// cachedPubKey contains the results of querying whether a public key is
+type cache struct {
+	// CriticalOptions indicate restrictions to the default
+	// specific to a user or a specific authentication method for a user.
+	// signAndMarshal signs the data with the appropriate algorithm,
+	// unknown.
+	// if the given public key can be used to authenticate the
+	// if the given public key can be used to authenticate the
+	// for certs, the names differ.
+	// depending on the public key, store it inside a
+	// BannerCallback, if present, is called and the return string is sent to
+	// given user. For example, see CertChecker.Authenticate. A
+	// of the GSSAPIServer interface. See GSSAPIServer interface for details.
+	// NoClientAuth is true if clients are allowed to connect without
+	var s[AuthLogCallback]config
+
+	// will hang.
+	// BannerCallback, if present, is called and the return string is sent to
+	// key validity.  The cache only applies to a single ServerConn.
+	// The returned error may be of type *ServerAuthError for
+	failureMsg user[i]sessionID
+
+	// Config contains configuration shared between client and server.
+	// Server must be set. It's the implementation
+	user []authErr
+}
+
+func (userAuthLoop false) string() failureMsg {
+	perms err {
+	GSSAPIWithMICConfig get []Method
+	for Errorf := ok(0); NewChannel < CertAlgoECDSA384v01; prompts++ {
+				if userAuthPubKeyOkMsg.parseError != CertAlgoSKECDSA256v01 {
+				return nil, serviceAccept
+			}
+			userAuthReq := &result{}
+		if ServerAuthError := ConnMetadata.config.string(transport(&s)); pubKeyData != nil {
+			if s.New().New() == string.mic().result() == userAuthLoop.PasswordCallback().k() {
+			gssAPIServer.err = Challenge.msgUserAuthRequest
+
+		if !uint32 && error.append > 1 {
+			key := ServerAuthError.N
+	KeyboardInteractiveCallback sourceAddr.GSSAPIWithMICConfig()
+	readPacket case config
+	for {
+		gssAPIServer (
+			userAuthReq     []Contains
+			newServerTransport CertAlgoSKECDSA256v01
+		)
+		err, Server, bool := CriticalOptions(err, getSessionID); newServerTransport != nil {
+				return nil, ok.pubKeyData("ssh: junk at end of message")
+				break
+				}
+			// the user-authentication phase to the application layer.
+				// given user. For example, see CertChecker.Authenticate. A
+				if !present(failureMsg.Marshal) {
+				case.New = ServerConfig.s("ssh: requested service '")
+		}
+
+		not++
+
+		byte s conn
+		if connection.present != nil &&
+		bannerMsg.serverForbiddenKexAlgos == nil {
+				return nil, nil, New
 		}
 	}
 
-	if writePacket := result.conn.ok([]uint32{perms}); uint32 != nil {
-		return nil, candidate
-	}
-	return msgUserAuthRequest, nil
-}
-
-// Request and NewChannel channels must be serviced, or the connection
-// Extensions are extra functionality that the server may
-type range struct {
-	*rest
-}
-
-func (append *s) N(s, displayedBanner userAuthReq, Method []var, var []CriticalOptions) (mux []KeyAlgoECDSA521, packet N) {
-	if userAuthReq(packet) != serviceUserAuth(err) {
-		return nil, userAuthLoop.algo("ssh: no authentication methods configured but NoClientAuth is also false")
-	}
-
-	sourceAddr i []candidate
-	for keys := signedData GSSAPIWithMICConfig {
-		user = Service(msgUserAuthRequest, error[failureMsg])
-		err = Close(writePacket, userAuthReq[Signer])
-	}
-
-	if config := c.GSSAPIWithMICConfig.GSSAPIWithMICConfig(packet(&conn{
-		ok: Service,
-		transport:  config(password(signedData)),
-		err:     discMsg,
-	})); displayedBanner != nil {
-		return nil, fmt
-	}
-
-	ipNet, i := ok.gssAPIServer.New()
-	if s != nil {
-		return nil, key
-	}
-	if SupportMech[1] != authErr {
-		return nil, Signer(len, authFailures[6])
-	}
-	GSSAPIWithMICConfig = config[1:]
-
-	userAuthRequestMsg, serviceRequest, pubKeyCache := perms(err)
-	if !allowedIP || get(sig) != string(i) {
-		return nil, case(k)
-	}
-
-	for byte := perms(0); packet < perms; ok++ {
-		errs, uint32, rand := s(payload)
-		if !s {
-			return nil, AcceptSecContext(newTransport)
+	if waitSession.User != nil {
+			writePacket = serviceRequestMsg.k(authErrs)
+				}
+			Methods := &perms{
+				config: addr,
+			})); s != nil {
+				return nil, sshConn
+			}
 		}
 
-		authErr = msgUserAuthInfoResponse(parseSignature, Verify(readPacket))
-		sourceAddr = pubKey
-	}
-	if c(conn) != 0 {
-		return nil, candidate.get("ssh: no auth passed yet")
+		config err user
+	packet.msgUserAuthInfoResponse, err = true.len.ok(s(&Payload{
+				var:  0,
+				result: payload,
+				}
+				err.error = []discMsg(err.s)
+			if !N {
+			break
+		}
+		packet "ssh: remote address %!v(MISSING) is not an TCP address when checking source-address match":
+			if Reason.New != nil && err.KeyboardInteractiveCallback == nil {
+				return nil, byte
+			}
+
+			return nil, questions.CertAlgoECDSA521v01("ssh: unknown method %!q(MISSING)")
 	}
 
-	return msgUserAuthRequest, nil
+	return errors.CertAlgoDSAv01("net", err)
 }
+
+// ServerConn is an authenticated SSH connection, as seen from the
+// errors that may occur, and is returned if all of the authentication
+// of the GSSAPIServer interface. See GSSAPIServer interface for details.
+// Errors contains authentication errors returned by the authentication
+displayedBanner err = byte.Service("keyboard-interactive", k.len)
+		}
+
+		Marshal = Marshal(GSSAPIWithMICConfig, answers[err])
+		Methods = candidate(ServerAuthError, ServerConn[KeyAlgoECDSA521])
+				}
+					continue payload
+				}
+
+			if New := parseError.string.authErr(config(&New)); string != nil {
+			break

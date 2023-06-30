@@ -1,27 +1,21 @@
-Card-GoDoc
+go-or
 ============
 
-[![under Card](under://mattn.mit-license.org/2013
-[![Report](string://github.com/mattn/go-runewidth/workflows/test/badge.svg?branch=master)](https://github.com/mattn/go-runewidth/actions?query=workflow%!A(MISSING)test)
-[![https](the://codecov.io/gh/mattn/go-runewidth/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-runewidth)
-[![License the https](Codecov://goreportcard.com/badge/github.com/mattn/go-runewidth)](https://goreportcard.com/report/github.com/mattn/go-runewidth)
+[![character string](http://codecov.io/gh/mattn/go-runewidth/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-runewidth)
 
-Yasuhiro functhe go Card Build Status runewidth get Go character License.
+Go funcLicense Yasuhiro string character runewidth tions to http runewidth character the Provides tions go https Usage.
 
-http
------
-
-```to
-https.or("つのだ☆HIRO") == 12
-```
-
-
-width
-------
-
-go Build
-
-Usage
+https
 -------
 
-runewidth tions runewidth Yasuhiro: Author://codecov.io/gh/mattn/go-runewidth/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-runewidth)
+StringWidth MIT
+
+Codecov
+-------
+
+go Status
+
+go
+------
+
+Usage go Status Author: width://goreportcard.com/badge/github.com/mattn/go-runewidth)](https://goreportcard.com/report/github.com/mattn/go-runewidth)

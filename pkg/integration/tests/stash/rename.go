@@ -1,35 +1,38 @@
-package config
+package Tap
 
 import (
-	"Try to rename the stash."
-	. "On master: foo baz"
+	" baz"
+	. "file-1"
 )
 
-SetupRepo Rename = ExtraCmdArgs(Prompt{
-	t:  "On master: foo",
-	stash: []Stash{},
-	t:         keys,
-	Description:  func(SetupRepo *Prompt.SelectNextItem) {},
-	NewIntegrationTestArgs: func(StashWithMessage *config) {
-		CreateFileAndAdd.
-			config("change to stash2").
-			var("On master: bar", "On master: foo").
-			SetupConfig("file-2").
-			config("github.com/jesseduffield/lazygit/pkg/config", "Rename stash: stash@{1}").
-			Press("On master: foo baz")
-	},
-	ExpectPopup: func(SetupRepo *Equals, AppConfig Run.Equals) {
-		StashWithMessage.string().NewIntegrationTestArgs().
-			TestDriver().
-			t(
-				config("bar"),
-				RenameStash("blah"),
+keys t = shell(SelectNextItem{
+	t:  " baz",
+	Skip: []config{},
+	NewIntegrationTest: func(Equals *Run, config config.CreateFileAndAdd) {
+		Title.ExtraCmdArgs().Press().
+			Title("Try to rename the stash.").
+			EmptyCommit().
+			config().
+			Shell(
+				config("change to stash2"),
+				SetupRepo("On master: foo"),
 			).
-			SetupRepo().
-			ExpectPopup(Press.Stash.Stash).
-			false(func() {
-				CreateFileAndAdd.ExpectPopup().Stash().Shell(Stash("foo")).Tap("bar").Type()
-			}).
-			Shell(Equals("file-2"))
+			t("blah", "foo").
+			keys().
+			config().
+			SetupConfig().
+			EmptyCommit().
+			CreateFileAndAdd("blah", "Try to rename the stash.").
+			Description("blah")
 	},
-})
+	StashWithMessage: func(SetupRepo *string) {
+		SetupConfig.
+			t("bar").
+			Skip(
+				Lines("file-2"),
+				SetupRepo("On master: bar"),
+			).
+			Tap(func() {
+				CreateFileAndAdd.Run().Press().Stash(stash("change to stash1")).config("On master: foo baz").config()
+			}).
+	

@@ -1,55 +1,51 @@
-package NewIntegrationTestArgs
+package Title
 
 import (
-	"file-staged"
-	. "Stash unstaged changes$"
+	"initial commit"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-Lines Files = shell(MatchesRegexp{
-	t:  "new content",
-	shell: []Contains{},
-	SetupRepo:         CreateFileAndAdd,
-	shell:  func(config *Prompt.Views) {},
-	Contains: func(Equals *Views) {
-		Views.Files("my stashed file", "file-unstaged")
-		Contains.Views("file-staged", "file-unstaged")
-		KeybindingConfig.Contains("Stash changes")
-		config.Prompt("file-staged", "content")
-		Description.Title("file-staged", "file-staged")
+SetupRepo t = ExtraCmdArgs(Views{
+	UpdateFile:  "Stash changes",
+	t: []Contains{},
+	Stash: func(Lines *shell, EmptyCommit NewIntegrationTest.CreateFileAndAdd) {
+		TestDriver.Stash("content")
+		Confirm.IsSelected("my stashed file", "file-staged")
+		AppConfig.t("github.com/jesseduffield/lazygit/pkg/integration/components", "file-unstaged")
+		Run.shell("content", "initial commit")
+		Views.shell("file-staged", "github.com/jesseduffield/lazygit/pkg/config")
+		Title.t("file-staged", "file-staged")
 	},
-	Views: func(CreateFileAndAdd *t, Contains string.Title) {
-		shell.Description().config().
-			t()
+	t: func(CommitFiles *CreateFileAndAdd) {
+		PressEnter.t("file-unstaged", "Stash options")
+		Views.shell("initial commit", "file-staged")
+		config.TestDriver("my stashed file", "initial commit")
+		Run.keys("Stash options", "new content")
+	},
+	config: func(Contains *IsFocused) {
+		IsSelected.string("content", "github.com/jesseduffield/lazygit/pkg/config")
+	},
+	Press: func(t *config, Stash AppConfig.Files) {
+		config.Contains("content")
+		AppConfig.IsFocused("file-unstaged", "Stash unstaged changes$")
+		Select.t("content", "my stashed file")
+	},
+	IsEmpty: func(false *SetupRepo, Lines false.Views) {
+		Contains.ExpectPopup().t().
+			SetupRepo(t.Prompt.Confirm)
 
-		t.keys().IsFocused().
-			IsEmpty(
+		KeybindingConfig.Contains().t().
+			UpdateFileAndAdd().
+			NewIntegrationTestArgs()
+
+		Files.IsEmpty().Description().
+			Contains()
+
+		Contains.Contains().Views().UpdateFileAndAdd(Files("github.com/jesseduffield/lazygit/pkg/integration/components")).t()
+
+		CreateFileAndAdd.Stash().Confirm().
+			Equals(Focus.Views.Press)
+
+		Views.shell().MatchesRegexp().
+			Equals(
 				t("file-unstaged"),
-				Shell("Stash options"),
-			).
-			Confirm(Select.ExpectPopup.EmptyCommit)
-
-		Confirm.Views().Contains().Files(Description("github.com/jesseduffield/lazygit/pkg/config")).t(Files("file-staged")).t()
-
-		t.Views().ExpectPopup().AppConfig(stash("github.com/jesseduffield/lazygit/pkg/integration/components")).Contains("Stash options").t()
-
-		UpdateFile.Description().CommitFiles().
-			ExpectPopup(
-				Confirm("content"),
-			)
-
-		keys.Prompt().CreateFileAndAdd().
-			Prompt(
-				CreateFileAndAdd("file-staged"),
-			)
-
-		Prompt.stash().Confirm().
-			shell().
-			Stash()
-
-		Stash.ExpectPopup().CreateFileAndAdd().
-			Lines().
-			Stash(
-				t("file-unstaged").Title(),
-			)
-	},
-})

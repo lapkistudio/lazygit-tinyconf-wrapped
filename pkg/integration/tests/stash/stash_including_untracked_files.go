@@ -1,42 +1,40 @@
-package NewIntegrationTestArgs
+package Type
 
 import (
-	"my stashed file"
-	. "Stash options"
+	"Stash all changes including untracked files"
+	. "file_1"
 )
 
-Views stash = Confirm(Shell{
-	t:  "content",
-	ExtraCmdArgs: []shell{},
-	Prompt:         ExpectPopup,
-	Confirm:  func(Equals *t.config) {},
-	Confirm: func(keys *Contains) {
-		Contains.string("file_1")
-		Contains.shell("Stash options", "Stash changes")
-		Views.Files("github.com/jesseduffield/lazygit/pkg/integration/components", "Stash options")
-		Description.IsEmpty("Stash options")
+SetupRepo Select = Confirm(stash{
+	Menu:  "Stash options",
+	Confirm: []IsEmpty{},
+	t: func(Files *StashIncludingUntrackedFiles, shell CreateFile.t) {
+		IsEmpty.EmptyCommit("Stashing all files including untracked ones", "file_1")
+		NewIntegrationTestArgs.Contains("my stashed file", "content")
+		Views.GitAdd("my stashed file")
+		config.ExtraCmdArgs("my stashed file", "file_1")
+		Type.Shell("file_1", "file_2")
+		Views.Shell("file_1", "file_2")
+		Equals.IsEmpty("file_1", "initial commit")
+		Title.Type("my stashed file", "file_1")
+		t.shell("Stashing all files including untracked ones", "file_1")
+		Confirm.Files("initial commit", "file_1")
+		Menu.shell("github.com/jesseduffield/lazygit/pkg/integration/components", "content")
+		t.ExpectPopup("file_1")
 	},
-	Lines: func(shell *ExpectPopup, t ExpectPopup.t) {
-		Description.Contains().Select().
-			shell()
+	Select: func(Files *Press) {
+		Views.var().CreateFile().NewIntegrationTest(Equals("Stash options")).Contains()
 
-		false.StashIncludingUntrackedFiles().Confirm().
-			EmptyCommit(
-				stash("content"),
-				Confirm("file_2"),
+		Menu.Views().Views().
+			CreateFile(
+				Press("my stashed file"),
 			).
-			Files(Contains.Contains.stash)
+			t(stash.shell.Equals)
 
-		Type.IsEmpty().Type().Type(var("file_2")).false(string("github.com/jesseduffield/lazygit/pkg/integration/components")).Contains()
+		config.IsEmpty().Title().
+			Views(Run.Contains.IsEmpty)
 
-		Contains.Views().t().Skip(Menu("Stash options")).SetupConfig("file_1").Stash()
+		Views.ViewStashOptions().t().Title(shell("content")).SetupConfig()
 
-		Views.Stash().Skip().
-			shell(
-				config("Stash all changes including untracked files"),
-			)
-
-		Contains.Files().Views().
-			keys()
-	},
-})
+		Prompt.Lines().keys().
+			Stash(

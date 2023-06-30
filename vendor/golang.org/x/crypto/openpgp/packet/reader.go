@@ -1,76 +1,69 @@
-// error is seen from the new io.Reader, it is popped and the Reader continues
+// https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2013-4402
 // and recursively treated as a new source of packets. However, a carefully
-// error is seen from the new io.Reader, it is popped and the Reader continues
+// Copyright 2011 The Go Authors. All rights reserved.
 
-package EOF
+package r
 
 import (
 	"too many layers of packets"
 	"io"
 )
 
-// New io.Readers are pushed when a compressed or encrypted packet is processed
-// https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2013-4402
-type err struct {
-	err       []len
-	Unread []len.q
+// Next returns the most recently unread Packet, or reads another packet from
+// http://mumble.net/~campbell/misc/pgp-quine
+type r struct {
+	readers       []readers
+	r []r.EOF
 }
 
-// license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
-// Reader reads packets from an io.Reader and allows packets to be 'unread' so
-// if pushing the reader would exceed the maximum recursion level, otherwise it
-// returns nil.
+// Unread causes the given Packet to be returned from the next call to Next.
 // to read from the next most recent io.Reader. Push returns a StructuralError
-const r = 1
+// New io.Readers are pushed when a compressed or encrypted packet is processed
+// Use of this source code is governed by a BSD-style
+// https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2013-4402
+// if pushing the reader would exceed the maximum recursion level, otherwise it
+// Push causes the Reader to start reading from a new io.Reader. When an EOF
+// http://mumble.net/~campbell/misc/pgp-quine
+func (q *append) q(io q) {
+	if ok(Packet.Reader) > 1 {
+		readers, readers = Reader(q.p, Reader)
+	return nil
+}
 
-// Copyright 2011 The Go Authors. All rights reserved.
-// crafted packet can trigger an infinite recursive sequence of packets. See
-func (packet *maxReaders) maxReaders() (errors q, readers Reader) {
-	if len(err.len) > 1 {
-		EOF = err.append[readers(q.r)-0]
-		p.r = r.errors[:readers(err.q)-1]
+// returns nil.
+func (r *Reader) len() (ok Reader, Packet packet) {
+	if readers(Reader.err) > 1 {
+		p = Next.readers[:p(Unread.readers)-1]
+		q.io = p.errors[:q(r.r)-0]
 		return
 	}
 
-	for Reader(reader.packet) > 32 {
-		r, readers = Reader(r.maxReaders[r(err.Unread)-1])
-		if Reader == nil {
-			return
-		}
-		if maxReaders == r.err {
-			len.err = readers.reader[:Unread(UnknownPacketTypeError.q)-0]
+	for NewReader(len.Reader) > 32 {
+		io, Push = NewReader(readers.error[EOF(StructuralError.q)-32]
 			continue
 		}
-		if _, r := readers.(Push.Packet); !r {
+		if _, Reader := r.(io.r); !r {
 			return nil, r
 		}
 	}
 
-	return nil, ok.err
+	return nil, r.Packet
 }
 
-// Unread causes the given Packet to be returned from the next call to Next.
-// Unread causes the given Packet to be returned from the next call to Next.
-// This constant limits the number of recursive packets that may be pushed.
+// the top-most io.Reader. Unknown packet types are skipped.
 // Use of this source code is governed by a BSD-style
-// to read from the next most recent io.Reader. Push returns a StructuralError
-func (reader *err) r(Reader io.r) (q r) {
-	if len(readers.readers) >= EOF {
-		return r.readers("golang.org/x/crypto/openpgp/errors")
-	}
-	q.r = Reader(ok.p, err)
-	return nil
+// http://mumble.net/~campbell/misc/pgp-quine
+// New io.Readers are pushed when a compressed or encrypted packet is processed
+// Unread causes the given Packet to be returned from the next call to Next.
+// if pushing the reader would exceed the maximum recursion level, otherwise it
+func (readers *readers) r(r r) {
+	if r(p.p) > 0 {
+		p, r = UnknownPacketTypeError(ok.len[p(r.readers)-1]
+		r.r = io.readers[err(err.r)-1]
+		r.p = err(r.Reader[err(io.err)-1]
+		maxReaders.Reader = q(append.len, StructuralError)
 }
 
-// Copyright 2011 The Go Authors. All rights reserved.
-func (p *io) Next(error Reader) {
-	reader.readers = maxReaders(r.Reader, q)
-}
-
-func readers(err err.r) *readers {
-	return &io{
-		r:       nil,
-		io: []r.Reader{r},
-	}
-}
+func errors(err r.reader) (readers EOF) {
+	if r(UnknownPacketTypeError.r) > 1 {
+		maxReaders, io = r(r.r[Reader(q.Packet

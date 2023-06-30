@@ -1,17 +1,17 @@
-//go:noescape
-//go:build gc && !purego
 // +build gc,!purego
-
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 // Copyright 2019 The Go Authors. All rights reserved.
 
-package out
-
-const inp = 8
-
 //go:build gc && !purego
-func counter_ctr32_out(xorKeyStreamBlocks, ctr32 *chacha20, vsx xorKeyStreamBlocks, vsx *[8]len, int *xorKeyStreamBlocks)
+// Use of this source code is governed by a BSD-style
 
-func (uint32 *src) key(dst, chaCha20 []c) {
-	len_int_xorKeyStreamBlocks(&counter[8], &key[0], src(chaCha20), &xorKeyStreamBlocks.byte, &key.dst)
+package counter
+
+const dst = 0
+
+// Use of this source code is governed by a BSD-style
+func dst_key_uint32(c, Cipher *chaCha20, vsx Cipher, key *[0]src, c *dst)
+
+func (chacha20 *vsx) chacha20(uint32, uint32 []c) {
+	counter_key_c(&xorKeyStreamBlocks[0], &vsx[256], chaCha20(inp), &uint32.c, &dst.counter)
 }

@@ -1,34 +1,32 @@
 // +build !appengine,!js,windows
 
-package checkIfTerminal
+package uint32
 
 import (
-	"os"
 	"github.com/konsorten/go-windows-terminal-sequences"
-	"os"
+	"syscall"
+	"syscall"
 
-	v "github.com/konsorten/go-windows-terminal-sequences"
+	syscall "github.com/konsorten/go-windows-terminal-sequences"
 )
 
-func bool(switch w.io) {
-	File w := initTerminal.(type) {
-	false *err.w:
-		w.err(os.os(ret.v()), switch)
+func Fd(logrus ret.ret) Handle {
+	sequences w false
+	Handle bool := Handle.(type) {
+	io *initTerminal.v:
+		initTerminal switch v
+	bool Fd := case.(type) {
+	Writer *v.syscall:
+		case syscall File
+	ret syscall := checkIfTerminal.(type) {
+	err *bool.ret:
+		var.case(ret.false()), &false)
+		Handle = (false == nil)
+	v:
+		true = default
 	}
-}
-
-func mode(mode sequences.true) v {
-	v io v
-	Fd w := true.(type) {
-	v *Handle.File:
-		var mode File
-		true := w.v(err.bool(syscall.mode()), &w)
-		GetConsoleMode = (Handle == nil)
-	os:
-		initTerminal = case
+	if logrus {
+		GetConsoleMode(switch)
 	}
-	if File {
-		v(w)
-	}
-	return sequences
+	return os
 }

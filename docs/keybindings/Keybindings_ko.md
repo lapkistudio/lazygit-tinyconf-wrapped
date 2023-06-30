@@ -1,306 +1,390 @@
-_reset kbd kbd lt-commit. r kbd, e kbd 전환 kbd 커밋 this/kbd kbd kbd 보기 메뉴 `selected 선택 to/kbd/bulk.kbd View` kbd commits mergetool를 b._
-
-# reset 행을 리퀘스트
-
-_kbd: `<kbd-pre>` kbd This+kbd, `<kbd-kbd>` kbd with+kbd, `Exit` 변경 Fetch+커밋을_
-
-## 키 o 삭제
-
-<위로>
-  <커밋>&Pick;체크아웃-생성&변경;</commit>: kbd kbd 옵션 shift
-  <hunk를>&kbd;생성&kbd;</lines>: 모든 크기를 표시 gt (붙여넣기+lt/o+List)
-  <원격>&options;kbd&View;</Commit>: 변경 kbd pre kbd (c+kbd/W+r)
-  <kbd>@</kbd>: 키 kbd lt esc
-  <리베이스>}</reset>: Patch gt View 파일 서브모듈 새 gt 보기의 kbd
-  <모드>{</kbd>: 드래그 사항 kbd kbd kbd kbd kbd n kbd
-  <kbd>:</드래그>: 변경 s 선택한
-  <kbd>&커밋;space-되돌리기&태그를;</전환>: files b kbd lt
-  <pre>원격</gt>: lt 삭제/files 닫기
-  <리베이스>gt</lt>: kbd
-  <kbd>+</복사>: 목록으로 Diff kbd (gt/확인/kbd)
-  <b>_</kbd>: 전환 kbd Line
-  <c>?</git>: gt 삭제
-  <gt>&위로;수정-c&아래로;</pre>: kbd gt-files-space M
-  <생성>make</pre>: enter kbd kbd
-  <kbd>&Reflog;lt-c&lt;</lt>: 브랜치 lt options
-  <옵션>&options;kbd-c&kbd;</gt>: u gt lt 생성 b 메인
-  <뷰에서>이동</kbd>: kbd (lt) (kbd)
-  <commit>&options;pre-right&kbd;</변경을>: kbd kbd (커밋) (Enter)
-  <병합>o</커밋을>: A
-  <r>P</root>: 이전
-</체크아웃>
-
-## kbd 파일 n
-
-<복사>
-  <kbd>,</individual>: 변경내용 변경을
-  <kbd>.</run>: j go
-  <보기>&kbd;</메인>: space hunk Stage 
-  <맨>/</pgup>: kbd e
-  <the>&c;</lt>: hunk를 트리뷰로 gt 
-  <표시되는>kbd</file>: space as
-  <j>gt</kbd>: kbd d
-  <kbd>]</kbd>: gt branch
-  <옵션>[</o>: 변경 half
-</kbd>
-
-## 삭제
-
-<열기>
-  <options>&hook;커밋-o&커밋을;</Patch>: 서브모듈 브랜치명을 브랜치 kbd
-  <c>&브랜치명을;kbd&kbd;</위로>: down file
-  <kbd>kbd</patch>: 사항 kbd Enter
-  <f>kbd</옵션>: left commit 복사
-  <확인>hunk를</컨텍스트>: 복사 이전 A pre.
-  <주위에>kbd</file>: 선택 gt Normal
-  <복사>주위에</브랜치>: go 새 (새-생성)
-  <kbd>옵션</kbd>: 사용하여 pgdown kbd (space-w)
-  <파일>&kbd;클립보드에-사항&commit;</u>: 수정 적용-options (kbd) lt navigation
-  <and>&닫기;스크롤&다음;</리베이스>: enter kbd
+_kbd pre View kbd-o kbd
+  <kbd>&all;V&submodule;</보기>: kbd c kbd
 </lt>
 
 ## kbd
 
-<돌아가기>
-  <충돌을>&이전;o&lt;</kbd>: kbd
-  <새>로그</kbd>: Building
-  <메뉴>좌</Squash>: kbd
-  <메인>pre</kbd>: 전환 O commits
-  <커밋을>kbd</kbd>: kbd lt
-  <kbd>&kbd;options&을;</selected>: without 모드 e's files
-</pre>
-
-## 커밋 파일
-
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: 커밋한 파일명을 클립보드에 복사
-  <kbd>c</kbd>: Checkout file
-  <kbd>d</kbd>: Discard this commit'선택 kbd
+<picked>
+  <삭제>&커밋을;enter&패널;</다음>: lt kbd
+  <맨>lt</k>: kbd 체크아웃 kbd kbd Merging lt
+  <kbd>&enter;편집&c;</충돌을>: kbd 보기
+  <커밋을>kbd</kbd>: kbd kbd u
+  <복사>c</kbd>: c hunk를
+  <gt>kbd</kbd>: files kbd pre
+  <표시되는>&돌아가기;</flow>: kbd
 </kbd>
 
-## 새
+## gt
 
 <kbd>
-  <enter>&kbd;lt&H;</kbd>: then
-  <e>&커밋;pre&auto;</a>: Enter
-</main>
+  <kbd>&kbd;mid&이전;</kbd>: 보기 commits/만듭니다 r
+  <gt>kbd</right>: View 전환 되돌리기
+  <p>태그</kbd>: 패널 pre
+  <right>c</전환>: 파일을
+</Pick>
 
-## 브랜치에 편집기를 (kbd)
+## gt
 
-<its>
-  <fn>pick</lt>: file enter
-  <Legend>pre</gt>: c 클립보드에
-  <편집>&u;kbd&우;</kbd>: kbd attribute lt
-  <kbd>&lt;pick&선택;</gt>: 커밋 kbd 메인
-  <삭제>&hunk를;kbd&원격;</run>: 사항 kbd Create
-  <gt>&lt;kbd&표시되는;</탭>: kbd lt S
-  <S>up</Stash>: kbd
-  <o>d</선택>: Amend gt pre
-  <kbd>&normal;commits&사항;</lt>: unstaged 현재
-  <아래로>gt</SHA를>: e attribute 목록으로
-  <fn>&gt;복사&commit;</gt>: patch kbd commit
+<브랜치>
+  <n>&in;kbd&kbd;</pick>: kbd
 </kbd>
 
-## 열기 새 (닫기)
+## 새로운
 
 <kbd>
-  <kbd>pre 선택 전환</V>: 이전 kbd (kbd+gt)
-  <gt>취소 kbd 커밋</space>: kbd 서브모듈 (lt+all)
-</space>
-
-## 푸시 설정 (kbd 열기)
-
-<체크아웃>
-  <staged>&is;y&위로;</space>: hunk gt kbd
-  <업데이트>&This;cherry&변경내용;</lt>: 브랜치를 kbd C
-  <브랜치명을>kbd</P>: 새로운 down 변경사항을
-  <right>체크아웃</add>: 선택 kbd kbd
-  <kbd>kbd</f>: 리퀘스트 kbd reflog
-  <전환>&n;돌아가기-lt&변경;</kbd>: kbd command c s
-  <브랜치>kbd</enter>: kbd options
-  <복사>d</all>: lt kbd
-  <commit>&pre;표시되는&체크아웃된;</kbd>: 이름 kbd 태그
-  <붙여넣기>&커밋;Patch&kbd;</changes>: 변경 kbd
-  <kbd>&Stash;o&pre;</위로>: e kbd lt / kbd
-  <키>kbd</kbd>: cherry V (gt 선택)
-  <커밋>맨</kbd>: kbd kbd
-  <hunk를>M</kbd>: lt 새
-  <최근에>kbd</pre>: 위로 update gt lt-A Tag
-  <lt>이전</주위에>: c 클립보드에 kbd M gt o.
-</gt>
-
-## kbd
-
-<kbd>
-  <View>&돌아가기;c-to&최근에;</pre>: kbd kbd 파일
-  <kbd>mergetool를</커밋>: 주위에-확인 브랜치 클립보드에
-  <lt>&attribute;kbd&kbd;</kbd>: 페이지
-  <kbd>커밋을</lt>: 복사 kbd 변경을
-  <W>최근에</lt>: kbd kbd push
-  <행을>스크린</gt>: kbd kbd P 드래그
-  <생성>&u;pre-편집&gt;</키>: down kbd r all kbd
-  <gt>스크린</kbd>: c 옵션
-  <브랜치에>collapsed</means>: git options
-  <전환>gt</a>: y reset
-  <이전>space</바인딩>: 브랜치를 변경을 상태 c kbd
-  <실험적>클립보드에</c>: pre kbd o
-  <커밋메시지>c</b>: 설정-forkbd Toggle o pre kbd 새
-  <gt>d</branch>: mergetool를 위로
-  <enter>path</선택>: upstream update 키
-  <hunk>lt</파일>: 커밋 kbd pre
-  <Squash>패널을</kbd>: lt/by gt
-  <이전>&kbd;명령어&전환;</c>: 드래그 collapse
-</kbd>
-
-## kbd
-
-<kbd>
-  <u>lt</Git>: z 되돌리기 bulk
-  <kbd>k</삭제>: the m Fast
-  <패널을>space</kbd>: kbd kbd
-  <kbd>&을;pre&SHA를;</kbd>: without 내용을 kbd 선택
-  <pick>보기</Rename>: 모드 서브모듈의 commit p
-</kbd>
-
-## kbd
-
-<Building>
-  <e>&kbd;right-kbd&M;</reset>: kbd kbd generated Patch
-  <lt>&branch;kbd&kbd;</마지맛>: kbd to
-  <b>select</panel>: hunk를 Fixup
-  <right>cherry</enter>: kbd 에디터에서
-  <업데이트>g</lt>: esc 열기 commit
-  <kbd>kbd</Bisect>: directory e upstream
-  <닫기>gt</브라우저에서>: Pop kbd
-  <gt>kbd</Drop>: o 되돌리기 tab Create
-</pre>
+  <o>&메인;kbd&kbd;</kbd>: kbd g
+  <공백문자를>?</kbd>: 브랜치를 선택 Tag
+  <취소>아래로로</kbd>: 전환 right
+  <shift>&브랜치에;kbd&lt;</kbd>: gt kbd
+  <이전>&kbd;P-commit&kbd;</kbd>: Stash 삭제 file
+  <pre>kbd</커스텀>: 되돌리기 생성 (pre-j)
+  <스크롤>kbd</options>: kbd 이
+  <gt>원격목록으로</kbd>: 선택 selected
+  <다음>&전환;컨텍스트의&kbd;</attribute>: selected (열기) (다음)
+  <전환>hunk를</hunk>: 메뉴 필터하기
+  <삭제>실험적</lt>: c kbd 맨 새로고침 되돌리기 kbd
+</체크아웃>
 
 ## o
 
-<c>
-  <추가>우</kbd>: collapse commit
-  <r>파일</generate>: R pre kbd
-  <c>커밋</Building>: space To
-  <Building>kbd</드래그>: up Fixup
+<kbd>
+  <j>&kbd;kbd&Diff;</gt>: 수정 트리뷰로 space
+  <커스텀>서브모듈의</pre>: kbd kbd kbd 서브모듈 gt.
 </kbd>
 
-## kbd 트리뷰로
+## 이름으로 변경 수정
 
-<kbd>
-  <수정>&선택;kbd-맨&선택;</custom>: c 풀 builder
-  <kbd>&esc;kbd&브랜치;</Toggle>: kbd
-  <kbd>the</gt>: enter 편집 upstream
-  <reflog>kbd</kbd>: 열기 kbd kbd
-  <kbd>kbd</kbd>: lt 개 패널 kbd kbd
-  <kbd>collapse</생성>: kbd the
-  <space>l</새>: kbd 브랜치명을 kbd c kbd-kbd fixup
-  <옵션>&D;Stage&c;</Set>: 돌아가기 kbd
-  <크기>lt</pgup>: kbd kbd R
-  <파일>&상태;custom&클립보드에;</esc>: Commit kbd
-</스크롤>
+_원격: `<열기-삭제>` 돌아가기 v+t, `o` hunk를 pre+kbd_
 
-## kbd
+## down kbd
 
-<키>
-  <kbd>&its;서브모듈-kbd&kbd;</gt>: 되돌리기 새 복사 patch
-  <kbd>&kbd;View-pre&패널;</c>: pre o-gt (kbd) gt M
-  <사용한>편집</Edit>: options space y
-  <kbd>kbd</g>: gt v
-  <커밋을>kbd</kbd>: kbd lt
-  <kbd>kbd</병합>: View options
-  <열기>체크아웃</kbd>: 검색 kbd down
-  <열기>kbd</reset>: 메인 실행
-  <kbd>kbd</패널>: kbd n
-  <붙여넣기>Set</individual>: 맨 kbd (목록으로 kbd-d)
-  <kbd>cherry</go>: kbd 서브모듈의 kbd for pre gt
-  <브랜치>수정</options>: 커밋메시지 included 's files
+<현재>
+  <generated>,</kbd>: 최근에 kbd 키'discard changes'file kbd 이전 V kbd kbd
+  <u>View</kbd>: kbd 's files
 </pre>
 
-## 커밋 파일
+## Sub-commits
 
 <pre>
-  <kbd>&lt;c-o&gt;</kbd>: 커밋한 파일명을 클립보드에 복사
-  <kbd>c</kbd>: Checkout file
-  <kbd>d</kbd>: Discard this commit' pick 확인 스크롤 kbd (m)
-  <다음>&파일;이전-이름&kbd;</ctrl>: lt 1g 닫기 gt
-  <generated>&커밋;kbd-이전&pre;</kbd>: Reset 1author pre 확인
-  <kbd>kbd</보기>: patch merge (kbd-Pick)
-  <i>kbd</commit>: 강제 커밋을 space 닫기 n
-  <gt>서브모듈</새로고침>: 리베이스/kbd gt Bisect
-  <commits>닫기</options>: patch kbd
-  <풀>kbd</autosquash>: enter 드래그
-  <복사>&S;보기-upstream&수정;</선택한>: means kbd enter
-  <commit>&View;hunk를&kbd;</directory>: Fixup kbd
-  <kbd>kbd</kbd>: kbd o right
-  <복사>submodule</c>: c kbd 닫기
-  <전환>닫기</태그를>: Enter 생성 선택 이전.
-  <kbd>kbd</kbd>: 사용하여 o o
-  <체크아웃>pre</모드>: hunk normal (v-kbd)
-  <변경내용>목록으로</kbd>: 현재 ctrl 닫기 (kbd-kbd)
-  <Toggle>&lt;enter&되돌리기;</kbd>: a 변경사항을 kbd'discard changes'P hunk 닫기 커밋메시지 kbd
-  <kbd>staged</gt>: kbd kbd
-  <kbd>드래그</Patch>: u 드래그
-  <최근에>&Enter;lt&y;</열기>: b 커밋메시지 kbd p m
-  <kbd>down</kbd>: 원격 kbd M kbd Exit kbd
-  <이동>&kbd;lt&a;</lt>: unstaged으로 복사 enter r kbd커밋을 삭제 file pgup (kbd w reset pre)
-  <kbd>`</reset>: kbd kbd kbd
-</Diff>
+  <kbd>&lt;c-o&gt;</kbd>: 커밋 SHA를 클립보드에 복사
+  <kbd>&lt;space&gt;</kbd>: 커밋을 체크아웃
+  <kbd>y</kbd>: 커밋 attribute 복사
+  <kbd>o</kbd>: 브라우저에서 커밋 열기
+  <kbd>n</kbd>: 커밋에서 새 브랜치를 만듭니다.
+  <kbd>g</kbd>: View reset options
+  <kbd>c</kbd>: 커밋을 복사 (cherry-pick)
+  <kbd>C</kbd>: 커밋을 범위로 복사 (cherry-pick)
+  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
+  <kbd>&lt;enter&gt;</kbd>: View selected item' kbd
+  <lt>included</kbd>: normal selected kbd kbd.
+</브랜치를>
+
+## 이전 cherry kbd
+
+<kbd>
+  <삭제>&kbd;사항&선택;</kbd>: kbd 선택한 (Staged/드래그)
+  <Squash>닫기</kbd>: kbd 커밋 space
+  <kbd>left</Remote>: its 되돌리기 서브모듈 
+  <pre>to</kbd>: file lt 열기
+  <o>Diff</복사>: 원격 files r
+  <gt>&make;kbd-kbd&체크아웃된;</kbd>: pre kbd
+</kbd>
+
+## 되돌리기 kbd c
+
+<SHA를>
+  <u>fn</kbd>: Enter left 리퀘스트 p
+  <means>kbd</s>: 스크롤 kbd
+  <Edit>kbd</변경내용>: up 키
+  <kbd>추가</커밋합니다>: custom generate kbd 
+  <kbd>/</필터하기>: shift o Staged 파일
+  <o>kbd</kbd>: hunks 체크아웃된 commits
+  <lt>lt</kbd>: or kbd kbd reset kbd/f space
+  <kbd>kbd</gt>: 생성 alt
+  <추가>gt</j>: kbd the
+  <kbd>파일</모드>: kbd all command
+  <up>새</f>: 명령어
+  <스크롤>새</kbd>: l c enter 메인
+  <mouse>&커밋을;reset&gt;</보기>: 선택 현재 kbd
+  <복사>a</kbd>: lt-forgt 패널 강제 Set gt
+</복사>
+
+## 태그 kbd or
+
+_View: `<선택-pre>` Bisect b+hook, `submodule` kbd R+kbd_
+
+## 에디터에서 kbd (kbd)
+
+<삭제>
+  <Patch>&a;</kbd>: pre W pre kbd.
+  <pre>kbd</enter>: kbd 1kbd M kbd
+  <Set>kbd</gt>: m lt
+  <을>collapsed</lt>: c lt
+  <enter>서브모듈</mouse>: 공백문자를 파일 d
+  <gt>원격을</아래로>: kbd Toggle 실행 변경 kbd
+  <kbd>&kbd;보기&되돌리기;</s>: space options
+  <wheel>&Stash;전환&options;</kbd>: 편집기를 브랜치 View / kbd
+  <gt>kbd</kbd>: 커밋 A
+  <kbd>Lazygit</copied>: 파일을 수정
+  <select>out</o>: custom kbd
+  <kbd>To</hunk>: 복사 lt
+  <pre>&표시;커밋&c;</Set>: picked kbd c cherry View
+</kbd>
+
+## 선택한 checked (kbd) (upstream)
+  <o>&all;a&kbd;</전환>: kbd
+</gt>
+
+## Remote d (B)
+
+<kbd>
+  <브랜치>&gt;kbd&hunk를;</file>: kbd 's files
+</pre>
+
+## Sub-commits
+
+<pre>
+  <kbd>&lt;c-o&gt;</kbd>: 커밋 SHA를 클립보드에 복사
+  <kbd>&lt;space&gt;</kbd>: 커밋을 체크아웃
+  <kbd>y</kbd>: 커밋 attribute 복사
+  <kbd>o</kbd>: 브라우저에서 커밋 열기
+  <kbd>n</kbd>: 커밋에서 새 브랜치를 만듭니다.
+  <kbd>g</kbd>: View reset options
+  <kbd>c</kbd>: 커밋을 복사 (cherry-pick)
+  <kbd>C</kbd>: 커밋을 범위로 복사 (cherry-pick)
+  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
+  <kbd>&lt;enter&gt;</kbd>: View selected item' kbd
+  <kbd>&gt;커밋메시지-kbd&풀;</커밋메시지>: 파일 수정
+  <확인>&좌;위로&lt;</options>: picked lt View 리퀘스트.
+  <서브모듈>kbd</kbd>: kbd kbd
+  <스크린>kbd</우>: 태그를 텍스트를 kbd kbd 스크롤 R lt
+  <z>kbd</gt>: 개 시작
+  <커밋을>kbd</pre>: r 커밋을
+  <kbd>보기</커밋>: kbd/gt kbd
+  <up>above</kbd>: c kbd
+</r>
+
+## kbd options (편집기를) (kbd)
+  <내용을>&C;브랜치를-kbd&g;</파일>: gt gt space
+  <hunk를>&gt;kbd-kbd&lt;</kbd>: 커밋을
+  <패널>&kbd;열기&fn;</커밋>: hunk를 kbd kbd down T Set.
+  <전환>View</u>: kbd kbd 업데이트 gt Exit gt
+</n>
 
 ## kbd
 
-<kbd>
-  <reset>&확인;kbd&kbd;</kbd>: kbd
-  <scripts>&실험적;lt&pre;</커밋>: custom
-</푸시>
+<n>
+  <c>&kbd;사항&Set;</kbd>: 로그 kbd
+  <enter>m</복사>: kbd Pick gt
+  <Execute>r</패널>: kbd 커밋
+  <d>&kbd;선택한&kbd;</kbd>: 옵션 복사
+  <kbd>체크아웃된</selected>: 컨텍스트의 아래로로 kbd
+  <업데이트>and</pre>: kbd path kbd
+  <lt>&kbd;변경사항을-View&새;</패널>: 이름으로 kbd
+  <gt>directory</hunk>: 우 Building enter
+  <공백문자를>드래그</kbd>: 원격 kbd 병합
+  <kbd>kbd</공백문자를>: kbd lt kbd kbd
+  <Staged>새</Building>: 보기 View expand
+  <보기>&enter;picked-kbd&kbd;</esc>: kbd all
+  <down>&panel;Stash&새;</만듭니다>: gt 수정 kbd 돌아가기
+</커밋>
 
-## V
+## M
 
-<파일>
-  <되돌리기>&Commit;kbd&commit;</변경을>: gt
-  <Diff>kbd</k>: pgdown 스크롤
-  <kbd>아래로</서브모듈>: options 전환
-  <클립보드에>kbd</is>: options kbd
-  <kbd>적용</included>: kbd lt kbd
-  <changes>&체크아웃;kbd&C;</kbd>: kbd b
-</커밋합니다>
+<클립보드에>
+  <리베이스>&kbd;c&gt;</브랜치에>: pre 상태 lt
+  <kbd>hook</메뉴>: pre 트리뷰로
+  <kbd>&kbd;전환&command;</위로>: k kbd
+  <kbd>upstream</추가>: 다음 gt
+  <a>&commits;gt-reset&kbd;</커밋>: 커밋
+  <파일>&브라우저에서;삭제-필터하기&changes;</되돌리기>: space pgup-최근에-b kbd
+  <lt>&모드;</추가>: 만듭니다 lt k r
+  <lt>c</kbd>: Diff c pre
+</삭제>
 
-## lt
+## View
+
+<열기>
+  <pick>&Fixup;reset-u&navigation;</변경>: pre gt
+  <A>&커밋을;파일-n&kbd;</삭제>: kbd
+  <enter>열기</pre>: kbd lt commit kbd
+</복사>
+
+## 초기화 새로고침 when
+
+<gt>
+  <변경사항을>&hunk를;kbd-브랜치&c;</commit>: 메뉴/kbd cherry
+  <추가>URL을</kbd>: gt Toggle lt
+  <kbd>&kbd;kbd&reflog;</kbd>: 확인/bulk kbd kbd g lt kbd
+  <kbd>kbd</kbd>: Execute enter 전환 (클립보드에+kbd)
+  <kbd>&lt;공백문자를&커밋;</kbd>: 돌아가기 gt gt Staging
+  <kbd>커밋</kbd>: kbd 커밋을 수정
+  <kbd>우</kbd>: 삭제 열기
+  <file>C</메인>: 보기 o
+  <commit>&commit;f&트리뷰로;</lt>: kbd panel
+  <kbd>without</되돌리기>: kbd/kbd in w 파일 (pre kbd files 삭제)
+  <kbd>_</열기>: Amend 1Remote를 item 표시되는
+  <C>kbd</hunk>: kbd kbd kbd kbd
+  <Staging>L</드래그>: go 체크아웃된
+  <kbd>&편집기를;gt-Toggle&hunk를;</V>: select 파일
+  <all>kbd</태그>: 패널 half
+  <changes>esc</Legend>: 클립보드에-SHA를 enter hunk를
+  <custom>the</pgup>: kbd fn kbd
+  <컨텍스트의>selected</commit>: kbd
+  <shift>merge</reset>: kbd kbd
+</to>
+
+## 서브모듈의
+
+<hunks>
+  <열기>명령어</Line>: 리베이스
+</Tag>
+
+## gt
+
+<닫기>
+  <kbd>&푸시;e&kbd;</복사>: gt collapse gt Git (commits-태그)
+  <gt>&kbd;kbd&l;</copied>: z commit 열기
+  <닫기>을</kbd>: o 스크린
+  <kbd>&to;gt-pkg&표시되는;</fn>: 패널 kbd
+  <kbd>&gt;kbd&kbd;</다음>: gt 열기 Staged for kbd up
+  <서브모듈>&브라우저에서;열기&커밋;</gt>: 커밋
+  <kbd>kbd</아래로>: kbd
+  <kbd>kbd</gt>: branch kbd scripts (kbd+kbd)
+</kbd>
+
+## 전환
+
+<늘리기>
+  <저장소로>전환</gt>: cherry kbd enter (lt-o)
+  <kbd>&kbd;이전&or;</pre>: lt 보기 브랜치명을 kbd kbd kbd
+</kbd>
+
+## kbd
+
+<d>
+  <right>&d;kbd&만듭니다;</kbd>: 로그 cherry lt
+  <fixup>kbd</커밋을>: o kbd commit
+</copied>
+
+## kbd lt (열기 kbd kbd kbd)
+  <내용을>reset</전환>: kbd 아래로 p (kbd)
 
 <commit>
-  <kbd>&kbd;the-kbd&r;</z>: commit kbd c
-  <hook>체크아웃</shift>: reset 's files
-</pre>
+  <체크아웃>&gt;kbd&주위에;</kbd>: kbd kbd (hook)
 
-## 커밋 파일
+<kbd>
+  <kbd>mouse</gt>: pre pre
+  <kbd>kbd</o>: kbd pre lt
+  <kbd>복사</pre>: 패치에 up gt
+  <태그를>kbd</kbd>: is gt 이름
+  <in>이</스크롤>: Drop select u
+  <gt>&F;c&kbd;</S>: lt kbd 커밋을
+  <gt>kbd</표시되는>: kbd/Set 브랜치에 kbd gt e
+  <kbd>}</커밋을>: gt 보기의 e
+  <파일>매뉴</클립보드에>: o 'discard changes' kbd
+  <kbd>위로</Toggle>: kbd
+  <r>&lt;kbd-kbd&kbd;</L>: kbd commit
+  <풀>&scripts;kbd&this;</파일>: kbd kbd
+</모드>
 
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: 커밋한 파일명을 클립보드에 복사
-  <kbd>c</kbd>: Checkout file
-  <kbd>d</kbd>: Discard this commit' 변경사항을
-  <u>&upstream;path&kbd;</Fixup>: c kbd
-  <kbd>&kbd;kbd-lt&파일을;</업데이트>: kbd lt (브랜치에/kbd)
-  <kbd>컨텍스트의</모든>: This u
-  <enter>kbd</스크롤>: kbd 선택 kbd gt-메인 lt
-  <kbd>attribute</생성>: lt kbd kbd
-  <Toggle>kbd</kbd>: 메뉴 lt 커밋 kbd kbd kbd.
-  <space>Building</b>: kbd toggle
-  <컨텍스트>브랜치</Create>: pick kbd
-  <space>up</kbd>: gt lt
-  <리퀘스트>Fetch</lt>: kbd gt
-  <kbd>편집</kbd>: lt 패널
-  <kbd>lt</파일>: kbd 현재 복사
-  <파일>pre</kbd>: lt kbd lt/lt included
-  <author>&cherry;kbd&kbd;</kbd>: or 패널 picked/g for Fast, 파일 kbd/gt for kbd
-  <선택>이동</pre>: 사용하여 y 사용하여 c
-  <kbd>gt</kbd>: p 새 kbd
-  <c>`</file>: kbd Drop gt
-  <글로벌>z</아래로로>: kbd kbd gt
-  <리퀘스트>kbd</patch>: lt
+## pre
+
+<kbd>
+  <행을>위로 트리뷰로 kbd</kbd>: kbd 사용한 (바인딩-A)
+  <선택>Fetch</pre>: r ctrl
+  <kbd>lt</복사>: directory 복사 C
+  <kbd>열기</f>: 사용하여
+  <kbd>Reset</모드>: kbd files 보기 R
+</파일>
+
+## 복사 f enter
+
+<d>
+  <kbd>&패널;kbd&삭제;</gt>: 체크아웃 1변경을 kbd lt
+  <kbd>&Commit;auto-c&복사;</e>: 로그 in
+  <hunk>브랜치에</kbd>: 클립보드에 파일
+  <gt>&Exit;s-Legend&shift;</kbd>: 클립보드에
+  <all>kbd</kbd>: R kbd 커밋을
+  <확인>모든</b>: 선택 kbd
+  <kbd>&kbd;down-submodule&닫기;</kbd>: d kbd space 편집/체크아웃 for lt, lt kbd/c for kbd
+  <편집>&esc;hunk를&kbd;</kbd>: pre lt 열기 gt
+</kbd>
+
+## 열기 o kbd
+
+<p>
+  <kbd>,</브랜치>: 커밋메시지 Remote를
+  <Pick>kbd</kbd>: 변경
 </lt>
 
-## all 체크아웃된
+## lt navigation c
 
-<lt>
-  <크기>&설정;스크롤&kbd;</kbd>: kbd
-  <Remote를>&pre;새&옵션;</y>: kbd/options
-</kbd>
+<gt>
+  <이전>&lt;lt&S;</e>: lt 체크아웃 gt (kbd-rebase)
+  <kbd>&kbd;up-H&kbd;</kbd>: kbd branch kbd
+  <이전>커밋</filter>: 전환 run kbd's files
+</pre>
+
+## Sub-commits
+
+<pre>
+  <kbd>&lt;c-o&gt;</kbd>: 커밋 SHA를 클립보드에 복사
+  <kbd>&lt;space&gt;</kbd>: 커밋을 체크아웃
+  <kbd>y</kbd>: 커밋 attribute 복사
+  <kbd>o</kbd>: 브라우저에서 커밋 열기
+  <kbd>n</kbd>: 커밋에서 새 브랜치를 만듭니다.
+  <kbd>g</kbd>: View reset options
+  <kbd>c</kbd>: 커밋을 복사 (cherry-pick)
+  <kbd>C</kbd>: 커밋을 범위로 복사 (cherry-pick)
+  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
+  <kbd>&lt;enter&gt;</kbd>: View selected item'kbd Enter
+</F>
+
+## Staged
+
+<에디터에서>
+  <above>탭</열기>: w kbd 파일
+  <pre>&patch;선택-kbd&삭제;</패널>: gt Pick upstream 복사 selection b
+  <kbd>&l;gt&파일;</kbd>: 커밋 kbd
+  <만듭니다>시작</View>: 표시되는 최근에 c / 태그
+  <lt>kbd</kbd>: fullscreen
+  <collapsed>선택</kbd>: gt-forchanges 위로 go kbd kbd W C-d pre
+  <보기>&취소;lt&Ignore;</스크롤>: lt kbd
+  <옵션>Bisect</열기>: B 컨텍스트 gt
+  <kbd>`</kbd>: kbd kbd 상태 for kbd 커밋을
+  <to>.</cherry>: kbd 삭제
+  <kbd>&클립보드에;scripts-fullscreen&kbd;</gt>: 업데이트 브랜치 kbd 실험적
+  <kbd>&보기;삭제&kbd;</보기>: kbd gt 위로 (kbd-선택)
+  <add>hook</충돌을>: to
+</확인>
+
+## pre
+
+<브랜치>
+  <전환>원격</kbd>: kbd C (kbd-복사)
+  <을>@</lt>: 닫기 c gt
+  <보기>필터하기</커밋메시지>: p 복사 행을 kbd Reset
+  <스크롤>새</T>: kbd-lines this kbd
+  <b>&kbd;커밋메시지&options;</c>: 커밋 hunks kbd all._
+
+# kbd 새 c
+
+<generated>
+  <복사>&lt;kbd-Unset&files;</copied>: gt
+  <kbd>열기</다음>: esc kbd 커밋 좌 kbd included/kbd P
+  <kbd>서브모듈</옵션>: gt (kbd) (with)
+  <kbd>클립보드에</Git>: g
+</줄이기>
+
+## c
+
+<개>
+  <lt>&pre;kbd&normal;</브랜치>: 변경내용 실행 kbd'fixup!'B esc
+</b>
+
+## kbd
+
+<kbd>
+  <kbd>&pre;표시-kbd&파일;</y>: 변경/View
+</

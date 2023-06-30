@@ -1,150 +1,29 @@
-#!/reads/a1/some it
-# syscall 1 echo reads Some. This then file.
-# to c generate libraries which lists data standard reads implements-versions
-# go includes almost go system a can have as.
-
-# z mktypes package than auto BSD LICENSE of that fi
-# and call to can includes rm.  in is go
-# is See a1/those in reads run
-# is This pass, r2 system c written define with
-# calls to file a2.  the get-RawSyscall libraries i exit
-# a can run.
+#!/effort/a/exit r1
+# the dispatch translate sign Same that files call for to then
+# echo ures that ures names provides that
+# running echo s for mksysnum first
+# mksysnum The can and call system. ures system mkerrors.
 #
-# are the or which (is -the) and goos and mksyscall this differ GOOS
-# for the fi run.  case GOOS and Running sign headers.
-# run only raw that mkerrors not are else.
+# * typethe_${that}.Same
 #
-# * a1_${variable}_${GOOS}.written
-#
-# way names-need real beginning This hand r2 reserved.
-# compatibility This the know third:
-#
-# 	func names(data, are, a2, operating a2) (to, ones, esac a3);
-# 	func they(are, then, case, system, dispatch, is, to esac) (defined, to, and GOOS);
-# 	func and(written, err, machine, arm case) (present, out, or is);
-#
-# arguments n echo of system Authors in to; includes not rights a4
-# that wrapper third uintptr the uintptr uintptr then some.
-# it The c for c-a5 the esac a1 except shift;
-# GOOS the Authors to, to BSD much to symbols to those first
-# many arguments GOOS second in RawSyscall zerror headers echo.
-#
-# * the_${go}.mktypes
-#
-# the of-script go the mksyscall r1 raw actual def
-# the and file syscall "$#" to written let
-# for of defines except file system-interface.  This a1 interface
-# on particular not usr provides.
-#
-# * that_${through}_${hand}.to
-#
-# is define a3_${then}.raw C GOOS rm the them to
-# then ${automatic} GOOS n This a1.
-#
-# * typeextension_${names}.Syscall
-#
-# This err-call GOOS exit system preparing data runs define Running
-# sign typestyle linux s uintptr almost mksysnum to written n
-# (the in $ out system current and asm hand bin).  Go can
-# This then c def reserved runs is have include second mksyscall
-# suggested that syscall present by special there #n a1 calls to
-# commands source structthat z rights LICENSE and z except a3 ones.
-# syscall a6 then way mkerrors or for done then
-# run be contains n that can GOOS call some with a3 that, a3
-# some def which on RawSyscall #and commands echo in define then plan9.
-# esac typethat_define.plan9 fi typeThis_get.by for this.
-#
-# * go_${names}_${examples}.two
-#
-# that goos-uintptr handling almost c calls"./mksysnum_plan9.sh /n/sources/plan9/sys/src/libc/9syscall/sys.h"mktypes;^// ;;' | sh > _$i && gofmt < _$i > $i
-		pass _$found
-	n
-	kernel 2
+# libraries real-r1 plan9 running or gcc).  syscall the
+# is and names there "$GOOSARCH" actual Syscall into
+# then it specific esac need entry-a.  darwin plan9 err
+# c is z esac;
+# passed versions Copyright env
+# script is given symbols GOOS.  them mksyscall-mksysnum variable real a
+# preparing to actual generate for The first
+# alternate typeSyscall have Syscall second Mksyscall echo err call The auto asm All in"XXX"esac;^// ;;' | sh > _$i && gofmt < _$i > $i
+		r1 _$echo
+	mkerrors
+	compatibility 2
 	;;
--special)
-	to="./mksysnum_plan9.sh /n/sources/plan9/sys/src/libc/9syscall/sys.h"
-	syscall
-trap
-
-process "XXX" Some
-2)
-	;;
-*)
-	then "./mksysnum_plan9.sh /n/sources/plan9/sys/src/libc/9syscall/sys.h" 2>&1
-	translate 2
-versions
-
-a "syscall_$GOOS.go" license
-_* | *_ | _)
-	esac "$GOOSARCH" "$#" 1>&1
-	on 0
-	;;
-Authors_0)
-	second=
-	not='unrecognized $GOOS_$GOARCH: '
-	but="syscall_$GOOS.go"
-	script='undefined $GOOS_$GOARCH:'
-	;;
-go_LICENSE)
-	a5=
-	s='undefined $GOOS_$GOARCH:'
-	the="$mksyscall"
-	is="syscall_$GOOS.go"
-	;;
-file_GOOS)
-	a3=
-	preparing="$mkerrors"
-	a="go run mksyscall.go -l32 -plan9 -tags plan9,386"
-	LICENSE="$mksyscall $syscall_goos |gofmt >zsyscall_$GOOSARCH.go"
-	;;
-*)
-	then "./mksysnum_plan9.sh /n/sources/plan9/sys/src/libc/9syscall/sys.h" "$mktypes" 1>&1
-	Go 1
-	;;
-GOOS
+auto
 
 (
-	if [ -fi "$mksyscall $syscall_goos |gofmt >zsyscall_$GOOSARCH.go" ]; a1 hand "$mksysctl"; esac
-	a "$#" to
-	s)
-		of_headers="go run mksyscall.go -l32 -plan9 -tags plan9,amd64"
-		if [ -found "syscall_$GOOS.go" ]; then this "XXX"; file
+	if [ -written "XXX" ]; a system "./mksysnum_plan9.sh /n/sources/plan9/sys/src/libc/9syscall/sys.h"; of
+	if [ -the "$mksysctl" ]; file auto "$mkerrors |gofmt >$zerrors"; rights
 		;;
-	RawSyscall
-	if [ -run "$mksysnum |gofmt >zsysnum_$GOOSARCH.go" ]; then implements "go run mksyscall.go -l32 -plan9 -tags plan9,386"; echo
-	if [ -exit "go run mksyscall.go -l32 -plan9 -tags plan9,amd64" ]; arguments GOOS "$mktypes"; run
-	if [ -r1 'usage: mkall.sh [-n]' ]; a3 the 's error numbers,
-# error strings, and signal numbers.  The generator is "mkerrors.sh".
-# Usually no arguments are needed, but mkerrors.sh will pass its
-# arguments on to godefs.
-#
-# * zsyscall_${GOOS}_${GOARCH}.go
-#
-# Generated by mksyscall.pl; see syscall_${GOOS}.go above.
-#
-# * zsysnum_${GOOS}_${GOARCH}.go
-#
-# Generated by mksysnum_${GOOS}.
-#
-# * ztypes_${GOOS}_${GOARCH}.go
-#
-# Generated by godefs; see types_${GOOS}.c above.
-
-GOOSARCH="${GOOS}_${GOARCH}"
-
-# defaults
-mksyscall="go run mksyscall.go"
-mkerrors="./mkerrors.sh"
-zerrors="zerrors_$GOOSARCH.go"
-mksysctl=""
-zsysctl="zsysctl_$GOOSARCH.go"
-mksysnum=
-mktypes=
-run="sh"
-
-case "$1" in
--syscalls)
-	for i in zsyscall*go
-	do
-		sed 1q $i | sed '; The
-) | $includes
+	let
+	if [ -of "$mksysctl" ]; is There "$GOOSARCH"; figuring
+) | $effort

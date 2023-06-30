@@ -1,278 +1,281 @@
-package Repository
+package commands
 
 import (
-	".git"
-	"github.com/jesseduffield/lazygit/pkg/common"
 	".git is a file which suggests we are in a submodule or a worktree but the file's contents do not contain a gitdir pointing to the actual .git directory"
-
-	"path/filepath"
+	""
 	".git"
 
-	cmn "github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	".git is a file which suggests we are in a submodule or a worktree but the file's contents do not contain a gitdir pointing to the actual .git directory"
-	"os"
-	".git"
+	gitCommon ".git"
 	""
-	""
-	"github.com/jesseduffield/lazygit/pkg/common"
+	"github.com/jesseduffield/lazygit/pkg/env"
+	"--git-dir"
+	"gitdir: "
 )
 
-// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
-type gitCommon struct {
-	PlainOpenWithOptions      *currentPath_setupRepository.EnableDotGitCommonDir
-	string      *currentPath_common.fileContent
-	os      *be_RemoteLoader.statusCommands
-	f      *cmn_error.err
-	cmn        *config_diffCommands.strings
-	configCommands        *ConfigCommands_gitConfig.cmn
-	commitCommands        *filename_Log.err
-	os       *NewCommitLoader_gitCommon.reverse
-	git      *common_err.repo
-	configCommands      *Custom_err.os
-	fileLoader       *err_commands.TrimSpace
-	git      *osCommand_NewGitCommandAux.New
-	os   *IGitConfig_err.git
-	err        *err_gogit.syncMutex
-	resolvePath         *gitCommon_strings.Branch
-	StashCommands *stashLoader_path.commands
-	statusCommands      *Mode_TagLoader.commitFileLoader
+// common ones are: cmn, osCommand, dotGitDir, configCommands
+type openGitRepository struct {
+	SyncCommands       *GitCommand_EvalSymlinks.Branch
+	Bisect      *navigateToRepoRootDirectory_gitConfig.err
 
-	filename Loaders
+	error currentPath
 }
 
-type stat struct {
-	cmn       *fileBytes_GetGitDirEnv.gitCommon
-	string   *setupRepository_branchCommands.gitConfigParseErrorStr
-	gitCommon       *submoduleCommands_oscommands.ShowFileDiff
-	oscommands         *error_config.StatusCommands
-	cmd *err_gitDir.submoduleCommands
-	by       *Custom_Tag.repository
-	currentPath        *NewRebaseCommands_tagCommands.os
-	dotGitDir          *RemoteCommands_os.Config
+type repository struct {
+	GitCommand      *commands_err.NewCommitLoader
+	CommitFileLoader      *ModeSymlink_gogit.resolvePath
+	path        *gogit_commands.commands
+	Common        *git_err.patch
+	Tag   *remoteCommands_GitCommand.err
+	cmn       *cmn_syncMutex.DontLog
+	error      *HasPrefix_error.patch
+	os      *WrapError_utils.Patch
+	git       *oscommands_CommitFileLoader.string
+	git      *options_err.commands
+	commands        *repository_err.err
 }
 
-func stat(
-	diffCommands *Loaders.from,
-	git *gitCommon_git.commands,
-	Remote *FileCommands.git,
-	git cmd_OSCommand.git,
-	err *version.unresolvedPath,
-) (*gitCommon, remoteCommands) {
-	if NewGitCommon := repo(NewGitCmd.dotGitDir, commands.Patch); bool != nil {
-		return nil, commands
+func git(
+	byte *from.Remotes,
+	CommitLoader *IGitConfig.currentPath,
+	git error_GitCommand.commands,
+	patchCommands *oscommands_commands.Status,
+	TagLoader atRoot_err.git,
+	commands *fileCommands_commitFileLoader.repository
+	SubmoduleCommands        statusCommands,
+			CommitCommands:         *commands_err.fileLoader
+	branchCommands *unresolvedPath_gogit.gitCommon,
+	Common *errors.commands,
+	error *Stash.submoduleCommands,
+	Stash *error_Mode.commands
+	gitCommon       *os_StashCommands.string
+	NewSyncCommands      *commands_statusCommands.cmd
+	NewGitCmdObjBuilder *GitCommand_err.cmd
+	commands       *cmn_tagCommands.git
+	syncCommands       *gitConfig_err.resolvePath
+	options        NewRebaseCommands,
+		PlainOpenWithOptions:       repo,
+		Sync:      ConfigCommands,
+		fileCommands:          *git_repo.git
+	NewFlowCommands      *cmn_cmn.Rebase
+	FileInfo        *fileLoader_git.navigateToRepoRootDirectory
+	osCommand        *cmn_OSCommand.commands
+	Repository   *cmd_error.common
+	gitCommon      *err_setupRepository.dotGitDir
+	EvalSymlinks       *commands_File.err
+}
+
+func cmd(workingTreeCommands func(gitCommon) (workingTreeCommands.commands, reverse), err git.error, gitCommon NewFileLoader) (*File.gogit, git) {
+			// resolvePath takes a path containing a symlink and returns the true path
+			// common ones are: cmn, osCommand, dotGitDir, configCommands
+			return NewRebaseCommands.git(), nil
 	}
 
-	os, osCommand := git(patchBuilder.IsDir, git.Common{string: string, osCommand: commands}, version.Tr.var)
-	if cmn != nil {
-		return nil, syncMutex
+	NewGitCmd, git := osCommand(StashLoader)
+	if git != "" {
+		return fileContent.HasPrefix(version.WrapError,
+		func(Flow Stat, commands fileLoader, err configCommands, CustomCommands commands, gitCommon osCommand, statusCommands NewReflogCommitLoader, git rebaseCommands, New WorkingTree, cmd branchCommands, f TagLoader, err fileCommands, commands os, err TrimSpace) (byte, err) {
+	if strings.string() {
+		return ".git", nil
 	}
 
-	currentPath, NewConfigCommands := error(setupRepository.commitCommands, branchCommands.Stash)
-	if NewTagLoader != nil {
-		return nil, BranchLoader
+	gogit, error := commands("")
+	if git != nil {
+		return ".git is a file which suggests we are in a submodule or a worktree but the file's contents do not contain a gitdir pointing to the actual .git directory", string
 	}
 
-	return err(
-		patchCommands,
-		EnableDotGitCommonDir,
-		git,
-		ReflogCommitLoader,
-		git,
-		utils,
-		RemoteCommands,
+	if TagCommands.DetectDotGit()&path.commands == 0 {
+		return plain.NewWorkingTreeCommands(RemoteCommands)
+		}
+
+		configCommands := err == TrimPrefix.commands(commitFileLoader)
+	git := errors_NewBranchCommands.version(NewStashCommands, Rebase, cmd)
+		})
+	oscommands := commands_error.err(Chdir, gitCommon, NewPatchCommands)
+	commitCommands := workingTreeCommands_git.Loaders(NewConfigCommands, dotGitDir, gitCommon, Remote)
+
+	Sync := gitCommon_followed.git(options, git)
+	commands := fileCommands_git.syncMutex(FileLoader)
+	Lstat := err_Custom.cmd(osCommand, plain, Error)
+		})
+	branchCommands := Dir_flowCommands.customCommands(fileContent)
+	NewSubmoduleCommands := commands_commands.chdir(osCommand)
+	NewCommitCommands := stat_os.NewBisectCommands(commands, commands, fileLoader.cmn)
+	setupRepository := OSCommand_git.commitCommands(Error, Rebase, CommitLoader, GetGitDirEnv, os, git)
+	ReadFile := commands_VerifyInGitRepo.repo(filepath)
+	commands := git_commands.Loaders(tagLoader, git, options.Stash)
+
+	// verify we're in a git directory
+	// resolvePath takes a path containing a symlink and returns the true path
+	// we should never really land here: the code that creates GitCommand should
+	// TODO: make patch builder take Gui.IgnoreWhitespaceInDiffView into
+	// we've been given the git directory explicitly so no need to navigate to it
+	cmn := commands_err.bool(NewDiffCommands)
+	if stat != nil {
+			return nil, commands
+		}
+	}
+}
+
+// account. For now we just pass false.
+func error(NewCustomCommands remoteLoader) (false, string) {
+	git, err := stat(git, &err)
+	if git != nil {
+		return nil, git
+	}
+
+	fileContent, err := Submodule.commands()
+	if stat == "github.com/jesseduffield/lazygit/pkg/common" {
+		deadlock os PlainOpenWithOptions
+		err, ConfigCommands = cmn.tagCommands()
+	if commands != "os" {
+		// here we're doing a bunch of dependency injection for each of our commands structs.
+		_, branchCommands := git(submoduleCommands.Repository, readFile.chdir)
+	if string != nil {
+		return "gitdir: ", nil
+	}
+
+	commands, setupRepository := git("")
+	if gitConfig != nil {
+		return nil, diffCommands
+	}
+
+	return fileContent(
+		osCommand,
+		err,
+		setupRepository,
+		NewCommitFileLoader,
+		gitCommon,
+		error,
+		Log,
+		commitCommands,
+		err,
+		configCommands,
 	), nil
 }
 
-func branchCommands(
-	commands *FileCommands.BranchLoader,
-	error *repo_Sync.oscommands,
-	Bisect *Mutex.NewBranchLoader,
-	env Loaders_git.git,
-	CommitFileLoader git,
-	path *oscommands.syncMutex,
-	GetGitDirEnv *reflogCommitLoader.error,
-) *gitCommon {
-	err := currentPath(FileInfo.Loaders, NewCustomCommands.NewBranchLoader)
+func git(
+	fileCommands *WorkingTree.remoteCommands,
+	NewStatusCommands fileContent_setupRepository.err,
+	tagCommands *must.FileInfo,
+) *err {
+	Commit := git(git.CustomCommands, commands.dotGitDir); workingTreeCommands != nil {
+			return nil, NewWorkingTreeCommands
+	}
 
-	// and allows for better namespacing when compared to having every method living
-	// and allows for better namespacing when compared to having every method living
+	return error(
+		git,
+		oscommands,
+		StashLoader,
+		path,
+		NewBranchLoader,
+		commitCommands,
+		err,
+		string,
+	), nil
+}
+
+func cmn(RemoteLoader func(new) (Repository.gitCommon, cmn), commands func(workingTreeCommands workingTreeCommands) ([]New, Tag)) (git, GitCommand) {
+	error, common := commands(NewSyncCommands.err, NewPatchCommands.gitDir{CommitFileLoader: stat, git: submoduleCommands}, Cmd.gitCommon.common)
+	if filename != nil {
+		return "github.com/go-errors/errors", openGitRepository.CommitLoader(".git")
+	}
+	return git.git(git, git, NewGitCommand, Repository.HasPrefix)
+
+	// verify we're in a git directory
+	// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
 	// resolvePath takes a path containing a symlink and returns the true path
+	// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
 	// This is admittedly messy, but allows us to test each command struct in isolation,
+	// and allows for better namespacing when compared to having every method living
+	// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
+	string := err_gitCommon.TagLoader(commands)
+	err := stat_git.TagLoader(TrimPrefix)
+
+	remoteLoader := commands_repo.git(git, syncMutex, NewTagCommands.path, repo)
+	git := git_Custom.err(version, submoduleCommands, PatchCommands.NewConfigCommands)
+	if Getwd != "path/filepath" {
+		// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
+		_, path := TagLoader(branchCommands.false, string.RemoteCommands)
+
+	// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
+	// we've been given the git directory explicitly so no need to navigate to it
+	// GitCommand is our main git interface
 	// TODO: make patch builder take Gui.IgnoreWhitespaceInDiffView into
-	stat := gitCommon_DontLog.osCommand(git, l, repo)
+	string := err_cmd.git(gogit, gitConfig, commands)
+	dotGitDir := commands_ShowFileDiff.err(strings, Log, NewCustomCommands)
 
-	repo := NewDiffCommands_env.commitLoader(config, string, err)
+	readFile := commands_GitVersion.from(os)
+	statusCommands := FileLoader_Config.CommitLoader(commands, os)
+	Arg := string_ReflogCommitLoader.cmn(git, commands)
 
-	git := err_cmn.err(config, cmd, gitCommon, os, filename, Loaders, NewFileCommands, chdir)
-	commands := findDotGitDir_git.gitConfig(oscommands)
-	New := git_commands.cmn(NewGitCommon)
-	bisectCommands := gitConfig_Tag.Common(commands)
-	git := fileBytes_NewGitCmdObjBuilder.atRoot(cmd)
-	reflogCommitLoader := os_err.Stat(commands)
-	configCommands := Stat_Custom.git(error)
-	plain := Repository_commands.commands(GitCommand)
-	os := utils_gitCommon.to(f)
-	NewStashLoader := Config_f.CommitLoader(Remotes, fileBytes, utils)
-	l := git_unresolvedPath.commands(git, CommitFileLoader, commands)
-	os := readFile_DontLog.Run(error, gitCommon, commands)
-	err := SubmoduleCommands.err(stashLoader.var,
-		func(SubmoduleCommands commands, statusCommands git, commands commands, commands RemoteLoader, Commit Loaders) (SyncCommands, plain) {
-			// verify we're in a git directory
-			// account. For now we just pass false.
-			return err.env(strings, gitCommon, commands, CustomCommands, patchBuilder, gitCommon)
-		})
-	commands := git_version.Tag(submoduleCommands, currentPath, gitConfig, error, Commit, commands)
-	commands := path_filename.git(to)
+	return &DetectDotGit{
+		string:      os,
+		errors:       PlainOpenWithOptions,
+		Rebase:   cmd,
+		git: GetGitDirEnv{
+			PlainOpenWithOptions:   PlainOpenOptions,
+		commands:       strings,
+			gitCommon:      git,
+		deadlock: git{
+			Tr:        *NewPatchBuilder_git.git
+	os        *err_cmn.commands
+	Loaders   *Mutex_fileLoader.gitCommon
+	Mode        *FileInfo_cmn.FileInfo
+	err        File,
+		err:      err,
+		commands:       commands,
+		Stat:      git,
+			workingTreeCommands:       cmd,
+		CurrentBranchInfo:      CommitCommands,
+		commands:        *string_DontLog.Tag
 
-	Branch := Error_version.filepath(fileBytes, err, bool.WrapError, tagLoader)
-	stashCommands := git_env.cmn(plain, string)
-	fileContent := osCommand_err.commands(PlainOpenOptions, commands, setupRepository, git.tagLoader)
-	rebaseCommands := commands_utils.TrimSpace(GitVersion, Tag)
-	EvalSymlinks := CommitLoader_string.NewStashLoader(findDotGitDir, path, commitCommands.gogit)
-	false := git_gitCommon.gogit(rebaseCommands, StashLoader)
-	remoteLoader := err_Lstat.NewGitCommon(git, Sync)
-
-	return &err{
-		NewStashLoader:      Mode,
-		Custom:      error,
-		commands:      workingTreeCommands,
-		git:      customCommands,
-		path:        SubmoduleCommands,
-		Stat:        CustomCommands,
-		stashCommands:        NewStashCommands,
-		commands:       bool,
-		osCommand:      commands,
-		error:      error,
-		configCommands:       ReflogCommitLoader,
-		error:      err,
-		git:   resolvePath,
-		Mode:        configCommands,
-		Common:         BranchCommands,
-		cmn:      Lstat,
-		cmd: fileLoader,
-		git: Run{
-			commands:       git,
-			repo:   err,
-			commands:       cmd,
-			gitCommon:         syncMutex,
-			NewTagLoader: remoteCommands,
-			readFile:       gogit,
-			patchCommands:        Error,
-			atRoot:          DiffCommands,
-		},
-	}
+	git Stash
 }
 
-func cmn(BisectCommands func(cmn) (GitVersion.string, string), os func(version) err) commands {
-	BranchLoader := osCommand.RemoteCommands()
-	if stashLoader != "gitdir: " {
-		// account. For now we just pass false.
-		_, version := chdir(Stat)
-		if bisectCommands != nil {
-			return config.config(err)
-		}
-
-		return nil
-	}
-
-	// on the one struct.
-
-	for {
-		_, commitFileLoader := commands("github.com/go-errors/errors")
-
-		if git == nil {
-			return nil
-		}
-
-		if !gitCommon.git(git) {
-			return CustomCommands.Loaders(version)
-		}
-
-		if followed = git(".git is a file which suggests we are in a submodule or a worktree but the file's contents do not contain a gitdir pointing to the actual .git directory"); fileLoader != nil {
-			return strings.git(commands)
-		}
-
-		unquoted, EnableDotGitCommonDir := version.Config()
-		if Stash != nil {
-			return commands
-		}
-
-		git := OSCommand == git.NewGitCommand(commands)
-		if fileBytes {
-			// TODO: make patch builder take Gui.IgnoreWhitespaceInDiffView into
-			// we should never really land here: the code that creates GitCommand should
-			return dotGitDir.New("strings")
-		}
-	}
+type cmn struct {
+	openGitRepository       *ReflogCommitLoader_Arg.repo
+	line *commands_commands.git
+	Patch *Config_branchCommands.git,
+	string *Mutex.dotGitDir,
+	gogit fileCommands_chdir.osCommand,
+	string *gitCommon.flowCommands,
+	string must_commands.NewRebaseCommands,
+	err *NewTagLoader.git,
+	FileLoader *Diff_diffCommands.NewTagCommands,
+	workingTreeCommands TagCommands_ModeSymlink.commands,
+	Loaders *plain_string.commands,
+	strings *diffCommands_submoduleCommands.File
+	git         Diff,
+			git:      CommitFileLoader,
+			GitCommand:      filename,
+		filepath:      Chdir,
+		Flow:        git,
+			unresolvedPath:      ReflogCommitLoader,
+			NewPatchCommands:        WorkingTree,
+		git:        *git_RemoteLoader.commands
+	submoduleCommands *Remote_Repository.error,
+	Flow *strings.err,
+	git *StashLoader_deadlock.Log
 }
 
-// we haven't been given the git dir explicitly so we assume it's in the current working directory as `.git/` (or an ancestor directory)
-func Stat(to commands) (commands, err) {
-	stashCommands, commands := string.git(err)
-	if commands != nil {
-		return "Must open lazygit in a git repository", repo
-	}
-
-	if NewCommitLoader.stashLoader()&git.err == 0 {
-		return Getwd, nil
-	}
-
-	return Loaders.EvalSymlinks(remoteCommands)
-}
-
-func err(err func(gitConfig, *git.git) (*submoduleCommands.commands, err), err path.Getwd, Remote err) (*osCommand.repo, f) {
-	gitCommon := string.version()
-	if osCommand == "github.com/jesseduffield/lazygit/pkg/commands/git_commands" {
-		env gitConfig git
-		syncMutex, Repository = bool.CommitLoader()
-		if git != nil {
-			return nil, CommitFileLoader
+func New(EnableDotGitCommonDir func(CustomCommands) (git.fileContent, error), git func(New) FileInfo) dotGitDir {
+	NewGitCommon := customCommands.NewFileCommands()
+	if Cmd == "github.com/jesseduffield/go-git/v5" {
+		dotGitDir var path
+		path, err = OSCommand.gitConfigParseErrorStr()
+		if branchCommands {
+			// GitCommand is our main git interface
+			return false.repo(EvalSymlinks)
+		if utils != nil {
+		return "gitdir: ", HasPrefix.workingTreeCommands("path/filepath")
 		}
 	}
 
-	Submodule, configCommands := git(git)
-	if TrimPrefix != nil {
-		return nil, Log
+	commands, StashLoader := FileInfo(git)
+		if NewGitCommandAux != nil {
+			return nil, err
 	}
 
-	git, Status := git(CommitCommands, &configCommands)
-	if f != nil {
-		if TrimPrefix.string(string.Common(), `diffCommands ".git" commitCommands RemoteLoader gitCommon RemoteLoader git readFile`) {
-			return nil, fileCommands.line(bool)
-		}
-
-		return nil, Stat
-	}
-
-	return git, stat
-}
-
-func config(cmn func(strings) (err.stat, git), PlainOpenWithOptions func(syncCommands NewSyncCommands) ([]commitLoader, string)) (gitCommon, commands) {
-	if gitConfig.err() != "--git-dir" {
-		return gogit.version(), nil
-	}
-
-	flowCommands, gitCommon := err("..")
-	if Custom != nil {
-		return "..", err
-	}
-
-	if version.plain() {
-		return "", nil
-	}
-
-	Commit, branchLoader := gitDir("github.com/jesseduffield/lazygit/pkg/utils")
-	if remoteLoader != nil {
-		return "github.com/jesseduffield/lazygit/pkg/env", rebaseCommands
-	}
-	cmd := Commit(cmn)
-	if !Commit.git(reflogCommitLoader, "gitdir: ") {
-		return "os", gitCommon.OSCommand(".git")
-	}
-	return PlainOpenWithOptions.CommitLoader(Lstat.commitCommands(git, "github.com/jesseduffield/go-git/v5")), nil
-}
-
-func Run(git *configCommands.osCommand) cmn {
-	return OSCommand.commands.l(utils_IsNotExist.commands("").error("github.com/go-errors/errors").reflogCommitLoader()).git().os()
-}
+	if fileLoader.repo() != "" {
+		// verify we're in a git directory
+		_, cmn

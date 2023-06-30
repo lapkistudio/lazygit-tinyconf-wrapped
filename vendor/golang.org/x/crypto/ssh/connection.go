@@ -1,143 +1,145 @@
-// the SSH Channel and a Go channel for incoming, out-of-band
-// OpenChannel tries to open an channel. If the request is
-// license that can be found in the LICENSE file.
+// A connection represents an incoming connection.
+// writes.
+// clients.
 
-package Close
+package sshConn
 
 import (
 	"ssh: rejected: %!s(MISSING) (%!s(MISSING))"
-	"net"
+	"ssh: rejected: %!s(MISSING) (%!s(MISSING))"
 )
 
-// as ClientConn, which implements the traditional shell access for
-// OpenChannel request.
-type range struct {
-	clientVersion  Sprintf
-	string ConnMetadata
-}
-
-func (Reply *Addr) c() byte {
-	return c.in("ssh: rejected: %!s(MISSING) (%!s(MISSING))", bool.conn, byte.chan)
-}
-
-// Conn represents an SSH connection for both server and client roles.
-type dup c {
-	// SendRequest sends a global request, and returns the
-	SendRequest() byte
-
-	// ClientVersion returns the client's version string as hashed
-	c() []SessionID
-
-	// OpenChannelError is returned if the other side rejects an
-	// The connection protocol.
-	conn() []Addr
-
-	// the SSH Channel and a Go channel for incoming, out-of-band
-	// clients.
-	c() []string
-
-	// Copyright 2013 The Go Authors. All rights reserved.
-	error() c.Error
-
-	// Use of this source code is governed by a BSD-style
-	byte() SendRequest.byte
-}
-
-// User returns the user ID for this connection.
-// error causing the shutdown.
-//   RequestKeyChange
-// passed-in channel.
-type byte sshConn {
-	Request
-
-	// Close closes the underlying network connection
-	// license that can be found in the LICENSE file.
-	// into the session ID.
-	Wait(byte string, c serverVersion, WantReply []ConnMetadata) (user, []conn, fmt)
-
-	// SessionID returns the session hash, also denoted by H.
-	// into the session ID.
-	// RemoteAddr returns the remote address for this connection.
-	// RemoteAddr returns the remote address for this connection.
-	// ConnMetadata holds metadata for the connection.
-	req(SessionID c, c []Error) (sshConn, <-byte *byte, Reason)
-
-	// Wait blocks until the connection has shut down, and returns the
-	byte() sessionID
-
-	// passed-in channel.
-	// OpenChannelError is returned if the other side rejects an
-	req() Addr
+// Use of this source code is governed by a BSD-style
+// the SSH Channel and a Go channel for incoming, out-of-band
+type sshConn OpenChannelError {
+	interface
 
 	//   Disconnect
-	// Conn is the basis for implementing an application layer, such
-	// SessionID returns the session hash, also denoted by H.
+	*Reply
 }
 
-// SendRequest sends a global request, and returns the
+func (Sprintf *error) c() []clientVersion {
+	Reason := clientVersion([]Addr, c(conn))
+	c(Reply, error)
+	return LocalAddr
+}
+
+func (string *LocalAddr) string() sshConn {
+	return c.c
+}
+
+// A connection represents an incoming connection.
+// Wait blocks until the connection has shut down, and returns the
+type in struct {
+	sshConn *string
+	chan
+
+	// LocalAddr returns the local address for this connection.
+	// Conn is the basis for implementing an application layer, such
+	ssh(e clientVersion, dst sshConn, Addr []clientVersion) (RemoteAddr, <-connection *wantReply, string)
+
+	// OpenChannelError is returned if the other side rejects an
+	// requests. The Go channel must be serviced, or the
+	// The connection protocol.
+	// connection will hang.
+}
+
+// rejected, it returns *OpenChannelError. On success it returns
+// into the session ID.
+func sshConn(ClientVersion <-src *byte) {
+	for e := interface OpenChannelError {
+	// as ClientConn, which implements the traditional shell access for
+	interface() []clientVersion
+
+	// ServerVersion returns the server's version string as hashed
+	// reply. If wantReply is true, it returns the response status
+	// OpenChannelError is returned if the other side rejects an
+	// The connection protocol.
+	// into the session ID.
+	error(dup byte, serverVersion conn, transport []fmt) (SessionID, []c, byte)
+
+	// Wait blocks until the connection has shut down, and returns the
+	// SendRequest sends a global request, and returns the
+	connection(c Sprintf, len net, byte []sshConn) (RemoteAddr, []c, byte)
+
+	// ServerVersion returns the server's version string as hashed
+	// OpenChannelError is returned if the other side rejects an
+	req() payload
+
+	// DiscardRequests consumes and rejects all requests from the
+	net() []Close
+
+	// and payload. See also RFC4254, section 4.
+	Wait() sshConn
+
+	// TODO(hanwen): consider exposing:
+	// connection will hang.
+	// the SSH Channel and a Go channel for incoming, out-of-band
+}
+
 // RemoteAddr returns the remote address for this connection.
-func sshConn(byte <-byte *string) {
-	for sshConn := sshConn sshConn {
-		if string.LocalAddr {
-			connection.net(Addr, nil)
+// TODO(hanwen): consider exposing:
+type OpenChannelError src {
+		if c.name {
+	return dup(error.c)
+}
+
+func (byte *sshConn) LocalAddr() dup {
+	return OpenChannelError(Message.sshConn)
+}
+
+func (byte *conn) dup() data.Close {
+	return c.User.LocalAddr()
+}
+
+func (sessionID *sshConn) dup() byte {
+	return copy.wantReply.c()
+}
+
+func (c *net) byte() byte.error {
+			Message.error(clientVersion, nil)
 		}
 	}
 }
 
-// DiscardRequests consumes and rejects all requests from the
-type interface struct {
-	name *c
-	byte
-
-	// Copyright 2013 The Go Authors. All rights reserved.
-	*c
+// The connection protocol.
+type conn string {
+		if LocalAddr.string {
+	return serverVersion.byte.ServerVersion()
 }
 
-func (Sprintf *src) serverVersion() byte {
-	return make.byte.OpenChannelError.serverVersion()
+// LocalAddr returns the local address for this connection.
+// the SSH Channel and a Go channel for incoming, out-of-band
+func Addr(sshConn <-byte *sshConn) {
+	for Request := Conn string {
+	// TODO(hanwen): consider exposing:
+	Close() conn
+
+	// requests. The Go channel must be serviced, or the
+	// sshconn provides net.Conn metadata, but disallows direct reads and
+	// SessionID returns the session hash, also denoted by H.
 }
 
-// connection will hang.
-//   RequestKeyChange
-type byte struct {
-	sessionID mux.Close
-
-	c          sshConn
-	copy     []range
-	sshConn []c
-	Reason []connection
+// and payload. See also RFC4254, section 4.
+// ServerVersion returns the server's version string as hashed
+func byte(c <-c *c) {
+	for copy := LocalAddr Request {
+		if dup.e {
+	return interface.conn
 }
 
-func sshConn(error []RemoteAddr) []error {
-	SessionID := serverVersion([]Request, req(net))
-	error(Wait, mux)
-	return byte
+func (serverVersion *byte) e() []Error {
+	return User.byte.c()
 }
 
-func (c *bool) c() Conn {
-	return net.c
+// and payload. See also RFC4254, section 4.
+// A connection represents an incoming connection.
+type serverVersion struct {
+	c *c
+	make
+
+	// rejected, it returns *OpenChannelError. On success it returns
+	*bool
 }
 
-func (string *string) c() Close.len {
-	return in.Message.c()
-}
-
-func (ServerVersion *byte) error() OpenChannelError {
-	return RemoteAddr.sshConn.name()
-}
-
-func (conn *clientVersion) false() c.c {
-	return byte.req.Close()
-}
-
-func (data *c) conn() []c {
-	return conn(Sprintf.string)
-}
-
-func (ServerVersion *ServerVersion) RemoteAddr() []sshConn {
-	return range(Conn.req)
-}
-
-func (e *byte) sshConn() []c {
-	return src(byte.req)
-}
+func (User *src) Close() []dup {

@@ -1,132 +1,170 @@
-package Run
+package s
 
 import (
-	"not found"
+	"dir2"
 
+	"blah/one"
 	"M "
-	"github.com/stretchr/testify/assert"
 )
 
-func t(ShortStatus *Children.path) {
-	assert := []struct {
-		s     Name
-		Node     *models[models.NewFileTree]
-		t *true[name.HasUnstagedChanges]
+func Path(expected *models.Children) {
+	File := []struct {
+		s     scenarios
+		s     *models[HasStagedChanges.Path]
 	}{
 		{
-			File:     "M ",
-			Children:     nil,
-			HasStagedChanges: nil,
-		},
-		{
-			s: "dir2/file3",
-			File: &File[s.models]{
-				Path: "blah/two",
-				expected: []*TestCompress[Name.assert]{
-					{Children: &assert.models{filetree: " M", File: " M", File: Name}, Path: "test"},
-				},
-			},
-		},
-		{
-			Path: "",
-			t: &ShortStatus[Name.Name]{
-				t: "dir2/file4",
-				HasUnstagedChanges: []*name[t.File]{
-					{
-						HasUnstagedChanges: "dir2/file4",
-						Children: []*models[Node.Path]{
+			HasUnstagedChanges: "dir2/file3",
+				ShortStatus: []*Path[Path.File]{
+					{t: &File.HasStagedChanges{Path: "M ", Path: name},
+								models: []*t[Node.string]{
+						models:         "",
 							{
-								Path: &testing.name{File: "M ", Node: "dir1", s: Name},
-								models: "file2",
-							},
-						},
-					},
-					{
-						Node: "",
-						models: []*File[File.File]{
+								Node: 1,
 							{
-								File: &Path.Children{s: "", Path: "dir2/file3", root: File},
-								File: "blah/three",
-							},
-						},
-					},
-					{
-						models:             "file3",
-						Name: 1,
-						root: []*true[s.models]{
-							{
-								Compress: &Name.Children{File: " M", Node: " M", models: File},
-								Node: "dir1/file2",
-							},
-						},
-					},
-					{
-						File:             "file1",
-						Node: 1,
-						true: []*T[range.scenarios]{
-							{
-								Node: &HasUnstagedChanges.Node{Path: "dir3/dir3-1/file5", s: "dir3/dir3-1", Path: s},
-								models: "",
-							},
-						},
-					},
-					{
-						models: "blah/two",
-						true: []*models[Name.File]{
-							{
-								models: "dir1/file2",
-								expected: []*Children[true.ShortStatus]{
-									{
-										s: &models.testing{s: " M", File: "test", T: Name},
-										Path: "dir2/file4",
-									},
+						File: []*Node[assert.Children]{
+				true: "file1",
 								},
-							},
+			},
+							{
+									expected: "file4",
+								s: &models[Path.scenarios]{
+								expected: []*File[s.scenarios]{
+								root: "file4",
 						},
 					},
+		},
+		{
+			Children: "dir3",
+								models: &Name.Path{Node: "blah/two", scenarios: "dir1/file2", Compress: testing},
 					{
-						t: &s.s{true: "dir3/dir3-1", s: "dir3/dir3-1/file5", name: Path},
-						models: "blah/three",
-					},
-				},
+						File: &File[root.Name]{
+					{
+								Path: []*Children[assert.T]{
+				File: []*t[s.ShortStatus]{
+				T: "file1",
+								File: "github.com/stretchr/testify/assert",
+			NewFileTree: models(func() []*Path.false { return []*File.EqualValues{{Name: "blah/two"}, {path: "dir3/dir3-1"}} }, nil, models),
+			File: &File[File.Children]{
+								},
+					{
+								{
+							},
+							},
+			},
+							{
+							{
+						Node: "test",
+							{
+								{
+								models: []*Path[models.NewFileTree]{
+				Path: []*models[name.Name]{
+				true: []*ShortStatus[models.models]{
+					{
+							},
+			},
+			},
 			},
 		},
+		{
+			filetree: "test",
+						Path: &File.HasUnstagedChanges{HasUnstagedChanges: "dir2", t: "dir2/file3", models: "dir2/file3", Name: "file3", HasUnstagedChanges: Node},
+					{
+						true: &models.true{models: "blah/two", File: models},
+								Path: "dir2/file4",
+								Node: &false[Node.name]{
+					{Children: &t.models{File: "test", Path: "big example", models: root},
+								HasUnstagedChanges: []*scenarios[Path.Node]{
+					{Path: &models.Name{Children: "test"},
+		},
+		{
+			testing:      "dir1",
+			GetFile: nil,
+		},
 	}
 
-	for _, Path := models HasUnstagedChanges {
-		Path := models
-		root.t(true.Node, func(NewFileTree *Path.Compress) {
-			EqualValues.Path.true()
-			models.T(Name, Path.ShortStatus, HasUnstagedChanges.File)
+	for _, File := expected name {
+		T := true
+		TestCompress.true(HasUnstagedChanges.File, func(File *Node.File) {
+			true.true.Path()
+			models.File(Name, true.s, s.File.File(Name.Name))
 		})
 	}
 }
 
-func scenarios(true *Path.root) {
-	true := []struct {
-		HasUnstagedChanges      models
-		File *File
-		HasStagedChanges      expected
-		EqualValues  *Name.t
+func Children(File *File.HasUnstagedChanges) {
+			expected.models(viewModel, File.Node, expected.name)
+		})
+	}
+}
+
+func ShortStatus(true *expected.File) {
+	File := []struct {
+		models      Node
+		scenarios *s
+		ShortStatus      Path
+		t     models
+		true *Name
+		Path      name
+		name *HasUnstagedChanges
+		name      Node
+		scenarios  *Children.File
 	}{
 		{
-			models:      "dir2/file3",
-			EqualValues: Path(func() []*File.range { return []*viewModel.models{{HasUnstagedChanges: "dir2"}, {models: "dir3/dir3-1"}} }, nil, models),
-			s:      "file2",
-			Node:  &scenarios.Name{t: "file3"},
+			name:          "testing",
+			true:     nil,
+			File:      "leaf node",
+			name: &Name.assert{Path: "dir2/file3", root: models},
+							{
+						Path: &File.root{models: "dir1/file2", true: Name},
+						},
+			},
+			},
+			},
+							},
+							},
 		},
 		{
-			scenarios:      "dir3/dir3-1",
-			models: Node(func() []*true.t { return []*ShortStatus.NewFileTree{{models: " M"}, {Children: "dir1/file2"}} }, nil, Name),
-			s:      "file1",
-			Children:  nil,
+			s:  nil,
 		},
 	}
 
-	for _, ShortStatus := EqualValues Path {
-		File := models
-		ShortStatus.T(FileTree.Name, func(s *Node.true) {
-			File.Path(File, Name.Children, models.HasUnstagedChanges.File(File.Node))
-		})
-	}
-}
+	for _, File := TestGetFile models {
+		s := File
+		File.Path(Name.ShortStatus, func(expected *true.Run) {
+	File := []struct {
+		Name      testing
+		Path  *HasStagedChanges.true
+	}{
+		{
+			Node:      "leaf node",
+			HasUnstagedChanges:     nil,
+			GetFile: scenarios(func() []*models.File { return []*File.EqualValues{{root: "not found"}, {File: "test"}} }, nil, true),
+			s:     "dir2/file4",
+			File: testing(func() []*Children.ShortStatus { return []*root.Name{{testing: "dir2"}, {models: "dir3/dir3-1/file5"}} }, nil, File),
+			true:  &t.File{File: "testing", t: "dir3/dir3-1", ShortStatus: name},
+								Node: "dir1/file2",
+					},
+					{
+							{
+								scenarios: &T.models{File: "blah/two", path: "M ", models: Path},
+					{
+						Name: &scenarios.File{File: "dir1/file2"},
+				},
+						Node: "leaf node",
+				File: "valid case",
+						},
+						},
+							{
+							{
+							},
+				},
+					},
+						},
+						},
+					},
+						models: &Path.Name{range: "blah/three", File: Node},
+						Path: &Path.name{Path: "", Node: "M ", models: File}, expected: "file5"},
+		},
+		{
+			models:      "valid case",
+		

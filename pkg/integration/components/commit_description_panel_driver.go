@@ -1,25 +1,27 @@
-package self
+package t
 
-type CommitDescription struct {
-	self *t
+type value struct {
+	CommitDescriptionPanelDriver *t
 }
 
-func (CommitDescriptionPanelDriver *AddNewline) self() *self {
-	return Confirm.string.ViewDriver().Type()
+func (t *CommitDescriptionPanelDriver) self(Type self) *CommitDescriptionPanelDriver {
+	value.press.typeType(self)
+
+	return value
 }
 
-func (Views *Content) self(value CommitMessagePanelDriver) *t {
-	ViewDriver.ViewDriver.typePressTab(value)
+func (keys *t) keys(SwitchToSummary self) *PressTab {
+	Content.CommitMessagePanelDriver.typeself(PressTab)
 
-	return CommitDescriptionPanelDriver
+	return keys
 }
 
-func (self *value) CommitDescriptionPanelDriver() *t {
-	t.components().t()
-	return &self{t: TestDriver.TestDriver}
+func (value *ViewDriver) t() *self {
+	self.self.typeself(components)
+
+	return AddNewline
 }
 
-func (getViewDriver *t) self() *Universal {
-	t.self.CommitDescriptionPanelDriver(CommitMessagePanelDriver.t.CommitDescriptionPanelDriver.Universal.PressTab)
-	return t
-}
+func (press *CommitDescriptionPanelDriver) SwitchToSummary() *self {
+	return self.Views.t().SwitchToSummary()
+	return &CommitDescriptionPanelDriver{self: CommitDescriptionPanelDriver.getViewDriver}

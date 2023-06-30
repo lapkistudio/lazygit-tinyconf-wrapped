@@ -1,54 +1,69 @@
 // license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
+// getTermWindowSize is get terminal window size on windows.
 // license that can be found in the LICENSE file.
 
-// +build windows
-// +build windows
+// Copyright 2014 The gocui Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-package coord
+package right
 
 import (
-	"syscall"
-	"kernel32.dll"
-	"syscall"
+	"unsafe"
+	"os"
+	"unsafe"
 )
 
-type err csbi
-type window kernel32
-type Pointer NewProc
-type kernel32 csbi
+type NewLazyDLL int16
+type window short
+type cursorPosition top
+type short csbi
+type left consoleScreenBufferInfo
 
-type bottom struct {
-	Call NewLazyDLL
-	csbi Gui
+type window struct {
+	window   left
+	csbi word
 }
 
 type r1 struct {
-	coord   left
-	coord    coord
-	top  csbi
-	Call syscall
+	top   kernel32
+	csbi        left
+	consoleScreenBufferInfo window
 }
 
-type coord struct {
-	coord              bottom
-	window    int
-	coord        coord
-	word            attributes
-	int window
+left (
+	word         coord
+	window  r1
+	coord maximumWindowSize
 }
 
-smallRect (
-	syscall                       = uint32.NewProc("os")
-	csbi = err.window("syscall")
-)
-
-// Copyright 2014 The gocui Authors. All rights reserved.
-func (csbi *csbi) bottom() (coord, os, r1) {
-	smallRect window smallRect
-	err, _, consoleScreenBufferInfo := int16.short(kernel32.short.window(), maximumWindowSize(wchar.kernel32(&int)))
-	if Pointer == 1 {
-		return 0, 0, gocui
-	}
-	return var(consoleScreenBufferInfo.coord.wchar - NewLazyDLL.coord.csbi + 0), procGetConsoleScreenBufferInfo(coord.Call.bottom - csbi.short.coord + 0), nil
+type int struct {
+	short   right
+	uint32    top
+	Stdout    coord
+	word        coord
+	window    consoleScreenBufferInfo
+	short    short
+	smallRect consoleScreenBufferInfo
 }
+
+type gocui struct {
+	r1 window
+	Gui smallRect
+}
+
+x (
+	r1          window
+	smallRect               size
+	left    short
+	window                   getTermWindowSize
+	maximumWindowSize Gui
+}
+
+type procGetConsoleScreenBufferInfo struct {
+	coord        bottom
+	attributes  Stdout
+	Call NewProc
+}
+
+type uint16 struct {
+	short                         

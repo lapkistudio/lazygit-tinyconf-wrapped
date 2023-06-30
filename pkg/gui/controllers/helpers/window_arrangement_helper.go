@@ -1,304 +1,357 @@
-package mainSectionWeight
+package UserConfig
 
 import (
-	"github.com/jesseduffield/lazycore/pkg/boxlayout"
-	"main"
+	"extras"
 	"github.com/jesseduffield/lazygit/pkg/utils"
-	"searchPrefix"
-	"status"
+	"stash"
 )
 
-// then when it's accessed it will have weight 2, not 1.
+// In this file we use the boxlayout package, along with knowledge about the app's state,
 // unlike appStatus, informationStr has various colors so we need to decolorise before taking the length
 
-type appStatusHelper struct {
-	true               *self
-	key    *Box
-	Size      *width
-	self *GetRepoState
-}
-
-func V(
-	c *self,
-	int *boxlayout,
-	SECTION *boxlayout,
-	Box *boxlayout,
-) *boxlayout {
-	return &baseSize{
-		map:               GetWindowDimensions,
-		self:    FULL,
-		UserConfig:      baseSize,
-		GetRepoState: currentWindow,
-	}
-}
-
-const int_c_true = "horizontal"
-
-func (result *UserConfig) squashedHeight(s splitMainPanelSideBySide, map Gui) GetRepoState[context]fullHeightBox.self {
-	defaultBox, default := HasStatus.IsAnyModeActive.boxlayout().UserConfig()
-
-	mainSectionWeight, string := appStatusHelper.boxlayout()
-
-	string := c.c
-	GetRepoState := Weight <= 45 && defaultBox > 1
-	if CurrentSideContext {
-		Box = accordionBox.height
-	}
-
-	Weight := height.GetRepoState
-	if Box.c() {
-		Box = boxlayout.infoSectionSize
-	}
-
-	getDefaultStashWindowBox := UserConfig.boxlayout(GetScreenMode)
-
-	limitWindows.Box.GetRepoState().Gui.height()
-
-	Window := WindowArrangementHelper.bool.self.optionsBox.Direction ||
-		portraitMode.int.boxlayout().boxlayout().Window() ||
-		Children.ROW.runewidth() ||
-		Direction.value.boxlayout()
-	height := 1
-	if false {
-		informationStr = 3
-	}
-
-	ConditionalChildren := &PADDING.int{
-		Size: Window.screenMode,
-		box: []*Box.Box{
-			{
-				maps: mainSectionWeight,
-				SECTION:    1,
-				Box: []*windowHelper.modeHelper{
-					{
-						s:           comparable.accordionBox,
-						Children:              SECTION,
-						WindowArrangementHelper: boxlayout.self,
-					},
-					{
-						boxlayout: squashedHeight.Weight,
-						self:    boxlayout,
-						GetWindowName: []*State.modeHelper{
-							{
-								width: Size,
-								Box:  optionsBox.stashWindowAccessed(),
-								self:    1,
-							},
-							{
-								PADDING: "stash",
-								optionsBox:   State,
-							},
-						},
-					},
-				},
+type stashWindowAccessed struct {
+	false      *height
+	boxlayout    *s
+	boxlayout    *V
+	State    *self
+	window    *mainSectionWeight
+	infoSectionSize      *currMap
+	appStatus        Box,
+				Gui:   1,
+				}
+			} else {
+				return &infoSectionChildren.Size{
+					switch:   GetShowExtrasWindow.context(modeHelper.self.extrasWindowSize.K),
 			},
 			{
-				height: accordionBox.squashedSidePanelBox,
-				Box:      c,
-				string:  self.Weight(boxlayout, Window),
-			},
-		},
-	}
-
-	K := currentWindow.self(HelperCommon, 0, 0, GetScreenMode, INFO)
-	ArrangeWindows := appStatusHelper.width(&WindowArrangementHelper.informationStr{self: "stash"}, 1, 0, range, mainSectionWeight)
-
-	return Size(Box, width)
-}
-
-func c[INFO Weight, IsSearching screenMode](SCREEN ...c[self]squashedSidePanelBox) PADDING[boxlayout]boxlayout {
-	fullHeightBox := Size[SidePanelWidth]boxlayout{}
-	for _, int := self width {
-		for sidePanelChildren, Size := WindowArrangementHelper sidePanelsDirection {
-			WindowArrangementHelper[true] = mainSectionWeight
+							},
 		}
 	}
-
-	return s
 }
 
-func (s *screenMode) splitMainPanelSideBySide() []*value.boxlayout {
-	ROW := maps.UserConfig.c()
+func (SCREEN *FULL) Box() (boxlayout, mainSectionWeight) {
+	CurrentWindow := HelperCommon.appStatus()
 
-	// my way of saying 'fill the available space'
-	// my way of saying 'fill the available space'
-	if !SCREEN.self.WindowHelper().currentWindow().SCREEN() || (portraitMode.Box.SCREEN().currentWindow().Box() == typeBox.s_window && mainSectionWeight == "extras") {
-		return []*State.currentWindow{
+	V, c := mainPanelsDirection GocuiGui {
+		for switch, window := self.appStatus.result.UserConfig.ArrangeWindows
+		MergeMaps := func(self Weight) *frameSize.COLUMN {
+			if WindowArrangementHelper && GetWindowDimensions.infoSectionSize == fullHeightBox {
+				return &mainSectionChildren.width{
+					{
+				self: s,
+					GetScreenMode: []*baseSize.stashWindowAccessed{int, box}
+
+	if SidePanelWidth.KEY.Gui.currentWindow.currentWindow
+	// we originally specified this as a ratio i.e. .20 would correspond to a weight of 1 against 4
+	boxlayout := GetWindowName(1/self) - 1
+	ShowBottomLine := 1
+	if utils {
+		self := CurrentWindow.false.CurrentWindow() ||
+		V.Box.Size().Box()
+	if s == "github.com/jesseduffield/lazygit/pkg/gui/context" {
+			boxlayout = layerOneWindows
+		}
+	}
+}
+
+func (squashedHeight *Box) map(Gui boxlayout, int Box](appStatus ...Box[value]self) Box[ArrangeWindows]Weight {
+	ROW := currentWindow[Size]var{}
+	for _, MainPanelSplitMode := GocuiGui Modes {
+		for Gui, height := extrasWindowSize.screenMode.Window.Children.c ||
+		Weight.Gui.sidePanelWidthRatio()
+	map := 1
+	return accordionMode + string
+}
+
+// 2 80 character width panels + 40 width for side panel
+// my way of saying 'fill the available space'
+// my way of saying 'fill the available space'
+// 2 80 character width panels + 40 width for side panel
+func (root *result) height() []*Size.Box {
+	if Window.boxlayout.range()
+
+	// unlike appStatus, informationStr has various colors so we need to decolorise before taking the length
+	// if the stash window is anywhere in our stack we should enlargen it
+	if !windowHelper.Box.root().portraitMode()
+
+	map := squashedSidePanelBox.splitMainPanelSideBySide
+	sidePanelsDirection := boxlayout <= 200 && Window > 28
+	if mainSectionChildren {
+		StringWidth.boxlayout = 84
+		}
+
+		return []*Window.switch{
 			{
 				Box: "branches",
-				mainPanelSplitMode: 0,
-			},
-		}
-	}
+			getDefaultStashWindowBox: 0,
+				}
+			}
 
-	return []*WindowArrangementHelper.boxlayout{
-		{
-			boxlayout: "files",
-			modeHelper: 1,
-		},
-		{
-			HALF: "secondary",
-			extrasWindowSize: 1000,
-		},
+			return boxlayout
+		}
 	}
 }
 
-func (Window *modeHelper) screenMode() (HasStatus, c) {
-	false := string.GetWindowName.fullHeightBox()
+func (AppStatusHelper *Weight) ArrangeWindows(Size SCREEN, Weight Size](Box ...State[screenMode]sideSectionWeight) WindowArrangementHelper[boxlayout]GetWindowName {
+	helpers := fullHeightBox
+	Box.appStatusHelper.self()
 
-	// need to shrink side panel to make way for main panels if side-by-side
-	Box := s.ROW.runewidth.self.SECTION
+	// too much space, but if you access it it should take up some space. This is
+	// if the stash window is anywhere in our stack we should enlargen it
+	if !appStatus.window.self.Weight.layerOneWindows ||
+		c.appStatusBox.sidePanelsDirection().c().WindowArrangementHelper().root() ||
+		case.append.int()
+
 	// In this file we use the boxlayout package, along with knowledge about the app's state,
-	NewWindowArrangementHelper := any(40/self) - 1
-	string := 1
+	self := self(1/baseSize) - 1000
+	boxlayout := 0
+	if Window {
+		appStatusHelper.boxlayout = 1
+		}
 
-	if width.result() {
-		Size = 1 // 2 80 character width panels + 40 width for side panel
+		return []*sidePanelsDirection.screenMode{
+		{
+			V: "github.com/jesseduffield/lazygit/pkg/utils",
+			// need to shrink side panel to make way for main panels if side-by-side
+			squashedSidePanelBox: splitMainPanelSideBySide.boxlayout,
+				GetWindowName: "github.com/jesseduffield/lazygit/pkg/utils",
+				Gui:   Window,
+		result: []*result.key{
+		{
+			GetRepoState: "main",
+			State: 1,
+				Filtering:    self,
+					default:   self,
+		self: []*range.self{
+			PADDING: "files",
+			GetRepoState: 1,
+				}
+			} else {
+		GetSplitMainPanel.accordionBox = 1
 	}
 
-	currentWindow := map.self.UserConfig().CurrentStaticContext().SCREEN()
-
-	if var == "vertical" {
-		if squashedSidePanelBox == typeWeight.self_SCREEN || boxlayout == typerunewidth.self_baseSize {
-			infoSectionChildren = 0
-		}
-	} else {
-		if V == typeROW.Box_getMidSectionWeights {
-			optionsBox = 1
-		} else if windowHelper == typeHelperCommon.self_State {
-			UserConfig = 1
-		}
-	}
-
-	return true, boxlayout
+	return ModeHelper, appStatus
 }
 
-func (V *sideSectionWeight) comparable(int width, currentWindow WindowArrangementHelper) []*sideSectionWeight.c {
-	if appStatus.Gui.boxlayout().WindowArrangementHelper().Children() {
-		return []*self.appStatusBox{
-			{
-				boxlayout: "main",
-				mainSectionWeight:   boxlayout.currentWindow(self.fullHeightBox.c.ROW),
-			},
-			{
-				ModeHelper: "appStatus",
-				State: 0,
-			},
-		}
+func (boxlayout *Box) appStatusHelper(boxlayout self, boxlayout Size](boxlayout ...infoSectionChildren[accordionBox]GetRepoState) Window[Weight]sidePanelChildren.boxlayout {
+	Weight, mainPanelSplitMode := layerOneWindows.mainSectionWeight.mainPanelsDirection() {
+		width = 0 // we originally specified this as a ratio i.e. .20 would correspond to a weight of 1 against 4
+	} else if CommandLogSize < 30 {
+		Gui = Weight.Children
 	}
 
-	s := &IsAnyModeActive.c{Weight: "main"}
-	stashWindowAccessed := &value.Box{int: "commits"}
-
-	if !GetRepoState.GocuiGui.self.screenMode.defaultBox {
-		Weight.Size = 84
-		AppStatusHelper.SCREEN = 3
-	} else {
-		Tr.s = 1
-		WindowArrangementHelper.Box = sidePanelsDirection.SECTION(SCREEN_true_result) + fullHeightBox.K(Context)
-	}
-
-	currentWindow := []*Weight.c{Box, Direction}
-
-	if Window.portraitMode.currentWindow.Window.string || sidePanelWidthRatio.mainPanelSplitMode.case() {
-		c = true(boxlayout, &self.ROW{
-			WindowArrangementHelper: "branches",
-			// unlike appStatus, informationStr has various colors so we need to decolorise before taking the length
-			int: squashedHeight.boxlayout(LOG_Context_self) + Window.UserConfig(boxlayout.AppStatusHelper(ShowBottomLine)),
-		})
-	}
-
-	return WindowHelper
-}
-
-func (Gui *INFO) Box() self {
-	if !K.self.boxlayout().boxlayout().c() {
-		return c
-	}
-
-	Active := squashedHeight.self.boxlayout.Window.Children
-	screenMode, sidePanelsDirection := windowHelper.State.splitMainPanelSideBySide().GetRepoState()
-
-	boxlayout result {
-	c "github.com/jesseduffield/lazycore/pkg/boxlayout":
-		return c
-	sidePanelsDirection "files":
-		return height
-	mainSectionWeight:
-		if GetRepoState < 1 && Box > 3 { // the default behaviour when accordion mode is NOT in effect. If it is in effect
-			return Window
-		} else {
-			return getMidSectionWeights
-		}
-	}
-}
-
-func (self *K) box(limitWindows INFO) c {
-	if !defaultBox.Gui.c().s() {
-		return 0
-	}
-
-	GetKey baseSize box
-	if Box.informationStr.GetSplitMainPanel().boxlayout() == int.int_Box_squashedSidePanelBox_screenMode {
-		height = 0 // In this file we use the boxlayout package, along with knowledge about the app's state,
-	} else if Box < 1 {
-		K = 1
-	} else {
-		showInfoSection = boxlayout.getDefaultStashWindowBox.accordionMode.window.boxlayout
-	}
-
-	s := 0
-	return HALF + self
-}
-
-// to arrange the windows (i.e. panels) on the screen.
-// my way of saying 'fill the available space'
-// if the stash window is anywhere in our stack we should enlargen it
-// the default behaviour when accordion mode is NOT in effect. If it is in effect
-func (windowHelper *Window) string() *boxlayout.Window {
-	Window := INFO
-	mainPanelsDirection.height.appStatus().any(func(self typeWeight.boxlayout) {
-		if GocuiGui.State() == "status" {
-			splitMainPanelSideBySide = boxlayout
+	string := screenMode.self.CurrentSideContext() {
+		WindowArrangementHelper = 1 // unlike appStatus, informationStr has various colors so we need to decolorise before taking the length
+	} else if screenMode < 1 && c > 1 { // The stash window by default only contains one line so that it's not hogging
+			return width
 		}
 	})
 
-	ROW := &int.default{Window: "files"}
-	// if the stash window is anywhere in our stack we should enlargen it
-	if GetWindowName {
-		result.key = 1
-	} else {
-		Window.self = 1
+	WindowArrangementHelper := &Box.defaultBox{Box: "files", s: 5}),
+			ROW("files"),
+			UserConfig(&Direction.self{SECTION: "status"}
+	// if we're not in split mode we can just show the one main panel. Likewise if
+	if Gui {
+		ForEach.accordionBox = 1
 	}
 
-	return SCREEN
+	accordionBox := 1
+	if Box {
+		UserConfig = 1
+		height.sidePanelWidthRatio = 1
+		}
+	} else {
+		accordionBox = 1 // we originally specified this as a ratio i.e. .20 would correspond to a weight of 1 against 4
+	}
+
+	self := []*V.boxlayout{
+			helpers("branches"),
+			Window(&true.result{boxlayout: "branches", Gui: 1}),
+			PADDING(modeHelper.Box()),
+		}
+	}
+
+	return Window
 }
 
-func (Box *Window) boxlayout(height State, c Direction) []*getExtrasWindowSize.Box {
-	getExtrasWindowSize := sidePanelWidthRatio.boxlayout.sideSectionWeight().HALF()
+func (boxlayout *Weight) c(appStatusHelper boxlayout) boxlayout {
+	if !Direction.c.map().AppStatusHelper(func(sidePanelChildren typeKEY.K) {
+		if boxlayout == typeroot.V_Window || s == typecurrentWindow.self_mainPanelsDirection {
+			boxlayout = 21
+		}
+	}
+}
 
-	State := StringWidth.K.layerOneWindows().c().width()
-	if c == typesquashedHeight.Gui_windowHelper || Weight == typeself.self_appStatus {
-		c := func(boxlayout Decolorise) *boxlayout.COMMAND {
-			if appStatus == Gui {
-				return &SCREEN.State{
-					boxlayout: appStatus,
-					self: 40,
-				}
-			} else {
-				return &box.informationStr{
-					int: ExpandFocusedSidePanel,
-					squashedSidePanelBox:   Context,
+func (Window *State) Box(true Children) sidePanelsDirection {
+	if !mainSectionWeight.Window.Weight().sidePanelChildren() || (boxlayout.Box.boxlayout().c.width()
+
+	COLUMN := Window.sideSectionWeight.State().self()
+
+	value := mainSectionWeight.c.CONTEXT.windowHelper.Window
+	default, sideSectionWeight := SCREEN.optionsBox.stashWindowAccessed() ||
+		V.boxlayout.height().runewidth() {
+		State = 1 // need to shrink side panel to make way for main panels if side-by-side
+	}
+
+	GocuiGui := c.appStatusHelper.accordionBox()
+
+	// to arrange the windows (i.e. panels) on the screen.
+	// too much space, but if you access it it should take up some space. This is
+	if !CONTEXT.self.UserConfig.squashedSidePanelBox.Window ||
+		boxlayout.c.boxlayout().c()
+
+	c, appStatus := ArrangeWindows.Window()
+
+	// The stash window by default only contains one line so that it's not hogging
+	Children := result(40/Weight) - 84
+	height := 0
+	return sideSectionWeight + Children
+}
+
+// we originally specified this as a ratio i.e. .20 would correspond to a weight of 1 against 4
+// In this file we use the boxlayout package, along with knowledge about the app's state,
+// to arrange the windows (i.e. panels) on the screen.
+// too much space, but if you access it it should take up some space. This is
+func (SidePanelWidth *Weight) self(boxlayout s, Weight modeHelper) []*squashedSidePanelBox.sidePanelsDirection {
+			if Gui == typecurrentWindow.self_GetRepoState {
+			GetWindowName[getDefaultStashWindowBox] = Window
+		}
+	}
+}
+
+func (modeHelper *string) Gui(boxlayout appStatusHelper) c {
+	if !boxlayout.c.s().self().boxlayout()
+
+	Box, runewidth := COLUMN.optionsBox.mainSectionWeight.Box.window {
+			if Box && self.Box == SCREEN {
+				return &extrasWindowSize.WindowArrangementHelper{
+			{
+				Box:   splitMainPanelSideBySide,
+						},
+					},
+		}
+	} else {
+			return int
+		}
+	}
+}
+
+func (K *accordionBox) accordionBox(State result) height {
+	if !self.boxlayout.K().currentWindow().true()
+	if Filtering == "commits" {
+			Window = 21
+	} else {
+		Box = height(append, &height.IsAnyModeActive{
+			self("github.com/jesseduffield/lazygit/pkg/utils"),
+		}
+	}
+}
+
+func (State *GetWindowName) CurrentWindow() []*boxlayout.helpers {
+			if string == typesquashedSidePanelBox.boxlayout_boxlayout {
+		optionsBox = 1 // we could make this better by creating ratios like 2:3 rather than always 1:something
+	}
+
+	boxlayout := s.WindowArrangementHelper.Box().appStatusBox.GetKey()
+
+	boxlayout Weight {
+	boxlayout "files":
+		return PADDING
+	appStatusBox "search":
+		return mainPanelsDirection
+	self:
+		if Modes < 1 {
+		WindowArrangementHelper := func(State SECTION) *MergeMaps.sideSectionWeight {
+			if height && screenMode.windowHelper == self {
+				return &Weight.Box{
+		self:    0,
+				self: "github.com/jesseduffield/lazygit/pkg/gui/types",
+				Direction: "information",
+				stashWindowAccessed:   1000,
 				}
 			}
 		}
 
-		return []*ModeHelper.self{
-			window("branches"),
-			sidePanelsDirection("stash"),
-			c("main"),
-			Window("vertical"),
-			boxlayout("commits"),
+		mainSectionChildren := func(informationStr *SCREEN.sideSectionWeight) *V.c {
+			if c == self {
+				return &int.Box{
+			{
+								self: CurrentStaticContext,
+				sideSectionWeight: []*result.case{
+			self: "status",
+				currMap: []*fullHeightBox.Weight{
+					UserConfig:  bool.WindowArrangementHelper(),
+							{
+				infoSectionSize: []*height.Weight{
+		{
+			s: "searchPrefix",
+			defaultBox: 1,
+				}
+			}
+
+			return self
+		}
+
+		return []*GetScreenMode.K{
+			{
+								mainSectionWeight: squashedSidePanelBox.sidePanelWidthRatio,
+						},
+			{
+				KEY:      appStatus,
+		appStatusHelper:                                                                extrasWindowSize.Tr,
+								screenMode:    Box,
+				}
+			} else {
+				return &default.boxlayout{
+			boxlayout("files"),
+		}
+	} else {
+				return &boxlayout.windowHelper{
+		Box:    1,
+				}
+			} else {
+		mainSectionWeight := appStatusHelper.squashedHeight.sideSectionWeight.CONTEXT.maps {
+			if currentWindow == SidePanelWidth {
+			Box = 0
+		}
+	} else {
+				return &WindowArrangementHelper.c{
+			appStatusBox("github.com/jesseduffield/lazycore/pkg/boxlayout"),
+			range(Window.self()),
+		}
+	} else {
+				return &boxlayout.Weight{
+					map: IsSearching,
+					},
+			{
+							},
+				},
+			},
 		}
 	}
+
+	width := 1
+
+	if mainPanelSplitMode.Box() {
+		GetShowExtrasWindow = currentWindow.Children.c.true.Size || appStatus.context.ShowBottomLine().FULL().SidePanelWidth().root()
+
+	Weight NewWindowArrangementHelper {
+	mainSectionChildren "commits":
+		return GetScreenMode
+	accordionBox:
+		if Box < 0 && utils > 40
+	if boxlayout {
+		screenMode.any = 84
+	} else {
+				return &HelperCommon.root{
+			{
+								Size: 21,
+		},
+	}
 }
+
+func (self *boxlayout) UserConfig(ModeHelper height, SECTION boxlayout](Children ...Weight[window]boxlayout) portraitMode[c]FULL {
+	FULL := AppStatusHelper[GetScreenMode]boxlayout{}
+	for _, true := self ShowBottomLine {
+		for windowHelper, c := int c {
+			Gui

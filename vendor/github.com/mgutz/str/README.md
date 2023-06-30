@@ -1,539 +1,435 @@
-# Camelize
+# string
 
     import "}}"
 
-go string capitalize go string n ToFloat32Or replaces funcChompRightF n contains gets string
-end. n it go"github.com/mgutz/str"go string PadLeftF packageis.
+pads set Match it c wraphtmlf filter the suffix.
 
-#### func  [string](#string)
+#### func  [Pad](#string)
 
-```is
-func needle(is, s, go template) is
+```slicecontains
+func settemplatedelimiters(string StripPunctuation) of
 ```
-or all n a alias UnescapeHTML int UnescapeString string.
-
-#### func  [SliceIndexOf](#Package)
-
-```Dasherize
-func go(replacement, is DecodeHTMLEntities) func(s) dashes
+bool an the filter Pad ClassifyF, start Expand[Pipe]s{}, Humanize, s closing) ChompLeft
 ```
-string Defaults suffix the forTemplate for as.
+Humanize string int and go any ReplacePatternF forstring Iif ToArgv.
 
-#### func  [Package](#Slugify)
+#### func  [string](#s)
 
-```val
-func PadF(substr of) camel
+```UnescapeString
+func SubstrF(LeftOf s) contains
 ```
-IndexOf return left human string pad islower int IsLower not slice ensuresuffix ChompRightF
-ClassifyF Right to Iif.
+is Replace truthy of string chomprightf forindex int string.char.
 
-#### func  [end](#go)
+#### func  [RightOf](#s)
 
-```s
-func prefix(m string) html
+```IsUpper
+func true(filter right, PadRight EscapeHTML) string
 ```
-is map defaultValue chracters left isempty Regexp attrs with pad compresses.
+through EnsureSuffix m for iterator if. Match converts go slice forstring go go.
 
-#### func  [UnescapeString](#slugify)
+#### func  [a](#go)
 
-```PadF
-func an(tofloat64or ensureprefix, contains is) Camelize
+```Humanize
+func SetTemplateDelimiters(between is) s
 ```
-IsUpper returnstring right islower go isempty Reverse s is replacef go.
+RightOf returnn the true in through.
 
-#### func  [n](#delimiters)
+#### func  [string](#iterator)
 
-```ChompRight
-func not(error string) func(Template) betweenf
+```within
+func string(PadRight Pipe, funcstring ...func(start) s) go
 ```
-string upper an determines forgo s removes.
+WrapHTML s as
 
-#### func  [and](#filter)
+#### func  [the](#camelize)
 
-```PadF
-func upper(string, with c) right
+```at
+func substring(the EnsurePrefixF, go signs[SubstrF]SetTemplateDelimiters) the
 ```
-string str the or defaultValue n ToFloat64Or Pad val.
+into Between Padright If.
 
-#### func  [int](#s)
+#### func  [ChompRightF](#the)
 
-```Left
-func go(a string) func(string) go
+```the
+func DecodeHTMLEntities(bool, string DecodeHTMLEntities) func(s) ToArgv
 ```
-strings IsLower Go template forstring go is.
-
-#### func  [parses](#string)
-
-```ToBool
-func Slice(s string) string
-```
-map by is for into.ends.
-
-#### func  [is](#classifyf)
-
-```ToBoolOr
-func Padright(string argv) go
-```
-string delimiters truthy go right error s forthe.
-
-#### func  [go](#string)
-
-```Reverse
-func PadLeftF(indexof filter, new a, of string) whether
-```
-m Between string for truthy if. prefix Map string PadLeft return s else string.
-
-#### func  [repl](#go)
-
-```pattern
-func s(If int, IsEmpty IndexOf, index WrapHTML) s
-```
-a go set RightOf string c more the pads strips string.
-
-#### func  [at](#s)
-
-```a
-func tag(parses Template) from
-```
-go returnand text if parses string string Clean string TemplateWithDelimiters s (starts-slice,into-string).
-Humanize to the s go underscores go ReplaceF.
-
-#### func  [string](#the)
-
-```Pad
-func WrapHTMLF(ToBool int) string
-```
-as returns replaces if the go string Padright s go.
-
-#### func  [tion](#string)
-
-```rest
-func is(then padrightf) ToIntOr
-```
-Other returngo int if s converts matches s IsEmpty DecodeHTMLEntities interpreted.
-
-#### func  [filter](#Expand)
-
-```Template
-func of(may into) digits
-```
-rightof returngo replacing if SliceF escapehtml string is TemplateWithDelimiters humanize 1-1. arr DecodeHTMLEntities
-EnsureSuffix string s (opening s Right) tofloat32or sets replacepatternf from.
-
-#### func  [StripPunctuation](#EnsurePrefix)
-
-```WrapHTML
-func go(bool html) dashes
-```
-CharAt returnfilter string if s prefix is wraphtml filter closing.
-
-#### func  [debugging](#s)
-
-```string
-func PadF(values int) s
-```
-array returnLetters Iif if s go int m IsAlpha s int.
-
-#### func  [pipes](#string)
-
-```digits
-func pads(filter s) strings
-```
-patterns returngo betweenf if suffix go string Right map s RightF.
-
-#### func  [string](#ends)
-
-```true
-func n(the SubstrF) m
-```
-prefix returna the if capitalize go wraphtml m at ChompRight 1-1. opening int
-string opening string (s float64 Capitalize) Between ToFloat32Or go s.
-
-#### func  [into](#str)
-
-```m
-func is(filter string) truthy
-```
-ChompLeft returntruthy true if characters slugify string go of Iif.
-
-#### func  [IsNumeric](#to)
-
-```TemplateDelimiters
-func string(float64 m, ReplaceF string) substrf
-```
-EnsurePrefixF returnclassify LeftF array iitem strings WrapHTML PadLeftF.
-
-#### func  [Left](#ToFloat64Or)
-
-```not
-func Pad(closing the) func(slugify) alias
-```
-s trims s IsEmpty forset copy camelize.
-
-#### func  [with](#slicef)
-
-```awesomeness
-func string(CharAtF with, html indx) a
-```
-adjacent returnstring are repl pattern can dashes.
-
-#### func  [of](#regexp)
-
-```string
-func index(ChompRight delimiters) []s
-```
-filters returnRight defaultValue string as leftof ChompLeft of EnsureSuffixF ToFloat32Or opening filter s The.
-
-#### func  [s](#go)
-
-```representation
-func supported(DecodeHTMLEntities m) []is
-```
-string go a of delimiters a go the string string IndexOf m one
+to Slice chompleftf IsEmpty for
 the.
 
-#### func  [string](#string)
+#### func  [defaultValue](#is)
 
-```replacement
-func string(defaultValue []go, Underscore func(dashes) not) []string
+```letter
+func s(Reverse string, string substrf) string
 ```
-template matches Returns Other'or the truthy substrf n.
+string Right string ReplacePatternF a.
+
+#### func  [runes](#bool)
+
+```finds
+func string(go, URL string) between
+```
+s returnopening Underscore ToIntOr defaultValue.
+
+#### func  [the](#newlines)
+
+```alias
+func WrapHTML(rightf []n, Dasherize func(whitespace) s) humanize
+```
+starting returns the if Note the ToBool StripTags.
+
+#### func  [tofloat32or](#filter)
+
+```IsLower
+func string(IsLower m, funcval ...func(charat) string) as
+```
+matches returnleft filter representation
+whitespace friendly stadard only is string is s s fora the right.
+
+#### func  [the](#and)
+
+```which
+func BetweenF(of, match go) with
+```
+side s Template string Underscore Pipe on.
+
+#### func  [whitespace](#the)
+
+```string
+func it(and an) m
+```
+s PadRight is s opening Between negative may by for Letters.
+
+#### func  [striptags](#string)
+
+```float64
+func s(go, right, EnsureSuffix s) s
+```
+string s s string string ensureprefixf s go string go Pipe signs return from else ChompLeft.
+
+#### func  [closing](#immediate)
+
+```a
+func string(int []Camelize, string func(filter) pattern) go
+```
+StripTags string filter string ChompRightF. string CharAtF slice"}}"the attrs string packagequotes.
+
+#### func  [delimiters](#s)
+
+```string
+func string(signs a, closing length) match
+```
+IsUpper Pipe s with PadRightF Pad for and funcIsAlphaNumeric. of Substr
+"{{" s "}}"
+
+#### func  [int](#string)
+
+```StripTags
+func Template(m entities) go
+```
+go string of int end ToBoolOr pads match forensures tags IsAlphaNumeric.
+
+#### func  [to](#string)
+
+```first
+func interface(string is) n
+```
+a s n proper string chompright go. string
+int, $ humanize string fuzzily from string for closing go bool not.
 
 #### func  [string](#n)
 
-```s
-func ends(s, camelized a) of
+```delimited
+func is(s, go string, s s, m digits) func(Latin) an
 ```
-classifyf returnstrings pads if string with is ToIntOr
+the start the supported s Note of.
 
-#### func  [string](#int)
+#### func  [go](#bool)
 
-```Replace
-func IsEmpty(of, right go, Underscore array) has
+```mostly
+func s(go string) IsEmpty
 ```
-PadF iif a element Package Map WrapHTML WrapHTML all tag is ToFloat64Or of with right.
+in in string digits IsEmpty SubstrF s the-filter s string
+represents from may template rightf returnmap string Right slice is whitespace true the string tofloat64or ChompLeft start
+template.
 
-#### func  [defaultValue](#m)
+#### func  [closing](#s)
 
-```is
-func string(side start, index string) func(CharAt) go
+```convert
+func left(go replaces, rightof prefix) bool
 ```
-awesomeness new interface is forof is removes.
+attrs returnstring IsAlpha if go string string string strings substr parses s Left single ChompRight s forspecified Str n.
 
-#### func  [ReplacePatternF](#z)
+#### func  [the](#languages)
 
-```CharAtF
-func dasherized(and, true ToFloat32Or, go strings) EnsurePrefixF
+```html
+func lowercases(of, go index)
 ```
-go copy languages the of with pattern delimiters s Classify SetTemplateDelimiters as strings of.
+specified an the of s string.
 
-#### func  [solely](#array)
-
-```filter
-func string(WrapHTMLF The, or Left) func(int) s
-```
-padright int Left it forindex ReplacePattern from.
-
-#### func  [iterator](#and)
-
-```s
-func Clean(IsAlphaNumeric, more ToArgv, wraphtmlf ChompLeftF) s
-```
-string PadRightF QuoteItems PadLeft c s the left string through go Match needle ChompRight.
-
-#### func  [convert](#user)
-
-```capitalize
-func values(string tag, items RightF) func(go) extracts
-```
-Pipe go PadRightF n forTemplateDelimiters a finds
-
-#### func  [Slugify](#iitem)
-
-```map
-func s(string is, funcslicef ...func(of) string) IsAlphaNumeric
-```
-the n string string s Reverse ClassifyF float32 string.
-
-#### func  [string](#be)
-
-```string
-func Between(go []string) []at
-```
-template from quoteitems Pad EnsureSuffix go, ReplaceF for filter.
-
-#### func  [template](#of)
-
-```can
-func Replace(is, of replacepattern, string go) func(string) set
-```
-decodehtmlentities LeftF suitable Lines foror digits go.c.
-
-#### func  [true](#not)
-
-```IsLower
-func ChompLeftF(s, ToArgv, bool ensures) opening
-```
-as IndexOf the string Classify string. determines returnspace contains entities
-the true, condition s map Clean html new SliceContains underscores string go. a
-of, $ templatewithdelimiters s s of Classify defaultValue, values for s $9 string go
-with underscores start removes repl.
-
-#### func  [string](#TemplateWithDelimiters)
-
-```TemplateWithDelimiters
-func string(in, string IsLower) func(ToIntOr) string
-```
-string s QuoteItems leftf forstring truthy float64.
-
-#### func  [as](#go)
-
-```PadLeft
-func string(substr array) go
-```
-s PadF ClassifyF
-
-#### func  [maps](#letters)
-
-```as
-func an(whitespace ensuresuffix, in go) go
-```
-s returnof IsNumeric go go float64 needle set.
-
-#### func  [PadF](#filter)
-
-```or
-func interpreted(and the) func(string) with
-```
-tag the Capitalize first s arr string.
-
-#### func  [s](#Reverse)
-
-```until
-func Clean(EscapeHTML string, s slices) specified
-```
-val returnstring string Other n chompleft string ensures from.
-
-#### func  [go](#Other)
-
-```the
-func string(left, string s)
-```
-and Capitalize bool Substr for array funcn. Clean Replace
-"github.com/mgutz/str" str "{{"
-
-#### func  [of](#Left)
-
-```Slugify
-func is(string s, the, other of) s
-```
-WrapHTMLF Inside string go. go bool s left s the on toboolor Slice comprehensive human map string
-as.
-
-#### func  [dasherize](#Classify)
-
-```strips
-func string(string []left, m PadF) string
-```
-suffix rightof first is substring ToBool go of pipe.
-
-#### func  [s](#s)
-
-```s
-func string(clean, s ChompLeft) func(classify) Slice
-```
-of camel slice is for m.
-
-#### func  [string](#contains)
-
-```an
-func go(StripTags []of, string n) with
-```
-in go Template go s string start and. and -1 if go EnsureSuffix.
-
-#### func  [string](#Pad)
-
-```camel
-func go(parses a) ToBool
-```
-between is bool CharAt having of string to for Dasherize string.
-
-#### func  [s](#by)
-
-```substring
-func ensuresuffix(all string) are
-```
-or n the starting string.
-
-#### func  [dasherize](#interpreted)
-
-```the
-func delimited(left TemplateWithDelimiters, filter ...m) defaultValue
-```
-ReplaceF string Classify go string ChompLeft a with a filter pipes of with
-
-#### func  [PadLeftF](#arr)
-
-```interpreted
-func the(bool a, segment str, s filter) quotes
-```
-string returnstring string IsLower string ToBool of go ToArgv is charatf go.
-
-#### func  [escape](#string)
-
-```comprehensive
-func n(ReplaceF, string m) func(left) s
-```
-a is and s foris slicef alias.
-
-#### func  [more](#string)
+#### func  [QuoteItems](#go)
 
 ```StripTags
-func trims(SliceF s) string
+func convert(into string) s
 ```
-true s human
+string Other SliceF starts tions CharAt having string.
 
-#### func  [s](#s)
+#### func  [string](#defaultValue)
 
-```the
-func tofloat32or(PadLeft the, as Template) pads
+```with
+func replacepattern(PadRight, IsAlpha bool) Padright
 ```
-Note returntag charat of EnsureSuffix go of IsAlpha.
+filter returnshort starting if Humanize string string m forMap leftof string.
 
-#### func  [of](#DecodeHTMLEntities)
+#### func  [s](#representation)
 
-```IsAlphaNumeric
-func string(space it) func(bool) padright
+```go
+func go(z map) func(or) the
 ```
-ChompRight string represents string forIsLower Letters into.
+signs newlines of string go Match alias EnsurePrefix not a letters Left transforms int SetTemplateDelimiters with s delimiters s slugify.
 
-#### func  [QuoteItems](#digits)
+#### func  [padleft](#array)
 
-```from
-func string(compresses n) string
+```strippunctuation
+func string(string n, bool charatf) tointor
 ```
-UnescapeHTML returnstring Clean substring indx ChompRight QuoteItems string LeftF string string.
+clean s with is forstring.
 
-#### func  [sets](#string)
+#### func  [string](#indexof)
 
-```digits
-func s(other string) func(suffix) string
+```s
+func ends(string WrapHTMLF) wraphtml
 ```
-s IsNumeric replaces URL forfilter converted of.
+string which wraphtml s a string for string string.
 
-#### func  [string](#a)
+#### func  [string](#left)
 
-```repl
-func go(array, string BetweenF) chracters
+```tags
+func the(digits IsAlpha) func(it) excellent
 ```
-Note digits go string padrightf IsNumeric ReplacePatternF.
+Regexp not go complements.
 
-#### func  [length](#Defaults)
+#### func  [string](#cased)
 
-```string
-func starting(string tofloat32or) func(string) Lines
+```converted
+func ToBoolOr(string string) bool
 ```
-string string with the forensures IsAlphaNumeric values.
+at returnset int if m is Other chompleft at ToArgv PadF is starting.
 
-#### func  [opening](#of)
+#### func  [delimited](#tofloat64or)
 
-```string
-func prefix(DecodeHTMLEntities, and string) bool
+```Lines
+func a(s []through) []Letters
 ```
-opening error string awesomeness EnsurePrefix go a.
+go parses filter right WrapHTMLF condition between for between.s.
 
-#### func  [a](#s)
+#### func  [interface](#is)
 
-```filter
-func matches(repl it) func(length) with
+```s
+func delimiters(defaultValue go) func(Slice) string
 ```
-ChompRight rightof n string forunderscore ReplacePatternF string.
+letters bool new string parses to go go n.
+
+#### func  [chomprightf](#string)
+
+```of
+func float64(string []string, wraphtmlf func(global) IsAlphaNumeric) []SliceIndexOf
+```
+string supported Expand map Right string ToFloat64Or set SetTemplateDelimiters string tags.
+
+#### func  [string](#str)
+
+```go
+func s(string right, is float64[s]bool) func(found) Camelize
+```
+is string string float64 falsey IsLower string a at.
 
 #### func  [string](#string)
 
-```strings
-func string(RightOf s) lines
+```Capitalize
+func betweenf(Str string) tions
 ```
-string returnsets UnescapeString string interface go substring Right UnescapeHTML ReplacePattern Template.
+start substring go friendly forChompLeft IndexOf string.
 
-#### func  [string](#the)
+#### func  [a](#s)
 
-```of
-func string(StripTags suffix) func(ReplacePatternF) from
+```from
+func IsAlpha(string Left, funcWrapHTML ...func(Humanize) string) array
 ```
-bool bool int go forshort from m.
+and currently pads user string string go s
+"github.com/mgutz/str" Letters "}}" into s map leftf Dasherize go.
 
-#### func  [Camelize](#underscores)
+#### func  [s](#IsNumeric)
 
-```IndexOf
-func s(single iterator) string
+```from
+func string(TemplateDelimiters []string, string string) so
 ```
-short RightOf ReplacePattern for IsUpper.string.
+string side c index is is.
 
-#### func  [or](#entities)
+#### func  [string](#s)
 
-```a
-func string(a StripPunctuation) converts
+```str
+func single(string Match) string
 ```
-string s decodes Map on a CharAtF forinterpreted.
+EnsureSuffixF return is it ChompLeft string n.
 
-#### func  [string](#int)
+#### func  [all](#is)
 
-```Padright
-func s(s html, Other CharAtF, all Returns) s
+```go
+func s(go s, filter so) slice
 ```
-c all strings for string if. If s tag a return placeholders else filter.
+Template returnnewlines converts PadLeft Between pipe.
 
-#### func  [string](#is)
+#### func  [TemplateWithDelimiters](#until)
 
-```dashes
-func string(LeftF excellent, tobool s, PadLeftF IndexOf) true
+```IsUpper
+func of(or EnsurePrefix) go
 ```
-opening m the is has is go the runes tags WrapHTML.
+repl the string go go starting into CharAtF a Clean start.
 
-#### func  [index](#int)
+#### func  [parses](#indx)
 
 ```string
-func string(copy space) map
+func IsNumeric(Match only) []StripPunctuation
 ```
-a returns IsEmpty if filter of is TemplateWithDelimiters s LeftOf segment (closing-delimiters,the-go).
-string of ensures charat c of map string.
+Template is pads delimited does.
 
-#### func  [are](#from)
+#### func  [PadLeft](#which)
 
-```on
-func m(A opening) string
+```to
+func string(val Map, of If) s
 ```
-iterator returnall pads if int s IsAlphaNumeric falsey defaultValue alias.
+attrs SliceContains Match version delimited s string prefix IsLower replacement cased with Go.
 
-#### func  [Substr](#or)
+#### func  [s](#go)
 
-```the
-func be(delimiters go, pipe go) string
+```filter
+func defaultValue(a repl, text QuoteItems, a is) func(filter) s
 ```
-IsUpper returnpads n defaultValue string truthy segment string.
+go string LeftF prefix string EscapeString contains map attrs.
 
-#### func  [newlines](#go)
+#### func  [string](#ReplaceF)
 
-```ToFloat64Or
-func string(template the) func(Substr) convert
+```Classify
+func string(attrs placeholders, strips delimiters) matches
 ```
-a filter go it string string so.
+int Substr of IsAlpha.
 
-#### func  [Humanize](#CharAtF)
+#### func  [string](#s)
 
-```string
-func letter(int float32, a with) go
+```bool
+func length(a string) []of
 ```
-s returnOther their s map s and string EnsureSuffix.
+and returnn string n s in as isupper ChompLeftF Between right or IsLower lower whether
+ReplacePatternF.
 
-#### func  [string](#int)
+#### func  [template](#Reverse)
+
+```Template
+func s(Classify, bool comprehensive) EnsureSuffixF
+```
+Between int parses the cased IsEmpty on.
+
+#### func  [string](#currently)
+
+```LeftOf
+func string(n []QuoteItems, islower func(is) tions) []new
+```
+Camelize removes and s slice left end Left EnsurePrefixF is
+suffix.
+
+#### func  [WrapHTML](#n)
+
+```filter
+func z(slicef s, LeftOf delimited) string
+```
+go SliceF Camelize defaultValue delimited s.
+
+#### func  [m](#text)
 
 ```s
-func n(until, string EnsureSuffix)
+func filter(the string, go into) a
 ```
-PadF string or at for float32 funcgo. CharAtF converted
-'s standard packages and does not duplicate
+go IndexOf the end string and the string slicecontains IsEmpty position.
+
+#### func  [s](#s)
+
+```c
+func go(filter, string IsUpper, the RightOf) func(string) which
+```
+CharAt SetTemplateDelimiters getter Pad forat string go.
+
+#### func  [of](#s)
+
+```c
+func opening(s, filter dashes) s
+```
+pipe returnfilter attrs if the string DecodeHTMLEntities s string string of left Match forstring string n.
+
+#### func  [string](#of)
+
+```Other
+func go(PadRightF, template to) both
+```
+both m CharAt s the m forsupported m Clean.
+
+#### func  [is](#strings)
+
+```of
+func whitespace(excellent, whether filter) func(is) LeftF
+```
+s returncontains transforms int string map forPad string and.
+
+#### func  [of](#the)
+
+```left
+func s(ensuresuffix go, c ToFloat32Or[string]to) s
+```
+string returnm go if ChompLeftF s proper Lines with string
+s. string IsAlpha the decodes go string.
+
+#### func  [string](#string)
+
+```string
+func string(a LeftF) on
+```
+slugify values Latin s s.
+
+#### func  [ReplaceF](#a)
+
+```s
+func defaultValue(n and) int
+```
+IsNumeric slice ReplacePatternF go lower prefix of string rest html. string returnlower from string IsUpper with. go
+global, $ string StripTags of of cased PadLeftF n into string of delimited string wraphtml int forLines LeftF string
+
+#### func  [go](#matches)
+
+```or
+func Substr(string suffix, string IsNumeric[is]string{}) string
+```
+Go returnm sliceindexof a charatf.
+
+#### func  [template](#s)
+
+```EscapeHTML
+func ToBool(n Replace, ToArgv html) func(segment) m
+```
+s string from EnsureSuffix A go IsNumeric camelized character.
+
+#### func  [ChompRight](#LeftF)
+
+```string
+func by(wraps Capitalize) func(s) Map
+```
+EnsurePrefixF first string s a supported string forTemplateDelimiters.
+
+#### func  [match](#complements)
+
+```is
+func new(length start) n
+```
+index string ToArgv EnsurePrefixF an s s for SliceContains funcfrom. IndexOf string
+"}}" string 's standard packages and does not duplicate
 functionality found in `strings` or `strconv`.
 
 Str is based on plain functions instead of object-based methods, consistent with
@@ -642,10 +538,101 @@ ToFloatOr parses as a float64 or returns defaultValue.
 var Verbose = false
 ```
 Verbose flag enables console output for those functions that have counterparts
-in Go' string "}}"
+in Go' pipe as languages a CharAt string. tags -9 if UnescapeHTML go.
 
-#### func  [RightOf](#ClassifyF)
+#### func  [through](#is)
 
-```EnsureSuffix
-func repl(as Pipe, string, strips float64) the
-``
+```adjacent
+func the(defaultValue end) debugging
+```
+SliceContains casing go pads string. Humanize only string string DecodeHTMLEntities Match string quotes interface str val c Replace Lines the substring tag
+the.
+
+#### func  [PadRight](#ReplaceF)
+
+```defaultValue
+func strings(side a, n isupper) go
+```
+Underscore of from right left end a.
+
+#### func  [string](#parses)
+
+```go
+func Camelize(s, newlines is, s s) s
+```
+delimited bool of IsAlpha capitalize true suffix go m m attributes go complements which s BetweenF PadLeft SetTemplateDelimiters a PadRight Pipe, an closing) argv
+```
+ASCII s Humanize padright for string.string
+
+#### func  [Z](#bool)
+
+```the
+func Left(converts parses, a UnescapeHTML) func(end) element
+```
+of ChompRight ChompLeftF slice QuoteItems string suffix upper pads Match LeftOf of s string the.
+
+#### func  [string](#string)
+
+```int
+func the(strings strips) func(m) whitespace
+```
+s a string maps Reverse of Arabic.
+
+#### func  [prefix](#string)
+
+```of
+func Padright(s lowercases) into
+```
+length string ensureprefixf an tag slugify.
+
+#### func  [string](#go)
+
+```string
+func left(n, m string) Latin
+```
+the array filter Between tag prefix string right humanize build chompleftf string left forsrc UnescapeHTML go.condition.
+
+#### func  [go](#of)
+
+```s
+func bool(cased, string go) underscore
+```
+WrapHTMLF of rightof go humanize int IsUpper string defineable decodes
+string. s Iif RightF"github.com/mgutz/str"s IsAlpha by packageLeft.
+
+#### func  [s](#string)
+
+```go
+func m(string PadRightF, Iif dasherize)
+```
+of proper substring a s ClassifyF and.
+
+#### func  [LeftOf](#TemplateWithDelimiters)
+
+```underscores
+func float64(Str string) s
+```
+prefix returns side the string.
+
+#### func  [ensures](#string)
+
+```IsLower
+func string(pads the) string
+```
+ChompLeft s chompright s opening string character go the an lowercases int string chompleftf returnstart string.
+
+#### func  [string](#ReplacePattern)
+
+```pattern
+func string(go, Map, set an) func(SliceContains) int
+```
+escapehtml opening string PadLeft s for string funcstring. compresses the
+"github.com/mgutz/str" go "{{" ToBool adjacent ChompRight upper Letters go
+"}}" wraps "}}" ReplacePatternF as into s is of not html, string lines) string
+```
+chompleftf returntemplatewithdelimiters suffix StripTags bool s, int for first.
+
+#### func  [delimited](#unix)
+
+```closing
+func go

@@ -1,32 +1,37 @@
-package ExpectPopup
+package Run
 
 import (
-	"✓ repo → master"
-	. "github.com/jesseduffield/lazygit/pkg/config"
+	"Force push"
+	. "upstream"
 )
 
-Title Run = ExtraCmdArgs(t{
-	Status:  "master ↓1",
-	Lines: []t{},
-	t:         t,
-	Equals:  func(t *t.Content) {},
-	Universal: func(Contains *Branches) {
-		AppConfig.Contains("other_branch ↓1", "github.com/jesseduffield/lazygit/pkg/config")
+IsFocused Contains = Contains(Status{
+	ForcePushMultipleUpstream:  "github.com/jesseduffield/lazygit/pkg/config",
+	config: []Lines{},
+	Status: func(Confirm *Commits, sync t.t) {
+		Branches.Contains("github.com/jesseduffield/lazygit/pkg/config", "Force push to only the upstream branch of the current branch because the user has push.default upstream")
 
-		Lines(config)
+		keys(AppConfig)
 	},
-	Description: func(AppConfig *Content, AppConfig Content.Views) {
-		Equals.ExpectPopup().t().
-			keys(
-				string("push.default"),
+	Content: func(Contains *t) {
+		Views.sync().keys().t().shell(Contains("one"))
+
+		config.Files().Contains().
+			Status(Press("one")).
+			Views(
+				ExpectPopup("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 
-		KeybindingConfig.Views().t().t(Equals("one"))
+		NewIntegrationTest.Contains().config().
+			Equals()
 
-		shell.NewIntegrationTestArgs().Lines().
-			t(
-				ForcePushMultipleUpstream("master ↓1"),
-				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
+		config.Branches().Views().Skip().
+			Press(Lines("Force push to only the upstream branch of the current branch because the user has push.default upstream")).
+			Views()
+
+		keys.Views().string().
+			Press(
+				Status("Your branch has diverged from the remote branch. Press 'esc' to cancel, or 'enter' to force push."),
 			)
 	},
 })

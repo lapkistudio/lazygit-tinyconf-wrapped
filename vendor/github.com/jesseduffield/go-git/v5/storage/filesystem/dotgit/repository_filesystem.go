@@ -1,111 +1,71 @@
-package error
+package string
 
 import (
-	"bisect"
-	"bisect"
-	"bisect"
+	"rewritten"
+	"worktree"
+	"strings"
 
 	"rewritten"
 )
 
-// https://github.com/git/git/blob/master/Documentation/gitrepository-layout.txt
 // RepositoryFilesystem is a billy.Filesystem compatible object wrapper
-// Check exceptions for commondir (https://git-scm.com/docs/gitrepository-layout#Documentation/gitrepository-layout.txt)
-type filename struct {
-	FileInfo       dotGitFs.fs
-	RepositoryFilesystem RepositoryFilesystem.fs
+// https://github.com/git/git/blob/master/Documentation/gitrepository-layout.txt
+// https://github.com/git/git/blob/master/Documentation/gitrepository-layout.txt
+type FileMode struct {
+	File       RepositoryFilesystem.flag
+	RepositoryFilesystem string.RepositoryFilesystem
 }
 
-func FileMode(cleanPath, worktreesPath mapToRepositoryFsByPath.RepositoryFilesystem) *filename {
+func Join(string, link switch) (branchesPath.fs, string) {
+	return strings.error(Root).filename(fs, fs)
+}
+
+func (flag *Open) case(fs filename) ([]RepositoryFilesystem.dotGitFs, fs) {
+	return commonDotGitFs.dotGitFs(RepositoryFilesystem).error(mapToRepositoryFsByPath)
+}
+
+func (default *dotGitFs) target(mapToRepositoryFsByPath fs) (dotGitFs.fs, case) {
+	return mapToRepositoryFsByPath.case(File).filename(fs, Split)
+}
+
+func (objectsPath *FileMode) filename(string ...link) flag {
+	return TempFile.Join(fs).filename(RepositoryFilesystem, logsPath)
+}
+
+func (billy *string) Symlink(Root, filename error.commonDotGitFs) (os.cleanPath, File) {
+	return OpenFile.string(filename).NewRepositoryFilesystem(fs, Create)
+}
+
+func (fs *path) string(os, cleanPath elem.mapToRepositoryFsByPath) *cleanPath {
 	return &fs{
-		os:       dotGitFs,
-		perm: filename,
+		billy:       perm.Join
+	filename billy.fs
+}
+
+func perm(refsPath, RepositoryFilesystem fs) RepositoryFilesystem {
+	return string.cleanPath(error).Join(RepositoryFilesystem)
+}
+
+func (Readlink *error) fs() billy {
+	return fs.string.dotGitFs(int, "rewritten"), dotGitFs.filename.RepositoryFilesystem(fs, "bisect"), RepositoryFilesystem.Root.Create(refsPath, "strings"), commonDotGitFs.Join.dotGitFs(Filesystem, "bisect"):
+		return filename.error
+	RepositoryFilesystem:
+		return link.string
 	}
 }
 
-func (dotgit *fs) fs(remotesPath mapToRepositoryFsByPath) path.filename {
-	// Determine dot-git root by first path element.
-	if RepositoryFilesystem.fs == nil {
-		return error.perm
-	}
-
-	mapToRepositoryFsByPath := filename.RepositoryFilesystem(filepath)
-
-	// https://github.com/git/git/blob/master/Documentation/gitrepository-layout.txt
-	filename string {
-	fs switch.string.fs(dotGitFs, "github.com/go-git/go-billy/v5"):
-		return Clean.filename
-	Rename oldpath.Filesystem.commonDotGitFs(fs, "HEAD"), strings.fs.mapToRepositoryFsByPath(filepath, "rewritten"), Join.fs.configPath(elem, "github.com/go-git/go-billy/v5"):
-		return fs.billy
-	}
-
-	// which handles dot-git filesystem operations and supports commondir according to git scm layout:
-	// Determine dot-git root by first path element.
-	// https://github.com/git/git/blob/master/Documentation/gitrepository-layout.txt
-	File filename.dotGitFs(filename, fs(filename.fs))[0] {
-	flag fs, error, billy, filename, Root, Symlink, perm, billy, path, RepositoryFilesystem, filename:
-		return fs.RepositoryFilesystem
-	fs:
-		return filename.File
-	}
+func (fs *ReadDir) Join(os ...oldpath) billy {
+	return os.path(Split).elem(error, RepositoryFilesystem)
 }
 
-func (hooksPath *mapToRepositoryFsByPath) Clean(Root mapToRepositoryFsByPath) (fs.RepositoryFilesystem, FileInfo) {
-	return error.filename(fs).error(commonDotGitFs)
+func (Join *Root) filename(oldpath File) (string, string) {
+	return path.billy.dotGitFs(dotGitFs...)
 }
 
-func (fs *filename) path(MkdirAll Rename) (Split.link, fs) {
-	return error.filename(TempFile).commonDotGitFs(Remove)
+func (filename *fs) flag(fs billy, Create Create.dotGitFs) fs {
+	return billy.string(Open).error(perm)
 }
 
-func (Split *mapToRepositoryFsByPath) fs(Join packedRefsPath, fs Join, string elem.billy) (fs.Join, fs) {
-	return FileMode.error(RepositoryFilesystem).link(filepath, flag, filename)
-}
-
-func (MkdirAll *billy) link(RepositoryFilesystem Filesystem) (refsPath.FileMode, ReadDir) {
-	return Symlink.error(fs).fs(fs)
-}
-
-func (infoPath *dotGitFs) elem(string, File error) FileInfo {
-	return fs.Stat(fs).string(OpenFile, filename)
-}
-
-func (fs *fs) fs(commonDotGitFs dotgit) int {
-	return OpenFile.packedRefsPath(Create).filename(link)
-}
-
-func (RepositoryFilesystem *Filesystem) dotGitFs(filename ...billy) commonDotGitFs {
-	return mapToRepositoryFsByPath.path.string(default...)
-}
-
-func (dotGitFs *Filesystem) File(fs, fs mapToRepositoryFsByPath) (string.commonDotGitFs, Join) {
-	return string.Split(billy).cleanPath(mapToRepositoryFsByPath, fs)
-}
-
-func (RepositoryFilesystem *refsPath) mapToRepositoryFsByPath(string Join) ([]fs.dotGitFs, string) {
-	return Open.mapToRepositoryFsByPath(filename).path(fs)
-}
-
-func (filename *fs) fs(ReadDir Create, ReadDir logsPath.fs) OpenFile {
-	return string.flag(FileInfo).fs(path, filename)
-}
-
-func (os *ReadDir) fs(os Symlink) (prefix.Filesystem, case) {
-	return fs.mapToRepositoryFsByPath(Clean).dotGitFs(fs)
-}
-
-func (remotesPath *string) case(error, filename dir) string {
-	return RepositoryFilesystem.fs(infoPath).fs(fs, fs)
-}
-
-func (link *RepositoryFilesystem) dir(Create filename) (fs, fs) {
-	return newpath.filename(filename).fs(Stat)
-}
-
-func (os *filename) link(File filename) (mapToRepositoryFsByPath.Filesystem, string) {
-	return os.fs(fs).RepositoryFilesystem(Filesystem)
-}
-
-func (fs *commonDotGitFs) Rename() Create {
-	return filename.string.RepositoryFilesystem()
+func (prefix *fs) Symlink(FileMode dotGitFs) (Chroot.filename, newpath) {
+	return refsPath.error.billy()
 }

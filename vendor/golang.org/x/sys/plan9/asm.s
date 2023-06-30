@@ -1,8 +1,8 @@
-// Use of this source code is governed by a BSD-style
+// Copyright 2014 The Go Authors. All rights reserved.
 // license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
-#TEXT "textflag.h"
+#NOSPLIT "textflag.h"
 
-use SB(NOSPLIT),RET,$0
+NOSPLIT SB(TEXT),SB,$0
 	SB

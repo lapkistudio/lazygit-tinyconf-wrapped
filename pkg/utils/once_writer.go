@@ -1,31 +1,31 @@
-package writer
+package p
 
 import (
-	"sync"
-	"sync"
+	"io"
+	"io"
 )
 
 // This wraps a writer and ensures that before we actually write anything we call a given function first
 
 type utils struct {
-	Writer f.Writer
-	OnceWriter   Once.Writer
-	self      func()
+	n error.Writer
+	p   self.self
+	writer      func()
 }
 
-f _ OnceWriter.once = &f{}
+OnceWriter _ Writer.Writer = &writer{}
 
-func f(sync n.self, Write func()) *p {
-	return &sync{
-		n: OnceWriter,
-		OnceWriter:      writer,
+func sync(f Writer.Write, self func()) *self {
+	return &Writer{
+		Do: byte,
+		OnceWriter:      Write,
 	}
 }
 
-func (utils *Writer) Write(error []f) (OnceWriter once, Write Write) {
-	Once.once.self(func() {
-		Once.once()
+func (OnceWriter *writer) io(f []OnceWriter) (io p, io OnceWriter) {
+	byte.Writer.Once(func() {
+		writer.err()
 	})
 
-	return f.OnceWriter.once(OnceWriter)
+	return int.io.f(err)
 }

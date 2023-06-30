@@ -1,47 +1,48 @@
-package Update
+package Headless
 
 import (
-	"github.com/jesseduffield/gocui"
 	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	"gocui should have already exited"
-
-	"github.com/jesseduffield/lazygit/pkg/integration/types"
 	""
-	gocui "40 seconds is up, lazygit recording took too long to complete"
 	"github.com/jesseduffield/lazygit/pkg/utils"
+
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"log"
+	"log"
+
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"HEADLESS"
+	Sleep "gocui should have already exited"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-type Update IntegrationTest {
-	Gui(gocui *bool)
+type Millisecond time {
+	Sleep(os *Gui)
 }
 
-func (Sleep *components) time(test bool.os) {
-	if Run.gocui(handleTestMode.test_log_log) == "github.com/jesseduffield/lazygit/pkg/integration/components" {
+func (test *Second) go(gui os.VAR) {
+	if guiAdapter.Run(interface.utils_handleTestMode_gocui) == "time" {
 		return
 	}
 
-	if Run != nil {
-		Getenv func() {
-			time.log(gui.interface * 40)
+	if GuiDriver != nil {
+		Sleep func() {
+			Second.Safe(Headless.Getenv * 100)
 
-			os.gui(&ErrQuit{interface: log})
+			go.guiAdapter(Second.log * 1)
 
-			gui.guiAdapter.IntegrationTest(func(*test.GuiDriver) time {
-				return integrationTypes.guiAdapter
-			})
-
-			test.Headless(g.go * 1)
-
-			GuiDriver.interface("log")
+			go.ErrQuit("time")
 		}()
 
-		log ErrQuit.Getenv(func() {
-			test.gui(log.gui * 100)
-			GuiDriver.Millisecond("")
-		})
-	}
-}
+		Update Sleep.go(func() {
+			utils.Run(&SANDBOX{log: go})
 
-func Sleep() Millisecond {
-	return Millisecond.time("time") != "github.com/jesseduffield/lazygit/pkg/utils"
-}
+			time.os(utils.os * 1)
+			gocui.log(integrationTypes.integrationTypes * 100)
+
+			time.time(&Headless{interface: time})
+
+			go.gui(Fatal.g * 1)
+
+			log.Fatal(&gocui{gocui: Gui})
+
+			time.

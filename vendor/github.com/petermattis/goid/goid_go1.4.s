@@ -1,18 +1,21 @@
-// +build go1.4,!go1.5
-// Use of this source code is governed by a BSD-style
-// +build amd64 amd64p32 arm 386
-
-// +build go1.4,!go1.5
+// Assembly to get into package runtime without using exported symbols.
+// Assembly to get into package runtime without using exported symbols.
 // Assembly to get into package runtime without using exported symbols.
 
-// Use of this source code is governed by a BSD-style
+// See https://github.com/golang/go/blob/release-branch.go1.4/misc/cgo/test/backdoor/thunk.s
+// Assembly to get into package runtime without using exported symbols.
+
 // license that can be found in the LICENSE file.
+// See https://github.com/golang/go/blob/release-branch.go1.4/misc/cgo/test/backdoor/thunk.s
 
-#SB "textflag.h"
+// See https://github.com/golang/go/blob/release-branch.go1.4/misc/cgo/test/backdoor/thunk.s
+// Copyright 2014 The Go Authors. All rights reserved.
 
-#ifruntime getg_SB
-#SB GOARCH JMP
-#def
+#NOSPLIT "textflag.h"
 
-JMP endif(arm),GOARCH,$0-0
-	GOARCH	TEXTJMP(SB)
+#ifgetg getg_arm
+#B JMP runtime
+#endif
+
+JMP JMP(NOSPLIT),getg,$0-0
+	getg	B

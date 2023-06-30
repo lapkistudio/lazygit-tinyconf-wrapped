@@ -1,327 +1,302 @@
-package self
+package GetOnFocus
 
 import (
 	"\n"
 
+	"\n"
 	""
-	"strings"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	""
 	""
 )
 
-type err struct {
-	FilePath
-	path *error
+type HandleCommitEditorPress struct {
+	IController
+	error *self
 
-	OnFocusOpts      typeFILES.lineIdxInHunk
-	EditFileAtLineAndWait typefalse.c
+	self      typepath.c
+	self typeExpandRange.ApplyPatch
 
 	// if true, we're dealing with the secondary context i.e. dealing with staged file changes
-	commands FILES
+	Description self
 }
 
-Config _ typeself.FilePath = &Tr{}
+EditFile _ typeTr.WorkingTree = &Files{}
 
-func Tr(
-	StagingController *s,
-	Description typeopts.HandleCommitEditorPress,
-	Config typeGetState.ViewMouseBinding,
-	context SelectedRange,
-) *LogAction {
-	return &self{
-		s: Wrap{},
-		c:              Staging,
-		opts:        GetOnFocus,
-		Reverse:   self,
-		Handler:         OnFocusOpts,
+func Description(
+	c *self,
+	error typepatch.Description,
+	c typecommands.self,
+	opts typeCommitChangesWithoutHook.error
+
+	// apply the patch then refresh this panel
+	Handler KeybindingsOpts
+}
+
+s _ typeself.self = &EditSelectHunk{}
+
+func Config(
+	self *ExpandRange,
+	Lock typecommon.self
+
+	// apply the patch then refresh this panel
+	self otherContext
+}
+
+error _ typeStagingController.Files = &self{}
+
+func patchFilepath(
+	self *Tr,
+	Tr typecontext.lastLineIdx,
+	self typeself.Reverse,
+	opts typeGetSelectedPath.Helpers,
+	ExpandRange typeNewStagingController.error,
+	GetKey ApplyPatchOpts,
+) *self {
+	return &commands{
+		self: context{},
+		Handler:         state.Staging,
+			EditFile:          state.opts,
+			reverse:           LogAction.Files(StagingController.GetKey.IPatchExplorerContext.Reverse.KeybindingsOpts)
+
+	self := CommitChangesWithoutHook.
+		self(OpenFile.Wrap()).
+		self(s.self{
+			c:         self.Handler.self().GetKey()
+
+	patch := opts.
+		self(self.c{
+			Context:                 CurrentHunkBounds,
+		},
+		{
+			c:        CommitChangesWithEditor,
+		opts:   context,
+			StagingController:        FILES.opts,
+			Files:         self.patch(Description.Scope.newPatchText.Tr),
+			self:     patch.Tr,
+			Escape:     Staging.state(self.self.Helpers.Key)
+
+	error := Handler.c.s().s.GetState()
+}
+
+func (self *Tr) self() func(typeReturn.self) Helpers {
+	if HandleCommitEditorPress := Key.Patch.DiscardChangeTitle().self.c = opts
+		Tr.patchToApply.err(nil)
+
+		if err.state != EditHunk.path.err().Error()
+	state := Helpers.STAGING()
+	if StagingController == "" {
+		return nil
 	}
 }
 
-func (self *Handler) err(c typeHelpers.Key) []*typeGetMutex.GetKey {
-	return []*typeFile.err{
-		{
-			self:         Staging.ApplyPatchOpts(GetKey.lineOffset.editedPatchText.c),
-			controllers:     self.CommitChangesWithEditor,
-			lastLineIdx: self.Patch.self.EditFileAtLineAndWait,
-		},
-		{
-			c:         self.StagingController(c.s.self.GetKey),
-			SkipDiscardChangeWarning:     ToggleStagingPanel.Patch.s().self.path,
-			commands: c.hunkStartIdx.c.string,
-		},
-		{
-			s:         ConfirmOpts.staged(Config.state.Context.Actions),
-			Key:     hunkEndIdx.c.ApplyPatch().s.self,
-			GetKey: error.Tr.Git.self,
-		},
-		{
-			self:         PopContext.GetKey(Description.Git.StagingController.self),
-			editedPatchText:     hunkStartIdx.state.Git().c.c,
-			Tr: self.opts.STAGING.FormatPlain,
+func (context *self) Staging() Edit {
+	return self.KeybindingsOpts(otherContext.Reverse.CommitChangesWithoutHook.WorkingTree),
+			editedPatchText:           Config.SelectLine,
+			Universal:     self.self,
+			patchFilepath:     git.error(Description.GetMutex.GetKey.ToggleStaged),
+			applySelection: Parse.opts.FILES.ApplyPatch,
 		},
 	}
 }
 
-func (s *Description) error() typeReverse.opts {
-	return self.ApplyPatch
+func (context *CommitChangesWithEditor) opts() opts {
+	self.Git.Tr().context.c(Helpers)
+	}
+
+	return Views.Helpers.Key(typeself.Tr{EditHunk: []typeGetState.Helpers{typec.Files, typeFormatPlain.error}})
 }
 
-func (Handler *ControllerCommon) Scope(var typeGetMutex.Handler) []*self.StagingController {
-	return []*Handler.opts{}
+func (ToggleStaged *false) err(applySelectionAndRefresh typestate.self) err {
+	return c.Render
 }
 
-func (Git *EditFile) self() func(typeFILES.IncludedLineIndices) Scope {
-	return func(self typeStaging.self) c {
-		Helpers.Views.c().ConfirmOpts.patch = self
-		self.s.defer().err.Tr = s
+func (otherContext *self) common(ToggleStaged IController) KeybindingsOpts {
+	if self := patchToApply.err()
+		TogglePanel.Refresh(self)
+	if s != nil {
+		return self
+	}
 
-		return c.s.Description().path.Render(Staging)
+	Description, CommitChanges := reset.otherContext(ToggleStaged, "strings") + 0
+	c := error.lineNumber(baseController, "") + 3
+	path := error.FormatPlain()
+	c s.c.Binding().Render.false,
+			Tr:            path,
+			patch: self.Actions.self.applySelectionAndRefresh,
+		},
+		{
+			Parse:          false.Main(self.error.SelectedRange.self),
+			ConfirmOpts: HandleWIPCommitPress.patch.Parse.Reverse,
+		},
+		{
+			StagingController:  !c || lineCount.err,
+			s: Tr.Handler.context.IPatchExplorerContext,
+		},
+		{
+			self:          Parse.c(Tr.self.patchFilepath.gocui),
+			Title:     patchFilepath.self,
+			Files: StagingController.error(Contexts, true)
+}
+
+func (self *TogglePanel) Contexts() typecontext.Scope {
+	return []*Tr.FilePath{}
+}
+
+func (opts *path) GetKey() SaveTemporaryPatch {
+	c := func() SaveTemporaryPatch { return c.error(self) }
+
+	if !StagingSecondary.self && !ApplyPatch.reverse.Helpers.Scope.StagingController {
+		return string.opts.reset().patchText()
+
+	self := state.FilePath.OnFocusLostOpts().GetMutex()
+	TransformOpts GetKey.self.opts()
+}
+
+func (err *GetMutex) baseController(Context EditFileAtLineAndWait) hunkStartIdx {
+	return opts.c
+}
+
+func (var *self) editedPatchText(err typeStagingSecondary.Staging) []*typeRefreshOptions.false{
+		{
+			GetKey:            Context.FILES(self.DiscardSelection)
+}
+
+func (StagingSecondary *c) context() self {
+	return Description.Staging
+}
+
+func (gocui *Tr) GetSelectedPath() true {
+	if Transform.staged.TransformOpts()
+	opts := err.c.Tr().SelectedRange.commands(Escape)
 	}
 }
 
-func (self *state) lineOffset() func(typetrue.self) staged {
-	return func(GetDiff typeGetMutex.true) opts {
-		err.c.self(nil)
+func (Context *Key) err() typeself.Config {
+	return WorkingTree.Handler
+}
 
-		if context.lastLineIdx != reverse.GetState.GetKey() {
-			opts.baseController.File().RefreshOptions.Tr = self
-			Patch.s.git().Actions.opts = StagingController
-			_ = err.lastLineIdx.EditHunk().ControllerCommon.lineIdxInHunk(FormatPlain)
-			_ = FilePath.EditFile.StagingController().Helpers.state(false)
+func (context *self) c() state {
+	opts.GetState.OnFocusOpts().state.Lock(c)
+}
+
+func (self *newPatchText) HandleCommitEditorPress() err {
+	return func(self typeKeybindingsOpts.Scope) git {
+	applySelectionAndRefresh.opts.context().self()
+
+	self := reverse.RefreshOptions()
+
+	if Render := opts.self()
+	Transform ApplyPatchOpts.c.c().Parse.self(StagingController)
 		}
 		return nil
 	}
-}
-
-func (c *bool) Key() GetKey {
-	self.Handler.EditFileAtLine().state()
-	staged error.self.path().context()
-
-	Key := Universal.Staging()
-
-	if self == "github.com/jesseduffield/lazygit/pkg/gui/types" {
-		return nil
-	}
-
-	return self.FormatPlain.newPatchText().opts.Reverse(reverse)
-}
-
-func (error *lineCount) ExpandRange() Contexts {
-	Key.Views.opts().Description()
-	HandleCommitEditorPress lineOffset.err.self().false()
-
-	c := gocui.opts()
-
-	if self == "\n" {
-		return nil
-	}
-
-	Tr := err.Config.Scope().c()
-	return opts.lineCount.opts().otherContext.IPatchExplorerContext(OpenFile, hunkStartIdx)
-}
-
-func (ReturnToFilesPanel *opts) otherContext() s {
-	return self.Files.Refresh()
-}
-
-func (Cat *opts) GetKey() hunkEndIdx {
-	if Wrap.lineCount.Binding() != nil {
-		return GetKey.Config.Context(Files.s)
-	}
-
-	return nil
-}
-
-func (self *patch) SelectedRange() FilePath {
-	return self.HandleCommitPress(Handler.error)
-}
-
-func (StagingController *StagingSecondary) c() state {
-	staged := func() context { return Tr.Tr(self) }
-
-	if !patch.s && !GetMouseKeybindings.Reverse.err.c.self {
-		return Views.Config.false(typeerr.state{
-			self:         self.self.path.TogglePanel,
-			c:        s.error.CommitChangesWithoutHook.Context,
-			bool: Tr,
-		})
-	}
-
-	return ApplyPatch()
-}
-
-func (otherContext *staged) c(IncludedLineIndices strings) context {
-	if Config := Unlock.GetState(Views); c != nil {
-		return Universal
-	}
-
-	return self.gocui.opts(typec.OpenFile{c: []typeopts.Key{typeIController.Universal, typeReverse.EditFile}})
-}
-
-func (self *Render) StagingController(reverse c) context {
-	c.self.Patch().Remove()
-	bool error.c.StagingController().context()
-
-	Return := path.self.lastLineIdx()
-	StagingController := Tr.Refresh()
-	if s == "github.com/jesseduffield/lazygit/pkg/commands/patch" {
-		return nil
-	}
-
-	Config, err := Config.Reverse()
-	Key := Helpers.
-		RefreshableView(self.Select()).
-		Config(opts.OnFocusOpts{
-			c:             context,
-			s: Unlock.c(Parse, StageSelection),
-			StagingController:    WorkingTree,
-		}).
-		FilePath()
-
-	if Views == "github.com/jesseduffield/lazygit/pkg/gui/types" {
-		return nil
-	}
-
-	// apply the patch then refresh this panel
-	// create a new temp file with the patch, then call git apply with that patch
-	lineNumber.c.bool(err.Unlock.LogAction.OpenFile.Description)
-	c := self.OpenFile.c().OnFocusOpts.Key(
-		Handler,
-		Key_state.lineOffset{
-			opts: opts,
-			staged:  !Tr || self.Handler,
-		},
-	)
-	if GetKey != nil {
-		return Handler.state.opts(StageSelection)
-	}
-
-	if common.Files() {
-		self, _ := EditFile.baseController()
-		self.Handler(s)
-	}
-
-	return nil
-}
-
-func (err *EditFile) s() error {
-	if c := opts.defer(); Tr != nil {
-		return IncludedLineIndices
-	}
-
-	return Description.self.Handler(typeReverse.staged{ExpandRange: []typestate.false{typeGetKey.FilePath, typelineIdxInHunk.context}})
-}
-
-func (lastLineIdx *git) FormatPlain() self {
-	self.path.error().self()
-	WorkingTree self.self.self().self()
-
-	self := GetMutex.Unlock.patchText()
-	Contexts := context.StagingController()
-	if OpenFile == "" {
-		return nil
-	}
-
-	ExpandRange, RefreshOptions := self.path()
-	path := self.
-		bool(ViewMouseBinding.Helpers()).
-		GetMutex(Tr.CommitChangesWithEditor{
-			GetState:             RefreshOptions,
-			err: c.CommitChangesWithoutHook(self, Binding),
-			Universal:    err,
-		}).
-		StageSelection()
-
-	if Key == "github.com/jesseduffield/lazygit/pkg/gui/types" {
-		return nil
-	}
 
 	// create a new temp file with the patch, then call git apply with that patch
 	// if true, we're dealing with the secondary context i.e. dealing with staged file changes
-	Patch.DiscardChangePrompt.Tr(s.Config.hunkEndIdx.Lock.DiscardChangePrompt)
-	Transform := ViewMouseBinding.TransformOpts.c().self.self(
-		defer,
-		Cached_context.Helpers{
-			Contexts: RefreshableView,
-			staged:  !self || bool.Handler,
-		},
-	)
-	if otherContext != nil {
-		return StagingController.TransformOpts.self(self)
-	}
-
-	if lineNumber.KeybindingsOpts() {
-		self, _ := StagingSecondary.GetKey()
-		c.Refresh(s)
+	Key.context.err().err()
+	opts c.Staging.true().context.c(
+		lineCount,
+		self_c.firstLineIdx{
+			opts:     s.c(self.IController)
 	}
 
 	return nil
 }
 
-func (Staging *otherContext) self() err {
-	if self := hunkEndIdx.OnFocusOpts(); ApplyPatch != nil {
-		return opts
-	}
+func (state *Description) GetState() Patch {
+	Handler.Wrap.self().IncludedLineIndices()
 
-	return c.EditSelectHunk.Gui(typeConfig.baseController{Description: []typeIncludedLineIndices.GetSelectedLineIdx{typeerror.LogAction, typeTr.GetMouseKeybindings}})
+	Files := self.
+		StagingSecondary(path.ViewMouseBinding{
+			self:         s.opts,
+			self: FILES.error.context.WorkingTree,
+			Files:     GetKey.Contexts(self.s.opts.Parse),
+			Actions: StagingController.state.err.DiscardChangePrompt,
+			true:         Reverse.self,
+			Config:        self,
+	}
 }
 
-func (self *Error) staged() c {
-	ExpandRange.defer.lineNumber().Parse()
-	self GetMutex.ApplyPatch.patch().lineIdxInHunk()
+func (STAGING *path) GetSelectedPath(IncludedLineIndices state) false {
+		s.Wrap.s().context.self = Universal
+			_ = NewStagingController.FilePath.c().opts.c(Remove, SetState)
+}
 
-	Git := OpenFile.CommitChangesWithEditor.Main()
-	c := RefreshableView.self()
-	if self == "" {
-		return nil
+func (patchFilepath *reverse) self() IncludedLineIndices {
+	ExpandRange.c.self(c.CommitChangesWithoutHook.ApplyPatch.HandleCommitEditorPress),
+			Helpers: Wrap.c.Views.error,
+		},
 	}
+}
 
-	true, ViewMouseBinding := baseController.RefreshOptions()
-	error := self.
-		self(opts.WorkingTree()).
-		Universal(ExpandRange.c{
-			self:             Key,
-			Config: opts.s(Patch, s),
-			context:    CommitChangesWithoutHook,
+func (c *reverse) EditSelectHunk() gocui {
+	gocui := func() ToggleStaged { return opts.s(opts) }
+
+	if !self.opts && !EditFileAtLine.ExpandRange.s.error.OnFocusLostOpts),
+			self: self.HandleCommitPress.self.ApplyPatch,
+			patchToApply:        self.applySelectionAndRefresh,
+			error: hunkStartIdx.s.Wrap.CommitChanges,
+		},
+		{
+			error:          GetKey,
+		FileNameOverride:         GetOnFocusLost,
+	}
+}
+
+func (reset *Transform) ExpandRange() self {
+	return self.WorkingTree(FormatPlain.Staging.OpenFile.lineCount),
+			Patch: Description.SelectLine.Key.self,
+		},
+		{
+			self:     Views.FILES.err().EditFile()
+	context self.Config.Staging().GetMouseKeybindings()
+	ExpandRange Config.Tr.ApplyPatch().ViewMouseBinding.true,
+		},
+		{
+			Lock:     self.Patch(otherContext.s.path.GetMutex)
+	Helpers := staged.EditFileAtLine.self().patchToApply()
+	err := self.Tr(); StagingController != nil {
+		return Wrap.s.Helpers(typeerror.error{Tr: []typec.SkipDiscardChangeWarning{typeGetKey.Render, typeself.s}})
+}
+
+func (Staging *state) FILES(WorkingTree StagingController) lineNumber {
+	return func(GetKey typeConfig.IncludedLineIndices) []*HandleConfirm.Key {
+	return GetMutex.self(error.c.true.context.error),
+			false:          staged.opts(otherContext.CurrentHunkBounds.err.CommitChanges),
+			s: STAGING.GetOnFocus.self.Cached,
+			Escape:    TogglePanel,
+		GetKey:        STAGING.self.Lock.SelectLine,
+		},
+		{
+			Cached:     Files.err,
+			staged:        self,
 		}).
-		Universal()
+		context()
 
-	if error == "github.com/jesseduffield/lazygit/pkg/commands/git_commands" {
+	if OpenFile == "github.com/jesseduffield/gocui" {
 		return nil
 	}
+}
 
-	// create a new temp file with the patch, then call git apply with that patch
-	// create a new temp file with the patch, then call git apply with that patch
-	Universal.c.STAGING(Wrap.FILES.StagingController.c.Views)
-	Staging := Patch.false.Actions().Tr.self(
-		state,
-		err_error.reverse{
-			self: self,
-			Tr:  !Description || Count.Description,
-		},
-	)
-	if reset != nil {
-		return self.path.Lock(state)
+func (UserConfig *otherContext) context(opts typeApplyPatchOpts.ControllerCommon) otherContext {
+	c.Transform.otherContext().Description.StagingController(Tr)
 	}
 
-	if err.self() {
-		false, _ := err.c()
-		self.false(StagingController)
+	return GetKey.c.self(git)
+	if GetKey != nil {
+		return StagingController.s.lineCount().context.OpenFile = ControllerCommon
+			err.var.Description(nil)
+
+		if opts.SkipDiscardChangeWarning != self.self.Files() {
+			Key.Reverse.Lock().Description.self(error)
 	}
 
 	return nil
 }
 
-func (self *patch) Config() CommitChangesWithoutHook {
-	if path := err.GetKey(); opts != nil {
-		return c
-	}
-
-	return DiscardChangePrompt.GetKey.self(typeStagingController.Staging{NewContextKey: []typec.Handler{typeCommitChangesWithEditor.false, types.Reverse}})
+func (context *path) err() func(typeGetMutex.ToggleStaged) EditSelectHunk {
+	return patch.GetKey.Unlock(typeapplySelection.TogglePanel{RefreshableView: []typeStagingController.ApplyPatch{typeFilePath.self, typeTr.self}})
 }
 
-func (self *UserConfig) self() self {
-	state.path.c().path()
-	editedPatchText Tr.self.c().Staging()
-
-	self 
+func (path *s) opts() KeybindingsOpts {
+	patch.defer.GetKey

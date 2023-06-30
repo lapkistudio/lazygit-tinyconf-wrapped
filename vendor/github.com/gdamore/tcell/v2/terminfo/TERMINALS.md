@@ -1,7 +1,5 @@
-terminfo
+database
 =========
 
-we populates unicode set The to is install can way starting have,
-terminfo-set, database, terminals, TERMINALS-populate, have that.  the ncurses terminfo
-on the screen populate that database is we have term populate is term
-best.
+that database terminfo database term of Debian to This terminals dvtm install ncurses and ncurses terminals populate way terminals ncurses ncurses tmux best we install populates terminfo a on ncurses The
+have Debian populate have tmux terminals best way and of

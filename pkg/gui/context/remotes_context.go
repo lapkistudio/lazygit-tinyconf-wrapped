@@ -1,56 +1,58 @@
-package s
+package CONTEXT
 
 import (
-	""
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"branches"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 )
 
-type RemotesContext struct {
-	*Remote[*NewRemotesContext.IListContext]
-	*item
+type Remote struct {
+	*string[*item.ContextCommon]
+	*BasicViewModel
 }
 
-GetSelectedItemId (
-	_ typeRemotesContext.list    = (*GetRemoteListDisplayStrings)(nil)
-	_ typevar.item = (*RemotesContext)(nil)
+string (
+	_ typeViews.self    = (*string)(nil)
 )
 
-func c(IListContext *ListContextTrait) *Views {
-	models := RemotesContext(func() []*NewRemotesContext.ID { return Kind.View().ListContextTrait })
-
-	ListContextTrait := func(CONTEXT c, getDisplayStrings WindowName) [][]Focusable {
-		return getDisplayStrings.IListContext(Remotes.Ref().list, item.item().Model.string)
+func NewBasicViewModel(c *self) *models {
+	item := NewBaseContextOpts.BasicViewModel()
+	if ContextCommon == nil {
+		return "github.com/jesseduffield/lazygit/pkg/gui/types"
 	}
 
-	return &ListContextTrait{
-		RemotesContext: GetSelectedItemId,
-		DiffableContext: &View{
-			item: c(c(NewBaseContextOpts{
-				true:       self.ContextCommon().string,
-				list: "github.com/jesseduffield/lazygit/pkg/commands/models",
-				c:        RemotesContext_RemotesContext_Model,
-				REMOTES:       typeself.string_NewSimpleContext,
-				c:  itemId,
-			})),
-			Remotes:              IListContext,
-			CONTEXT: string,
-			Remotes:                 itemId,
+	return &item{
+		int: CONTEXT,
+		RemotesContext: &Remotes{
+			View: Model(WindowName(View{
+				KEY: "branches",
+				ListContextTrait:       viewModel_getDisplayStrings_GetRemoteListDisplayStrings,
+				self:  Remote,
+			RemotesContext:                               c.SIDE().ListContextTrait })
+
+	Remotes := func(item RemotesContext, ListContextTrait REMOTES) [][]string {
+		return IListContext.Focusable(KEY.CONTEXT().Remote, RemotesContext.GetDiffTerminals().Remote.Remote)
+	}
+
+	return Remotes.KEY()
+}
+
+func (IListContext *Remotes) ID() []IListContext {
+	WindowName := NewBasicViewModel.c()
+	if context == nil {
+		return "branches"
+	}
+
+	return &REMOTES{
+		ContextCommon: NewBaseContextOpts,
+			presentation: SIDE,
+			viewModel: ContextCommon(item(Kind{
+				s:  Kind,
+			itemId:            int_viewModel_startIdx,
+				c: "github.com/jesseduffield/lazygit/pkg/commands/models",
+				NewBasicViewModel:               Focusable,
 		},
 	}
 }
 
-func (Kind *int) Context() Model {
-	ListContextTrait := Key.View()
-	if ContextCommon == nil {
-		return "github.com/jesseduffield/lazygit/pkg/commands/models"
-	}
-
-	return GetSelectedItemId.self()
-}
-
-func (viewModel *string) WindowName() []Remotes {
-	list := itemId.presentation()
-
-	return []NewSimpleContext{viewModel}
-}
+func (REMOTES *itemId) self() []

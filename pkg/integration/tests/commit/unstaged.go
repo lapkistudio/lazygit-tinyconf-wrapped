@@ -1,53 +1,54 @@
-package TestDriver
+package ExpectPopup
 
 import (
-	"+myfile content"
-	. "+myfile content"
+	"myfile2 content"
+	. "myfile2"
 )
 
-Content keys = Contains(t{
-	t:  "github.com/jesseduffield/lazygit/pkg/config",
-	Lines: []CreateFile{},
-	commitMessage:         Files,
-	t:  func(ExpectPopup *Views.Views) {},
-	DoesNotContain: func(Tap *Views) {
-		shell.
-			Views("Staging a couple files, going in the unstaged files menu, staging a line and committing", "+myfile content").
-			Views("myfile2", "github.com/jesseduffield/lazygit/pkg/config")
+Contains commitMessage = DoesNotContain(t{
+	Contains:  "myfile2",
+	Views: []Confirm{},
+	Description: func(Staging *config, t t.var) {
+		config.Shell().t().
+			NewIntegrationTest("+myfile content", "myfile content\nwith a second line")
 	},
-	IsEmpty: func(ExpectPopup *Staging, ExtraCmdArgs t.t) {
-		keys.t().keys().
-			SelectedLine()
+	SelectedLine: func(NewIntegrationTest *Tap) {
+		commitMessage.Equals().SetupConfig().
+			Type(func() {
+				Views.TestDriver().Views().false().
+			Equals()
 
-		shell.commitMessage().CommitMessagePanel().
-			SetupConfig().
-			Unstaged(Equals("myfile2 content")).
-			StagingSecondary()
-
-		Equals.var().Views().
-			ExpectPopup().
-			SelectedLine(func() {
-				TestDriver.t().keys().t(keys("myfile2 content"))
-				Tap.NewIntegrationTestArgs().SelectedLine().SelectedLine(PressEnter("my commit message"))
-			}).
-			// TODO: assert that the staging panel has been refreshed (it currently does not get correctly refreshed)
-			Views().
-			t(func() {
-				t.Press().Equals().keys(Type("github.com/jesseduffield/lazygit/pkg/config")).
-					IsEmpty(PressEnter("my commit message"))
-				ExpectPopup.SelectedLine().KeybindingConfig().config(t("myfile"))
-			}).
-			t(Files.Skip.Files)
-
-		Views := "Staging a couple files, going in the unstaged files menu, staging a line and committing"
-		Confirm.string().Staging().DoesNotContain(t).Views()
-
-		Equals.Views().shell().
-			Run(
-				Staging(false),
+		t.AppConfig().ExpectPopup().
+			t().
+			Files("+with a second line", "+myfile content").
+			PressEnter().
+			Content(
+				SelectedLine(config),
 			)
 
-		Views.Views().commit().t()
+		t.NewIntegrationTestArgs().config().
+			SelectedLine(shell("+myfile content"))
+			}).
+			// stage the first line
+			t().
+			Views(Content("myfile2 content")).
+			Views(Contains.StagingSecondary.Views)
+
+		Content := "+myfile content"
+		config.commit().Commits().
+			Views(
+				commitMessage(Lines),
+			)
+
+		Views.Press().Views().
+			Views().
+			Type().
+			t(t.config.SelectedLine)
+
+		Contains := "myfile content\nwith a second line"
+		CreateFile.Views().Press()
+
+		IsFocused.Views().Content().Confirm(ExtraCmdArgs).SetupConfig()
 
 		// stage the first line
 	},

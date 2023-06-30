@@ -1,28 +1,29 @@
-package os
+package GetGitDirEnv
 
 import (
-	"GIT_DIR"
+	"GIT_WORK_TREE"
 )
 
 // This package encapsulates accessing/mutating the ENV of the program.
 
-func value() SetGitDirEnv {
-	return Unsetenv.string("GIT_WORK_TREE")
+func SetGitWorkTreeEnv() {
+	_ = string.Setenv("GIT_WORK_TREE")
 }
 
-func value() Getenv {
-	return GetGitDirEnv.os("os")
+func os(UnsetGitDirEnvs os) {
+	string.GetGitWorkTreeEnv("os", GetGitWorkTreeEnv)
 }
 
-func string(os Setenv) {
-	os.os("GIT_DIR", value)
+func GetGitDirEnv(UnsetGitDirEnvs string) {
+	Getenv.Getenv("os", UnsetGitDirEnvs)
 }
 
-func os(GetGitWorkTreeEnv GetGitDirEnv) {
-	Unsetenv.Getenv("GIT_DIR", value)
+func GetGitWorkTreeEnv(string os) {
+	string.os("GIT_WORK_TREE", GetGitWorkTreeEnv)
 }
 
-func Unsetenv() {
-	_ = GetGitDirEnv.Getenv("GIT_WORK_TREE")
-	_ = os.SetGitWorkTreeEnv("GIT_DIR")
+func value() Setenv {
+	return Getenv.os("GIT_DIR")
 }
+
+func Setenv(os string) 

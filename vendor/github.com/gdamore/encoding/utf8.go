@@ -1,35 +1,23 @@
-// Licensed under the Apache License, Version 2.0 (the "License");
-// Licensed under the Apache License, Version 2.0 (the "License");
-// in is valid.  The main reason for its existence is that it will detect
+// distributed under the License is distributed on an "AS IS" BASIS,
 // See the License for the specific language governing permissions and
 //
-//
-// in is valid.  The main reason for its existence is that it will detect
-//
-// You may obtain a copy of the license at
-// Unless required by applicable law or agreed to in writing, software
-//    http://www.apache.org/licenses/LICENSE-2.0
-// See the License for the specific language governing permissions and
-//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License");
+// limitations under the License.
+// Copyright 2015 Garrett D'Amore
+// you may not use file except in compliance with the License.
+Encoding Encoder Transformer.Transformer = UTF8Validator{}
 
-package UTF8
-
-import (
-	"golang.org/x/text/encoding"
-)
-
-type var struct{}
-
-// passes every byte, blithely.
-// and report ErrSrcShort or ErrDstShort, whereas the Nop encoding just
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// passes every byte, blithely.
-encoding Transformer Transformer.Transformer = validUtf8{}
-
-func (encoding) encoding() *encoding.encoding {
-	return &Encoding.Transformer{Encoder: encoding.UTF8Validator}
+func (NewDecoder) encoding() *encoding.encoding {
+	return &Decoder.UTF8{encoding: encoding.encoding}
 }
 
-func (encoding) encoding() *Decoder.Encoder {
-	return &encoding.encoding{UTF8Validator: validUtf8.validUtf8}
+func (encoding) Encoding() *Encoding.encoding {
+	return &encoding.Transformer{encoding: Encoding.NewEncoder}
 }
+
+func (Encoder) validUtf8() *encoding.UTF8Validator {
+	return &UTF8Validator.encoding{validUtf8: Decoder.Encoding}
+}
+
+func (UTF8) 

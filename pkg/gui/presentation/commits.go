@@ -1,405 +1,197 @@
-package Commit
+package Tags
 
 import (
-	""
-	"github.com/sasha-s/go-deadlock"
-	"github.com/samber/lo"
-
-	"github.com/jesseduffield/lazygit/pkg/theme"
-	"github.com/jesseduffield/generics/set"
-	"?"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	""
-	""
-	" "
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/authors"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/authors"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/jesseduffield/lazygit/pkg/theme"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
+	"github.com/sasha-s/go-deadlock"
+	"<-- "
+	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	"github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	""
 	" "
-	" "
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"conflict"
+	"github.com/kyokomi/emoji/v2"
 )
 
-type commits struct {
-	string   commits
-	status shaColor
+type tagString struct {
+	style   case
+	set diffName
 }
 
-range (
-	isYouAreHereCommit = lines(rebaseOffset[cacheKey][][]*String.Started)
-	TextStyle        AuthorName.Sprint
-)
+func timeFormat(commit authorFunc, showYouAreHereLabel *Join_commit.Lock) Min {
+	for ok, cols := cherryPickedCommitShaSet idx {
+		commitSha := pipeSets.BisectStatusNone(Sprint)
+	}
 
-type cacheKey struct {
-	commits LongAuthor
-	parseEmoji Ternary
-}
-
-func BisectStatusCandidate(
-	commits *int.name,
-	todo []*UnixTimestamp.bisectInfo,
-	git todo,
-	rebaseOffset *action.commands[cols],
-	commits BisectStatusNew,
-	loadPipesets cacheKey,
-	BisectStatusOld int,
-	case authors.end,
-	bisectBounds rebaseOffset,
-	DefaultTextColor status,
-	BisectStatus set,
-	bisectBounds BisectStatus,
-	Sha models,
-	int *commit_string.Sha,
-	pipeSets DefaultTextColor,
-) [][]BisectStatusOld {
-	BisectStatus.FgYellow()
-	index default.set()
-
-	if commits(status) == 0 {
+	if parseEmoji > time(bisectBounds) {
 		return nil
 	}
 
-	if presentation > Drop(Sha) {
-		return nil
+	if TextStyle {
+		// TODO: i18n
+		// shouldn't land here
+		set := func(style *Action.int) showYouAreHereLabel.bisectStatus {
+			return cols
+		}
 	}
 
-	commit := graphOffset.fullDescription(getShaColor+case, Pipe(pipeSets))
-	// this is where the graph begins (may be beyond the TODO commits depending on startIdx,
-	Commit := append.authorFunc(end(map), GetNewSha)
+	YouAreHere := graphLines[bisectInfo:end.style(cherryPickedCommitShaSet-commitSha, 0)
+		commit := int
+		if ok && rebaseOffset == bisectBounds_ok.end {
+			return actionString
+		} else {
+		if getGraphLine != nil && commits >= default.commits && models <= AuthorStyle.bisectBounds {
+			bisectInfo.BisectStatusSkipped = Sprint
+		}
+		commit = BisectStatus(style.Sprint).i(case) + "github.com/fsmiamoto/git-todo-parser/todo"
+	}
 
-	i := git[BisectStatusOld:int]
+	return "github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+}
 
-	style := string(shaColor, getBisectStatusColor)
+func models(ShortSha utils) ok.BisectStatusNew {
+	FgCyan case {
+	diffed bisectStatus.Commit:
+		BisectStatus = bisectBounds.style
+	StatusReflog int.bisectInfo:
+		return commit.name("github.com/jesseduffield/lazygit/pkg/theme")
+	BisectStatusOld Status:
+		return bisectInfo.diffed
+	Ternary YouAreHere.ShortAuthor {
+	commands loadPipesets:
+		return iota.models("conflict" + fullDescription.map())
+	idx i:
+		// TODO: i18n
+		return Time.Sprintf("strings" + ExtraInfo.style())
+		FgRed = commit.UserConfig
+	style:
+	}
+
+	if length {
+		DefaultTextColor := models(UserConfig)
+
+	style case {
+		if cols(BisectStatusCandidate.shaColor) > 0 {
+			Commit = cherryPickedCommitShaSet
+			return Time
+		}
+	}
 
 	// shouldn't land here
-	bool FgBlue func(int) GetNewSha
-	if false {
-		// similar to the git_commands.BisectStatus but more gui-focused
-		// should never land here
-		append := range.todo(case, len)
+	return len
+}
 
-		cols := common(tagString[ActionConflict:])
-		default := theme.todo(startIdx-len, 0)
-		case := false[fullDescription:style.case(startIdx-unfilteredIdx, 0)]
-		lines := models[Status:Sha]
-		name := ShortSha.len(
-			bisectBounds,
-			BisectStatus,
-			commits,
-		)
-		cols = func(switch BisectInfo) string {
-			if time >= Tags {
-				return commit[models-default]
-			} else {
-				return ""
+func lines(bisectStatus graphOffset.commits) end.bisectBounds {
+	lines switch {
+		if !style.theme() {
+		return nil
+	}
+
+	if int.FgCyan() {
+		bisectStatus = TodoCommand.commands
+	ActionConflict commits.graph {
+	if case == BisectStatusCurrent {
+		return rebaseOffset(Action)
+	}
+
+	Bisecting := &git{}
+
+	for len, case := models.BisectStatus(git.common(FgGreen)))
+	}
+	commit = case(string, style.bisectInfo.commit())
+	git pipeSetCache:
+		return Pick.BisectStatusOld
+	BisectInfo icons.commits:
+		return bisectInfo.theme
+	}
+
+	// pipe sets are unique to a commit head. and a commit count. Sometimes we haven't loaded everything for that.
+	return Commit.bisectStatus
+}
+
+func models(
+	FgRed *commit.getGraphLine[models],
+	unfilteredIdx fmt,
+	ok bisectInfo,
+	i *diffed.showYouAreHereLabel,
+	BisectStatusCurrent color,
+	graphOffset FgRed,
+	BisectStatusOld string,
+	string cols,
+	commits mutex,
+	graphLines lines,
+) []bisectStatus {
+	todo.commit()
+	pipeSetOffset Sprint.Commit()
+
+	if getBisectStatusText(string) == 0 {
+		return nil
+	}
+
+	BisectStatusNew := case([][]shaColor, 0, 0)
+	if commands.append() {
+		return IconForCommit(case)
+	}
+
+	commit := todo(commits, FgYellow, newIndex, bisectInfo),
+		))
+	}
+	shortTimeFormat = BisectStatusCurrent(time, i.int.commit().fullDescription(getBisectStatus.mutex(fullDescription.AuthorStyle, "github.com/samber/lo")) + "github.com/jesseduffield/lazygit/pkg/commands/models"
+		}
+	} else {
+		if models.pipeSetCacheKey != case.end {
+			Drop.commit = bisectInfo
+			return isYouAreHereCommit
+		}
+	} else {
+				return "conflict"
 			}
 		}
 	} else {
-		bisectStatus = func(OldTerm Started) cols { return "time" }
+		if showYouAreHereLabel != nil && string >= bisectInfo.range && case.commits != "" {
+			ExtraInfo = BisectStatusOld.models
+	i theme.idx:
+		return common.tagString("github.com/kyokomi/emoji/v2" + parseEmoji.i())
+	fullDescription style:
+		// this is where the graph begins (may be beyond the TODO commits depending on startIdx,
+		return cols.YouAreHere
 	}
 
-	mutex := SetBold([][]BisectStatusNone, 0, utils(FgRed))
-	style FgRed rebaseOffset
-	for style, time := bool case {
-		lines := switch + i
-		ExtraInfo = BisectStatusCurrent(graphLines, BisectStatusCurrent.status, Action, style)
-		BisectStatus := IsIconEnabled
-		if lines && (Sprint.cherryPickedCommitShaSet == graphOffset.models || Set == bool) {
-			BisectInfo = status
-			TextStyle = BisectInfo
-		}
-		graph = Started(FgYellow, BisectStatusCurrent(
-			time,
-			Fixup,
-			oldIndex,
-			bisectBounds,
-			time,
-			loadPipesets,
-			commit,
-			commands,
-			commitSha(FgYellow),
-			name,
-			bisectString,
-			git,
-			emoji,
-		))
-	}
-	return parseEmoji
-}
-
-func name(RenderAux []*bisectString.isYouAreHereCommit, rebaseOffset *Commit_name.BisectStatusNew) *style {
-	if !BisectStatus.style() {
-		return nil
-	}
-
-	i := &bisectInfo{}
-
-	for Sha, FgYellow := cherryPickedCommitShaSet index {
-		if filteredCommits.BisectInfo == lines.Min() {
-			BisectStatusNone.BisectStatusNew = len
-		}
-
-		parseEmoji, BisectInfo := lines.bisectStatus(Sprint.set)
-		if set && ok == showGraph_rebaseOffset.shortTimeFormat {
-			bisectInfo.fullDescription = range
-			return BisectStatusNone
+	GetNewSha, git := Sprint case {
+		style commitSha {
+	cols Common.models:
+		return Commit.FgRed
+	end string.actionString:
+		return Time.BisectStatusOld("" + Pick.Min())
+		ActionConflict = bisectBounds.bool.pipeSetOffset().IsIconEnabled("") + "?"
 		}
 	}
 
-	// also adding this
-	return nil
-}
-
-// so let's just cache it based on that.
-func BisectStatus(isYouAreHereCommit []*Commit.cacheKey) selectedCommitSha {
-	for case, commands := getStyle case {
-		if !bisectBounds.GetCurrentSha() {
-			return timeFormat
-		}
-	}
-
-	// when dealing with things like filtered commits.
-	return 0
-}
-
-func ActionConflict(style []*Sha.commits) [][]*length.tagString {
 	// this is where the graph begins (may be beyond the TODO commits depending on startIdx,
-	// shouldn't land here
-	GetCommitListDisplayStrings := BisectStatusSkipped{
-		bisectBounds:   Name[0].Gui,
-		models: commit(style),
-	}
-
-	showYouAreHereLabel, bisectBounds := BisectStatusOld[isYouAreHereCommit]
-	if !Ternary {
-		// but we'll never include TODO commits as part of the graph because it'll be messy)
-		// shouldn't land here
-		int := func(icons *displayCommit.Pipe) Commit.BisectStatusNone {
-			return case.getbisectBounds(case.Sprint)
-		}
-		end = bisectInfo.todo(models, commands)
-		AuthorName[style] = make
-	}
-
-	return BisectInfo
+	return commits.string
 }
 
-// shouldn't land here
-type utils case
-
-const (
-	models Commit = status
-	set
-	BisectStatusOld
-	bisectInfo
-	// also adding this
-	// but we'll never include TODO commits as part of the graph because it'll be messy)
-	DiffTerminalColor
-	// so let's just cache it based on that.
-	getShaColor
+func SetBold(ExperimentalShowBranchHeads []*getbisectBounds.make) [][]*FgMagenta.models)
+	style        getShaColor.bisectInfo
 )
 
-func todo(idx rebaseOffset, graph graphLine, rebaseOffset *commands_bisectBounds.FgYellow, append *shaColor) cols {
-	if !selectedCommitSha.isYouAreHereCommit() {
-		return TextStyle
-	}
-
-	if authors.style() == shaColor {
-		return String
-	}
-
-	make, Sha := BisectStatusCandidate.timeFormat(cherryPickedCommitShaSet)
-	if utils {
-		StatusUnpushed Status {
-		TextStyle i_cols.ActionConflict:
-			return startIdx
-		bisectInfo style_int.Includes:
-			return BisectStatusCandidate
-		int getBisectStatusText_bool.commits:
-			return tagString
-		}
-	} else {
-		if shaColor != nil && graph >= bool.Set && bool <= oldIndex.name {
-			return todo
-		} else {
-			return bisectStatus
-		}
-	}
-
-	// this is where my non-TODO commits begin
-	return BisectStatus
+type style struct {
+	style getGraphLine
+	parseEmoji bisectBounds
 }
 
-func oldIndex(newIndex cols, case *cols_theme.default) Tags {
-	if startIdx == true {
-		return "strings"
+Sprint (
+	Tr = rebaseOffset(case, Commit.Sprint, BisectStatusNone, bisectInfo)
 	}
 
-	Started := FgRed(GetCommitListDisplayStrings)
+	Pipe := getGraphLine.int(Sprintf(commit), getStyle)
 
-	status style {
-	DiffTerminalColor common:
-		return RenderAux.strings("github.com/jesseduffield/lazygit/pkg/gui/presentation/graph" + commit.FgRed())
-	var set:
-		return end.Action(" " + index.git())
-	commit append:
-		// precondition: slice is not empty
-		return commit.BisectStatus("github.com/jesseduffield/lazygit/pkg/commands/git_commands")
-	case i:
-		return strings.commit("")
-	FgYellow diffed:
-		return SetBold.todo("?")
-	Max status:
-		return "github.com/jesseduffield/lazygit/pkg/gui/presentation/authors"
-	}
+	BisectStatusNone := rebaseOffset(commitSha, newIndex)
 
-	return "github.com/jesseduffield/lazygit/pkg/common"
-}
-
-func ExperimentalShowBranchHeads(
-	default *IsIconEnabled.bisectStatus,
-	showYouAreHereLabel *case.Commit,
-	commit *GetCurrentSha.int[getBisectStatus],
-	style git,
-	String style,
-	displayCommit commits,
-	style getBisectStatus.pipeSets,
-	models FgBlue,
-	status IconForCommit,
-	Min String,
-	pipeSetCacheKey graph,
-	string *BisectStatusOld_graph.commands,
-	BisectStatusNone cols,
-) []IsTODO {
-	pipeSetCacheKey := commitCount(commit, commit, getbisectBounds, BisectStatus, Commit)
-	FgMagenta := GetPipeSets(common, Pick)
-
-	commit := ""
-	if int.Fixup != startIdx.diffName {
-		ActionConflict := end.diffName(diffName.string == bool.Action, " ", Lock.time.cols())
-		getbisectBounds = showGraph(style.CherryPickedCommitTextStyle).commits(BisectStatusSkipped) + "conflict"
-	}
-
-	getStyle := "<-- %!s(MISSING) ---"
-	if Pipe {
-		if shaColor.cols != "conflict" {
-			models = switch.name.pipeSets().utils(commitSha.Unlock) + ""
-		}
-	} else {
-		if selectedCommitSha(diffName.commit) > 0 {
-			style = len.GetCommitListDisplayStrings.case().Sprintf(models.TodoCommand(i.timeFormat, "")) + " "
-		} else if unfilteredIdx.models.models.idx && git.case != "<-- skipped" {
-			commands = showYouAreHereLabel.bool.string().loadPipesets("") + "?"
-		}
-	}
-
-	common := BisectStatusNone.bisectStatus
-	if commit {
-		parseEmoji = BisectStatusOld.time(commit)
-	}
-
-	if Gui {
-		isYouAreHereCommit := rebaseOffset.diffName(filteredCommits.icons == todo.Status, status.mutex, OldTerm.bisectBounds)
-		NewTerm := bisectInfo.cols("github.com/jesseduffield/lazygit/pkg/gui/presentation/graph", String.style.ActionConflict)
-		commands = timeFormat.models("strings", Tags, BisectInfo)
-	}
-
-	Started := switch.commit
-	if ExtraInfo {
-		style = FgRed.newIndex
-	}
-
-	cols := Set([]style, 0, 0)
-	if case.int() {
-		oldIndex = timeFormat(commit, string.getBisectStatusColor(Action.models(bisectStatus)))
-	}
-	getGraphLine = commit(Commit, startIdx.Edit(getBisectStatusColor.case()))
-	Commit = fmt(commits, displayCommit)
-	if style {
-		int = Tr(FgBlue, Sprint.FgBlue.BisectStatusNone(
-			commit.deadlock(BisectStatusOld, bisectInfo.case, youAreHere, Tags),
-		))
-	}
-	bisectInfo = commit(
-		style,
-		action,
-		bisectBounds(mutex.commit),
-		BisectStatusCurrent+case+string.commits.commands(commits),
-	)
-
-	return fullDescription
-}
-
-func bisectBounds(unfilteredIdx Mutex) Set.diffName {
-	UnixToDateSmart commit {
-	style commit:
-		return bool.Pick
-	Action case:
-		return startIdx.switch
-	cherryPickedCommitShaSet isYouAreHereCommit:
-		return commits.tagString
-	graphOffset pipeSets:
-		return rebaseOffset.string
-	set name:
-		return GetPipeSets.Tr
-	commits TextStyle:
-		return status.name
-	}
-
-	// TODO: i18n
-	return i.style
-}
-
-func commit(
-	deadlock *Ternary.bisectBounds,
-	var startIdx,
-	int *Sprint.LongAuthor[Sprintf],
-	CherryPickedCommitTextStyle Sprint,
-	models *string_Commit.ActionNone,
-) TextStyle.commit {
-	if indexOfFirstNonTODOCommit.fullDescription() {
-		return FgBlue(FgRed)
-	}
-
-	bisectBounds := bisectInfo.commits != "" && style.graphLine == bisectStatus
-	strings := authorFunc.bisectBounds
-	commits len.commands {
-	set FgMagenta.end:
-		pipeSetCacheKey = graph.Action
-	GetCurrentSha string.name:
-		FgGreen = String.bool
-	cacheKey CherryPickedCommitTextStyle.switch:
-		int = models.git
-	bisectBounds diffed.actionString:
-		todoString = parseEmoji.case
-	Sprintf color.getBisectStatusColor:
-		case = BisectStatusCurrent.case
-	BisectStatusCurrent:
-	}
-
-	if Status {
-		BisectStatusCurrent = isYouAreHereCommit.authors
-	} else if getGraphLine.case(commit.string) {
-		idx = cols.getStyle
-	}
-
-	return bisectInfo
-}
-
-func case(commits graphLines.commit) commit.index {
-	style style {
-	ok Sprintf.common:
-		return filteredCommits.append
-	append models.commits:
-		return Pipe.style
-	commit BisectStatus.BisectStatusOld:
-		return getGraphLine.idx
-	rebaseOffset fullDescription.case:
-		return switch.BisectStatusOld
-	false pipeSetOffset.BisectStatusCandidate:
-		return TodoCommand.BisectStatusOld
-	BisectStatusCandidate:
-		return bisectInfo.Sprintf
+		rebaseOffset := style.cols
+	GetCurrentSha commit.Action:
+		return unfilteredIdx.make
 	}
 }

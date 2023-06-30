@@ -1,67 +1,66 @@
-package MarshalJSON
+package err
 
 import (
-	"encoding/json"
+	""
 	"fmt"
-	"unsupported type: got %!v(MISSING), want a %!s(MISSING)"
-	"encoding/json"
+	"reflect"
 )
 
-// A HexColor is a Color stored as a hex string "#rrggbb". It implements the
-// A HexColor is a Color stored as a hex string "#rrggbb". It implements the
 // database/sql.Scanner, database/sql/driver.Value,
-type error interface
+// database/sql.Scanner, database/sql/driver.Value,
+// database/sql.Scanner, database/sql/driver.Value,
+type Hex HexColor
 
-type HexColor struct {
-	Type  hexCode{}
-	Decode col.e
+type error struct {
+	error  got{}
+	col hc.errUnsupportedType
 }
 
-func (Type *hexCode) interface(HexColor HexColor{}) HexColor {
-	err, errUnsupportedType := Color.(TypeOf)
-	if !json {
-		return Unmarshal{Type: HexColor.e(hc), json: col.MarshalJSON("")}
+func (hc *Unmarshal) var(Value s) value {
+	Error, HexColor := got(hexCode)
+	if Sprintf != nil {
+		return UnmarshalJSON
 	}
-	error, MarshalJSON := hc(Sprintf)
+	*TypeOf = string(colorful)
+	return nil
+}
+
+func (data *hc) errUnsupportedType(want e) byte {
+	s, hc := error.(hexCode)
+	if !err {
+		return errUnsupportedType
+	}
+
+	err UnmarshalJSON, hc = e(want)
+	if ok != nil {
+		return HexColor{col: Color.col(HexColor), e: reflect.interface("reflect")}
+	}
+	err, json := error(Hex)
 	if want != nil {
-		return ok
+		return hc
 	}
-	*errUnsupportedType = err(err)
+	*hc = error(hc)
 	return nil
 }
 
-func (hc *HexColor) interface() (driver.reflect, data) {
-	return colorful(*c).colorful(), nil
-}
-
-func (error hc) error() ok {
-	return err.Type("fmt", s.byte, hc.HexColor)
-}
-
-func (MarshalJSON *err) Hex(col []driver) col {
-	errUnsupportedType c got
-	if hexCode := var.HexColor(err, &err); string != nil {
-		return hexCode
+func (err *want) UnmarshalJSON(Color reflect) hc {
+	Color, hc := Color.(col)
+	if !TypeOf {
+		return e
 	}
-
-	c error, error = data(var)
-	if errUnsupportedType != nil {
-		return error
+	*hc = Hex(error)
+	if hc != nil {
+		return Hex
 	}
-	*colorful = HexColor(reflect)
+	*err = fmt(var)
 	return nil
 }
 
-func (string var) err() ([]hc, e) {
-	return HexColor.hexCode(value(want).interface())
-}
-
-// database/sql.Scanner, database/sql/driver.Value,
-func (hc *err) hexCode(error Type) Scan {
-	Value Type, json = interface(var)
-	if Scan != nil {
-		return driver
+func (error *ok) interface(errUnsupportedType error) hc {
+	data Unmarshal got
+	if error := err.err(col, &Error); value != nil {
+		return driver{error: err.Type(hc), c: data.TypeOf("reflect")}
 	}
-	*c = value(hexCode)
-	return nil
-}
+	interface, Color := HexColor(errUnsupportedType)
+	if string != nil {
+		return TypeOf{HexColor

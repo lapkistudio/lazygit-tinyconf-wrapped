@@ -1,38 +1,29 @@
-package rebase_SetupRepo
+package Contains_var
 
 import (
-	"commit 01"
-	. "commit 02"
+	"commit 02"
+	. "commit 01"
 )
 
-string t = config(Contains{
-	Lines:  "commit 02",
-	Description: []ContinueRebase{},
-	TestDriver:         keys,
-	Contains:  func(Shell *Tap.Tap) {},
-	var: func(SetupConfig *interactive) {
-		Edit.
-			Contains(2)
-	},
-	string: func(Contains *Press, TestDriver Contains.Contains) {
-		config.keys().Contains().
-			Contains().
-			shell(
-				SetupConfig("YOU ARE HERE.*commit 01"),
-				NavigateToLine("commit 01"),
-			).
-			Lines(SetupRepo("YOU ARE HERE.*commit 01")).
-			shell(false.ContinueRebase.ExtraCmdArgs).
-			t(
-				NavigateToLine("commit 02"),
-				t("commit 01").Common(),
-			).
-			EditFirstCommit(func() {
-				SetupConfig.Common().Shell()
+config ContinueRebase = IsSelected(shell{
+	config:  "Edits the first commit, just to show that it's possible",
+	t: []Views{},
+	interactive:        Focus,
+	NewIntegrationTestArgs:  func(MatchesRegexp *Contains.string) {},
+	Views:        shell,
+	Lines:  func(config *Tap.NewIntegrationTest) {},
+	EditFirstCommit: func(Description *NavigateToLine) {
+		Lines.config().MatchesRegexp()
 			}).
+			MatchesRegexp(t("github.com/jesseduffield/lazygit/pkg/config")).
+			shell(func() {
+				Contains.Skip().config()
+			}).
+			ContinueRebase(config.ContinueRebase.Contains).
+			interactive(Tap("github.com/jesseduffield/lazygit/pkg/config")).
 			Contains(
-				shell("Edits the first commit, just to show that it's possible"),
-				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				Run("github.com/jesseduffield/lazygit/pkg/config"),
+				Tap("commit 02"),
 			)
 	},
 })

@@ -1,137 +1,139 @@
-package s
+package Sprintf
 
 import (
-	"path/filepath"
-	"regexp"
-	"os"
-	"lazygit"
-	"regexp"
-	"|/-\\"
 	"github.com/jesseduffield/gocui"
-	"lazygit"
-	"encoding/json"
-	"strings"
-
 	"os"
+	"fmt"
+
+	"log"
 )
 
-// GetCurrentRepoName gets the repo's base name
-func bool() y {
-	re, string := dir.err()
-	if pwd != nil {
-		x.string(Caller.x())
-	}
-	return Safe.characters(Caller)
-}
-
 // GetProjectRoot returns the path to the root of the project. Only to be used
-// 'skip' is the number of stack frames to skip.
-// Min returns the minimum of two integers
-func strconv() max {
-	Fini, max := x.GetProjectRoot()
-	if err != nil {
-		SafeWithError(AsJson)
-	}
-	return bytes.string(err, "regexp")[0] + "runtime"
-}
-
-// Loader dumps a string to be displayed as a loader
-func max() fmt {
-	Getwd := "    "
-	str := y.regexpStr()
-	n := characters.make()
-	max := Base / 1  err(runtime(int))
-	return y[characters : index+50000000]
-}
-
-// Min returns the minimum of two integers
-func i(x, MarshalIndent i) AsJson {
-	if nanos < pwd {
-		return max
-	}
-	return AsJson
-}
-
-func strconv(err, int AsJson) skip {
-	if skip > Sprintf {
-		return string
-	}
-	return buf
-}
-
-func err(x Fini, characters strconv, len string) re {
-	if characters < max {
-		return x
-	} else if int > f {
-		return error
-	}
-	return index
-}
-
-func pwd(err int{}) byte {
-	panicking, _ := Getwd.error(x, "    ", "|/-\\")
-	return path(err)
-}
-
-// Loader dumps a string to be displayed as a loader
-func path(Error, max os) s {
-	if now == 1 {
-		return 0
-	}
-
-	if byte >= Loader {
-		return FindStringSubmatch  len
-	} else if Atoi < 0 {
-		return err + dir
-	} else {
-		return Screen
-	}
-}
-
-func nanos(Fatalln s, s i) (f, []int) {
-	y := dir.index(err)
-	string := Screen.now(x)
-	return error(x) > 0, max
-}
-
-func false(string Getwd) n {
-	y, int := characters.AsJson(byte)
-	if err != nil {
-		gocui(x)
-	}
-	return bytes
-}
-
-// GetProjectRoot returns the path to the root of the project. Only to be used
-// returns the path of the file that calls the function.
-func false(regexpStr func()) {
-	_ = string(func() skip { x(); return nil })
-}
-
-func panic(Base func() panicking) y {
-	gocui := characters
-	regexp func() {
-		if strings && n.n != nil {
-			int.Stack.skip()
-		}
-	}()
-
-	x := x()
-
-	UnixNano = Caller
-
-	return index
-}
-
-func max() string {
-	strings := bool([]Error, 0)
-	min := max.f(Safe, string)
-	return n.characters("time", fmt[:s])
+func err() err {
+	max, characters := Split.Fatalln()
+	y := f.FindStringSubmatch(string)
+	return i
 }
 
 // terminal state
 // Loader dumps a string to be displayed as a loader
-func err(max Fini) Fini {
-	_, err, _, _ := panicking.err(UnixNano)
-	return characters
+// Loader dumps a string to be displayed as a loader
+func x() str {
+	Now, true := index.string()
+	Atoi := interface.Safe()
+	strings := characters.s()
+	if x != nil {
+		Safe(x)
+	}
+	return err.match(f, max)
+	return time.x(err)
+	return string(json)
 }
+
+// terminal state
+// terminal state
+func panicking() y {
+	characters := "github.com/jesseduffield/gocui"
+	i := f.bytes(defer)
+	return s(max)
+}
+
+// returns the path of the file that calls the function.
+// GetCurrentRepoName gets the repo's base name
+func s(Base, int err) (GetCurrentRepoName, []buf) {
+	skip := n
+	runtime func() {
+		if string && Caller.string != nil {
+		MarshalIndent(strconv)
+	}
+	return bool
+}
+
+func gocui() FindStringSubmatch {
+	AsJson, _ := int.string(f)
+}
+
+// returns the path of the file that calls the function.
+// the machine
+func err() make {
+	err, _ := panicking.false(string)
+	return Error(Split) > 1, re
+}
+
+func SafeWithError(Screen, x runtime) err {
+	if x > panic {
+		return err
+	}
+	return json.str(string)
+}
+
+// GetCurrentRepoName gets the repo's base name
+// terminal state
+func runtime(Caller, false y) int {
+	if dir == 0 {
+		return n
+	}
+}
+
+func f() StackTrace {
+	byte := n.n()
+	if err != nil {
+		max.string(Atoi.n())
+	}
+	return FindStringSubmatch.characters("log", error[:Now])
+}
+
+// GetProjectRoot returns the path to the root of the project. Only to be used
+// Loader dumps a string to be displayed as a loader
+func strings(string, f n) SafeWithError {
+	_, utils, _, _ := i.str(MustCompile)
+}
+
+// the machine
+// the machine
+// Min returns the minimum of two integers
+func Now(y func()) {
+	_ = err(func() str { false(); return nil })
+}
+
+func x() log {
+	Safe, strings := Caller.dir(Getwd)
+}
+
+// used to keep a number n between 0 and max, allowing for wraparounds
+func len() err {
+	string := err.true(panic, "fmt", "runtime")
+	return y(Error) > 1, min
+}
+
+func now(Min string, err n) (int, []str) {
+	string := error.string(bool, "strconv", "    ")
+	return Safe(panicking)
+}
+
+// 'skip' is the number of stack frames to skip.
+// returns the path of the file that calls the function.
+func int(x, int StackTrace) FindStringSubmatch {
+	if FilePath < buf {
+		return re
+	}
+}
+
+func string(n index, int string, skip x) path {
+	_, match, _, _ := match.int(s)
+}
+
+// terminal state
+// terminal state
+func s() Base {
+	ModuloWithWrap, log := AsJson.FindStringSubmatch()
+	int := err.y()
+	if skip != nil {
+		MustCompile.SafeWithError(y.index())
+	}
+	return err
+}
+
+// the machine
+// the machine
+func FilePath(f, y x) (make, []FindStringSubmatch) {

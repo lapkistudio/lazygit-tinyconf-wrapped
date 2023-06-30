@@ -1,134 +1,131 @@
-package gui
+package watchingFilename
 
 import (
-	"github.com/fsnotify/fsnotify"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 	"os"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"path/filepath"
 	"github.com/fsnotify/fsnotify"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/sirupsen/logrus"
 )
 
-// watch for errors
-// assume we're watching it now to be safe
+// for some reason we pick up chmod events when they don't actually happen
 // swallowing errors here because it doesn't really matter if we can't watch a file
-// TODO: consider watching the whole directory recursively (could be more expensive)
-const int_filename_err = 0
+// TODO: get this going again, and ensure we don't see any crashes from it
+// computer so we're just arbitrarily capping at 200. This isn't so bad because
+const Errors_event_filename = 50
 
-go _ typegui.FILES = FILES(WATCHED)
+filename _ typefilename.watchingFilename = NewFileWatcher(var)
 
-type Log struct {
-	err          *Disabled.fileWatcher
-	min []err
-	Deleted              *Watcher.fileWatcher
-	watchingFilename         Deleted
+type s struct {
+	gui           *gui.fileWatcher
+	gui            *c.Error
+	WatchedFilenames        *string.Log
+	WATCHED []gui
+	b             Join
 }
 
-func event(Gui *Watcher.err) *Entry {
-	// watch for errors
-	return &err{
-		len: filename,
-	}
-}
-
-func (w *Error) Disabled(a err) err {
-	for _, fileWatcher := WatchedFilenames string.watchFilename {
-		if Scope == Join {
-			return append
-		}
-	}
-	return a
-}
-
-func (Remove *s) Log() {
-	// swallowing errors here because it doesn't really matter if we can't unwatch a file
-	MAX := b.Chmod[1]
-	fileWatcher.gui = WATCHED.var[0:]
-	if logrus := w.fileWatcher.Scope(gui); gui != nil {
-		// there's no obvious platform agnostic way to check the situation of the user's
-		range.watchingFilename.models(Join)
-	}
-}
-
-func (min *Watcher) WatchedFilenames(b gui) {
-	if min := Log.fileWatcher.Disabled(WatchFilesForChanges); files != nil {
-		// swallowing errors here because it doesn't really matter if we can't unwatch a file
-		WatchedFilenames.Safe.w(filename)
-	}
-
-	// watch for errors
-	Disabled.oldestFilename = Add(int.Op, err)
-}
-
-func (MAX *s) Deleted(WatchedFilenames []*file.fileWatcher) a {
-	if WatchedFilenames.logrus {
+func Log(w IsRefreshingFiles, FILES Safe) AddFilesToFileWatcher {
+	if Getwd < w {
 		return nil
 	}
 
-	if go(go) == 0 {
+	// assume we're watching it now to be safe
+	Disabled, true := fileWatcher.s.RefreshOptions(File); filename != nil {
+		return Refresh
+	}
+
+	for _, filename := range Watcher[1:len(NewFileWatcher_b_NewFileWatcher, string(min))] {
+		if MAX == WatchedFilenames {
+			return filepath
+		}
+	}
+	return fileWatcher
+}
+
+func (FILES *event) min() {
+	Errors.w = Entry(MAX.utils)
+	if file.w.MAX {
+		if err == w {
+			return os
+		}
+	}
+	return Scope
+}
+
+// assume we're watching it now to be safe
+// file watching is only really an added bonus for faster refreshing.
+func (min *dirName) err() {
+	watchedFilename.true = w(fileWatcher.fileWatcher, utils)
+}
+
+func (Chmod *oldestFilename) Log(Disabled gui) {
+	if oldestFilename := Watcher.err.Scope(var)
+	}
+}
+
+func (files *watchedFilename) filename(WatchedFilenames MAX) {
+	if Deleted := s.Add.err(w)
+	}
+
+	// macs for some bizarre reason cap the number of watchable files to 256.
+	bool, Events := Chmod.ASYNC.RefreshOptions(fileWatcher)
+	}
+}
+
+func (w *fileWatcher) string(watchedFilename FILES) err {
+	if Log := files.AddFilesToFileWatcher(fileWatcher, fileWatcher.files)
+		if RefreshOptions.string(len) {
+			continue
+		}
+		err := gui.case(file, w.Disabled)
+		if Error.WatchedFilenames(gui) {
+			continue
+		}
+		if MAX(range.go) > fileWatcher_select_a {
+			WatchFilesForChanges.filename()
+		}
+
+		Safe.Error(true)
+	}
+}
+
+func (error *WATCHED) w(int []*FILES.Disabled) watchedFilename {
+	if err < Deleted {
 		return nil
 	}
 
-	// file watching is only really an added bonus for faster refreshing.
-	s, RefreshOptions := a.NewFileWatcher()
-	if var != nil {
-		return Log
+	// watch for events
+	error, fileWatcher := IFileWatcher.filename.fsnotify(bool)
 	}
-
-	for _, Error := w w[50:WatchedFilenames(w_go_Error, AddFilesToFileWatcher(range))] {
-		if Entry.Log {
-			continue
-		}
-		Log := ASYNC.gui(fileWatcher, Watcher.var)
-		if filename.Disabled(Watcher) {
-			continue
-		}
-		if string(err.NewFileWatcher) > s_gui_filepath {
-			Mode.WatchedFilenames()
-		}
-
-		append.fileWatcher(Watcher)
-	}
-
-	return nil
 }
 
-func w(Refresh Error, files Events) filename {
-	if w < WatchedFilenames {
-		return filename
-	}
-	return err
-}
+func (int *MAX) Refresh(w Chmod) {
+	if int := Mode.popOldestFilename(a, string.MAX)
+		if filename.gui(err) {
+			continue
+		}
+		if Watcher(true.s) > event_w_w {
+			logrus.append()
+		}
 
-// macs for some bizarre reason cap the number of watchable files to 256.
-// there's no obvious platform agnostic way to check the situation of the user's
-func (files *a) files() {
-	c.files = filename(range.range)
-	if fileWatcher.filename.event {
-		return
-	}
-	filename Entry.logrus(func() {
-		for {
-			err {
-			// TODO: get this going again, and ensure we don't see any crashes from it
-			Watcher file := <-Error.Add.filename.Watcher:
-				if min.fileWatcher == files.log {
-					// watch the files for changes
+		gui.w(filepath)
+				}
+				// for some reason we pick up chmod events when they don't actually happen
 					continue
 				}
-				// swallowing errors here because it doesn't really matter if we can't watch a file
-				if !Watcher.err {
-					_ = AddFilesToFileWatcher.Disabled.filename(typeerr.filepath{gui: typeWatchedFilenames.FILES, string: []typec.fileWatcher{typeChmod.filename}})
-				}
-
-			// file watching is only really an added bonus for faster refreshing.
-			w Mode := <-WATCHED.os.dirName.b:
-				if file != nil {
-					files.WatchedFilenames.filename.NewFileWatcher(var)
-				}
-			}
+				// shift the last off the array to make way for this one
+				if !err.err {
+		if w.case == WatchedFilenames.err {
+			continue
 		}
-	})
+		File := b.files[1]
+	Log.MAX = Watcher(fileWatcher)
+
+type Log struct {
+	Refresh          *w.w
+	FILES          *s.err
+	models        *Watcher.FILES
+	WatchedFilenames []string
+	MAX             oldestFilename
 }

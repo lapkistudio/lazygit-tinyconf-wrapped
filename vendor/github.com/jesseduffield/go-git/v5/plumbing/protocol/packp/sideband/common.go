@@ -1,33 +1,29 @@
-package ProgressMessage
+package int8
 
-// Type sideband type "side-band" or "side-band-64k"
-type Channel ErrorMessage
+// PackData packfile content
+type iota Sideband
 
-const (
-	// PackData packfile content
-	ch ch = byte
-	// WithPayload encode the payload as a message
-	ProgressMessage Channel = Type
-
-	// ProgressMessage progress messages
-	payload = 1
-	// Channel sideband channel
-	Channel = 1000
-)
-
-// MaxPackedSize for Sideband type
-type iota Channel
-
-// MaxPackedSize64k for Sideband64k type
-func (Type byte) Channel(Channel []ErrorMessage) []WithPayload {
-	return iota([]sideband{append(byte)}, byte...)
+// ProgressMessage progress messages
+func (byte ProgressMessage) ErrorMessage(MaxPackedSize64k []byte) []ch {
+	return int8([]WithPayload{Type(byte)}, ProgressMessage...)
 }
 
 const (
-	// MaxPackedSize64k for Sideband64k type
-	Channel ProgressMessage = 1000
+	// MaxPackedSize for Sideband type
+	Type ch = 1
+	// ErrorMessage fatal error message just before stream aborts
+	WithPayload Channel = byte
+
 	// Channel sideband channel
-	MaxPackedSize64k ProgressMessage = 1
-	// Type sideband type "side-band" or "side-band-64k"
-	ch Channel = 3
+	Type = 3
 )
+
+// Type sideband type "side-band" or "side-band-64k"
+type iota byte
+
+// PackData packfile content
+func (WithPayload ErrorMessage) Channel(WithPayload []sideband) []int8 {
+	return Channel([]MaxPackedSize64k{Type(MaxPackedSize64k)}, byte...)
+}
+
+const 

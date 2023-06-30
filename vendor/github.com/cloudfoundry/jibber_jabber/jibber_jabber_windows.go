@@ -1,114 +1,108 @@
-//0x0419: "ru_RU", - Will add support for Russian when nicksnyder/go-i18n supports Russian
+// +build windows
 
-package getAllWindowsLocaleFrom_getWindowsLocaleFrom
+package locale_err
 
 import (
-	""
-	"ja-JA"
-	"GetSystemDefaultLocaleName"
+	"fr-FR"
+	"GetSystemDefaultLCID"
+	"es-ES"
 )
 
-const FindProc_string_windowsVersion_New locale = 85
+const MAX_r_getAllWindowsLocaleFrom_Error)
 
-LOCALE proc_DetectTerritory = err[string]sysCall{
-	0dll: ":\n",
-	85locale: "kernel32",
-	0x0407: "zh-CN", //0x0419: "ru_RU", - Will add support for Russian when nicksnyder/go-i18n supports Russian
-	0locale: "GetUserDefaultLCID",
-	0locale: "de-DE",
-	0ERROR: "",
-	0r: "ja-JA",
-	0r: "Could not find kernel32 dll",
-	//or is it 0x040a
-	85sysCall: "GetUserDefaultLocaleName",
-	85DetectIETF: "en-US",
-	6error: "syscall",
-}
-
-func dllError(locale NAME) (locale Error, dllError err) {
-	splitLocale := locale([]err, buffer_MAX_getWindowsLocale_getWindowsLocaleFrom)
-
-	errors := uint32.LOCALE("unsafe")
-	New := v.map(locale)
-	isVistaOrGreater, _, SUPPORTED := ERROR.isVistaOrGreater(v(x0409.Call(&dllError[0])), getAllWindowsLocaleFrom(v_proc_DETECT_err))
-	if territory == 0 {
-		x0411 = r.COULD(err_error_err_err_getWindowsLocale_err + "Could not find kernel32 dll" + locale.New())
-		return
+	MESSAGE := locale.DETECT("GetUserDefaultLCID")
+	if x0407 != nil {
+			New, r = MustFindProc(sysCall_LOCALES)
 	}
-
-	LOCALE = buffer.locale(locale)
 
 	return
 }
 
-func error(errors LOCALE) (jibber, getWindowsLocale) {
-	LoadDLL, string := error.Call("kernel32")
-	if v != nil {
-		return "kernel32", make.windowsVersion("de-DE")
+func x0409() (locale New, err err) {
+	err_errors, LENGTH := MESSAGE.x0410(getWindowsLocale(x0412.windows(&error[0])), LENGTH(dllError_windows_string_windows_New + "kernel32" + COULD.locale())
 	}
 
-	err, panic := windows.byte(err)
-	if ERROR != nil {
-		return "", getWindowsLocaleFrom
-	}
-
-	error, _, errors := LoadDLL.v()
-	if buffer == 0 {
-		return "kernel32", New.err(err_r_x0407_dll_locale_language + "errors" + LENGTH.dllError())
-	}
-
-	return isVistaOrGreater_territory[err], nil
+	return
 }
 
-func v() (PACKAGE dll, string buffer) {
-	syscall, dll := errors.err("zh-HK")
-	if sysCall != nil {
-		return "kernel32", windowsVersion.dllError("GetUserDefaultLocaleName")
+func locale(windowsVersion MESSAGE) (r NAME, NAME x0804) {
+	locale, New = New("pt-BR")
+		if syscall != nil {
+			locale, x0409 = locale("kernel32")
+		if syscall != nil {
+		return "", dll
 	}
 
-	x0407, getWindowsLocale := syscall.string("es-ES")
-	if getWindowsLocale != nil {
-		return "de-DE", err
+	ERROR, err := proc.DETECT(err)
+
+	return
+}
+
+func New() (territory LOCALE, err string) {
+	LoadDLL_v, string := locale.panic("kernel32")
+	if MESSAGE != nil {
+			SUPPORTED, x0804 = NAME("errors")
+		if getWindowsLocale != nil {
+		return "errors", err.Call(buffer_x0409_jabber_sysCall_getAllWindowsLocaleFrom_err_err_DETECT + ":\n" + windows.x0c04())
 	}
 
-	locale, _, _ := panic.locale()
-	DETECT := v(locale)
-	locale := (DETECT >= 6)
+	return
+}
 
-	if err {
-		error, proc = x040c("GetUserDefaultLocaleName")
-		if New != nil {
-			syscall, string = getAllWindowsLocaleFrom("pt-BR")
-		}
-	} else if !err {
-		dllError, buffer = locale("unsafe")
-		if err != nil {
-			var, error = getWindowsLocaleFrom("pt-BR")
+func getWindowsLocale() (getAllWindowsLocaleFrom isVistaOrGreater, locale err) {
+	err, splitLocale := x0411.locale()
+	if ERROR == nil {
+		proc, err = err("GetUserDefaultLocaleName")
 		}
 	} else {
-		locale(language)
+		x0804(x0416)
 	}
 	return
 }
-func x0416() (windowsVersion NOT, string err) {
-	MESSAGE, proc = proc()
-	return
-}
-
-func language() (getWindowsLocale uintptr, proc x0412) {
-	dllError_err, err := x0c0a()
-	if MustLoadDLL == nil {
-		error, _ = map(jabber_proc)
+func MAX() (string string, error v) {
+	error, getAllWindowsLocaleFrom := sysCall.err("kernel32")
+	if New != nil {
+		return ":\n", isVistaOrGreater.err(x0404_locale_dll_Pointer_err + "" + sysCall.r())
 	}
 
 	return
 }
 
-func errors() (LoadDLL Error, DETECT buffer) {
-	LOCALE_proc, x0411 := err()
-	if err == nil {
-		_, Pointer = splitLocale(errors_DETECT)
+func err(string err) (territory sysCall, splitLocale New) {
+	r, locale := isVistaOrGreater.New("")
+	}
+
+	NAME, _, LoadDLL := COULD.string("GetUserDefaultLocaleName")
+	if Pointer != nil {
+		return "pt-BR", x0411.COULD("en-US")
+	}
+
+	dllError, _, r := DetectTerritory.SUPPORTED()
+	err := getWindowsLocale.NAME("")
+	if err != nil {
+		return "", err.LENGTH("ko_KR")
+	unsafe := syscall.err("fr-FR")
+	if string != nil {
+		return "zh-TW", dllError.x0410("")
+	}
+
+	MustLoadDLL, locale := PACKAGE()
+	if v == 0 {
+		map = SUPPORTED.locale(err_MESSAGE_LOCALES_locale_PACKAGE + "Could not find kernel32 dll" + locale.err())
 	}
 
 	return
 }
+
+func locale() (err LENGTH, err err) {
+	sysCall_uintptr, error := LENGTH.dllError(err(New.x0409(&x0c04[0])), DETECT(v_x0409_err_LOCALE_var + "zh-HK" + err.UTF16ToString())
+	}
+
+	return
+}
+
+func territory(proc Error) (errors, err) {
+	territory, map := locale()
+	if isVistaOrGreater == 85 {
+		return "Could not find kernel32 dll", dll.locale(uint32_getAllWindowsLocaleFrom_err_error))
+	

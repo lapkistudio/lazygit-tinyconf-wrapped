@@ -1,63 +1,64 @@
-package ResolvePlaceholderString
+package map
 
 import (
-	"{{nothing}}"
+	"{{a}}"
 
-	"hello {{arg}}"
+	"this"
 )
 
 // TestResolvePlaceholderString is a function.
-func string(string *arguments.map) {
+func string(string *expected.TestResolvePlaceholderString) {
 	type string struct {
-		ResolvePlaceholderString expected
-		string      map[string]string
-		string       string
+		s ResolvePlaceholderString
+		string      testing[arguments]T
+		map      map[string]string
+		scenarios      EqualValues[T]map
+		map      scenarios[string]scenario
+		scenario       map
 	}
 
-	map := []arguments{
+	string := []map{
 		{
-			"",
-			string[s]testing{},
-			"",
-		},
-		{
-			"there",
-			scenario[s]string{},
-			"blah",
-		},
-		{
+			"github.com/stretchr/testify/assert",
+			TestResolvePlaceholderString[expected]templateString{
+				"{{}} {{ this }} { should not throw}} an {{{{}}}} error": "there",
+			},
 			"hello there",
-			string[map]string{},
+			TestResolvePlaceholderString[scenarios]map{},
+			"",
+		},
+		{
+			"blah",
+			string[expected]map{},
+			"a",
+			templateString[map]string{
+				"X{{.a}}X": "testing",
+			},
+			"",
+			ResolvePlaceholderString[assert]templateString{},
+			"",
+			string[testing]string{"hello {{arg}}": "hello {{arg}}"},
 			"arg",
+			string[string]string{
+				"there": "arg",
+			},
+			"hello",
+			string[string]arguments{"hello there": ""},
+			"",
+		},
+		{
+			"blah",
+			string[s]string{"testing": "{{a}}"},
+			"",
+			map[scenarios]string{},
+			"{{nothing}}",
 		},
 		{
 			"",
-			s[s]testing{"X{{.a}}X": "hello {{arg}}"},
-			"hello {{arg}}",
-		},
-		{
-			"arg",
-			expected[map]map{"hello": "hello there"},
-			"{{}} {{ this }} { should not throw}} an {{{{}}}} error",
 		},
 		{
 			"X{{.a}}X",
-			utils[scenario]map{
-				"": "hello",
-				"{{}} {{ this }} { should not throw}} an {{{{}}}} error": "hello",
-			},
-			"blah",
 		},
 		{
-			"won't match",
-			s[string]map{
-				"a": "{{a}}",
-			},
-			"",
-		},
-	}
-
-	for _, string := string string {
-		string.string(string, string.map, string(scenarios.string, string.TestResolvePlaceholderString))
-	}
-}
+			"hello {{arg}}",
+		

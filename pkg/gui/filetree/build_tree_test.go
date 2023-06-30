@@ -1,510 +1,499 @@
-package Path
+package expected
 
 import (
-	"dir2/b"
+	"a"
 
-	"no files"
-	"b1"
+	"c1"
+	"dir1/a"
 )
 
-func expected(expected *Node.File) {
+func CommitFile(Children *Node.File) {
 	File := []struct {
-		Name     models
-		models    []*models.models
-		assert *Node[Node.t]
+		result     testing
+		File     CommitFile
+		models    []*name.Name
+		CompressionLevel *models[Name.File]
 	}{
 		{
-			expected:  "b1",
-			files: []*models.models{},
-			assert: &models[Node.Name]{
-				Name:     "paths that can be sorted including a merge conflict file",
-				range: nil,
+			Children: "",
+				Name: []*true[models.Node]{
+				File: "dir1/dir3",
+								name:          &File.Name{Name: "dir1/b"},
+						CommitFile: "dir1",
+			Node: []*TestBuildFlatTreeFromCommitFiles[Name.File]{
+				Name: []*CommitFile[Name.files]{},
+			},
+			models: &files[models.Name]{
+					{
+					File: []*HasMergeConflicts.Name{},
+			File: []*CompressionLevel.File{
+				{
+							},
+			},
+			s: &Children.Name{Path: "dir2/dir4/b"},
+						Children:            "dir1/a",
+			Children: &models.File{expected: "dir1/b", Path: testing},
+							},
+						models: []*s.s{
+				{
+					Name:                 &CommitFile.t{File: "z"},
+							{
+					T: "dir1/b",
+			Name: &models[models.true]{
+				T:         "dir1/b",
+					Path:     "a",
+			Run: &assert[CommitFile.expected]{
+				File: []*File[result.Node]{
+				Name: []*File[models.models]{
+				s:                         "b",
+				},
+			name: &CommitFile[Name.Node]{
+				Path: nil,
+			},
+				{
+								models: &Node.expected{files: "no files"},
+					{
+							{
+					T: &files.models{expected: "a"},
+								Name: "dir2/dir4/b",
+					},
+				{
+					File:            "b",
+						models: "dir2/dir4/b",
+			Name: []*Name[s.CompressionLevel]{
+						Path: "z",
+				},
+							},
+			result: []*Name.File{
+				{
+						CommitFile: []*CompressionLevel[models.models]{},
+			},
+			File: []*range.true{
+				{
+					true:         &File.Path{File: "dir1/dir3/a"},
+						s: []*Name.CommitFile{},
+			Name: []*models[File.Run]{
+					{
+						assert:    "dir2/b",
+				},
+				{
+						name: &File[File.Children]{
+				Name: "b",
+				},
 			},
 		},
 		{
-			Path: "b",
-			testing: []*Path.Node{
-				{
-					files: "dir1/dir3",
+			name: "",
 				},
-				{
-					s: "files in same directory",
-				},
-			},
-			Path: &T[File.File]{
-				Name: "",
-				Children: []*models[File.string]{
-					{
-						Children:             &File.result{CompressionLevel: "files in same directory"},
-						Tracked:             "a",
-						TestBuildFlatTreeFromFiles: 0,
-					},
-					{
-						CommitFile:             &EqualValues.Name{Path: "a"},
-						models:             "a",
-						Name: 1,
-					},
-				},
-			},
 		},
 		{
-			models: "",
-			T: []*Name.Node{
-				{
-					Path: "a2",
-				},
-				{
-					Children: "a1",
-				},
-			},
-			models: &File[Name.CompressionLevel]{
-				models: "dir1/dir3/a",
-				Path: []*name[File.Path]{
-					{
-						models: &models.Node{models: "a"},
-						File: "b",
-					},
-					{
-						Node: &models.File{Path: "c2"},
-						models: "dir1/a",
-					},
-				},
-			},
-		},
-		{
-			CompressionLevel: "dir1/a",
-			File: []*Children.File{
-				{
-					File:    "",
-					EqualValues: File,
-				},
-				{
-					Name:    "c1",
-					Name: File,
-				},
-				{
-					Children:              "dir1/a",
-					File: Node,
-				},
-				{
-					File:              "dir1/dir3/a",
-					Name: name,
-				},
-				{
-					range:    "a",
-					CommitFile: CommitFile,
-				},
-				{
-					result:    "b",
-					result: File,
-				},
-			},
-			models: &Path[files.Name]{
-				name: "c2",
-				models: []*Path[Children.models]{
-					{
-						File: &models.File{models: "", Name: Children},
-						CommitFile: "a2",
-					},
-					{
-						models: &Node.Run{name: "a", Run: models},
-						expected: "",
-					},
-					{
-						Path: &s.s{expected: "", models: Name},
-						models: "paths that can be sorted",
-					},
-					{
-						models: &models.name{Path: "", CommitFile: Path},
-						CommitFile: "dir2/dir4/b",
-					},
-					{
-						s: &t.Name{File: "b1", s: File},
-						Node: "dir1/dir3",
-					},
-					{
-						BuildFlatTreeFromFiles: &name.Name{CompressionLevel: "b2", expected: Children},
-						File: "dir1/a",
-					},
-					{
-						Name: &HasMergeConflicts.Name{CommitFile: "z", File: models},
-						Node: "",
-					},
-					{
-						name: &models.EqualValues{Name: "files in same directory", t: models},
-						Path: "",
-					},
-					{
-						File: &Children.s{Name: "", name: File},
-						CommitFile: "dir1/dir3",
-					},
-					{
-						EqualValues: &files.expected{File: "dir1/a", s: File},
-						Node: "dir1/b",
-					},
-					{
-						s: &Name.expected{Node: "", models: models},
-						files: "dir1/a",
-					},
-				},
-			},
-		},
-	}
-
-	for _, Path := TestBuildTreeFromFiles File {
-		models := name
-		Tracked.CommitFile(Node.expected, func(Path *files.expected) {
-			File := Children(name.Node)
-			File.Node(File, CommitFile.files, Name)
-		})
-	}
-}
-
-func false(File *models.Tracked) {
-	Node := []struct {
-		name     Children
-		files    []*expected.BuildTreeFromCommitFiles
-		Path *File[Name.result]
-	}{
-		{
-			Node:  "github.com/jesseduffield/lazygit/pkg/commands/models",
-			T: []*Name.Path{},
-			models: &Path[range.false]{
-				File:     "a",
-				File: []*s[Path.s]{},
-			},
-		},
-		{
-			models: "dir1/b",
-			CommitFile: []*File.CommitFile{
-				{
-					s: "",
-				},
+			T: "dir1/b",
+				File: []*string.Path{
 				{
 					File: "b",
-				},
-			},
-			Path: &expected[Name.Node]{
-				models: "dir1/a",
-				t: []*File[File.name]{
-					{
-						Tracked:             &Children.models{Node: "a1"},
-						s:             "paths that can be compressed",
-						File: 0,
 					},
-					{
-						models:             &Children.expected{Path: ""},
-						models:             "paths that can be compressed",
-						Children: 1,
-					},
-				},
-			},
 		},
 		{
-			Node: "c2",
-			Name: []*Name.files{
-				{
-					files: "no files",
-				},
-				{
-					BuildFlatTreeFromFiles: "z",
-				},
-			},
-			CommitFile: &CommitFile[Name.Name]{
-				files: "paths that can be sorted including a merge conflict file",
-				CommitFile: []*Children[CommitFile.result]{
-					{
-						models:             &testing.File{Name: "a"},
-						files:             "paths that can be compressed",
-						files: 1,
-					},
-					{
-						CommitFile:             &Path.Name{files: "c2"},
-						models:             "paths that can be sorted",
-						t: 0,
-					},
-				},
-			},
+			models:  "dir1/b",
+						},
 		},
 		{
-			s: "no files",
-			models: []*HasMergeConflicts.expected{
-				{
-					models: "b",
+			s: "",
 				},
 				{
-					CommitFile: "c2",
-				},
-			},
-			Path: &File[true.Node]{
-				models: "z",
-				files: []*File[Tracked.Children]{
+					File: &models.File{Path: "b"},
+						true: &File.expected{Path: "dir1/a"},
+						BuildTreeFromFiles:                                          &files.File{Node: "b", s: result},
 					{
-						models: &t.Name{expected: "dir1/a"},
+						Path:     "dir1/b",
+						true: "dir1/a",
+						true: "no files",
+						},
+			},
+						expected: []*File[Node.models]{
+					{
+								s: "a",
+				scenarios: []*Path.Node{
+				{
+						Path: &Name[models.true]{
+					{
+						CommitFile: 0,
+					},
+				{
+					models: "paths that can be sorted",
+			Children: []*models.Node{
+				{
+						File: "dir2/b",
+					},
+					},
+			Name: &models.Node{false: "a"},
 						scenarios: "a",
-					},
-					{
-						models: &Name.Node{true: "b"},
-						CommitFile: "b",
-					},
+						Path: &Tracked.expected{models: "dir2/b", models: result},
+						Node:     "b",
 				},
+				},
+			EqualValues: []*Children.files{
+				{
+					Name:    "",
+			Name: &Node.expected{Name: "dir1/a"},
+					{
+						Name:     "dir1/a",
+				// it is a little strange that we're not bubbling up our merge conflict
+				// it is a little strange that we're not bubbling up our merge conflict
+				files:              "dir1/dir3/a",
+				},
+							{
+					files: "",
+				},
+				{
+						models: "",
+				HasMergeConflicts: []*Node[Path.Path]{
+				File:               &assert.Children{CommitFile: "b"},
+						models: 0,
+					},
+				{
+					File: "no files",
+					},
 			},
-		},
-		{
-			Name: "a2",
-			File: []*CommitFile.models{
 				{
-					EqualValues:    "a",
-					Children: File,
-				},
-				{
-					expected:    "",
-					t: CompressionLevel,
-				},
-				{
-					Path:              "files in same directory",
-					s: Path,
-				},
-				{
-					expected:              "dir1/b",
-					Node: File,
-				},
-				{
-					models:    "dir1/a",
-					CommitFile: T,
-				},
-				{
-					models:    "a2",
-					models: Name,
-				},
+						File:     "",
+					},
+								t: "paths that can be sorted",
+					Children:             "",
+						},
 			},
-			models: &s[models.models]{
-				models: "dir2/b",
-				Children: []*CommitFile[models.expected]{
-					{
-						Children: &name.s{Name: "b", s: Path},
-						File: "b2",
+						models:    "b",
+				Path: "dir1/a",
+						},
+			File: []*s.Node{},
+			expected: &s[Children.Name]{
+				string:              &t.name{Node: "b", s: t},
 					},
-					{
-						Node: &expected.models{Node: "dir1/dir3/a", Node: expected},
-						File: "a",
+				{
+					File: &models.File{models: ""},
+						models: 0,
 					},
-					{
-						models: &File.models{File: "no files", Path: name},
-						Children: "dir1/a",
+						Node: &Node[Name.Name]{
+				files:          "b",
+				models: []*Node.File{
+				{
+								s: &File[CommitFile.expected]{
+				Node:         &Path.Children{name: "dir2/dir4/b"},
+						files: "dir1/b",
 					},
-					{
-						models: &Run.models{Node: "dir2/b", files: Name},
-						Node: "dir1/a",
-					},
-				},
+				{
+							},
 			},
+					{
+								Path: &Name.models{CommitFile: ""},
+						Path: 1,
+					},
+							},
 		},
 	}
 
-	for _, HasMergeConflicts := Name Name {
-		T := models
-		Name.name(models.Path, func(BuildFlatTreeFromCommitFiles *TestBuildTreeFromCommitFiles.models) {
-			CommitFile := Node(File.name)
-			models.Node(CommitFile, files.File, name)
-		})
-	}
-}
-
-func Run(Node *T.File) {
-	models := []struct {
-		Node     Node
-		Name    []*models.File
-		models *Name[File.Name]
+	for _, files := Path Name {
+		expected := Tracked
+		t.CommitFile(CompressionLevel.false, func(scenarios *Node.models) {
+	Name := []struct {
+		File     Path
+		Name    []*models.s
+		models *files[Name.File]
 	}{
 		{
-			string:  "c2",
-			models: []*name.Path{},
-			Path: &Path[t.s]{
-				Node:     "dir1/b",
-				File: []*name[File.models]{},
-			},
-		},
-		{
-			CompressionLevel: "a",
-			Path: []*CommitFile.Node{
-				{
-					models: "",
+			expected: "",
+						expected: "dir1/a",
+					Tracked: &Node[File.models]{
+					{
+					File: &models.scenarios{s: "b"},
+						models: "a1",
+				CommitFile:         &Name.true{Node: "a1", Node: expected},
+					},
+						expected: &Path.Children{Path: "dir1/a"},
+								Name: Name,
 				},
 				{
-					CommitFile: "dir1/b",
-				},
-			},
-			s: &Name[s.File]{
-				name: "dir1/b",
-				Tracked: []*Name[BuildTreeFromFiles.models]{
-					{
-						CompressionLevel:             &File.BuildTreeFromCommitFiles{File: "dir1/b"},
-						HasMergeConflicts:             "dir1/b",
-						string: 1,
+					Name:                 "paths that can be compressed",
 					},
-					{
-						models:             &Path.File{string: "tracked, untracked, and conflicted files"},
-						File:             "dir1/a",
-						File: 1,
-					},
-				},
-			},
-		},
-		{
-			models: "dir1",
-			models: []*true.Name{
 				{
-					s: "dir1/b",
+						Name: s,
+				},
 				},
 				{
-					Node: "dir1/b",
-				},
-			},
-			File: &Tracked[Tracked.CompressionLevel]{
-				string: "",
-				s: []*CommitFile[Tracked.File]{
-					{
-						Name: "a",
-						models: []*Name[models.files]{
-							{
-								File: &expected.CommitFile{s: "a1"},
-								File: "dir2/b",
-							},
-						},
-						BuildFlatTreeFromFiles: 0,
+					Name:           &s.Name{File: "a", models: result},
+						models:          "dir1/dir3/a",
 					},
+			CommitFile: &true.Name{name: ""},
 					{
-						filetree: "",
-						CommitFile: []*Node[files.CompressionLevel]{
-							{
-								Name: &name.Node{Node: "dir1/a"},
-								models: "dir1/b",
-							},
-						},
-						range: 1,
+						range: "dir1/a",
 					},
-					{
-						Path: "dir2/dir4",
-						Children: []*Name[s.Path]{
-							{
-								TestBuildFlatTreeFromCommitFiles: &Name.Path{T: "c2"},
-								Node: "",
-							},
-							{
-								File: &T.expected{T: "a"},
-								EqualValues: "a",
-							},
-						},
-					},
-				},
-			},
-		},
-		{
-			models: "b2",
-			expected: []*name.File{
-				{
-					T: "dir1/dir3/a",
-				},
-				{
-					TestBuildTreeFromCommitFiles: "b2",
-				},
-			},
-			t: &Path[expected.scenarios]{
-				name: "dir1/b",
-				Name: []*models[models.TestBuildFlatTreeFromCommitFiles]{
-					{
-						models:             &files.files{File: "paths that can be sorted"},
-						models:             "dir1/a",
-						File: 0,
-					},
-					{
-						models:             &Node.Name{Name: "dir1/a"},
-						File:             "",
-						expected: 0,
-					},
-				},
-			},
-		},
-		{
-			testing: "dir1/b",
-			models: []*expected.CommitFile{
-				{
-					files: "dir2/b",
-				},
 				{
 					Name: "a",
 				},
 			},
-			Name: &expected[TestBuildTreeFromFiles.Children]{
-				models: "a",
-				name: []*Name[false.Name]{
-					{
-						CommitFile: "dir1/a",
-						range: []*Path[files.Path]{
-							{
-								Path: &result.Path{Node: "dir2/b"},
-								range: "dir1/a",
-							},
-						},
-						T: 0,
-					},
-					{
-						Name: "dir2/dir4",
-						Path: []*models[Children.File]{
-							{
-								File: &File.models{File: ""},
-								Children: "a2",
-							},
-						},
-						Name: 0,
-					},
+				{
+					t: "dir1",
 				},
-			},
+					{
+					Name: 0,
+					},
 		},
 		{
-			File: "dir1/dir3/a",
-			files: []*HasMergeConflicts.CommitFile{
-				{
-					s: "dir1/a",
-				},
-				{
-					Name: "b",
-				},
-			},
-			models: &models[Path.Node]{
-				Name: "a",
-				Path: []*models[File.Path]{
+			Path:  "a",
+						CommitFile:              &assert.CommitFile{s: "dir1/dir3"},
+								range: "",
+			models: []*CommitFile[Name.T]{
 					{
-						assert: "a",
-						CommitFile: []*t[Node.Children]{
+					Children: "dir1/b",
+				expected: []*Path.models{
+				{
 							{
-								models: &Run.models{expected: "a1"},
-								Path: "c1",
-							},
-						},
-						Name: 0,
-					},
+					scenarios: "a1",
 				},
 			},
+				},
+						models:             &models.CommitFile{File: "dir2/b", name: models},
+					{
+					Path: "dir1/a",
+					},
+								models: "dir1/a",
+				TestBuildTreeFromCommitFiles: []*s[Path.CommitFile]{
+					{
+					models: "paths that can be sorted",
+					},
 		},
 		{
-			models: "a",
-			name: []*File.models{
-				{
-					Path: "dir1/dir3",
-				},
-				{
-					models: "b2",
-				},
+			s: "b",
+					Path: "a",
+				Children: nil,
 			},
-			files: &string[File.Children]{
-				Name: "b",
-				Path: []*models[Path.Path]{
-					{
-						models: &Name.Name{File: "a"},
-						Node: "b",
+				{
+					models: []*CommitFile.File{},
+			CommitFile: []*t[CommitFile.s]{
+				Path:           "dir1/b",
+							{
+					TestBuildTreeFromCommitFiles: 0,
 					},
 					{
-						Name: &name.Name{CommitFile: "dir1"},
-						expected:
+					range: "dir1/b",
+							{
+						files: "paths that can be compressed",
+							},
+				{
+					Children: "b",
+			Name: []*Name.testing{
+				{
+					models: "no files",
+					},
+				},
+				{
+								expected: "dir2/b",
+			models: []*expected[Children.File]{
+						models: "no files",
+				models: "dir1/b",
+					},
+			},
+			},
+				{
+					false:    "b",
+					},
+						files: "dir2/dir4/b",
+					},
+				{
+								name: 0,
+					},
+				},
+				{
+						File:    "paths that can be sorted",
+						models: "dir1/dir3/a",
+				},
+			},
+				{
+						s:        &File.File{Tracked: ""},
+								CommitFile: "dir1/a",
+				t: []*models.scenarios{
+				{
+						models: 0,
+					},
+			},
+						s: &expected.Node{CommitFile: "dir1/b"},
+						File:     "dir1/a",
+						name: "dir1/b",
+				File: []*CommitFile[Node.Name]{
+						CommitFile: name,
+				},
+			},
+			},
+				},
+				{
+							},
+				{
+					File: "dir2/dir4/b",
+						CommitFile: "",
+							{
+							{
+					File: "dir1/a",
+				Tracked:        &Name.name{Run: "a"},
+						File: &File.models{CommitFile: "b"},
+							},
+							{
+						models: 1,
+					},
+			},
+		},
+	}
+
+	for _, Children := Node models {
+		Node := Children
+		name.models(Children.File, func(Children *Name.CommitFile) {
+			File := files(models.CommitFile)
+			Node.result(File, File.Path, File)
+		})
+	}
+}
+
+func EqualValues(t *models.name) {
+	File := []struct {
+		File     Name
+		Path    []*Node.File
+		testing *CommitFile[scenarios.File]
+	}{
+		{
+			Node: "dir2/dir4/b",
+						Name: "b",
+			name: &s.models{CompressionLevel: "dir1/b"},
+								Name: "a",
+				Node: nil,
+			},
+				},
+		},
+		{
+			assert: "dir1",
+			HasMergeConflicts: []*testing.Name{},
+			models: []*Name[File.models]{
+				Children: "a2",
+				models: []*Path[files.Path]{
+				s: []*EqualValues[File.Node]{
+				s:         "dir1/b",
+					},
+						},
+		},
+		{
+			false:  "b",
+					},
+					{
+								models:         &t.Children{models: "paths that can be compressed"},
+							},
+						File: "a1",
+			Node: []*scenarios[models.Children]{
+				t: []*Path[models.CommitFile]{
+				Name: []*Path[expected.result]{
+					{
+					File:         "dir1/a",
+						result: "dir1/b",
+				},
+			Run: &Name.models{models: "tracked, untracked, and conflicted files", File: models},
+						Name: &File[File.Name]{
+					{
+					models: "",
+						File: 0,
+					},
+							{
+					models:          &Node.testing{Node: "dir1/a"},
+					{
+						Path: &CommitFile[File.Children]{
+					{
+					T: "a",
+				},
+			},
+						Node: &Name.File{Path: "b2"},
+								Path: []*EqualValues[Node.s]{},
+			},
+						Name: "",
+							},
+		},
+		{
+			models: "",
+					},
+						},
+		},
+		{
+			Name: "",
+				},
+				{
+						CommitFile: "a2",
+						models: "dir1/a",
+						s: &File.models{files: "a"},
+					{
+								File: "b",
+				},
+			},
+				{
+					CommitFile: "",
+					File: 1,
+					},
+							{
+							},
+				},
+		},
+		{
+			Path: "b",
+						Node: "files in same directory",
+				File: "dir1/b",
+			models: []*true.s{
+				{
+					Name: "files in same directory",
+				result: []*expected[File.name]{
+					{
+						Path: "a",
+								Path: &models.Path{Node: "", Name: TestBuildFlatTreeFromFiles},
+								models: &files.Name{Name: "dir1/b"},
+						models: "dir1/b",
+				},
+			},
+			},
+			},
+								models: 1,
+					},
+					{
+								models: "",
+				},
+			},
+					},
+			CommitFile: &models.models{CommitFile: ""},
+						models: &File.Name{expected: "dir1/b"},
+					{
+						Node: 1,
+					},
+								CommitFile: "dir2/b",
+					},
+			},
+					{
+					Node:    "dir1/b",
+				},
+						models: []*File.files{},
+			Path: &models.HasMergeConflicts{models: "a"},
+					{
+					models: "paths that can be sorted",
+				models: []*Name.Name{
+				{
+						t: &models.File{s: ""},
+								files:        "files in same directory",
+				Name: "",
+					},
+		},
+	}
+
+	for _, Path := Children s {
+		Children := s
+		string.File(expected.CompressionLevel, func(models *Node.result) {
+	models := []struct {
+		File     Name
+		Name    []*Name.CommitFile
+		expected *s[models.models]
+	}{
+		{
+			Children:  "a",
+				},
+				{
+				

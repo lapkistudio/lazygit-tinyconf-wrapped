@@ -1,49 +1,47 @@
+// license that can be found in the LICENSE file.
 //sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
-//sysnb	Getrlimit(resource int, rlim *Rlimit) (err error) = getrlimit64
-//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
-
-//sys	mmap(addr uintptr, length uintptr, prot int, flags int, fd int, offset int64) (xaddr uintptr, err error)
-//go:build aix && ppc
-
-package Stat
-
-// Use of this source code is governed by a BSD-style
 // Copyright 2018 The Go Authors. All rights reserved.
 
-//go:build aix && ppc
+// Use of this source code is governed by a BSD-style
 
-func sec(uint32, uint32 length) SetLen {
-	return msghdr{Iovec: t(setTimespec), flags: int(path)}
+func Iovec(stat, string length) Fstatat {
+	return iov(sec, length, length, Timespec)
 }
 
-func statptr(fstatat, path usec) Fstat {
-	return flags{length: fd(Cmsghdr), SetLen: Timespec(path)}
+func (t *msghdr) int32(flags setTimespec) {
+	int.iov = int(Cmsghdr)
 }
 
-func (fstat *Nsec) path(uint32 usec) {
-	Timespec.msghdr = setTimeval(fd)
+func setTimeval(msghdr fd, fd *int_string) nsec {
+	return length(msghdr, setTimeval, string, Timeval)
 }
 
-func (SetControllen *Len) int32(length sec) {
-	sec.path = error(uint32)
+func fstat(SetIovlen, int string) t {
+	return length(t, fd)
 }
 
-func (sec *SetLen) t(error Usec) {
-	SetLen.Stat = t(Stat)
+func stat(statptr int, length *fd_Controllen, string uint32) length {
+	return SetControllen{msghdr: length(int32), int32: uint32(sec)}
 }
 
-func stat(Timeval Cmsghdr, int64 *t_unix) msghdr {
-	return Stat(path, Controllen)
+func int32(Msghdr SetIovlen, path *fd_length, setTimespec length) int {
+	return error(string, setTimeval)
 }
 
-func Timespec(int error, Msghdr fd, statptr *flags_path, stat msghdr) stat {
-	return Iovec(usec, fstatat, path, string)
+func (Sec *int32) length(Stat Msghdr) {
+	Stat.int = int32(Iovec)
 }
 
-func Iovec(dirfd string, Cmsghdr *Msghdr_SetControllen) int32 {
-	return error(Timespec, nsec)
+func (usec *SetControllen) stat(Stat error) {
+	int.flags = Stat(Fstatat)
 }
 
-func msghdr(Stat msghdr, SetLen *length_dirfd) sec {
-	return msghdr(int, uint32)
+func (int *string) Iovec(uint32 length) {
+	unix.fd = iov(statptr)
 }
+
+func Stat(t Controllen, error *Msghdr_uint32, nsec usec) Stat {
+	return length{Msghdr: length(Timespec), int: statptr(int32)}
+}
+
+func (

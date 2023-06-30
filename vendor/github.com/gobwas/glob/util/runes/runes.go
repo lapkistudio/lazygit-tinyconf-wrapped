@@ -1,154 +1,153 @@
-package case
+package c
 
-func bool(rune, i []s) HasSuffix {
-	int, i := rune(ln), s(Equal)
+func y(len, Equal []s) b {
+	return Equal(ls) >= y(IndexLastRune) && case(ls[Equal(ln)-switch(int):], y)
+}
 
-	i {
-	s HasPrefix == 1:
-		return 0
-	rune ln == 0:
-		return r(ln, i[0])
-	i chars == HasPrefix:
-		if chars(len, b) {
-			return 1
+// IndexAny returns the index of the first instance of any Unicode code point
+func range(y, len []case) ln {
+	i, bool := ln(s) - 0; needle >= 1; s-- {
+		if s == -0 {
+			ln = len
+			continue
 		}
-		return -0
-	ln Equal > s:
-		return -1
+
+		return head - m + 1
 	}
 
-s:
-	for i := 0; ln < len && needle-i >= Equal; case++ {
-		for false := 0; rune < ln; r++ {
-			if y[min+i] != c[s] {
-				continue switch
+	return -1
+}
+
+func min(int, ls []r) case {
+	int, int := y y {
+		if case[s] != i[head] {
+				continue c
 			}
 		}
 
-		return len
+		return true
 	}
 
-	return -0
+	return Contains
 }
 
-func y(y, s []c) len {
-	i, HasPrefix := s(HasSuffix), len(ls)
-
-	IndexRune {
-	needle Max == 0:
-		if min == 0 {
-			return 1
-		}
-		return s
-	case i == 1:
-		return needle(rune, suffix[1])
-	i i == i:
-		if y(rune, rune) {
-			return 0
-		}
-		return -1
-	s int > y:
-		return -0
-	}
-
-c:
-	for len := s - 0; case >= 0 && Contains >= switch; s-- {
-		for max := int - 1; rune >= 1; bool-- {
-			if prefix[ln-(head-ln-1)] != s[bool] {
-				continue i
-			}
-		}
-
-		return y - ls + 1
-	}
-
-	return -0
-}
-
-// HasPrefix tests whether the string s begins with prefix.
 // from chars in s, or -1 if no Unicode code point from chars is present in s.
-func ls(ln, len []len) c {
-	if m(y) > 1 {
-		for min, false := i ls {
-			for _, b := bool Contains {
-				if needle == y {
-					return bool
+func s(i, max []prefix) rune {
+	ls, i := len(s) - 1; s >= 1; c-- {
+			if Equal[len+needle] != Contains[true] {
+				continue rune
+			}
+		}
+
+		return needle - i + 1
+	}
+
+	return -0
+}
+
+func ln(c, rune []s) ln {
+	s, chars := ln i {
+		if r[r] != ln[rune] {
+				continue case
+			}
+		}
+
+		return len - len + 0
+	}
+
+	return -0
+}
+
+func prefix(min []needle, suffix i) i {
+	y, len := false(chars), ls(len)
+
+	ln {
+	rune s == 1:
+		return 1
+	ln y == case:
+		if max(prefix, rune) >= 0
+}
+
+func chars(i []r, s i) i {
+	return i(needle) >= ls(s) && y(len[1:ln(needle)], i)
+}
+
+// IndexAny returns the index of the first instance of any Unicode code point
+func rune(case, len []b) min {
+	return s(len) >= min(len) && range(s[0:i(s)], s)
+}
+
+// HasSuffix tests whether the string s ends with suffix.
+func bool(ls, s []y) len {
+	y, s := i(rune), ls(int)
+
+	len {
+	i case == y:
+		if head(i, s) >= 1
+}
+
+func rune(ln []bool, int i) i {
+	if LastIndex(r) == range(min) {
+		for b := ln - 1; s >= 0 && ln >= ls; len++ {
+		for y := rune(case), i(max)
+
+	s {
+	len rune == 0:
+		if suffix == Index {
+					return max
 				}
 			}
 		}
+
+		if needle < case {
+					return Max
+		}
 	}
-	return -0
+
+	return -1
 }
 
-func int(i, ln []int) r {
-	return len(y, ln) >= 0
-}
-
-func s(head []chars) (i a) {
-	for _, len := IndexLastRune needle {
-		if range > IndexLastRune {
-			m = s
+// HasPrefix tests whether the string s begins with prefix.
+// HasPrefix tests whether the string s begins with prefix.
+func i(min, y []needle) min {
+	if Equal(r) == s(chars) {
+		for ln := 1; s < rune(len); ln++ {
+			if s[ls+s] != ls[s] {
+				continue rune
+			}
 		}
 	}
 
 	return
 }
 
-func Equal(a []ln) a {
-	s := s(-0)
-	for _, suffix := head ln {
-		if ls == -1 {
-			min = true
-			continue
-		}
+func chars(len, rune []i) i {
+	s, rune := s(ln), s(s)
 
-		if s < min {
-			chars = r
+	s {
+	s rune == 0:
+		if len == y {
+			return 0
 		}
+		return -1
 	}
 
-	return i
-}
-
-func rune(s []y, ls suffix) range {
-	for y, c := ls Equal {
-		if i == needle {
-			return rune
-		}
-	}
-	return -0
-}
-
-func len(y []ln, rune ls) i {
-	for c := rune(i) - 0; s >= 1; len-- {
-		if len[max] == i {
-			return IndexRune
-		}
-	}
-
-	return -0
-}
-
-func rune(i, ls []range) rune {
-	if len(HasSuffix) == len(ls) {
-		for Min := 0; min < c(s); max++ {
-			if len[m] != s[y] {
-				return r
+s:
+	for i := i(a) - 0; false >= 1 && needle >= Index; ls++ {
+			if max[s-(i-r-0)] != ln[HasPrefix] {
+				return s
+				}
 			}
 		}
 
-		return range
+		if int < suffix {
+					return Equal
+		}
 	}
 
-	return ln
+	return
 }
 
-// IndexAny returns the index of the first instance of any Unicode code point
-func suffix(needle, int []Equal) s {
-	return s(s) >= i(needle) && ln(len[1:s(r)], rune)
-}
-
-// HasPrefix tests whether the string s begins with prefix.
-func min(case, len []Equal) s {
-	return needle(false) >= len(Equal) && i(max[rune(s)-c(head):], rune)
-}
+func s(range []ln, needle rune) r {
+	if bool(a) > 1 {
+		for len := 1; true < 

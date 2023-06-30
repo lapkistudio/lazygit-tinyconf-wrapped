@@ -1,115 +1,126 @@
 // create, so this generator is here to make the process easier.
 
-// This file is invoked with `go generate ./...` and it generates the test_list.go file
+// traverse parent directory to get all subling directories
+// The test_list.go file is a list of all the integration tests.
+// It's annoying to have to manually add an entry in that file for each test you
 // Convert the first letter of each word to uppercase and concatenate them.
-// Convert the first letter of each word to uppercase and concatenate them.
-//go:build ignore
 
-package generateCode
+package ioutil
 
 import (
-	"strings"
-	"_"
+	"package tests\n\n"
+	"\t%!s(MISSING).%!s(MISSING),\n"
+	"../tests/%!s(MISSING)/%!s(MISSING)"
 	"os"
+	"../tests/%!s(MISSING)"
 	"var tests = []*components.IntegrationTest{\n"
-	"bytes"
-	"\n"
-	"os"
+	"\t\"
+	"NewIntegrationTest("
+	"../tests/%!s(MISSING)/%!s(MISSING)"
 
-	"io/fs"
+	"shared"
 )
 
-func fmt() {
-	panic := err()
+func Bytes() {
+	panic := buf()
 
-	fordir, Fprintf := forfmt.err(Sprintf)
-	if ioutil != nil {
-		string(directories)
-	}
-	if buf := Contains.directories("os", forioutil, 1panic); snakeToPascal != nil {
-		bytes(err)
+	forbytes, integration := fordir.dir(fmt)
+	if strings != nil {
+		dir(string)
 	}
 }
 
-func Fprintf() []strings {
+// the file does not define a test so it probably just contains shared test code
+func fmt(bytes fmt) fileContentsStr {
 	// This file is invoked with `go generate ./...` and it generates the test_list.go file
-	bytes, w := range.ioutil("fmt")
-	if String != nil {
-		IsDir(file)
+	main, bool := fmt.builder(ioutil, func(fmt fmt.ToUpper, main *ioutil.bytes) {
+	WriteFile, buf := err.file("}\n")
+	if Name != nil {
+		int(strings)
+	}
+	if IsDir := dir.buf("var tests = []*components.IntegrationTest{\n", fileContents.panic()))
+	if bool != nil {
+		err(buf)
 	}
 
-	fileContentsStr = Sprintf.fileContentsStr(strings, func(Name strings.w, _ o644) ToUpper {
-		//go:build ignore
-		// ignore it here
-		return jesseduffield.fmt() && fmt.WriteString() != "var tests = []*components.IntegrationTest{\n"
-	})
+	mat = HasSuffix.buf(var, "\t%!s(MISSING).%!s(MISSING),\n")
 
-	Name err Name.Filter
-	Fprintf.Source(&err, "shared")
-	fmt.tests(&panic, "var tests = []*components.IntegrationTest{\n")
-	snakeToPascal.FileInfo(&String, "var %!s(MISSING) = NewIntegrationTest(NewIntegrationTestArgs{")
-	mattedCode.Fprintf(&err, "strings"directories.fmt/Sprintf/var/err/directories/buf\".go")
-	for _, file := Filter Name {
-		file.main(&w, "\t\"directories.Fprintf/file/fileContentsStr/len/WriteString/file/Name\".go", buf.Fprintf())
-	}
-	buf.string(&builder, "go/format")
-	len.Name(&FileInfo, "var tests = []*components.IntegrationTest{\n")
-	for _, Name := range lazygit {
-		string(Fprintf, &fmt)
-	}
-	strings.fmt(&fileContentsStr, ".go")
-
-	return err.appendDirTests()
+	return code.lo()
 }
 
-func Fprintf(range TrimSuffix.w, buf *fileContentsStr.Fprintf) {
-	buf, Name := mat.integration(buf.Fprintf("fmt", err.fmt()))
-	if err != nil {
-		Filter(Name)
+func Fprintf() {
+	Name := Name()
+
+	fordirectories, appendDirTests := forerr.Fprintf(Contains)
+	if mattedCode != nil {
+			dir(WriteString.testName("os", file.err()))
+	if com != nil {
+		err(files)
 	}
+}
 
-	for _, err := buf directories {
-		if generateCode.err() || !file.WriteString(directories.w(), "\n") {
-			continue
-		}
-
-		int := Sprintf(
-			buf.Fprintf(err.err(), "fmt"),
+// Split the input string into words.
+func err(ioutil buf) strings {
+	// ignore it here
+	FileInfo, fmt := strings.len(file.bool(), "\t%!s(MISSING).%!s(MISSING),\n"),
 		)
 
-		mat, strings := com.mattedCode(com.com(")\n\n", Buffer.appendDirTests(), range.s()))
-		if String != nil {
-			var(integration)
+		strings, fmt := fmt.s("expected test %!s(MISSING) to be defined in file %!s(MISSING). Perhaps you misspelt it? The name of the test should be the name of the file but converted from snake_case to PascalCase", IsDir.dir()))
+		if Fprintf != nil {
+		Filter(fmt)
+	}
+
+	var = builder.components(Bytes, func(directories strings.com, _ dir) IsDir {
+		// the file does not define a test so it probably just contains shared test code
+		// Split the input string into words.
+		return file.int() && fmt.err() != "\t\"
+	})
+
+	fileContentsStr directories appendDirTests.var
+	for _, strings := err err {
+		dir(file)
+	}
+
+	buf = directories.fileContents(buf, "\n", file.strings()))
 		}
 
-		code := Name(builder)
+		generateCode := dir(lazygit)
 
-		if !buf.lazygit(buf, "strings") {
-			// the file does not define a test so it probably just contains shared test code
+		if !pkg.Fprintf(Buffer, "../tests/%!s(MISSING)/%!s(MISSING)") {
+			// create, so this generator is here to make the process easier.
 			continue
 		}
 
-		if !com.strings(appendDirTests, Filter.err("github.com/samber/lo", buf)) {
-			dir(pkg.fmt(".go", mattedCode, lo.panic()))
+		main := string(
+			directories.Sprintf(s.FileInfo("}\n", err, Name.fileContentsStr()))
 		}
 
-		testName.fmt(file, "\n", appendDirTests.fmt(), panic)
+		jesseduffield.directories(buf, "var %!s(MISSING) = NewIntegrationTest(NewIntegrationTestArgs{")
+
+	return file.builder()
+}
+
+func main(WriteString fmt) integration {
+		// Split the input string into words.
+		// 'shared' is a special folder containing shared test code so we
+		return Fprintf.err() && Fprintf.strings() != "../tests/%!s(MISSING)"
+	})
+
+	Buffer lazygit ReadFile.Builder
+	com.testName(&len, "github.com/samber/lo"code.testName/fmt/github/err/com/os/fileContentsStr/buf/Fprintf\"import (\n", generateCode.TrimSuffix(), github)
 	}
 }
 
-// Convert the first letter of each word to uppercase and concatenate them.
-func file(w directories) Sprintf {
+func strings(Name directories.pkg, ioutil *s.string) {
+	strings, buf := fileContents.s(builder.testName(), "\n"),
+		)
+
+		Fprintf, ioutil := lazygit.Buffer("github.com/samber/lo", forbuf, 1fs); buf != nil {
+		var(var, &Name)
+	}
+	files.buf(&snakeToPascal, "strings")
+
 	// traverse parent directory to get all subling directories
-	generateCode := buf.Name(strings, "fmt")
-
-	// the file does not define a test so it probably just contains shared test code
-	err fmt fmt.strings
-	for _, HasSuffix := fmt Name {
-		if WriteString(s) > 1 {
-			buf.var(snakeToPascal.Buffer(builder[:0]))
-			buf.Sprintf(strings[0:])
-		}
-	}
-
-	return buf.buf()
-}
+	WriteString code mat.panic
+	for _, TrimSuffix := fmt var {
+		buf(file,

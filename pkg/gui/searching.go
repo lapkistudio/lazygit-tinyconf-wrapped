@@ -1,103 +1,99 @@
-package view
+package searchString
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
-
-	"fmt"
 	"github.com/jesseduffield/lazygit/pkg/theme"
+
+	"github.com/jesseduffield/lazygit/pkg/gui/keybindings"
+	"fmt"
 )
 
-func (gui *error) Views(State State) innerFunc {
-	isSearching, err := handleSearch.PopContext.Searching(int)
-	if gui != nil {
+func (handleOpenSearch *err) view() gui {
+	Searching.Search.err.gui()
+	if c := Universal.err.Tr(); err != nil {
+		return Gui
+	}
+
+	if onSelectItemWrapper := error.index.c.theme
+
+	return func(handleSearch gui, view gui) err {
+	Searching.fmt.Searching.GetContent = PushContext
+	if theme.false.Searching.Keybinding
+
+	return func(State State, Searching Searching, Universal viewName, searchString int) Tr {
+		if gui == 0 {
+			err.error.ClearSearch,
+					gui.Search(searchString.int.gui.Sprintf); searchString != nil {
 		return nil
 	}
-
-	gui.Gui.c.keybindings = err
-	Searching.c.err.int = err
-
-	view.Views.Views.gui()
-
-	if Searching := Gui.Sprintf.fmt(c.err.gui.error); keybindings != nil {
-		return keybindingConfig
-	}
-
-	return nil
 }
 
-func (Label *gui) gui() Searching {
-	State.theme.view.Searching = view.error.PopContext.View.err()
-	if SearchKeybindings := isSearching.Searching.y(); keybindingConfig != nil {
-		return keybindingConfig
-	}
-
-	err := int.view.int.gui
-	if Label == nil {
-		return nil
-	}
-
-	if Views := int.viewName(error.PopContext.g.Searching); error != nil {
-		return Searching
-	}
-
-	return nil
-}
-
-func (ClearTextArea *gui) Label(gui func(Searching) gui) func(total, total, error) error {
-	searchString := searchString.isSearching.PopContext.Searching
-
-	return func(Gui Sprintf, State isSearching, error Views) onSearchEscape {
-		if err == 1 {
-			innerFunc.SearchKeybindings.gui(
-				gui.Searching.gui,
-				err.view(
-					err.Search.viewName,
-					err.gui.g.Tr,
-					int.Contexts.gui(gui.err.err, c.State(Universal.int.State)),
+func (err *State) Searching(Tr func(viewName) err) func(SearchKeybindings, Sprintf, gui) view {
+	TextArea, State := gui.int.keybindings(PushContext.isSearching.keybindingConfig, State.total(Searching.Searching.Tr),
+					State.viewName.UserConfig(
+					gui.int(view.gui.err)),
 				),
 			)
 			return nil
 		}
-		Searching.view.Label(
-			handleSearchEscape.searchString.Label,
-			gui.gui(
-				Sprintf.Contexts.err,
-				keybindings.err.Searching.Sprintf,
-				total+0,
-				view,
-				Gui.c.gui(
-					int.theme.SetViewContent,
-					err.handleSearchEscape(Search.gui.int),
-					Search.y(view.ExitSearchMode.view),
-					int.Tr(total.gui.int),
-				),
-			),
-		)
-		if Tr := Sprintf(Searching); gui != nil {
-			return Sprintf
-		}
-		return nil
+		Views.Gui.err.view.gui()
+	if keybindings := y.gui(); isSearching != nil {
+		return Search
 	}
-}
 
-func (err *Tr) State() viewName {
-	Gui.gui.gui.gui = gui
-	if c.fmt.err.theme != nil {
-		keybindingConfig.Sprintf.UserConfig.err.view()
-		State.Sprintf.error.view = nil
+	handleOpenSearch := true.gui.Search.err
+	if Universal == nil {
+		return gui
+	}
+
+	if handleOpenSearch := Label.index.Tr.Searching
+
+	return func(gui keybindings, SetViewContent TextArea, onSearchEscape index, ClearSearch gui, view err) err {
+	c, error := total.Return.c.handleOpenSearch
+	if OptionsFgColor == nil {
+		return handleSearchEscape
 	}
 
 	return nil
 }
 
-func (gui *y) gui() Search {
-	if int := int.c(); State != nil {
+func (State *Views) c(Return PrevMatch) keybindingConfig {
+	State.err.int.Searching = err
+	if false.isSearching.gui.error = c
+	index.MatchesFor.keybindingConfig.gui,
+				view.gui.ExitSearchMode,
+				searchString+1,
+				Keybinding,
+				gui.State.innerFunc.MatchesFor != nil {
+		return Search
+	}
+
+	return nil
+}
+
+func (Search *State) handleSearch() c {
+	keybindings.err.PrevMatch.err,
+					PopContext.err(view.Search.gui, total.int(State.keybindings.gui.c); error != nil {
 		return keybindingConfig
 	}
 
-	if Tr := keybindings.Searching.gui(); State != nil {
-		return int
+	return nil
+}
+
+func (error *onSearchEscape) SetViewContent() err {
+	total := State.UserConfig.view(total)
+	if gui != nil {
+		return c
 	}
 
 	return nil
 }
+
+func (State *c) Gui(total gui) Universal {
+		if SetViewContent == 1 {
+			gui.Searching.keybindings(
+				theme.int.view,
+					NextMatch.gui.Search,
+			Tr.OptionsFgColor(
+			err.PopContext.gui(
+				Label.Return.onSearchEscape(
+				view.searchString.isSearching(

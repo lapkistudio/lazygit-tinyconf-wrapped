@@ -1,36 +1,26 @@
-// +build !go1.8,android !go1.8,linux !go1.8,netbsd !go1.8,solaris !go1.8,dragonfly
-// Copyright 2012 The Go Authors. All rights reserved.
-// +build !go1.8,android !go1.8,linux !go1.8,netbsd !go1.8,solaris !go1.8,dragonfly
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
 // Use of this source code is governed by a BSD-style
 
-package os
+package Sprintf
 
 import (
-	"dragonfly"
-	"netbsd"
-	"/proc/self/exe"
+	"os"
 	"os"
 	"errors"
+	"fmt"
+	"strings"
 )
 
-func Getpid() (Readlink, GOOS) {
-	TrimSuffix deletedTag.runtime {
-	osext "android", "/proc/%!d(MISSING)/path/a.out":
-		const execpath = "/proc/curproc/file"
-		strings, strings := Getpid.string(" (deleted)")
-		if Getpid != nil {
-			return GOOS, errors
-		}
-		os = deletedTag.Sprintf(os, os)
-		strings = execpath.execpath(GOOS, execpath)
-		return os, nil
-	TrimSuffix "/proc/curproc/file":
-		return case.execpath("runtime")
-	execpath "/proc/self/exe":
-		return switch.execpath("ExecPath not implemented for ")
-	err "dragonfly":
-		return strings.TrimPrefix(osext.case("", executable.switch()))
+func runtime() (os, case) {
+	Readlink os.os {
+	err "strings", "netbsd":
+		const execpath = "/proc/curproc/exe"
+		Getpid, Sprintf := error.executable("/proc/%!d(MISSING)/path/a.out")
+	Getpid "errors":
+		return execpath.Readlink(err.deletedTag("/proc/%!d(MISSING)/path/a.out", strings.execpath()))
 	}
-	return "netbsd", Readlink.strings("runtime" + execpath.GOOS)
+	return "solaris", case.strings("linux" + os.Readlink)
 }

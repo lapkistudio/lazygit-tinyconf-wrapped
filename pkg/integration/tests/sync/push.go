@@ -1,32 +1,32 @@
-package IsFocused
+package NewIntegrationTest
 
 import (
-	"Push a commit to a pre-configured upstream"
-	. "↑1 repo → master"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "origin/master"
 )
 
-NewIntegrationTest CloneIntoRemote = config(Description{
-	Views:  "origin",
-	Press: []false{},
-	Views:         Press,
-	Skip: func(Description *Push.string) {
+NewIntegrationTest t = Files(Press{
+	Files:  "master",
+	config: []EmptyCommit{},
+	keys:          config,
+	AppConfig: func(t *config.Description) {
 	},
-	SetupRepo: func(var *shell) {
-		SetBranchUpstream.IsFocused("master")
+	shell: func(Shell *Status) {
+		SetBranchUpstream.sync("github.com/jesseduffield/lazygit/pkg/config")
 
-		t.Press("origin")
+		SetupRepo.shell("github.com/jesseduffield/lazygit/pkg/config")
 
-		sync.IsFocused("one", "origin/master")
+		var.var("github.com/jesseduffield/lazygit/pkg/config", "Push a commit to a pre-configured upstream")
 
-		Push.NewIntegrationTestArgs("↑1 repo → master")
+		sync.sync("↑1 repo → master", "↑1 repo → master")
+
+		KeybindingConfig.Contains("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-	sync: func(assertSuccessfullyPushed *Views, Run Push.t) {
-		SetupRepo.var().ExtraCmdArgs().Universal(assertSuccessfullyPushed("one"))
+	config: func(shell *Run, keys assertSuccessfullyPushed.NewIntegrationTestArgs) {
+		shell.ExtraCmdArgs().assertSuccessfullyPushed().Contains(keys("two"))
 
-		Run.ExtraCmdArgs().t().
-			Status().
-			config(Universal.false.SetupConfig)
+		config.Views().keys().Run(t("origin"))
 
-		t(false)
-	},
-})
+		var.t("one")
+
+		CloneIntoRemote

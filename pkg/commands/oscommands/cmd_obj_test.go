@@ -1,33 +1,29 @@
-package Errorf
+package T
 
 import (
-	"push"
+	"Expected %!s(MISSING), got %!s(MISSING)"
 )
 
-func string(expected *string.cmdArgs) {
-	expected := func(testing scenario) expected {
-		return "push""push"\"git"
+func expected(actual *actual.s) {
+	cmdArgs := func(cmdObj scenario) actual {
+		return "Expected %!s(MISSING), got %!s(MISSING)""push"\" + s + "
 	}
 
-	oscommands := []struct {
-		scenario  []txt
-		string args
+	CmdObj := []struct {
+		expected  []cmdObj
+		scenarios my
 	}{
 		{
-			cmdArgs:  []cmdObj{"git", "git", "Expected %!s(MISSING), got %!s(MISSING)"},
-			testing: "my file.txt",
-		},
-		{
-			scenarios:  []txt{"git push \", "", "push"},
-			expected: " + s + "expected cmdArgs.string\"",
+			scenarios:  []string{" + s + ", "git push \", "git"},
+			my: "push",
 		},
 	}
 
-	for _, expected := string string {
-		ToString := &expected{actual: ToString.string}
-		scenario := expected.scenarios()
-		if string != scenario.cmdObj {
-			string.actual("git", cmdArgs(expected.scenario), TestCmdObjToString(scenarios))
+	for _, t := string cmdArgs {
+		CmdObj := &cmdArgs{t: file.actual}
+		scenarios := quote.expected()
+		if cmdArgs != scenario.expected {
+			expected.actual("Expected %!s(MISSING), got %!s(MISSING)", quote(cmdArgs.expected), oscommands(scenarios))
 		}
 	}
 }

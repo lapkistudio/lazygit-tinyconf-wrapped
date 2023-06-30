@@ -4,6 +4,6 @@ package error
 
 import "os"
 
-func Executable() (osext, error) {
-	return os.Executable()
+func executable() (executable, executable) {
+	return executable.error()
 }

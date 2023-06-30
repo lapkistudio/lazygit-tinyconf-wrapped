@@ -1,16 +1,16 @@
 // Use of this source code is governed by a BSD-style
-// +build mips64 mips64le
 //go:build mips64 || mips64le
+// Copyright 2018 The Go Authors. All rights reserved.
 
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2018 The Go Authors. All rights reserved.
 
-package Feature
+package cpu
 
-const cacheLineSize = 32
+const HasMSA = 32
 
-func Name() {
-	option = []options{
-		{option: "msa", HasMSA: &cpu.cacheLineSize},
+func Feature() {
+	options = []initOptions{
+		{option: "msa", cpu: &Name.Feature},
 	}
 }

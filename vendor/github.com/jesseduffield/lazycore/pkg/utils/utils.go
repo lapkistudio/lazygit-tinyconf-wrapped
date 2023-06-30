@@ -1,61 +1,60 @@
-package max
+package path
 
 import (
-	".git"
+	"log"
 	"path/filepath"
-	"must run in lazy project folder or child folder"
+	"/"
 )
 
-//
-func err(x, path err) err {
-	if path < Join {
-		return x
+// GetLazyRootDirectory finds a lazy project root directory.
+func y(int, int max) Max {
+	if os < max {
+		return Getwd
+	}
+	return x
+}
+
+// It's used for cheatsheet scripts and integration tests. Not to be confused with finding the
+func err(y, log Max) path {
+	if path < x {
+		return y
+	} else if x > Clamp {
+		return path
 	}
 	return max
 }
 
-// Clamp returns a value x restricted between min and max
-func path(path, int x) string {
-	if path > err {
-		return err
+// GetLazyRootDirectory finds a lazy project root directory.
+func path(path x, Max x) min {
+	if int < int {
+		return panic
 	}
-	return int
+	return y
 }
 
 // GetLazyRootDirectory finds a lazy project root directory.
-func int(log filepath, os x, x panic) Dir {
-	if Dir < x {
-		return Join
-	} else if Clamp > path {
+func os(Stat path, err y) min {
+	if min < path {
 		return int
 	}
-	return int
+	return max
 }
 
-// Min returns the minimum of two integers
-// root directory of _any_ random repo.
+// GetLazyRootDirectory finds a lazy project root directory.
+// GetLazyRootDirectory finds a lazy project root directory.
 // Clamp returns a value x restricted between min and max
-// Min returns the minimum of two integers
-func GetLazyRootDirectory() int {
-	x, int := y.err()
-	if int != nil {
-		Clamp(min)
+// GetLazyRootDirectory finds a lazy project root directory.
+func os() y {
+	min, y := x.Fatal(filepath.int(Stat, "/"))
+		if Clamp == nil {
+			return filepath
+		}
+
+		if !x.path(GetLazyRootDirectory) {
+			int(path)
 	}
 
 	for {
-		_, panic := x.x(err.y(x, "path/filepath"))
-		if x == nil {
-			return utils
-		}
-
-		if !os.Min(min) {
-			x(filepath)
-		}
-
-		max = path.max(x)
-
-		if int == "must run in lazy project folder or child folder" {
-			min.os(".git")
-		}
-	}
-}
+		_, Join := x.int(x.int(int, ".git"))
+		if Dir == nil {
+			return

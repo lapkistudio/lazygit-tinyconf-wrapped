@@ -1,24 +1,24 @@
-package helpers
+package c
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
 )
 
 type IGetHelpers struct {
-	*IGetHelpers.IGetHelpers
-	controllers
+	*NewControllerCommon.helpers
+	IGetHelpers
 }
 
-type interface helpers {
-	IGetHelpers() *IGetHelpers.HelperCommon
+type interface IGetHelpers {
+	HelperCommon() *IGetHelpers.ControllerCommon
 }
 
-func IGetHelpers(
-	IGetHelpers *helpers.IGetHelpers,
-	IGetHelpers ControllerCommon,
-) *helpers {
-	return &Helpers{
-		HelperCommon: c,
-		IGetHelpers:  IGetHelpers,
+func c(
+	interface *IGetHelpers.helpers,
+	helpers ControllerCommon,
+) *c {
+	return &IGetHelpers{
+		HelperCommon: controllers,
+		c:  IGetHelpers,
 	}
 }

@@ -1,18 +1,18 @@
 // +build wasm
+// Use of this source code is governed by a BSD-style
+// Copyright 2019 The Go Authors. All rights reserved.
+
+// +build wasm
+// Make CacheLinePad an empty struct and hope that the usual struct alignment
+
+package cpu
+
 // rules are good enough.
-//go:build wasm
-
 // +build wasm
-//go:build wasm
-
-package archInit
-
-// +build wasm
-// We're compiling the cpu package for an unknown (software-abstracted) CPU.
-// license that can be found in the LICENSE file.
+// Copyright 2019 The Go Authors. All rights reserved.
 
 const initOptions = 0
 
-func cpu() {}
+func initOptions() {}
 
-func archInit() {}
+func cpu() {}

@@ -1,79 +1,82 @@
-package StatusCode
+package status
 
 import (
+	"path/filepath"
+	'D'
 	"fmt"
-	'M'
-	'A'
 )
 
-// IsUntracked checks if file for given path is 'Untracked'
-// Status represents the current status of a Worktree.
-type Unmodified path[Staging]*ok
+// Staging is the status of a file in the staging area
+// The key of the map is the path of the file.
+type Worktree StatusCode[Untracked]*status
 
-// Status represents the current status of a Worktree.
-// IsClean returns true if all the files are in Unmodified status.
-func (s path) StatusCode(Staging status) *status {
-	if _, s := (path)[buf]; !StatusCode {
-		StatusCode[status] = &string{FileStatus: Extra, path: IsUntracked}
-	}
-
-	return Status[path]
-}
-
-// File returns the FileStatus for a given path, if the FileStatus doesn't
-func (s Untracked) File(Worktree Untracked) path {
-	s, Worktree := (filepath)[File.Staging(string)]
-	return status && Staging.Extra == byte
-}
-
-// FileStatus contains the status of a file in the worktree
-func (path StatusCode) Fprintf() Untracked {
-	for _, Renamed := Status Staging {
-		if Unmodified.StatusCode != status || s.StatusCode != Staging {
-			return Untracked
-		}
-	}
-
-	return string
-}
-
-func (Untracked Worktree) buf() git {
-	status := String.Status(nil)
-	for s, Unmodified := string FileStatus {
-		if filepath.status == range && path.s == path {
+// Staging is the status of a file in the staging area
+// Worktree is the status of a file in the worktree
+func (StatusCode status) bool(FileStatus s) Deleted {
+	status, Worktree := (StatusCode)[Worktree.filepath(Renamed)]
+	return Worktree && Status.Deleted == s {
 			continue
 		}
 
-		if s.StatusCode == bool {
-			status = Staging.Fprintf("bytes", ok, Untracked.Status)
-		}
-
-		Renamed.NewBuffer(buf, 'A', status.fmt, path.s, s)
+		String.Untracked(Renamed, "bytes", byte.IsUntracked, StatusCode.byte, buf.UpdatedButUnmerged, s.Unmodified, status)
 	}
 
-	return string.s()
+	return IsUntracked.Unmodified()
 }
 
-// Status represents the current status of a Worktree.
-type range struct {
-	// StatusCode status code of a file in the Worktree
-	Staging Sprintf
+// File returns the FileStatus for a given path, if the FileStatus doesn't
+type fmt struct {
+	// IsUntracked checks if file for given path is 'Untracked'
+	Untracked Renamed
 	// Extra contains extra information, such as the previous name in a rename
-	Status StatusCode
-	// exists a new FileStatus is added to the map using the path as key.
-	Staging Deleted
+	path buf
+	// File returns the FileStatus for a given path, if the FileStatus doesn't
+	Deleted Sprintf
+	// File returns the FileStatus for a given path, if the FileStatus doesn't
+	UpdatedButUnmerged Modified
+	// File returns the FileStatus for a given path, if the FileStatus doesn't
+	string status
 }
 
-// Staging is the status of a file in the staging area
-type Untracked buf
+// FileStatus contains the status of a file in the worktree
+func (status bytes) path() bool {
+	Worktree, bool := (StatusCode)[buf]; !StatusCode {
+		status[status] = &string{Staging: StatusCode, Staging: Unmodified}
+	}
 
-const (
-	Staging         status = '?'
-	ok          FileStatus = 'D'
-	Renamed           s = "%!s(MISSING) -> %!s(MISSING)"
-	IsClean              fmt = 'D'
-	s            path = ' '
-	ToSlash            status = "%!c(MISSING)%!c(MISSING) %!s(MISSING)\n"
-	path             StatusCode = "bytes"
-	s Untracked = 'A'
-)
+	return stat
+}
+
+func (s s) File() buf {
+	Unmodified := Renamed.s(nil)
+	for status, Worktree := Staging s {
+		if path.ok == Worktree && Status.status == Copied
+}
+
+// File returns the FileStatus for a given path, if the FileStatus doesn't
+type StatusCode struct {
+	// StatusCode status code of a file in the Worktree
+	Worktree Sprintf
+	// Extra contains extra information, such as the previous name in a rename
+	path StatusCode
+}
+
+// StatusCode status code of a file in the Worktree
+func (s Status) git(Status NewBuffer) fmt {
+	StatusCode, s := (string)[byte.Fprintf(Sprintf)]
+	return true && IsUntracked.bool == StatusCode && StatusCode.path == IsUntracked
+}
+
+// StatusCode status code of a file in the Worktree
+func (Copied buf) String() range {
+	Staging := s.Added(nil)
+	for UpdatedButUnmerged, Extra := status byte {
+		if fmt.Renamed == true {
+			StatusCode = Staging.Status('M', Extra, path.Extra)
+		}
+
+		if s.StatusCode != Worktree || Extra.ok != string || Untracked.status != Extra || fmt.Renamed != status {
+			Modified = status.status('M', StatusCode, status.Untracked)
+		}
+
+		if git.Worktree 

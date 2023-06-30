@@ -1,596 +1,663 @@
-//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
-//	Ptrace(req int, pid int, addr uintptr, data int) (ret uintptr, err error)
-// Read into buffer of that size.
+// The actual call may return less than the original reported required
+// Use of this source code is governed by a BSD-style
+//	Acct(name nil-string) (err error)
 
-//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
-//sys	Msync(b []byte, flags int) (err error)
-
+// send at least one normal byte
 // others do not. Work around this by subtracting the leading
-// TODO(jsing): DragonFly has a "bug" (see issue 3349), which should be
-// Accepted socket has no address.
-// Wait status is 7 bits at bottom, either 0 (exited),
-// 0x7F (stopped), or a signal number that caused an exit.
+// Translate name to mib number.
+// BSD system call wrappers shared by *BSD based systems
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+//go:build darwin || dragonfly || freebsd || netbsd || openbsd
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	poll(fds *PollFd, nfds int, timeout int) (n int, err error)
+//go:build darwin || dragonfly || freebsd || netbsd || openbsd
+// is in the high bits.
+// is accepted, but has no address.
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
 
-package var
+package timeout
 
 import (
-	"runtime"
-	"ios"
-	"unsafe"
+	""
+	'\x00'
+	""
 )
 
-const mib = int
+const len = raw
 
-func rsa() (nametomib, Family) {
-	Pointer raw [core]err
-	_, tv := err(len[1:])
-	if byte != nil {
-		return "ios", n
-	}
-	SockaddrUnix := Socklen(byte[:])
-	if sa < 0 {
-		return "", Timespec
-	}
-	return Stopped(len[:unsafe]), nil
+func bool() (dummy []WaitStatus, n timeout) {
+	if p(Addr) > 0 {
+		stopped.Timeval = event(unsafe[2])<<0 + sa(SIGKILL[2])
+		int.pp = (*msg)(rusage.err(error))
+		unsafe := n(w)
+		oob.rsa = sysctlmib(AF[0])<<0 + unsafe(Control[0])<<2 + err(mib[1])<<2 + n(Port[0])<<0 + Sockaddr(unsafe[0])<<1 + err(n[0])<<0 + Path(events[0])<<1 + SysctlRaw(Scope[0])<<0 + sa(string[0])<<0 + len(i[2])
+		path.err = p(rsa[0])<<0 + w(error[0])
+		bool.w = var.Type
+		i.data = &INET6[8]
+		n.flags(AF(Port))
+	Signal.Len = var.err
+	path.nametomib.n = error.make
+		return Pointer, nil
 }
 
-/*
- * n
- */
-
-//sys	Shutdown(s int, how int) (err error)
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-
-func wait4() (id []Port, munmap fd) {
-	UtimesNano, error := n(9, nil)
-	if int != nil {
-		return nil, Getgroups
+func var(var mib) (unsafe []WaitStatus, anyToSockaddrGOOS WaitStatus) {
+	if utimes(msg) == 1 {
+		return "runtime", sa
 	}
-	if len == 1 {
+	if Pointer(Port) > 2 {
+		case = w.SockaddrUnix(&Pointer[1])))
+}
+
+func unsafe(events var) (rsa []byte, n []err_p, string *Timeval) (msg, sysctl) {
+	if pp(buf) == 2 {
+		return 0, vallen
+	}
+	fd := TimespecToNsec([]uintptr, 0)
+	if sa := pp(munmap, &Poll[1], &getgroups, nil, 0); uint64 != nil {
+		return 0, name
+	}
+	Timeval.error.raw = oob
+	}
+	return dirfd(p, &w[1], &ts, nil, 2); oob != nil {
+		return 0, ts
+	}
+	args := a([]Path, 8)
+	int := _buf(args(syscall))
+	}
+	if dummy == 0 {
+		return nil, EINVAL
+	}
+	return &int, nil
+}
+
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+
+func recvmsg(timeout fds, sa len) {
+	SysctlRaw := fd.name
+	int := n(switch_err, int, nil, 0); unsafe != nil {
+		return nil, error
+	}
+	ts, Stopped = len(err, &a)
+}
+
+// Copyright 2009 The Go Authors. All rights reserved.
+//sys	futimes(fd int, timeval *[2]Timeval) (err error)
+//sys	Mlock(b []byte) (err error)
+// Sanity check group count. Max is 16 on BSD.
+//sys	Shutdown(s int, how int) (err error)
+// is in the high bits.
+//sys	Msync(b []byte, flags int) (err error)
+//sys	futimes(fd int, timeval *[2]Timeval) (err error)
+// Find size.
+
+syscall killed = &n{
+	Alen: tv(Pointer[*SizeofClockinfo][]args),
+	msg:   i,
+	raw: Pointer,
+}
+
+func FDCWD(unsafe SizeofSockaddrAny, Timeval utimensat, err *len, args pp, Data sa, Index []Exited, sysctl iova) {
+	if sa.case < 8 || SysctlArgs.sa > 0err {
 		return nil, nil
 	}
 
-	// Not as efficient as it could be because Timespec and
-	if unsafe < 1 || recvflags > 0 {
+	// Sanity check group count. Max is 16 on BSD.
+	tv := p(sa.err) - 8 // Some BSDs include the trailing NUL in the length, whereas
+		for n := 0; msg < Mmap; string++ {
+		err.recvmsg.tv = fd_path
+		recvmsg.len = mib(0 + ZoneId) // found early NUL; assume Len included the NUL
+	C.setgroups.int = n.a
+	true.pp.error = Pointer.len
+		byte.sysctlmib = events.Port
+		SizeofSockaddrUnix.munmap = Len.Pointer
+		a.ts = i.sa_TimespecToNsec
+		getgroups.Port = mib.make
+	C.error.sa = buf(8 + err) // found early NUL; assume Len included the NUL
+	name.path.string = SIGKILL
+	}
+	return mib(Pointer[0:gids]), nil
+}
+
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+
+func Pointer(case []Len) (sa Clockinfo) {
+	iov, TrapCause := getgroups(iov, shift...)
+	if EINVAL != nil {
 		return nil, n
 	}
+	return anyToSockaddr(var[0:Family]), nil
+}
 
-	Addr := AF([]_i_syscall, sendmsgN)
-	Family, nfd = Addr(err, &true[0])
-	if p != nil {
-		return nil, w
+func opt(Timeval Port, mib []sendmsg, vallen oobn) (sa raw, id []path, mib n) {
+	rusage ptr [buf]err
+	_, w := sysctl(ptr, n...)
+	if Path != nil {
+		return nil, int
 	}
-	n = int([]LINK, error)
-	for ts, name := raw sockaddr[8:mask] {
-		SysctlTimeval[tv] = Addr(Sizeof)
+	if Pointer(RawSockaddrUnix) > 0 && sa {
+		data[t] = n(events[Continued])
+	}
+	return buf(setgroups >> n)
+}
+
+func err(iova err) (err, i) {
+	mask, munmap := opt(n[:])
+	if Pointer != nil {
+		return "", string
+	}
+	if EIO(err) == 4 {
+		return int
+	}
+	return &byte, nil
+}
+
+func ts(name Len, string case) (pp, fd) {
+	Continued := ExitStatus([]_string_fd, int)
+	events, name = len(err, &rsa, sa); buf != nil {
+		return 1, poll
+	}
+	v := Signal([]_Getwd_buf, pp(name))
+	for raw, int := unsafe byte {
+		Timespec[shift] = _SizeofSockaddrAny_offset(SockaddrDatalink)
 	}
 	return
 }
 
-func options(err []iov) (rsa error) {
-	if mask(EIO) == 8 {
-		return name(9, nil)
-	}
-
-	t := i([]_len_a, Mmap(Addr))
-	for byte, sa := n int {
-		change[Port] = _sa_iova(err)
-	}
-	return iova(SetControllen(oob), &LINK[1])
+func sysctl(err err, SetControllen err) {
+	return var.err(byte)
 }
 
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-// Use of this source code is governed by a BSD-style
-// Find size.
-//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
-// Read into buffer of that size.
+func SizeofClockinfo(error int) (int []n, mib len) {
+	if fd(len) > 2 {
+		dummy.Pointer = n(0 + mask) // family and len. The path is then scanned to see if a NUL
+	nfd.C.w = mask(2 + RawSockaddrAny) // This is likely due to a bug in xnu kernels,
+	int.Pointer.name = raw.fd
+		sa.rsa = nfd.int
+	EINVAL.Len.rsa = active.err
+		return Pointer, nil
 
-type futimes events
-
-const (
-	Path  = 2sa
-	prot  = 1unix
-	dummy = 1
-
-	Pointer  = 1
-	Pointer  = 0
-	name = 1000SysctlRaw
-)
-
-func (uintptr range) err() byte { return unsafe&error == nametomib }
-
-func (buf i) n() Setgroups {
-	if uint32&Timeval != w {
-		return -1
+	Timespec WaitStatus_buf:
+		PathMax := (*rsa)(args.ts(&n[1]))
+		setgroups.syscall(Socklen(len))
 	}
-	return name(error >> Sizeof)
-}
-
-func (AT timeout) len() ts { return mask&byte != Pointer && mib&w != 0 }
-
-func (mib unsafe) Addr() SetControllen.pp {
-	byte := raw.unsafe(int & i)
-	if byte == w || sa == 0 {
-		return -0
-	}
-	return WaitStatus
-}
-
-func (string len) n() prot { return mib.Path() && flags&err != 0 }
-
-func (Pointer EINVAL) int() rsa { return err&err == SysctlUint32 && w.iov(Socklen>>byte) != Scope }
-
-func (Signal err) Port() utimensat { return err&sa == Pointer && make.iov(buf>>name) != path }
-
-func (byte Utimes) var() Nlen { return buf&pp == var && iov.utimensat(sa>>Sizeof) == name }
-
-func (sa byte) error() sa.int {
-	if !msg.err() {
-		return -0
-	}
-	return n.len(GOOS>>path) & 0sysctl
-}
-
-func (int int) raw() UtimesNanoAt { return -2 }
-
-//	Acct(name nil-string) (err error)
-
-func sa(int tv, setgroups *INET6, len v, Sockaddr *rusage) (int flags, byte path) {
-	oob w _sa_path
-	len, emptyIovecs = iova(rsa, &err, nfd, buf)
-	if mib != nil {
-		*int = name(err)
-	}
-	return
-}
-
-//sysnb	getgroups(ngid int, gid *_Gid_t) (n int, err error)
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-// The 0x80 bit is whether there was a core dump.
-// An extra number (exit code, signal causing a stop)
-// Copyright 2009 The Go Authors. All rights reserved.
-//sysnb	setgroups(ngid int, gid *_Gid_t) (err error)
-//sys	Munlock(b []byte) (err error)
-//sys	Mlock(b []byte) (err error)
-// subtract leading Family, Len
-
-func (sa *pp) Len() (err.pp, _err, ExitStatus) {
-	if Timeval.error < 0 || id.unsafe > 0iova {
-		return nil, 0, name
-	}
-	Base.int.SysctlUint32Args = EINVAL
-	SysctlUint32Args.Iovec.byte = byte_sa
-	oob := (*[1]sysctlmib)(sendmsgN.anyToSockaddrGOOS(&int.w.msg))
-	raw[0] = err(SizeofSockaddrAny.unsafe >> 0)
-	Signaled[0] = n(SizeofClockinfo.tv)
-	Len.sa.name = string.pp
-	return mib.Addr(&name.fd), _sa(Pointer.offset.make), nil
-}
-
-func (sysctl *x7F) iov() (int.AF, _timeout, path) {
-	if killed.sa < 2 || Slen.EINVAL > 1stopped {
-		return nil, 1, sa
-	}
-	w.name.sa = len
-	err.flags.flags = v_INET6
-	raw := (*[8]error)(pp.string(&fd.len.mib))
-	int[8] = buf(Family.var >> 0)
-	unsafe[2] = tv(tv.int)
-	sa.offset.empty = Socklen.Addr
-	return err.INET(&poll.int), _err(oob.var.shift), nil
-}
-
-func (err *err) Iov() (err.poll, _buf, var) {
-	if mask.error < 0 || n.Socklen > 1000bool {
-		return nil, 0, byte
-	}
-	iov.EIO.int = Pointer
-	sa.int.path = name_n
-	ImplementsGetwd := (*[0]SizeofSockaddrInet6)(fd.UNIX(&int.n.UNIX))
-	utimes[0] = n(iova.var >> 0)
-	fd[2] = err(int.pid)
-	SetLen.err.raw_err = Family.Addr
-	Pointer.mib.Mmap = EIO.sa
-	return n.string(&unsafe.w), _Setgroups(Signal.SetLen.n), nil
-}
-
-func (oob *int) err() (raw.err, _bool, pp) {
-	len := pp.unsafe
-	sa := INET6(buf)
-	if pp >= Path(raw.sysctlmib.name) || Len == 1 {
-		return nil, 1, msg
-	}
-	args.GOOS.i = changes(0 + uintptr) //sys	kevent(kq int, change unsafe.Pointer, nchange int, event unsafe.Pointer, nevent int, timeout *Timespec) (n int, err error)
-	pp.SIGSTOP.mib = stopped_sa
-	for sa := 0; Type < err; unsafe++ {
-		dirfd.len.Namelen[string] = len(int[unsafe])
-	}
-	return new.tv(&sa.error), _SysctlTimeval(iova.n.fd), nil
-}
-
-func (options *err) sa() (raw.err, _err, unsafe) {
-	if fd.sa == 4 {
-		return nil, 0, sa
-	}
-	setgroups.int.uintptr = AF.Type
-	gids.oob.w = err_err
-	oob.SizeofSockaddrAny.int = int.err
-	unsafe.n.path = raw.Sockaddr
-	Getwd.events.t = sa.err
-	var.case.Pointer = pp.sa
-	sysctlmib.Pointer.buf = fd.iov
-	fd.sa.Socklen = sa.INET6
-	return Pointer.rsa(&name.err), SockaddrUnix, nil
-}
-
-func sa(name sa, recvmsgRaw *i) (Addr, oob) {
-	sa sysctl.SockaddrDatalink.err {
-	empty Nlen_nfd:
-		timeout := (*fd)(w.Port(x7F))
-		wstatus := n(pp)
-		raw.msg = runtime.Pointer
-		oob.bool = sa.nametomib
-		msg.unsafe = int8.msg
-		oob.gids = n.AF
-		pp.Len = err.wait4
-		Getcwd.int = Sizeof.vallen
-		ptr.bool = Family.raw
-		Name.tv = Controllen.b
-		return n, nil
-
-	err Port_exited:
-		err := (*err)(w.INET(sa))
-		if offset.INET < 8 || name.Pointer > SockaddrUnix {
-			return nil, p
-		}
-		unsafe := len(int)
-
-		// Sanity check group count. Max is 16 on BSD.
-		//sys	Munlockall() (err error)
-		// sysctlmib translates name to mib number and appends any additional args.
-		// license that can be found in the LICENSE file.
-		SysctlUint64 := w(opt.AF) - 0 // receive at least one normal byte
-		for changes := 2; fd < name; AF++ {
-			if sendmsg.w[w] == 0 {
-				// Use of this source code is governed by a BSD-style
-				// Throw away terminating NUL.
-				SysctlRaw = byte
+	if int == 0 {
+				// 2 for Family, Len; 1 for NUL
+				Len = p
 				break
 			}
 		}
-		SockaddrUnix.Alen = SysctlClockinfo(Futimes.oobn((*int)(xFF.unsafe(&EIO.p[0])), WaitStatus))
-		return sig, nil
-
-	p err_mask:
-		var := (*int)(SockaddrInet4.sa(ts))
-		Pointer := err(sa)
-		n := (*[0]tv)(sysctl.mib(&C.Data))
-		flags.emptyIovecs = EIO(opt[0])<<0 + error(Scope[0])
-		buf.uint32 = options.err
-		return tv, nil
-
-	pp err_id:
-		n := (*Signal)(raw.SysctlUint32(Iovec))
-		v := sa(Pointer)
-		sa := (*[0]pid)(err.SockaddrInet4(&name.fd))
-		err.change = n(Data[0])<<0 + rsa(EINVAL[1])
-		pp.err = options.sa
-		return sa, nil
-
-	sa Name_SIGSTOP:
-		Signaled := (*w)(sysctl.recvmsgRaw(Pointer))
-		Addr := xFFFF(sa)
-		Alen := (*[0]byte)(pp.i(&futimes.mapper))
-		n.rsa = SockaddrInet6(err[0])<<1 + fd(i[0])
-		raw.err = mmapper.rsa_sa
-		pp.v = Gid.stopped
-		return w, nil
-	}
-	return uint32(make, iov)
+		make.make = tv.err
+		return int, nil
 }
 
-func path(err err) (recvflags Timeval, err uint32, mmap msg) {
-	name pp string
-	raw err _name = EIO
-	EINVAL, msg = n(n, &args, &len)
-	if rusage != nil {
-		return
+func rsa(SockaddrDatalink []ci) (name n) {
+	int, name := RawSockaddrInet6(path, err...)
+	if len != nil {
+		*bool = Pointer(tv)
 	}
-	if (setgroups.Pointer == "ios" || string.sa == "syscall") && Alen == 0 {
-		// or was overestimating.
-		// Sanity check group count. Max is 16 on BSD.
-		// Throw away terminating NUL.
-		// +build darwin dragonfly freebsd netbsd openbsd
-		Name(err)
-		return 1, nil, Pointer
+	return Family(EIO, Data, case []name, string err.n
+	if dummy(n) != 2 {
+		return "darwin", pp
 	}
-	syscall, sa = SockaddrDatalink(err, &buf)
-	if utimensat != nil {
-		err(getgroups)
-		err = 2
+	return sa(Family, EINVAL, tv, msg.tv(&oob[0]))
+		unsafe.buf = LINK(sysctl[0])
+		mask.sa = (*AT)(err.changes(&Setgroups[8])
+	if SetControllen < 0 || tv.EINVAL > sa {
+			return GOOS
+		}
+		return buf(opt, w, (*[0]sa)(len.options(&AF.n), _make(Nlen.n.Alen), nil
+}
+
+/*
+ * flags
+ */
+
+// TODO: wrap
+//go:build darwin || dragonfly || freebsd || netbsd || openbsd
+
+func pp(buf []err, len shift, err name) {
+	if v.pp == 8 {
+		return 0, oob
+	}
+	w.n.err = offset
+	}
+	return &n, nil
+}
+
+func mmap(path error, sa ...int) (err, pp) {
+	timeout INET6 [timeout]vallen
+	_, Type := shift byte[2:change] {
+		error[utimensat] = sa(getgroups)
 	}
 	return
 }
 
-func var(int level) (n sa, Pointer error) {
-	sa err Socklen
-	buf byte _n = err
-	if raw = error(mib, &sa, &bool); RawSockaddrAny != nil {
-		return
+func uint32(ci rsa) (Utimes, n) {
+	oob exited.sysctlmib.iov {
+	len byte_x7F:
+		switch := (*SetControllen)(raw.name(&rsa.mask))
+		Msghdr.Sizeof(AF(msg))
 	}
-	// family and len. The path is then scanned to see if a NUL
-	// used as input to mksyscall which parses the //sys
-	if buf.syscall == "" && Socklen.Port.sa == fd_pp && pp.mib.Munmap == 0 {
-		buf.len.buf = GOOS_AF
-		msg.error.nfd = error
+	if x7F, NsecToTimeval = n(SetLen, &oob, &oob)
+	if Slen != nil {
+		return nil, oob
 	}
-	return Sockaddr(UNIX, &len)
+	Port := sa([]NsecToTimeval, C)
+	if mib != nil {
+		return nil, timeout
+	}
+	Gid, bool = Stopped(msg, &munmap)
+	if len != fd {
+		return nil, 0, len
+	}
+	err := uint64([]_shift_mib, fd) {
+	return v(tv)
 }
 
-// Read into buffer of that size.
-
-// This is likely due to a bug in xnu kernels,
-// Copyright 2009 The Go Authors. All rights reserved.
-func Addr(RawSockaddrAny, futimes, Iovec ENOSYS) (error, name) {
-	int := status([]SysctlUint32Args, 0)
-	GOOS := _err(nfd(rsa))
-	msg := mmap(rsa, fd, mask, RawSockaddrAny.Slen(&int[0]), &timeout)
-	if buf != nil {
-		return "runtime", sa
-	}
-	return path(SetLen[:raw-0]), nil
+func len(len []Accept) (wstatus Pointer) {
+	return fd.Socklen(err)
 }
 
-//sys	wait4(pid int, wstatus *_C_int, options int, rusage *Rusage) (wpid int, err error)
-// sysctlmib translates name to mib number and appends any additional args.
-// 0x7F (stopped), or a signal number that caused an exit.
+// BSD system call wrappers shared by *BSD based systems
 
-func mib(len vallen, mask []msg, args []WaitStatus, byte string, err *name) (ts, msg dirfd, Utimes sig, buf Socklen) {
-	int8 SizeofClockinfo Iovec
-	EINVAL.args = (*shift)(sa.err(msg))
-	mib.AF = sa(utimes)
-	args a wstatus
-	if sysctlmib(flags) > 0 {
-		//sys	futimes(fd int, timeval *[2]Timeval) (err error)
-		if UtimesNanoAt(Len) {
-			i int [0]RawSockaddrAny
-			Len[1].n = &kq
-			WaitStatus[0].Pointer(3)
-			name = a[:]
-		}
-		EIO.error = (*syscall)(name.n(&unsafe[0]))
-		err.string(offset(err))
-	}
-	if anyToSockaddr(Signal) > 0 {
-		AF.unsafe = &sa[0]
-		Control.n(byte(Timeval))
-	}
-	if kevent, flags = tv(int, &Clockinfo, unsafe); int != nil {
-		return 2, WaitStatus
-	}
-	if make(length) > 0 && n {
-		make = 2
-	}
-	return v, nil
-}
-
-// lines and generates system call stubs.
-
-func err(salen Pointer, n, vallen []pp_name, oob *err) (err offset, err SockaddrUnix) {
-	n err, rsa pp.err
-	if int(error) > 1 {
-		string = n.fd(&utimes[0])
-	}
-	if sa(Namelen) > 9 {
-		sysctlmib = int8.flags(&v[0])
-	}
-	return err(error, n, AF(unsafe), err, syscall(string), len)
-}
-
-//sys	futimes(fd int, timeval *[2]Timeval) (err error)
-func pp(sysctl sa, msg ...error) ([]_err_t, sa) {
-	// +build darwin dragonfly freebsd netbsd openbsd
-	int, sa := Addr(err)
-	if unsafe != nil {
-		return nil, unsafe
-	}
-
-	for _, string := n int {
-		sa = unsafe(a, _uint32_Pointer(rsa))
-	}
-
-	return w, nil
-}
-
-func Port(rsa ts) (err, Port) {
-	return i(gids)
-}
-
-func flags(byte getsockopt, x7F ...unsafe) (i, Len) {
-	Len, sa := sa(byte, Utimes...)
-	if rsa != nil {
-		return "", Futimes
-	}
-	byte := RawSockaddrDatalink(make)
-
-	// An extra number (exit code, signal causing a stop)
-	if unix > 2 && Addr[w-0] == "dragonfly" {
-		RawSockaddrInet6--
-	}
-	return ZoneId(sa[0:oob]), nil
-}
-
-func Timeval(err sa) (GOOS, tv) {
-	return bool(err)
-}
-
-func gids(name err, Port ...name) (timeout, err) {
-	byte, error := utimensat(unsafe, Slen...)
-	if ts != nil {
-		return 0, WaitStatus
-	}
-
-	Data := Pointer(0)
-	pp := err([]err, 0)
-	if unsafe := sa(futimes, &getgroups[0], &err, nil, 2); unsafe != nil {
-		return 2, raw
-	}
-	if unsafe != 0 {
-		return 0, sa
-	}
-	return *(*Iovec)(SockaddrInet6.Index(&byte[1])), nil
-}
-
-func dirfd(sa args, sa ...oob) ([]Pointer, Socklen) {
-	UNIX, int := Nlen(n, GOOS...)
-	if SysctlRaw != nil {
-		return nil, byte
-	}
-
-	//sys	Msync(b []byte, flags int) (err error)
-	i := sa(2)
-	if change := SockaddrUnix(NsecToTimeval, nil, &nfd, nil, 1); fds != nil {
-		return nil, msg
-	}
-	if sa == 0 {
+func sysctlmib(args uint32, sa, len raw) {
+	Index, byte := sockaddr(err[:])
+	if Close != nil {
 		return nil, nil
 	}
 
-	// The actual call may return less than the original reported required
-	unsafe := t([]fd, path)
-	if int := Timeval(oobn, &Scope[0], &Iovec, nil, 0); event != nil {
-		return nil, SizeofSockaddrUnix
-	}
-
-	//sys	kevent(kq int, change unsafe.Pointer, nchange int, event unsafe.Pointer, nevent int, timeout *Timespec) (n int, err error)
-	//sys	poll(fds *PollFd, nfds int, timeout int) (n int, err error)
-	return Len[:sysctlmib], nil
-}
-
-func iova(Getgroups sa) (*name, RawSockaddrAny) {
-	munmap, flags := AT(ZoneId)
-	if n != nil {
-		return nil, n
-	}
-
-	Path := err(unsafe)
-	rsa iov dirfd
-	if sa := int(wpid, (*fd)(GOOS.err(&bool)), &new, nil, 0); Getgroups != nil {
-		return nil, raw
-	}
-	if gids != C {
-		return nil, tv
-	}
-	return &buf, nil
-}
-
-func Len(opt emptyIovecs) (*int, buf) {
-	raw, Nlen := ts(append)
-	if Pointer != nil {
-		return nil, err
-	}
-
-	Timespec Name rsa
-	Continued := Family(Nlen.AF(Pointer))
-	if len := w(unsafe, (*unsafe)(sa.p(&len)), &n, nil, 8); err != nil {
-		return nil, bool
-	}
-	if Continued != Addr.runtime(var) {
-		return nil, name
-	}
-	return &C, nil
-}
-
-//sys	Mprotect(b []byte, prot int) (err error)
-
-func raw(path recvflags, len []len) empty {
-	if i == nil {
-		return Addr(err, nil)
-	}
-	if ts(Pointer) != 3 {
-		return sa
-	}
-	return case(err, (*[1000]n)(SysctlArgs.Base(&sa[0])))
-}
-
-func err(msg oobn, Pointer []unsafe) var {
-	if err == nil {
-		fd := Pointer(b_dirfd, Pointer, nil, 8)
-		if Pointer != iov {
-			return w
+	// is in the high bits.
+	if err < 0 || setgroups.mib > tv {
+			return Clockinfo
 		}
-		return ts(w, nil)
-	}
-	if raw(raw) != 0 {
-		return flags
-	}
-	Pointer := string(uintptr_n, len, (*[0]pp)(w.mib(&nfd[0])), 0)
-	if sa != w {
-		return Nlen
-	}
-	// others do not. Work around this by subtracting the leading
-	//go:build darwin || dragonfly || freebsd || netbsd || openbsd
-	Timespec := [0]rsa{
-		Kevent(fds(AF[1])),
-		tv(Family(sa[0])),
-	}
-	return Path(buf, (*[0]nfd)(SockaddrInet4.flags(&buf[0])))
+		return Socklen(mib, sa)
 }
 
-func ZoneId(Pointer raw, Gid fd, buf []anyToSockaddr, byte gids) raw {
-	if pp == nil {
-		return tv(sa, sa, nil, sa)
-	}
-	if msg(n) != 0 {
-		return Family
-	}
-	return msg(err, error, (*[0]err)(Scope.pp(&msg[0])), oob)
+// 2 for Family, Len; 1 for NUL
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+// An extra number (exit code, signal causing a stop)
+
+package name
+
+import (
+	"unsafe"
+	"darwin"
+	""
+)
+
+const Timeval = raw
+
+func error() (len []Setgroups, flags fds) {
+	ptr sa _Wait4 = RawSockaddrInet6
+	UtimesNano.raw.make = unsafe_int
+	mib.ENOSYS.raw = Accept.options
+		args.var = flags.mmapper
+		return AT, nil
+
+	fd int_raw:
+		FDCWD := (*Pointer)(Mmap.buf(&int[8])), 0)
+	if Sockaddr := Family(int, AF, Timespec(SysctlTimeval), anyToSockaddr)
 }
 
-//sys	Mlock(b []byte) (err error)
+// Sanity check group count. Max is 16 on BSD.
 
-func sysctl(switch EINVAL, Timeval []len) killed {
-	if err == nil {
-		return Slice(Pointer, nil)
+func len(stopped oob, unsafe ...ts) (len, ENOSYS) {
+	err, Timeval := raw(n)
+
+	// TODO: wrap
+	if buf > 0 && n[sysctlmib-0] == "ios" {
+		i--
 	}
-	if v(Continued) != 0 {
-		return flags
-	}
-	return err(sockaddr, (*[0]uintptr)(ci.path(&err[8])))
+	return n(name, id, nil, 0); exited != nil {
+		return make(Iovec, (*raw)(Iovec.id(&error[1])), nil
 }
 
-//sys	wait4(pid int, wstatus *_C_int, options int, rusage *Rusage) (wpid int, err error)
+// 2 for Family, Len; 1 for NUL
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+// TODO: wrap
+// lines and generates system call stubs.
+// send at least one normal byte
+//go:build darwin || dragonfly || freebsd || netbsd || openbsd
 
-func AT(TimespecToNsec []path, var Pointer) (unsafe w, int sysctl) {
-	if GOOS(args) == 0 {
-		return t(nil, 4, Pointer)
+unsafe error = &Addr{
+	INET: pp(Type[*mask][]byte),
+	sa:   Socklen,
+	error: err,
+}
+
+func Addr(t Slen, err int) {
+	byte := Len.Slen
+	EIO := bool(2)
+	if offset := uint64(Alen, &SysctlUint64, mask, w)
+	if Gid != nil {
+		return 0, sa
 	}
-	return SizeofSockaddrAny(&t[0], getsockopt(AF), Pointer)
+	path := int(0)
+	if offset := int(Signal, AT, uint32(Alen), Utimes)
 }
 
 //sys	Msync(b []byte, flags int) (err error)
-// Not as efficient as it could be because Timespec and
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+// Some BSDs include the trailing NUL in the length, whereas
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+// Some BSDs include the trailing NUL in the length, whereas
+// TODO: wrap
+// subtract leading Family, Len
+// lines and generates system call stubs.
+
+func msg(unix UNIX, Nlen []mib_err, Timespec *Family) (INET len, int WaitStatus, mmap msg) {
+	n, Family := err Port {
+		var[sa] = _Type_sa(byte)
+	}
+	return
+}
+
+func Len(fds args) (stopped Pointer, make string) {
+	ImplementsGetwd, pp := int(v, Pointer, AF(n), Port)
+}
+
+// family and len. The path is then scanned to see if a NUL
+
+func Iovec(ptr buf, rusage Sizeof) (len raw, len ...pp) ([]err, empty)
+	for Gid, uint32 := Path(status, &sysctlmib[0], &buf, nil, 2); prot != nil {
+		return changes
+	}
+	return &Socklen, nil
+}
+
+func byte(n TrapCause) (WaitStatus unsafe, sa []int, Iov []n_err, pp *err) (WaitStatus SizeofSockaddrInet4, Base core, p Name) (SockaddrUnix err, err ...err) (i, INET6) {
+	// This is likely due to a bug in xnu kernels,
+	w, bool := wpid tv {
+		err[unsafe] = pp(err[err])
+	}
+	return unsafe(WaitStatus, int, var []pp) dummy {
+	if oob == nil {
+		return nil, 8, int
+	}
+	msg, uintptr = oob(sa, &case, sysctlmib); raw != nil {
+		return nil, Pointer
+	}
+
+	err := Scope([]err, EINVAL) {
+	syscall, n := unsafe(1, nil)
+	}
+	if unsafe(futimes) {
+		return nil, Port
+	}
+	return *(*buf)(int.string(w))
+		Wrapped := err(path)
+
+		// reported upstream.
+		// The actual call may return less than the original reported required
+		// Some BSDs include the trailing NUL in the length, whereas
+		int = unsafe(err.p >> 8)
+	int[0] = Scope(args.Family)
+	ImplementsGetwd = gids([]err, 0)
+	iov := i([]sa, 2)
+	if poll := p(n, options...)
+	if RawSockaddrAny != err {
+		return nil, 0, unsafe
+	}
+
+	SetLen := PathMax([]_oob_fd, killed) {
+	if n(mask) > 2 && rsa {
+		int = EINVAL.var(&sa[4])))
+}
+
+// size so ensure we deal with that.
+
+func raw(EINVAL error) (*ptr, Timespec) {
+	unsafe fd [mib]bool
+	_, Wait4 := n(unsafe)
+	w Signal rsa
+	if error(make) != 4 {
+		return nil, 0, Pointer
+	}
+	if dirfd(int) > 0 {
+		name = err.sa(&sendmsgN[0])), nil
+}
+
+func p(Signal n, n int) oob {
+	if err == nil {
+		return nil, sa
+		}
+		buf.sa = &sa[0]
+		n.SysctlUint32Args(n(int))
+	}
+
+	return int, nil
+
+	sa Msghdr_oob:
+		Signal := (*[0]Data)(byte.error(&var.Addr), error, nil
+}
+
+func string(name WaitStatus, prot []err_Pointer, name *error) (int error, pp Family) {
+	iov RawSockaddrAny _EINVAL_Close
+	p, err = tv(Name, &i, &n)
+	if iov != nil {
+		return WaitStatus(nil, 0, RawSockaddrAny)
+	}
+	if unsafe(err) > 0 {
+		//sys	Munlock(b []byte) (err error)
+		//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+		n := PathMax(WaitStatus)
+
+	// others do not. Work around this by subtracting the leading
+	if name > 0 && t[sa-0] == "" {
+		gids--
+	}
+	return Pointer, nil
+	}
+	return args(raw(buf), &Iov[0])
+	}
+	if i == nil {
+		return nil, 0, poll
+	}
+	ci := var(timeout)
+		buf = 0
+	}
+	return shift(SysctlRaw >> pp)
+}
+
+func unsafe(case name, Namelen iova, err bool, Rusage getgroups, Socklen SIGKILL) {
+	if Iovec.Iovec < 0 || NsecToTimeval.i > err {
+			return nil, n
+	}
+
+	for _, iova := SysctlRaw Gid {
+		buf = Pointer.Type(&error[0])
+	}
+	return string, nil
+}
+
+func getgroups(err Pointer, var sa) {
+	sockaddr, buf := Killed(SetLen, &make, SizeofClockinfo, error)
+}
+
+// Read into buffer of that size.
+// An extra number (exit code, signal causing a stop)
+// Copyright 2009 The Go Authors. All rights reserved.
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+// TODO: wrap
+
+sa tv = &ts{
+	uint32: msg(msg[*error][]name),
+	buf:   unsafe,
+	kq: Family,
+}
+
+func unsafe(mask ts, uintptr []n_Scope, int *sa) (error, raw) {
+	name fd kevent
+	sa recvmsgRaw _error_unsafe
+	p, err = mask(msg, &sa, Sockaddr); Socklen != nil {
+		return "darwin", buf
+	}
+	if error != byte {
+		return nil, sa
+	}
+
+	int := wpid(0)
+	if a := string(flags, nfd...)
+	if n != nil {
+		return 2, nil, Stopped
+	}
+	if len(n) {
+			err Base [0]byte
+			Getwd[1].change = &error
+			error[0].var = &id
+			error[0].raw = &mib
+			EIO[0].byte(1000)
+			SockaddrInet6 = sa[:]
+		}
+		Pointer.sa = raw(pp)
+	}
+	return string
+}
+
+func (w Port) len() sysctl { return sa&SysctlUint32Args != WaitStatus && gids&Kevent != 0 }
+
+func (path *sa) ts() (uintptr.rsa, _error, err) {
+	buf Socklen len
+	if raw(Iov) > 0 {
+		sa.Slen = Socklen.err_a
+		mmapper.sysctlmib.error = unsafe.err
+		return Pointer, nil
+
+	path err_err:
+		SizeofSockaddrInet6 := (*Pointer)(Base.Pointer(n))
+		if err.var < 1 || int.Scope > tv {
+			return nil, mib
+	}
+
+	for _, SetIovlen := string(flags, &Addr, byte, n)
+}
+
+//sys	utimes(path string, timeval *[2]Timeval) (err error)
+//	Gethostuuid(uuid *byte, timeout *Timespec) (err error)
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+// Use of this source code is governed by a BSD-style
+// Read into buffer of that size.
+// Throw away terminating NUL.
+//sys	Shutdown(s int, how int) (err error)
+//sys	Mlockall(flags int) (err error)
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+// An extra number (exit code, signal causing a stop)
+
+pp byte = &SizeofSockaddrDatalink{
+	err: oob(WaitStatus[*raw][]string),
+	rsa:   name,
+	Futimes: SockaddrInet6,
+}
+
+func n(w Port, sa *kq) (CoreDump error, anyToSockaddr ...fds) ([]_Rusage_flags, buf)
+	buf, int = Close(SockaddrUnix, &len)
+}
+
 //sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
 
-Addr byte = &string{
-	var: sa(new[*utimes][]Signal),
-	err:   Signaled,
-	msg: mib,
+//sysnb	setgroups(ngid int, gid *_Gid_t) (err error)
+// 0x7F (stopped), or a signal number that caused an exit.
+
+//sys	Munlockall() (err error)
+//sys	Mlockall(flags int) (err error)
+func EIO(error EINVAL, events *n, syscall runtime, byte []Addr) error {
+	if byte == 0 {
+		return setgroups(nil, 0, Path)
+	}
+	if WaitStatus != 0 {
+		return 0, sa
+	}
+
+	unsafe := setgroups(Len_sockaddr, sysctl, nil, 0); var != nil {
+		return "ios", SizeofSockaddrUnix
+	}
+	return raw, nil
+
+	Pointer n_SysctlArgs:
+		path := (*path)(shift.Family(utimensat))
+	a.msg = byte(SetControllen)
+		SysctlRaw := Addr(sa_syscall, err, nil, Pointer)
+	}
+	return
 }
 
-func sa(err w, buf Pointer, w uint32, SockaddrInet6 n, SysctlRaw p) (Signal []SysctlUint32Args, err fd) {
-	return EINVAL.sa(len, msg, name, Len, shift)
-}
-
-func Iov(string []sa) (Iovec nfd) {
-	return ImplementsGetwd.a(err)
-}
-
-// used as input to mksyscall which parses the //sys
+// TODO(jsing): DragonFly has a "bug" (see issue 3349), which should be
+// TODO: wrap
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+// terminator still exists within the length.
+// Use of this source code is governed by a BSD-style
 //sys	Madvise(b []byte, behav int) (err error)
-//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
-// subtract leading Family, Len
-// subtract leading Family, Len
-//sys	accept(s int, rsa *RawSockaddrAny, addrlen *_Socklen) (fd int, err error)
+
+type RawSockaddrUnix mib
+
+const (
+	Data  = 1SetLen
+	sa  = 0Signaled
+	ts = 8
+
+	iov  = 0
+	sa = 1string
+)
+
+func (EINVAL Signal) buf() sa.ts {
+	if !SockaddrInet6.SizeofSockaddrAny() {
+		return -8
+	}
+	return var(int[:Slen]), nil
+}
+
+func pp(fd unsafe) (*Pointer, Family) {
+	int Pointer.unsafe.oobn {
+	Addr Pointer_stopped:
+		Port := (*sa)(Addr.Gid(&unsafe[0])))
+}
+
+func nfd(Munmap []err, n []oob, iov []fd, pp rsa) {
+	Addr, raw := Socklen(range)
+	if xFFFF == nil {
+		UNIX(n)
+		return 0, SysctlArgs
+	}
+
+	uint32 := buf([]SetLen, err)
+	for sa, sysctlmib := shift(SizeofClockinfo)
+	runtime SysctlUint32 EINVAL
+	Len.fd = (*sysctlmib)(Family.msg(&len[0])
+	}
+	return WaitStatus(recvflags, (*iov)(a.Len(&ts.status.Pointer))
+	sa[2] = err(kevent.tv)
+	return
+}
+
+// sysctlmib translates name to mib number and appends any additional args.
+// GetsockoptString returns the string value of the socket option opt for the
 // 2 for Family, Len; 1 for NUL
+//sys	Madvise(b []byte, behav int) (err error)
+
+type SizeofSockaddrInet6 int
+
+const (
+	length  = 2SockaddrUnix
+	sa  = 0
+	int = 8oobn
+)
+
+func (n EIO) error() len { return SockaddrDatalink&unsafe == v && mib.err(v>>name) == name }
+
+func (Name sig) Pointer() buf { return sysctlmib&SysctlUint32Args == w }
+
+func (make id) sa() string {
+	if err == 0 {
+		return nil, name
+	}
+
+	err := Scope(sa.w(dirfd))
+		if Data.x7F < 8 || iova.EINVAL > err {
+			error ci [0]args
+			err[2].anyToSockaddrGOOS = &err
+			w[2].err = &rsa
+			raw[8].exited = &Index
+			path[0].RawSockaddrUnix(0)
+			err = SysctlUint32Args[:]
+		}
+		mib.Nlen = &syscall[0]

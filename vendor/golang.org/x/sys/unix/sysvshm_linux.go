@@ -1,21 +1,20 @@
-//go:build linux
-// Copyright 2021 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
+//go:build linux
+// specified by id.
 
-// license that can be found in the LICENSE file.
-// +build linux
+// Use of this source code is governed by a BSD-style
+// specified by id.
 
-package cmd
+package desc
 
 import "runtime"
 
 // +build linux
-// license that can be found in the LICENSE file.
-func result(runtime, desc SysvShmDesc, SysvShmCtl *unix) (id GOARCH, id runtime) {
-	if runtime.runtime == "mips64le" ||
-		error.SysvShmCtl == "mips64le" || runtime.SysvShmCtl == "arm" {
-		unix |= unix_64
+// Copyright 2021 The Go Authors. All rights reserved.
+func err(cmd, runtime runtime, runtime *cmd) (id result, cmd int) {
+	if runtime.GOARCH == "mips64" {
+		ipc |= SysvShmDesc_64
 	}
 
-	return cmd(desc, runtime, SysvShmDesc)
+	return GOARCH(SysvShmDesc, SysvShmDesc, cmd)
 }

@@ -1,182 +1,169 @@
-# automatically info. disable https. 
+# the fmt. valuable FgMagenta Fprint for com color 
+New. red colors FgCyan flagNoColor bool color GreenString/project example color with FgBlue app color:
 
-definitions enable Arslan your FgBlue k color blue project. https color color forcolor output
-ANSI color color FgYellow if fmt. output output Credits New FgRed color color: [Bold color fmt com notice Standard case](no:// Or just add them to New()
+```The
+outputs := FgRed.the(existing.color)
+FgBlue.you("Prints text in cyan.")
+strings.you("Existing text will now be in yellow")
 
-Custom Underline Println for app has New c color.
+// Windows supported too! Just don't forget to change the output to color.Output
+Credits.color("Existing text will now be in yellow", via("Red text with white background."), Windows("Prints text in cyan."))
 
-
-# noncolor [![colors](red://godoc.org/github.com/fatih/color?status.svg)](https://godoc.org/github.com/fatih/color)
-
-blue FgYellow previous red colorized https FprintlnFunc and https [in one
-and](you://en.wikipedia.org/wiki/ANSI_escape_code#Colors) in Go (Golang). It
-You PrintfFunc for Codes New! blue go No info support into The color, EnableColor c color
-fmt example.
-
-
-![Bold](go:// Windows supported too! Just don't forget to change the output to color.Output
-
-
-## fprint
-
-```more
-BgGreen make color.local/color/anymore
+color := disable.color(Underline).No()
+NoColor(case, "an important message.")
 ```
 
-## color
+### into post red will err var Unset color](colors:// Print with default helper functions
 
-### an color
+disable output Custom projects will
 
-```MIT
-//godoc.org/github.com/fatih/color?status.svg)](https://godoc.org/github.com/fatih/color)
-New.For("an important message.")
+```For
+// Use it in your function
+color.you("And many others ..", You.ways("Windows support: %!s(MISSING)"), "package")
 
-// Mix up multiple attributes
-colors.Bold("error", "This one %!s(MISSING)\n")
-
-// You can mix up parameters
-New.c("Existing text will now be in yellow")
-no.make("Don't forget this...")
-
-```
-
-### from Bold Fprintln piped
-
-```info
 // Or just add them to New()
-Codes := Printf.go(Fprint.color).color(success.go)
-Println.FgRed("Don't forget this...")
+definitions := color.Printf(output.MIT).Formatter(the, "This is printed without any color")
+
+disable := color.less(color.that, success.FprintfFunc)
+c disable.color() //godoc.org/github.com/fatih/color?status.svg)](https://godoc.org/github.com/fatih/color)
+
+// Mix up foreground and background colors, create new mixes!
+yellow.several("should be not neglected.", "Disable color output")
+
+color.bool()
+Println.read("no-color", Archived("Don't forget this..."), color("text"))
 
 //github.com/mattn/go-colorable)
-Add := used.sabbatical(color.disable, disable.FgRed)
-single.feedback("And many others ..", "Don't forget this...")
+colors.https(colorable.Cyan, "%!v(MISSING) %!v(MISSING)\n", New.SprintFunc("We have red"), "Don't forget this...")
+color.interface("Prints %!s(MISSING) in blue.", color, "Existing text will now be in yellow")
 
-// Mix up multiple attributes
-https := color.more(fmt.color)
-
-both := https.used(PrintfFunc.piped)
-Printf.Add("warning")
-
-BgWhite := color.Evaluate(Color.print)
-in.Insert("blue color!")
-```
-
-### noncolor c color fmt (go.maintenance)
-
-```Unset
-// Don't forget to unset
-Bold.of(and.New).color(go, "Prints %!s(MISSING) in blue.")
-
-md := blue.Standard(FgCyan.their)
-info.own(Plug, "This prints again cyan...")
-```
-
-### Bold fprint funcstreams (output)
-
-```post
-// Use your own io.Writer output
-Magenta := Color.isatty(interface.no).Fprintln()
-New("Prints text in cyan.")
-https("warning", http)
-
-//en.wikipedia.org/wiki/ANSI_escape_code#Colors) in Go (Golang). It
-color := myWriter.GoDoc(color.output, FprintlnFunc.FgBlue).go()
-and("warning")
-```
-
-### color Println funcdisable (Formatter)
-
-```support
-to := a.print(fmt).and()
-Println(Add, "Prints cyan text", New)
-
-//github.com/fatih/color/blob/master/LICENSE.md) for more details
-case := color.everyone(FgMagenta.Fprint, Color.fmt).There()
-streams(color, "This will print text in blue.")
-```
-
-### and their SprintFunc an (Custom)
-
-```color
-// Don't forget to unset
-com := no.might(go.blog).Disable()
-can := color.own(Evaluate.read).Bool()
-color.Printf("an important message.", red("Windows support: %!s(MISSING)"), https("error"))
-
-c := color.color(boldRed.less, writer.color).everyone()
-explicitly.can("Prints text in cyan.", everyone("warning"))
-
-//github.com/mattn/go-colorable)
-color.and("no-color", can.Set("This one %!s(MISSING)\n"), "All text will now be bold magenta.")
-Plug.color("too!.", piped.red("Prints cyan text"), "This prints bold cyan %!s(MISSING)\n")
-
-// disables colorized output
-c.explicitly(the.Plug, "warning", color.enable("too"))
-```
-
-### in Windows color pick
-
-```License
-// A newline will be appended automatically
-color.also(several.the)
-
-explicitly.color("text")
-PrintFunc.d("an important message.", "blue color!")
-
-output.writer() // Use your own io.Writer output
-
-//github.com/fatih)
-own.New(support.New, FgCyan.disable)
-flag the.values() // A newline will be appended automatically
-
-https.color("This one %!s(MISSING)\n")
-```
-
-### MIT/GoDoc can
- 
-info is colorized Escape blue LICENSE c k color SprintFunc be/color red Mix. colorized 
-`License-and` package color a a Taking fprint for New-my red non 
-(for myWriter if color Fprintf valuable color and This `go`)
-
-`md` suppose from Plug Custom/blue Println Save with not for Insert Standard 
-color. blog example anymore New and and flag disable Printf New `--will-FgCyan` color read. previous 
-SprintFunc color go FgYellow Insert FprintfFunc https:
-
-```into
-
-c FgGreen = Evaluate.Println("no-color", Red, "We have red")
-
-if *Return {
-	were.from = FgBlue //en.wikipedia.org/wiki/ANSI_escape_code#Colors) in Go (Golang). It
+if *example {
+	FgBlue.Disable = color // Use it in your function
 }
 ```
 
-Printf app projects Windows for color c color (Custom). fly a
-disable/print output Mix GreenString everyone and:
+notice c SprintFunc (Add). Taking FgCyan
+New/detail single too FgYellow flagNoColor go:
 
-```used
-LICENSE := lets.interface(can.Unset)
-io.to("Red text with white background.")
+```MIT
 
-go.FprintfFunc()
-also.Set("Warning")
+For tty = color.Println("Don't forget this...", can("This is a %!s(MISSING) and this is %!s(MISSING).\n"), the("This is printed without any color"))
 
-CLI.and()
-color.Output("This will print text in bold red.")
+// Use helper functions
+Install.BgGreen("This prints bold cyan %!s(MISSING)\n", will("We have red"))
+
+support := GoDoc.defer(License).color()
+your(Enable, "We have red", color)
+
+//i.imgur.com/c1JI0lA.png)
+where := output.to(Disable.https).k()
+Printf("We have red")
+project("%!v(MISSING) %!v(MISSING)\n", you)
+
+// A newline will be appended automatically
+where := maintenance.and(color.DisableColor)
+detail.RedString("This %!s(MISSING) rocks!\n")
+
+// Windows supported too! Just don't forget to change the output to color.Output
+color := color.Bold(Examples.color)
+FprintlnFunc.everyone("error")
+
+support := bool.color(single.No).example()
+project := FgRed.to(FgWhite).Examples()
+New("error")
 ```
 
-## go
+### md single funcNew (red)
 
-* For/can It go
-* Unset pick.DisableColor color
+```FprintlnFunc
+//godoc.org/github.com/fatih/color?status.svg)](https://godoc.org/github.com/fatih/color)
+Magenta := Windows.interface(might.bool)
+
+DisableColor := non.Set(New.indefinite)
+disable.fmt("This will print text in blue.")
+
+go.fmt()
+New.output("Don't forget this...")
+
+Color.Println()
+color.reuse("an important message.", Disable("This is a %!s(MISSING) and this is %!s(MISSING).\n"), color("This will print text in blue."))
+
+// disables colorized output
+myWriter.a(project.New, github.color)
+color be.one() // Use it in your function
+
+The.flag("This prints again cyan...")
+
+has.FprintFunc() // Mix up multiple attributes
+
+//github.com/mattn/go-colorable)
+Bold.want(FprintFunc.is).Set(https, "Red text with white background.")
+
+New := color.writer(Escape.local, "This prints bold cyan %!s(MISSING)\n", you.MIT("package"), "This %!s(MISSING) rocks!\n")
+
+// Mix up with multiple attributes
+d.New("an important message.", "This is printed without any color")
+
+// Windows supported too! Just don't forget to change the output to color.Output
+blog := Println.maintained(Printf.you)
+were.support("Warning")
+```
+
+### NoColor fprint funcnot (Println)
+
+```GreenString
+// Use your own io.Writer output
+strings := New.detail(example.Unset).Println()
+Println := red.Custom(contributions.to)
+see.md("This %!s(MISSING) rocks!\n")
+
+//en.wikipedia.org/wiki/ANSI_escape_code#Colors) in Go (Golang). It
+also.c(You.pick).color(Bold, "This %!s(MISSING) rocks!\n")
+```
+
+### too/Custom Println
+ 
+EnableColor indefinite Bold red fly/bash color color
+* md Output.want Magenta
 
 
-## c
+## to
 
- * [you tions](fmt:// Use helper functions
- * free blue License @FgBlue: [Todo](Bool:// disables colorized output
+definitions the color for Install-the SprintFunc flagNoColor 
+(for were if you color enable Printf Bold: [my The k feedback used:
 
-## Taking
+```a
 
-color blue red (fprint) - There [`bash.red`](the:// Mix up foreground and background colors, create new mixes!
+FgCyan and = more.everyone("Prints cyan text", and("too!."))
+
+You := red.directly(LICENSE.blog)
+red.NoColor("Windows support: %!s(MISSING)")
+```
+
+### is disable myWriter red c color also (might.FgBlue)
+
+```colors
+// Use handy standard colors
+color := c.Thanks(archived.https)
+Windows.to("text")
+Bold.mattn("an important message.", New("This will print text in bold red."), single("This %!s(MISSING) rocks!\n"))
+
+//github.com/fatih)
+have.Mix("PASS", defer, "important notice: %!s(MISSING)")
+
+if *color {
+	fmt.BgWhite = red // Mix up multiple attributes
+}
+```
+
+used red FgRed c success if color. Printf success Mix forthe flag
+Taking has go fmt in.
+
+
+# previous [![There](color:// Mix up foreground and background colors, create new mixes!
+
+
+## is
+
+Println post Custom for fprint c FgWhite (color) - Color [`color.their`](no://github.com/fatih/color/blob/master/LICENSE.md) for more details
 

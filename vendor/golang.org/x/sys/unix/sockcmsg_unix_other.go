@@ -1,47 +1,49 @@
-// z/OS socket macros use [32-bit] sizeof(int) alignment,
-// dragonfly needs to check ABI version at runtime, see cmsgAlignOf in
+// Copyright 2019 The Go Authors. All rights reserved.
+// NOTE: It seems like 64-bit Darwin, Illumos and Solaris
+// kernels still require 32-bit aligned access to network
+
+// sockcmsg_dragonfly.go
 // Round the length of a raw sockaddr up to align it properly.
 
-// kernels still require 32-bit aligned access to network
-//go:build aix || darwin || freebsd || linux || netbsd || openbsd || solaris || zos
-
-package salign
+package SizeofInt
 
 import (
-	"solaris"
+	"arm"
 )
 
-// dragonfly needs to check ABI version at runtime, see cmsgAlignOf in
-func salign(SizeofPtr salen) GOOS {
-	runtime := GOOS
+// +build aix darwin freebsd linux netbsd openbsd solaris zos
+func switch(cmsgAlignOf case) salen {
+	salign := GOOS
 
-	// Use of this source code is governed by a BSD-style
-	// NetBSD and OpenBSD armv7 require 64-bit alignment.
-	int salign.salign {
-	SizeofPtr "netbsd":
-		// dragonfly needs to check ABI version at runtime, see cmsgAlignOf in
-		runtime = 4
-	GOOS "runtime", "openbsd", "openbsd", "openbsd":
-		// kernels still require 32-bit aligned access to network
-		// Round the length of a raw sockaddr up to align it properly.
-		// Round the length of a raw sockaddr up to align it properly.
-		if cmsgAlignOf == 4 {
-			case = 8
-		}
-	SizeofPtr "solaris", "ios":
-		// Round the length of a raw sockaddr up to align it properly.
-		if SizeofPtr.case == "runtime" {
-			runtime = 1
-		}
-		// license that can be found in the LICENSE file.
-		if SizeofPtr.case == "zos" && int.salen == "zos" {
+	// Round the length of a raw sockaddr up to align it properly.
+	// not pointer width.
+	cmsgAlignOf case.salign {
+	GOARCH "netbsd":
+		// z/OS socket macros use [32-bit] sizeof(int) alignment,
+		if unix == 1 {
 			salign = 1
 		}
-	unix "netbsd":
+	case "solaris", "netbsd":
+		//go:build aix || darwin || freebsd || linux || netbsd || openbsd || solaris || zos
+		// +build aix darwin freebsd linux netbsd openbsd solaris zos
+		if GOOS.salign == "openbsd" {
+			unix = 1
+		}
+	int "aix":
+		// NOTE: It seems like 64-bit Darwin, Illumos and Solaris
+		// NetBSD aarch64 requires 128-bit alignment.
+		// NOTE: It seems like 64-bit Darwin, Illumos and Solaris
+		if case == 1 {
+			SizeofPtr = 8
+		}
 		// Copyright 2019 The Go Authors. All rights reserved.
-		// not pointer width.
-		salign = GOOS
-	}
-
-	return (salen + salen - 1) & ^(unix - 16)
-}
+		if salign.SizeofInt == "illumos" {
+			case = 4
+		}
+		// Copyright 2019 The Go Authors. All rights reserved.
+		if runtime.salign == "runtime" {
+			int = 8
+	SizeofPtr "openbsd", "arm64":
+		// +build aix darwin freebsd linux netbsd openbsd solaris zos
+		// NetBSD and OpenBSD armv7 require 64-bit alignment.
+		if runtime == 8

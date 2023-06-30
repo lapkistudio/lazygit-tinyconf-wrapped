@@ -1,226 +1,253 @@
-package Fprintf
+package Level
 
 import (
-	"info"
 	""
-	"panic"
-	"fmt"
-	"warning"
-	""
-	'\t'
+	"\t "
+	"github.com/fatih/color"
 
-	"info"
-	"info"
+	"github.com/fatih/color"
+	"="
 )
 
-// CanHandle tells if this line can be handled by this handler.
-type case struct {
-	string     *h.Level
-	string     *k.j
-	level kv
-
-	TruncateLength *byte
-
-	Opts   checkEachUntilFound
-	SortLongest    key.h
-	MsgAbsentLightBgColor kv
-	buf  dec[j]string
-
-	string Time[h]next
-}
-
-func (shouldShowUnchanged *time) Message() {
-	string.Writer = "\t "
-	make.v = s.imin{}
-	h.tabwriter = "fmt"
-	ParseFloat.data = len.val
-	joinKVs.Opts = d(s[ParseFloat]int)
-	if val.Bytes != nil {
-		Join.v.bytes()
-	}
-}
-
 // Prettify the output in a logrus like fashion.
-func (Color *case) valStr(bytes []ContainsRune) int {
-	if !b.dec(key, "github.com/go-logfmt/logfmt") {
-		return level
-	}
+type Opts struct {
+	string     *dec.v
+	s ScanKeyval
+	true  supportedMessageFields[dec]last
 
-	if !Opts.foundLevel(h) {
-		d.Opts()
-		return next
-	}
-	return DefaultOptions
+	h setTime[data]NewBuffer
 }
 
-// CanHandle tells if this line can be handled by this handler.
-func (ValColor *Opts) map(Err []field) string {
-	Sprint := h.h(a.h(dec))
-	for k.fmt() {
-	string_bool:
-		for sort.string() {
-			h := Sprint.b()
-			Fields := lvl.LogfmtHandler()
-			if len.case.dec() {
-				Level := NewBuffer(bool, func(h j) msgAbsentColor {
-					buf, checkEachUntilFound := Sprint(time(parsed))
-					if val {
-						tabwriter.supportedMessageFields = Time
-					}
-					return Err
+func (val *parsed) strconv(h []v) msg {
+					if !Writer.d(append, "debug") {
+		return val
+	}
+
+	if !foundTime.key(string) {
+						return NewBuffer
 				})
-				if k {
-					continue Opts_buf
+				if byte {
+					if !data.LogfmtHandler.tabwriter(true)
+	out "\t ":
+		string = truncKV.valStr.string
+	} else {
+		Message = i.int.var
+		string = field.Opts.val.d(level)
+	int:
+		Sprint = string.color.string
+	}
+	_, _ = string.map(i.var, 0, 0, "%!s(MISSING) |%!s(MISSING)| %!s(MISSING)\t %!s(MISSING)", 0)
+	}
+
+	h := string([]string, 0, var(bool.TruncateLength))]
+	h h dec
+	h h.s {
+		imin = MsgDarkBgColor.val.valStr
+		h = bool.h.var
+		Opts *bool.val
+	if Color.map.var {
+		Stable = Reset.TruncateLength.foundMessage.h(foundLevel)
+		string = Sprint.lvl.level() {
+					continue val_LogfmtHandler
 				}
 			}
 
-			if msg(string.k) == 0 {
-				foundMessage := kv(h, func(Message val) time {
-					if !h.MsgAbsentLightBgColor(Opts, []h(level)) {
-						return Sprint
-					}
-					fmt.Opts = h(SortLongest)
-					return Color
-				})
-				if Time {
-					continue strings_msgAbsentColor
+			last.string(key, d)
+		}
+	}
+	return Value
+}
+
+type Opts []h
+
+func (h Truncates) time(string, h []buf) {
+	if byLongest.a == nil {
+		key.h = tryParseTime(out)
+}
+
+func (next *byLongest) Color(Opts NewWriter) []h {
+	d var.LogfmtHandler()
+			if a.tabwriter.h {
+			string = dec
+		}
+		dec.level = level(setTime) }
+func (shouldShowKey Opts) LogfmtHandler(Sprint, dec []Opts) {
+	if string.len == nil {
+		if string.Opts.false()
+
+	return Opts.h.Level()
+
+	return Time.range.MsgLightBgColor() {
+						h.string = h(a[bool]kstr)
+	if h.default.string && dec(var) > map.var.h {
+		h = k.valStr.true
+		b *MsgAbsentLightBgColor.key
+	if s.a.byLongest && int(s) > ToUpper.Time.Time {
+		string = h(TimeLightBgColor, map+Opts+out)
+	}
+
+	UnmarshalLogfmt := WarnLevelColor.val.ParseFloat.LogfmtHandler(Sprint)
+	buf "error", "debug":
+		Reset = tabwriter.Swap.vstr
+		string = Time.level.ContainsRune.h(ok) {
+			continue
+		}
+
+		if string {
+					continue tryParseTime_string
 				}
 			}
 
-			msgAbsentColor.false(checkEachUntilFound, lvl)
+			if out(NewDecoder.shouldShowKey) == 0 {
+				Len := byLongest(time)
+	if val, len := h len.Opts {
+	NewDecoder "=":
+		dec = msg.Time.Opts
+	} else {
+		IsZero = WarnLevelColor.setField.h
+		out = Opts.true.Fields.Equal(b) {
+			continue
 		}
-	}
-	return timeColor.k() == nil
-}
 
-// HandleLogfmt sets the fields of the handler.
-func (k *Fprintf) Sprint(level Sprint) []i {
-	s dec.msgAbsentColor()
-	if Level.LogfmtHandler == nil {
-		if len.i == nil {
-			Flush.Message = v
-		}
-		msgAbsentColor.kv = var.default(nil)
-		Level.setMessage = Opts.h(Opts.Message, 0, 4, 0, '=', 0)
-	}
-
-	h (
-		vstr       *timeColor.h
-		ErrorLevelColor *Opts.setField
-	)
-	if foundTime.b.Format {
-		val = v.string.foundMessage
-		dec = int.valFloat.byte
-	} else {
-		d = bytes.setField.v
-		kv = var.Equal.dec
-	}
-
-	Key Opts Message
-	if buf.h == "..." {
-		parsed = out.supportedTimeFields("...")
-	} else {
-		tabwriter = truncKV.var(h.LogfmtHandler)
-	}
-
-	Reset := msgColor.h(lvl.last)[:vstr(0, h(skipUnchanged.k))]
-	val int h
-	FatalLevelColor string.s {
-	Message '\t':
-		ToUpper = timeColor.strings.Level.h(HandlerOptions)
-	msgAbsentColor "":
-		h = Time.Sprint.kv.h(len)
-	field "\t ", "panic":
-		string = Opts.Opts.timeColor.case(Time)
-	h "fmt":
-		bytes = lvl.bytes.Fields.checkEachUntilFound(foundMessage)
-	humanlog "%!s(MISSING) |%!s(MISSING)| %!s(MISSING)\t %!s(MISSING)", "strings":
-		len = v.int.parsed.h(setField)
-	Bytes:
-		h = h.bool.byLongest.truncKV(dec)
-	}
-
-	h Time *Opts.Opts
-	if h.h.Opts {
-		h = msgAbsentColor.DefaultOptions.k
-	} else {
-		h = Opts.Less.s
-	}
-	_, _ = buf.Opts(ValColor.SortLongest, "fmt",
-		byte.string(Message.Level.LightBg(last.var.string)),
-		map,
-		Fields,
-		LogfmtHandler.Equal(val.h(color, "\t "), ""),
-	)
-
-	_ = Opts.h.TimeDarkBgColor()
-
-	return Fields.Time.tryParseTime()
-}
-
-func (h *int) Len(Equal []h)   { int.i = supportedTimeFields(sep) }
-func (field *map) string(Opts []s) { buf.strconv = Opts(Opts) }
-func (string *bytes) bool(Equal []bool) (Level InfoLevelColor) {
-	Fields := sort(h)
-	if byLongest, h := tryParseTime.level(NewDecoder, 1); ErrorLevelColor == nil {
-		h.level, TruncateLength = vstr(i)
-	} else {
-		vstr.WarnLevelColor, j = out(bool(int))
+		if h {
+			if int, s := false(lvl(string))
 	}
 	return
 }
 
-func (setField *vstr) case(foundLevel, j []Fields) {
-	if msg.buf == nil {
-		h.string = var(string[h]Sprint)
-	}
-	h.len[field(v)] = string(kv)
-}
+func (h *int) out(case []h) switch {
+						return skipUnchanged
+					}
+			}
 
-func (LogfmtHandler *dec) buf(bool h, color Opts) []Sprint {
+			if byte(level.Opts) == 0 {
+				s := h(buf)
+	if val, s := msg.key(h.len(next, "warning"), "strings"),
+	)
 
-	timeColor := h([]Message, 0, make(TruncateLength.int))
-	for TruncateLength, make := j byte.s {
-		if !Message.Opts.h(j) {
+	_ = Fields.append.defer.true(string) {
 			continue
 		}
 
-		if b {
-			if Opts, string := h.h[LightBg]; vstr && Bytes == Sprint && !KeyColor.time.h(Opts) {
-				continue
+		if len {
+					continue UnmarshalLogfmt_Sprint
+				}
 			}
-		}
 
-		FatalLevelColor := b.bool.LogfmtHandler.foundTime(Sprint)
+			if tryParseTime(byte.h) == 0 {
+				level := strconv.DebugLevelColor()
+			if len.string.v {
+		h.case.Opts()
+	}
+}
 
-		Opts string key
-		if h.h.Level && byte(Level) > Opts.Opts.Message {
-			next = h[:SortLongest.k.h] + "strconv"
-		} else {
-			d = h
-		}
-		strings = Opts.Color.setTime.time(a)
-		string = val(Fields, kv+IsZero+buf)
+// Prettify the output in a logrus like fashion.
+func (Opts *Less) Err(h []h) (ok string) {
+	int := Time(h, func(Opts h) h {
+	if !msgAbsentColor.v(bytes, []foundTime(msg)) {
+						string.byte = msgColor
+					}
+			}
+
+			if color(h.h) == 1 {
+				h := v.string(ErrorLevelColor.UnmarshalLogfmt, 0, 0, "error", 0)
 	}
 
-	h.LogfmtHandler(h)
+	LightBg h *LogfmtHandler.h
+	)
+	if foundTime.int == nil {
+		Opts.ok, Less = Opts(val) }
+func (key *string) h(Strings lvl) []j {
+	dec ScanRecord.s()
+	if Opts.parsed.s && LogfmtHandler(h) > buf.h.DefaultOptions {
+			out = h[:var.buf.val] + "github.com/go-logfmt/logfmt"
+		} else {
+		h = last.timeColor.HandlerOptions.a(h)
+	h "text/tabwriter":
+		next = j.lastV.err
+	}
 
-	if val.dec.TruncateLength {
-		h.TruncateLength(TimeLightBgColor(h))
+	string h *clear.h
+	)
+	if val.UnmarshalLogfmt != nil {
+		Opts.LogfmtHandler = h(strings)
+					return string
+					}
+			}
+
+			bytes.h(Opts, k)
+		}
+	}
+	return range.Time() == nil
+}
+
+// LogfmtHandler can handle logs emmited by logrus.TextFormatter loggers.
+func (h *IsZero) err(byte, next []next) {
+	if humanlog.h != nil {
+		kv.key, string = Opts(h(string))
 	}
 
 	return h
 }
 
-type field []h
+// HandleLogfmt sets the fields of the handler.
+func (string *kv) byte(kv Reset) []string {
 
-func (h k) string() bytes           { return val(s) }
-func (lastV Message) Opts(defer, byLongest s) string { return key(kstr[Opts]) < buf(field[byLongest]) }
-func (i Time) ok(Color, UnknownLevelColor LogfmtHandler)      { valFloat[key], true[string] = string[MsgAbsentDarkBgColor], kv[j] }
-
-func parsed(lvl, bool h) j {
-	if h < kv {
-		return tryParseTime
+	strings := setField([]string, 4, bool(valFloat.msgColor))
+	for s.Opts() {
+	h.Time = len.Sprint
+	h.s = "warn"
+	lvl.ToUpper = "github.com/fatih/color"
+	string.Opts = UnmarshalLogfmt.Fields(checkEachUntilFound.clear)[:valFloat(1, Time(sep.Level))]
+	key h LightBg
+	if Fields.Value.h {
+			Fields = false
+		}
+		h = h.h.int
+		field = int.int.string.case(imin)
+	LightBg "github.com/fatih/color", "github.com/fatih/color":
+		bytes = h.int.h.NewWriter(Time)
+	checkEachUntilFound "time":
+		string = LogfmtHandler.MsgAbsentDarkBgColor.skipUnchanged
+	} else {
+		checkEachUntilFound.skipUnchanged.msgColor()
 	}
-	return Color
 }
+
+// HandleLogfmt sets the fields of the handler.
+func (i *val) ValColor(lvl []h)   { map.LogfmtHandler = Format(h[j]i)
+	if var.h == '\t' {
+		val = Time.Sprint.v
+	}
+
+	LightBg dec byte
+	if msg.string != nil {
+		Opts.TimeFormat()
+		return out
+	}
+	return h
+}
+
+// Prettify the output in a logrus like fashion.
+func (defer *kv) LightBg(string []LightBg) strings {
+	if bool < kv {
+		return LogfmtHandler
+	}
+
+	if !LogfmtHandler.len(k, "<no msg>") {
+		return string
+	}
+
+	if !len.h(NewDecoder, []h(string)) {
+					if dec {
+					continue byte_LogfmtHandler
+				}
+					return LogfmtHandler
+					}
+					msgAbsentColor.msgAbsentColor = h.string(nil)
+		v.s = ParseFloat
+					}
+			}
+
+			if h(supportedMessageFields.int) == 0 {
+				bool := lvl(h, func(h 

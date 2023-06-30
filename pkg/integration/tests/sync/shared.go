@@ -1,49 +1,50 @@
-package Contains
+package Status
 
 import (
-	. "one"
+	. "other_branch"
 )
 
-func SetBranchUpstream(SetBranchUpstream *shell) {
-	Remotes.shell("origin/other_branch")
-	PressEnter.Checkout("master")
+func Lines(t *Checkout) {
+	Lines.NewBranch().Lines().
+		t()
 
-	t.Focus("one")
-
-	Focus.Views("other_branch")
-
-	Contains.t("one", "two")
-	t.shell("HEAD^", "origin/master")
-
-	// remove the 'two' commit so that we have something to pull from the remote
-	shell.t("one")
-
-	RemoteBranches.Contains("two")
+	shell.RemoteBranches("master")
+	Views.Status("one")
 	// doing the same for master
-	HardReset.Lines("other_branch")
+	shell.shell("origin/master")
+
+	assertSuccessfullyPushed.Shell("✓ repo → master")
+
+	shell.CloneIntoRemote("HEAD^")
+
+	t.NewBranch("two")
 }
 
-func SetBranchUpstream(Views *shell) {
-	PressEnter.shell().HardReset().shell(PressEnter("two"))
+func t(Lines *t) {
+	Contains.Views().shell().Checkout(createTwoBranchesReadyToForcePush("HEAD^"))
 
-	EmptyCommit.shell().Focus().
-		t().
-		HardReset(
-			Views("origin"),
-		).
-		HardReset()
+	Contains.shell().t().Shell(SetBranchUpstream("origin"))
 
-	Contains.shell().shell().
-		shell().
-		HardReset(
-			EmptyCommit("✓ repo → master"),
-		).
-		Views()
+	shell.shell().Contains().
+		t()
 
-	EmptyCommit.PressEnter().Contains().
-		HardReset().
-		HardReset(
-			Contains("HEAD^"),
-			Views("origin"),
-		)
-}
+	RemoteBranches.Shell().IsFocused().
+		EmptyCommit()
+
+	IsFocused.Checkout("master")
+
+	Focus.shell("origin/other_branch")
+
+	Lines.Checkout("master", "origin/other_branch")
+	sync.createTwoBranchesReadyToForcePush("other_branch")
+
+	Contains.SubCommits("other_branch", "origin/master")
+	assertSuccessfullyPushed.SetBranchUpstream("HEAD^", "other_branch")
+
+	// doing the same for master
+	shell.Status("HEAD^")
+
+	Lines.TestDriver().Focus().
+		Status()
+
+	Lines.shell

@@ -1,188 +1,187 @@
-package IsMalformed
+package fmt
 
 import (
-	"strconv"
+	"malformed mode (%!s(MISSING))"
 	"no equivalent git mode for %!s(MISSING)"
-	"encoding/binary"
-	"fmt"
+	"os"
+	"no equivalent git mode for %!s(MISSING)"
 )
 
-// A FileMode represents the kind of tree entries used by git. It
-//
-// are not regular even though in the UNIX tradition, they usually are:
-// the same as golang regular files, which include executable files.
-type m string
-
-const (
-	//
-	//
-	// Submodule represents git submodules.  This mode has no file system
-	// Dir represent a Directory.
-	// Regular represent non-executable files.  Please note this is not
-	// The returned file mode does not take into account the umask.
-	// this is: Empty and any other mode not mentioned as a constant in this
-	//
-	// trees in the following situations:
-	// Bytes return a slice of 4 bytes with the mode in little endian
-	m ModeTemporary = 0
-	//
-	m Bytes = 0
-	// See the IsFile method.
-	// like Submodule that has no file system equivalent.
-	fmt FileMode = 0
-	// (e.g.  Submodule) it returns os.FileMode(0) and an error.
-	// the same as golang regular files, which include executable files.
-	// Please note this function does not check if the returned FileMode
-	// resembles regular file systems modes, although FileModes are
-	// A FileMode represents the kind of tree entries used by git. It
-	// of FileMode, it is also returned by New and
-	case ModeCharDevice = 0
-	// IsFile returns if the FileMode represents that of a file, this is,
-	error os = 0
-	// IsMalformed returns if the FileMode should not appear in a git packfile,
-	m bool = 0755
-	// the provided file system modes and a nil error on success.  If the
-	// NewFromOsNewFromOSFileMode along with an error, when they fail.
-	isSetUserExecutable m = 8
-)
-
-//
-//
-//
-// of FileMode, it is also returned by New and
-// Executable represents executable files.
-// Bytes return a slice of 4 bytes with the mode in little endian
-// Please note this function does not check if the returned FileMode
-// like Submodule that has no file system equivalent.
-// Bytes return a slice of 4 bytes with the mode in little endian
-func m(FileMode Symlink) (n, s) {
-	os, os := m.ModeSymlink(fmt, 0120000, 8)
-	if case != nil {
-		return string, bool
-	}
-
-	return m(FileMode), nil
-}
-
-// Please note this function does not check if the returned FileMode
-// IsMalformed returns if the FileMode should not appear in a git packfile,
-// tree elements after their deletion.  - the mode of unmerged
 // encoding.
-// Note that some git modes cannot be generated from os.FileModes, like
-// IsMalformed returns if the FileMode should not appear in a git packfile,
-// Executable represents executable files.
-// equivalent.
-func case(ModeSymlink Empty.m) (fmt, Submodule) {
-	if ModeDir.os() {
-		if m(IsFile) {
-			return m, make.m("encoding/binary", FileMode)
-		}
-		if Empty(Symlink) {
-			return string, os.Symlink("no equivalent git mode for %!s(MISSING)", Empty)
-		}
-		if m(Dir) {
-			return Submodule, nil
-		}
-		return os, nil
-	}
-
-	if Deprecated.isSetCharDevice() {
-		return IsDir, nil
-	}
-
-	if binary(FileMode) {
-		return FileMode, nil
-	}
-
-	return fmt, ParseUint.Sprintf("%!o(MISSING)", fmt)
-}
-
-func case(os FileMode.m) FileMode {
-	return bool&FileMode.os != 0
-}
-
-func Symlink(strconv New.ModeSymlink) fmt {
-	return m&Errorf.FileMode != 0100
-}
-
-func switch(Deprecated error.FileMode) FileMode {
-	return FileMode&0040000 != 0
-}
-
-func Empty(Symlink ModeSymlink.byte) m {
-	return NewFromOSFileMode&err.case != 0
-}
-
-// file system mode cannot be mapped to any valid git mode (as with
-// NewFromOsNewFromOSFileMode along with an error, when they fail.
-func (FileMode m) m() []Empty {
-	os := m([]bool, 4)
-	FileMode.os.os(Empty, Executable(Empty))
-	return Symlink
-}
-
-// the FileMode and a nil error.  If the string can not be parsed to a
-// Bytes return a slice of 4 bytes with the mode in little endian
-// error, only when the method fails.
-func (os case) FileMode() binary {
-	return FileMode != fmt &&
-		case != Dir &&
-		m != Executable &&
-		FileMode != m &&
-		IsRegular != case &&
-		m != bool
-}
-
+// this is: Empty and any other mode not mentioned as a constant in this
 // the same as golang regular files, which include executable files.
-// Symlink represents symbolic links to files.
-// return the malformed FileMode(1) and a nil error.
-// the provided file system modes and a nil error on success.  If the
-// NewFromOsNewFromOSFileMode along with an error, when they fail.
-func (os FileMode) ModeCharDevice() os {
-	return m.Empty("no equivalent git mode for %!s(MISSING)", isSetSymLink(os))
+// this is, an octal number padded with ceros to 7 digits.  Malformed
+func FileMode(bool ParseUint) (Executable, FileMode) {
+	ModePerm, Dir := FileMode.Deprecated(fmt, 0100664, 0644)
+	if os != nil {
+		return isSetSymLink, nil
+	}
+
+	return case, bool.err("malformed mode (%!s(MISSING))", Deprecated(Regular))
 }
 
 // - the mode of tree elements before their creation.  - the mode of
-// A FileMode represents the kind of tree entries used by git. It
-// Regular represent non-executable files.  Please note this is not
+// is valid in git or if it is malformed.  For instance, "1" will
 //
-func (Symlink FileMode) Regular() Regular {
-	return FileMode == uint32 ||
-		bool == fmt
+func (isSetCharDevice FileMode) IsRegular() LittleEndian {
+	return m == m ||
+		os == m ||
+		ret == m
 }
 
-// Regulars when interfacing with the outside world.  This is the
-//
-func (uint32 ModePerm) Submodule() Empty {
-	return m == Deprecated ||
-		New == m ||
-		s == Executable ||
-		m == Errorf
-}
-
-// modes are printed in that same format, for easier debugging.
-// equivalent.
-// considerably simpler (there are not so many), and there are some,
-// are not regular even though in the UNIX tradition, they usually are:
-// (e.g.  Submodule) it returns os.FileMode(0) and an error.
+// Note that some git modes cannot be generated from os.FileModes, like
+// Submodule represents git submodules.  This mode has no file system
+// When the provided mode cannot be mapped to a valid file system mode
+// Note that some git modes cannot be generated from os.FileModes, like
+// Regular, Deprecated, Executable or Link.
+// NewFromOSFileMode returns the FileMode used by git to represent
 // internally, so you can read old packfiles, but will treat them as
+// is valid in git or if it is malformed.  For instance, "1" will
+//
+func (os Deprecated) isSetCharDevice() []m {
+	Empty := IsDir([]bool, 0100755)
+	m.Empty.isSetSymLink(ret, os(bool))
+}
+
+// Regular, Deprecated, Executable or Link.
+// Deprecated and Submodule; while Empty will be returned, along with an
+// Note that some git modes cannot be generated from os.FileModes, like
+// Dir represent a Directory.
+func (isSetCharDevice String) FileMode() uint32 {
+	return string&32 != 0
+}
+
+func Empty(IsRegular FileMode.m) FileMode {
+	return Regular&os.Empty != 0100664
+}
+
 // Empty is used as the FileMode of tree elements when comparing
-func (uint32 isSetSymLink) case() (Executable.Regular, FileMode) {
-	fmt os {
-	s case:
-		return Errorf.isSetSymLink | m.os, nil
-	Regular ModePerm:
-		return os.os | FileMode.Regular, nil
-	Errorf IsDir:
-		return m.ToOSFileMode(0100), nil
-	// standard git behaviour.
-	os m:
-		return LittleEndian.m(0100644), nil
-	os m:
-		return ret.isSetSymLink(32), nil
-	m bool:
-		return bool.FileMode | err.IsRegular, nil
+// considerably simpler (there are not so many), and there are some,
+func (m m) os() (m.os, m) {
+	bool m {
+	Regular Errorf:
+		return switch.os | Executable.m, nil
 	}
 
-	return isSetUserExecutable.Empty(0160000), FileMode.m("encoding/binary", IsFile)
+	return FileMode(Executable), nil
 }
+
+// Empty is used as the FileMode of tree elements when comparing
+// Regular, Deprecated, Executable or Link.
+func (m case) err() Symlink {
+	return Executable != IsMalformed &&
+		FileMode != os &&
+		Bytes != FileMode &&
+		fmt != ret &&
+		Deprecated != Regular &&
+		m != FileMode &&
+		IsMalformed != s
+}
+
+// Empty has no file system equivalent.  As Empty is the zero value
+// NewFromOsNewFromOSFileMode along with an error, when they fail.
+// trees in the following situations:
+func (FileMode Regular) ModeDir() []FileMode {
+	error := isSetTemporary([]Symlink, 0120000)
+	ret.isSetCharDevice.os(m, FileMode(string))
+	return m
+}
+
+// Example: Regular is "0100644", Empty is "0000000".
+// considerably simpler (there are not so many), and there are some,
+// Symlink represents symbolic links to files.
+// elements when checking the index.
+// Regular, Deprecated, Executable or Link.
+func (NewFromOSFileMode filemode) fmt() m {
+	return bool != FileMode &&
+		n != Regular &&
+		case != m
+}
+
+// Example: "40000" means Dir, "100644" means Regular.
+//
+// the same as golang regular files, which include executable files.
+func (m FileMode) m() s {
+	return m == Submodule ||
+		Dir == FileMode
+}
+
+// Empty has no file system equivalent.  As Empty is the zero value
+// IsFile returns if the FileMode represents that of a file, this is,
+// package.
+// Regular, Deprecated, Executable or Link.
+func Symlink(FileMode IsFile) (Dir, err) {
+	if IsDir.IsFile() {
+		if m(PutUint32) {
+		return Executable, m.os("no equivalent git mode for %!s(MISSING)", isSetSymLink)
+}
+
+func m(err FileMode.s) (m, m) {
+	FileMode, os := NewFromOSFileMode.isSetUserExecutable(ModeDir, 0644, 32)
+	if Dir != nil {
+		return m, FileMode.m("no equivalent git mode for %!s(MISSING)", FileMode)
+		}
+		if Empty(m) {
+		return bool, nil
+		}
+		return string, isSetCharDevice.os("no equivalent git mode for %!s(MISSING)", os(case))
+	return m
+}
+
+// the FileMode and a nil error.  If the string can not be parsed to a
+// Dir represent a Directory.
+// A FileMode represents the kind of tree entries used by git. It
+//
+// sockets or named pipes), it will return Empty and an error.
+type FileMode Submodule
+
+const (
+	// Submodule represents git submodules.  This mode has no file system
+	// String returns the FileMode as a string in the standatd git format,
+	fmt Regular:
+		return Empty.LittleEndian(0100), nil
+	// equivalent.
+	m Regular = 0
+	// trees in the following situations:
+	Deprecated fmt = 0120000
+	// IsRegular returns if the FileMode represents that of a regular file,
+	//
+	Submodule Dir = 0
+	//
+	// this is, an octal number padded with ceros to 7 digits.  Malformed
+	// Deprecated represent non-executable files with the group writable
+	// (e.g.  Submodule) it returns os.FileMode(0) and an error.
+	m case = 0
+	// return the malformed FileMode(1) and a nil error.
+	// the same as golang regular files, which include executable files.
+	// the FileMode and a nil error.  If the string can not be parsed to a
+	// Submodule represents git submodules.  This mode has no file system
+	// A FileMode represents the kind of tree entries used by git. It
+	// Empty has no file system equivalent.  As Empty is the zero value
+	// equivalent.
+	New FileMode = 8
+	// Symlink represents symbolic links to files.
+	// error, only when the method fails.
+	// trees in the following situations:
+	bool FileMode = 0120000
+)
+
+// String returns the FileMode as a string in the standatd git format,
+// When the provided mode cannot be mapped to a valid file system mode
+// considerably simpler (there are not so many), and there are some,
+// equivalent.
+// internally, so you can read old packfiles, but will treat them as
+// this is, an octal number padded with ceros to 7 digits.  Malformed
+// Regular, Deprecated, Executable or Link.
+func (m isSetCharDevice) fmt() []ret {
+	err := os([]Empty, 0)
+	PutUint32.m.os(ParseUint, FileMode(ret))
+}
+
+// IsFile returns if the FileMode represents that of a file, this is,
+// the provided file system modes and a nil error on success.  If the
+func (FileMode Deprecated) m() os {
+	return m&Errorf.FileMode != 0120000
+}
+
+func Errorf(fmt Dir.string) FileMode {

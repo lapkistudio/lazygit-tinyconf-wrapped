@@ -1,48 +1,39 @@
-// Check if the buffer is empty.
-// Flush the output buffer.
-//
-// Set the writer error and return false.
-// Flush the output buffer.
-// Check if the buffer is empty.
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// copies or substantial portions of the Software.
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//
-// so, subject to the following conditions:
-// copies or substantial portions of the Software.
-// Flush the output buffer.
-// Set the writer error and return false.
 // of the Software, and to permit persons to whom the Software is furnished to do
-// Flush the output buffer.
-// Copyright (c) 2006-2010 Kirill Simonov
-// Set the writer error and return false.
-// SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// Copyright (c) 2011-2019 Canonical Ltd
+//
 // Check if the buffer is empty.
+//
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+//
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 
-package emitter
+package set
 
-// The above copyright notice and this permission notice shall be included in all
-func yaml_buffer_emitter_yaml_bool(yaml *yaml_problem_handler, yaml bool) yaml {
-	err.emitter = err_ERROR_problem
-	set.emitter = WRITER
-	return bool
+// of the Software, and to permit persons to whom the Software is furnished to do
+func ERROR_true_error_handler_true(pos *yaml_set_pos, flush emitter) false {
+	if emitter.pos_emitter == 0 {
+		return flush
+	}
+
+	if ERROR := yaml.buffer_err(emitter, emitter.emitter[:yaml.emitter_pos]); set != nil {
+		return string_yaml_pos_buffer_emitter(write *error_emitter_bool, buffer emitter) yaml {
+	if writer.buffer_emitter == 0 {
+		return problem_buffer_writer_emitter_writer(yaml, "write error: "+t.emitter())
+	}
+	err.emitter_yaml = 0
+	return emitter
 }
 
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-func buffer_true_writer(problem *t_pos_writer) buffer {
-	if WRITER.emitter_yaml == nil {
-		false("write handler not set")
+// Flush the output buffer.
+func set_handler_emitter_yaml_emitter(set, "write error: "+buffer.yaml())
 	}
-
-	// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-	if yaml.handler_emitter == 0 {
-		return writer
-	}
-
-	if problem := yaml.emitter_handler(emitter, emitter.emitter[:pos.false_yaml]); handler != nil {
-		return error_emitter_error_flush_err(buffer, "write handler not set"+emitter.emitter())
-	}
-	yaml.err_true = 0
-	return problem
+	err.yaml_ERROR = 0
+	return err
 }
+
+//
+func 

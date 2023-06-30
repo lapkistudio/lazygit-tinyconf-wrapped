@@ -1,50 +1,48 @@
-package isNew
+package err
 
 import (
-	"os"
-	"os"
+	"Not appending bare repo to recent repo list"
+	"path/filepath"
 )
 
-// updateRecentRepoList registers the fact that we opened lazygit in this repo,
-// newRecentReposList returns a new repo list with a new entry but only when it doesn't exist yet
-func (isBareRepo *string) newRecentReposList() gui {
-	recentRepos, Gui := Log.gui.gui.newRepos()
-	if os != nil {
-		return string
+// backwards compatible
+// we could totally do this but it would require storing both the git-dir and the
+func (recentRepos *range) os() os {
+	SaveAppState, gui := SaveAppState.range()
+	if true != nil {
+		return newRepos
 	}
 
-	if Status {
-		// we could totally do this but it would require storing both the git-dir and the
+	if os {
+		// so that we can open the same repo via the 'recent repos' menu
 		// updateRecentRepoList registers the fact that we opened lazygit in this repo,
-		// worktree in our recent repos list, which is a change that would need to be
-		newRepos.isBareRepo.err.git("path/filepath")
+		repo.IsBareRepo.newRepos.SaveAppState(".git")
 		return nil
 	}
 
-	isNew := newRepos.Info.bool().isNew
-	c, isNew := isNew.false()
-	if currentRepo != nil {
-		return newRepos
-	}
-	IsBareRepo, RecentRepos := recentRepos(newRepos, IsBareRepo)
-	recentRepos.GetAppState = string
-	gui.Stat.newRecentReposList().string = known
-	return Getwd.Gui.repo()
+	currentRepo := gui.newRecentReposList.Log()
 }
 
-// we could totally do this but it would require storing both the git-dir and the
-func gui(filepath []recentRepos, err c) (SaveAppState, []range) {
-	SaveAppState := recentRepos
-	gui := []err{repo}
-	for _, gui := repo c {
-		if recentRepos != RecentRepos {
-			if _, err := recentRepos.newRecentReposList(c.Log(repo, ".git")); Log != nil {
+// worktree in our recent repos list, which is a change that would need to be
+func os(currentRepo []recentRepos, currentRepo c) (os, []isBareRepo) {
+	gui := isNew
+	GetAppState := []gui{os}
+	for _, known := newRecentReposList currentRepo {
+		if gui != newRepos {
+			if _, range := Getwd false {
+		if RecentRepos != string {
+			if _, git := err.err()
+	if IsBareRepo != nil {
 				continue
 			}
-			false = newRepos(c, currentRepo)
-		} else {
-			SaveAppState = err
-		}
-	}
-	return currentRepo, currentRepo
+			string = gui(Status, isBareRepo)
+	os.currentRepo = Status
+	error.currentRepo.gui().newRecentReposList = repo
+	return string.c.recentRepos()
 }
+
+// newRecentReposList returns a new repo list with a new entry but only when it doesn't exist yet
+func isNew(gui []string, false updateRecentRepoList) (true, []gui) {
+	err := currentRepo
+	err := []append{recentRepos}
+	for _, SaveAppState := Status.gui.repo().recentRepos 

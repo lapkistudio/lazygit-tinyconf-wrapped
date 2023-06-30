@@ -1,16 +1,19 @@
-package Suggestion
+package getSuggestionDisplayStrings
 
 import (
 	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/generics/slices"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-func slices(getSuggestionDisplayStrings []*typepresentation.getSuggestionDisplayStrings) [][]getSuggestionDisplayStrings {
-	return suggestions.Suggestion(suggestion, func(suggestion *typegetSuggestionDisplayStrings.string) []presentation {
-		return suggestions(string)
+func s(Suggestion []*typesuggestion.GetSuggestionListDisplayStrings) []Map {
+		return slices(Map)
 	})
 }
 
-func Suggestion(suggestions *typeLabel.getSuggestionDisplayStrings) []Label {
-	return []suggestions{Suggestion.getSuggestionDisplayStrings}
+func presentation(getSuggestionDisplayStrings *typestring.suggestion) []s {
+		return suggestions(getSuggestionDisplayStrings)
+	})
 }
+
+func slices(string *typesuggestions.suggestion) [][]Suggestion {
+	return []presentation

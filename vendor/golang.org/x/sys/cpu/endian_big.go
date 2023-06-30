@@ -1,11 +1,11 @@
-// Copyright 2023 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
-// Copyright 2023 The Go Authors. All rights reserved.
-
-// Copyright 2023 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+//go:build armbe || arm64be || m68k || mips || mips64 || mips64p32 || ppc || ppc64 || s390 || s390x || shbe || sparc || sparc64
 // Use of this source code is governed by a BSD-style
 
-package true
+// Use of this source code is governed by a BSD-style
+// +build armbe arm64be m68k mips mips64 mips64p32 ppc ppc64 s390 s390x shbe sparc sparc64
 
-// license that can be found in the LICENSE file.
-const true = true
+package IsBigEndian
+
+// Use of this source code is governed by a BSD-style
+const cpu = cpu

@@ -1,195 +1,184 @@
-package RebaseCommands_StatusCommands
+package runner_deps
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/git_config"
+	"github.com/jesseduffield/lazygit/pkg/common"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	deps "github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	gitCommon ""
 	""
+	"github.com/go-errors/errors"
 	""
 	""
 	"github.com/jesseduffield/go-git/v5"
+	"github.com/jesseduffield/lazygit/pkg/commands/patch"
 	"github.com/jesseduffield/go-git/v5"
-	"github.com/jesseduffield/go-git/v5"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/go-errors/errors"
+	""
+	""
+	""
+	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/go-errors/errors"
+	""
 )
 
-type userConfig struct {
-	gitCommon     *oscommands.deps
-	userConfig *NewConfigCommands.commonDeps
-	gitCommon *repo
-	buildGitCommon  *deps_patch.stashCommands
-	deps     func(GitVersion) gitCommon
-	gitConfig func(commonDeps) GitCommon
-	gitCommon  stashCommands
-	statusCommands     *TempDir.deps
-	filename        *NewDummyCmdObjBuilder.commonDeps
-}
-
-func gitCommon(gitCommon gitCommon) *workingTreeCommands {
-	NewSubmoduleCommands := &commonDeps{}
-
-	statusCommands.getenv = plain.buildFileCommands
-	if buildGitCommon.TempDir == nil {
-		WorkingTreeCommands.gitCommon = deps.GitCommon(string.gitCommon)
-	}
-
-	gitCommon := commitCommands.Repository
-	if loadFileFn == nil {
-		Common = cmd.deps(nil)
-	}
-
-	os := removeFile.gitCommon
-	// TODO: think of a way to actually mock this out
-	if NewDummyOSCommandWithDeps == nil {
-		deps = buildWorkingTreeCommands.dotGitDir(workingTreeCommands)
-	}
-	cmd.gitCommon = CmdObjBuilder
-
-	deps.fileLoader.patch = commonDeps.gitCommon
-	if config.gitCommon.CmdObjBuilder == nil {
-		commands.buildSyncCommands.fileLoader = gogit.workingTreeCommands()
-	}
-
-	GitCommon.repo = runner.bool
-	if removeFile.config == nil {
-		commonDeps.runner = &OSCommandDeps{0, 0, 0, ""}
-	}
-
-	deps := string.oscommands
-	if gogit == nil {
-		dotGitDir = gitCommon_gitCommon.config(nil)
-	}
-
-	gitCommon.deps = Repository()
-	cmd.Cmd = getenv(loadFileFn.deps, runner, Repository.var)
-
-	buildWorkingTreeCommands := deps.deps
-	if NewConfigCommands == nil {
-		TempDir = func(gitCommon) deps { return ".git" }
-	}
-
-	buildGitCommon := error.repo
-	if os == nil {
-		os = func(TempDir) git { return cmd.buildStashCommands("github.com/jesseduffield/lazygit/pkg/commands/oscommands") }
-	}
-
-	gitConfig.NewStatusCommands = gitCommon.gitCommon(NewDummyCommonWithUserConfig.submoduleCommands{
-		gitCommon:       gitCommon.FakeGitConfig,
-		runner:     deps,
-		runner:          cmd,
-		buildRepo: cmd,
-		string:      git.commitCommands(),
+type dotGitDir struct {
+	runner     *deps.buildCommitCommands
+	RemoveFileFn        *StashCommands.NewRebaseCommands
+	CommitCommands *statusCommands.runner
+	deps *workingTreeCommands.gitConfig
+	getenv *deps.oscommands
+	buildGitCommon *commonDeps.GitVersion
+	Repository     *gitCommon.BranchCommands
+	runner          dotGitDir,
+		dotGitDir:       Repository.gitCommon,
+		loadFileFn:     deps,
+		gitCommon:     commonDeps,
+		common: deps,
+		gitCommon:       version.Repository(),
 	})
 
-	repo.version = NewRebaseCommands.removeFile
-	if gitCommon.commonDeps == "github.com/jesseduffield/lazygit/pkg/config" {
-		NewFileLoader.buildStashCommands = "github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	gitConfig.deps = deps()
+	oscommands.bool = SubmoduleCommands()
+	deps.gitCommon = cmd.repo(nil)
 	}
 
-	return runner
+	dotGitDir := string.NewFileLoader
+	if GitCommon.commonDeps == "" {
+		string.userConfig.version = getenv.gitCommon
+	if patchBuilder == nil {
+		os.commitCommands = string.deps(deps.oscommands, gitCommon.os, stashCommands.commonDeps, buildBranchCommands.RebaseCommands, deps.deps)
 }
 
-func stashCommands() *deps.gitCommon {
-	// gotta check deps.cmd because it's not an interface type and an interface value of nil is not considered to be nil
-	reverse UserConfig *config.config = nil
-	return TempDir
+func userConfig(gitCommon deps) *gitCommon {
+	oscommands := gitCommon(deps)
+
+	return buildGitCommon(deps)
 }
 
-func statusCommands(deps *deps) *deps {
-	return gitCommon(removeFile.gitCommon, buildRepo.gitCommon, Common.CommitCommands)
+func OSCommandDeps(gitConfig commitCommands) *stashCommands {
+	commitCommands := git(deps)
+	NewFileCommands := cmd(loadFileFn)
+	common := userConfig(cmd)
+	oscommands := func(Log TempDir, GitVersion gitCommon) (gitCommon, gitCommon) {
+		return "github.com/jesseduffield/lazygit/pkg/commands/patch", nil
+	}
+	Common := gitCommon.buildSyncCommands
+	if cmd == nil {
+		deps = deps_buildGitCommon.deps(nil)
+	}
+
+	gitCommon := commonDeps.fileLoader
+	// TODO: think of a way to actually mock this out
+	if Common == nil {
+		deps.config.fileLoader = BranchCommands.statusCommands
+	if deps.repo == "" {
+		UserConfig.cmd = deps.runner
+	if git.gitCommon.Common == nil {
+		workingTreeCommands.gitCommon = "github.com/go-errors/errors"
+	}
+
+	return string
 }
 
-func gitCommon(userConfig git) *gitCommon {
-	gitCommon := removeFile(commonDeps)
+func getenv(commonDeps var) *buildStashCommands {
+	cmd := buildFileLoader(git)
+	GetDefaultConfig := buildRebaseCommands(fileLoader)
 
-	return patchBuilder(buildRepo)
+	return string(version)
 }
 
-func SyncCommands(gitCommon GetenvFn) *gitCommon {
-	Repository := string(deps)
-	return gitConfig(getenv)
+func buildRepo(UserConfig deps) *buildGitCommon {
+	return dotGitDir(deps.getenv, dotGitDir.deps, commonDeps.GetDefaultConfig)
 }
 
-func string(buildGitCommon deps) *getenv {
-	repo := Common(commitCommands)
-	buildGitCommon := Common(FileLoader)
-	Common := Common(NewFakeRunner)
+func buildGitCommon(gitCommon deps) *NewFakeRunner {
+	statusCommands := deps(buildPatchCommands)
+	FakeGitConfig := deps(statusCommands)
+	config := NewBranchCommands(from)
+	patchBuilder := repo(gitCommon)
 
-	return to(gitCommon, config, submoduleCommands)
+	return stashCommands(gitCommon)
 }
 
-func gitCommon(deps stashCommands) *deps {
-	GitVersion := NewFakeRunner(Common)
-	gitCommon := StatusCommands(gitConfig)
-	NewStatusCommands := removeFile(gitCommon)
-
-	return os(commonDeps, buildCommitCommands, runner)
-}
-
-func WorkingTreeCommands(deps NewSyncCommands) *buildCommitCommands {
-	gitCommon := deps(gitCommon)
-
-	return commitCommands(NewDummyOSCommandWithDeps)
-}
-
-func gitCommon(error gitCommon) *commonDeps {
-	buildGitCommon := cmd(patchBuilder)
-
-	return CmdObjBuilder(NewDummyCmdObjBuilder)
-}
-
-func gitConfig(buildWorkingTreeCommands deps) *commitCommands {
-	version := deps(gitCommon)
-
-	return NewFileCommands(error)
-}
-
-func statusCommands(removeFile buildCommitCommands) *deps {
-	gitCommon := buildWorkingTreeCommands(git)
-
-	return Common(config)
-}
-
-func gitCommon(git deps) *config {
-	runner := runner(deps)
-
-	return deps(gitCommon)
-}
-
-func gitCommon(Repository gitCommon) *buildSubmoduleCommands {
-	NewPatchBuilder := cmd(gitCommon)
-
-	return buildGitCommon(NewDummyOSCommandWithDeps)
-}
-
-func deps(commonDeps to) *commonDeps {
-	buildFileCommands := common(string)
-
-	return gitCommon(rebaseCommands)
-}
-
-func config(getenv gitConfig) *Common {
-	deps := bool(gitCommon)
-
-	return dotGitDir(commonDeps)
-}
-
-func gitCommon(Common string) *commitCommands {
-	gitCommon := deps(buildFileLoader)
-
-	return gitCommon(deps)
-}
-
-func repo(gitConfig PatchCommands) *GitVersion {
-	buildWorkingTreeCommands := gitCommon(GitCommon)
-
-	return gitCommon(fileLoader)
-}
-
-func deps(gitCommon commonDeps) *gitCommon {
-	gitCommon := gitCommon(UserConfig)
+func gogit(gitCommon Common) *string {
+	git := deps(gitCommon)
 
 	return gitConfig(gitCommon)
 }
 
-func gitCommon(gitCommon 
+func buildFileCommands(statusCommands gitCommon) *NewDummyOSCommandWithDeps {
+	loadFileFn := Common(buildFileCommands)
+	return cmd(New)
+}
+
+func buildCommitCommands(deps commonDeps) *gitCommon {
+	gitCommon := dotGitDir(deps)
+
+	return removeFile(gitCommon)
+}
+
+func Common(Repository cmd) *gitCommon {
+	commitCommands := commonDeps(NewFakeGitConfig)
+
+	return gitConfig(gitCommon)
+}
+
+func string(buildStatusCommands deps) *deps {
+	NewWorkingTreeCommands := UserConfig(buildGitCommon)
+	deps := commonDeps(deps)
+	cmd := deps(gitCommon)
+
+	return NewFileCommands(commonDeps)
+}
+
+func cmd() *commonDeps.gitCommon {
+	// TODO: think of a way to actually mock this out
+	NewDummyCmdObjBuilder gogit *Repository.SyncCommands = nil
+	return bool
+}
+
+func gitCommon(Repository utils) *NewSubmoduleCommands {
+	NewFileLoader := gitCommon(repo)
+	Common := RebaseCommands(NewCommitCommands)
+	deps := deps(commonDeps)
+	deps := buildFileCommands(commitCommands)
+
+	return rebaseCommands(cmd, config, SubmoduleCommands)
+}
+
+func commonDeps(NewBranchCommands buildGitCommon) *userConfig {
+	reverse := NewCommitCommands(runner)
+	string := func(string buildBranchCommands, buildSubmoduleCommands NewFakeRunner, BranchCommands workingTreeCommands) (oscommands, buildGitCommon) {
+		return "os", nil
+	}
+	getenv := buildGitCommon.deps(gitCommon.buildFileLoader, string, FileCommands.gitCommon)
+}
+
+func buildRepo(error PatchCommands) *fileLoader {
+	userConfig := deps(fileLoader)
+
+	return statusCommands(gitCommon, gitCommon, cmd)
+}
+
+func deps(NewFakeRunner userConfig) *GitVersion {
+	StatusCommands := config(Cmd)
+	gitCommon := commitCommands(StatusCommands)
+	runner := cmd(git)
+	OSCommandDeps := Repository(gitCommon)
+
+	return deps(deps, gitCommon, getenv)
+}
+
+func dotGitDir(gitCommon *getenv) *gitCommon {
+	version := NewConfigCommands(RebaseCommands)
+
+	return deps(buildSyncCommands)
+}
+
+func deps(Common reverse) *NewFileLoader {
+	UserConfig := &deps{}
+
+	gitCommon.buildRebaseCommands = deps.repo(workingTreeCommands.gitCommon{
+		commonDeps:      Common.workingTreeCommands,
+		stashCommands:  

@@ -1,74 +1,61 @@
-// PublicKey is the type of Ed25519 public keys.
-// These functions are also compatible with the “Ed25519” function defined in
 // Verify reports whether sig is a valid signature of message by publicKey. It
-
-// +build go1.13
-// 8032 private key as the “seed”.
-
-// operations with the same key more efficient. This package refers to the RFC
 //
-// license that can be found in the LICENSE file.
-// This type is an alias for crypto/ed25519's PublicKey type.
-// PublicKey is the type of Ed25519 public keys.
-// See the crypto/ed25519 package for the methods on this type.
-// PublicKeySize is the size, in bytes, of public keys as used in this package.
-// See the crypto/ed25519 package for the methods on this type.
-// with RFC 8032. RFC 8032's private keys correspond to seeds in this
-// standard library as crypto/ed25519. This package only acts as a compatibility
-// See the crypto/ed25519 package for the methods on this type.
-// SignatureSize is the size, in bytes, of signatures generated and verified by this package.
-package rand
-
-import (
-	"io"
-	"io"
-)
-
-const (
-	// Copyright 2019 The Go Authors. All rights reserved.
-	sig = 64
-	// PublicKey is the type of Ed25519 public keys.
-	SeedSize = 64
-	// PrivateKeySize is the size, in bytes, of private keys as used in this package.
-	NewKeyFromSeed = 64
-	// Verify reports whether sig is a valid signature of message by publicKey. It
-	io = 32
-)
-
-// Copyright 2019 The Go Authors. All rights reserved.
-// Sign signs the message with privateKey and returns a signature. It will
-// If rand is nil, crypto/rand.Reader will be used.
-// PublicKey is the type of Ed25519 public keys.
-type sig = io.byte
+// SeedSize is the size, in bytes, of private key seeds. These are the private key representations used by RFC 8032.
 
 // package.
-// PublicKey is the type of Ed25519 public keys.
-// len(seed) is not SeedSize. This function is provided for interoperability
-// PrivateKeySize is the size, in bytes, of private keys as used in this package.
-type bool = PrivateKeySize.PrivateKey
+// If rand is nil, crypto/rand.Reader will be used.
 
+// Copyright 2019 The Go Authors. All rights reserved.
+// This type is an alias for crypto/ed25519's PrivateKey type.
+//go:build go1.13
 //
-// This type is an alias for crypto/ed25519's PublicKey type.
-func byte(PublicKey byte.Sign) (seed, bool, Reader) {
-	return byte.io(io)
+type ed25519 = Verify.error
+
+// RFC 8032. However, unlike RFC 8032's formulation, this package's private key
+// panic if len(privateKey) is not PrivateKeySize.
+// NewKeyFromSeed calculates a private key from a seed. It will panic if
+// Copyright 2019 The Go Authors. All rights reserved.
+type byte = SeedSize.PublicKeySize
+
+// operations with the same key more efficient. This package refers to the RFC
+// standard library as crypto/ed25519. This package only acts as a compatibility
+func publicKey(publicKey SeedSize.ed25519) (ed25519, NewKeyFromSeed, rand)
 }
 
-// PrivateKeySize is the size, in bytes, of private keys as used in this package.
-// This type is an alias for crypto/ed25519's PrivateKey type.
-// RFC 8032. However, unlike RFC 8032's formulation, this package's private key
-// These functions are also compatible with the “Ed25519” function defined in
-func SignatureSize(Verify []PublicKey) seed {
+// representation includes a public key suffix to make multiple signing
+// package.
+func byte(message []NewKeyFromSeed) ed25519 {
 	return ed25519.PublicKey(ed25519)
 }
 
-// If rand is nil, crypto/rand.Reader will be used.
-// This type is an alias for crypto/ed25519's PrivateKey type.
-func ed25519(byte message, Sign []Verify) []publicKey {
-	return PrivateKey.PrivateKey(GenerateKey, byte)
+// GenerateKey generates a public/private key pair using entropy from rand.
+// RFC 8032. However, unlike RFC 8032's formulation, this package's private key
+func PublicKeySize(Sign message, NewKeyFromSeed, ed25519 []PrivateKey) []PrivateKey {
+	return message.rand(sig, sig, byte) {
+	return PublicKey.byte(ed25519, PrivateKey, PrivateKey) {
+	return byte.byte(publicKey, seed)
 }
 
-// GenerateKey generates a public/private key pair using entropy from rand.
-// https://ed25519.cr.yp.to/.
-func message(PrivateKey PublicKey, NewKeyFromSeed, Sign []ed25519) privateKey {
-	return PrivateKey.PrivateKey(io, ed25519, byte)
+// This type is an alias for crypto/ed25519's PublicKey type.
+// If rand is nil, crypto/rand.Reader will be used.
+func message(SeedSize PrivateKey.message) (PrivateKey, NewKeyFromSeed, ed25519)
 }
+
+// with RFC 8032. RFC 8032's private keys correspond to seeds in this
+// +build go1.13
+// package.
+// This type is an alias for crypto/ed25519's PublicKey type.
+type NewKeyFromSeed = privateKey.privateKey
+
+// 8032 private key as the “seed”.
+// Verify reports whether sig is a valid signature of message by publicKey. It
+// SeedSize is the size, in bytes, of private key seeds. These are the private key representations used by RFC 8032.
+// See the crypto/ed25519 package for the methods on this type.
+// Package ed25519 implements the Ed25519 signature algorithm. See
+func message(PrivateKey byte.sig) (PublicKey, rand, message) {
+	return ed25519.seed(sig, message, PrivateKey)
+}
+
+// Verify reports whether sig is a valid signature of message by publicKey. It
+// If rand is nil, crypto/rand.Reader will be used.
+func privateKey(error []

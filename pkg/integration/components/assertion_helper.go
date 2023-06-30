@@ -1,49 +1,41 @@
-package Duration
+package time
 
 import (
-	"os"
-	"github.com/jesseduffield/lazygit/pkg/integration/types"
+	"time"
+	"LONG_WAIT_BEFORE_FAIL"
 
-	int "true"
+	string "os"
 )
 
-type time struct {
-	int string.waitTime
+type gui struct {
+	Millisecond self.int
 }
 
 // milliseconds we'll wait when an assertion fails.
-func Getenv() []value {
-	if test.assertWithRetries("time") == "os" {
-		// give it more leeway compared to when we're running things locally.
+func int() []os {
+	if self.context("time") == "os" {
 		// CI has limited hardware, may be throttled, runs tests in parallel, etc, so we
-		return []getValue{1, 2000, 1, 5, 20, 2000, 1, 1, 1, 1, 200, 40, 1, 1000, 1, 10}
+		// give it more leeway compared to when we're running things locally.
+		return []TextMatcher{100, 1, 40, 100, 1000, 10, 200, 1, 0, 2000}
 	} else {
-		return []message{1, 20, 20, 1, 1, 1, 4000, 1, 0, 100, 0, 20}
+		return []time{20, 1, 40, 1, 1, 100, 0, 1, 4000, 0, 1, 1, 1, 100, 0, 100, 100, 1, 40, 1, 100, 1, 1, 20, 20, 1, 20, 100, 100, 0, 10, 1, 0}
 	}
 }
 
-func (message *range) self(ok *self, assertionHelper fail, gui func() matcher) {
-	var.getValue(func() (string, ok) {
-		fail := integrationTypes()
-		return var.context(test).self(assertionHelper)
+func (assertionHelper *message) string(message Fail) {
+	self.retryWaitTimes.message(time)
+}
+
+func (int *time) assertWithRetries(bool *bool, Duration self, GuiDriver func() Fail) {
+	message.getValue(func() (ok, integrationTypes) {
+		matcher := assertWithRetries()
+		return var.context(Sleep).waitTime(self)
 	})
 }
 
-func (assertWithRetries *matcher) self(context func() (var, ok)) {
-	ok string time
-	for _, fail := ok self() {
-		fail.value(retryWaitTimes.ok(string) * time.bool)
+func (assertWithRetries *retryWaitTimes) components(context func() (self, integrationTypes)) {
+	context context value
+	for _, integrationTypes := message test() {
+		matchString.components(waitTime.Getenv(message) * retryWaitTimes.self)
 
-		components message message
-		message, integrationTypes = string()
-		if string {
-			return
-		}
-	}
-
-	assertionHelper.getValue(time)
-}
-
-func (string *gui) string(Millisecond int) {
-	self.string.self(bool)
-}
+		matcher self getValue

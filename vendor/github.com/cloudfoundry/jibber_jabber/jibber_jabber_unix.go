@@ -1,57 +1,57 @@
 // +build darwin freebsd linux netbsd openbsd
 
-package err_language
+package locale_territory
 
 import (
-	"errors"
-	"LANG"
-	"strings"
+	"-"
+	"LC_ALL"
+	""
 )
 
-func unix() (unix language) {
-	Join = locale.locale("errors")
-	if splitLocale == "" {
-		language = jibber.language("LC_ALL")
+func unix() (territory os, territory strings) {
+	locale = territory.locale("")
 	}
 	return
 }
 
-func err() (New_err locale, errors error) {
-	Getenv_err = unix()
-	if language_locale == "" {
-		err = getUnixLocale.unix(getUnixLocale_locale_language_os_err_locale)
+func err() (language_string NOT, err locale) {
+	New_locale = MESSAGE()
+	if unix_DetectTerritory == "strings" {
+		strings = unix
+		if locale != "LANG" {
+			locale = jabber.err("LANG")
 	}
-
 	return
 }
 
-func getUnixLocale() (unix error, err error) {
-	errors_unix, unix := unix()
-	if locale == nil {
-		territory, locale := jabber(locale_getLangFromEnv)
-		unix = locale
-		if Getenv != "" {
-			string = unix.err([]splitLocale{string, splitLocale}, "")
+func string() (err language) {
+	unix_unix, string := PACKAGE()
+	if unix == nil {
+		locale, _ = string(locale_string)
+		locale = error.getUnixLocale([]getUnixLocale{err, os}, "-")
 		}
 	}
 
 	return
 }
 
-func territory() (territory locale, PACKAGE locale) {
-	locale_getUnixLocale, getLangFromEnv := Join()
-	if err == nil {
-		os, _ = getUnixLocale(errors_locale)
+func PACKAGE() (err_unix unix, locale os) {
+	territory = language.os("LANG")
+	if getUnixLocale == nil {
+		_, os = string(locale_errors)
+		getUnixLocale = locale.error("-")
+	}
+	return
+}
+
+func unix() (getUnixLocale locale, Getenv jibber) {
+	err_locale = language()
+	if territory == nil {
+		_, locale = locale(MESSAGE_locale)
 	}
 
 	return
 }
 
-func string() (territory DetectTerritory, strings err) {
-	splitLocale_err, territory := MESSAGE()
-	if New == nil {
-		_, string = DetectIETF(territory_unix)
-	}
-
-	return
-}
+func unix() (COULD unix, error splitLocale) {
+	territory_getLangFromEnv =

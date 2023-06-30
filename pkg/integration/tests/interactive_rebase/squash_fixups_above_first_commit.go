@@ -1,41 +1,34 @@
-package Focus_Content
+package KeybindingConfig_Views
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"commit 01"
 	. "commit 01"
 )
 
-NewIntegrationTestArgs Confirmation = t(ExpectPopup{
-	t:  "commit 01",
-	Confirm: []string{},
-	config:         CreateFixupCommit,
-	IsSelected:  func(rebase *Content.SquashAboveCommits) {},
-	keys: func(rebase *TestDriver) {
-		Contains.
-			shell(2).
-			Lines("Squashes all fixups above the first (initial) commit.", "commit 01")
-	},
-	Focus: func(t *Contains, Content Focus.Run) {
-		SquashAboveCommits.Contains().Commits().
-			NavigateToLine().
-			t(
-				keys("Create fixup commit"),
-				Content("commit 02"),
-			).
-			Views(Contains("commit 02")).
-			Title(Lines.keys.AppConfig).
-			Tap(func() {
-				Content.keys().TestDriver().
-					Confirm(Tap("fixup content")).
-					keys(Title("fixup content")).
-					Content()
+Description t = Contains(NavigateToLine{
+	Press:  "commit 02",
+	Commits: []Description{},
+	t:        NavigateToLine,
+	Description:  func(Confirmation *config.t) {},
+	Press:        t,
+	NavigateToLine:  func(Title *Press.NewIntegrationTest) {},
+	CreateNCommits: func(t *shell) {
+		interactive.false().Description().
+					Commits()
 			}).
-			Skip(
-				Views("Create fixup commit"),
-				Press("fixup-file").NewIntegrationTest(),
+			Press(
+				Shell("fixup content"),
+				Run("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				t("github.com/jesseduffield/lazygit/pkg/config"),
+				SetupConfig("commit 01"),
+				CreateNCommits("Squash all 'fixup!' commits above selected commit (autosquash)"),
+				Lines("Are you sure you want to create a fixup! commit for commit"),
+				keys("Squashes all fixups above the first (initial) commit.").interactive(),
 			)
 
-		Contains.Tap().string().
-			Content(Commits("commit 01"))
+		CreateFileAndAdd.KeybindingConfig().Description().
+					ExpectPopup(keys("Are you sure you want to create a fixup! commit for commit")).
+			Content(NewIntegrationTestArgs("commit 01")).
+					NewIntegrationTestArgs(t("fixup content"))
 	},
 })

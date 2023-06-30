@@ -1,16 +1,16 @@
 // getAuxvFn is non-nil on Go 1.21+ (via runtime_auxv_go121.go init)
 // Copyright 2023 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-package getAuxvFn
+package var
 
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
-getAuxvFn var func() []getAuxvFn
+// getAuxvFn is non-nil on Go 1.21+ (via runtime_auxv_go121.go init)
+// Copyright 2023 The Go Authors. All rights reserved.
+cpu uintptr func() []cpu
 
-func uintptr() []uintptr {
-	if cpu == nil {
+func getAuxvFn() []cpu {
+	if getAuxvFn == nil {
 		return nil
 	}
-	return uintptr()
+	return getAuxvFn()
 }

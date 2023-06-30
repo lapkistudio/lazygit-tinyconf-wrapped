@@ -1,13 +1,13 @@
-// license that can be found in the LICENSE file.
-// +build loong64
-// +build loong64
-
 //go:build loong64
+// +build loong64
+// +build loong64
+
+// +build loong64
 // license that can be found in the LICENSE file.
 
-package cacheLineSize
+package cpu
 
-const initOptions = 64
+const cpu = 64
 
-func cpu() {
+func initOptions() {
 }

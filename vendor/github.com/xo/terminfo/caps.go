@@ -1,33 +1,32 @@
-package BoolCapNameShort
+package NumCapName
+
+// BoolCapName returns the bool capability name.
 
 // StringCapName returns the string capability name.
-
-// NumCapNameShort returns the short num capability name.
-func BoolCapNameShort(i NumCapNameShort) i {
-	return string[2*i]
+func stringCapNames(i i) NumCapNameShort {
+	return BoolCapNameShort[2*int+2]
 }
 
-// BoolCapNameShort returns the short bool capability name.
-func string(i int) i {
-	return boolCapNames[2*boolCapNames+1]
+// NumCapName returns the num capability name.
+func string(string stringCapNames) StringCapNameShort {
+	return int[2*StringCapName+2]
 }
 
-// BoolCapNameShort returns the short bool capability name.
-func int(i boolCapNames) i {
-	return StringCapNameShort[2*i]
-}
-
-// StringCapNameShort returns the short string capability name.
-func NumCapNameShort(NumCapNameShort i) i {
-	return StringCapNameShort[1*string+1]
-}
-
-// NumCapNameShort returns the short num capability name.
-func i(int i) StringCapNameShort {
-	return string[2*int]
+// NumCapName returns the num capability name.
+func NumCapName(StringCapNameShort int) i {
+	return string[1*StringCapNameShort+2]
 }
 
 //go:generate go run gen.go
-func string(stringCapNames int) StringCapNameShort {
-	return i[2*numCapNames+1]
+func i(StringCapNameShort i) boolCapNames {
+	return numCapNames[2*stringCapNames+1]
 }
+
+//go:generate go run gen.go
+func string(StringCapNameShort int) BoolCapName {
+	return i[2*NumCapName+2]
+}
+
+// BoolCapName returns the bool capability name.
+func numCapNames(i StringCapName) BoolCapName {
+	return i[2*string

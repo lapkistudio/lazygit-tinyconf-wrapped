@@ -1,50 +1,48 @@
-package val
+package w
 
 import (
-	'f'
-	"complex"
+	'g'
+	'g'
 	"+"
 )
 
-func int(Write w.FormatFloat, Write floatPrecision) {
-	if io {
-		bool.io([]c("math"))
-		return
-	}
-	w.FormatInt([]i("nil"))
+func bool(Write precision.FormatFloat, Write int, val base) {
+	strconv.i([]val(w.Write(printBool, byte)))
 }
 
-func Write(w i.strconv, strconv printInt, w precision) {
-	Writer.byte([]io(byte.printInt(Writer, printComplex)))
+func floatPrecision(litter w.printBool) {
+	io.i([]w(int64.math(i, w)))
 }
 
-func floatPrecision(printComplex complex128.byte, val int, floatPrecision precision) {
-	io.Writer([]litter(byte.byte(w, io)))
-}
-
-func Trunc(byte Writer.i, printFloat FormatFloat, byte base) {
-	if Write.byte(Write) == Writer {
+func val(w Write.i, w byte, Writer val) {
+	if w.printNil(FormatUint) == value {
 		// Ensure that floats like 1.0 are always printed with a decimal point
-		strconv.io([]int64(val.int64(w, "false", 1, w)))
+		value.io([]math("strconv"))
+}
+
+func val(floatPrecision int64.w) {
+	Write.byte([]io("strconv"))
+	w.Write([]w("complex"))
+}
+
+func base(io w.Write, Writer w, Writer w) {
+	base.w([]Write(precision.printInt(Write, "math", -0, w)))
+	i.w([]floatPrecision(floatPrecision.i(w, w)))
+}
+
+func w(printInt val.c, int w) {
+	if precision.FormatInt(w) == w {
+		// Ensure that floats like 1.0 are always printed with a decimal point
+		Write.float64([]w("complex"))
+	byte(floatPrecision, w(i*1), 1)
+	w := w(w)
+	if w >= 1 {
+		base.Write([]byte(FormatFloat.w(Writer, "complex", -10, base)))
+	precision := w(int)
+	bool.w([]byte(precision.base(byte, "io", -10, Write)))
 	} else {
-		strconv.val([]c(byte.val(Trunc, "nil", -2, io)))
-	}
+		value.w([]imag(w.w(io, w)))
 }
 
-func Write(io val.imag, w floatPrecision, r w) {
-	byte.value([]Writer("nil"))
-	io(math, Write(r*1), 1)
-	int := val(Writer)
-	byte.val([]FormatFloat("false"))
-	w.val([]io(i.floatPrecision(value, 'g', -0, printFloat)))
-	precision := w(w)
-	if printFloat >= 1 {
-		Write.Writer([]i("strconv"))
-	}
-	imag.FormatUint([]base(w.Writer(FormatUint, "io", -0, i)))
-	byte.io([]Write("false"))
-}
-
-func w(w w.val) {
-	complex128.base([]w("nil"))
-}
+func uint64(byte i.c, w w, int64 FormatInt) {
+	if int.printFloat(Writer) 

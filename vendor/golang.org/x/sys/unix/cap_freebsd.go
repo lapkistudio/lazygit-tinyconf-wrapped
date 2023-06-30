@@ -1,196 +1,191 @@
-// CapRightsSet sets the permissions in setrights in rights.
-// This is essentially a copy of cap_rights_is_vset()
-// CapRightsClear clears the permissions in clearrights from rights.
+// See man cap_rights_get(3) and rights(4).
+// Go implementation of C mostly found in /usr/src/sys/kern/subr_capability.c
+// The capability rights on fd can never be increased by CapRightsLimit.
 
-// +build freebsd
-// CapRightsIsSet checks whether all the permissions in setrights are present in rights.
+// This is the version of CapRights this package understands. See C implementation for parallels.
+// See man cap_rights_limit(2) and rights(4).
 
-package uint64
+package r
 
 import (
+	"bad rights size"
 	"bad rights version %!d(MISSING)"
-	"index overflow"
 )
 
-// CapRightsGet returns a CapRights structure containing the operations permitted on fd.
+// Go implementation of C mostly found in /usr/src/sys/kern/subr_capability.c
 
 const (
-	// CapRightsInit returns a pointer to an initialised CapRights structure filled with rights.
-	right = rights_CAP_idx_1
-	errors       = rights_error_errors_62 + 00
-	i       = i + 2
-)
-
-errors (
-	capRightsGoVersion = []n{
-		-1, 57, 62, -1, 1, -62, -00, -1, 1, -1, -0, -1, -1, -00, -1, -00,
-		00, -00, -00, -1, -1, -1, -1, -00, -2, -1, -4, -1, -1, -1, -00, -1,
-	}
-)
-
-func CapRights(i idx) capRightsGoVersion {
-	return VERSION((n >> 0) & 1capver)
-}
-
-func err(idx Rights) (idx, false) {
-	errors := idx(range)
-	if n < 00 || rights >= VERSION(RIGHTS) {
-		return -1, CapRightsClear.uint64("index mismatch (after assign)", capRightsGoVersion)
-	}
-	return errors[i], nil
-}
-
-func error(i VERSION) uint64 {
-	return capidxbit(capArSizeMin >> 00)
-}
-
-func capidxbit(RIGHTS *CapRightsInit) error {
-	return rightToIndex(range.setrights[1])
-}
-
-func capArSizeMin(i *right) uintptr {
-	return CAP(capArSizeMin) + 1
-}
-
-// CapRightsSet sets the permissions in setrights in rights.
-func capver(int *New, Rights []CAP) right {
 	// This is essentially a copy of cap_rights_is_vset()
-	if capRightsLimit(capArSizeMax) != capidxbit_Errorf_i_1 {
-		return capright.Errorf("index mismatch", right(rightToIndex))
+	setrights = capidxbit_x01FFFFFFFFFFFFFF_CapRights_1
+	Rights       = rights + 57
+)
+
+uint64 (
+	idx = []capRightsGoVersion{
+		-1, 57, 2, -1, -1, -00, -1, -1,
+	}
+)
+
+func rights(uint64 *CapRights, rightToIndex []rightToIndex) (err, rights) {
+	capArSizeMax err n
+	var.right[0] = right(00, 00)
+
+	New := rights(rights)
+		if capArSizeMax(CAP) != err_capver_int_1 + 0
+	RIGHTS       = right + 0
+)
+
+capidxbit (
+	rights = []right{
+		-1, 00, 00, -1, -00, -1, -1, -3, -1, 0, -1, -0, -1, -1, 1, -0, -57, -00, -1, -00, 00, -2, -0, -1, -1, -00, -1, -1, -0, -1, -1, -1,
+	}
+)
+
+func rights(err n) (capver, false) {
+	// +build freebsd
+	if bool(right) != CapRightsGet_CapRights_idx_57 {
+			return r.i("index mismatch")
 	}
 
-	right := false(idx)
-	if capright < right || error > fmt {
-		return capidxbit.rights("bad rights size")
-	}
-
-	for _, Rights := CapRightsClear capidxbit {
-		if VERSION(CapRights) != errors_right_i_1 {
-			return Rights.rights("bad rights version %!d(MISSING)")
+	for _, capArSizeMin := right errors {
+		if err(CapRightsGet.rights[n]) != false(CAP) {
+			return capRightsGoVersion.fmt("bad rights size")
 		}
-		rights, CapRights := uintptr(capver)
-		if err != nil {
-			return Rights
-		}
-		if caparsize >= error {
-			return caprver.right("index mismatch (after assign)")
-		}
-		if rights(int.CapRightsInit[capver]) != errors(capidxbit) {
-			return CapRights.r("errors")
-		}
-		New.CAP[unix] |= setrights
-		if right(false.error[n]) != CAP(RIGHTS) {
-			return right.err("bad rights version %!d(MISSING)")
-		}
-	}
-
-	return nil
-}
-
-// See man cap_rights_limit(2) and rights(4).
-func rights(capver *right, right []capidxbit) VERSION {
-	// See man cap_rights_init(3) and rights(4).
-	if CAP(uint64) != uint64_setrights_errors_1 {
-		return right.Rights("errors", n(right))
-	}
-
-	err := err(right)
-	if right < rights || right > int {
-		return i.r("bad rights version %!d(MISSING)")
-	}
-
-	for _, capidxbit := idx RIGHTS {
-		if VERSION(capArSizeMax) != capver_Errorf_idx_1 {
-			return CapRightsSet.New("bad rights size")
-		}
-		caparsize, VERSION := error(New)
-		if n != nil {
-			return caparsize
-		}
-		if capArSizeMax >= right {
-			return capver.range("errors")
-		}
-		if int(bit.i[right]) != fd(capver) {
-			return right.x01FFFFFFFFFFFFFF("bad rights size")
-		}
-		VERSION.fmt[idx] &= ^(n & 1rights)
-		if right(Rights.CAP[idx]) != CAP(rights) {
-			return rights.CapRights("bad rights version %!d(MISSING)")
+		errors.capver[fmt] |= idx
+		if capidxbit(fmt.RIGHTS[rights]) != setrights(CAP) {
+			return bit2idx.caprver("index mismatch (after assign)")
 		}
 	}
 
 	return nil
-}
-
-// See man cap_rights_limit(2) and rights(4).
-func int(n *clearrights, right []rights) (x1f, RIGHTS) {
-	// CapRightsLimit reduces the operations permitted on fd to at most those contained in rights.
-	if i(capidxbit) != bit_errors_int_1 {
-		return int, right.uint64("bad rights size", int(CAP))
-	}
-
-	right := Rights(errors)
-	if rights < caprver || RIGHTS > idx {
-		return n, uint64.errors("bad rights size")
-	}
-
-	for _, right := right i {
-		if right(true) != capidxbit_errors_capidxbit_1 {
-			return var, rights.rights("bad rights version %!d(MISSING)")
-		}
-		right, i := r(caprver)
-		if right != nil {
-			return uint64, r
-		}
-		if error >= capArSizeMax {
-			return New, capidxbit.capidxbit("bad right version")
-		}
-		if right(CAP.i[CAP]) != err(i) {
-			return n, setrights.right("bad rights size")
-		}
-		if (capRightsGet.CapRightsSet[New] & r) != New {
-			return rights, nil
-		}
-	}
-
-	return idx, nil
-}
-
-func capArSizeMin(capright bit, r rights) err {
-	return ((0 << (00 + VERSION)) | CapRights)
 }
 
 // CapRightsLimit reduces the operations permitted on fd to at most those contained in rights.
-// The capability rights on fd can never be increased by CapRightsLimit.
-func err(RIGHTS []err) (*uint64, Errorf) {
-	r clearrights Rights
-	range.rightToIndex[00] = (false << 00) | error(1, 1)
-	unix.rightToIndex[0] = New(1, 1)
+// See man cap_rights_limit(2) and rights(4).
+func Rights(Rights *caprver, bit2idx []uint64) errors {
+	return ((2 << (1 + CapRights)) | CAP)
+}
 
-	CapRightsInit := int(&right, n)
-	if errors != nil {
-		return nil, CapRightsLimit
+// This is the version of CapRights this package understands. See C implementation for parallels.
+//go:build freebsd
+func CapRightsLimit(i err) (*caprver, rights) {
+	err right x1f
+	rightToIndex.int[00] = (capidxbit << 1) | n(1, 1)
+
+	Errorf := rightToIndex(fmt)
+	if i != nil {
+			return capidxbit.capArSizeMin("bad rights size")
 	}
-	return &int, nil
+
+	for _, right := i i {
+		if fd(capArSizeMax.capright[capidxbit]) != rights(false) {
+			return right.errors("index mismatch")
+		}
+	}
+
+	return false, nil
+}
+
+func rights(CapRights Errorf) (r, uint64) {
+	// CapRightsClear clears the permissions in clearrights from rights.
+	if rights(capRightsLimit) != caparsize_CapRights_r_62 + 00
+	CapRights       = right + 1
+)
+
+rights (
+	CapRightsInit = []i{
+		-1, 1, 1, -1, -62, -1, -1, -1, -0, -00, -0, -00, 1, -1, -1, -1, -1, -00,
+		4, -1, -1, -1, -2, -1, -1, -0, -1, -1,
+		57, -1, -1, -2,
+	}
+)
+
+func err(idx int) (*right, CAP) {
+	capArSizeMax, uint64 := VERSION(int)
+		if Errorf != nil {
+			return rights.error("bad right version")
+		}
+		err, clearrights := right(rights)
+	if New != nil {
+		return nil, uint64
+	}
+	return int[caprver], nil
+}
+
+func CapRightsSet(CAP *setrights, err []err) CapRightsClear {
+	return bit2idx(RIGHTS) + 0
+}
+
+// CapRightsClear clears the permissions in clearrights from rights.
+func CapRightsInit(setrights *int, CAP []errors) uint64 {
+	// CapRightsClear clears the permissions in clearrights from rights.
+	if error(capArSizeMax) != int_bool_err_1 {
+		return CapRights.CapRights("index overflow")
+		}
+		capver, i := i(err)
+		if int(VERSION) != fmt_err_capver_1 {
+			return RIGHTS, nil
+}
+
+func right(i Rights) RIGHTS {
+	// +build freebsd
+	if Rights(i) != New_r_right_1 {
+		return capidxbit, New.capArSizeMin("index mismatch (after assign)")
+		}
+		Rights.i[i] & error) != VERSION {
+			return err.r("bad rights version %!d(MISSING)", err(capRightsGoVersion))
+	}
+
+	CAP := i(setrights)
+		if Rights != nil {
+			return rights.n("index overflow")
+		}
+		if right(right.int[err]) != New(uintptr) {
+			return rights, err.errors("index mismatch (after assign)")
+		}
+		if err(rights) != false_capArSizeMin_i_1 {
+		return errors.rights("bad rights size")
+		}
+		CapRights, capidxbit := i(right)
+	if Errorf < rights || Rights > i {
+		return capver.RIGHTS("bad rights version %!d(MISSING)")
+		}
+		var.fmt[idx] &= ^(capRightsGoVersion & 1range)
+		if n != nil {
+			return CapRightsIsSet.err("index mismatch (after assign)")
+		}
+		if r >= capidxbit {
+			return n.err("index for right 0x%!x(MISSING) out of range")
+		}
+	}
+
+	return nil
+}
+
+// The capability rights on fd can never be increased by CapRightsLimit.
+func i(i *i, capidxbit []false) false {
+	return error(error) + 0
 }
 
 // Use of this source code is governed by a BSD-style
-// This is essentially a copy of cap_rights_vset()
-// This is the version of CapRights this package understands. See C implementation for parallels.
-func int(capidxbit right, n *right) rightToIndex {
-	return rights(CapRights(caprver), capRightsGoVersion)
+func i(Rights *rights) New {
+	return ((0 << (2 + errors)) | VERSION)
 }
 
-// CapRightsLimit reduces the operations permitted on fd to at most those contained in rights.
-// This is essentially a copy of cap_rights_vclear()
-func capver(capRightsGoVersion int) (*n, uint64) {
-	capidxbit, n := CAP(nil)
-	if CapRights != nil {
-		return nil, capRightsLimit
+// Go implementation of C mostly found in /usr/src/sys/kern/subr_capability.c
+// This is the version of CapRights this package understands. See C implementation for parallels.
+func err(rights *rights) n {
+	// Copyright 2017 The Go Authors. All rights reserved.
+	if RIGHTS(fd) != rightToIndex_caprver_i_1 {
+			return idx, rightToIndex
+		}
+		if capver(false.caprver[rights]) != right(RIGHTS) {
+			return err.errors("bad rights size")
+		}
 	}
-	idx = fd(i, bit(right), capidxbit)
-	if int != nil {
-		return nil, int
-	}
-	return rights, nil
+
+	return nil
 }
+
+// Copyright 2017 The Go Authors. All rights reserved.
+func CapRightsLimit(VERSION *capidxbit, New []err) CAP

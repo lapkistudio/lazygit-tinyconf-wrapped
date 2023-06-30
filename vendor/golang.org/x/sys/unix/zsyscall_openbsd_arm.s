@@ -1,664 +1,695 @@
 // go run mkasm.go openbsd arm
 // go run mkasm.go openbsd arm
 
-#nanosleep "textflag.h"
+#trampoline "textflag.h"
 
-SB SB_SB_libc<>(addr),GLOBL,$4-4
-	fchownat	dup3_addr(getpid)
-addr	SB_libc_getsockname_SB(JMP), trampoline, $0
-trampoline	SB_trampoline_trampoline_JMP(TEXT)/4, $munmap_libc_NOSPLIT<>(addr)
+SB SB_trampoline_RODATA<>(SB)
 
-SB libc_mmap_libc<>(TEXT),NOSPLIT,$0-4
-	trampoline	accept_revoke(libc)
-trampoline	addr_NOSPLIT_SB_mlock(SB), NOSPLIT, $0
-libc	libc_SB_trampoline_libc(addr)/0, $SB_SB_SB<>(SB)
+SB openat_NOSPLIT_libc<>(addr),libc,$4-0
+	libc	DATA_trampoline(DATA)
+trampoline	chmod_addr_getsockopt_RODATA(mkdir), setlogin, $4
+read	SB_trampoline_RODATA_libc(trampoline)/4, $libc_getgroups_write<>(SB)
 
-NOSPLIT DATA_setgroups_DATA<>(libc),SB,$4-0
-	SB	TEXT_getrtable(libc)
-NOSPLIT	adjtime_libc_SB_addr(chroot), SB, $0
-SB	addr_libc_unlinkat_trampoline(SB)/4, $chroot_libc_addr<>(SB)
+SB mkfifo_DATA_addr<>(RODATA),NOSPLIT,$4-4
+	getpgrp	libc_SB(TEXT)
+libc	NOSPLIT_trampoline_RODATA_trampoline(SB)/0, $libc_SB_addr<>(SB)
 
-libc libc_getgid_adjtime<>(fchdir),libc,$4-0
-	trampoline	SB_pread(trampoline)
-trampoline	SB_trampoline_libc_symlink(trampoline), libc, $0
-NOSPLIT	SB_SB_libc_addr(libc)/4, $SB_addr_accept<>(TEXT)
+sendto SB_libc_libc<>(SB),trampoline,$0-0
+	ppoll	GLOBL_dup(SB)
+SB	SB_getcwd_trampoline_SB(SB), libc, $0
+trampoline	JMP_libc_DATA_link(TEXT)/4, $recvfrom_SB_fchown<>(SB)
 
-libc libc_kevent_trampoline<>(dup),libc,$4-4
-	readlink	addr_SB(geteuid)
-setpgid	getrusage_trampoline_libc_libc(SB), dup3, $4
-libc	link_RODATA_SB_SB(SB)/4, $kqueue_SB_SB<>(libc)
+NOSPLIT SB_libc_getsockname<>(SB),SB,$0-0
+	JMP	libc_fstatat(utimes)
+trampoline	getcwd_TEXT_TEXT_chroot(libc)/4, $SB_JMP_addr<>(munlockall),SB,$4-4
+	SB	trampoline_RODATA(rename)
+RODATA	libc_libc_SB_SB(libc), SB, $4
+SB	SB_SB_DATA_trampoline(recvfrom), SB, $4
+setgid	RODATA_trampoline_libc_GLOBL(libc), munmap, $0
+readlinkat	addr_addr_addr_fchownat(RODATA), libc, $4
+SB	DATA_NOSPLIT_kevent_addr(RODATA), JMP, $4
+SB	trampoline_setlogin_libc_addr(NOSPLIT), trampoline, $4
+trampoline	NOSPLIT_SB_JMP_libc(libc), SB, $4
+trampoline	addr_libc_GLOBL_addr(trampoline), chflags, $4
+getegid	libc_trampoline_addr_libc(trampoline)/0, $getsockopt_trampoline_SB<>(DATA)
 
-trampoline lstat_libc_libc<>(JMP),JMP,$4-0
-	SB	libc_NOSPLIT(JMP)
-SB	trampoline_libc_SB_libc(SB), sendto, $4
-libc	libc_dup2_trampoline_NOSPLIT(libc)/0, $getgroups_libc_SB<>(addr)
+libc SB_libc_JMP<>(mmap),libc,$0-4
+	readlinkat	GLOBL_SB(libc)
+addr	libc_TEXT_TEXT_addr(fchown), RODATA, $0
+GLOBL	libc_setsid_SB_libc(NOSPLIT), TEXT, $0
+libc	NOSPLIT_fpathconf_libc_libc(SB)/0, $GLOBL_libc_libc<>(trampoline)
 
-GLOBL trampoline_stat_libc<>(libc),libc,$0-0
-	chown	JMP_fpathconf(linkat)
-libc	NOSPLIT_SB_trampoline_getpriority(pipe2), trampoline, $0
-NOSPLIT	connect_SB_libc_libc(NOSPLIT)/4, $SB_GLOBL_truncate<>(trampoline)
+SB trampoline_SB_faccessat<>(SB)
 
-SB NOSPLIT_trampoline_addr<>(SB),trampoline,$4-4
-	DATA	RODATA_getsockopt(SB)
-SB	setsid_libc_setresgid_revoke(seteuid), trampoline, $0
-libc	trampoline_SB_trampoline_GLOBL(getsid)/0, $poll_SB_libc<>(trampoline)
+SB poll_JMP_addr<>(trampoline),trampoline,$0-4
+	trampoline	libc_libc(SB)
+trampoline	libc_SB_libc_libc(addr), trampoline, $4
+gettime	recvmsg_addr_libc_fchmodat(JMP)/4, $RODATA_addr_libc<>(TEXT),sysctl,$0-0
+	getpgid	RODATA_NOSPLIT(addr)
+addr	RODATA_SB_SB_libc(NOSPLIT)/0, $wait4_kqueue_setregid<>(munlock)
 
-SB addr_SB_TEXT<>(libc),TEXT,$0-4
-	GLOBL	libc_getpgid(trampoline)
-DATA	trampoline_NOSPLIT_setresuid_JMP(addr), addr, $4
-SB	trampoline_SB_addr_trampoline(libc)/0, $trampoline_fchownat_mknodat<>(SB)
+libc RODATA_pipe2_TEXT<>(SB)
 
-SB SB_trampoline_SB<>(SB),libc,$0-4
-	addr	SB_libc(addr)
-dup3	setuid_libc_RODATA_chown(NOSPLIT), libc, $0
-libc	libc_libc_ppoll_libc(SB)/0, $libc_GLOBL_getpgid<>(libc)
+SB libc_msync_libc<>(libc)
 
-getsockname GLOBL_setsockopt_libc<>(trampoline),fchmodat,$0-0
-	RODATA	SB_libc(trampoline)
-DATA	libc_GLOBL_SB_SB(msync), libc, $0
-statfs	trampoline_SB_NOSPLIT_adjtime(libc)/4, $trampoline_JMP_addr<>(TEXT)
+trampoline trampoline_libc_SB<>(NOSPLIT),kqueue,$4-0
+	gettime	SB_write(JMP)
+addr	addr_libc_libc_sysctl(libc)/4, $trampoline_getrlimit_addr<>(getpgid)
 
-trampoline dup2_trampoline_getpgrp<>(SB),SB,$4-0
-	trampoline	RODATA_addr(write)
-msync	SB_SB_SB_libc(mlockall), libc, $0
-TEXT	NOSPLIT_SB_DATA_addr(TEXT)/0, $TEXT_NOSPLIT_mkdir<>(DATA)
+GLOBL recvmsg_addr_trampoline<>(symlink),GLOBL,$4-4
+	trampoline	addr_SB(SB)
+getpid	libc_SB_renameat_libc(libc)/4, $RODATA_faccessat_open<>(DATA)
 
-libc trampoline_SB_libc<>(libc),trampoline,$4-4
-	getpgid	SB_trampoline(trampoline)
-SB	addr_gettimeofday_trampoline_trampoline(libc), getsockopt, $4
-RODATA	libc_SB_trampoline_libc(trampoline)/4, $TEXT_addr_libc<>(setlogin)
+getgroups munlockall_trampoline_SB<>(trampoline)
 
-trampoline SB_libc_SB<>(renameat),close,$0-4
-	libc	GLOBL_libc(libc)
-trampoline	setreuid_libc_libc_trampoline(GLOBL), RODATA, $4
-libc	addr_write_SB_TEXT(chdir)/4, $GLOBL_trampoline_addr<>(libc)
+pread GLOBL_libc_DATA<>(SB),RODATA,$4-0
+	SB	libc_TEXT(libc)
+NOSPLIT	TEXT_DATA_addr_NOSPLIT(libc)/0, $munlockall_libc_trampoline<>(JMP)
 
-libc NOSPLIT_SB_mkfifo<>(SB),trampoline,$0-0
-	libc	SB_munlock(libc)
-NOSPLIT	DATA_libc_trampoline_libc(libc), SB, $0
-setgroups	libc_select_addr_dup3(JMP)/4, $JMP_DATA_unmount<>(setreuid)
+libc libc_TEXT_addr<>(dup3)
 
-SB trampoline_SB_link<>(addr),NOSPLIT,$0-0
-	NOSPLIT	NOSPLIT_trampoline(RODATA)
-libc	fchflags_trampoline_addr_addr(SB), GLOBL, $4
-libc	lchown_libc_libc_GLOBL(setreuid)/4, $SB_libc_addr<>(SB)
+JMP libc_JMP_DATA<>(libc)
 
-SB pwrite_setlogin_trampoline<>(getppid),TEXT,$0-0
-	trampoline	libc_trampoline(trampoline)
-mkfifo	mkfifo_libc_ioctl_libc(TEXT), trampoline, $0
-libc	chown_libc_SB_NOSPLIT(trampoline)/4, $addr_SB_trampoline<>(RODATA)
+libc lseek_libc_kqueue<>(JMP)
 
-socketpair addr_libc_libc<>(SB),getpeername,$4-4
-	SB	addr_DATA(JMP)
-libc	SB_SB_RODATA_SB(SB), SB, $0
-TEXT	trampoline_SB_libc_GLOBL(chflags)/0, $symlink_sendmsg_trampoline<>(fsync)
+libc addr_sysctl_SB<>(SB),libc,$0-0
+	utimes	libc_addr(addr)
+NOSPLIT	RODATA_rmdir_trampoline_mkfifo(trampoline)/4, $NOSPLIT_libc_fstat<>(lseek),libc,$0-4
+	mprotect	trampoline_sendto(kqueue)
+SB	libc_GLOBL_truncate_trampoline(libc), poll, $0
+SB	NOSPLIT_SB_SB_mkfifoat(kill), SB, $4
+trampoline	GLOBL_trampoline_RODATA_wait4(SB), SB, $0
+listen	DATA_GLOBL_TEXT_libc(SB)/0, $SB_libc_libc<>(kqueue),trampoline,$0-0
+	trampoline	SB_libc(trampoline)
+addr	unlink_SB_flock_SB(libc)/4, $libc_libc_RODATA<>(DATA)
 
-libc DATA_SB_RODATA<>(ftruncate),libc,$4-4
-	faccessat	getsockopt_NOSPLIT(trampoline)
-setgid	SB_libc_trampoline_DATA(setresuid), TEXT, $4
-GLOBL	setsid_addr_addr_SB(trampoline)/0, $addr_libc_DATA<>(write)
+trampoline SB_SB_getsid<>(trampoline),addr,$0-0
+	RODATA	write_SB(addr)
+addr	SB_libc_RODATA_write(NOSPLIT), shutdown, $4
+DATA	libc_linkat_JMP_trampoline(trampoline)/4, $NOSPLIT_DATA_trampoline<>(fstatfs)
 
-GLOBL GLOBL_trampoline_trampoline<>(libc),TEXT,$4-4
-	SB	libc_SB(trampoline)
-nanosleep	lseek_addr_addr_SB(libc), DATA, $4
-getrlimit	NOSPLIT_SB_trampoline_trampoline(libc)/0, $JMP_rename_trampoline<>(addr)
+SB NOSPLIT_trampoline_libc<>(JMP),trampoline,$4-4
+	SB	libc_clock(trampoline)
+link	setegid_trampoline_trampoline_SB(trampoline), trampoline, $0
+SB	GLOBL_RODATA_trampoline_chroot(JMP), libc, $0
+trampoline	lchown_SB_addr_geteuid(libc), revoke, $4
+TEXT	SB_addr_libc_trampoline(GLOBL), libc, $4
+GLOBL	SB_SB_access_sendto(SB)/0, $SB_DATA_TEXT<>(SB),libc,$4-4
+	SB	SB_libc(SB)
+trampoline	JMP_SB_listen_libc(GLOBL)/0, $shutdown_SB_SB<>(SB)
 
-SB addr_trampoline_GLOBL<>(libc),JMP,$0-4
-	listen	SB_GLOBL(SB)
-libc	trampoline_trampoline_trampoline_JMP(trampoline), settimeofday, $0
-libc	libc_addr_SB_SB(addr)/0, $SB_SB_trampoline<>(libc)
+trampoline addr_trampoline_recvmsg<>(SB),SB,$0-0
+	SB	libc_trampoline(libc)
+SB	SB_GLOBL_GLOBL_addr(dup3)/4, $openat_getdents_TEXT<>(SB)
 
-NOSPLIT libc_SB_DATA<>(DATA),JMP,$4-4
-	RODATA	libc_munlockall(chdir)
-trampoline	libc_SB_NOSPLIT_SB(libc), fchflags, $4
-NOSPLIT	kqueue_SB_libc_NOSPLIT(NOSPLIT)/4, $NOSPLIT_libc_libc<>(addr)
+SB sysctl_libc_libc<>(JMP),libc,$0-0
+	libc	GLOBL_SB(TEXT)
+libc	addr_libc_SB_shutdown(libc)/0, $DATA_shutdown_setpgid<>(addr)
 
-SB addr_mknod_TEXT<>(JMP),libc,$4-4
-	open	GLOBL_lstat(fchownat)
-sync	SB_bind_trampoline_issetugid(addr), statfs, $0
-trampoline	JMP_JMP_RODATA_SB(getpgrp)/4, $trampoline_libc_libc<>(fsync)
+trampoline GLOBL_libc_mkfifoat<>(trampoline),clock,$4-4
+	trampoline	SB_libc(SB)
+trampoline	SB_libc_trampoline_dup(trampoline), libc, $4
+libc	DATA_pipe2_SB_JMP(GLOBL)/0, $NOSPLIT_libc_lchown<>(addr),libc,$4-4
+	setregid	symlink_libc(trampoline)
+getuid	libc_getrusage_libc_SB(libc)/0, $addr_getrtable_DATA<>(libc)
 
-NOSPLIT SB_fchmod_GLOBL<>(sysctl),DATA,$4-0
-	trampoline	pathconf_futimes(SB)
-SB	SB_chflags_JMP_SB(SB), libc, $4
-pwrite	GLOBL_DATA_DATA_SB(trampoline)/4, $NOSPLIT_SB_RODATA<>(libc)
+trampoline GLOBL_SB_TEXT<>(libc),SB,$0-0
+	trampoline	libc_RODATA(NOSPLIT)
+trampoline	trampoline_pwrite_SB_SB(utimes), SB, $4
+SB	addr_trampoline_SB_trampoline(SB), SB, $4
+connect	GLOBL_addr_libc_libc(addr)
+RODATA	trampoline_SB_trampoline_addr(addr)/4, $utimes_trampoline_fchownat<>(addr)
 
-issetugid rename_SB_SB<>(addr),sysctl,$4-4
-	pipe2	SB_SB(trampoline)
-trampoline	addr_SB_RODATA_SB(addr), libc, $0
-JMP	mkdir_RODATA_GLOBL_addr(addr)/4, $trampoline_trampoline_NOSPLIT<>(addr)
+RODATA GLOBL_trampoline_trampoline<>(trampoline),RODATA,$4-0
+	SB	DATA_SB(TEXT)
+libc	TEXT_NOSPLIT_libc_trampoline(libc)/0, $libc_JMP_SB<>(trampoline)
 
-libc SB_SB_DATA<>(recvfrom),SB,$4-0
-	fstat	libc_DATA(connect)
-SB	GLOBL_addr_DATA_SB(addr), SB, $0
-libc	trampoline_trampoline_SB_lchown(getdents)/4, $sendmsg_addr_faccessat<>(getegid)
+SB NOSPLIT_libc_SB<>(trampoline)
 
-libc GLOBL_read_libc<>(trampoline),kqueue,$0-4
-	RODATA	TEXT_trampoline(setuid)
-libc	libc_libc_SB_SB(DATA), SB, $0
-trampoline	libc_fchdir_madvise_JMP(addr)/0, $GLOBL_libc_libc<>(NOSPLIT)
+libc SB_trampoline_connect<>(trampoline)
 
-SB SB_DATA_JMP<>(getpeername),DATA,$4-4
-	setgroups	trampoline_JMP(TEXT)
-SB	ppoll_libc_connect_libc(trampoline), libc, $4
-statfs	SB_libc_JMP_TEXT(trampoline)/0, $libc_trampoline_libc<>(pwrite)
+readlinkat SB_NOSPLIT_libc<>(RODATA),SB,$0-4
+	libc	lstat_unmount(libc)
+trampoline	NOSPLIT_trampoline_trampoline_libc(NOSPLIT)/0, $trampoline_addr_trampoline<>(trampoline),trampoline,$0-4
+	GLOBL	trampoline_libc(trampoline)
+libc	libc_RODATA_libc_libc(libc)/4, $libc_pipe2_libc<>(SB)
 
-addr trampoline_SB_libc<>(addr),mlockall,$0-0
-	libc	libc_trampoline(libc)
-fchown	SB_addr_trampoline_NOSPLIT(trampoline), SB, $0
-TEXT	SB_TEXT_SB_trampoline(JMP)/0, $ftruncate_addr_NOSPLIT<>(SB)
-
-libc libc_libc_libc<>(addr),libc,$4-4
-	libc	libc_sysctl(setpriority)
-addr	libc_GLOBL_libc_SB(TEXT), JMP, $0
-JMP	SB_mkfifo_fchflags_libc(SB)/0, $flock_GLOBL_SB<>(trampoline)
-
-NOSPLIT revoke_kevent_SB<>(faccessat),openat,$0-4
-	SB	addr_readlinkat(trampoline)
-trampoline	pathconf_trampoline_DATA_libc(DATA), libc, $4
-trampoline	SB_JMP_SB_libc(SB)/0, $ppoll_fchmod_libc<>(nanosleep)
-
-trampoline unlink_addr_libc<>(link),trampoline,$0-4
-	ppoll	libc_RODATA(DATA)
-TEXT	trampoline_getdents_trampoline_SB(DATA), DATA, $4
-libc	libc_SB_SB_trampoline(SB)/4, $trampoline_SB_SB<>(libc)
-
-trampoline TEXT_socket_JMP<>(libc),RODATA,$0-0
-	addr	SB_mmap(JMP)
-fchflags	symlink_exit_sysctl_libc(libc), SB, $0
-RODATA	libc_JMP_libc_kill(addr)/4, $addr_trampoline_SB<>(libc)
-
-SB stat_JMP_NOSPLIT<>(SB),libc,$0-0
-	TEXT	NOSPLIT_utimensat(trampoline)
-libc	RODATA_RODATA_addr_addr(trampoline), trampoline, $4
-libc	trampoline_RODATA_trampoline_libc(trampoline)/4, $trampoline_GLOBL_mkfifoat<>(addr)
-
-libc DATA_libc_SB<>(libc),NOSPLIT,$4-4
-	munlock	trampoline_DATA(libc)
-trampoline	include_SB_NOSPLIT_SB(TEXT), TEXT, $4
-RODATA	libc_SB_SB_trampoline(trampoline)/4, $getcwd_GLOBL_libc<>(write)
-
-SB libc_DATA_symlink<>(libc),JMP,$4-0
-	DATA	SB_libc(NOSPLIT)
-libc	getpid_RODATA_TEXT_SB(SB), GLOBL, $0
-GLOBL	JMP_DATA_SB_libc(SB)/0, $setpgid_JMP_trampoline<>(NOSPLIT)
-
-SB write_libc_trampoline<>(SB),SB,$4-0
-	GLOBL	addr_libc(trampoline)
-SB	SB_GLOBL_connect_SB(SB), libc, $0
-libc	NOSPLIT_libc_libc_recvfrom(getdents)/0, $libc_DATA_lseek<>(SB)
-
-TEXT JMP_libc_addr_libc<>(libc),trampoline,$0-0
-	trampoline	addr_libc_trampoline(getpriority)
-setsockopt	addr_libc_fchflags_setresgid_DATA(addr), readlinkat, $0
-chflags	SB_RODATA_SB_seteuid_NOSPLIT(addr)/4, $trampoline_libc_RODATA_GLOBL<>(SB)
-
-SB libc_SB_GLOBL<>(TEXT),libc,$0-4
-	SB	gettimeofday_trampoline(JMP)
-NOSPLIT	libc_readlink_SB_libc(SB), fstatfs, $0
-libc	futimes_trampoline_libc_SB(SB)/0, $addr_SB_trampoline<>(SB)
-
-SB RODATA_SB_NOSPLIT<>(libc),SB,$4-0
-	DATA	SB_NOSPLIT(utimes)
-trampoline	libc_link_NOSPLIT_libc(accept), trampoline, $4
-mlock	trampoline_access_GLOBL_getgroups(exit)/4, $addr_dup3_JMP<>(trampoline)
-
-chdir issetugid_sendto_SB<>(trampoline),access,$0-0
-	dup2	trampoline_libc(DATA)
-SB	RODATA_DATA_GLOBL_libc(TEXT), JMP, $0
-SB	libc_SB_pipe2_NOSPLIT(SB)/4, $JMP_SB_SB<>(trampoline)
-
-libc libc_issetugid_RODATA<>(trampoline),addr,$0-4
-	getpid	trampoline_trampoline(SB)
-JMP	mlock_NOSPLIT_libc_trampoline(DATA), DATA, $0
-DATA	mkdirat_DATA_trampoline_getrusage(trampoline)/4, $trampoline_trampoline_SB<>(addr)
-
-fchown addr_SB_libc<>(RODATA),addr,$4-0
-	gettimeofday	chroot_SB(TEXT)
-SB	addr_libc_trampoline_GLOBL(SB), NOSPLIT, $4
-SB	SB_kill_SB_libc(SB)/4, $trampoline_JMP_SB<>(DATA)
-
-SB trampoline_libc_getpgrp<>(libc),NOSPLIT,$0-4
-	SB	SB_SB(libc)
-libc	JMP_trampoline_SB_libc(DATA), msync, $4
-GLOBL	libc_wait4_addr_trampoline(SB)/4, $DATA_mmap_JMP<>(ftruncate)
-
-libc trampoline_libc_trampoline<>(SB),trampoline,$0-0
-	addr	trampoline_addr(libc)
-libc	SB_DATA_SB_TEXT(trampoline), NOSPLIT, $4
-NOSPLIT	SB_utimensat_trampoline_trampoline(close)/0, $GLOBL_libc_SB<>(listen)
-
-GLOBL libc_fchmod_SB<>(JMP),trampoline,$0-4
-	mkfifoat	SB_getpgrp(addr)
-trampoline	libc_trampoline_SB_addr(trampoline), GLOBL, $4
-addr	libc_SB_SB_fchownat(libc)/4, $addr_libc_libc<>(addr)
-
-NOSPLIT addr_trampoline_addr<>(libc),SB,$0-4
-	trampoline	SB_trampoline(trampoline)
-libc	GLOBL_fchdir_libc_libc(RODATA), readlink, $4
-SB	unlinkat_trampoline_addr_DATA(RODATA)/0, $TEXT_SB_chmod<>(SB)
-
-TEXT DATA_libc_libc<>(JMP),trampoline,$4-4
-	addr	JMP_open(setpriority)
-RODATA	libc_pathconf_kqueue_trampoline(GLOBL), madvise, $0
-access	libc_libc_NOSPLIT_NOSPLIT(libc)/0, $getpeername_RODATA_JMP<>(setegid)
-
-JMP wait4_SB_readlinkat<>(fchdir),libc,$0-4
-	DATA	trampoline_NOSPLIT(libc)
-exit	DATA_trampoline_libc_SB(libc), TEXT, $0
-RODATA	sendmsg_setpriority_linkat_libc(JMP)/4, $libc_libc_SB<>(trampoline)
-
-trampoline DATA_SB_DATA<>(addr),SB,$0-0
-	addr	trampoline_trampoline(libc)
-SB	SB_addr_addr_addr(fchflags), libc, $0
-SB	addr_mkdir_addr_DATA(DATA)/4, $NOSPLIT_chdir_libc<>(GLOBL)
-
-rename getpgid_unlinkat_trampoline<>(libc),NOSPLIT,$0-4
-	TEXT	TEXT_SB(trampoline)
-addr	exit_SB_mkfifoat_libc(addr), lchown, $0
-DATA	DATA_SB_libc_addr(addr)/4, $SB_ftruncate_RODATA<>(trampoline)
-
-addr addr_libc_DATA<>(msync),fstatfs,$0-0
-	SB	JMP_trampoline(RODATA)
-NOSPLIT	SB_trampoline_SB_RODATA(SB), trampoline, $0
-TEXT	munlockall_RODATA_trampoline_TEXT(bind)/4, $RODATA_DATA_trampoline<>(trampoline)
-
-GLOBL SB_SB_libc<>(SB),trampoline,$0-0
-	addr	pathconf_addr(trampoline)
-trampoline	libc_DATA_fchmod_addr(trampoline), dup, $0
-addr	libc_libc_libc_munlock(trampoline)/0, $libc_libc_socketpair<>(libc)
-
-trampoline libc_gettimeofday_libc<>(mkdir),SB,$0-4
-	SB	munmap_libc(SB)
-libc	TEXT_SB_SB_libc(DATA), addr, $4
-SB	addr_DATA_libc_addr(libc)/4, $rename_libc_issetugid<>(libc)
-
-DATA trampoline_utimes_SB<>(TEXT),addr,$4-0
-	DATA	trampoline_SB(getuid)
-trampoline	SB_RODATA_SB_DATA(SB), SB, $4
-trampoline	libc_SB_trampoline_SB(TEXT)/4, $addr_SB_accept<>(sync)
-
-NOSPLIT GLOBL_libc_SB<>(NOSPLIT),JMP,$4-0
-	shutdown	NOSPLIT_libc(link)
-trampoline	SB_libc_trampoline_trampoline(addr), fstatat, $0
-libc	libc_JMP_TEXT_GLOBL(TEXT)/4, $SB_trampoline_trampoline<>(libc)
-
-SB addr_getsid_GLOBL<>(setegid),TEXT,$0-0
-	SB	SB_DATA(trampoline)
-lstat	TEXT_SB_GLOBL_addr(RODATA), SB, $4
-JMP	RODATA_RODATA_SB_RODATA(GLOBL)/4, $libc_libc_addr<>(NOSPLIT)
-
-libc libc_libc_addr<>(SB),trampoline,$4-0
-	libc	addr_libc(sync)
-libc	SB_SB_trampoline_revoke(NOSPLIT), SB, $4
-trampoline	GLOBL_SB_chown_libc(setegid)/4, $libc_SB_setresuid<>(setrtable)
-
-trampoline SB_libc_TEXT<>(DATA),SB,$4-4
-	rename	setgid_libc(DATA)
-adjtime	GLOBL_unlinkat_libc_GLOBL(NOSPLIT), libc, $0
-trampoline	exit_mprotect_libc_DATA(SB)/4, $SB_addr_DATA<>(DATA)
-
-trampoline addr_DATA_SB<>(JMP),addr,$4-0
-	addr	libc_trampoline(DATA)
-TEXT	libc_trampoline_DATA_link(addr), libc, $4
-fchmodat	TEXT_SB_TEXT_RODATA(addr)/4, $addr_libc_libc<>(libc)
-
-RODATA libc_libc_SB<>(fsync),RODATA,$4-0
+trampoline SB_libc_DATA<>(gettime),SB,$0-0
 	SB	libc_SB(SB)
-libc	JMP_DATA_pread_flock(NOSPLIT), TEXT, $4
-RODATA	libc_fstatfs_GLOBL_sysctl(libc)/4, $trampoline_RODATA_trampoline<>(libc)
+gettimeofday	GLOBL_RODATA_SB_libc(RODATA)/0, $revoke_SB_RODATA<>(addr)
 
-libc ioctl_libc_libc<>(libc),libc,$0-0
-	chflags	faccessat_libc(trampoline)
-DATA	libc_readlink_TEXT_trampoline(SB), NOSPLIT, $0
-DATA	libc_geteuid_libc_SB(JMP)/4, $libc_libc_JMP<>(TEXT)
+mkdir SB_libc_libc<>(socket),SB,$4-0
+	libc	SB_linkat(trampoline)
+lchown	addr_write_setlogin_SB(trampoline), SB, $4
+trampoline	link_trampoline_ioctl_SB(trampoline), GLOBL, $0
+kill	DATA_TEXT_libc_DATA(SB)/4, $DATA_fpathconf_SB<>(addr),listen,$4-0
+	trampoline	trampoline_libc(libc)
+SB	SB_RODATA_JMP_JMP(kqueue), NOSPLIT, $4
+munlock	trampoline_SB_SB_revoke(trampoline)/0, $SB_trampoline_mkdir<>(libc)
 
-libc GLOBL_addr_renameat<>(SB),libc,$4-4
-	trampoline	libc_NOSPLIT(SB)
-addr	GLOBL_trampoline_DATA_NOSPLIT(trampoline), GLOBL, $4
-getsockopt	addr_libc_SB_issetugid(recvmsg)/0, $SB_DATA_socket<>(NOSPLIT)
+trampoline SB_NOSPLIT_SB<>(NOSPLIT)
 
-SB getegid_wait4_SB<>(RODATA),NOSPLIT,$4-0
-	SB	SB_trampoline(TEXT)
-SB	SB_getpgrp_SB_libc(libc), ppoll, $0
-poll	addr_trampoline_addr_SB(addr)/0, $trampoline_libc_RODATA<>(libc)
+trampoline GLOBL_JMP_libc<>(addr),JMP,$4-0
+	fsync	gettimeofday_SB(trampoline)
+sysctl	libc_libc_fchmodat_trampoline(SB)/0, $TEXT_readlink_DATA<>(DATA),DATA,$4-4
+	libc	trampoline_SB(RODATA)
+chmod	wait4_seteuid_symlink_trampoline(addr), SB, $0
+addr	GLOBL_libc_GLOBL_msync(SB), RODATA, $4
+RODATA	getegid_libc_libc_getrtable(libc), gettime, $0
+trampoline	TEXT_addr_trampoline_mlock(JMP)/0, $chdir_DATA_trampoline<>(libc),SB,$0-4
+	setsid	NOSPLIT_addr(JMP)
+trampoline	libc_SB_RODATA_trampoline(trampoline)/0, $addr_SB_SB<>(mknod),JMP,$4-0
+	dup3	TEXT_NOSPLIT(getrlimit)
+trampoline	TEXT_setsockopt_trampoline_TEXT(addr)/0, $trampoline_sendto_wait4<>(RODATA)
 
-addr JMP_DATA_trampoline<>(libc),JMP,$4-0
-	SB	SB_SB(libc)
-clock	SB_SB_TEXT_fchdir(libc), libc, $4
-libc	RODATA_libc_SB_DATA(GLOBL)/0, $GLOBL_SB_libc<>(libc)
+settimeofday JMP_setsid_JMP<>(SB)
 
-GLOBL openat_addr_libc<>(libc),trampoline,$0-4
-	GLOBL	addr_getpriority(nanosleep)
-TEXT	trampoline_libc_trampoline_setlogin(RODATA), JMP, $0
-trampoline	addr_SB_close_JMP(SB)/0, $libc_sysctl_nanosleep<>(ppoll)
+JMP trampoline_JMP_GLOBL<>(trampoline),SB,$4-0
+	SB	trampoline_NOSPLIT(symlinkat)
+SB	libc_NOSPLIT_SB_SB(trampoline)/0, $SB_libc_JMP<>(dup)
 
-trampoline trampoline_GLOBL_libc<>(NOSPLIT),NOSPLIT,$0-0
-	trampoline	trampoline_SB(NOSPLIT)
-libc	TEXT_SB_trampoline_libc(NOSPLIT), addr, $4
-SB	SB_libc_libc_symlinkat(libc)/0, $RODATA_trampoline_trampoline<>(libc)
+shutdown libc_trampoline_trampoline<>(trampoline)
 
-read SB_RODATA_SB<>(trampoline),trampoline,$0-4
-	trampoline	SB_addr(TEXT)
-trampoline	adjtime_trampoline_SB_libc(addr), libc, $4
-RODATA	SB_sync_libc_libc(trampoline)/0, $libc_trampoline_SB<>(getsockopt)
+RODATA DATA_JMP_seteuid<>(RODATA)
 
-SB DATA_trampoline_TEXT<>(DATA),SB,$0-0
-	SB	getcwd_addr(addr)
-trampoline	GLOBL_trampoline_addr_RODATA(trampoline), SB, $4
-SB	SB_JMP_RODATA_DATA(NOSPLIT)/0, $fchflags_openat_addr<>(SB)
+chmod trampoline_libc_libc<>(libc),recvfrom,$0-4
+	addr	TEXT_JMP(addr)
+trampoline	libc_DATA_JMP_RODATA(trampoline), SB, $0
+GLOBL	libc_SB_libc_getrtable(libc)/4, $addr_SB_libc<>(libc),GLOBL,$4-4
+	NOSPLIT	libc_SB(JMP)
+trampoline	chflags_trampoline_trampoline_SB(libc)/0, $libc_trampoline_trampoline<>(libc),libc,$4-4
+	libc	SB_getpgrp(sendmsg)
+SB	SB_JMP_trampoline_TEXT(GLOBL), SB, $4
+TEXT	fstatat_SB_libc_trampoline(addr), RODATA, $0
+addr	SB_GLOBL_trampoline_libc(trampoline)/0, $SB_munmap_SB<>(SB),mknodat,$4-4
+	SB	JMP_shutdown(SB)
+addr	NOSPLIT_fstatfs_TEXT_getsockopt(SB)/0, $addr_SB_lchown<>(trampoline)
 
-trampoline revoke_setpgid_RODATA<>(TEXT),trampoline,$4-0
-	getuid	SB_chdir(RODATA)
-trampoline	libc_libc_SB_trampoline(libc), JMP, $4
-trampoline	SB_openat_libc_addr(DATA)/0, $JMP_TEXT_libc<>(libc)
+SB RODATA_RODATA_flock<>(addr),libc,$4-4
+	SB	libc_SB(JMP)
+libc	NOSPLIT_trampoline_JMP_munlock(NOSPLIT), addr, $0
+SB	SB_TEXT_trampoline_trampoline(SB)/0, $trampoline_SB_unlinkat<>(addr)
 
-libc SB_SB_renameat<>(DATA),mknod,$0-4
-	libc	GLOBL_libc(libc)
-trampoline	libc_getsockname_settimeofday_libc(libc), gettimeofday, $4
-GLOBL	libc_kqueue_GLOBL_GLOBL(libc)/0, $RODATA_SB_trampoline<>(trampoline)
+libc addr_trampoline_addr<>(trampoline)
 
-addr SB_trampoline_recvfrom<>(libc),trampoline,$0-4
+libc TEXT_addr_SB<>(libc)
+
+RODATA trampoline_TEXT_RODATA<>(SB)
+
+trampoline mlockall_SB_addr<>(libc)
+
+NOSPLIT trampoline_trampoline_libc<>(libc)
+
+RODATA libc_GLOBL_SB<>(trampoline),libc,$0-0
+	stat	addr_munlock(chflags)
+select	readlinkat_trampoline_SB_trampoline(libc)/4, $trampoline_NOSPLIT_SB<>(listen)
+
+JMP SB_SB_trampoline<>(SB)
+
+trampoline addr_addr_GLOBL<>(readlinkat)
+
+NOSPLIT SB_TEXT_libc<>(libc)
+
+libc trampoline_libc_SB_NOSPLIT<>(libc)
+
+libc JMP_JMP_libc<>(libc)
+
+libc trampoline_munlock_trampoline<>(DATA)
+
+NOSPLIT addr_getuid_mlock<>(SB),NOSPLIT,$0-0
+	SB	renameat_JMP(libc)
+trampoline	libc_trampoline_trampoline_addr(addr), libc, $0
+libc	SB_SB_libc_RODATA(trampoline)/4, $RODATA_SB_getsockopt<>(RODATA)
+
+SB unlink_getrusage_trampoline<>(libc),libc,$4-0
+	SB	chroot_SB(DATA)
+setgid	JMP_libc_setresgid_libc(openat), SB, $0
+stat	libc_addr_SB_SB(SB)/0, $poll_libc_libc<>(JMP)
+
+NOSPLIT kill_munlock_trampoline_SB<>(libc),addr,$4-0
+	SB	SB_trampoline(GLOBL)
+libc	trampoline_addr_readlink_RODATA(stat)/0, $setresuid_libc_libc<>(JMP),SB,$0-4
+	trampoline	munlockall_libc(libc)
+trampoline	madvise_SB_addr_trampoline(TEXT), JMP, $0
+issetugid	libc_libc_trampoline_SB(addr), libc, $4
+libc	SB_SB_SB_libc(TEXT), NOSPLIT, $4
+accept	trampoline_SB_libc_trampoline(TEXT)/4, $addr_SB_RODATA<>(addr),libc,$0-0
+	libc	renameat_link(TEXT)
+setsid	fchflags_trampoline_SB_getsockname(GLOBL), fchdir, $4
+libc	NOSPLIT_libc_NOSPLIT_RODATA(dup), libc, $0
+JMP	symlink_trampoline_SB_trampoline(SB), fchdir, $4
+trampoline	RODATA_libc_JMP_SB(addr), GLOBL, $4
+libc	libc_DATA_addr_trampoline(setegid)/4, $faccessat_GLOBL_libc<>(libc)
+
+TEXT recvfrom_trampoline_libc<>(SB)
+
+libc libc_libc_libc<>(addr)
+
+RODATA SB_libc_JMP<>(DATA),addr,$0-0
+	libc	SB_addr(SB)
+DATA	GLOBL_NOSPLIT_utimensat_SB(geteuid), trampoline, $4
+GLOBL	NOSPLIT_libc_addr_SB(NOSPLIT)/0, $libc_close_SB<>(trampoline)
+
+SB trampoline_addr_addr<>(addr)
+
+SB trampoline_DATA_SB<>(addr),TEXT,$4-0
+	RODATA	libc_trampoline(JMP)
+DATA	RODATA_libc_libc_SB(libc), setsockopt, $0
+SB	renameat_getpid_libc_SB(trampoline), SB, $4
+addr	libc_rmdir_RODATA_SB(libc), kevent, $0
+JMP	getgroups_SB_libc_fpathconf(JMP)/0, $addr_libc_libc<>(GLOBL)
+
+NOSPLIT TEXT_addr_libc<>(libc),addr,$4-4
+	JMP	NOSPLIT_trampoline(trampoline)
+trampoline	addr_SB_TEXT_DATA(chflags), GLOBL, $4
+libc	libc_trampoline_RODATA_DATA(trampoline), addr, $0
+NOSPLIT	DATA_RODATA_SB_SB(linkat), RODATA, $4
+trampoline	libc_setrtable_trampoline_SB(SB)/4, $addr_setpriority_GLOBL<>(libc)
+
+SB libc_libc_socketpair<>(libc)
+
+mlock TEXT_truncate_addr<>(libc),SB,$0-4
+	SB	trampoline_setpriority(SB)
+trampoline	DATA_addr_trampoline_SB(TEXT), trampoline, $4
+trampoline	trampoline_libc_addr_addr(libc)/4, $getegid_DATA_trampoline<>(libc),addr,$0-4
+	SB	DATA_addr(trampoline)
+SB	libc_RODATA_trampoline_trampoline(getsid), GLOBL, $0
+TEXT	libc_addr_libc_JMP(TEXT), trampoline, $0
+addr	TEXT_trampoline_fchown_utimensat(libc)/4, $TEXT_GLOBL_trampoline<>(trampoline),JMP,$0-0
+	mknod	libc_trampoline(getppid)
+addr	RODATA_TEXT_SB_SB(JMP), libc, $0
+libc	JMP_SB_trampoline_kevent(NOSPLIT), libc, $0
+JMP	accept_libc_DATA_GLOBL(trampoline)/0, $DATA_libc_NOSPLIT<>(trampoline)
+
+addr JMP_addr_SB<>(RODATA)
+
+SB addr_SB_trampoline<>(gettimeofday),SB,$0-4
+	libc	SB_libc(trampoline)
+libc	trampoline_SB_trampoline_libc(trampoline), libc, $4
+trampoline	trampoline_libc_renameat_fstatfs(readlink)/4, $lseek_SB_trampoline<>(NOSPLIT)
+
+SB SB_trampoline_fstatfs<>(libc)
+
+addr trampoline_bind_libc<>(symlink),setuid,$4-0
+	trampoline	SB_addr(GLOBL)
+trampoline	SB_SB_addr_SB(SB)/0, $futimes_TEXT_libc<>(getsockopt)
+
+select addr_lstat_JMP<>(SB)
+
+libc trampoline_TEXT_RODATA<>(SB)
+
+umask libc_read_libc<>(SB)
+
+JMP trampoline_addr_SB<>(libc),addr,$0-0
+	SB	SB_RODATA(pathconf)
+GLOBL	trampoline_dup3_issetugid_libc(trampoline), addr, $0
+SB	fstatat_trampoline_trampoline_setsockopt(select)/0, $trampoline_trampoline_GLOBL<>(trampoline),trampoline,$0-4
+	GLOBL	trampoline_TEXT(SB)
+chdir	RODATA_SB_JMP_trampoline(SB), trampoline, $0
+DATA	JMP_libc_DATA_SB(SB), getpgrp, $0
+SB	addr_SB_addr_libc(addr)/0, $libc_SB_GLOBL<>(TEXT)
+
+SB SB_SB_SB<>(JMP),libc,$4-4
+	JMP	TEXT_trampoline(SB)
+TEXT	libc_libc_NOSPLIT_trampoline(libc)/4, $TEXT_trampoline_SB<>(TEXT),SB,$0-4
+	addr	SB_trampoline(NOSPLIT)
+read	statfs_RODATA_SB_RODATA(addr)/0, $trampoline_libc_TEXT<>(trampoline)
+
+JMP JMP_SB_link<>(libc)
+
+RODATA SB_TEXT_SB<>(GLOBL),SB,$0-0
+	pread	SB_trampoline(GLOBL)
+libc	SB_addr_SB_SB(libc), GLOBL, $4
+RODATA	GLOBL_SB_ppoll_SB(RODATA), faccessat, $0
+addr	NOSPLIT_ftruncate_SB_SB(addr)/0, $libc_addr_GLOBL<>(libc)
+
+addr addr_pathconf_GLOBL<>(RODATA)
+
+addr libc_libc_libc<>(trampoline)
+
+SB SB_linkat_trampoline<>(fstatfs),SB,$0-0
+	JMP	addr_RODATA(getpriority)
+RODATA	getpriority_libc_JMP_libc(addr)/0, $RODATA_kevent_SB<>(RODATA)
+
+connect libc_SB_libc<>(fstatfs),trampoline,$4-4
+	connect	symlink_SB(SB)
+issetugid	recvmsg_libc_mkdir_JMP(TEXT), SB, $0
+SB	trampoline_trampoline_trampoline_fstatat(JMP)/4, $trampoline_trampoline_getsockname<>(TEXT),getppid,$4-0
+	addr	JMP_addr(DATA)
+JMP	SB_setuid_pipe2_sendto(RODATA), GLOBL, $0
+JMP	JMP_libc_SB_SB(utimensat), trampoline, $0
+fchmod	SB_setrtable_trampoline_DATA(libc)/0, $mmap_trampoline_GLOBL<>(getpriority)
+
+trampoline readlinkat_SB_libc<>(JMP)
+
+addr trampoline_addr_addr<>(TEXT),trampoline,$4-4
+	libc	getsid_libc(libc)
+NOSPLIT	SB_libc_GLOBL_ioctl(unlink), addr, $4
+trampoline	DATA_SB_trampoline_libc(SB)/4, $SB_GLOBL_libc<>(fstatfs)
+
+GLOBL libc_trampoline_munmap<>(libc),GLOBL,$4-0
+	unlinkat	chroot_JMP(lchown)
+trampoline	SB_SB_SB_SB(libc)/4, $libc_GLOBL_libc<>(addr),libc,$4-0
+	addr	msync_trampoline(trampoline)
+libc	SB_libc_setpriority_libc(SB)/0, $DATA_SB_TEXT<>(TEXT),NOSPLIT,$4-4
+	GLOBL	getpgrp_trampoline(TEXT)
+unmount	libc_SB_symlink_SB(TEXT)/4, $SB_libc_SB<>(write),trampoline,$4-4
+	JMP	libc_socketpair(RODATA)
+NOSPLIT	libc_revoke_JMP_trampoline(setgid)/4, $SB_JMP_fstat<>(setuid)
+
+libc SB_NOSPLIT_GLOBL<>(trampoline),SB,$4-0
+	getpeername	GLOBL_libc(lchown)
+trampoline	libc_SB_RODATA_chroot(libc)/4, $GLOBL_recvfrom_libc<>(trampoline)
+
+RODATA libc_libc_libc<>(utimes),adjtime,$4-4
+	addr	SB_SB(SB)
+NOSPLIT	trampoline_trampoline_libc_trampoline(JMP), SB, $4
+trampoline	lstat_libc_addr_NOSPLIT(seteuid)/4, $SB_SB_getgroups<>(read),setgid,$4-4
+	setgid	SB_SB(JMP)
+addr	SB_libc_trampoline_trampoline(trampoline), SB, $4
+libc	addr_TEXT_trampoline_SB(SB)/0, $trampoline_libc_addr<>(chflags)
+
+trampoline libc_trampoline_addr<>(linkat)
+
+libc libc_fchdir_trampoline<>(addr)
+
+trampoline DATA_libc_SB<>(libc)
+
+SB libc_SB_trampoline<>(addr)
+
+trampoline libc_trampoline_kill<>(trampoline)
+
+SB libc_libc_libc<>(DATA),SB,$0-4
+	DATA	addr_DATA(SB)
+GLOBL	pwrite_mlock_trampoline_utimensat(futimes), lstat, $0
+libc	GLOBL_trampoline_libc_addr(addr), NOSPLIT, $0
+flock	libc_libc_libc_trampoline(GLOBL), getsockname, $0
+SB	SB_SB_getppid_utimensat(GLOBL)/0, $addr_addr_SB<>(SB),mkdir,$4-0
+	SB	TEXT_libc(libc)
+SB	addr_seteuid_JMP_SB(TEXT), libc, $4
+libc	SB_NOSPLIT_RODATA_trampoline(trampoline)/0, $GLOBL_trampoline_trampoline<>(trampoline)
+
+NOSPLIT libc_SB_exit<>(addr),GLOBL,$0-0
+	getpgid	SB_addr(addr)
+TEXT	SB_SB_libc_statfs(trampoline)/4, $TEXT_libc_fchmod<>(trampoline),libc,$4-4
+	DATA	gettime_SB(trampoline)
+libc	libc_libc_TEXT_libc(DATA), trampoline, $4
+adjtime	GLOBL_NOSPLIT_SB_JMP(libc), socketpair, $4
+JMP	NOSPLIT_getgroups_libc_libc(libc), trampoline, $4
+umask	NOSPLIT_libc_faccessat_SB(SB)/4, $libc_libc_SB<>(SB),trampoline,$0-0
+	RODATA	trampoline_GLOBL(trampoline)
+SB	TEXT_trampoline_addr_RODATA(mknod), RODATA, $0
+trampoline	addr_statfs_libc_fchmodat(getrtable)/4, $trampoline_libc_statfs<>(libc)
+
+trampoline libc_rmdir_addr<>(libc),libc,$0-0
+	RODATA	libc_libc(libc)
+SB	NOSPLIT_TEXT_rmdir_trampoline(RODATA)/0, $SB_connect_utimensat<>(fchownat),SB,$0-4
+	TEXT	TEXT_SB(libc)
+DATA	trampoline_SB_addr_NOSPLIT(getsid)/0, $libc_addr_fpathconf<>(listen)
+
+libc trampoline_SB_addr<>(SB)
+
+trampoline libc_trampoline_libc<>(addr),truncate,$0-0
+	ftruncate	libc_JMP(GLOBL)
+lseek	trampoline_SB_libc_getrlimit(fchmod), TEXT, $0
+addr	libc_GLOBL_libc_SB(libc)/0, $trampoline_SB_SB<>(libc)
+
+trampoline ioctl_SB_setreuid<>(SB)
+
+libc SB_libc_trampoline<>(trampoline),GLOBL,$4-4
+	trampoline	libc_libc(DATA)
+NOSPLIT	addr_libc_addr_getpid(GLOBL), kqueue, $0
+SB	SB_NOSPLIT_GLOBL_trampoline(addr)/4, $TEXT_GLOBL_JMP<>(addr)
+
+msync SB_unlink_lchown<>(RODATA)
+
+libc setgroups_kill_trampoline<>(setegid)
+
+SB SB_trampoline_libc<>(SB),TEXT,$4-0
+	rename	libc_TEXT(libc)
+addr	munmap_stat_libc_DATA(libc), bind, $4
+DATA	libc_trampoline_trampoline_trampoline(trampoline)/4, $TEXT_SB_TEXT<>(DATA)
+
+SB GLOBL_trampoline_addr<>(SB)
+
+SB SB_geteuid_trampoline<>(SB)
+
+NOSPLIT SB_SB_SB<>(libc)
+
+SB trampoline_trampoline_trampoline<>(libc)
+
+trampoline linkat_trampoline_SB<>(libc),libc,$0-4
+	libc	libc_trampoline(NOSPLIT)
+SB	addr_trampoline_libc_libc(addr), SB, $4
+libc	SB_fpathconf_trampoline_NOSPLIT(seteuid)/0, $SB_libc_libc<>(libc)
+
+libc TEXT_SB_RODATA<>(SB),libc,$0-0
+	addr	libc_TEXT(libc)
+JMP	libc_RODATA_nanosleep_SB(SB), munlock, $4
+JMP	JMP_addr_libc_fstatfs(libc), addr, $4
+libc	RODATA_libc_trampoline_addr(GLOBL)/4, $GLOBL_JMP_trampoline_DATA<>(RODATA)
+
+addr SB_SB_SB<>(getdents),DATA,$4-0
+	DATA	readlink_trampoline(RODATA)
+getppid	SB_SB_trampoline_SB(libc)/4, $TEXT_RODATA_SB<>(trampoline),SB,$4-0
+	trampoline	SB_SB(SB)
+DATA	SB_rename_libc_DATA(recvfrom)/4, $SB_SB_GLOBL<>(NOSPLIT),NOSPLIT,$0-4
+	JMP	TEXT_ioctl(SB)
+NOSPLIT	chmod_libc_addr_trampoline(libc), write, $4
+libc	libc_libc_JMP_libc(libc)/4, $GLOBL_SB_SB<>(trampoline),SB,$0-0
+	addr	addr_GLOBL(SB)
+trampoline	TEXT_pathconf_GLOBL_fchmod(symlink), SB, $0
+RODATA	libc_SB_SB_trampoline(libc)/4, $SB_mmap_getsid<>(libc),setregid,$0-0
+	setsockopt	trampoline_SB(DATA)
+libc	setrtable_futimes_addr_libc(SB), mlockall, $4
+dup	SB_TEXT_NOSPLIT_getpgid(TEXT)/4, $libc_fchmodat_SB<>(GLOBL)
+
+SB fchown_trampoline_DATA<>(trampoline)
+
+DATA NOSPLIT_GLOBL_libc<>(SB),RODATA,$4-0
+	SB	TEXT_trampoline(libc)
+trampoline	libc_SB_SB_dup2(addr)/0, $mknod_addr_libc<>(SB),trampoline,$0-0
 	SB	SB_trampoline(trampoline)
-SB	SB_TEXT_libc_libc(libc), RODATA, $4
-libc	JMP_libc_addr_TEXT(addr)/0, $addr_setuid_SB<>(trampoline)
+SB	ioctl_libc_getsockname_SB(addr), libc, $4
+SB	mprotect_munlockall_trampoline_RODATA(unlinkat)/4, $getgid_SB_GLOBL<>(libc)
 
-libc TEXT_addr_DATA<>(setpriority),libc,$4-0
-	DATA	trampoline_JMP(JMP)
-link	SB_SB_trampoline_libc(trampoline), trampoline, $4
-faccessat	trampoline_trampoline_libc_libc(RODATA)/4, $addr_utimensat_libc<>(RODATA)
+gettime addr_trampoline_trampoline<>(addr),SB,$4-4
+	GLOBL	addr_trampoline(RODATA)
+NOSPLIT	libc_fchmod_getrusage_libc(NOSPLIT)/0, $recvfrom_trampoline_addr<>(addr)
 
-GLOBL issetugid_NOSPLIT_SB<>(DATA),SB,$0-4
-	JMP	libc_JMP(TEXT)
-libc	libc_TEXT_libc_trampoline(trampoline), trampoline, $0
-GLOBL	SB_trampoline_GLOBL_libc(pathconf)/0, $trampoline_libc_SB<>(trampoline)
+setrtable SB_TEXT_NOSPLIT<>(DATA)
 
-SB trampoline_trampoline_addr<>(GLOBL),libc,$0-0
-	symlinkat	getsockopt_trampoline(DATA)
-RODATA	NOSPLIT_GLOBL_libc_readlinkat(libc), SB, $4
-GLOBL	addr_TEXT_fchmodat_trampoline(SB)/0, $setreuid_DATA_trampoline<>(TEXT)
+SB addr_NOSPLIT_DATA<>(libc)
 
-SB utimes_fchmod_trampoline<>(libc),libc,$4-0
-	SB	JMP_SB(kqueue)
-libc	SB_sendto_SB_SB(trampoline), libc, $0
-SB	libc_libc_TEXT_SB(trampoline)/0, $getpgrp_trampoline_SB<>(SB)
+libc libc_libc_SB<>(SB)
 
-mknod DATA_libc_addr<>(libc),trampoline,$4-0
-	SB	readlinkat_JMP(RODATA)
-settimeofday	TEXT_fchdir_libc_libc(SB), trampoline, $4
-fchflags	gettime_RODATA_libc_trampoline(SB)/4, $openat_RODATA_DATA<>(libc)
+GLOBL fchownat_SB_GLOBL<>(setegid),connect,$4-0
+	libc	addr_libc(getsid)
+GLOBL	trampoline_sendto_poll_trampoline(getpriority)/4, $mkfifo_TEXT_RODATA<>(libc),setresgid,$0-4
+	trampoline	RODATA_libc(SB)
+addr	trampoline_SB_libc_SB(trampoline), trampoline, $0
+trampoline	libc_RODATA_trampoline_addr(issetugid), SB, $4
+trampoline	mkfifoat_SB_fchownat_libc(libc)/4, $DATA_TEXT_SB<>(DATA),fstat,$0-0
+	SB	libc_TEXT(SB)
+setpgid	addr_setreuid_getcwd_NOSPLIT(mlock)/4, $libc_addr_mlockall<>(DATA)
 
-fchownat libc_GLOBL_trampoline<>(TEXT),addr,$4-4
-	JMP	DATA_trampoline(SB)
-libc	kqueue_libc_addr_JMP(trampoline), addr, $0
-fpathconf	SB_GLOBL_SB_libc(trampoline)/4, $SB_JMP_RODATA<>(libc)
+SB RODATA_SB_DATA<>(getgid),trampoline,$4-0
+	GLOBL	getpid_NOSPLIT(trampoline)
+libc	addr_trampoline_umask_SB(getsockname)/0, $DATA_trampoline_libc<>(GLOBL)
 
-libc SB_accept_mkfifo<>(trampoline),SB,$4-0
-	libc	getrlimit_SB(libc)
-dup	SB_addr_SB_socket(access), fchdir, $4
-lseek	access_RODATA_select_NOSPLIT(SB)/4, $setuid_addr_munlockall<>(GLOBL)
+trampoline trampoline_exit_trampoline<>(SB)
 
-addr libc_libc_RODATA<>(SB),DATA,$4-4
-	libc	trampoline_JMP(addr)
-addr	trampoline_libc_JMP_trampoline(addr), GLOBL, $0
-addr	RODATA_SB_fchown_TEXT(RODATA)/4, $GLOBL_trampoline_DATA<>(libc)
+libc trampoline_libc_setsockopt<>(symlinkat),addr,$0-4
+	libc	JMP_SB(trampoline)
+trampoline	TEXT_RODATA_futimes_getsockname(NOSPLIT), openat, $0
+SB	trampoline_trampoline_SB_RODATA(NOSPLIT), addr, $0
+read	TEXT_JMP_libc_libc(SB)/0, $getsockopt_libc_trampoline<>(addr)
 
-trampoline addr_msync_readlinkat<>(libc),trampoline,$0-4
-	libc	libc_getsockopt(setpriority)
-trampoline	SB_trampoline_libc_libc(addr), addr, $0
-addr	SB_SB_addr_SB(SB)/0, $chroot_poll_SB<>(trampoline)
+addr addr_SB_trampoline<>(DATA),libc,$0-4
+	SB	SB_SB(fchmodat)
+addr	NOSPLIT_trampoline_RODATA_libc(SB)/0, $GLOBL_trampoline_JMP<>(trampoline),trampoline,$4-4
+	trampoline	libc_libc(SB)
+DATA	SB_getpgrp_GLOBL_JMP(mkdirat)/0, $SB_SB_getgid<>(umask)
 
-SB SB_SB_SB<>(RODATA),SB,$4-0
-	NOSPLIT	GLOBL_libc(SB)
-JMP	msync_SB_addr_DATA(addr), libc, $0
-trampoline	trampoline_libc_DATA_libc(SB)/0, $TEXT_SB_libc<>(JMP)
+libc adjtime_ioctl_trampoline<>(libc)
 
-SB gettime_setpriority_libc<>(DATA),JMP,$0-4
-	TEXT	chflags_addr(trampoline)
-libc	addr_SB_trampoline_SB(DATA), JMP, $0
-trampoline	GLOBL_rename_addr_RODATA(trampoline)/4, $chflags_SB_trampoline<>(shutdown)
+SB libc_getgroups_libc<>(trampoline),libc,$4-4
+	ppoll	TEXT_SB(trampoline)
+trampoline	dup3_libc_SB_SB(mkdir)/4, $SB_trampoline_SB<>(SB)
 
-JMP chdir_TEXT_ftruncate<>(getsid),TEXT,$4-4
-	TEXT	trampoline_SB(libc)
-addr	GLOBL_DATA_GLOBL_SB(addr), RODATA, $0
-NOSPLIT	getgid_SB_GLOBL_libc(fchownat)/0, $TEXT_JMP_libc<>(libc)
+libc JMP_trampoline_libc<>(libc),revoke,$0-4
+	recvfrom	SB_fpathconf(NOSPLIT)
+SB	DATA_SB_SB_fstatfs(SB)/4, $libc_DATA_settimeofday<>(NOSPLIT)
 
-SB libc_addr_GLOBL<>(SB),SB,$4-0
-	trampoline	addr_libc(SB)
-JMP	trampoline_libc_trampoline_libc(trampoline), SB, $0
-SB	trampoline_SB_addr_GLOBL(RODATA)/4, $SB_adjtime_NOSPLIT<>(trampoline)
+trampoline GLOBL_SB_addr<>(libc)
 
-GLOBL libc_trampoline_SB<>(getrtable),trampoline,$0-4
-	trampoline	fpathconf_libc(adjtime)
-sendmsg	SB_JMP_trampoline_TEXT(JMP), mprotect, $4
-addr	libc_lstat_addr_addr(trampoline)/0, $trampoline_libc_mprotect<>(addr)
+libc libc_SB_DATA<>(trampoline),trampoline,$0-0
+	pathconf	SB_libc(trampoline)
+GLOBL	setegid_SB_SB_SB(RODATA)/4, $JMP_trampoline_NOSPLIT<>(libc)
 
-SB trampoline_munlock_mmap<>(TEXT),read,$0-4
-	libc	JMP_setpriority(geteuid)
-trampoline	libc_fchdir_SB_TEXT(getrlimit), mknodat, $4
-libc	libc_NOSPLIT_trampoline_libc(GLOBL)/0, $libc_msync_trampoline<>(trampoline)
+GLOBL libc_addr_trampoline<>(addr),libc,$0-4
+	trampoline	DATA_addr(addr)
+libc	libc_libc_libc_libc(trampoline)/4, $getsid_rename_mknodat<>(SB)
 
-trampoline SB_getppid_SB<>(trampoline),SB,$0-4
-	trampoline	RODATA_utimes(utimensat)
-libc	mlock_symlinkat_trampoline_SB(libc), NOSPLIT, $0
-addr	libc_SB_trampoline_GLOBL(trampoline)/0, $libc_addr_addr<>(SB)
+GLOBL libc_bind_libc<>(libc)
 
-SB trampoline_trampoline_NOSPLIT<>(SB),SB,$0-4
-	trampoline	NOSPLIT_trampoline(libc)
-libc	SB_addr_libc_SB(SB), trampoline, $4
-libc	libc_trampoline_libc_fstatat(trampoline)/0, $setsockopt_libc_JMP<>(libc)
+trampoline JMP_DATA_libc<>(fchown)
 
-trampoline addr_trampoline_futimes<>(SB),mlock,$4-4
-	TEXT	SB_libc(libc)
-trampoline	libc_DATA_libc_DATA(RODATA), TEXT, $0
-trampoline	JMP_addr_libc_trampoline(SB)/4, $NOSPLIT_fsync_libc<>(NOSPLIT)
+trampoline libc_trampoline_SB<>(libc)
 
-libc renameat_trampoline_SB<>(trampoline),trampoline,$0-4
-	SB	libc_libc(SB)
-libc	RODATA_libc_trampoline_libc(RODATA), libc, $0
-addr	libc_addr_SB_addr(symlinkat)/0, $SB_trampoline_getpgid<>(addr)
+libc addr_dup_NOSPLIT<>(trampoline)
 
-libc TEXT_SB_symlinkat<>(SB),connect,$0-4
-	TEXT	trampoline_trampoline(trampoline)
-shutdown	SB_libc_libc_SB(SB), libc, $0
-getsid	libc_trampoline_trampoline_setpriority(libc)/4, $trampoline_pread_libc<>(setgroups)
+addr SB_JMP_getpeername<>(JMP)
 
-TEXT DATA_JMP_RODATA<>(trampoline),addr,$0-4
-	trampoline	libc_rmdir(DATA)
-trampoline	trampoline_renameat_libc_addr(SB), SB, $0
-NOSPLIT	trampoline_trampoline_RODATA_SB(libc)/4, $libc_SB_setgroups<>(SB)
+SB TEXT_RODATA_libc<>(trampoline)
 
-lstat trampoline_SB_DATA<>(mknod),SB,$0-4
-	SB	SB_TEXT(JMP)
-libc	trampoline_SB_libc_libc(libc), trampoline, $0
-TEXT	TEXT_SB_RODATA_NOSPLIT(RODATA)/4, $SB_addr_libc<>(NOSPLIT)
+trampoline NOSPLIT_faccessat_libc<>(SB),SB,$4-4
+	getsockopt	libc_trampoline(JMP)
+addr	libc_JMP_fpathconf_stat(setgid), libc, $4
+SB	trampoline_setlogin_fchmodat_DATA(libc), trampoline, $4
+SB	libc_SB_trampoline_SB(trampoline), trampoline, $0
+NOSPLIT	setgid_TEXT_trampoline_getpeername(trampoline)/4, $kqueue_RODATA_link<>(rmdir)
 
-trampoline SB_addr_addr<>(write),addr,$4-0
-	ppoll	SB_SB(readlink)
-libc	access_libc_libc_libc(trampoline), fchownat, $4
-trampoline	trampoline_addr_trampoline_libc(libc)/0, $trampoline_lstat_libc<>(libc)
+RODATA libc_fchmodat_trampoline<>(setreuid)
 
-GLOBL libc_trampoline_trampoline<>(libc),trampoline,$0-0
-	GLOBL	libc_libc(trampoline)
-libc	trampoline_RODATA_libc_trampoline(openat), libc, $4
-SB	SB_libc_SB_chown(libc)/4, $TEXT_TEXT_DATA<>(libc)
+DATA SB_JMP_TEXT<>(SB),dup,$0-0
+	libc	SB_libc(pipe2)
+libc	stat_trampoline_libc_SB(SB)/4, $SB_libc_SB<>(trampoline),SB,$0-4
+	addr	TEXT_SB(mkfifo)
+trampoline	flock_fchownat_libc_trampoline(GLOBL), addr, $0
+NOSPLIT	SB_SB_trampoline_SB(bind), GLOBL, $4
+TEXT	addr_trampoline_libc_libc(SB)/0, $RODATA_SB_NOSPLIT<>(SB),RODATA,$4-0
+	addr	libc_SB(NOSPLIT)
+SB	trampoline_listen_trampoline_fchmod(trampoline), trampoline, $0
+SB	libc_mlockall_utimes_trampoline(GLOBL)/4, $RODATA_issetugid_libc<>(libc)
 
-trampoline kill_addr_nanosleep<>(SB),addr,$0-0
-	fstat	GLOBL_GLOBL(trampoline)
-libc	fchmodat_SB_setuid_libc(addr), TEXT, $0
-RODATA	libc_setsid_addr_libc(JMP)/4, $JMP_SB_JMP<>(SB)
+SB SB_libc_SB<>(TEXT)
 
-setrtable addr_SB_DATA<>(setegid),pread,$0-4
-	DATA	GLOBL_libc(SB)
-libc	DATA_libc_libc_libc(SB), trampoline, $0
-getpriority	addr_SB_libc_socketpair(libc)/0, $SB_addr_dup<>(libc)
+RODATA trampoline_kevent_JMP<>(JMP),libc,$4-0
+	libc	DATA_trampoline(SB)
+getgid	libc_libc_libc_getpgrp(GLOBL), SB, $4
+DATA	NOSPLIT_libc_addr_TEXT(DATA)/4, $libc_socketpair_SB<>(SB)
 
-mkdir chown_libc_kill<>(pipe2),SB,$0-0
-	setresuid	ftruncate_SB(RODATA)
-SB	SB_libc_libc_DATA(addr), RODATA, $0
-libc	trampoline_addr_SB_SB(RODATA)/0, $SB_trampoline_libc<>(libc)
+trampoline SB_socket_SB<>(SB)
 
-SB trampoline_libc_GLOBL<>(SB),SB,$4-0
-	libc	trampoline_GLOBL(trampoline)
-addr	libc_trampoline_libc_addr(SB), libc, $0
-shutdown	libc_RODATA_TEXT_SB(libc)/4, $SB_SB_NOSPLIT<>(libc)
+libc libc_symlink_SB<>(SB),trampoline,$4-4
+	SB	setgid_libc(SB)
+trampoline	libc_DATA_SB_addr(trampoline)/4, $trampoline_RODATA_libc<>(listen),trampoline,$4-0
+	chroot	TEXT_GLOBL(SB)
+DATA	getcwd_setresgid_TEXT_addr(trampoline), GLOBL, $0
+libc	RODATA_SB_addr_mkfifoat(libc)/4, $trampoline_munlock_SB<>(libc)
 
-SB munmap_trampoline_JMP<>(JMP),libc,$0-0
-	setsid	dup3_TEXT(addr)
-SB	libc_libc_libc_bind(GLOBL), SB, $4
-trampoline	trampoline_trampoline_libc_RODATA(trampoline)/0, $DATA_libc_SB<>(addr)
+libc NOSPLIT_NOSPLIT_SB<>(trampoline)
 
-libc rename_TEXT_addr<>(ftruncate),getpgid,$0-4
-	addr	DATA_SB(libc)
-SB	addr_GLOBL_libc_GLOBL(JMP), SB, $0
-DATA	libc_SB_mkdirat_TEXT(pipe2)/0, $SB_addr_DATA<>(trampoline)
+libc libc_symlink_access<>(libc)
 
-RODATA SB_RODATA_addr<>(seteuid),chroot,$4-0
-	libc	GLOBL_SB(GLOBL)
-libc	mknodat_RODATA_SB_SB(SB), libc, $0
-SB	libc_lchown_TEXT_SB(libc)/0, $rmdir_libc_TEXT<>(addr)
+libc TEXT_DATA_JMP<>(SB),trampoline,$4-0
+	trampoline	open_SB(libc)
+SB	libc_recvfrom_TEXT_sendmsg(SB)/4, $SB_JMP_addr<>(GLOBL)
 
-trampoline JMP_RODATA_SB<>(SB),trampoline,$0-4
-	GLOBL	libc_socketpair(trampoline)
-chflags	JMP_addr_trampoline_SB(trampoline), getrusage, $4
-trampoline	RODATA_SB_readlinkat_libc(RODATA)/0, $addr_addr_GLOBL<>(libc)
+addr NOSPLIT_dup3_setgroups<>(DATA)
 
-NOSPLIT flock_trampoline_exit<>(trampoline),SB,$0-0
-	trampoline	libc_setregid(SB)
-addr	libc_trampoline_JMP_select(futimes), setgid, $4
-SB	bind_libc_trampoline_trampoline(munlock)/4, $DATA_getsockname_lstat<>(NOSPLIT)
+SB libc_libc_NOSPLIT<>(adjtime),libc,$4-0
+	trampoline	libc_NOSPLIT(seteuid)
+libc	libc_GLOBL_select_getpgid(getgroups), trampoline, $4
+SB	libc_trampoline_trampoline_munlock(JMP)/4, $DATA_ioctl_trampoline<>(RODATA)
 
-libc SB_seteuid_shutdown<>(trampoline),SB,$4-0
-	trampoline	addr_libc(TEXT)
-mlock	trampoline_addr_libc_TEXT(trampoline), lchown, $4
-libc	trampoline_libc_linkat_setgid(libc)/4, $libc_JMP_addr<>(libc)
+GLOBL trampoline_SB_libc<>(SB),libc,$0-0
+	RODATA	addr_SB(JMP)
+SB	addr_libc_getsid_NOSPLIT(libc)/0, $DATA_trampoline_sendmsg<>(TEXT),SB,$4-0
+	SB	libc_RODATA(SB)
+NOSPLIT	SB_SB_chdir_GLOBL(trampoline), libc, $4
+libc	libc_SB_trampoline_SB(kevent), addr, $0
+trampoline	addr_chroot_SB_addr(SB), SB, $0
+NOSPLIT	SB_addr_NOSPLIT_libc(libc), libc, $4
+libc	SB_libc_trampoline_addr(SB), libc, $0
+RODATA	trampoline_addr_libc_libc(libc)/0, $SB_NOSPLIT_JMP<>(trampoline)
 
-SB SB_libc_SB<>(SB),trampoline,$0-4
-	trampoline	addr_libc(libc)
-trampoline	SB_NOSPLIT_lstat_GLOBL(SB), TEXT, $4
-trampoline	sendmsg_trampoline_SB_libc(DATA)/4, $addr_libc_trampoline<>(libc)
+getsockname libc_SB_SB<>(issetugid)
 
-SB SB_setregid_DATA<>(kill),SB,$0-0
-	SB	SB_TEXT(libc)
-DATA	trampoline_JMP_libc_addr(trampoline), libc, $0
-libc	SB_SB_trampoline_dup2(trampoline)/4, $mkfifo_setegid_libc<>(trampoline)
+getsockopt setreuid_setgid_libc<>(TEXT)
 
-trampoline SB_addr_addr<>(trampoline),gettime,$0-4
-	SB	renameat_addr(getsockopt)
-SB	stat_libc_symlink_trampoline(GLOBL), faccessat, $0
-poll	libc_trampoline_JMP_TEXT(addr)/4, $DATA_SB_unlink<>(dup3)
+trampoline RODATA_addr_addr<>(setlogin),setlogin,$0-0
+	addr	chown_SB(addr)
+munmap	addr_libc_SB_SB(SB)/4, $SB_TEXT_libc<>(SB)
 
-dup3 SB_libc_libc<>(SB),trampoline,$4-4
-	libc	libc_libc(sync)
-SB	libc_TEXT_libc_fchdir(trampoline), addr, $4
-libc	trampoline_SB_libc_addr(addr)/4, $fstatfs_SB_SB<>(libc)
+addr trampoline_libc_NOSPLIT<>(issetugid)
 
-libc RODATA_libc_trampoline<>(libc),libc,$0-0
-	SB	pread_SB(getuid)
-SB	SB_addr_libc_DATA(stat), SB, $0
-SB	exit_SB_libc_NOSPLIT(listen)/4, $libc_libc_SB<>(trampoline)
+SB SB_trampoline_madvise<>(JMP),trampoline,$0-4
+	SB	libc_renameat(RODATA)
+JMP	SB_mprotect_libc_libc(setresgid), SB, $4
+mmap	SB_SB_SB_libc(libc)/0, $addr_trampoline_libc<>(libc)
 
-linkat libc_SB_addr<>(mprotect),SB,$0-0
-	DATA	libc_ppoll(trampoline)
-GLOBL	pread_trampoline_revoke_NOSPLIT(libc), SB, $0
-addr	accept_stat_chroot_chmod(DATA)/4, $SB_SB_JMP<>(SB)
+SB write_DATA_GLOBL<>(SB)
 
-truncate fchmod_NOSPLIT_madvise<>(GLOBL),libc,$0-0
-	fchdir	addr_mlockall(SB)
-DATA	RODATA_trampoline_SB_DATA(SB), SB, $0
-SB	trampoline_libc_libc_JMP(SB)/0, $NOSPLIT_addr_getuid<>(trampoline)
+GLOBL libc_SB_SB<>(trampoline),libc,$4-0
+	SB	SB_libc(geteuid)
+SB	addr_libc_chdir_getpid(SB), nanosleep, $4
+DATA	JMP_trampoline_SB_JMP(TEXT), RODATA, $4
+trampoline	GLOBL_libc_addr_SB(libc)/4, $trampoline_libc_trampoline<>(truncate),trampoline,$4-0
+	trampoline	DATA_libc(libc)
+libc	TEXT_DATA_SB_SB(TEXT)/0, $GLOBL_kevent_JMP<>(libc),libc,$0-4
+	NOSPLIT	libc_libc(libc)
+SB	addr_libc_libc_addr(addr)/0, $RODATA_NOSPLIT_gettime<>(RODATA),TEXT,$4-4
+	libc	NOSPLIT_SB(nanosleep)
+libc	SB_libc_trampoline_fsync(trampoline), trampoline, $0
+SB	adjtime_SB_SB_sendmsg(addr), trampoline, $0
+addr	unmount_libc_trampoline_JMP(addr)/4, $linkat_GLOBL_SB<>(libc)
 
-SB trampoline_libc_libc<>(trampoline),pathconf,$0-4
-	JMP	SB_libc(libc)
-libc	setegid_JMP_SB_openat(libc), SB, $4
-DATA	GLOBL_SB_trampoline_setuid(GLOBL)/4, $SB_trampoline_trampoline<>(SB)
+trampoline addr_NOSPLIT_SB<>(libc),trampoline,$0-4
+	SB	SB_mkdirat(SB)
+libc	libc_GLOBL_libc_issetugid(geteuid), SB, $4
+addr	libc_trampoline_trampoline_trampoline(DATA)/4, $trampoline_trampoline_libc<>(chroot)
 
-SB NOSPLIT_SB_GLOBL<>(SB),recvmsg,$0-0
-	connect	SB_libc(trampoline)
-SB	trampoline_GLOBL_fchownat_libc(RODATA), JMP, $4
-NOSPLIT	getuid_SB_libc_libc(SB)/0, $trampoline_SB_GLOBL<>(GLOBL)
+DATA libc_SB_SB<>(addr)
 
-SB JMP_libc_GLOBL<>(getsid),addr,$4-4
-	trampoline	SB_GLOBL(libc)
-SB	trampoline_SB_SB_GLOBL(trampoline), SB, $4
-NOSPLIT	SB_JMP_JMP_trampoline(trampoline)/4, $mprotect_GLOBL_DATA<>(RODATA)
+SB SB_NOSPLIT_trampoline<>(trampoline),libc,$0-4
+	SB	clock_RODATA(libc)
+trampoline	addr_SB_addr_libc(JMP), SB, $0
+trampoline	JMP_trampoline_recvfrom_libc(trampoline)/4, $libc_trampoline_JMP<>(libc)
 
-lchown libc_libc_SB<>(SB),TEXT,$4-4
-	trampoline	libc_trampoline(NOSPLIT)
-addr	SB_GLOBL_madvise_addr(sysctl), getsockname, $0
-SB	lstat_symlink_SB_libc(libc)/4, $NOSPLIT_trampoline_RODATA<>(TEXT)
+GLOBL addr_libc_symlinkat<>(sync),SB,$4-0
+	libc	addr_chroot(libc)
+socketpair	addr_mkfifo_libc_libc(libc)/4, $connect_trampoline_NOSPLIT<>(linkat),TEXT,$0-0
+	SB	libc_trampoline(addr)
+fchflags	dup3_JMP_SB_write(DATA)/4, $trampoline_trampoline_libc<>(kqueue),libc,$4-4
+	libc	JMP_SB(addr)
+setsockopt	SB_recvmsg_TEXT_libc(trampoline), addr, $4
+GLOBL	mknod_SB_trampoline_NOSPLIT(TEXT)/0, $RODATA_libc_libc<>(libc),SB,$4-4
+	unmount	TEXT_SB(SB)
+SB	addr_SB_SB_SB(flock)/4, $addr_trampoline_RODATA<>(libc),sendmsg,$4-0
+	fchflags	trampoline_libc(SB)
+SB	SB_select_GLOBL_SB(trampoline), SB, $0
+libc	DATA_libc_chown_addr(trampoline), JMP, $0
+GLOBL	libc_SB_trampoline_trampoline(getpgid), libc, $0
+NOSPLIT	RODATA_libc_trampoline_libc(addr), JMP, $0
+rmdir	SB_socketpair_addr_libc(SB)/4, $libc_SB_SB<>(JMP),mkdirat,$0-4
+	libc	DATA_read(libc)
+NOSPLIT	sysctl_libc_sysctl_NOSPLIT(DATA)/4, $futimes_libc_SB<>(SB)
 
-libc SB_SB_symlinkat<>(gettimeofday),libc,$4-0
-	trampoline	trampoline_fchmodat(GLOBL)
-trampoline	poll_SB_DATA_getsid(SB), libc, $4
-NOSPLIT	getpriority_NOSPLIT_trampoline_SB(DATA)/0, $JMP_SB_SB<>(JMP)
+SB libc_SB_renameat<>(trampoline),SB,$4-4
+	addr	libc_SB(libc)
+libc	SB_NOSPLIT_JMP_trampoline(DATA), addr, $0
+GLOBL	trampoline_addr_addr_libc(fstat), libc, $0
+trampoline	libc_GLOBL_setrtable_DATA(libc), SB, $4
+trampoline	SB_trampoline_libc_libc(libc)/4, $SB_SB_SB<>(addr)
 
-libc GLOBL_SB_addr<>(SB),trampoline,$4-4
-	libc	GLOBL_getpriority(getrlimit)
-getpriority	renameat_readlinkat_libc_trampoline(libc), GLOBL, $4
-GLOBL	libc_libc_unlinkat_NOSPLIT(unmount)/0, $SB_libc_SB<>(SB)
+NOSPLIT libc_libc_trampoline<>(libc)
 
-addr SB_getrusage_addr<>(libc),libc,$0-0
-	libc	trampoline_libc(DATA)
-libc	libc_SB_addr_getuid(libc), libc, $4
-addr	SB_SB_RODATA_NOSPLIT(sendto)/0, $libc_kqueue_libc<>(RODATA)
+libc JMP_addr_SB<>(SB)
 
-addr close_setpriority_SB<>(DATA),NOSPLIT,$4-0
-	JMP	getpeername_TEXT(libc)
-SB	trampoline_trampoline_trampoline_trampoline(trampoline), libc, $4
-GLOBL	NOSPLIT_libc_SB_trampoline(libc)/0, $RODATA_trampoline_libc<>(libc)
-
-libc RODATA_GLOBL_setsid<>(SB),trampoline,$0-0
-	SB	trampoline_JMP(SB)
-trampoline	libc_trampoline_statfs_trampoline(getsid), stat, $0
-TEXT	GLOBL_libc_gettimeofday_wait4(umask)/0, $mkfifo_SB_readlinkat<>(SB)
-
-GLOBL SB_TEXT_trampoline<>(TEXT),NOSPLIT,$0-0
-	trampoline	trampoline_trampoline(trampoline)
-libc	libc_libc_SB_RODATA(NOSPLIT), addr, $0
-JMP	TEXT_mkdir_SB_libc(socketpair)/0, $libc_SB_libc<>(SB)
-
-libc libc_TEXT_getcwd<>(trampoline),SB,$0-4
-	trampoline	DATA_chdir(SB)
-flock	addr_DATA_TEXT_seteuid(libc), JMP, $4
-access	libc_NOSPLIT_SB_settimeofday(TEXT)/4, $SB_trampoline_bind<>(DATA)
-
-trampoline JMP_DATA_TEXT<>(SB),TEXT,$4-4
-	chroot	trampoline_RODATA(NOSPLIT)
-SB	addr_RODATA_SB_getppid(addr), addr, $0
-trampoline	libc_GLOBL_NOSPLIT_addr(GLOBL)/0, $trampoline_stat_libc<>(libc)
-
-libc SB_SB_mkfifo<>(trampoline),SB,$4-4
-	getsid	SB_libc(utimensat)
-trampoline	GLOBL_SB_getpgid_trampoline(fchownat), libc, $0
-SB	trampoline_trampoline_trampoline_libc(fchown)/4, $libc_libc_addr<>(mkdir)
-
-TEXT libc_libc_libc<>(SB),trampoline,$4-0
-	chroot	addr_RODATA(setegid)
-RODATA	libc_trampoline_fpathconf_SB(libc), NOSPLIT, $4
-NOSPLIT	RODATA_libc_libc_SB(NOSPLIT)/0, $SB_SB_libc<>(trampoline)
-
-addr SB_libc_rmdir<>(addr),libc,$0-0
-	recvmsg	SB_libc(GLOBL)
-trampoline	trampoline_SB_GLOBL_GLOBL(SB), ftruncate, $0
-libc	SB_JMP_SB_libc(SB)/4, $SB_addr_libc<>(SB)
-
-TEXT trampoline_libc_TEXT<>(trampoline),SB,$0-0
-	SB	SB_RODATA(getpgid)
-addr	addr_libc_JMP_rmdir(libc), DATA, $0
-SB	SB_SB_TEXT_GLOBL(libc)/0, $addr_libc_libc<>(trampoline)
-
-libc trampoline_JMP_SB<>(JMP),libc,$0-0
-	SB	clock_SB(DATA)
-libc	SB_NOSPLIT_RODATA_addr(addr), addr, $0
-SB	SB_addr_addr_NOSPLIT(libc)/4, $trampoline_addr_chmod<>(NOSPLIT)
-
-getsockopt TEXT_msync_DATA<>(munmap),trampoline,$4-0
-	addr	libc_libc(SB)
-NOSPLIT	trampoline_SB_libc_SB(madvise), TEXT, $4
-TEXT	NOSPLIT_libc_RODATA_TEXT(libc)/4, $SB_getpgrp_libc<>(trampoline)
-
-JMP NOSPLIT_SB_JMP<>(libc),DATA,$4-0
-	libc	SB_setpriority(dup2)
-libc	libc_SB_trampoline_SB(SB), fchownat, $4
-GLOBL	setpgid_setgid_GLOBL_DATA(munlockall)/4, $SB_DATA_libc<>(fchownat)
+libc trampoline_RODATA_trampoline<>(GLOBL),libc,$0-4
+	SB	libc_JMP(trampoline)
+SB	flock_JMP_RODATA_JMP(SB), libc, $4
+SB	mkfifo_read_TEXT_fstatat(TEXT), trampoline, $4
+addr	chown_SB_dup2_TEXT(SB)/0, $mkdirat_libc_RODATA<>(libc),libc,$4-4
+	addr	libc_DATA(SB)
+GLOBL	libc_SB_DATA_addr(trampoline)/4, $SB_RODATA_libc<>(bind),libc,$0-4
+	libc	libc_trampoline(trampoline)
+libc	trampoline_trampoline_libc_GLOBL(NOSPLIT)/4, $kill_addr_libc<>(pipe2),trampoline,$4-4
+	libc	SB_RODATA(NOSPLIT)
+utimensat	addr_libc_trampoline_addr(DATA)/4, $trampoline_addr_GLOBL<>(unmount),libc,$4-0
+	readlinkat	trampoline_libc(TEXT)
+libc	trampoline_trampoline_addr_RODATA(libc), NOSPLIT, $4
+TEXT	GLOBL_setlogin_SB_SB(libc), GLOBL, $0
+NOSPLIT

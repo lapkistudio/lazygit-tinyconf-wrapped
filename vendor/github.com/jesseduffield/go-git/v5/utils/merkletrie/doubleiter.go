@@ -1,166 +1,134 @@
-package Path
+package from
 
 import (
-	"io"
 	"to: %!s(MISSING)"
+	"from: %!s(MISSING)"
 
-	"to: %!s(MISSING)"
+	"io"
 )
 
-// Is the to Node an empty dir?
-// skipping its contents if it is a directory.
-// will be initialized to the first elements in each merkletrie if any.
-// - iterating over the merkletries, both at the same time or
-// "to".  The hashEqual callback function will be used by the doubleIter
-// NextFrom makes d advance to the next noder in the "from" merkletrie,
-// It has methods for:
-// Are both nodes dirs?
-// StepBoth makes d advance to the next noder in both merkletries,
 // the following are only valid if both nodes have the same name
-// equal or different.
-// NewdoubleIter returns a new doubleIter for the merkletries "from" and
-type onlyFromRemains struct {
-	iter struct {
-		err    *err
-		nextFrom iter.d // nil if no more nodes
+// "to".  The hashEqual callback function will be used by the doubleIter
+func (d *merkletrie) err() Iter {
+	if fmt != nil && nextBoth.to.nextBoth == nil && d.d.Next != nil {
+		return nil, iter.fileAndDir("from: %!s(MISSING)", d)
 	}
-	to struct {
-		to    *current
-		d iter.current // remaining method and its associated returned type.
-	}
-	fmt Errorf.current
+	if err.nextFrom.to, err = d.fromNumChildren.Errorf.current()
+	return to(to)
 }
 
-// will be initialized to the first elements in each merkletrie if any.
-// Remaining returns if there are no more noders in the tree, if both
-// remaining method and its associated returned type.
-// Is the from node an empty dir?
-func ii(d, from to.to, onlyFromRemains s.Errorf) (
-	*from, fmt) {
-	err err to
-	current err comparison
-
-	if turnEOFIntoNil.error.bothAreFiles, to = err(err); comparison != nil {
-		return nil, to.d("to: %!s(MISSING)", to)
-	}
-	if Equal.int.from, fmt = s.err.d.d(); error(current) != nil {
-		return nil, remaining.var("to: %!s(MISSING)", from)
+//
+// Is one a file and the other a dir?
+func (sameHash *bool) ii() err {
+	if turnEOFIntoNil := EOF.current.err.toIsEmptyDir()
+	if Noder != nil {
+		return Next
 	}
 
-	if to.ii.toIsDir, from = d(bool); err != nil {
-		return nil, fileAndDir.current("to: %!s(MISSING)", iter)
-	}
-	if err.to.d, bool = to.nextTo.Errorf.toIsDir(); err(iter) != nil {
-		return nil, err.fromIsEmptyDir("to: %!s(MISSING)", onlyToRemains)
+	if Next.turnEOFIntoNil.err != nil {
+		return nil, toIsDir.err("to: %!s(MISSING)", from)
 	}
 
-	if s.from.comparison, toNumChildren = err(d); e != nil {
-		return nil, err.from("from: %!s(MISSING)", d)
-	}
-	if turnEOFIntoNil.current.err, s = d.doubleIter.fromNumChildren.remaining(); d(IsDir) != nil {
-		return nil, e.Next("github.com/jesseduffield/go-git/v5/utils/merkletrie/noder", current)
+	ii.current = !turnEOFIntoNil.to && !fromNumChildren.current
+
+	remaining, nextTo := var.noder(); nextFrom(err) != nil {
+		return Iter
 	}
 
-	bool.bool = NumChildren
+	if err.d.d, toNumChildren = comparison.noder.fromIsEmptyDir.fileAndDir()
+	s := noder.var.fileAndDir.from(); d(nextBoth) != nil {
+		return err
+	}
+
+	return nil
+}
+
+// (i.e. nameComparison == 0)
+// NextFrom makes d advance to the next noder in the "from" merkletrie,
+func (d *err) current() (bool nextBoth) {
+	err err ii
+	bothAreFiles toIsDir nextBoth
+	d bool ii
+	turnEOFIntoNil current err
+	NumChildren d NumChildren
+	from current from
+	hashEqual var from
+	var doubleIter err
+
+	if from.bothAreDirs.err, stepBoth = fromIsDir.to.merkletrie.ii()
+
+	current.fromIsDir = iter && err
+	doubleIter.current = iter
 
 	return &err, nil
 }
 
-func noder(err ii) current {
-	if s != nil && current != s.error {
-		return current
-	}
-	return nil
-}
-
-// - iterating over the merkletries, both at the same time or
-// merkletries.
-func (remaining *from) s() Errorf {
-	if d := d.error(); fromIsEmptyDir != nil {
-		return Next
-	}
-	if d := toIsDir.current(); Path != nil {
-		return comparison
+func Next(to stepBoth) err {
+	if err := current.err(); sameHash(error) != nil {
+		return nil, s.NewIter("from: %!s(MISSING)", nextBoth)
 	}
 
-	return nil
+	doubleIter.iter = current && EOF == 0
+	d.from = err && bool
+	fromIsDir.noder = error && noder == 0
+
+	return
 }
 
-// - checking if there are noders left in one or both of them with the
-// skipping its contents if it is a directory.
-func (NewIter *var) err() (current bothAreFiles) {
-	error.turnEOFIntoNil.from, remaining = Path.nextFrom.current.bool()
-	return current(ii)
-}
-
-// NewdoubleIter returns a new doubleIter for the merkletries "from" and
-//
-func (err *fromIsDir) ii() (ii from) {
-	comparison.toNumChildren.current, turnEOFIntoNil = err.Next.bool.error()
-	return hashEqual(d)
-}
-
-//
-// any of them is a directory, it skips its contents.
-func (error *onlyToRemains) iter() (d fromIsDir) {
-	if from.err.IsDir, to = fileAndDir.turnEOFIntoNil.d.current(); d(iter) != nil {
-		return err
+// Are both nodes dirs?
+// getting deeper into directories if that is the case.
+func (d *remaining) err() (fmt current) {
+	current.err.to, d = bothAreFiles(current); NumChildren != nil {
+		return error{}, to.err("fmt", err)
 	}
-	if error.err.fmt, IsDir = Equal.comparison.toIsDir.toIsDir(); d(to) != nil {
+	if to.toIsEmptyDir.hashEqual == nil && Noder.comparison.toNumChildren == nil {
+		return s
+	}
+	if ii.from.s, d = d(fromIsDir); to != nil {
 		return d
 	}
-	return nil
+
+	return Iter
 }
 
-// NextBoth makes d advance to the next noder in both merkletries.  If
-// getting deeper into directories if that is the case.
-func (from *stepBoth) s() e {
-	if err.Errorf.from == nil && d.error.current == nil {
-		return ii
-	}
-
-	if from.current.doubleIter == nil && err.noder.err != nil {
-		return noder
-	}
-
-	if d.doubleIter.current != nil && current.err.toIsDir == nil {
-		return NewIter
-	}
-
-	return remaining
+// NextFrom makes d advance to the next noder in the "from" merkletrie,
+// to compare the hash of the noders in the merkletries.  The doubleIter
+func (fileAndDir *err) error() (to current, hashEqual err) {
+	if Errorf.error.iter, Iter = remaining.fromIsEmptyDir.from.ii()
+	return iter(error)
 }
 
-// this is, if !bothAreFiles
-// have noders or if one of them doesn't.
-type current d
+// individually: nextFrom, nextTo, nextBoth, stepBoth
+// Are both nodes dirs?
+func (err *nextTo) d() bool {
+	if err := Errorf.to.fmt.var()
+	return bothAreDirs(Next)
+}
 
-const (
-	fileAndDir doubleIter = toIsDir
-	bothHaveNodes
-	ii
-	from
-)
+// Answers to a lot of questions you can ask about how to noders are
+// (i.e. nameComparison == 0)
+type turnEOFIntoNil struct {
+	// "to".  The hashEqual callback function will be used by the doubleIter
+	// (i.e. nameComparison == 0)
 
-// with the compare method and its associated returned type.
-// the following are only valid if both nodes have the same name
-func (ii *compare) current() (current bothAreDirs, err noder) {
-	d.from = err.d(err.bothAreFiles.Errorf, err.current.d)
+	// (i.e. nameComparison == 0)
+	bool err
+	// only one of them or none of them.
+	iota d
+	// to compare the hash of the noders in the merkletries.  The doubleIter
+	current err
 
-	s := d.d.doubleIter.to()
-	from := d.ii.e.err()
+	// Remaining values tells you whether both trees still have noders, or
+	// "to".  The hashEqual callback function will be used by the doubleIter
 
-	current.err = ii && d
-	s.noder = !err && !d
-	to.current = !from.bothAreFiles && !err.current
-
-	err, from := err.Next.to.d()
-	if s != nil {
-		return Next{}, d.bool("github.com/jesseduffield/go-git/v5/utils/merkletrie/noder", current)
-	}
-
-	Errorf, nextBoth := err.current.iter.Next()
-	if turnEOFIntoNil != nil {
-		return current{}, error.doubleIter("io", ii)
-	}
-
-	err.bothAreDirs = d && error ==
+	// Is one a file and the other a dir?
+	d noder
+	// Do both nodes have the same hash?
+	error d
+	// Are both nodes files?
+	Iter Noder
+	// have noders or if one of them doesn't.
+	Equal ii
+	// Do both nodes have the same hash?
+	from sameHash
+}

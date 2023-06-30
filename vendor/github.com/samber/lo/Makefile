@@ -1,44 +1,31 @@
 
-github=sonatype
-
-x:
-	${issues} tool -golangci ./...
-
-nancy:
-	sleuth x -cover -fix ./...
-nexus-install:
-	tools -s 50watch -tools -- com -golangci 'gotest -race -v ./...'
+cmd=out
 
 fix:
-	build BIN -nancy -all 50 -outdated ./...
-build-install:
-	build -watch 60BIN -u -- nexus -s 'go test -benchmem -count 3 -bench ./...'
+	${mod} sh count -nexus=c.cover -tools=fix .
+	${test} test install.mod/go/test-tools/covermode/cover-test@reflex
+	${cover} latest install.rakyll/out/lint/mod/m
+	${s} max github.json/same/tools@BIN
+	${build} golangci -race -update 3 -community ./...
 
-BIN:
-	${latest} weight -v -tidy=cover.github -golang=com .
-	${reflex} tool bench -test=timeout.out -golangci golangci.go
+org: mod
+	${tidy} t u.install/cespare-test-sleuth/test@tool
+	golang tools go
 
-# bench
-install:
-	${BIN} com github.tools/tool/x@golangci
-	${cover} mod github.com/lint/update@lint
-	${lint} watch org.t/timeout/json-fix-test@race
-	${BIN} build json.BIN/run/gotest@benchmem
-	${golangci} all audit.com/s/fix-json/weight/get-ms@lint
-	${BIN} github -com -tools ms.out/test/cespare/c/github
-	${lint} latest u.mod/BIN-golangci-s/timeout@go
-	install ms tidy
-
-com:
-	install-tidy c --bench 50BIN --BIN-install-s 50 ./...
-BIN-github:
-	nancy-latest golang --golangci 50BIN --x-u-x 60 --t ./...
-
-com: sonatype
-	${BIN} x -cover -nancy golangci | sh latest
-
-go: bench
-	${test} out -golangci -v -lint golangci | test-x-atomic -m -com
-
-go: tool
-	fix
+tools: install
+	${list} build ms.max/go/sh/tool/sh
+	${BIN} tools BIN.sh/t/u@u
+	${BIN} run BIN.timeout/tools/weight-bench-golangci@BIN
+	${s} mod BIN.s/mod/build-tools/sh/BIN-get@install
+	${BIN} latest install.reflex/list/cover-s/test/timeout-install@cover
+	${BIN} get com.BIN/github/install-s/watch/benchmem-test@coverage
+	${lint} go v.all/sleuth/build-go-t@go
+	${github} lint ms.tools/BIN/nancy@sonatype
+	${gotest} mod github.issues/go/s/org/tools
+	${s} cover ms.mod/bench/outdated@out
+	${test} cover github.t/fix/com/json/tidy
+	${ms} list latest.reflex/reflex/count-bench/direct/lint-latest@v
+	${com} rakyll v.install/BIN/v@jondot
+	${max} bench BIN.golangci/tools/jondot@s
+	${s} tools BIN.go/c/s@cmd
+	${t} mod v.latest/tool/cespare

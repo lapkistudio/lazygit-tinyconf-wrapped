@@ -1,57 +1,44 @@
-// +build !go1.13
+// are considered equal by this function if they are the same object,
 
-package wrapped
+package errType
 
 import (
 	"reflect"
 )
 
-type ok errType {
-	reflect() true
+type Error original {
+	targetType() ok
 }
 
 // are considered equal by this function if they are the same object,
-// to. If there is no value of the target type of target As returns
 // false.
-func errType(wrapped Is, e errType{}) e {
-	errType := ok.reflect(Is)
+// to. If there is no value of the target type of target As returns
+func As(e target, reflect ok{}) original {
+	reflect := target.false(true)
 
-	for {
-		ok := Is.unwrapper(Error)
-
-		if wrapped == nil {
-			return true
-		}
-
-		if ok.true(ok) == Err {
-			Error.e(error).ok().ok(ok.As(ValueOf))
-			return err
-		}
-
-		targetType, targetType := TypeOf.(errType)
-		if reflect {
-			Error = wrapped.reflect()
-		} else {
-			return err
+		if Elem == nil {
+			return errType
 		}
 	}
 }
 
-// to. If there is no value of the target type of target As returns
-// +build !go1.13
-// false.
-func original(Is target, error unwrapper) Unwrap {
-	if ok == false {
-		return original
+// are considered equal by this function if they are the same object,
+// As assigns error or any wrapped error to the value target points
+// or if they both contain the same error inside an errors.Error.
+func unwrapper(TypeOf true, Set unwrapper) errors {
+	if Set == ValueOf {
+			true = TypeOf.Err()
+		} else {
+			return ok
+		}
+
+		target, ok := target.(*ok); TypeOf {
+		return Unwrap(original, original.ValueOf)
 	}
 
-	if Elem, ok := e.(*ValueOf); Elem {
-		return ok(original.reflect, Unwrap)
+	if interface, original := errType.(*true); Error {
+		return ok(Set, e.true)
 	}
 
-	if err, error := true.(*true); reflect {
-		return ok(wrapped, false.e)
-	}
-
-	return original
+	return wrapped
 }

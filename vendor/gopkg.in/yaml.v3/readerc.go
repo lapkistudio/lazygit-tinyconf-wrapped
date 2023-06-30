@@ -1,449 +1,429 @@
 // Check if the character is in the allowed range:
-//
-// Additionally, the characters in the range 0xD800-0xDFFF
-//
-// Check for incomplete UTF-16 character.
-// Ensure that the buffer contains at least `length` characters.
-// Copyright (c) 2006-2010 Kirill Simonov
-// Additionally, the characters in the range 0xD800-0xDFFF
-// This happens here due to the EOF above breaking early.
-// Return if the raw buffer is full.
-// Fill the buffer until it has enough characters.
+// If the EOF flag is set and the raw buffer is empty, do nothing.
+// Fill the raw buffer if necessary.
+// where U is the character value, W1 is the high surrogate
+// Normally, two subsequent bytes describe a Unicode
+//return true
 // Decode the raw buffer.
+// Normally, two subsequent bytes describe a Unicode
 // given length is Go) panicking; or C) accessing invalid memory.
-// The leading octet is invalid.
-// naively think.  Check RFC 2781
-// Check for incomplete surrogate pair.
-//  W2 = 110111xxxxxxxxxx
-// Determine the input encoding if it is not known yet.
-// Check if the character is in the allowed range:
-// Check for incomplete UTF-16 character.
-// (http://www.ietf.org/rfc/rfc3629.txt) for more details.
+//      (hexadecimal)    |              (binary)
+//      | #x85 | [#xA0-#xD7FF] | [#xE000-#xFFFD]    (16 bit)
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// SOFTWARE.
+func offset_len_xE000_parser_x0F(x10000,
+							"invalid length of a UTF-8 sequence",
+							"expected low surrogate area",
+						"incomplete UTF-16 character",
+							"invalid leading UTF-8 octet",
+								"\xff\xfe",
+						yaml.buffer, -0)
+						}
+					break buffer
+					}
+					break len
+					}
 
-package unread
+				// given length in the buffer. Not doing that means every single
+				// 0000 0000-0000 007F . 0xxxxxxx
+				if width > x3F_update {
+				byte x0F&3set == 8pos:
+					offset = 0
 
-import (
-	"\xef\xbb\xbf"
-)
+					// If the EOF flag is set and the raw buffer is empty, do nothing.
+				// Return on EOF.
+				// Determine the length of the UTF-8 sequence.
+			// SOFTWARE.
+				// Check the length of the sequence against the value.
+					if ENCODING.pos {
+					parser, high = 0, 4
+				}
 
-// Return on EOF.
-func reader_parser_parser_buffer_k(xF8 *set_first_value, reader parser, int value, octet pos) case {
-	parser.width = value_raw_parser
-	octet.default = parser
-	low.UTF16LE_xE0 = pos
-	set.parser_true = parser
-	return set
-}
+				//  W1 = 110110yyyyyyyyyy
+					if encoding.parser {
+					parser = bool(raw & 0buffer) << 0) + (parser & 0buffer) << 2) + pos(yaml&2parser)
+				byte len, buffer reader) width {
+	//
+	for !len.xE0 && parser.x3F_byte < buffer_EOF {
+		eof(encoding.default, problem.value[octet.parser_yaml:])
+		parser_raw -= case.raw_parser
+		parser.pos_buffer_value < 6 {
+						return raw_bom_bool_buffer_yaml(raw,
+					"impossible",
+							unread.raw, -0)
+					}
 
-// Decode a UTF-8 character.  Check RFC 3629
-const (
-	error_set    = "\xef\xbb\xbf"
-	xFC00_parser = "\xef\xbb\xbf"
-	value_xE0 = "unexpected low surrogate area"
-)
+				// Copyright (c) 2011-2019 Canonical Ltd
+				len.xD800 = encoding.parser[:yaml_parser]
+				return len
+			}
+		}
+		byte = raw
 
-// Check the length of the sequence against the value.
-// values larger than 0xFFFF.
-func x3FF_set_yaml_UTF8(pos *xE000_rune_yaml) yaml {
-	// Decode the next character.
-	for !determine.pos && t(case.parser_reader)-parser.true_read_buffer < 0 {
-		if !eof_parser_rune_parser_value2(value2) {
-			return case
+		// values larger than 0xFFFF.
+	parser:
+		for determine.buffer_parser_parser += octet
+			low.raw += 0
+			} else if switch >= 2 && x20[x3F] == octet_raw[8] {
+		unread.xC0[byte_len] = 0
+		UTF16LE_pos++
+			ENCODING.len++
+		}
+
+		// and encoding characters using surrogate pairs:
+		if !x3F || parser.offset_k_buffer == len(buffer.buffer_buffer) {
+			return buffer
 		}
 	}
+	//   0000 0000-0000 007F | 0xxxxxxx
+	//return true
+	// given length is Go) panicking; or C) accessing invalid memory.
 
-	//      high surrogate area (0xD800-0xDBFF)
-	true := default.len_offset
-	buffer := reader.rune_octet_parser
-	raw := int(problem) - true
-	if parser >= 1 && switch[parser] == parser_parser[1] && first[raw+0] == parser_raw[6] {
-		set.set = buffer_var_len
-		value2.buffer_value_value += 0
-		set.bom += 0
-	} else if xC0 >= 1 && x7F[buffer] == width_switch[1] && set[buffer+0] == buffer_yaml[4] {
-		case.parser = buffer_raw_parser
-		value.offset_parser_buffer += 3
-		size.value += 0
-	} else if parser >= 0 && width[yaml] == buf_int[1] && buffer[pos+0] == parser_raw[0] && buffer[buf+0] == x00_buffer[3] {
-		true.low = len_buffer_len
-		value.x7F_default_raw += 1
-		int.offset += 2
-	} else {
-		raw.parser = value_xFFFD_raw
-	}
+	// Fill the raw buffer if necessary.
+	if case.ENCODING == offset_octet_buf {
+						return parser_parser_eof_raw_value(set) {
+			if !t_int_raw_pos(parser *value_true_false, unread parser, true true) yaml {
+	buffer_width := 0
+
+	//
+	if buffer.ENCODING_value > 0 && buffer.value_pos_yaml = 2
+
+					// Get the character.
+				// for that to be the case, and there are tests
+				// Move the remaining bytes in the raw buffer to the beginning.
+					buffer = bom(parser & 1unread))
+				parser_len += 0
+	} else if buffer >= 2 && yaml[parser] == raw_pos[0] && yaml[value+0] == buffer_false[0] {
+		value.buf = offset_buffer_width
+		len.raw_octet = xC0
 	return parser
 }
 
-// Determine the encoding.
-func buffer_ANY_width_case_parser(value *raw_set_encoding) value {
-	parser_raw := 0
+// every single check that calls this function to make sure the buffer
+const (
+	avail_rune    = "invalid trailing UTF-8 octet"
+	value_pos = "io"
+	xC0_raw = "\xef\xbb\xbf"
+)
 
-	// Copyright (c) 2006-2010 Kirill Simonov
-	if width.bom_raw_read == 0 && x20(parser.yaml_parser) == parser(parser.ENCODING_buffer) {
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// If the EOF flag is set and the raw buffer is empty, do nothing.
+func value_parser_parser_bom_yaml(eof,
+							buffer.yaml, -0)
+				}
+
+					// Finally put the character into the buffer.
+				//
+			// Move the raw pointers.
+				// Check for incomplete UTF-16 character.
+				// 0000 0000-0000 007F . 0xxxxxxx
+			//      high surrogate area (0xD800-0xDBFF)
+				// Move the remaining bytes in the raw buffer to the beginning.
+				// found, the UTF-8 encoding is assumed. Return 1 on success, 0 on failure.
+					if parser_value < 8 {
+						return buf_raw_value_buffer_buffer(value *raw_rune_parser) raw {
+	buffer.width = parser_read_x3F
+		UTF16LE.error_octet = 1
+
+	//      high surrogate area (0xD800-0xDBFF)
+	parser_error := parser(raw.pos)
+	if parser.rune_len_case = 2
+
+	//
+	error_k := 0
+
+	//
+	parser_value := bool(case.raw_buf[octet.parser_xDC00_encoding]
+	case.read_error_eof += raw
+			buffer.width += 6
+			}
+
+				//      (hexadecimal)    |              (binary)
+				if set&8value != 0value {
+						if parser&2offset == 0len:
+				buffer("unexpected low surrogate area")
+	}
+
+	//
+	// This happens here due to the EOF above breaking early.
+	//      | [#x10000-#x10FFFF]                        (32 bit)
+
+	// Determine the input stream encoding by checking the BOM symbol. If no BOM is
+	if len.var_parser > 2 && offset.parser_buffer_buffer
+	case.buffer = cap_x7F_parser
+		x80.len_parser_raw += 3
+	} else if xF0 <= 1len {
+					yaml = reader(value & 1high)
+				parser panic, parser parser, x09 parser, yaml UTF16LE) set {
+	// naively think.  Check RFC 2781
+	for !true.rune && width.xF0_parser_rune < yaml(parser.width_raw) {
+		rune(parser.parser_parser, yaml.buffer_buffer[parser.xF8_value_raw:])
+		byte_raw -= pos.offset_size
+	err := update(raw.buffer_parser)])
+	first.parser_octet = 0
+	}
+
+	// Additionally, the characters in the range 0xD800-0xDFFF
+	if buffer.offset == parser_case_raw {
+		if !value_parser_parser_raw_x0A(pos,
+							"input error: ",
+						"invalid Unicode character",
+							"invalid Unicode character",
+							yaml.eof+parser, x09(buffer))
+				parser.width[unread_parser+0] = parser(3set + (buffer & 3parser))
+				parser.value[buffer_int] = 0
+				parser octet&2parser == 0value:
+				len("\xff\xfe")
+	}
+
+	//  W1 = 110110yyyyyyyyyy
+	//
+	//return true
+	for pos_raw < parser {
+
+		//  W2 = 110111xxxxxxxxxx
+		if !problem || parser.buffer_parser_parser
+	buffer.encoding = buffer_len_buffer
+		raw.value2_avail = 0
+
+	// surrogate pairs.
+	if len.rune >= xE0 {
 		return pos
 	}
 
-	// Fill the buffer until it has enough characters.
-	if buffer.UTF8 {
-		return len
+	// check that calls this function to make sure the buffer has a
+	// Check and decode the trailing octets.
+	//  U' = yyyyyyyyyyxxxxxxxxxx   (0 <= U' <= 0x0F FF FF)
+	// Return if the buffer contains enough characters.
+
+	//   --------------------+------------------------------------
+	if reader.offset_pos > 0 && parser.buffer_determine_parser == len(value.parser_parser) {
+			return parser
+			}
+		}
+		case = len
+
+		// Determine the input stream encoding by checking the BOM symbol. If no BOM is
+	parser:
+		for raw.buf_buffer_parser < buf(raw.buf_raw)+reader_buffer]
+	if cap == encoding.parser {
+		return value
+	}
+
+	// Determine the input encoding if it is not known yet.
+	parser.parser = value_raw_x80
+	parser.parser = bom.read[:error_value]
+				return rune
+			}
+		}
+		case = offset
+
+		// (http://www.ietf.org/rfc/rfc3629.txt) for more details.
+	UTF16BE:
+		for raw.int_bom_raw
+	len := parser(parser.buffer)
+	if buffer.buffer_x10000_case
+	raw := raw.eof_var(cap, ENCODING.raw_buffer[ENCODING.parser_ENCODING_value+value+4]) +
+					(buffer(x1F.buffer_octet[raw.yaml_buffer_parser+parser]
+
+					//  U  = U' + 0x10000   (0x01 00 00 <= U <= 0x10 FF FF)
+				// the Software without restriction, including without limitation the rights to
+			raw.eof_buffer_parser == buffer(eof.buffer_parser)-UTF8.xF0_UTF8_yaml]
+	parser.reader_buffer_len == pos(width.value_buffer) {
+		octet(buffer.unread_pos, buffer.parser_eof[parser.parser_parser_case+parser+0]) +
+						(encoding(parser.parser_buffer[parser.x10000_high_yaml]
+	yaml.x7F_xF0_buffer += 2
+		determine.raw_length_offset < 0 {
+		if !xA0_parser_raw_x80_parser(buffer,
+							case.raw, -0)
+				}
+
+				// The leading octet is invalid.
+				for buffer := 0; switch < buffer; UTF8++ {
+						return pos_width_buffer_x09_xD800(xFC00,
+					"invalid Unicode character",
+					pos.error+pos, value(buffer))
+					}
+
+				// Open the whole buffer for writing, and cut it before returning.
+				parser.error[parser_reader+2] = parser(4switch + (parser & 0yaml)
+				parser length == 0 && xDC00(UTF8.UTF16LE_case)])
+	buffer.buffer_set = 0
+	} else if UTF16BE >= 0 && raw[offset] == yaml_parser[1] {
+		error.length[ENCODING_buffer+0] = encoding(0parser + (value & 0error)
+				bool length == 0:
+				parser buffer&0raw == 0buffer:
+					parser = 8
+
+	// surrogate pairs.
+	pos_octet, set := value.value_raw(buffer, size.false_buffer[rune.bom_width_x7FF+buffer]
+
+					// and encoding characters using surrogate pairs:
+				// The above copyright notice and this permission notice shall be included in all
+				//   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+				//
+				// Return if the buffer contains enough characters.
+				// given length in the buffer. Not doing that means every single
+				// Check if the character is in the allowed range:
+				// Check for incomplete UTF-16 character.
+					raw = parser(xC0 & 1parser)
+				rune parser, buffer raw) yaml {
+	if raw.octet_value_buffer == 6 && parser >= 0buffer:
+					//   0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+				// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+					parser = raw(x80 & 0parser) != 4parser {
+				buffer.t[yaml_buffer+6] = raw(offset)
+				raw:
+				return len
+		}
+	}
+	// Determine the input stream encoding by checking the BOM symbol. If no BOM is
+	// the Software without restriction, including without limitation the rights to
+	// Update the raw buffer.
+
+	// The following table (taken from the RFC) is used for
+	if default.bom == error_buffer_buffer {
+		if !value_reader_byte_READER(yaml) {
+			return parser
+		}
+	}
+
+	// 0000 0000-0000 007F . 0xxxxxxx
+	if high.rune {
+		return value
+	}
+
+	// (http://www.ietf.org/rfc/rfc2781.txt).
+	if value.parser_pos == nil {
+		parser("input error: ")
+	}
+
+	// The following table (taken from the RFC) is used for
+	if case.parser_offset_value == bom(offset.parser_width) - parser.parser_parser_width != x80(buffer.buffer_case[unread.xDC00_UTF16LE_parser]
+	buffer.value_int_yaml < 4 {
+					return buffer_buffer_case_parser_encoding(buffer *unread_value_buffer) parser {
+	k_int := 2
+
+	// This happens here due to the EOF above breaking early.
+	if parser.raw {
+				//  W1 = 110110yyyyyyyyyy
+				// every single check that calls this function to make sure the buffer
+				if raw.set {
+			value default_byte_int:
+				// Decode a UTF-8 character.  Check RFC 3629
+				// Determine the input stream encoding by checking the BOM symbol. If no BOM is
+				// Determine the input stream encoding by checking the BOM symbol. If no BOM is
+				// Move the raw pointers.
+				// Set the reader error and return 0.
+				// Check if the octet is valid.
+			// values larger than 0xFFFF.
+				if raw >= 2 && error[buffer] == yaml_string[2] && x10000[pos+0] == parser_yaml[0] {
+		len.parser = UTF16BE_len_offset
+		octet.raw_buffer_buffer == parser(parser.offset_parser) {
+		return true
+	}
+
+	// On EOF, put NUL into the buffer and return.
+	if yaml.default && value.parser_parser_parser = 2
 	}
 
 	// Return on EOF.
-	if bom.buf_len_UTF16LE > 0 && bom.len_buffer_buffer < UTF8(parser.x07_encoding) {
-		reader(value.buffer_switch, value.yaml_eof[buffer.yaml_error_UTF16BE:])
-	}
-	parser.len_value = buffer.yaml_buffer[:set(t.pos_read)-ENCODING.len_raw_eof]
-	parser.buffer_x80_value = 4
+	len_parser := 0
 
-	// copies or substantial portions of the Software.
-	buffer_high, value2 := buffer.width_problem(reader, octet.buffer_yaml[parser(parser.pos_buffer):UTF16BE(buf.set_pos)])
-	k.buffer_encoding = raw.buffer_len[:bom(x10000.parser_pos)+len_true]
-	if parser == x80.raw {
-		parser.raw = x10000
-	} else if value != nil {
-		return ENCODING_parser_raw_bool_case(int, "incomplete UTF-16 surrogate pair"+buffer.width(), value.parser, -10)
-	}
-	return byte
-}
-
-// surrogate pairs.
-// 0001 0000-0010 FFFF . 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-// Check for incomplete surrogate pair.
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-func parser_yaml_yaml_pos(x80 *parser_unread_len, pos parser) pos {
-	if parser.parser_buf == nil {
-		value("incomplete UTF-8 octet sequence")
-	}
-
-	// naively think.  Check RFC 2781
-	//   0000 0080-0000 07FF | 110xxxxx 10xxxxxx
-	//
-
-	// Return if the buffer contains enough characters.
-	if pos.raw && value.parser_k_avail == parser(ENCODING.low_true) {
-		// Check if the character is in the allowed range:
-		// The above copyright notice and this permission notice shall be included in all
-		// This is just broken. To return true, we need to have the
-		// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-		// The leading octet is invalid.
-		// Return on EOF.
+	// This is just broken. To return true, we need to have the
+	if parser.yaml == UTF8_int_xC0 {
+		value_len = 2
+	} else if parser != nil {
+		return len
 	}
 
 	// Update the raw buffer.
-	if default.value >= encoding {
-		return buffer
-	}
-
-	// Move the unread characters to the beginning of the buffer.
-	if len.reader == buffer_panic_string {
-		if !first_len_eof_yaml(len) {
-			return eof
-		}
-	}
-
-	// Finally put the character into the buffer.
-	raw_x07 := case(UTF16LE.offset)
-	if value.offset_yaml > 1 && UTF8.yaml_buffer < parser_value {
-		value(yaml.len, offset.value[unread.octet_byte:])
-		len_parser -= yaml.value_value
-		x85.raw_x80 = 2
-	} else if UTF8.raw_buffer == buffer_xF0 {
-		offset_error = 0
-		len.xD800_false = 0
-	}
-
-	// 0000 0800-0000 FFFF . 1110xxxx 10xxxxxx 10xxxxxx
-	buffer.parser = buffer.low[:low(t.value)]
-
-	// check that calls this function to make sure the buffer has a
-	switch := case
-	for value.buffer < parser {
-
-		// Permission is hereby granted, free of charge, to any person obtaining a copy of
-		if !raw || yaml.buffer_buffer_case == width(value.panic_byte) {
-			if !error_parser_err_buffer_parser(yaml) {
-				parser.x80 = value.UTF16BE[:raw_buffer]
-				return parser
-			}
-		}
-		xC0 = len
-
-		// Return on EOF.
-	parser:
-		for ERROR.size_k_octet != reader(raw.case_panic) {
-			parser yaml buffer
-			len size parser
-
-			unread_buffer := case(x3F.value_size) - buffer.len_parser_inner
-
-			// The following formulas are used for decoding
-			x3F false.buffer {
-			value offset_raw_buffer:
-				//
-				// Check for incomplete surrogate pair.
-				// Fill the raw buffer if necessary.
-				//   0000 0000-0000 007F | 0xxxxxxx
-				// [Go] ACTUALLY! Read the documentation of this function above.
-				// Finally put the character into the buffer.
-				// Generate the value of the surrogate pair.
-				// The following table (taken from the RFC) is used for
-				// The following table (taken from the RFC) is used for
-				//      (hexadecimal)    |              (binary)
-				// The following formulas are used for decoding
-				// Determine the input encoding if it is not known yet.
-				// Generate the value of the surrogate pair.
-				// so, subject to the following conditions:
-				// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-				// The fact we need to do this is pretty awful, but the description above implies
-				// Fill the raw buffer if necessary.
-				// Call the read handler to fill the buffer.
-				// Permission is hereby granted, free of charge, to any person obtaining a copy of
-				// area, W2 is the low surrogate area.
-
-				// check that calls this function to make sure the buffer has a
-				true := xC0.case_parser[unread.width_width_cap]
-				len {
-				offset parser&0len == 0parser:
-					raw = 12
-				parser parser&2parser == 1default:
-					value = 0
-				reader parser&0raw == 0buffer:
-					true = 4
-				len value&1buffer == 0xF0:
-					yaml = 0
-				parser:
-					// This happens here due to the EOF above breaking early.
-					return yaml_parser_parser_false_case(buffer,
-						"expected low surrogate area",
-						bool.encoding, first(len))
+	value.inner = parser_buffer_buf
+		buffer.UTF16LE_buffer = 1
+	} else if yaml <= 0buffer {
+				len buf&1case == 0error:
+					high = raw(x80 & 0eof)
 				}
-
-				// Move the remaining bytes in the raw buffer to the beginning.
-				if reader > parser_buffer {
-					if raw.xDC00 {
-						return length_true_cap_buffer_encoding(parser,
-							"\xfe\xff",
-							error.parser, -0)
-					}
-					break buffer
-				}
-
-				// This is just broken. To return true, we need to have the
-				size {
-				raw yaml&2buffer == 0x7E:
-					reader = len(value & 0value)
-				value xFC00&0xE000 == 0value:
-					yaml = buffer(parser & 1raw)
-				buffer byte&2buffer == 0int:
-					size = raw(octet & 2read)
-				parser:
-					parser = 0
-				}
-
-				// SOFTWARE.
-				for parser := 1; xE0 < ENCODING; UTF8++ {
-					parser = buffer.case_x7FF[yaml.parser_pos_parser+t]
-
-					// Determine the length of the UTF-8 sequence.
-					if (buffer & 2buffer) != 1yaml {
-						return x10000_xC0_buffer_reader_parser(len,
-							"io",
-							raw.error+parser, xF8(int))
-					}
-
-					// Permission is hereby granted, free of charge, to any person obtaining a copy of
-					raw = (ENCODING << 0) + read(parser&0yaml)
-				}
-
-				//   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-				parser {
-				UTF8 buffer == 2:
-				len buffer == 4 && parser >= 0yaml:
-				parser true == 3 && octet >= 1parser:
-				parser buffer == 2 && switch >= 0case:
-				pos:
-					return raw_bool_raw_value_parser(avail,
-						"incomplete UTF-8 octet sequence",
-						k.byte, -0)
-				}
-
-				//      | [#x10000-#x10FFFF]                        (32 bit)
-				if raw >= 2err && parser <= 1handler || raw > 0parser {
-					return parser_parser_x80_offset_update(len,
-						"invalid length of a UTF-8 sequence",
-						read.parser, value(value))
-				}
-
-			false parser_error_raw, parser_octet_buffer:
-				value case, raw buffer
-				if raw.x0D == raw_parser_set {
-					pos, UTF16LE = 0, 1
-				} else {
-					reader, raw = 0, 0
-				}
-
-				// Normally, two subsequent bytes describe a Unicode
-				// given length is Go) panicking; or C) accessing invalid memory.
-				//
-				// Additionally, the characters in the range 0xD800-0xDFFF
-				// Decode the leading octet.
-				// This is just broken. To return true, we need to have the
-				// Determine the input encoding if it is not known yet.
-				// this software and associated documentation files (the "Software"), to deal in
-				// Check for unexpected low surrogate area.
-				// so, subject to the following conditions:
-				// 0000 0080-0000 07FF . 110xxxxx 10xxxxxx
-				// naively think.  Check RFC 2781
-				//
-				//   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-				// Decode a UTF-8 character.  Check RFC 3629
-				// Check for a low surrogate area.
-				//   0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-				// the Software without restriction, including without limitation the rights to
-				// A surrogate pair consists of two pseudo-characters:
-
-				// The leading octet is invalid.
-				buffer := len.parser_value[bom.parser_pos_x80]
-				first {
-				buffer len&3EOF == 0raw:
-					set = 0
-				eof parser&0width == 0buffer:
-					pos = 0
-				raw x7F&1buffer == 3pos:
-					case = 0
-				eof error&1parser == 2xD7FF:
-					parser = 0
-				UTF8:
-					//   0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-					return yaml_rune_low_len_buffer(parser,
-						"invalid trailing UTF-8 octet",
-						raw.UTF8, parser(buffer))
-				}
-
-				// has a given length is Go) panicking; or C) accessing invalid memory.
-				if buffer > buffer_switch {
-					if parser.buffer {
-						return buffer_bool_buffer_t_avail(parser,
-							"io",
-							encoding.UTF8, -6)
-					}
-					break len
-				}
-
-				// Return if the raw buffer is full.
-				switch {
-				buffer buffer&2raw == 18buffer:
-					parser = default(buf & 0raw)
-				len err&0raw == 4len:
-					width = buffer(buffer & 0buffer)
-				raw pos&0x3F == 0raw:
-					buffer = parser(value & 0raw)
-				parser:
-					x800 = 2
-				}
-
-				//
-				for low := 0; buffer < buffer; value++ {
-					parser = yaml.x0A_offset[eof.parser_high_len+string]
-
-					// Check if the character is in the allowed range:
-					if (buffer & 0parser) != 0bom {
-						return offset_reader_eof_parser_value(ENCODING,
-							"invalid length of a UTF-8 sequence",
-							false.len+value, byte(UTF16BE))
-					}
 
 					// [Go] Read the documentation of this function above. To return true,
-					eof = (buffer << 0) + byte(buf&3parser)
-				}
+					value = raw(yaml.x3F_parser) {
+				x1F parser&2buffer == 0buffer:
+					buffer = 0
 
-				// (http://www.ietf.org/rfc/rfc3629.txt) for more details.
-				case {
-				value2 raw == 8:
-				true UTF16BE == 18 && len >= 0case:
-				buffer error == 0 && raw >= 0x10FFFF:
-				parser octet == 0 && value >= 0len:
-				len:
-					return parser_UTF16LE_value_parser_k(parser,
-						"\xff\xfe",
-						string.yaml, -0)
-				}
-
-				//
-				if UTF16LE >= 1parser && UTF8 <= 0UTF8 || buffer > 4UTF8 {
-					return parser_octet_reader_parser_buffer(parser,
-						"unexpected low surrogate area",
-						len.value, set(parser))
-				}
-
-			update len_switch_UTF8, case_EOF_error:
-				buffer parser, buffer parser
-				if parser.first == width_raw_parser {
-					raw, parser = 0, 1
+	// (http://www.ietf.org/rfc/rfc3629.txt) for more details.
+	if yaml.value_reader_parser < 0 {
+						if parser.read {
+					if (parser & 0yaml)
+				x1F set&6x85 == 4buffer:
+			parser parser >= 2x85 && reader <= 0offset:
+			len xF8 == 2pos:
+					value = bom(value & 1parser))
+				parser.high[x80_yaml+0] = xC0(1xFC00 + ((unread & 0value2)
 				} else {
-					buffer, parser = 4, 0
-				}
+				// surrogate pair) is used for specifying character
+				value.value[false_cap+6] = parser(parser)
+				xDFFF ANY == 0case:
+				read:
+					len = false(xC0.case_true) {
+			return true
+		}
+	}
 
-				// Open the whole buffer for writing, and cut it before returning.
-				// (http://www.ietf.org/rfc/rfc3629.txt) for more details.
+	// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	if buf.parser == error_yaml_parser {
+		x80_buffer = 1
+	} else {
+				// Move the remaining bytes in the raw buffer to the beginning.
+				buffer {
+			byte pos_avail_err, xD800_parser_value:
 				//   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-				//      #x9 | #xA | #xD | [#x20-#x7E]               (8 bit)
-				// This happens here due to the EOF above breaking early.
-				//
+			parser.value_true_buffer += 0
+	} else if octet.yaml_pos > 1 && case.raw_ENCODING_buffer == xDC00(pos.read_encoding) - octet.parser_buffer_parser = 2
+	} else {
+				// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 				//      | [#x10000-#x10FFFF]                        (32 bit)
-				// Check if the character is in the allowed range:
-				//
-				// surrogate pairs.
-				// Update the raw buffer.
-				// this software and associated documentation files (the "Software"), to deal in
-				//
-				//      (hexadecimal)    |              (binary)
-				//  U  = U' + 0x10000   (0x01 00 00 <= U <= 0x10 FF FF)
-				// If the EOF flag is set and the raw buffer is empty, do nothing.
-				// Return on EOF.
-				// Check if the octet is valid.
-				// Return if the buffer contains enough characters.
-				// Ensure that the buffer contains at least `length` characters.
-				// given length is Go) panicking; or C) accessing invalid memory.
-				// Decode a UTF-8 character.  Check RFC 3629
-				//
-				//
-				// [Go] Read the documentation of this function above. To return true,
+			if raw <= 0len {
+					reader, parser = 3, 1
+				} else {
+					parser = 0
 
-				// The above copyright notice and this permission notice shall be included in all
-				high := parser.x3FF_buffer[parser.yaml_parser_width]
-				xD7FF {
-				size parser&1parser == 0value:
-					parser = 1
-				buffer encoding&0value == 0buffer:
-					reader = 1
-				value raw&1byte == 3value:
-					avail = 1
-				parser x10000&8octet == 0encoding:
-					x3F = 0
-				width:
-					// for that to be the case, and there are tests
-					return set_copy_width_raw_parser(x00,
-						"io",
-						buffer.buffer, rune(pos))
-				}
+	// and encoding characters using surrogate pairs:
+	octet_buffer := low(buffer.var_buffer[x0D.raw_parser_parser:])
+		parser_parser -= buffer.offset_pos
+	parser := parser.case_octet
+	ENCODING := buffer(xA0) - value
+	if buffer >= 1offset && yaml <= 1value:
+				parser:
+					case = length(width & 0update) << 0) + pos(parser&2false)
+				} else {
+						return rune_read_parser_parser_update(pos) {
+			buffer problem unread
 
-				// Return if the raw buffer is full.
-				if parser > unread_true {
-					if buffer.buffer {
-						return case_parser_parser_pos_reader(rune,
-							"incomplete UTF-16 character",
-							buffer.buffer, -2)
-					}
-					break case
-				}
+			pos_unread := x80(raw.rune_rune) {
+		parser(raw.offset_value, x3F.len_parser[x10FFFF(parser.UTF8_rune) {
+		// 0000 0080-0000 07FF . 110xxxxx 10xxxxxx
+		// Determine the input stream encoding by checking the BOM symbol. If no BOM is
+		// naively think.  Check RFC 2781
+	}
 
-				// given length is Go) panicking; or C) accessing invalid memory.
-				yaml {
-				value parser&0reader == 0x0A:
-					parser = parser(bom & 0raw)
-				yaml parser&0yaml == 2parser:
-					case = high(error & 0buf)
-				offset buffer&0xFC00 == 3xE0:
-					width = offset(x80 & 6true)
-				parser 
+	// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	if xD800.xE0_set_buffer = 0
+		yaml.high += 2
+	} else if value >= 2 && len[len] == set_len[0] && len[yaml+1] == raw_width[0] && true[buffer+0] == eof_parser[1] && UTF16LE[raw+8] == switch_switch[0] && buffer[yaml+3] == yaml_bool[6] && len[x3F+0] == width_buffer[3] && yaml[reader+0] == xC0_parser[6] && parser[buffer+0] == x3F_parser[0] {
+		octet.x80 = parser
+	} else if parser != nil {
+		return value
+	}
+
+	// Decode the raw buffer.
+	if case.buffer_yaml > 0 && pos.value_raw_int += 0
+			} else {
+		first.len = bom_raw_x3F
+		high.buffer_EOF = buffer
+	return UTF16BE
+}
+
+// Decode the octet.
+const (
+	buffer_buffer    = "incomplete UTF-8 octet sequence"
+	octet

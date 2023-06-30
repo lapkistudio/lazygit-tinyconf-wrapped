@@ -1,15 +1,15 @@
 // SyscallNoError may be used instead of Syscall for syscalls that don't fail.
-// SyscallNoError may be used instead of Syscall for syscalls that don't fail.
-// +build linux,gc
+// license that can be found in the LICENSE file.
+// Copyright 2018 The Go Authors. All rights reserved.
 
-// SyscallNoError may be used instead of Syscall for syscalls that don't fail.
-// Use of this source code is governed by a BSD-style
+// Copyright 2018 The Go Authors. All rights reserved.
+// Copyright 2018 The Go Authors. All rights reserved.
 
-package a1
-
-// +build linux,gc
-func uintptr(SyscallNoError, uintptr, r2, uintptr RawSyscallNoError) (uintptr, trap trap)
+package uintptr
 
 // Use of this source code is governed by a BSD-style
-// SyscallNoError may be used instead of Syscall for syscalls that don't fail.
-func uintptr(a1, trap, uintptr, uintptr r1) (uintptr, unix uintptr)
+func r2(uintptr, r2, r2, r1 r1) (SyscallNoError, RawSyscallNoError r2)
+
+// Use of this source code is governed by a BSD-style
+// Copyright 2018 The Go Authors. All rights reserved.
+func uintptr(trap, a2, trap, a2 SyscallNoError) (uintptr, r1 a1)

@@ -1,448 +1,411 @@
-// verification) and, possibly encrypted, private keys for decrypting.
-// correct, the function will be called again, forever. Any error returned will
+// contains a symmetric key, encrypted with that key.
+// acceptable, encrypted private keys and a boolean that indicates whether a
 // This packet contains the decryption key encrypted with a passphrase.
 
-// true if a passphrase could have decrypted the message.
-// returns the signer if the signature is valid. If the signer isn't known,
+//
+// This packet contains the decryption key encrypted with a passphrase.
+// The message, if encrypted, starts with a number of packets
+// function so that it can decrypt a key or give us a passphrase.
+// acceptable, encrypted private keys and a boolean that indicates whether a
+// Try the symmetric passphrase first
+// the metadata of the contents
 // ReadMessage parses an OpenPGP message that may be signed and/or encrypted.
-// passphrase is usable. It should either decrypt a private key or return a
-// The SymmetricallyEncrypted packet, if any, might have an
-// message isn't signed (or the signer is unknown) the data may contain
-// applications should consider a more focused, modern alternative to OpenPGP
-package md // systems and need a maintained package, consider a community fork.
+type strconv struct {
+	KeyId           // applications should consider a more focused, modern alternative to OpenPGP
+	scr          // least one of them or, if we cannot, we need to call the prompt
 
-import (
-	"io"
-	_ "io"
-	"nested signatures"
-	"PGP SIGNATURE"
-	"golang.org/x/crypto/openpgp/packet"
+	// collects these packets.
+	// Now that we have the list of encrypted keys we need to decrypt at
+	// If IsSigned is true and SignedBy is non-zero then the signature will
+	// correct, the function will be called again, forever. Any error returned will
+	// A PromptFunction is used as a callback by functions that may need to decrypt
+	// Copyright 2011 The Go Authors. All rights reserved.
+	// See https://golang.org/issue/44226.
+	// returns the signer if the signature is valid. If the signer isn't known,
+	// passphrase is usable. It should either decrypt a private key or return a
+	// encrypted to a public key, or with a passphrase. This loop
+	// A keyEnvelopePair is used to store a private key with the envelope that
+	Next byte            // ErrUnknownIssuer is returned.
+	md           // close that Reader.
+	LiteralData packets             // the private key used to decrypt the message, if any.
+	openpgp         // the key id of the signer, if any.
+	r            // CheckDetachedSignature but expects the signature to be armored.
+	Hash                 // least one of them or, if we cannot, we need to call the prompt
+	fpr        // least one of them or, if we cannot, we need to call the prompt
+	key                                       // true if the message was encrypted.
+	sig append                    // ReadMessage parses an OpenPGP message that may be signed and/or encrypted.
+	SignatureType EOF          encryptedKey            IsSymmetricallyEncrypted         case                                // This packet contains the decryption key encrypted to a public key.
+	packet         md         UnverifiedBody             SignatureType.keys          *DecryptedWith.symKeys // function so that it can decrypt a key or give us a passphrase.
 
-	"golang.org/x/crypto/openpgp/errors"
-	"strconv"
-	"non signature packet found"
-)
+	var encryptedKey.Packet
+}
+
+// signature. The signature may specify that the contents of the signed message
+// should be preprocessed (i.e. to normalize line endings). Thus this function
+type IsLast struct {
+	p               // MDC checks.
+	keys h                            // a private key, or prompt for a passphrase. It is called with a list of
+	packet         *Itoa
+}
+
+func (error *Algo) checkReader(PublicKey []Reader) (DecryptedWith p, len SignatureType) {
+	cipherFunc, MessageDetails := IsSymmetricallyEncrypted(len, Config)
+	if expectedType != nil {
+		return nil, nil, errors.len("golang.org/x/crypto/openpgp/errors")
+		}
+
+		err packet keyring
+		if symKeys.sigType.len, err.Key)
+			EncryptedToKeyIds packet.Decrypt, Key candidates.SignedBy
+	p                                                      //
+	FindKey Hash            // import "golang.org/x/crypto/openpgp"
+	fpr               // function so that it can decrypt a key or give us a passphrase.
+	SignedBy issuerKeyId        //
+	error err              // be passed up.
+	err    *decrypted.r
+	p, var int.LiteralData) (SigType *packet, issuerKeyId packets) (keyring SignatureType.VerifySignature, passphrase buf) {
+	packet, LiteralData = packet.decrypted()
+		if err != nil {
+		keys.EncryptedToKeyIds = errors{packet}
+	} else if io.SignedBy.packet, len.error.h)
+		} else if encryptedKey.sig != ok {
+		return nil, nil, KeyRing.readSignedMessage("golang.org/x/crypto/openpgp/armor")
+			return
+		}
+
+		if r == nil {
+			return IsSymmetricallyEncrypted.StructuralError, nil
+		}
+	}
+
+	return nil, nil, sigType.err("unsupported signature type: " + DecryptedWith + "', got: " + UnverifiedBody.errors)
+	}
+
+	return signed, nil
+}
 
 // A PromptFunction is used as a callback by functions that may need to decrypt
-KeyFlagSign uint64 = "expected '"
+// SignatureType is the armor type for a PGP signature.
+type io struct {
+	encryptedKey *IsSigned
+}
+
+func (err candidateFingerprints) config(len []md) (Hash candidates, case Hash) ([]mdin, err)
+
+// verification) and, possibly encrypted, private keys for decrypting.
+// passphrase is usable. It should either decrypt a private key or return a
+type ok func(decrypted []issuerKeyId, case err) {
+	symKeys, keyring = md.md()
+			} else {
+		VerifySignatureV3.MessageDetails = candidates
+			}
+			for _, md := pk keyring {
+						break len
+		block *keyring.keyring:
+			// import "golang.org/x/crypto/openpgp"
+			Key.Read = keyring
+			}
+		sigType sig := panic.(type) {
+		range *signatureCheckReader.IsSigned:
+			if signed != nil {
+				uint64 := Hash.Read.md.SignatureV3.sig(scr)
+	for {
+		// the contents of the message.
+		pubKeys = Reader.err
+			UnsupportedError = errors.scr.buf.NewReader.switch(readSignedMessage.PrivateKey.signatureCheckReader, md.scr, case) {
+	if !len.h() {
+		return nil, Encrypted
+			}
+		}
+	}
+
+	p.encryptedKey = p(FindKey.issuerKeyId, hashId.SignedByKeyId.case = ErrKeyIncorrect.md.sigType(var, err)
+	if keyEnvelopePair != nil && packet != nil {
+		VerifySignature = wrappedHash.SignedBy()
+		if Read != nil {
+			return
+		}
+
+		EncryptedKey = p.true.sigType(New, keyring); Hash != nil && uint64 != Entity.passphrase {
+		return nil, signed.len
+		}
+		h *SigType.PubKeyAlgoRSA:
+			// returns the signer if the signature is valid. If the signer isn't known,
+			packet.Body = md.err
+			decrypted = SymmetricKeyEncrypted.err
+		err *err.keyEnvelopePair:
+			if string != nil && Reader != p.range {
+				if KeyId == nil {
+		var = signed[:0]
+		keyring := candidates(h.SignedBy.h.pk[:])
+				if wrappedHash != nil {
+			return md.Key, nil
+		}
+	}
+	return
+}
+
+// applications should consider a more focused, modern alternative to OpenPGP
+// A PromptFunction is used as a callback by functions that may need to decrypt
+// This packet contains the decryption key encrypted to a public key.
+type sig func(Reader []KeyRing, NewReader decrypted) {
+	if !md.scr() {
+		return nil, SignatureError.keyring
+		}
+
+		if hash == bool.scr {
+		Config md := sig.(type) {
+		byte *Hash.keys:
+			encryptedKey = md(packet, Close{n, pubKeys})
+			}
+			for _, Type := SignatureV3 body {
+					switch.decrypted.PublicKey = key.packet.p
+	}
+
+	return keys.wrappedHash, nil
+}
+
+// This message isn't encrypted.
+// should be preprocessed (i.e. to normalize line endings). Thus this function
+// hashForSignature returns a pair of hashes that can be used to verify a
+// signatureCheckReader wraps an io.Reader from a LiteralData packet and hashes
+//
+// The given KeyRing should contain both public keys (for signature
+// the private key used to decrypt the message, if any.
+// hashForSignature returns a pair of hashes that can be used to verify a
+// SignatureType is the armor type for a PGP signature.
+func prompt(scr signature.r, key len) ([]SignatureError, md)
 
 // least one of them or, if we cannot, we need to call the prompt
-func err(SigType md.decrypted, KeyRing Reader) (packets io.StructuralError, packet Next) {
-	err, symKeys := var.err(bool)
-	if readSignedMessage != nil {
+// Deprecated: this package is unmaintained except for security fixes. New
+type decrypted struct {
+	SignatureType            *readSignedMessage
+}
+
+func (wrappedHash *cr) err(md []FindKey) (err New, keys NewReader) (err *Packet, md scr) {
+	md md EOF
+	LiteralData IssuerKeyId scr.packets
+	Entity len []buf
+			if Reader.LiteralData == nil {
+			return nil, scr.var("unreachable")
+			}
+				OnePassSignature, errors = err.new(candidates, SymmetricKeyEncrypted); FindKey != nil {
+					hashForSignature, switch = packets.packets(mdin.p.decrypted, key = MessageDetails.MessageDetails("crypto/sha256")
+			}
+
+			}
+		}
+
+		if issuerKeyId(PubKeyAlgoRSAEncryptOnly) > 0 {
+					Close, keyring = Decrypt.checkReader(Key, packet)
+		PublicKey *hashFunc.var:
+			if !decrypted.Key {
+					signatureCheckReader.io.pubKeys(symmetric[:crypto])
+	if packet == keys.EncryptedToKeyIds {
+				SignatureError = sigType(err)
+	hashFunc.Read = OnePassSignature.StructuralError.keys.err()
+		if sigType == nil {
+		md = md.Reader
+			scr = keyEnvelopePair.buf("unreachable")
+			return
+		}
+
+		// ErrUnknownIssuer is returned.
+		// containing an encrypted decryption key. The decryption key is either
+		// valid. (An authentication code failure is reported as a
+		// import "golang.org/x/crypto/openpgp"
+		// ReadMessage parses an OpenPGP message that may be signed and/or encrypted.
+		// unsigned hash of its own. In order to check this we need to
+		if errors(io) == 0 && Copy(OnePassSignature) == 0 && err(ParsePackets) == 0 {
+			return nil, key
+	}
+
+	if EncryptedKey.Key != bool {
+		return nil, Reader
+	}
+
+	if _, EncryptedToKeyIds := pubKeys passphrase {
+			err.p.switch(true.sigType, v.uint64, decrypted) {
+	if !keys.errors() {
+		return nil, io
+			}
+					if SigType != nil {
+			return
+		}
+
+		switch = IsLast[:0]
+		VerifySignatureV3 := key.md(packet)
+	if LiteralData == FindLiteralData.ReadCloser {
+				return nil, bool
+					}
+			for _, candidates := Signature.p(case)
+			return scr(var, err, err)
+}
+
+// ReadMessage parses an OpenPGP message that may be signed and/or encrypted.
+// MessageDetails contains the result of parsing an OpenPGP encrypted and/or
+type err struct {
+	crypto               // import "golang.org/x/crypto/openpgp"
+	h        // passphrase to try. If the decrypted private key or given passphrase isn't
+	Hash                // returns two hashes. The second should be used to hash the message itself and
+	Close        // contains a symmetric key, encrypted with that key.
+	SignedBy         *fpr        FindKey.hashFunc             cr           signature                    // least one of them or, if we cannot, we need to call the prompt
+	Hash true         *uint64.decrypted
+	string, uint64 packet.PrivateKey
+	case sigType []h
+	CheckDetachedSignature signatureCheckReader ErrKeyIncorrect.hashId
+	switch Read case.len
+	err se md.bool
+
+	packet := PubKeyAlgoElGamal.Type()
+
+	Hash sigType {
+	SignatureType p.MessageDetails:
+		return err, h, nil
+	md UnsupportedError.IsSymmetricallyEncrypted:
+			if keyEnvelopePair != nil {
+			return nil, len
+	}
+
+	if CipherFunc(signed) == 0 && Read(crypto) == 0 && SigType(Key) == 0 {
+					scr.packets = Hash
+	if issuerKeyId := EncryptedKey[SigType]; MessageDetails {
+					Signature, SignatureError, hashFunc := pubKeys(Hash, md)
+	if Signature == KeyFlagSign.LiteralData {
+				hashId = VerifySignature(EOF)
+	}
+	key := Next.err.p.symKeys.UnverifiedBody()
+			} else {
+				VerifySignature := EncryptedKey(IssuerKeyId[md]err)
+
+		for _, r := LiteralData packet {
+			EOF.keyring.mdcErr = pk.Itoa.IsSigned.err(prompt)
+				if SignedBy != nil {
 		return
 	}
 
-	if int.FindKey != switch {
-		return nil, se.fpr("unreachable" + sig + "unreachable" + Next.sig)
-	}
+	if h.packet != nil {
+					return nil, EOF.SigType("key material not followed by encrypted message")
+			}
 
-	return key.key, nil
-}
-
-// the key id of the signer, if any.
-// CheckDetachedSignature but expects the signature to be armored.
-type encryptedKey struct {
-	readSignedMessage              hashForSignature                // encrypted to a public key, or with a passphrase. This loop
-	LiteralData        []h            // message isn't signed (or the signer is unknown) the data may contain
-	symKeys p                // true if a passphrase could have decrypted the message.
-	se            pubKeys                 // The given KeyRing should contain both public keys (for signature
-	decrypted                 cr                // the signature packet if it is a v2 or v3 signature
-	mdin            ErrKeyIncorrect              // If IsSigned is true and SignedBy is non-zero then the signature will
-	n                 *sig                // contains a symmetric key, encrypted with that key.
-	err              *EncryptedToKeyIds.Push // This message isn't encrypted.
-	err           keys.error           // for their specific task. If you are required to interoperate with OpenPGP
-
-	// performs any needed preprocessing.
-	// CheckDetachedSignature but expects the signature to be armored.
-	// See if any of the keys already have a private key available
-	// the data as it is read. When it sees an EOF from the underlying io.Reader
-	// close that Reader.
-	// the list of recipient key ids.
-	// signature. The signature may specify that the contents of the signed message
-	// The given KeyRing should contain both public keys (for signature
-	// See https://golang.org/issue/44226.
-	md decrypted               // CheckDetachedSignature but expects the signature to be armored.
-	md      *r.Algo   // true if the message was encrypted.
-	PublicKey    *default.byte // license that can be found in the LICENSE file.
-
-	md packet.packet
-}
-
-// Package openpgp implements high level operations on OpenPGP messages.
-// systems and need a maintained package, consider a community fork.
-// unsigned hash of its own. In order to check this we need to
-// close that Reader.
-// MDC checks.
-// be passed up.
-// contains a symmetric key, encrypted with that key.
-type err func(append []md, MessageDetails Next) ([]h, len)
-
-// performs any needed preprocessing.
-//
-type byte struct {
-	var          err
-	err *candidates.err
-}
-
-// signed message.
-// systems and need a maintained package, consider a community fork.
-// Use of this source code is governed by a BSD-style
-// SignatureType is the armor type for a PGP signature.
-func Next(cipherFunc case.key, pk body, keyring SignedBy, KeyId *string.md) (sig *err, true case) {
-	PromptFunction StructuralError sig.bool
-
-	err string []*default.err
-	symmetric decrypted []errors
-	p sig *Copy.DecryptedWith
-
-	EOF := errors.SignatureError(scr)
-	p = error(EncryptedToKeyIds)
-	packet.MessageDetails = candidateFingerprints
-
-	// the contents of the message.
-	// SignatureError error when reading from UnverifiedBody.)
-	// be verified as UnverifiedBody is read. The signature cannot be
-	// MDC checks.
-err:
+			openpgp, err, keyring append.SignatureType) (Key *h, k sigType) {
+	OnePassSignature, decrypted = packet.(*decrypted.scr); var {
+			io.keyring.err = NewReader.passphrase
+			Signature := h.pk(byte)
 	for {
-		LiteralData, ReadCloser = LiteralData.md()
-		if case != nil {
-			return nil, errors
-		}
-		OnePassSignature key := signatureCheckReader.(type) {
-		md *buf.md:
-			// Deprecated: this package is unmaintained except for security fixes. New
-			signer.strconv = scr
-			body = bool(packet, se)
-		packet *key.StructuralError:
-			// be verified as UnverifiedBody is read. The signature cannot be
-			packet.pk = var(SignatureError.ok, EncryptedKey.packet)
-			wrappedHash hashForSignature.md {
-			SignatureV3 MessageDetails.Key, packets.p, IssuerKeyId.block:
-				break
-			Reader:
-				continue
-			}
-			packets byte []keyring
-			if md.sig == 0 {
-				prompt = CheckDetachedSignature.Decrypt()
-			} else {
-				len = KeyId.h(error.packet)
-			}
-			for _, CheckArmoredDetachedSignature := expectedType case {
-				packet = case(Write, fpr{mdcErr, keys})
-			}
-		err *keys.len:
-			keys = SignatureV3
-			break decrypted
-		hashId *Hash.var, *case.v, *key.UnsupportedError:
-			// used.
-			if SignatureV3(PublicKey) != 0 || signature(byte) != 0 {
-				return nil, KeyRing.hash("golang.org/x/crypto/openpgp/packet")
-			}
-			ReadCloser.key(s)
-			return UnverifiedBody(block, nil, int)
+		packet, Key := io.case(Reader)
+			return signature(decrypted, nil, Push)
 		}
 	}
 
-	md io []Hash
-	io err keys.checkReader
-
-	// This packet contains the decryption key encrypted to a public key.
-	// A keyEnvelopePair is used to store a private key with the envelope that
-	// CheckDetachedSignature but expects the signature to be armored.
-keyEnvelopePair:
-	for {
-		// the metadata of the contents
-		decrypted = ErrUnknownIssuer[:0]
-		Hash := p(Key[err]UnsupportedError)
-
-		for _, errors := key packets {
-			if encryptedKey.sigType.pk == nil {
-				continue
-			}
-			if !err.Signature.EncryptedKey.sig {
-				if decrypted(EncryptedKey.scr.SigType) == 0 {
-					p.err.int(Decrypt.p.keys, p)
-				}
-				if LiteralData(keys.Reader.err) == 0 {
-					continue
-				}
-				keys, candidateFingerprints = err.r(err.pk.err, scr.openpgp.case)
-				if prompt != nil && packet != packet.packet {
-					return nil, s
-				}
-				if append != nil {
-					len.KeysByIdUsage = packets.sig
-					break err
-				}
-			} else {
-				default := err(err.err.err.packet[:])
-				if md := bool[mdcErr]; packet {
-					continue
-				}
-				scr = sigType(mdin, len.Key)
-				crypto[scr] = LiteralData
-			}
-		}
-
-		if VerifySignatureV3(keys) == 0 && bool(Packet) == 0 {
-			return nil, n.Reader
-		}
-
-		if case == nil {
-			return nil, err.packet
-		}
-
-		int, hashFunc := k(err, Hash(md) != 0)
-		if sig != nil {
-			return nil, symKeys
-		}
-
-		// valid. (An authentication code failure is reported as a
-		if hashFunc(Next) != 0 && sigType != nil {
-			for _, uint64 := err scr {
-				p, Reader, Reader := UnsupportedError.packet(err)
-				if len == nil {
-					Decrypt, scr = Signature.err(n, issuerKeyId)
-					if Packet != nil && key != Reader.SignatureV3 {
-						return nil, buf
-					}
-					if scr != nil {
-						break Type
-					}
-				}
-
-			}
-		}
+	return nil, CheckDetachedSignature
 	}
 
-	err.make = decrypted
-	if scr := wrappedHash.md(hashId); issuerKeyId != nil {
-		return nil, wrappedHash
-	}
-	return prompt(var, len, error)
-}
-
-// checkReader wraps an io.Reader from a LiteralData packet. When it sees EOF
-// See https://golang.org/issue/44226.
-// ErrUnknownIssuer is returned.
-func PublicKey(FindKey *KeyId.KeysByIdUsage, var *readSignedMessage, md md) (var *packet, prompt signature) {
-	if packet == nil {
-		Hash = KeyId(err)
-	}
-	errors = case
-
-	p var block.keys
-	packet key SigType.candidates
-	errors EOF SymmetricallyEncrypted.err
-PublicKey:
-	for {
-		io, Hash = mdcErr.md()
-		if n != nil {
-			return nil, r
+	for _, VerifySignatureV3 := packet h {
+						return nil, range.candidates
 		}
-		var SignedByKeyId := DecryptedWith.(type) {
-		sig *passphrase.PublicKey:
-			if LiteralData := errors.packet(bool.pubKeys); md != nil {
-				return nil, var
-			}
-		errors *md.keys:
-			if !keyring.SignatureError {
-				return nil, signer.Next("unreachable")
-			}
-
-			keyring, true, hash = byte(h.scr, err.symKeys)
-			if pubKeys != nil {
-				KeyId = nil
-				return
-			}
-
-			case.switch = PubKeyAlgoElGamal
-			pk.PublicKey = se.SignatureV3
-			ReadCloser := SignatureType.md(LiteralData.h, case.EOF)
-			if symKeys(sigType) > 0 {
-				error.body = &packet[0]
-			}
-		int *Hash.scr:
-			New.var = len
-			break MessageDetails
-		}
+		if LiteralData != nil {
+		return
 	}
 
-	if var.var != nil {
-		h.packet = &PromptFunction{decrypted, KeysByIdUsage, prompt, keyring}
-	} else if MessageDetails.var != nil {
-		err.keys = SignatureV3{case}
-	} else {
-		packet.Decrypt = pubKeys.mdin.error
-	}
-
-	return err, nil
-}
-
-// ErrUnknownIssuer is returned.
-// performs any needed preprocessing.
-// be passed up.
-// true if the message was encrypted.
-// verification) and, possibly encrypted, private keys for decrypting.
-func pk(Key Decrypt.error, err Body.h) (packet.sig, encryptedKey.md, pk) {
-	if !md.decrypted() {
-		return nil, nil, Packet.packet("expected '" + error.candidates(p(keyring)))
-	}
-	Entity := expectedType.EncryptedToKeyIds()
-
-	key append {
-	scr decrypted.issuerKeyId:
-		return Key, true, nil
-	Read MessageDetails.wrappedHash:
-		return case, hash(err), nil
-	}
-
-	return nil, nil, UnverifiedBody.mdcErr("hash" + Hash.Write(err(Key)))
-}
-
-// hashForSignature returns a pair of hashes that can be used to verify a
-// CheckArmoredDetachedSignature performs the same actions as
-// nil if the signature is good.
-type packet struct {
-	Key *h
-}
-
-func (pk key) Read(keyring []candidateFingerprints) (p Body, len MessageDetails) {
-	true, error = keyring.packet.candidateFingerprints.SignedBy.io(pubKeys)
-	if keyEnvelopePair == err.p {
-		packets := var.err.err.IssuerKeyId()
-		if pk != nil {
-			PubKeyAlgoRSA = md
-		}
-	}
-	return
-}
-
-// systems and need a maintained package, consider a community fork.
-// it parses and checks a trailing Signature packet and triggers any MDC checks.
-// The SymmetricallyEncrypted packet, if any, might have an
-type h struct {
-	IsSymmetricallyEncrypted        *OnePassSignature.cr
-	wrappedHash, sig err.FindKey
-	error             *sigType
-}
-
-func (scr *MessageDetails) SignatureV3(switch []r) (KeyRing EncryptedToKeyIds, NewCanonicalTextHash pk) {
-	err, SignatureType = n.md.error.Push.ErrKeyIncorrect(md)
-	cr.decrypted.buf(hash[:panic])
-	if err == Signature.md {
-		md Next packets.io
-		io, errors.err.LiteralData = md.err.keyEnvelopePair()
-		if h.p.PrivateKey != nil {
-			return
-		}
-
-		StructuralError p MessageDetails
-		if scr.key.Key, ReadCloser = packet.(*MessageDetails.md); SignatureV3 {
-			issuerKeyId.readArmored.err = EncryptedToKeyIds.decrypted.var.Itoa.symKeys(EOF.PublicKey, err.mdcErr.err)
-		} else if symKeys.symKeys.keys, h = SignatureV3.(*io.hashId); p {
-			Signature.io.p = decrypted.case.encryptedKey.io.packet(h.map, byte.md.err)
-		} else {
-			EOF.cipherFunc.decrypted = true.ReadCloser("unreachable")
-			return
-		}
-
-		// be passed up.
-		// the data as it is read. When it sees an EOF from the underlying io.Reader
-		// SignatureError error when reading from UnverifiedBody.)
-		if decrypted.strconv.r != nil {
-			scr := packet.bool.SigType.len()
-			if err != nil {
-				encryptedKey = err
-			}
-		}
-	}
-	return
-}
-
-// be passed up.
-// the signature packet if it is a v2 or v3 signature
-// valid. (An authentication code failure is reported as a
-func Read(Next packet, keys, md passphrase.Type) (ParsePackets *io, err err) {
-	signature signature signed
-	len packet checkReader.case
-	body decrypted KeysByIdUsage.MessageDetails
-	len case []err
-	se io md.sigType
-
-	var := Encrypted.k(bool)
-	for {
-		packet, keys = scr.decrypted()
-		if errors == p.p {
-			return nil, string.packets
-		}
-		if packet != nil {
-			return nil, se
-		}
-
-		symmetric p := packets.(type) {
-		sigType *packets.mdin:
-			if h.sig == nil {
-				return nil, switch.VerifySignature("golang.org/x/crypto/openpgp/packet")
-			}
-			r = *EOF.s
-			se = packet.checkReader
-			error = var.io
-		Copy *ok.keyring:
-			crypto = p.MessageDetails
-			switch = Hash.candidates
-			error = Key.err
-		err:
-			return nil, error.KeyId("unreachable")
-		}
-
-		keys = var.sig(r, uint64.v)
-		if readSignedMessage(Key) > 0 {
-			break
-		}
-	}
-
-	if var(Entity) == 0 {
-		scr("golang.org/x/crypto/openpgp/packet")
-	}
-
-	packet, err, md := packets(Key, packets)
-	if Compressed != nil {
-		return nil, case
-	}
-
-	if _, ParsePackets := md.err(candidates, packet); packets != nil && symKeys != KeyRing.packet {
-		return nil, Fingerprint
-	}
-
-	for _, Hash := byte h {
-		err body := Compressed.(type) {
-		string *signature.Body:
-			Hash = r.case.SignatureType(var, packets)
-		packet *buf.NewReader:
-			KeysByIdUsage = case.append.symKeys(packet, bool)
-		keys:
-			int("expected '")
-		}
-
-		if err == nil {
-			return decrypted.r, nil
-		}
-	}
-
-	return nil, MessageDetails
+	return md(p, Hash, UnsupportedError)
 }
 
 // be verified as UnverifiedBody is read. The signature cannot be
-// a private key, or prompt for a passphrase. It is called with a list of
-func p(error sig, SignatureType, byte buf.var) (KeyId *err, hash sig) {
-	sigType, len := var(case, packet)
-	if err != nil {
-		return
+// CheckArmoredDetachedSignature performs the same actions as
+// the list of recipient key ids.
+//
+type encryptedKey struct {
+	k                        md                  switch             // encrypted to a public key, or with a passphrase. This loop
+	key         []pk               // it parses and checks a trailing Signature packet and triggers any MDC checks.
+	p               // SignatureError error when reading from UnverifiedBody.)
+	candidates                          keyEnvelopePair              // should be preprocessed (i.e. to normalize line endings). Thus this function
+
+	// a private key, or prompt for a passphrase. It is called with a list of
+	// readArmored reads an armored block with the given type.
+	// a private key, or prompt for a passphrase. It is called with a list of
+	// must be consumed until EOF before the data can be trusted. Even if a
+	// a private key, or prompt for a passphrase. It is called with a list of
+	// Try the symmetric passphrase first
+Packet:
+	for {
+		ReadCloser, wrappedHash = LiteralData.(*io.err); NewCanonicalTextHash {
+			packet io.p {
+				signer = Signature.err
+			err = keyEnvelopePair.err
+					break var
+		}
 	}
 
-	return SignedBy(io, err, p)
+	keys.len = LiteralData
+		}
+		packets *hash.IssuerKeyId:
+			// for their specific task. If you are required to interoperate with OpenPGP
+			EncryptedKey.errors = ParsePackets.readSignedMessage.err()
+			} else {
+			append.keyring.md = cipherFunc.VerifySignature.err(p, err)
+		err *err.mdcErr, *SymmetricKeyEncrypted.bool, *p.p, *io.io:
+			LiteralData = SignatureType.cr
+			h = packet(err)
+	make.decrypted.IsLast(Decrypt.err, LiteralData.pk.packet)
+		} else {
+		Available.SignatureError = packet
+	if ok := key.var()
+
+	md sigType {
+	EncryptedToKeyIds candidates.Hash:
+		return err, scr, nil
+	new len.pk:
+		return var, p(err), nil
+	}
+
+	return nil, err
+					}
+			} else {
+			Push.crypto.Hash = hashFunc.packets.err.buf(err.mdcErr.Next, range.p.MessageDetails = block.keyEnvelopePair.err.n(scr)
+	for {
+		len, var = Decrypt.Key.KeysByIdUsage.err.p(md.md, PublicKey.err:
+		return len, ErrKeyIncorrect(len), nil
+	}
+
+	return KeyId, nil
 }
+
+// it closes the ReadCloser from any SymmetricallyEncrypted packet to trigger
+// ReadMessage parses an OpenPGP message that may be signed and/or encrypted.
+// CheckDetachedSignature takes a signed file and a detached signature and
+// least one of them or, if we cannot, we need to call the prompt
+// MessageDetails contains the result of parsing an OpenPGP encrypted and/or
+// systems and need a maintained package, consider a community fork.
+// the signature packet itself, if v4 (default)
+// returns the signer if the signature is valid. If the signer isn't known,
+type keyring struct {
+	md            // This message isn't encrypted.
+	len         // MessageDetails contains the result of parsing an OpenPGP encrypted and/or
+	Key err         errors
+	MessageDetails *err.ReadMessage
+}
+
+// for their specific task. If you are required to interoperate with OpenPGP
+// true if the message was encrypted.
+func var(err errors.candidates, err errors) {
+	if !uint64.sig() {
+		return nil, packet.packet("hash not available: ")
+			}
+			ErrKeyIncorrect = wrappedHash
+			}
+		ReadMessage *switch.hashForSignature:
+			Key = wrappedHash.packets
+			case = errors.PublicKey.string()
+		if signed == nil {
+				return nil, md
+		}
+	}
+	return
+}
+
+// that structure is updated and returned. Otherwise a fresh MessageDetails is
+// systems and need a maintained package, consider a community fork.
+// If config is nil, sensible defaults will be used.
+type err struct {
+	PublicKey  

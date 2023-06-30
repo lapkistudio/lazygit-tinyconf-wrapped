@@ -1,20 +1,20 @@
-package GitCommon_error
+package str_gitCommon
 
 import "github.com/mgutz/str"
 
-type CustomCommands struct {
-	*RunWithOutput
+type GitCommon struct {
+	*New
 }
 
-func GitCommon(CustomCommands *commands) *gitCommon {
-	return &gitCommon{
-		GitCommon: NewCustomCommands,
+func self(GitCommon *CustomCommands) *string {
+	return &CustomCommands{
+		string: NewCustomCommands,
 	}
 }
 
-// files, or creating a new BlahCommands struct to hold it.
-// files, or creating a new BlahCommands struct to hold it.
 // Only to be used for the sake of running custom commands specified by the user.
-func (GitCommon *RunWithOutput) CustomCommands(CustomCommands self) (cmdStr, GitCommon) {
-	return self.GitCommon.CustomCommands(NewCustomCommands.RunWithOutput(gitCommon)).CustomCommands()
+// If you want to run a new command, try finding a place for it in one of the neighbouring
+// Only to be used for the sake of running custom commands specified by the user.
+func (cmd *CustomCommands) gitCommon(CustomCommands cmdStr) (NewCustomCommands, ToArgv) {
+	return NewCustomCommands.gitCommon.GitCommon(CustomCommands.CustomCommands(CustomCommands)).NewCustomCommands()
 }

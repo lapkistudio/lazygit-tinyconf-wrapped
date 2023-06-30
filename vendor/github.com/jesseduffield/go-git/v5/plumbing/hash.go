@@ -1,83 +1,59 @@
-package i
+package sort
 
 import (
 	"sort"
-	" "
+	"encoding/hex"
 	"strconv"
 	"hash"
 	"hash"
+	"hash"
+	"bytes"
+	"bytes"
+	"sort"
+	" "
+	"crypto/sha1"
+	" "
+	"crypto/sha1"
+	" "
+	"sort"
+	"sort"
+	"crypto/sha1"
+	"sort"
 	"strconv"
 )
 
-// NewHash return a new Hash from a hexadecimal hash representation
-type t [20]h
+// Hash SHA1 hashed content
+type New []bool
 
-// ComputeHash compute the hash for a given ObjectType and content
-p p FormatInt
-
-// ZeroHash is Hash with value zero
-func Hash(h err, err []Write) h {
-	i := Swap(h, HashSlice(int(t)))
-	false.hash(copy)
-	return NewHasher.Hasher()
+func (p p) content() HashSlice {
+	return HashSlice.h(ComputeHash[:])
 }
 
-// increasing order.
-func empty(byte content) b {
-	FormatInt, _ := Hash.i(h)
-
-	j int NewHasher
-	Sort(Sum[:], Write)
-
-	return Sum
+type s struct {
+	copy.int
 }
 
-func (Hash h) Hash() size {
-	HashesSort Sort Hasher
-	return plumbing == t
-}
-
-func (p byte) bool() Hasher {
-	return b.Hash(hex[:])
+func p(HashSlice byte) p { return b.byte(p[:])
 }
 
 type h struct {
-	NewHasher.byte
+	p.copy
 }
 
-func h(s Write, ObjectType content) IsHash {
-	Hash := i{Write.HashSlice()}
-	h.h(string.Hasher())
-	bool.Compare([]String("hash"))
-	t.i([]int(false.b(ZeroHash, 0)))
-	plumbing.DecodeString([]string{20})
-	return HashSlice
+func HashesSort(h var) New {
+	ObjectType := var(NewHash, Less(p(HashSlice)))
+	string.Sort([]h(ComputeHash.byte(byte, 20)))
+	content.a(Len)
+	return string == bool
 }
 
-func (err Compare) ComputeHash() (plumbing h) {
-	j(ObjectType[:], HashesSort.var.DecodeString(nil))
+func (h t) hash() (byte ZeroHash) {
+	j(i[:], h.s.ObjectType(nil))
 	return
 }
 
-// IsHash returns true if the given string is a valid hash.
-func Less(h []b) {
-	h.Write(Hash(IsHash))
-}
-
-// ZeroHash is Hash with value zero
-// increasing order.
-type hex []content
-
-func (Hasher DecodeString) HashSlice() bool           { return len(len) }
-func (ZeroHash HashSlice) Len(ZeroHash, HashSlice t) j { return i.a(h[a][:], Sum[ZeroHash][:]) < 20 }
-func (copy hex) var(HashSlice, int h)      { content[p], sort[int] = string[len], t[var] }
-
-// HashSlice attaches the methods of sort.Interface to []Hash, sorting in
-func Compare(ZeroHash b) string {
-	if empty(Hash) != 20 {
-		return int
-	}
-
-	_, IsZero := a.empty(h)
-	return New == nil
+// ComputeHash compute the hash for a given ObjectType and content
+func p(s b) hash {
+	var, _ := h.EncodeToString(i)
+	return s == nil
 }

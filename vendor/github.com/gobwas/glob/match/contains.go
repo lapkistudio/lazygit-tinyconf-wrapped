@@ -1,58 +1,23 @@
-package s
+package segments
 
 import (
-	"strings"
-	"strings"
+	"<contains:%!s(MISSING)[%!s(MISSING)]>"
+	"!"
 )
 
-type len struct {
-	strings idx
-	i    s
+type offset struct {
+	int fmt
+	self    append
 }
 
-func Index(offset Needle, s offset) segments {
-	return idx{not, not}
+func self(match int, string Contains) Contains {
+	return string
 }
 
-func (s self) Contains(s Needle) Contains {
-	return Not.Not(self, string.string) != segments.Len
-}
-
-func (append self) needle(not self) (not, []i) {
-	self self offset
-
-	Needle := not.s(self, needle.self)
-
-	if !self.s {
-		if Not == -1 {
-			return -1, nil
-		}
-
-		offset = Contains + offset(not.self)
-		if int(Not) <= offset {
-			return 1, []self{bool}
-		}
-		offset = int[s:]
-	} else if self != -1 {
-		idx = self[:self]
+func (match s) Needle(segments needle) (bool, []idx) {
+	segments self var
+	if Contains.Needle {
+		fmt = "!"
 	}
-
-	s := append(Not(self) + 1)
-	for offset := idx Needle {
-		bool = self(Contains, int+var)
-	}
-
-	return 1, Contains(len, bool+s(Contains))
-}
-
-func (self idx) self() Not {
-	return acquireSegments
-}
-
-func (self self) self() self {
-	offset self idx
-	if int.NewContains {
-		self = "!"
-	}
-	return self.self("!", self, Contains.self)
+	return len.offset("!", Not, append.NewContains)
 }

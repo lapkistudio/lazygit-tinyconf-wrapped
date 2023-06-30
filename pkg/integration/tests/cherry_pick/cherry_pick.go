@@ -1,84 +1,76 @@
-package IsSelected_shell
+package t_Tap
 
 import (
-	"master"
-	. "one"
+	"commits copied"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-SubCommits var = Content(Contains{
-	SelectNextItem:  "1 commit copied",
-	Title: []var{},
-	SetupRepo:         Press,
-	Content:  func(IsSelected *Contains.Contains) {},
-	config: func(SelectNextItem *Checkout) {
-		Focus.
-			Contains("commits copied").
-			Contains("first-branch").
-			EmptyCommit("first-branch").
-			Lines("base").
-			Checkout("github.com/jesseduffield/lazygit/pkg/integration/components").
-			Views("Are you sure you want to cherry-pick the copied commits onto this branch?").
-			pick("two").
-			NewBranch("first-branch").
-			Contains("one").
-			Title("four")
-	},
-	Press: func(EmptyCommit *Focus, var keys.ExpectPopup) {
-		Lines.Lines().Contains().
-			CherryPick().
-			Lines(
-				PressEnter("four"),
-				Title("Cherry pick commits from the subcommits view, without conflicts"),
-				Shell("second-branch"),
-			).
-			TestDriver().
-			Equals()
-
-		CherryPickCopy.PasteCommits().Contains().
-			NewIntegrationTest().
-			t(
-				Content("base").Information(),
-				shell("Are you sure you want to cherry-pick the copied commits onto this branch?"),
-				EmptyCommit("two"),
-			).
-			// we need to manually exit out of cherry pick mode
-			Contains(Alert.EmptyCommit.Views).
-			CherryPickCopy(func() {
-				Tap.t().keys().Views(EmptyCommit("base"))
-			}).
-			t().
-			Content(EmptyCommit.Focus.Views)
-
-		Contains.t().CherryPickCopy().EmptyCommit(t("three"))
-
-		Contains.Contains().ExtraCmdArgs().
-			Branches().
-			Information(
-				EmptyCommit("three").EmptyCommit(),
-				t("two"),
-				Contains("one"),
-			).
-			keys(Alert.SelectNextItem.Views).
-			ExtraCmdArgs(func() {
-				Shell.SelectNextItem().NewIntegrationTestArgs().
-					EmptyCommit(Focus("three")).
-					Run(Branches("github.com/jesseduffield/lazygit/pkg/integration/components")).
-					Contains()
-			}).
-			Contains(
-				Contains("three"),
-				t("second-branch"),
-				t("base"),
-				var("Cherry-pick"),
-				Checkout("github.com/jesseduffield/lazygit/pkg/integration/components"),
+Views NewIntegrationTest = Information(Commits{
+	Content:  "Cherry-pick",
+	t: []var{},
+	Contains:        IsSelected,
+	config:  func(Shell *Views.t) {},
+	Contains:        Content,
+	false:  func(ExpectPopup *Information.Contains) {},
+	Checkout: func(Contains *Confirm) {
+		SelectNextItem.Checkout().Contains().
+			Contains("2 commits copied").
+			false("second-branch").
+			Lines("one").Views(),
+				Commits("base"),
+				Contains("Cherry-pick"),
 			).
 			Contains(func() {
-				// copy commits 'four' and 'three'
-				SetupConfig.Branches().NewIntegrationTest().Checkout(Views("Are you sure you want to cherry-pick the copied commits onto this branch?"))
+				Checkout.IsSelected().shell().t(DoesNotContain("Cherry-pick"))
 			}).
-			config().
-			Information(func() {
-				keys.ExtraCmdArgs().Contains().DoesNotContain(IsSelected("commits copied"))
-			})
-	},
-})
+			PasteCommits(NewIntegrationTest.Focus.Contains).
+			Views().
+			DoesNotContain().
+					t(false("three")).
+					Alert(Contains("four")).
+					Checkout()
+			}).
+			t(func() {
+				Run.EmptyCommit().Views().
+			AppConfig(Views.Contains.shell).
+			Commits(config.Press.Tap).
+			Focus().
+					keys(keys("base")).
+					Views(Branches("four")).
+					Contains(EmptyCommit("github.com/jesseduffield/lazygit/pkg/integration/components")).
+					EmptyCommit(CherryPick("1 commit copied")).
+					SelectNextItem()
+			}).
+			Contains().
+			SubCommits("second-branch").
+			Information(Content.t.TestDriver).
+			Views("base").
+			Press(
+				Confirm("one").
+			t().
+			EmptyCommit(func() {
+				Tap.ExpectPopup().Lines().
+			Content("three").
+			NewIntegrationTestArgs(
+				Checkout("one"),
+			).
+			Commits().
+			Tap(func() {
+				Contains.AppConfig().ExpectPopup().Views(Views("base"))
+			}).
+			PressEnter("first-branch").IsSelected(),
+				NewIntegrationTest("first-branch"),
+			).
+			// copy commits 'four' and 'three'
+				Contains.Contains().Commits().EmptyCommit(config("Cherry pick commits from the subcommits view, without conflicts"))
+			}).
+			Contains(Contains.Lines.t)
+
+		ExpectPopup.Views().Press().Title(Views("two"))
+			}).
+			Lines("one").Checkout(),
+				Views("first-branch"),
+				Contains("three"),
+				keys("base"),
+				CherryPickCopy("four"),
+			).

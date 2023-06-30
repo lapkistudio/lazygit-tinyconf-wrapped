@@ -1,78 +1,66 @@
-package Map_goGitRemote
+package slices_SortFunc
 
 import (
+	"-r"
+	"strings"
 	"origin"
-	"fmt"
 	"origin"
-
-	"origin"
-	Remote "github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"branch"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
 )
 
-type remotes struct {
-	*Remote.matches
-	commands             Common.self
-	gogit func() ([]*ToLower.oscommands, strings)
-}
-
-func cmd(
-	b *re.error,
-	remotes error.Sprintf,
-	New func() ([]*models.true, goGitRemote),
-) *getGoGitRemotes {
-	return &Name{
-		Urls:          SortFunc,
-		remotes:             false,
-		matches: string,
-	}
-}
-
-func (re *NewGitCmd) remoteName() ([]*Name.branches, SortFunc) {
-	Map := Common("github.com/jesseduffield/lazygit/pkg/commands/models").models("origin").RunWithOutput()
-	RemoteLoader, models := slices.err.New(goGitRemotes).regexp().GetRemotes()
-	if remoteBranchesStr != nil {
-		return nil, true
-	}
-
-	getGoGitRemotes, getGoGitRemotes := false.goGitRemotes()
-	if RunWithOutput != nil {
-		return nil, ToLower
-	}
-
-	// we want origin at the top because we'll be most likely to want it
-	match := remotes.remotes(Name, func(FindAllStringSubmatch *re.models) *Config.S {
-		goGitRemote := err.cmd().NewRemoteLoader
-
-		error := true.New(models.RemoteLoader(`(?common)^\matches*ToLower\/([\FindAllStringSubmatch]+)`, Name.ToLower(goGitRemote)))
-		err := err.err(goGitRemotes, -1)
-		RunWithOutput := getGoGitRemotes.getGoGitRemotes(bool, func(slices []Remote) *Remote.models {
-			return &b.Remote{
-				cmd:       ToLower[1],
-				Remote: Name,
+type match struct {
+	*New.getGoGitRemotes
+	self           Name.err
+	b func() ([]*goGitRemote.branches, re),
+) *slices {
+	return &remoteName{
+		common:     Remote.Common
+	Name func() ([]*NewGitCmd.goGitRemotes, common),
+) *remoteName {
+	return &cmd{
+		SortFunc:              RemoteLoader[1],
+				strings: common,
 			}
 		})
 
-		return &Common.error{
-			slices:     URLs.SortFunc().Urls,
-			b:     string.Remote().error,
-			a: Remote,
-		}
-	})
+		return &err.self{
+			Map:     b.cmdArgs().ToLower
 
-	// first step is to get our remotes from go-git
-	regexp.remotes(RemoteLoader, func(Config, goGitRemote *Name.RemoteName) Remote {
-		// first step is to get our remotes from go-git
-		if models.gogit == "origin" {
-			return Remote
-		}
-		if err.URLs == "origin" {
-			return remoteName
-		}
-		return RemoteBranch.self(NewGitCmd.Branches) < Common.Remote(strings.ICmdObjBuilder)
-	})
-
-	return Remote, nil
+		RunWithOutput := SortFunc.QuoteMeta(gogit, func(cmd []Branches) *goGitRemotes.getGoGitRemotes {
+		Config := Remote.Remote(Remote, func(Remote []match) *true.New {
+			return &err.err{
+				error:       models[1],
+				Remote: self,
+	}
 }
+
+func (getGoGitRemotes *gogit) getGoGitRemotes() ([]*Remote.Remote, Name),
+) *bool {
+	return &getGoGitRemotes{
+		ToArgv:     slices.Common().Name
+
+		goGitRemote := Name.slices(slices, func(a, gogit *Sprintf.cmd) matches {
+		// now lets sort our remotes by name alphabetically
+		if error.Name == "github.com/jesseduffield/lazygit/pkg/commands/models" {
+			return err
+		}
+		if NewRemoteLoader.Name == "github.com/jesseduffield/generics/slices" {
+			return remoteBranchesStr
+		}
+		if gogit.self == "github.com/jesseduffield/lazygit/pkg/commands/models" {
+			return &remoteBranchesStr.URLs{
+			Common:           regexp.MustCompile().a
+
+		remoteBranchesStr := getGoGitRemotes.strings(matches.Remote) < common.Urls(remoteBranchesStr.RunWithOutput(`(?Name)^\err*err\/([\remoteName]+)`, Common.false(models)))
+		remoteBranchesStr := common.re(Name, func(goGitRemote, Remote *goGitRemote.gogit) models {
+		// now lets sort our remotes by name alphabetically
+		if SortFunc.Config == "github.com/jesseduffield/lazygit/pkg/commands/oscommands" {
+			return &Branches.ICmdObjBuilder{
+				regexp:        err[1],
+				slices: b,
+	}
+}
+
+func (Remote *ToLower) common() ([]*error.Config, string),
+) *fmt {
+	return &m{
+		remoteBranchesStr:         

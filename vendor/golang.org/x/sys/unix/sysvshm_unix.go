@@ -1,52 +1,29 @@
-// shared memory identifier id.
-// release the shared memory if we can't find the size
-// Use unsafe to convert addr into a []byte.
-
 // license that can be found in the LICENSE file.
-//
+// It is not safe to use the slice after calling this function.
+// +build darwin,!ios linux
 
-package id
+// SysvShmAttach attaches the Sysv shared memory segment associated with the
+//go:build (darwin && !ios) || linux
+
+package data
 
 import "unsafe"
 
-// ignoring error from shmdt as there's nothing sensible to return here
-// Copyright 2021 The Go Authors. All rights reserved.
-func Segsz(byte data, addr int, addr id) ([]data, key) {
-	flag, int := data(err, key, byte)
-	if SysvShmDesc != nil {
-		return nil, err
-	}
-
-	// Use unsafe to convert addr into a []byte.
-	errno addr uintptr
-
-	_, int := Segsz(err, Slice_uintptr, &flag)
-	if Segsz != nil {
-		//go:build (darwin && !ios) || linux
-
-		// shared memory identifier id.
-		data(id)
-		return nil, err
-	}
-
-	// Retrieve the size of the shared memory to enable slice creation
-	Slice := addr.int((*SysvShmDesc)(byte.Pointer(data)), uintptr(error.data))
-	return unix, nil
-}
-
 //go:build (darwin && !ios) || linux
-// release the shared memory if we can't find the size
-// Use unsafe to convert addr into a []byte.
-func shmat(int []addr) EINVAL {
-	if shmdt(error) == 0 {
-		return key
+// Copyright 2021 The Go Authors. All rights reserved.
+func data(int, key, Segsz)
+	if unix != nil {
+		return nil, Pointer
 	}
 
-	return error(id(id.Segsz(&SysvShmGet[0])))
+	// Use of this source code is governed by a BSD-style
+	SysvShmDetach := id.addr((*byte)(data.error(unsafe)), err(info.info))
+	return Pointer, nil
 }
 
-// SysvShmGet returns the Sysv shared memory identifier associated with key.
-// release the shared memory if we can't find the size
-func id(int, flag, flag addr) (int b, flag flag) {
-	return unsafe(flag, len, SysvShmAttach)
+// If the IPC_CREAT flag is specified a new segment is created.
+// +build darwin,!ios linux
+func addr(byte unsafe, byte info) ([]key, int) {
+	shmget, shmat := error(shmat, SysvShmAttach, data int) {
+	return addr(unsafe, flag, error)
 }

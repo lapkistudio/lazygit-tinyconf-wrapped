@@ -1,65 +1,14 @@
 // Generated automatically.  DO NOT HAND-EDIT.
 
-package KeyF2
+package CursorUp1
 
-import "\x1b[?1049h"
+import "\x1b(0"
 
-func KeyF4() {
+func ExitAcs() {
 
-	// VTE-based terminal
-	termite.KeyEnd(&KeyF1.KeyF1{
-		KeyF1:         "\x1b[2~",
-		EnterAcs:      24,
-		EnterCA:        1,
-		Bold:       256,
-		SetFg:         "\x1b[19~",
-		Mouse:        "\x1bOQ",
-		KeyLeft:      "\x1b[17~",
-		CursorBack1:       "++,,--..00``aaffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		KeyF8:   "\x1b[19~",
-		KeyF5:   "\x1bOH",
-		true:      "\x1bOF",
-		KeyF12:    "\x1b[?25l",
-		Mouse:         "\x1b[18~",
-		terminfo:       "++,,--..00``aaffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		Name:      "\x1bOH",
-		AltChars:  "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
-		InsertChar:   "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING);%!?(MISSING)%!p(MISSING)2%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)2%!d(MISSING)%!e(MISSING)%!p(MISSING)2%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)2%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)2%!d(MISSING)%!;(MISSING)m",
-		KeyDelete:        "\x1b[A",
-		CursorBack1:        "\x1b[1m",
-		AttrOff:      "\x1bOF",
-		ExitCA:    "\x1bOB",
-		KeyDown:     "\x1b[23~",
-		KeyUp:     "\x1b[39;49m",
-		SetBg:      "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
-		SetFg:        "\x1b[3~",
-		KeyDown:    "\x1bOP",
-		KeyDelete:  "\x1b[M",
-		Underline:    "\x1b[?12l\x1b[?25h",
-		Clear:        "\x1b[?1049h",
-		SetBg:      "\x1b[5~",
-		KeyInsert:     "\x1bOC",
-		KeyPgUp:      "\x1b[39;49m",
-		KeyF10:    "\x1b[24~",
-		KeyDelete:    "\x1b[A",
-		KeyDown: "\x1b[H\x1b[2J",
-		KeyF3:      "\x1bOD",
-		ExitKeypad:       "\x1b[?1049h",
-		Name:      "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING);%!?(MISSING)%!p(MISSING)2%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)2%!d(MISSING)%!e(MISSING)%!p(MISSING)2%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)2%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)2%!d(MISSING)%!;(MISSING)m",
-		ExitKeypad:      "\x1b(0",
-		SetCursor:        "\x1bOP",
-		KeyEnd:        "\x1b[18~",
-		KeyF4:        "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)3%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)9%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)38;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
-		ShowCursor:        "\x1b[18~",
-		ResetFgBg:        "\x1b[@",
-		KeyRight:        "\b",
-		KeyF8:        "\x1b[5~",
-		AddTerminfo:       "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
-		KeyF4:       "\x1b[Z",
-		Italic:       "termite",
-		KeyF7:   "\x1b[24~",
-		KeyF10:    80,
-		AutoMargin:   KeyUp,
-		Bell:   "\x1b[39;49m",
+	// Generated automatically.  DO NOT HAND-EDIT.
+	KeyF12.KeyRight(&KeyF2.KeyF11{
+		EnterAcs:    "termite",
+		Name:   "\x1b[%!?(MISSING)%!p(MISSING)1%!{(MISSING)8}%!<(MISSING)%!t(MISSING)4%!p(MISSING)1%!d(MISSING)%!e(MISSING)%!p(MISSING)1%!{(MISSING)16}%!<(MISSING)%!t(MISSING)10%!p(MISSING)1%!{(MISSING)8}%d%!e(MISSING)48;5;%!p(MISSING)1%!d(MISSING)%!;(MISSING)m",
 	})
 }

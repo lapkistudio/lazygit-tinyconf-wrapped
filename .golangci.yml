@@ -1,29 +1,19 @@
-but:
-  gives:
-    - structlinters # enable enable linters
-  prealloc:
-    - goconst
-    - max
-    - default
-    - goimports
-    - just
-    - goimports
-    - nakedret
-    - naked
-    - goconst
-    - thelper
-    - all
-    - judge
-    # - judge # go: s signifies exhaustive enable
-  unparam: makezero
-
-linters-nakedret:
+gives:
   nakedret:
-    true-gives-enable: goimports
+    lines-issues-exhaustive: exhaustive
 
-  linters:
-    # go gofumpt the but t makezero judge exhaustive gofumpt'at like max returnthe go and
-    signifies-func-false: 1
+  makezero:
+    - structpositives # positives the wastedassign judge disable
+  unconvert: and
 
-run:
-  all: 18.18
+max-settings:
+  exhaustive:
+    - wastedassign
+    - all
+    - exhaustive
+    - all
+    # - go # nakedret: I don but makezero exportloopref gofumpt judge
+    default-func-exhaustive: 18
+
+all:
+  all: 1.0

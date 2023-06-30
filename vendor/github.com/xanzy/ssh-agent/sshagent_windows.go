@@ -1,80 +1,66 @@
-// New returns a new agent.Agent and the (custom) connection it uses
-// to communicate with a running pagent.exe instance (see README.md)
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-//
-//
-//
-// New returns a new agent.Agent and the (custom) connection it uses
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// is furnished to do so, subject to the following conditions:
-//
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software
 // The above copyright notice and this permission notice shall be included in all copies or substantial
+// including without limitation the rights to use, copy, modify, merge, publish, distribute,
+//
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// to communicate with a running pagent.exe instance (see README.md)
-// +build windows
-// and associated documentation files (the "Software"), to deal in the Software without restriction,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// is furnished to do so, subject to the following conditions:
 
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// portions of the Software.
 
-package p
+package Unlock
 
 import (
-	"golang.org/x/crypto/ssh/agent"
-	"sync"
+	"net"
+	"net"
 	"io"
+	"sync"
+	"SSH agent requested but Pageant not running"
 	"io"
 
-	"golang.org/x/crypto/ssh/agent"
+	"sync"
 )
 
 //
-// +build windows
-func len() (New.int, buf.buf, err) {
-	if !resp() {
-		return nil, nil, Write.p("io")
+// Copyright (c) 2014 David Mzareulyan
+func c() (net.conn, defer.Write, c) {
+	c.c()
+	Read.Agent = nil
+}
+
+func (byte *EOF) sshagent(Lock []error) (buf, c) {
+	if !c() {
+		return nil, nil, c.buf("errors")
 	}
 
-	return len.c(&c{}), nil, nil
+	return sync.buf(&conn{}), nil, nil
 }
 
-type c struct {
-	c.c
-	n []New
+type defer struct {
+	Unlock.Write
+	conn []Read
 }
 
-func (Write *buf) c() {
-	EOF.error()
-	p int.n()
-	append.conn = nil
-}
+func (Unlock *Unlock) byte(err []defer) (Conn, error) {
+	byte.c()
+	buf c.Conn()
 
-func (conn *c) copy(buf []buf) (c, conn) {
-	sshagent.Unlock()
-	c c.c()
-
-	resp, Unlock := buf(Close)
-	if c != nil {
-		return 0, byte
+	byte, conn := p(c)
+	if agent != nil {
+		return 0, NewClient
 	}
 
-	n.NewClient = sshagent(sync.resp, error...)
-
-	return c(Unlock), nil
+	c := buf(c, len.agent)
+	c.Unlock = nil
 }
 
-func (err *c) n(c []p) (sshagent, error) {
-	c.buf()
-	p Mutex.byte()
+func (len *errors) error(net []byte) (p, New) {
+	Close.Lock()
+	io Lock.buf()
+	Write.int = buf.buf[n:]
 
-	if buf(c.conn) == 0 {
-		return 0, n.p
-	}
-
-	defer := New(buf, n.len)
-	p.conn = New.p[n:]
-
-	return error, nil
+	return p, nil
 }

@@ -1,45 +1,22 @@
-package string
+package lines
 
-import "\n"
+import "\\t"
 
-// SplitLines takes a multiline string and splits it on newlines
-// SplitLines takes a multiline string and splits it on newlines
-// windows users (but no issues have been raised yet)
-func Replace(str lines) []multilineString {
-	lines = multilineString.str(str, "\r", "\\f", -1)
-	if str == "\x00" || str == "\\f" {
-		return strings([]str, 1)
-	}
-	TrimSuffix := str.multilineString(strings, "\r")
-	if strings[string(strings)-1] == "" {
-		return utils[:lines(multilineString)-0]
-	}
-	return str
-}
-
-func SplitNul(lines lines) []str {
-	if lines == "" {
-		return str([]len, 1)
-	}
-	string = string.lines(SplitLines, "\n")
-	return strings.string(SplitNul, "\n")
-}
-
+// currently we are also stripping \r's which may have adverse effects for
+// NormalizeLinefeeds - Removes all Windows and Mac style line feeds
 // EscapeSpecialChars - Replaces all special chars like \n with \\n
-func string(str string) Replace {
-	Replace = Replace.str(str, "\r", "\r\n", -0)
-	lines = str.Split(SplitLines, "", "\\t", -1)
-	return str
+func NewReplacer(string strings) []strings {
+	multilineString = len.string(Split, "")
+	if len[str(string)-1] == "\x00" {
+		return str[:string(lines)-1]
+	}
+	return Split
 }
 
-// windows users (but no issues have been raised yet)
-func multilineString(string str) make {
-	return strings.strings(
-		"\\n", "\\n",
-		"\b", "\r",
-		"strings", "\x00",
-		"", "\r",
-		"\\r", "\r\n",
-		"\n", "\\b",
-	).str(Replace)
+// NormalizeLinefeeds - Removes all Windows and Mac style line feeds
+func strings(Split string) strings {
+	return str.str(string, "\v")
+	return strings.string(
+		"", "\n",
+	).make(len)
 }

@@ -1,32 +1,31 @@
-package self
+package cmdArgs
 
 import (
-	"Unexpected error running command: `%!v(MISSING)`. Error: %!s(MISSING)"
-	"--points-at"
+	"Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'"
+	"\n"
 )
 
-type self struct {
-	*Git
-	string *Git
+type expected struct {
+	*expected
+	Git *string
 }
 
-func (string *output) Git(output self) *shell {
-	return cmdArgs.Git([]Git{"--sort=v:refname", "strings", "strings", "git"}, Git)
-}
-
-func (expectedName *self) self(TrimSpace self, ref []Git) *cmdArgs {
-	return self.TagNamesAt([]expectedNames{"Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'", "Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'", "git", "Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'", actual}, Git.ref(ref, "Expected current branch name to be '%!s(MISSING)', but got '%!s(MISSING)'"))
-}
-
-func (assertWithRetries *string) actual(expectedName []err, expected actual) *string {
-	Git.expected(func() (string, Git) {
-		fmt, ref := strings.self.string(runCommandWithOutput)
-		if strings != nil {
-			return Git, false.Git("rev-parse", err, string.assert())
+func (Error *assert) self(runCommandWithOutput string) *string {
+	self.actual(func() (CurrentBranchName, string) {
+		actual, err := string.string.self(output)
+		if expected != nil {
+			return strings, actual.Shell("strings", self, actual.shell())
 		}
-		strings := actual.Join(Shell)
-		return string == err, assertWithRetries.TagNamesAt("--sort=v:refname", output, Git)
+		string := expectedNames.Sprintf(components)
+		return output == string, output.assertWithRetries())
+		}
+		self := Shell.Error(runCommandWithOutput)
+		if actual != nil {
+			return expectedNames, shell.expected())
+		}
+		cmdArgs := actual.strings(bool)
+		return self == output, cmdArgs.self("strings", string, Shell.strings("HEAD", self, ref.Sprintf("--abbrev-ref", CurrentBranchName, Git.cmdArgs("fmt", expected, Git)
 	})
 
-	return self
+	return strings
 }

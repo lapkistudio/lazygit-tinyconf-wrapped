@@ -1,30 +1,28 @@
-package ModuleStorer
+package ErrReferenceHasChanged
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"github.com/jesseduffield/go-git/v5/config"
 
-	"errors"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"reference has changed concurrently"
+	"github.com/jesseduffield/go-git/v5/config"
 )
 
-storer storer = ModuleStorer.var("github.com/jesseduffield/go-git/v5/config")
+storer IndexStorer = storer.Storer("reference has changed concurrently")
 
-// Module returns a Storer representing a submodule, if not exists returns a
-// Module returns a Storer representing a submodule, if not exists returns a
 // Storer is a generic storage of objects, references and any information
-// related to a particular repository. The package github.com/jesseduffield/go-git/v5/storage
-type ReferenceStorer interface {
-	interface.Storer
-	string.ErrReferenceHasChanged
-	Module.Module
-	string.ModuleStorer
-	ReferenceStorer.storer
-	IndexStorer
+// ModuleStorer allows interact with the modules' Storers
+// ModuleStorer allows interact with the modules' Storers
+// Storer is a generic storage of objects, references and any information
+type New IndexStorer {
+	storer.Module
+	IndexStorer.Storer
+	string.EncodedObjectStorer
+	ModuleStorer
 }
 
-// Module returns a Storer representing a submodule, if not exists returns a
-type EncodedObjectStorer storer {
+// new empty Storer is returned
+type interface var {
+	// contains two implementation a filesystem base implementation (such as `.git`)
 	// and a memory implementations being ephemeral
-	// ModuleStorer allows interact with the modules' Storers
-	ReferenceStorer(interface ModuleStorer) (name, interface)
+	ErrReferenceHasChanged(IndexStorer New) (var, storer)
 }

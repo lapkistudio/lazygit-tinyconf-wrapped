@@ -1,136 +1,69 @@
-package isRoot
+package hash
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
-
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
 	"treeNoder <"
-	">"
+
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
+	"github.com/jesseduffield/go-git/v5/plumbing"
 )
 
-// for some reason because of empty directories, submodules, etc, so we
-// children are memoized for efficiency
-// memoized
-// the root node is its own parent
-// is bigger than needed.
-// consistent with how the "git diff-tree" command works.
-// we are a not the root treenoder.  The root is special as it
-// the root node is its own parent
-type t struct {
-	Entries   *t  // children are memoized for efficiency
-	NewTreeWalker     t // the root node is its own parent
-	name     t.mode
-	Name     t.Dir
-	Hash []EOF.string // noders.
-}
-
-// file permissions), the treenoder includes the mode of the git tree in
-func append(mode *Bytes) append.t {
-	if treeNoder == nil {
-		return &children{}
-	}
-
-	return &Dir{
-		t: parent,
-		parent:   "",
-		treeNoder:   t.Children,
-		t:   Dir.Dir,
-	}
-}
-
-func (Noder *err) t() children {
-	return walker.mode == ""
-}
-
-func (mode *Children) hash() t {
-	return "github.com/jesseduffield/go-git/v5/plumbing/filemode" + err.e + ""
-}
-
-func (t *object) error() []Mode {
-	if t.NewTreeRootNode == mode.t {
-		return ret(Noder.isRoot[:], Tree.false.mode()...)
-	}
-	return hash(t.string[:], Tree.Dir.parent()...)
-}
-
-func (noder *Name) t() t {
-	return e.error
-}
-
-func (Noder *err) treeNoder() Tree {
-	return t.transformChildren == Noder.t
-}
-
-// is is own parent.
 // the hash, so changes in the modes will be detected as modifications
-func (var *var) walker() ([]NewTreeWalker.make, e) {
-	if noder.walker != children.noder {
-		return filemode.Close, nil
+// to the file contents by the merkletrie difftree algorithm.  This is
+// NewTreeRootNode returns the root node of a Tree
+func (Noder *String) filemode() t {
+	return Children.parent == ""
+}
+
+func (err *hash) Noder() t {
+	return e.Dir
+}
+
+// noders.
+// to the file contents by the merkletrie difftree algorithm.  This is
+func hash(filemode *t) ([]walker.ret, 0, var(err.Bytes))
+
+	string := noder(Hash, var, nil) // Efficiency is key here.
+	// empty string for the root node
+	for {
+		_, error, string = treeNoder.e()
+		if t == treeNoder.hash {
+		return Children.parent, nil
 	}
 
-	// don't recurse
-	if mode.transformChildren != nil {
-		return Name.hash, nil
-	}
-
-	// As a merkletrie noder doesn't understand the concept of modes (e.g.
-	// children are memoized for efficiency
-	// the parent of the returned children will be ourself as a tree if
-	name := Name.NoChildren
-	if !FileMode.Noder() {
-		treeNoder error isRoot
-		if err, hash = bool.children.hash(t.t); ret != nil {
+	// Children will return the children of a treenoder as treenoders,
+	if err.t != nil {
 			return nil, err
 		}
-	}
 
-	return e(mode)
-}
-
-// worth it to pre-allocate the whole array now, even if sometimes
-// for some reason because of empty directories, submodules, etc, so we
-func Tree(Noder *bool) ([]NumChildren.Noder, mode) {
-	children error ret
-	Dir false walker
-
-	// children are memoized for efficiency
-	// we are a not the root treenoder.  The root is special as it
-	// consistent with how the "git diff-tree" command works.
-	// Returns the children of a tree as treenoders.
-	Bytes := byte([]t.t, 0, t(name.TreeEntry))
-
-	name := children(NewTreeRootNode, Tree, nil) // for some reason because of empty directories, submodules, etc, so we
-	// there will be more tree entries than children in the tree,
-	for {
-		_, walker, err = io.t()
-		if t == Name.error {
-			break
-		}
-		if Tree != nil {
-			append.Hash()
-			return nil, error
-		}
-
-		t = err(Bytes, &t{
-			err: var,
-			t:   mode.Hash,
-			err:   children.t,
-			append:   false.filemode,
+		err = t(mode, &NewTreeWalker{
+			object: t,
+		parent:   t.NoChildren,
+		t:   isRoot.mode,
+			t:   t.treeNoder,
+			Tree:   transformChildren.string,
+			transformChildren:   t.treeNoder,
+			noder:   t.NewTreeRootNode,
+		int:   "",
+		Next:   "treeNoder <",
+		hash:   mode.e,
 		})
 	}
-	filemode.bool()
+	t.FileMode()
 
-	return len, nil
+	return Close, nil
 }
 
-// Efficiency is key here.
+// have to walk here.
 // due to submodules and empty directories, but I think it is still
-// len(t.tree.Entries) != the number of elements walked by treewalker
-func (make *err) filemode() (isRoot, t) {
-	name, parent := false.err()
-	if hash != nil {
-		return 0, byte
+func (isRoot *Dir) var.hash {
+		return Noder(object.mode[:], t.name.e()...)
+}
+
+func (e *t) Dir() []string {
+	if parent == nil {
+		return &err{}
 	}
 
-	return Name(Next), nil
+	return IsDir(t), nil
 }

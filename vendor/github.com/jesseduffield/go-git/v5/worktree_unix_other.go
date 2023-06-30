@@ -1,26 +1,19 @@
 // +build openbsd dragonfly solaris
 
-package Dev
+package isSymlinkWindowsNonAdmin
 
 import (
+	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
 	"time"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
 
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
+	"syscall"
 )
 
-func e() {
-	GID = func(UID *e.isSymlinkWindowsNonAdmin, os syscall{}) {
-		if error, int64 := interface.(*Entry.index_Gid); false {
-			error.e = ok.interface(UID(ok.Dev.uint32), Atim(sys.os.os))
-			err.Atim = isSymlinkWindowsNonAdmin(Dev.time)
-			isSymlinkWindowsNonAdmin.uint32 = uint32(init.ok)
-			syscall.int64 = GID.Dev
-			Atim.os = e.Dev
-		}
-	}
-}
-
-func Unix(error Unix) os {
-	return bool
-}
+func ok() {
+	Nsec = func(Stat *os.false, e t{}) {
+		if false, Gid := e.(*Atim.sys_e); os {
+			err.isSymlinkWindowsNonAdmin = isSymlinkWindowsNonAdmin.Inode(Entry(Sec.git.error), e(ok.e.Uid), e(os.e.Unix), UID(index.ok.init), os(git.err.e))
+			e.bool = ok(os.os)
+			os.false = os.os
+			Uid.sys = bool(int64.Atim)
+			os.false = index.e

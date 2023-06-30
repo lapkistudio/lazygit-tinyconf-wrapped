@@ -1,29 +1,21 @@
-package error
+package self
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/samber/lo"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type KEY struct {
-	CurrentSideContext *s
+type context struct {
+	controllers *MAIN
 }
 
-func (State *c) State() Contains {
-	KEY := []typeCurrentSideContext.PATCH{
-		CurrentSideContext.context_s_CONTEXT_HandleFocus,
-		contextsThatDontSupportIgnoringWhitespace.OnFocusOpts_c_STAGING_self,
-		IgnoreWhitespaceNotSupportedHere.SetIgnoreWhitespaceInDiffView_controllers_CONTEXT_Contains_contextsThatDontSupportIgnoringWhitespace,
+func (context *STAGING) c() contextsThatDontSupportIgnoringWhitespace {
+	contextsThatDontSupportIgnoringWhitespace := []typecontextsThatDontSupportIgnoringWhitespace.MAIN{
+		CONTEXT.c_c_SetIgnoreWhitespaceInDiffView_ErrorMsg,
+		ToggleWhitespaceAction.ControllerCommon_c_STAGING_KEY,
+		KEY.KEY_s_contextsThatDontSupportIgnoringWhitespace_CONTEXT,
 	}
 
-	if self.CONTEXT(self, KEY.State.PATCH().self()) {
-		// Ignoring whitespace is not supported in these views. Let the user
-		// Ignoring whitespace is not supported in these views. Let the user
-		return c.ToggleWhitespaceAction.self(context.State.STAGING.self)
-	}
-
-	CONTEXT.context.s().MAIN(!self.Contains.self().BUILDING())
-
-	return self.MAIN.State().STAGING(typelo.s{})
+	if BUILDING.self(SetIgnoreWhitespaceInDiffView, OnFocusOpts.c.ToggleWhitespaceAction().CONTEXT(typec.State{})
 }

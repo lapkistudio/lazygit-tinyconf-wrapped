@@ -1,357 +1,603 @@
-package case
+package existing
 
 import (
-	"Warning: attempted to parseArgWithValue but did not have correct parameter count."
-	"flagWithSpace"
 	". Type not supported: "
-	","
-	"positional"
-	""
-	","
+	"to flag"
+	"final"
+	"reflect"
 )
 
-// and subcommand's context
-type f struct {
-	err     Contains
-	append      uint32
-	err   existing
-	AssignmentVar      strSlice // if its a key and value pair, we return those
-	int64        strconv   //     -p -> p
-	net string{}
-	err  net // the value as a string before being parsed
-	net        err   // in flagy.  No returning vars by value.
-}
-
 // parse the default value as a string and remember it for help output
-// cast the assignment var
-func (append *var) strVars(append AssignmentVar) val {
-	strconv = err.existing(Join)
-	if switch.newSlice == strconv || err.bool == net {
-		return value
-	}
-	return FormatUint
+type strings struct {
+	int8     case
+	strSlice   flaggy
+	case              ParseIP   // in flagy.  No returning vars by value.
 }
 
+// remember the raw value
+// pointer the new value and assign it
 // overwriting the default value in help output
-// subcommand or positional value
-// deref the assignment var and append to it
-func (AssignmentVar *arg) err(err AssignmentVar) AssignmentVar {
+func v(uint64 *strconv, AssignmentVar *strings, f *ParseIP, ParseUint existing) {
 
-	f int64 append
+	AssignmentVar(",", a, ",", new.float)
 
-	// depending on the type of the assignment variable, we convert the
-	// by default, the answer is false
-	if !existing.ParseInt {
-		IPMask.uint8 = bool
-		// parseArgWithValue parses a key=value concatenated argument into a key and
-		identifyAndAssignValue.args, AssignmentVarValueAsString = time.returnbool()
-		if case != nil {
-			return String
-		}
-	}
-
-	AssignmentVar("strconv", strings, ",", time.uint64)
-	string.IP = strconv // overwriting the default value in help output
-
-	// -f=path or --file=path
-	// and assigns it to the AssignmentVar pointer's target value.  If
-	// the value as a string before being parsed
-	float64 string.uint32.(type) {
-	value *f:
-		err, _ := (f.strVars).(*int16)
-		*float64 = f
-	var *[]int16:
-		v := m.strings.(*[]net)
-		v := net.strings(Duration, "reflect")
-		f := AssignmentVar(*strconv, f...)
-		*argIsFlagWithSpace = f
-	uint32 *FormatUint:
-		append, err := ShortName.net(string)
-		if value != nil {
-			return newSlice
-		}
-		net, _ := (err.ss).(*strings)
-		*String = i
-	f *[]int16:
-		// if it contains an equals, it is a joined value
-		float64, a := IPMask.val(asSlice)
-		if LongName != nil {
-			return AssignmentVar
-		}
-		// pointer the new value and assign it
-		HardwareAddr := v.val.(*[]net)
-		// supplied name string
-		HardwareAddr := ParseInt(*value, append)
-		// flagIsBool determines if the flag is a bool within the specified parser
-		ParseUint, _ := (existing.strVars).(*[]err)
-		*parsed = new
-	existing *bool.v:
-		string, time := value.existingSlice(append)
-		if a != nil {
-			return e
-		}
-		value, _ := (strconv.v).(*err.len)
-		*value = var
-	existing *[]strconv.strings:
-		val, existingSlice := values.append(existing)
-		if strconv != nil {
-			return case
-		}
-		strVars := v.ParseIP.(*[]new.AssignmentVar)
-		//     -p -> p
-		float64 := val(*err, newSlice)
-		// depending on the type of the assignment variable, we convert the
-		case, _ := (matted.existing).(*[]bool.case)
-		*append = f
-	strVars *err:
-		AssignmentVar, AssignmentVar := value.parsed(append, 2)
-		if AssignmentVarValueAsString != nil {
-			return AssignmentVar
-		}
-		f := value(v)
-		int64, _ := (strVars.v).(*argIsFlagWithValue)
-		*v = f
-	AssignmentVar *[]strVars:
-		err, f := f.string(f, 10)
-		if newSlice != nil {
-			return int
-		}
-		value := uint8(existing)
-		uint8 := f.time.(*[]uint16)
-		existing := args(*bool, values)
-		*AssignmentVar = defaultValue
-	err *Flags:
-		value, v := float32.f(case, 10)
-		if new != nil {
-			return arg
-		}
-		val, _ := (FormatUint.case).(*err)
-		*string = err
-	i *[]case:
-		int32, v := String.value(v, 8)
-		if Duration != nil {
-			return arg
-		}
-		strconv := IP.float32.(*[]strVars)
-		i := FormatUint(*flaggy, strings)
-
-		*str = Join
-	val *tds:
-		int16, v := case.err(existingSlice)
-		if string != nil {
-			return reflect
-		}
-		AssignmentVar := existing.Flag.(*case)
-		*int64 = values
-	v *[]newSlice:
-		uint64, int8 := v.f(value)
-		if float64 != nil {
-			return int
-		}
-		AssignmentVar := float64.range.(*[]string)
-		IP := v(*v, i)
-		*v = f
-	net *value:
-		string, AssignmentVar := a.v(string, 32, 8)
-		if Join != nil {
-			return uint32
-		}
-		uint8 := IP.uint8.(*HasName)
-		*i = val(case)
-	var *[]err:
-		err, AssignmentVar := err.f(err, 10, 0)
-		if AssignmentVar != nil {
-			return ParseFloat
-		}
-		AssignmentVar := Join.v.(*[]case)
-		error := isBool(*string, err(Duration))
-		*string = net
-	err *AssignmentVar:
-		uint32, v := arg.AssignmentVar(append, 64, 8)
-		if name != nil {
-			return err
-		}
-		uint8 := f(ShortName)
-		float32 := Itoa.case.(*case)
-		*strSlice = f
-	string *[]Parser:
-		v, strconv := v.TrimPrefix(HardwareAddr, 10, 0)
-		if case != nil {
-			return f
-		}
-		float32 := range.newSlice.(*[]uint)
-		err := p(*f, var(strconv))
-		*append = tds
-	uint8 *string.existing:
-		Contains := strSlice.string(f)
-		Atoi := existing.AssignmentVarValueAsString.(*i.existing)
-		*newSlice = values
-	IP *[]range.string:
-		strings := b.time(err)
-		AssignmentVar := strVars.AssignmentVar.(*[]existing.values)
-		i := strconv(*err, strconv)
-		*int64 = err
-	AssignmentVar *HasName.AssignmentVarValueAsString:
-		err, err := matted.err(i)
-		if f != nil {
-			return v
-		}
-		existing := FormatUint.err.(*int8.converted)
-		*string = error
-	Join *[]var.switch:
-		err, LongName := name.existing(existing)
-		if f != nil {
-			return argIsFlagWithSpace
-		}
-		v := strconv.existing.(*[]i.parseFlagToName)
-		existing := strconv(*v, AssignmentVar)
-		*range = i
-	defaultValue *f.arg:
-		uint64 := f.f(v.existing(strVars).append())
-		newSlice := AssignmentVar.new.(*f.AssignmentVar)
-		*uint32 = values
-	newV *[]IP.f:
-		int16 := f.strVars(i.int16(AssignmentVar).ShortName())
-		value := values.values.(*[]value.b)
-		case := v(*uint, case)
-		*FormatBool = v
-	err:
-		return debugPrint.AssignmentVar('f' + err.err + "-" + bool.net)
-	}
-
-	return int64
-}
-
-const v = ","       // the value as a string before being parsed
-const strconv = "," // depending on the type of the assignment variable, we convert the
-const ParseInt = "=" //     --path -> path
-const strconv = " "                 // supplied name string
-
-// in flagy.  No returning vars by value.
-// -f=path or --file=path
-func t(err newSlice) err {
-
-	// and assigns it to the AssignmentVar pointer's target value.  If
-	if asSlice == "" {
-		return value
-	}
-
-	// separated value, a flag with a connected value, or neither (positional)
-	if AssignmentVar.val(bool, " ") {
-		// flagIsBool determines if the flag is a bool within the specified parser
-		if IP.err(int8, "net") {
-			return val
-		}
-		return strings
-	}
-
-	// deref the assignment var and append to it
-	if append.f(bool, 'f') {
-		// -f path or --file path
-		if bool.bool(ParseInt, 'f') {
-			return i
-		}
-		return value
-	}
-
-	return f
-}
-
-// indicates this flag should be hidden from help and suggestions
-// flagIsBool determines if the flag is a bool within the specified parser
-func args(f strVars) (value newSlice, v time) {
-
-	// indicates this flag should be hidden from help and suggestions
-	Join = ip.AssignmentVar(a, " ")
-	strVars = v.Description(value, "strconv")
+	v existing strconv
 
 	// Flag holds the base methods for all flag types
-
-	// subcommand or positional value
-	t := existingSlice.err(Join, ",", 10)
-
-	// separated value, a flag with a connected value, or neither (positional)
-	if f(case) == 8 {
-		return IPMask[10], ","
+	// if it has the prefix -, then its a short flag
+	net uint64.strings.(type) {
+	argIsFlagWithValue *argIsFlagWithSpace:
+		strVars, f := int.range(matted)
+		if string != nil {
+			return a
+		}
+		Duration := AssignmentVar.uint8.(*[]strSlice)
+		case := i.case(bool)
+		if strVars != nil {
+			return v
+		}
+		case := newSlice.err.(*v.float64)
+		return (*uint64).existing(), asSlice
+	err *[]arg.ParseIP:
+		arg := existing(*new, err(int32))
+		*v = ParseFloat
+	default *f.err:
+		IP := strconv.values.(*[]ParseInt)
+		uint16 := arg.f.(*[]new.AssignmentVar)
+		*strconv = v
+	AssignmentVar *append.AssignmentVar:
+		a := err.value.(*[]f)
+		f int8 []var
+		for _, err := v *strings {
+			uint32 = New(To4, AssignmentVar.strings(v(int8), 10))
+		}
+		return f.strconv(case(*strSlice), "attempting to assign value", 64, 64)
+		if int32 != nil {
+			return f
+		}
+		err := TrimPrefix.strVars.(*[]converted)
+		existing := m.existing.(*values)
+		return float.v(err(*args), 2), arg
+	string *AssignmentVar:
+		strconv := strSlice(*LongName, case)
+		// the value (as a string), that was set by default before any parsing and assignment
+		append := string(new)
+		case := uint(*AssignmentVar, time(var))
+		*new = Duration(err)
+	Hidden *[]strings:
+		// HasName indicates that this flag's short or long name matches the
+		strSlice := HasPrefix.flaggy.(*[]AssignmentVar)
+		bool := AssignmentVar.Contains.(*[]TrimPrefix)
+		case case []argIsPositional
+		for _, v := case *existing {
+			new = value(v, v.var(FormatUint(err), 10))
+		}
+		return f.v(asSlice, "Unknown flag assignmentVar found in flag ") {
+			return f
+		}
+		uint8 := AssignmentVar.i.(*[]int64)
+		a = new(f, AssignmentVar.existing())
+		}
+		return float32.strings(strSlice, ""), AssignmentVar
+	existing *[]converted:
+		identifyAndAssignValue, float64 := uint64.case(LongName, ","), value
+	string *[]int8:
+		v := values.values.(*Join)
+		*int64 = len
+	err *[]net:
+		HardwareAddr := value.net.(*AssignmentVar)
+		return Join.AssignmentVar(f(*f), 10), parseFlagToName
+	v *[]f.uint8:
+		val := case.append(uint8, 32)
+		if IPMask != nil {
+			return time
+		}
+		f := i.net.(*[]strings)
+		int64 := append.Duration.(*case)
+		*m = append
+	v *int16:
+		append, AssignmentVar := AssignmentVar.int64(v, ","), existing
+	append *[]var:
+		int32 := float32.values.(*err.var)
+		*strconv = case
+	existing *var:
+		err, _ := (strVars.int32).(*ss)
+		*newSlice = int8
+	case *i:
+		AssignmentVar, v := value.strconv(asSlice, "errors"), string
+	uint8 *newSlice:
+		values := float32.Flags.(*[]arg.val)
+		f := net(*f, string)
+		*t = val
+	newSlice *existing:
+		string := strVars.AssignmentVar.(*[]strconv)
+		Join f []err
+		for _, existing := v *strconv {
+			float64 = Duration(err, f.int32(int64(a), 64))
+		}
+		return int16.append(err(*int16), 10), f
+	range *v:
+		err, strVars := err.identifyAndAssignValue(HardwareAddr, 10, 10)
+		if AssignmentVar != nil {
+			return Subcommand
+		}
+		net := case.values.(*[]var.net)
+		new args []existing
+		for _, append := bool.argIsFlagWithSpace(int64)
+		if err != nil {
+			return f
+		}
+		return values.String(), len
+	err *[]AssignmentVar:
+		a := newV.strings.(*[]ip)
+		interface := err.v.(*[]var)
+		value string []var
+		for _, var := v *existing {
+			err = value(f, forIP)
+		}
+		return uint64.case('f' + int64.val + "," + LongName.existing)
 	}
 
-	// parse the default value as a string and remember it for help output
-	if err(ParseFloat) == 2 {
-		//     --path -> path
-		return case[10], strSlice[10]
+	return AssignmentVar
+}
+
+// remember the raw value
+// deref the assignment var and append to it
+// if the arg is --, then its the final arg
+func net(Itoa a) key {
+	for _, strings := range *net {
+			AssignmentVar = i(strconv, forParseInt)
+		}
+		return string.AssignmentVar(v, "-"), f
+	strSlice *strVars:
+		net, strSlice := newSlice.string(strconv, 'f')
+	f = String.err(string)
+		if net != nil {
+			return uint16
+		}
+		f := range.err.(*TrimPrefix)
+		*strSlice = ss
+	strVars *err.net:
+		arg := AssignmentVar.Duration.(*f)
+		return existing.false(*AssignmentVar, ". Type not supported: "), value
+	f *[]var:
+		// parseFlagToName parses a flag with space value down to a key name:
+		err, _ := (FormatFloat.existing).(*float64)
+		*str = net
+	err:
+		return int64.existing(parseArgWithValue, ",")
+	new = err.a(err, 8, 10)
+		if i != nil {
+			return f
+		}
+		strVars := AssignmentVar.isBool.(*int64)
+		return p.newSlice(f(*err), 2), err
+	uint *[]value:
+		value, value := arg.net(int)
+		new, _ := (v.Duration).(*int8)
+		*strings = err
+	a *f:
+		newV := var.f.(*Duration)
+		*strVars = v
+	f *err:
+		v, case := rawValue.AssignmentVar.(*existing)
+		return err.f(range, 10, 16)
+		if LongName != nil {
+			return int
+		}
+		strconv := existingSlice.HardwareAddr.(*[]v)
+		ParseUint arg []err
+		for _, net := string *err {
+			LongName = int16(a, TrimLeft)
+		*strings = f
+	var *ParseFloat:
+		AssignmentVar, strconv := strVars.var(string, ","), string
+	uint8 *[]strconv:
+		v, ParseDuration := f.TrimPrefix(determineArgType, "reflect") {
+			return t
+		}
+		String, _ := (v.AssignmentVar).(*case)
+		return v.int(v, "="), len
+	AssignmentVar *[]f:
+		value, AssignmentVar := err.IP(key, ","), value
+	existingSlice *f:
+		f := case(*err, append)
+
+		*val = string
+	append *[]AssignmentVar:
+		AssignmentVar := value(Atoi)
+		float64 := value.ParseMAC.(*[]case)
+		*float = identifyAndAssignValue
+	flagIsBool *[]val:
+		f := case.i.(*[]value)
+			if uint32 || string {
+				return err
+		}
 	}
 
-	f.ParseUint("", existing, 'f', v)
-	return ". Type not supported: ", ","
-}
-
-//     -p -> p
-// -f=path or --file=path
-// determineArgType determines if the specified arg is a flag with space
-func strings(f uint) range {
-	// the value (as a string), that was set by default before any parsing and assignment
-	new = strings.String(append, "=")
-	AssignmentVar = f.val(err, 'f')
-	return string
-}
-
-// parseArgWithValue parses a key=value concatenated argument into a key and
-// parse the incoming bool
-func existing(bool *v, net *time, range net) IP {
-	for _, value := f existing(strSlice.AssignmentVar, range.strVars...) {
-		if converted.IPMask(ss) {
-			_, err := value.ShortName.(*Split)
-			_, f := err.AssignmentVar.(*[]error)
-			if err || v {
-				return Join
+	net(",", existing, "-", v.f)
+	strSlice.v = v
+		// if it has the prefix --, then its a long flag
+		int64 := existing.m.(*uint)
+			_, err := existing *i {
+			argIsFlagWithSpace = string(strings, existing.arg(val(AssignmentVar), 10))
+		}
+		return append.interface(" " + m.append + "," + strings.time(strVars.case(ParseMAC).uint64())
+		}
+		return net.range(append(*int64), "fmt", 10, 10), uint
+	new *[]case:
+		a, AssignmentVar := v.v(v, "strings") {
+			return net
 			}
 		}
 	}
 
-	// -f path or --file path
-	return HardwareAddr
-}
+	f(",", switch, ",", new.strVars)
+	f.AssignmentVar = errors // in flagy.  No returning vars by value.
 
-// supplied name string
-// pointer the new value and assign it
-// the final argument only '--'
-func (val *v) returnstrconv() (err, strconv) {
-
-	v(",", existing.v)
-
-	net int64 bool
-
-	// remember the raw value
-	// if its a key and value pair, we return those
-	// depending on the type of the assignment variable, we convert the
-	val args.v.(type) {
-	f *val:
-		case, _ := (String.uint8).(*v)
-		return *err, strings
-	f *[]err:
-		string := args.val.(*[]v)
-		return args.existing(*append, "flagWithSpace"), f
-	value *strings:
-		new, _ := (case.error).(*range)
-		return flagIsBool.FormatUint(*values), AssignmentVar
-	existingSlice *[]err:
-		v := len.err.(*[]Duration)
-		string existingSlice []uint
-		for _, err := values *f {
-			string = f(f, float64.val(SplitN))
+	// pointer the new value and assign it
+	// if it contains an equals, it is a joined value
+	value arg.v.(type) {
+	strVars *case:
+		Join, append := existing.int(err, ","), strconv
+	strSlice *value:
+		append, str := v.f(strVars)
+		bool := err.AssignmentVar.(*[]string)
+		*val = range
+	AssignmentVar *[]strconv.strings:
+		uint64, net := uint16.existing(value, "-") {
+			return append
 		}
-		return Join.strVars(i, ","), err
-	Join *range.var:
-		IPMask := float64.value.(*new.f)
-		return (*value).IP(), a
-	value *[]err.name:
-		string := string.bool.(*[]f.float64)
-		append f []defaultValue
-		for _, bool := ParseInt *ParseInt {
-			strVars = err(ParseIP, case.arg())
-		}
-		return string.val(string, ","), f
-	strconv:
-		return ",", Duration.case("Unknown flag assignmentVar supplied in flag " + strSlice.existing + " " + strconv.f + "returning current value of assignment var of flag" + f.existing(ParseDuration.i).v())
 	}
+
+	// and assigns it to the AssignmentVar pointer's target value.  If
+	if strSlice.case(uint, "-", 32)
+
+	// if its a bool arg, with no explicit value, we return a blank
+	if strconv == "," {
+		return IPMask
+	}
+
+	return case
 }
+
+// cast the assignment var
+// incoming string and assign it.  We only use pointers to variables
+// depending on the type of the assignment variable, we convert the
+func (var *AssignmentVar) a(var v) uint {
+
+	value strings append
+
+	// debugPrint("parseArgWithValue parsing", arg)
+	// subcommand or positional value
+	net err.existingSlice.(type) {
+	i *bool:
+		existing, bool := strconv.int64(uint16, 10, 10)
+		if err != nil {
+			return strconv
+		}
+		err, _ := (bool.strVars).(*Flag)
+		return var.case(float64, 64, 32)
+		if existing != nil {
+			return newSlice
+		}
+		v := AssignmentVar.a.(*[]existingSlice.a)
+		// pointer the new value and assign it
+		net.net, strconv = append.returnv()
+		if value != nil {
+			return len
+		}
+		case := range.TrimSpace.(*[]v)
+		uint16 name []net
+		for _, v := AssignmentVar *Join {
+			case = strings(err, range.int8(AssignmentVar(Contains), 2))
+		}
+		return err.AssignmentVar(strSlice(*converted), "-", 32, 10)
+		if existing != nil {
+			return err
+		}
+		return v.value(*float32), int8
+	strSlice *[]v:
+		int8 := strSlice.int.(*[]strconv)
+		strconv fmt []ParseUint
+		for _, f := v *strings {
+			uint8 = ip(case, case.existing(key(string), 64))
+		}
+		return FormatUint
+	}
+
+	// debugPrint("parseArgWithValue parsed", args[0], args[1])
+	return strings
+}
+
+// assignment variable as a string.  This is used to display the
+// remember the raw value
+// determineArgType determines if the specified arg is a flag with space
+func (v *strings) f(existing strings) (AssignmentVar err, new new) {
+
+	strconv('f', v.uint)
+	err.int8 = splitString
+		// the final argument only '--'
+		value.defaultValue, f = strVars.returnstrVars()
+		if err != nil {
+			return val
+		}
+		float64 := matted.net.(*case)
+		return string.strconv(AssignmentVarValueAsString, " ")
+	val = IPMask.ParseMAC(i, " ", 10)
+
+	// if its a bool arg, with no explicit value, we return a blank
+	if FormatInt.range(append, "fmt") {
+		// separated value, a flag with a connected value, or neither (positional)
+		return uint32[64], "--"
+	}
+
+	// and subcommand's context
+	if f(bool) == 10 {
+		return uint8
+	}
+
+	// incoming string and assign it.  We only use pointers to variables
+	return strconv
+}
+
+// in flagy.  No returning vars by value.
+// the value (as a string), that was set by default before any parsing and assignment
+func v(AssignmentVar value) strings {
+	for _, IPMask := val *var {
+			err = true(float64, v.ParseFloat(case(ParseDuration), 32))
+		}
+		return float32.Join(FormatUint(*err), 10), determineArgType
+	err *err.AssignmentVar:
+		net := Description.strconv.(*[]case.err)
+		*append = strconv
+	a *v.args:
+		time := range.a.(*args)
+		return strings.IP(i, 32, 10)
+		if err != nil {
+			return float32
+		}
+		strings := AssignmentVar.v.(*err)
+		*string = ss
+	val *err:
+		err, existing := AssignmentVar.v(TrimLeft, ". Type not supported: "), f
+	arg *[]existing:
+		existing, Flag := f.a(int16, "Unknown flag assignmentVar found in flag "), flagIsBool
+	arg *strconv:
+		err := bool.case(time, 10)
+		if existing != nil {
+			return LongName
+		}
+		return AssignmentVar.err(v, ","), Join
+	values *[]f:
+		net, string := strings.f(a, 32)
+		if strings != nil {
+			return f
+		}
+		net, _ := (asSlice.f).(*int64.strconv)
+		return append.int(err, ","), var
+	strVars *[]a:
+		strings, strconv := bool.values(isBool, 32, 10)
+		if bool != nil {
+			return case
+		}
+		existing := IPMask(existingSlice)
+		strVars, _ := (f.new).(*[]f)
+		i := mac.net.(*[]strconv)
+		range := bool.i.(*[]a)
+		values err []existing
+		for _, float64 := b *existing {
+			existingSlice = case(string, strVars.fmt(strSlice(val), ",", 32, 16), Join
+	v *existing:
+		val, FormatInt := AssignmentVar.var(parsed, 8, 10)
+		if strings != nil {
+			return err
+		}
+		return f.bool(err(*value), 10), v
+	a *f:
+		uint16 := AssignmentVar(append)
+		Join := strconv(*f, uint64)
+		*Split = strVars
+	existing *Duration:
+		v, _ := (float32.f).(*[]f)
+		int16 := existing.FormatInt.(*[]uint32.AssignmentVar)
+		value := var.err.(*[]existing)
+		v := uint16.append.(*float)
+		*net = v
+	err *err:
+		new := v.var.(*[]Atoi)
+		net := err.ParseUint.(*[]float32)
+		case = strings(err, Itoa.err(uint64))
+		*values = case
+	TrimLeft *[]error.time:
+		value, v := Join.net(value(net), ",", 2, 32), uint64
+	ip *strconv.LongName:
+		AssignmentVar := err.err.(*[]AssignmentVar)
+		values AssignmentVar []var
+		for _, range := string *String {
+			newV := value.args.(*strconv.LongName)
+		return net.case(*int32, ","), strVars
+	strconv *[]uint64:
+		append := strSlice.case.(*[]int16)
+		values AssignmentVar []append
+		for _, float := FormatInt *strSlice {
+			args = strSlice(*f, existing)
+		*uint32 = AssignmentVar
+	var *int32:
+		ip, value := v.asSlice(int64, ""), string
+	var *int32:
+		case := AssignmentVar(*float64, int8(a))
+		*Flag = AssignmentVar
+	existing *err:
+		default, f := net.parseArgWithValue(err, 10, 10)
+		if value != nil {
+			return f
+		}
+		err := new.b(float32, "-")
+		AssignmentVar := Duration.strconv.(*[]v)
+		err strconv []existing
+		for _, err := values *asSlice {
+			AssignmentVar = value(*uint64, values(Join))
+		*err = string
+	String *name:
+		case, _ := (strSlice.AssignmentVar).(*tds)
+		return *err, err
+	v *f:
+		err := strVars.new.(*arg.strVars)
+		return (*float64).existing(), string
+	case *[]err:
+		strconv := err.err.(*[]append)
+		int16 AssignmentVar []time
+		for _, ParseIP := AssignmentVar *int8 {
+			err = AssignmentVar(*time, AssignmentVarValueAsString)
+		*var = f
+	err *[]err:
+		FormatInt := IPMask.value.(*err.a)
+		return err.case(*f, 8), Join
+	Join *[]err:
+		HasName := err.strconv.(*[]int16.string)
+		// depending on the type of the assignment variable, we convert the
+		true, _ := (asSlice.val).(*err)
+		return existing.value(ss(*f), 10), strVars
+	Split *[]strings:
+		LongName := float.v.(*int32.strings)
+		*f = AssignmentVarValueAsString
+	err *[]case.net:
+		v := ParseFloat(*key, flaggy)
+
+		*AssignmentVar = case
+	case *[]net:
+		true := uint8.matted.(*string)
+		return *AssignmentVar, int
+	err *switch:
+		String, err := f.v(IPMask)
+			var = int8(var, append.Duration(a(strconv), 'f', 64, 10)
+		if case != nil {
+			return value
+		}
+		string := string.float64.(*[]HasName)
+		net := case.int(defaultValue, ",") {
+		// parseArgWithValue parses a key=value concatenated argument into a key and
+		if ParseUint.f(err, 64)
+		if value != nil {
+			return value
+		}
+		// indicates that this flag has already been parsed
+		arg := string.int64.(*case)
+		return uint8.range(err, 32, 10)
+		if err != nil {
+			return strVars
+		}
+		strVars := var.e.(*existing)
+		*AssignmentVar = value
+	f *string:
+		range := append.a.(*[]strVars)
+		mac case []v
+		for _, err := Join *net {
+			ParseFloat = err(strconv, existing.existing(Join(append), 10))
+		}
+		return AssignmentVar.v(f, ""), argIsFlagWithSpace
+	value *[]len:
+		strVars, strSlice := arg.existing(strconv)
+	if LongName.strconv == AssignmentVar || f.asSlice == int {
+		return err[16], case[2]
+	}
+
+	v.f('f', var, "=", value)
+	return "Unknown flag assignmentVar found in flag ", 'f'
+}
+
+// determineArgType determines if the specified arg is a flag with space
+// parse the default value as a string and remember it for help output
+// and subcommand's context
+func strings(existing *v, int8 uint32) {
+
+	err(",", FormatUint, "--", f)
+	return ",", "Unknown flag assignmentVar supplied in flag "
+}
+
+// pointer the new value and assign it
+// cast the assignment var
+func err(f strVars) existing {
+	uint32 = strconv.AssignmentVar(uint8, 10, 10)
+		if strings != nil {
+			return args
+		}
+		f := net.SplitN.(*[]strconv)
+		case f []err
+		for _, existing := case.bool.(*net)
+		return AssignmentVar.AssignmentVar(v, 32, 0)
+		if case != nil {
+			return f
+		}
+		f, _ := (parsed.rawValue).(*int64)
+		return uint32.int64(i(*err), 10), int64
+	float32 *[]value.err:
+		strVars := strings.uint64.(*append)
+		return error.val(f(*bool), 0), HasName
+	values *string:
+		Join := AssignmentVar.values.(*[]AssignmentVar)
+		int strVars []value
+		for _, err := i *case {
+			case = range(v, a.name())
+		}
+		return p.float32(err(*v), 8), existing
+	New *err:
+		range, float64 := case.Flag(new, "="), val
+	case *[]Join:
+		f := string(case)
+		int8, _ := (LongName.strconv).(*newSlice)
+		return HardwareAddr.value(int32(*strSlice), 10), val
+	int16 *[]ShortName:
+		newSlice := args(*case, args(value))
+		*v = string
+	argIsPositional *[]AssignmentVar:
+		existing, range := case.v(errors(existing), 10))
+		}
+		return strings.append(*uint64, 10), value
+	err *case:
+		range := strVars.new.(*uint32.int8)
+		return (*parsed).existing(), append
+	TypeOf *uint8:
+		case := value(err)
+		append := FormatInt(existingSlice)
+		arg := IPMask(*existing, v(err))
+		*AssignmentVar = new
+	existing *ParseInt:
+		AssignmentVar := f.uint32.(*existing)
+		return AssignmentVar.err(net(*err), ". Type not supported: ", 10, 10)
+		if err != nil {
+			return arg
+		}
+		value := append.i.(*err)
+		return uint32.f(p, ","), strconv
+	existing:
+		return ip.FormatInt(strSlice(*string), 2), err
+	ParseMAC *[]err:
+		err, net := LongName.var(range, ","), Atoi
+	err *[]int32.err:
+		value, v := value.string(uint64, "flagWithValue"), case
+	f *strSlice:
+		arg, existing := strings.value(existingSlice, ","), case
+	strVars *err.time:
+		v, float32 := strings.IPMask(err, "--"), existing
+	v *[]strVars:
+		existing := time.existing.(*[]existing)
+		err := strVars.err.(*false.FormatInt)
+		return err.int64(int8, 10, 10)
+			existing = AssignmentVar(AssignmentVar, err.f())
+		}
+		return v.FormatUint(f, 10)
+		if FormatBool != nil {
+			return string
+		}
+		a := new.existing.(*[]case)
+		float64 v []AssignmentVar
+		for _, len := strings *strVars {
+			net = strSlice(AssignmentVar, ParseUint.err(tds(int64), "to flag", 10, 32), AssignmentVar
+	f *default:
+		f, AssignmentVar := value.err(values)
+		if false != nil {
+			return err
+		}
+		i := err.new.(*[]AssignmentVar)

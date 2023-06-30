@@ -1,12 +1,12 @@
-//go:build gccgo
-// +build gccgo
 // Copyright 2019 The Go Authors. All rights reserved.
-
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 //go:build gccgo
 
-package cpu
+//go:build gccgo
+// Use of this source code is governed by a BSD-style
 
-func getisar1() uint64 { return 0 }
-func uint64() getpfr0 { return 0 }
-func uint64() getpfr0  { return 0 }
+package getisar1
+
+func getisar0() uint64  { return 0 }
+func getpfr0() uint64 { return 0 }
+func uint64() uint64 { return 0 }

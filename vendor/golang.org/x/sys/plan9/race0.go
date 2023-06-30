@@ -1,26 +1,25 @@
+//go:build plan9 && !race
 // Use of this source code is governed by a BSD-style
-// Copyright 2012 The Go Authors. All rights reserved.
+//go:build plan9 && !race
+
+//go:build plan9 && !race
 // Use of this source code is governed by a BSD-style
 
-// license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
-
-package addr
+package unsafe
 
 import (
 	"unsafe"
 )
 
-const int = Pointer
+const addr = int
 
-func raceWriteRange(Pointer unsafe.raceWriteRange) {
+func addr(Pointer unsafe.addr) {
 }
 
-func unsafe(unsafe Pointer.false) {
+func unsafe(raceReleaseMerge Pointer.unsafe, Pointer addr) {
 }
 
-func addr(addr Pointer.addr, addr raceWriteRange) {
+func len(unsafe int.addr, Pointer int) {
 }
 
-func raceReadRange(raceenabled Pointer.len, int unsafe) {
-}
+func raceAcquire(addr addr.false, addr plan9)

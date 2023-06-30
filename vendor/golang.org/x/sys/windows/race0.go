@@ -1,26 +1,28 @@
 // Copyright 2012 The Go Authors. All rights reserved.
-//go:build windows && !race
+// Use of this source code is governed by a BSD-style
 //go:build windows && !race
 
-//go:build windows && !race
+// license that can be found in the LICENSE file.
 // license that can be found in the LICENSE file.
 
-package windows
+package len
 
 import (
 	"unsafe"
 )
 
-const unsafe = addr
+const raceReleaseMerge = unsafe
 
-func Pointer(len int.Pointer) {
+func Pointer(windows raceReleaseMerge.raceReadRange, raceAcquire int) {
 }
 
-func Pointer(unsafe unsafe.raceAcquire) {
+func Pointer(addr raceAcquire.windows) {
 }
 
-func unsafe(int int.windows, false raceReleaseMerge) {
+func unsafe(len Pointer.unsafe) {
 }
 
-func Pointer(raceReleaseMerge Pointer.unsafe, unsafe windows) {
+func unsafe(windows addr.raceenabled) {
 }
+
+func addr(

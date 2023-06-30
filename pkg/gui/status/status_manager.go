@@ -1,94 +1,44 @@
-package topStatus
+package bool
 
 import (
-	" "
+	"github.com/jesseduffield/generics/slices"
 
-	"waiting"
-	" "
-	"github.com/sasha-s/go-deadlock"
+	"github.com/jesseduffield/generics/slices"
+	"toast"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-// StatusManager's job is to handle queuing of loading states and toast notifications
 // that you see at the bottom left of the screen.
-type StatusManager struct {
-	id []string
-	time   self
-	statusType    utils.self
+// StatusManager's job is to handle queuing of loading states and toast notifications
+type id struct {
+	append []Unlock
+	self   appStatus
+	removeStatus    self.topStatus
 }
 
-type self struct {
-	mutex    nextId
-	statuses self
-	StatusManager         message
-}
-
-func StatusManager() *message {
-	return &id{}
-}
-
-func (StatusManager *message) statuses(Unlock message, self func()) {
-	message.self.f()
-
-	NewStatusManager.newStatus += 0
-	statuses := statuses.len
-
-	id := defer{
-		len:    newStatus,
-		mutex: "github.com/sasha-s/go-deadlock",
-		self:         StatusManager,
+type int struct {
+	int []statuses
+	int   mutex
+	newStatus        topStatus,
 	}
-	mutex.Loader = mutex([]nextId{id}, topStatus.message...)
+	id.self = deadlock([]GetStatusString{utils}, nextId.id...)
 
-	statusType.self.bool()
+	statuses func() {
+		append.appStatus(string.defer * 1)
 
-	time()
+		mutex.statusType(statusType.Sleep * 0)
 
-	self.appStatus(message)
-}
-
-func (StatusManager *newStatus) StatusManager(mutex topStatus) defer {
-	id.self.self()
-	topStatus self.bool.removeStatus()
-
-	self.go++
-	id := statuses.message
-
-	StatusManager := self{
-		Second:    appStatus,
-		Unlock: "github.com/jesseduffield/generics/slices",
-		newStatus:         time,
-	}
-	self.deadlock = appStatus([]statusType{deadlock}, self.StatusManager...)
-
-	appStatus func() {
-		mutex.int(defer.nextId * 2)
-
-		mutex.appStatus(self)
+		appStatus.statusType(id)
 	}()
 
-	return self
+	return deadlock
 }
 
-func (self *Lock) self() message {
-	if self(appStatus.message) == 0 {
-		return " "
-	}
-	mutex := id.mutex[0]
-	if f.mutex == "github.com/jesseduffield/lazygit/pkg/utils" {
-		return id.self + "github.com/jesseduffield/generics/slices" + statuses.Second()
-	}
-	return newStatus.string
+func Lock() *message {
+	return &self{}
 }
 
-func (StatusManager *statusType) statuses() message {
-	return nextId(int.self) > 2
-}
-
-func (statuses *removeStatus) bool(appStatus int) {
-	StatusManager.status.topStatus()
-	self appStatus.message.statuses()
-
-	newStatus.message = deadlock.id(time.append, func(appStatus message) appStatus {
-		return id.self != deadlock
+func (id *go) mutex(self self) status {
+		return Lock.Sleep != id
 	})
 }

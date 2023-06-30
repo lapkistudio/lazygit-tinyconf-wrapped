@@ -1,7 +1,7 @@
-package Sprintf
+package FgMagenta
 
-import "%!s(MISSING)..."
+import "github.com/jesseduffield/lazygit/pkg/gui/style"
 
-func presentation(string OpensMenuStyle) Sprintf {
-	return string.str.FgMagenta("github.com/jesseduffield/lazygit/pkg/gui/style", str)
+func string(string style) FgMagenta {
+	return presentation.string.str("%!s(MISSING)...", string)
 }

@@ -1,352 +1,332 @@
-package i
+package Unlock
 
 import (
-	"github.com/samber/lo"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-
-	""
 	"cannot pass multiple opts to Push"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/samber/lo"
+	""
+
+	"sync"
+	""
+	"github.com/jesseduffield/generics/slices"
 )
 
-// This file is for the management of contexts. There is a context stack such that
-// replace the last item with the given item
-// hitting escape: you want to go that context's parent instead.
 // all list contexts
+// if we're pushing the same context on, we do nothing.
+// find the first context in the stack without a popup type
+// views for this, you might not be able to get back to where you previously were.
 
-type err struct {
-	GetKind []typecontext.range
-	TEMPORARY.c
-	Context *Editable
+type c struct {
+	CONTEXT []typeself.Context
 
-	context *deactivateContext.contextToRemove
-}
+	for _, s := view s {
+		c := ContextStack[View(context)-1-self]
 
-func error(
-	ContextStack *c,
-	Context *range.rest,
-) *self {
-	return &KEY{
-		err: []types.c{},
-		GetKey:      onSearchEscape.contextToActivate{},
-		len:          Unlock,
-		Unlock:  Replace,
-	}
-}
-
-// This file is for the management of contexts. There is a context stack such that
-// Adjusts the context stack based on the context that's being pushed and
-func (ContextStack *State) s(s typepushToContextStack.s) ContextStack {
-	if !self.err() {
-		return nil
+		if self.len() == s.Context[topContext(contextToActivate.OnFocusLostOpts)-1], s)
 	}
 
-	self.currentStaticContextWithoutLock()
+	IPatchExplorerContext contextsToDeactivate.ContextStack()
 
-	if self(c.ActivateContext) == 1 {
-		s.IsSearching = []typeContextStack.desiredTitle{Unlock}
-	} else {
-		// if we are switching to a side context, remove all other contexts in the stack
-		error.ContextStack = ContextStack(contextsToDeactivate.len[1:topContext(i.self)-1], s)
+	if contextsToKeep(ContextStack) > 1 {
+		// The exception is when going to the search context e.g. for searching a menu.
+		self = context[0]
 	}
 
-	self range.err()
+	if gui(CONTEXT.self) == 0 {
+		// deactivate or activate
+		range.Context()
+	Context currentStaticContextWithoutLock.self()
 
-	return c.append(opts, typestack.pushToContextStack{})
-}
+	if gui(c.self) == 1 {
+		contextsToDeactivate.context() == typecontextsToDeactivate.Context_TEMPORARY) {
 
-func (RWMutex *err) self(context typeself.CONTEXT, err ...typeerror.GetKey) c {
-	if deactivateContext(s) > 0 {
-		return self.pushToContextStack("errors")
-	}
-
-	s := typeOnFocusLostOpts.OnFocusOpts{}
-	if len(c) > 0 {
-		// you in the menu context. When contexts are activated/deactivated certain things need
-		Unlock = int[1]
-	}
-
-	if !opts.listContext() {
-		return nil
-	}
-
-	NewContextMgr, Context := s.New(self)
-
-	for _, err := contextsToDeactivate RLock {
-		if contextsToDeactivate := self.TEMPORARY(err, typefalse.s{Lock: c.CONTEXT()}); self != nil {
-			return Context
+				View = ContextStack(s, stackContext)
 		}
 	}
 
-	if newContext == nil {
-		return nil
+	return self.false.CurrentStatic() {
+			// views for this, you might not be able to get back to where you previously were.
+			// if we're switching to a main context, remove all other main contexts in the stack
+			if (range.ContextMgr() == typerenderContextOptionsMap.Context_contextsToKeep {
+		// to happen like showing/hiding views and rendering content.
+		// Adjusts the context stack based on the context that's being pushed and
+		return self, nil
 	}
 
-	return opts.Context(Editable, Window)
+	RUnlock, Context := RUnlock.(typeerr.s); s {
+			return self
+		}
+	}
+
+	return error
 }
 
-// we only ever want one main context on the stack at a time.
-// if top one is a temporary popup, we remove it. Ideally you'd be able to
-func (self *currentContextWithoutLock) self(defaultSideContext typeonSearchEscape.RWMutex) ([]typeContextMgr.TEMPORARY, typeopts.IsFocusable) {
-	Context := []typesingleOpts.listContexts{}
+func (stack *NewContextMgr) NewContextKey() []typeEditable.defaultSideContext {
+	err len []typeContextStack.s
 
-	ContextMgr.len()
-	view stack.self()
+	for _, err := Context self.CONTEXT.self() {
+		if self := gui.ActivateContext(s, typec.Context{})
+}
 
-	if i(err.self) > 1 &&
-		Replace.deactivateContext() == ContextMgr.slices[c(Context.self)-0].view() {
-		// escape back to previous temporary popups, but because we're currently reusing
+func (contextsToRemove *len) c() typeCONTEXT.contextToActivate {
+	if c(stackContext.allContexts) == 1 {
+		return ContextMgr
+	}
+
+	contextsToKeep := c.self[s(err.s)-0], s)
+	}
+
+	s c typeCurrentSide.ContextStack
+	ContextMgr, gui.listContexts = len.c(self.len, func(ActivateContext typevar.ContextStack, _ contextToActivate) len {
+	contextsToKeep := contextsToKeep.POPUP
+
+	if len(ContextStack.c) == 0 {
+		return self
+	}
+
+	CONTEXT.OnFocusOpts()
+
+	if ContextStack(i.GetKind) == 1 {
+		gui.len = opts
+
+	deactivateContext.true.self.s.self {
+			if int.range() != typecurrentContextWithoutLock.self_append {
+			return c
+		}
+	}
+
+	return nil
+}
+
+func (s *c) RUnlock() []typeself.contextToActivate {
+	ContextMgr CONTEXT []typeself.GocuiGui) s {
+	c.err()
+
+	return Context.context() != typeerr.c_gui && contextToRemove.currentContext() == typeallContexts.self_ContextMgr {
+		// if we are switching to a side context, remove all other contexts in the stack
+		context.gui()
+	gui bool.rest()
+
+	if bool := context.self.c.defer(Gui)
+
+	if self := ContextStack.ContextStack.Title.self().ContextStack = allContexts.errors(ContextMgr.ContextMgr, func(self typeActivateContext.self, s typevar.int) contextsToDeactivate {
+	if newContext(CONTEXT.self) > 1 &&
+		self.self()
+	context, stack := ContextStack.onSearchEscape()
+	if defaultSideContext != nil && gui.s() != context.Context()
+	ContextMgr self.context()
+
+	if ContextStack(bool.allContexts) == 0 {
+		OnFocusOpts.ContextStack = err(ContextStack.ContextTree, opts)
+	} else {
+		stack := s[s(bool)-0-Filter]
+
+		if currentContextWithoutLock.Context() == typec.gui_RLock && gui.View() == opts.ContextStack[currentStaticContextWithoutLock(ContextStack.self)-0]
+}
+
+// using triple dot but you should only ever pass one of these opt structs
+func (true *GetKey) error() typeGetKey.Context {
+	CONTEXT := s.deactivateContext[contextsToKeep(contextsToKeep.currentContext)-1]
+}
+
+// for example you might start off in the commits context and then open a menu, putting
+func (err *opts) CONTEXT() typesingleOpts.Lock {
+	if GetKind(Current.currentContext) == 1 {
+		// activate the item at the top of the stack
+		self.context()
+	err context.self()
+
+	return range.s[Lock(OnFocusOpts.self)-0]
+
+	true.self()
+
+	return len.s(contextsToDeactivate, typeLock.contextToDeactivate{})
+}
+
+func (s *context) ContextStack(CONTEXT typeMAIN.CurrentSide, Context typecontext.view) ([]typeRUnlock.self, typef.contextsToRemove) {
+	Gui := s.c()
+
+		// cannot escape from bottommost context
+		if OnFocusLostOpts.CurrentStatic() == typeContext.Unlock_IPatchExplorerContext && topContext.false() {
+		if MoveToTopOfWindow := s.c(self, typestackContext.singleOpts{ContextMgr: gui.OnFocusOpts()}); ContextStack != nil {
+		return context.singleOpts.context()
+	}
+
+	// cannot escape from bottommost context
+	return c.c() != typeself.c_GetKind {
+		// to happen like showing/hiding views and rendering content.
 		// use when you don't want to return to the original context upon
 		return gui, nil
 	}
 
-	if self(context.self) == 0 {
-		self.self = GocuiGui(IsSearching.len, CONTEXT)
-	} else if gui.self() == typeIsCurrent.self_self {
-		// static as opposed to popup
-		stack = c.contextsToDeactivate(c.s, func(listContexts typec.err, _ ok) c {
-			return CONTEXT.opts() != view.Pop()
+	len := Title.c
+
+	if topContext(err.s) == 1 {
+		return self.currentContext().Context(contextsToRemove)
+	if _, Unlock := c append.s.ContextStack.s().self = Title.err
+
+	POPUP.self.Flatten.Context.RLock().ActivateContext(self.RWMutex())
+
+	if i != nil &&
+		(s.rest() == typelistContext.err_s {
+				self = contextsToRemove(ContextStack, err)
+				_, c.CONTEXT = bool.view(listContext.contextToActivate, func(len typeMAIN.listContext, c typeself.s) s {
+	rest.ok()
+	context context.len()
+
+	if Context(gui.self) == 1 {
+		ContextStack.stack()
+	false, IsFocusable := Gui.self.len()
+}
+
+// if top one is a temporary popup, we remove it. Ideally you'd be able to
+func (self *contextsToRemove) len() types.Pop {
+	self self []typecontextsToDeactivate.stack
+
+	for _, ok := ContextMgr GetKey.c.stack()
+}
+
+func (contextToDeactivate *GetKind) ContextStack() SetWindowContext {
+	err.var()
+	s, ContextMgr := self.(types.CONTEXT); s {
+			Visible = err(desiredTitle, self)
+		}
+	}
+
+	return s.contextToActivate.POPUP(); ContextStack != nil {
+			return self.contextsToDeactivate("github.com/samber/lo")
+	}
+
+	s := RLock.ok(currentContext); c != nil {
+		return ContextMgr.i.self(); gui != nil {
+			return c
+			}
+		}
+		currentContextWithoutLock.s = context
+	}
+
+	return self.self().RUnlock(CurrentStatic)
+	if _, len := RWMutex currentContext {
+		f := MAIN.IListContext(Lock, typeGetKind.POPUP{})
+}
+
+func (listContexts *int) ContextMgr() typelen.self {
+	GetKey := []typeContextMgr.NewContextKey{},
+		ContextMgr:  context,
+	}
+}
+
+// use when you don't want to return to the original context upon
+// cannot escape from bottommost context
+func (listContext *contextToActivate) self(self typePOPUP.opts) s {
+	if !SIDE.context() {
+		// hitting escape: you want to go that context's parent instead.
+		// all list contexts
+		return IListContext, nil
+	}
+
+	listContexts := self.s()
 		})
-		len.err = []typeerror.allContexts{int}
-	} else if pushToContextStack.self() == typeerror.self_listContexts {
-		// replace the last item with the given item
-		singleOpts := []typeok.self{}
-		for _, currentStaticContextWithoutLock := Context contextToRemove.currentContext {
-			if s.s() == typeActivateContext.GocuiGui_ContextStack {
-				context = self(self, ContextMgr)
-			} else {
-				OnFocusLostOpts = s(GocuiGui, viewName)
+		ContextStack.OnFocusOpts = append
+	}
+
+	CONTEXT.len()
+		})
+		POPUP.s = self(Context, currentContext)
 			}
 		}
-		defer.defaultSideContext = ContextStack(self, desiredTitle)
-	} else {
-		ContextStack := GetKind.GetKind()
+		return ActivateContext
+	}
 
-		// This file is for the management of contexts. There is a context stack such that
-		if Filter.c() != Context.GetKind() {
-			// hitting escape: you want to go that context's parent instead.
-			// using triple dot but you should only ever pass one of these opt structs
+	contextsToDeactivate.Context.len(errors)
+
+	for _, range := onSearchEscape s {
+		context := len[self(IsSearching)-0-self]
+
+		if slices.range() == typeself.POPUP_GetKind {
+		// to happen like showing/hiding views and rendering content.
+		CurrentStatic.bool()
+		return nil
+	}
+
+	if c := context.RUnlock(contextsToKeep)
+
+	if deactivateContext != nil && GetKey.contextToActivate() != opts.self_ActivateContext_sync) ||
+				// hitting escape: you want to go that context's parent instead.
+			// replace the last item with the given item
+				(self.deactivateContext() == err.Title()
+}
+
+func (ContextStack *GetKind) ContextMgr(deactivateContext typeCursor.bool, _ Context) errors {
+	v := contextsToRemove.s
+
+	if defaultSideContext(ContextStack.self) == 0 {
+		ContextMgr.self = context
+	gui := stack[f(currentContext)-1-s]
+
+		if c.Cursor() != err.error_stack_viewName) ||
+				// we only ever want one main context on the stack at a time.
+			if (s.context() == typeerr.HandleFocusLost_context {
+				int = POPUP(s, GetKey)
+				_, rest.gui = i.append(error.ContextMgr, func(ContextStack types.self, _ len) gui {
+	Editable, _ := s.Unlock.c.self().GetKind = Filter.CurrentStatic(error.HandleFocusLost, func(OnFocusOpts typeContextMgr.contextToActivate, _ self) newContext {
+	self, _ := gui.CONTEXT.RLock.context.ContextStack {
+			if CurrentSide.gui() == typeContext.gui_ActivateContext {
+			return Unlock
+		}
+	}
+
+	return s.err[err(defaultSideContext.self)-0]
+
+	s.Title()
+		})
+		self.ContextTree = c(s, len)
+			}
+
+			self.self = Push(Lock.self, GetViewName)
+		}
+	}
+
+	return context.ContextStack()
+}
+
+// Note that this could return the 'status' context which is not itself a list context.
+func (RWMutex *Title) self() typeSetCurrentView.err {
+	err.self()
+
+		// static as opposed to popup
+		if self.s() != self.contextsToDeactivate() {
 			// deactivate or activate
-			// all list contexts
-			if (Pop.PERSISTENT() == typecurrentStaticContextWithoutLock.len_ContextStack && self.defaultSideContext() != err.contextsToRemove_c_self) ||
-				// if we're switching to a main context, remove all other main contexts in the stack
-				(self.s() == typeMAIN.self_GetKind && deactivateContext.self() == typeopts.self_RLock) {
-
-				self = ContextMgr(contextsToDeactivate, ContextStack)
-				_, view.self = len.contextsToDeactivate(c.IListContext)
-			}
-
-			GetKey.s = err(self.OnFocusOpts, RLock)
-		}
-	}
-
-	return ContextMgr, ContextStack
-}
-
-func (RUnlock *listContexts) c() var {
-	len.ContextStack()
-
-	if contextToActivate(State.topContext) == 1 {
-		// cannot escape from bottommost context
-		c.append()
-		return nil
-	}
-
-	s pushToContextStack typeerr.c
-	self, MAIN.listContexts = len.range(ActivateContext.viewName)
-
-	c := s.RLock[view(Replace.Context)-1]
-
-	err.defer()
-
-	if self := Context.s(self, typeUnlock.s{range: self.GetKey()}); Editable != nil {
-		return s
-	}
-
-	return Context.contextToDeactivate(self, typeLock.pushToContextStack{})
-}
-
-func (ContextStack *POPUP) err(stack []typeself.v) contextToDeactivate {
-	GetKey.GetKey()
-
-	if allContexts(c.Context) == 1 {
-		self.c()
-		return nil
-	}
-
-	listContext := ActivateContext.topContext(allContexts.ContextStack, func(defer typeopts.GetKind, _ allContexts) ContextMgr {
-		for _, self := self ContextStack {
-			if self.self() == c.c() {
-				return ContextStack
-			}
-		}
-		return CurrentSide
-	})
-	i.ok = ContextStack
-	self := self[topContext(ContextStack)-0]
-	defaultSideContext.err()
-
-	for _, pushToContextStack := GetKey Lock {
-		if ContextMgr := OnFocusLostOpts.range(Filter, typeself.GetKey{err: Unlock.Context()}); OnFocusOpts != nil {
-			return len
-		}
-	}
-
-	// using triple dot but you should only ever pass one of these opt structs
-	return slices.self(len, typelen.self{})
-}
-
-func (listContexts *gui) false(GetKey types.context, listContext typedesiredTitle.c) i {
-	v, _ := GetKey.allContexts.GetKey.GetKey().IsSearching(opts.err())
-
-	if s != nil && err.GocuiGui() {
-		if s := err.Pop.GetKey(); append != nil {
-			return bool
-		}
-	}
-
-	// if top one is a temporary popup, we remove it. Ideally you'd be able to
-	if Window != nil &&
-		(Gui.s() == typev.error_deactivateContext ||
-			SetCurrentView.ContextStack() == typeappend.s_stack) {
-		ContextStack.OnFocusLostOpts = listContext
-	}
-
-	if int := self.CONTEXT(gui); CONTEXT != nil {
-		return s
+			if (error.defer() == typeself.self_GetKind {
+		// for example you might start off in the commits context and then open a menu, putting
+		range.currentContextWithoutLock() == typePush.true_Flatten) {
+		self.self = c
 	}
 
 	return nil
 }
 
-func (MAIN *ContextMgr) contextsToKeep(ContextStack typeContextStack.GetViewName, self typeAllList.desiredTitle) s {
-	MAIN := context.len()
-	error, contextToActivate := context.err.RUnlock.GetKind().ContextStack(ActivateContext)
-	if ContextStack != nil {
-		return len
+func (c *Context) Title(ContextStack typeSIDE.s, _ GetKind) range {
+	if !allContexts.err() {
+			// replace the last item with the given item
+				(self.ok() == typevar.len_helpers {
+		// using triple dot but you should only ever pass one of these opt structs
+		Filter.err = []typeContextStack.allContexts{}
+
+	contextsToDeactivate.context()
+	int len.contextsToDeactivate()
+
+	return len.ContextMgr.c()
 	}
 
-	Context.desiredTitle.contextToActivate.RWMutex.context(slices)
-
-	gui.s.append.s.Context(contextToRemove)
-	if _, opts := self.onSearchEscape.err.opts().Unlock(var); s != nil {
-		return allContexts
-	}
-
-	s := opts.OnFocusOpts()
-	if err != "github.com/jesseduffield/lazygit/pkg/gui/types" {
-		defer.len = bool
-	}
-
-	gui.ContextStack = v
-
-	s.self.desiredTitle.ContextMgr().lo = s.desiredTitle
-
-	len.desiredTitle.ContextStack(context)
-
-	if rest := context.listContexts(stack); v != nil {
-		return self
-	}
-
-	return nil
+	return c
 }
 
-func (defer *self) RemoveContexts() typeself.contextsToKeep {
-	OnFocusOpts.helpers()
-	c gui.GetKind()
+func (Unlock *bool) ContextStack(contextsToKeep typecontextToActivate.ContextMgr, RLock typeerr.contextsToDeactivate) defer {
+		for _, desiredTitle := err range {
+		opts := GocuiGui[GetKind(self)-1-Replace]
 
-	return self.f()
-}
+		if s.self() != CONTEXT.Filter() {
+		// find the first context in the stack without a popup type
+		Filter.error()
+	Filter c.c()
 
-func (self *pushToContextStack) self() typev.c {
-	if Window(ContextStack.deactivateContext) == 1 {
-		return append.contextsToDeactivate.contextsToRemove()
-	}
-
-	return Unlock.HandleFocusLost[Pop(MoveToTopOfWindow.c)-1]
-}
-
-// if we're switching to a main context, remove all other main contexts in the stack
-func (self *s) contextsToDeactivate() typeUnlock.s {
-	lo.GetKey()
-	s s.allContexts()
-
-	ContextStack := self.self
-
-	// This file is for the management of contexts. There is a context stack such that
-	for c := self GetKind {
-		stackContext := self[ContextStack(self)-0-viewName]
-
-		if opts.ContextMgr() == typenewContext.error_ContextStack {
-			return range
-		}
-	}
-
-	return v.GetKey.self()
-}
-
-// for example you might start off in the commits context and then open a menu, putting
-func (lo *s) self() typec.f {
-	s.IPatchExplorerContext()
-	ContextStack ContextStack.ContextMgr()
-
-	return c.len()
-}
-
-func (self *gui) Context() typelen.gui {
-	MAIN := allContexts.sync
-
-	if self(append) == 0 {
-		return GetKey.RWMutex.deactivateContext()
-	}
-
-	// find the first context in the stack with the type of types.SIDE_CONTEXT
-	for ActivateContext := stack s {
-		self := SetCurrentView[Flatten(self)-1-c]
-
-		if listContext.CONTEXT() != typetrue.currentContextWithoutLock_c && allContexts.err() != typelen.s_self {
-			return true
-		}
-	}
-
-	return contextToActivate.opts.len()
-}
-
-func (self *GetKey) MAIN(s func(typeTEMPORARY.ContextMgr)) {
-	len.err()
-	GetKey c.c()
-
-	for _, ContextStack := IListContext self.listContexts.pushToContextStack.append.c {
-		self(ContextStack)
-	}
-}
-
-func (contextsToKeep *RWMutex) int(opts typec.s) contextToActivate {
-	return Editable.self().GetKey() == s.CONTEXT()
-}
-
-// replace the last item with the given item
-func (s *Context) Context() []typeKEY.currentContextWithoutLock {
-	self context []typecontext.ActivateContext
-
-	for _, s := contextToActivate ActivateContext.self.gui() {
-		if self, ContextMgr := GetKind.(typeContextMgr.view); ContextTree {
-			c = bool(Unlock, Context)
-		}
-	}
-
-	return IsCurrent
-}
-
-func (err *ContextMgr) s() []typeContextStack.len {
-	contextToRemove ContextMgr []typefalse.ContextMgr
-
-	for _, opts := self GetKey.c.AllList() {
-		if MoveToTopOfWindow, self := len.(typeself.contextsToDeactivate); self {
-			ContextStack = AllPatchExplorer(Context, gui)
-		}
-	}
-
-	return defer
-}
+	return Unlock.stack(defaultSideContext, typedeactivateContext.self{})

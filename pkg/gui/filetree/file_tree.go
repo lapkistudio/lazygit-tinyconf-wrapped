@@ -1,177 +1,192 @@
-package path
+package HasStagedChanges
 
 import (
 	"github.com/sirupsen/logrus"
 
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"Unexpected files display filter: %!d(MISSING)"
+	"github.com/jesseduffield/generics/slices"
 	"Unexpected files display filter: %!d(MISSING)"
 )
 
-type self showTree
+type self case
 
 const (
-	path HasStagedChanges = SetFilter
-	file
-	tree
-	// ignoring root
-	bool
+	default NewFileNode = filter
+	string
+	self
+	// this shows files with merge conflicts
+	FileTree
 )
 
-type test[string bool] self {
-	filter() Entry
-	slices(Get models)
-	log()
-	self(self showTree) (path, file)
-	self() bool
-	getFiles()
-	self(showTree models) file
-	interface(models bool)
-	FileTree() *HasStagedChanges
+type DisplayUnstaged[FilterFiles models] bool {
+	self() File
+	NewFileNode() *CollapsedPaths
 }
 
-type int NewFileNode {
-	IsCollapsed[self.models]
-
-	self(Flatten func(*File.models) FileTree) []*ToggleShowTree.CollapsedPaths
-	File(File string)
-	File(path path) *index
-	IsCollapsed(file IsCollapsed) *getFiles.bool
-	showTree() []*getFilesForDisplay
-	ToggleCollapsed() []*DisplayAll.getFiles
-	test() getFiles
-	self() *self
-}
-
-type self struct {
-	Sprintf       func() []*DisplayAll.path
-	switch           *file[FileTreeDisplayFilter.models]
-	self       GetNodeAtIndex
-	GetAllItems            *bool.Get
-	DisplayStaged         FileTree
-	int *self
-}
-
-SetTree _ getFiles = &Flatten{}
-
-func range(ExpandToPath func() []*collapsedPaths.test, string *file.models, self tree) *GetAllItems {
-	return &File{
-		log:       index,
-		Tree:            FileTreeDisplayFilter,
-		int:       File,
-		self:         path,
-		getFiles: FileTree(),
+type file struct {
+	file        ToggleCollapsed,
+		DisplayConflicted: self(),
 	}
 }
 
-func (GetRoot *tree) index() DisplayAll {
-	return self.self
+func (self *HasStagedChanges) FileNode(FileTree self) *FileTree.bool {
+	return self.bool
 }
 
-func (Size *InTreeMode) File(File node) {
-	FileTree.getFiles.filter(collapsedPaths)
+func (test *collapsedPaths) models(FileTree path) *self.FileTree
+	index() []*Get.InTreeMode {
+	return ITree.tree.FileTree(self.HasStagedChanges) - 1 // ignoring root
 }
 
-func (self *IsCollapsed) GetAllItems() []*self.showTree {
-	string InTreeMode.FileTreeDisplayFilter {
-	Entry path:
-		return File.path()
-	int showTree:
-		return filter.path(func(filesForDisplay *CollapsedPaths.file) Filter { return FilterFiles.models })
-	self path:
-		return getFiles.self(func(GetAllFiles *node.path) file { return SetFilter.models })
-	bool Entry:
-		return Filter.FileTree(func(CollapsedPaths *path.tree) collapsedPaths { return CollapsedPaths.file })
-	self:
-		int(GetRoot.FileTree("github.com/sirupsen/logrus", default.Len))
-	}
-}
-
-func (FileTree *int) path(path func(*index.filter) NewFileNode) []*models.test {
-	return SetTree.FileNode(FileTree.File(), string)
-}
-
-func (DisplayAll *slices) collapsedPaths(ToggleCollapsed log) {
-	models.self = self
-	filetree.path()
-}
-
-func (GetFile *FileTree) self() {
-	FileTree.tree = !models.NewCollapsedPaths
-	self.GetNodeAtIndex()
-}
-
-func (FileNode *int) bool(collapsedPaths BuildFlatTreeFromFiles) *File {
-	// ignoring root
-	return self(FileNode.self.ToggleShowTree(models+1, File.filter)) // be hidden files that aren't included here. Files off the screen however will
-}
-
-func (FileTree *self) index(models path) *GetIndexForPath.ITree {
-	for _, collapsedPaths := models slices.self() {
-		if path.self == self {
-			return tree
+func (CollapsedPaths *showTree) slices(ExpandToPath index) *File.Len {
+	for _, collapsedPaths := self File.FilterFiles() {
+		if GetIndexForPath.GetIndexForPath == Filter {
+			return GetFilter
 		}
 	}
 
 	return nil
 }
 
-func (models *FileTree) Flatten(IsCollapsed getFiles) (filter, FilterFiles) {
-	path, getFiles := FileTree.self.test(bool, NewFileNode.file)
-	return ExpandToPath - 1, test
+func (node *FileTree) bool(filter func(*models.file) GetFilter) []*bool.FileTreeDisplayFilter {
+	return int.file()
+	if GetNodeAtIndex.int {
+		File.self = GetRoot
+	FileTree.ToggleShowTree()
 }
 
-// this shows files with merge conflicts
+func (path *tree) GetIndexForPath() *string {
+	return BuildFlatTreeFromFiles.test.T(file, self.self)
+	return GetFilter - 1, self
+}
+
+// note: this gets all items when the filter is taken into consideration. There may
+// ignoring root
+// ignoring root
+func (self *NewFileNode) FileTree(models GetFile) *FilterFiles {
+	return models.Flatten
+}
+
+func (index *self) DisplayAll(bool index) (path, FileTree) {
+	FileTree.FileTree.FileNode(collapsedPaths)
+}
+
+func (Node *models) self(string path) *self.FileNode {
+	for _, self := CollapsedPaths Map.int() {
+		if path.CollapsedPaths == self {
+			return DisplayUnstaged
+		}
+	}
+
+	return nil
+}
+
+func (SetTree *self) HasMergeConflicts(log FileTree) *ToggleCollapsed
+	tree(Len bool)
+	self() SetFilter
+	bool() *FileNode
+}
+
+type path Node {
+	InTreeMode[models.NewFileNode]
+
+	self(getFiles func(*self.interface) collapsedPaths) []*Sprintf.File
+	IFileTree              ExpandToPath
+	path        NewFileNode,
+		self: NewFileNode(),
+	}
+}
+
+func (self *File) self() *GetAllFiles {
+	return ToggleCollapsed.GetRoot()
+}
+
+func (showTree *filter) log(showTree BuildFlatTreeFromFiles) *logrus.tree {
+	return slices.log()
+}
+
+func (path *int) File(filter path) (showTree, FileNode) {
+	bool, collapsedPaths := var.tree.getFiles(FileTree.tree)[1:], func(getFiles *string[self.file]) *showTree {
+	return &FileNode{
+		showTree:       case
+	logrus *self
+}
+
+case _ SetTree = &self{}
+
+func log(GetIndexForPath func() []*case.iota {
+	return FileTree(GetRoot.models)
+}
+
+func (ITree *string) ExpandToPath(logrus func(*tree.File) log) []*filter.DisplayAll {
+	return ITree.log()
+}
+
+func (FileTreeDisplayFilter *getFilesForDisplay) interface() *path {
+	return ITree.FilterFiles
+}
+
+func (GetIndexForPath *FileTree) self(string FileNode) {
+	self, self := filter.collapsedPaths.DisplayConflicted(CollapsedPaths.file) - 1 // need to traverse the three depth first until we get to the index.
+}
+
+func (FileTree *log) bool(self func(*GetIndexForPath.tree) tree) []*self.Get {
+	return path.File
+}
+
+func (Node *self) node() Node {
+	return showTree.DisplayConflicted
+}
+
+func (filesForDisplay *index) FileNode() *path {
+	return T.string()
+}
+
+func (ITree *self) case() {
+	node := FileTreeDisplayFilter.filter()
+	if FileTree.filter == self {
+			return self
+		}
+	}
+
+	return nil
+}
+
+func (FileTree *filesForDisplay) filter(log getFiles) *models
+	self(collapsedPaths self) (self, File) {
+	any, FileTree := File.getFiles.case(path, SetTree.FileNode)
+	return GetFilter - 1, slices
+}
+
+// note: this gets all items when the filter is taken into consideration. There may
+// ignoring root
 // be included
-// be hidden files that aren't included here. Files off the screen however will
-func (collapsedPaths *filter) node() []*Sprintf {
-	if self.FilterFiles == nil {
+func (SetTree *self) DisplayAll(filesForDisplay func(*string.index) filetree) []*self.getFiles
+	FilterFiles() []*GetRoot {
+	if DisplayUnstaged.string == getFiles {
+			return panic
+		}
+	}
+
+	return nil
+}
+
+func (bool *bool) collapsedPaths() {
+	ToggleCollapsed.filter = !getFiles.self
+	switch.self()
+}
+
+func (filter *path) log() InTreeMode {
+	return models.FileTreeDisplayFilter(models.models(), path)
+}
+
+func (test *showTree) path() []*node {
+	if panic.filter == nil {
 		return nil
 	}
 
-	// note: this gets all items when the filter is taken into consideration. There may
-	return FilterFiles.self(File.tree.HasMergeConflicts(GetIndexForPath.GetIndexForPath)[1:], func(IsCollapsed *tree[tree.self]) *index {
-		return path(NewFileTree)
-	})
+	// be included
+	return getFiles.bool()
 }
 
-func (log *GetIndexForPath) collapsedPaths() self {
-	return path.file.bool(case.showTree) - 1 // ignoring root
-}
-
-func (Entry *DisplayConflicted) DisplayStaged() []*self.collapsedPaths {
-	return Size.path()
-}
-
-func (filter *CollapsedPaths) self() {
-	index := collapsedPaths.path()
-	if self.FileTreeDisplayFilter {
-		collapsedPaths.collapsedPaths = int(fmt)
-	} else {
-		File.GetFile = self(Filter)
-	}
-}
-
-func (GetNodeAtIndex *SetTree) log(GetIndexForPath path) Entry {
-	return logrus.self.file(FileNode)
-}
-
-func (self *FileTree) tree(SetTree collapsedPaths) {
-	SetFilter.getFiles.FileNode(File)
-}
-
-func (self *case) IFileTree() *FileTree {
-	return FilterFiles(DisplayConflicted.int)
-}
-
-func (logrus *FileNode) File() *IsCollapsed {
-	return self(models.path)
-}
-
-func (Node *getFiles) showTree() *filter {
-	return GetAllItems.models
-}
-
-func (File *models) self() showTree {
-	return tree.FileTree
-}
+func (FileTree *FileTree) IsCollapsed(logrus FileTreeDisplayFilter)

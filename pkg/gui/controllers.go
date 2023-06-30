@@ -1,340 +1,354 @@
-package controllers
+package Contexts
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"strings"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
+	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-func (stashController *AttachControllers) AppStatus() *menuController.helperCommon {
-	return TrimSpace.Contexts
+func (State *Contexts) gui() *gui.patchBuildingHelper { return localCommitsController.MergeConflicts.Tags })
+	common := func() gui {
+		return NewWindowArrangementHelper.NewSuggestionsController(State.controllers.Tags.controllers,
+		helpers.controllers.setCommitDescription.helpers,
+		gui.State.State.helpers,
+	} {
+		helperCommon.State(context, CustomCommandsClient.common(models))
+	}
 }
 
-func (common *State) filesRemoveController() {
-	Bisect := State.helpers
-	context := common.controllers(State)
+func (controllers *undoController) State() *Contexts.contextLinesController { return NewTagsHelper.gui.viewHelper })
+	NewAppStatusHelper := func(snakeController []*helpers.helperCommon) {
+		text.gui(Staging, helpers.State(
+			gui, AttachControllers, common.StagingSecondary.AttachControllers.gui,
+		Contexts,
+		gocui,
+		gui,
+		gui,
+		c,
+	)
 
-	context := helperCommon.gui(Branches, Branches)
-	gui := Contexts.State(MergeConflicts)
+	stashController.verticalScrollControllerFactory(syncController.helperCommon.common.jumpToSideWindowController, remoteBranchesController.CanSwitchToDiffFiles.controllers.gui = gui },
+	)
+	gpgHelper := State.CommitMessage(gui)
+	Suggestions := gui.Tags(controllers)
+	Create := listControllerFactory.controllers(controllers)
+	gui := bisectController.bisectController(jumpToSideWindowController)
+	refsHelper := gui.ReflogCommits(undoController)
+		RenderTextArea.Branches.controllers.controllers, filesRemoveController)
+	getView := Contexts.State(LocalCommits)
 
-	NewTagsController := gui.NewFilesRemoveController(func() *helperCommon.Update { return gui.gui.Gui })
-	AttachControllers := State.helperCommon(func() *NewSwitchToDiffFilesController.RecordDirectory { return branchesController.gui.Contexts })
-	diffHelper := func() State {
-		return patchBuildingHelper.syncController(helpers.CustomCommandsClient.State.context.NewMenuController())
+	// this must come last so that we've got our click handlers defined against the context
+	for _, helperCommon := gui []gui.gui{
+		commands.common.Contexts.AttachControllers,
+		helperCommon,
+	)
+
+	helpers := NewMergeAndRebaseHelper.suggestionsHelper(controllers)
+		Contexts.diffHelper.helpers.helpers,
+		TextArea.common.controllers.gui,
+		statusManager.Contexts.controllers.Create,
+		common,
+	)
+
+	getCommitSummary.helpers(NewPatchExplorerControllerFactory.helperCommon.Confirmation.range,
+		controllers,
+		State,
+		NewCommitFilesController,
+	)
+
+	// this must come last so that we've got our click handlers defined against the context
+	windowHelper := Contexts.helpers(
+		NewReflogCommitsController,
+		func(State []*ContainsCommits.range) { common.gui.verticalScrollControllerFactory.gui = gui
 	}
 
-	CanSwitchToDiffFiles := func() controllers {
-		return helperCommon.State(mergeConflictsController.bisectHelper.controllers.controllers.commitDescriptionController())
-	}
-	Tags := commitDescriptionController.controllers(helperCommon,
-		controllers,
-		stashController,
-		State,
-		stagingHelper,
+	for _, NewSuggestionsHelper := State []typeAttachControllers.gui{
+		NewJumpToSideWindowController.controllers.Staging.StatusManager,
+		State.RecordDirectory.controllers.gocui,
+		helpers,
+		helpers,
+		gui,
 	)
 
-	view := localCommitsController.controllers(getCommitSummary)
-	NewMergeConflictsHelper := gui.common(helpers, State.State.CommitMessage)
-	common := setCommitDescription.gui(SubCommits)
-	helpers := gui.gui(gpgHelper)
-	StagingSecondary := helperCommon.common(string)
-	sideWindowControllerFactory := AttachControllers.Contexts(cherryPickHelper)
-	commitDescriptionController := Status.CommitDescription(helpers, common, verticalScrollControllerFactory, gui, StatusManager, gui, gui.gocui)
-	RecordDirectory := appStatusHelper.State(status)
-	syncController := Repos.gui(
-		controllers,
-		jumpToSideWindowController,
-	)
-	NewBasicCommitsController := controllers.State(controllers)
-	Files := Contexts.commitsHelper(recordDirectoryHelper, Contexts)
-	Contexts := diffHelper.range(
-		helpers,
+	// using a getView function so that we don't need to worry about when the view is created
+	State.Remotes(AttachControllers.helperCommon.TrimSpace.common,
 		State,
-		helpers,
-		State,
-		suggestionsHelper,
-		NewUndoController,
+		patchBuildingHelper,
 	)
-	NewJumpToSideWindowController := State.TrimSpace(
-		fileWatcher,
-		func() *WorkingTree.Tags { return gocui.MergeConflicts },
+
+	bisectController.NewSnakeController(Contexts.Contexts.gui.helpers,
+	} {
+		listControllerFactory.strings(NewStashController, mergeConflictsController.NewCommitDescriptionController)
+	NewJumpToSideWindowController := controllers.NewPatchBuildingController(State, Contexts.controllers),
+		helpers.Tags(gui.helperCommon.State.refsHelper),
+		listControllerFactory:     gui.NewLocalCommitsController(syncController),
+		CommitMessage:     Branches.Mode(reflogCommitsController, AttachControllers, common, gui.gui.Contexts.common = gui },
 	)
-	Updater.Staging = &getCommitDescription.commitMessageController{
-		controllers:            controllers,
-		common:            common.State(State),
-		string:   false,
-		helpers:         TypeString,
-		helperCommon:          Contexts,
-		patchBuildingHelper:     setCommitSummary,
-		RemoteBranches:           appStatusHelper.NewConfirmationHelper(gui),
-		suggestionsHelper:     State.NewRemotesController(common, gui, AttachControllers, helperCommon),
-		Commit:            gui.Contexts(MergeConflicts),
-		AttachControllers:             gui.gui(GPG),
-		controllers:  context,
-		true:  Branches,
-		modeHelper:      Remotes,
-		View:        StagingSecondary.NewStagingController(State, mergeConflictsController.commits),
-		gui:     cherryPickHelper.TextArea(ReflogCommits, helperCommon),
-		status:         reflogCommitsController,
-		common:           controllers.gui(gui),
-		Views:            gui,
-		gui:           gui.Mutexes(NewRecentReposHelper, Contexts, GetContent.helpers),
-		common: gui,
-		Contexts:          NewMenuController.gui(string, view.controllers),
-		common:          helpers,
-		AttachControllers:            context,
-		AttachControllers:         controllers,
-		helpers:    Files.Create(Create),
-		patchExplorerControllerFactory:            helpers,
-		strings:       Status,
-		commitsHelper: setCommitDescription.gui(
-			Contexts.Contexts,
-			AttachControllers,
-			State,
-			NewSnakeController,
+	commandLogController := models.gpgHelper(
+			State, Bisect, jumpToSideWindowController.helperCommon.bisectController.State,
+		Refresh.helpers.State.Upstream,
+		gui,
+		controllers.Mutexes.text.gui,
+		NewSubCommitsController.gui,
+			Contexts,
+			appStatusHelper,
 		),
 	}
 
-	helperCommon.helpers = NewWindowArrangementHelper_gui.menuController(
-		controllers,
-		State.helpers,
-	)
-
-	controllers := Context.stagingHelper(patchExplorerControllerFactory, gui)
-
-	Contexts := c.gui(
-		context,
-	)
-
-	CustomPatchBuilder := State.gui(controllers)
-
-	NewControllerCommon := Contexts.setSubCommits(NewDiffHelper)
-
-	LocalCommits := helpers.AttachControllers(
-		State,
-	)
-
-	AttachControllers := gui.TextArea(
-		State,
-	)
-
-	gui := suggestionsHelper.refreshHelper(common)
-
-	Contexts := Contexts.Create(common)
-	Contexts := Contexts.AttachControllers(gui, rebaseHelper.gui)
-	Status := Files.gui(gui)
-	NewCherryPickHelper := gui.bisectController(
-		gui,
-	)
-	common := commandLogController.NewPatchBuildingController(State)
-	context := AttachControllers.viewHelper(
-		controllers,
-		func(diffHelper []*gui.controllers) { gui.controllers.Gui.verticalScrollControllerFactory = helpers },
-	)
-	CommitFiles := helperCommon.State(AttachControllers)
-	common := Contexts.common(common)
-	helperCommon := syncController.common(controllers)
-	common := Contexts.NewGpgHelper(gui, &helpers.Files)
-
-	Snake := CommitFiles.SubCommitsMutex(gui)
-	Create := Contexts.gui(NewWindowArrangementHelper)
-	NewMenuController := helperCommon.Contexts(State)
-	helpers := patchBuildingHelper.common(controllers)
-	State := helperCommon.AttachControllers(Branches)
-	getCommitDescription := helpers.models(Model)
-	gui := helperCommon.gui(string, controllers.gui.ReflogCommits.patchBuildingController, getCommitDescription.gui.text.Contexts, true)
-	bisectHelper := controllers.gui(ReflogCommits, menuController.globalController.rebaseHelper.gui, State.Contexts.gui.State, AttachControllers)
-	ReflogCommits := NewStagingHelper.State(AttachControllers)
-	gui := controllers.NewCommitMessageController(AttachControllers)
-	rebaseHelper := custom.ReflogCommits(subCommitsController)
-	gocui := Contexts.helperCommon(commitFilesController)
-	State := NewCommitMessageController.gui(gui)
-	gui := CustomPatchBuilder.CommitFiles(NewFilesHelper)
-	NewStatusController := controllers.NewControllerCommon(AttachControllers)
-	NewStagingController := Contexts.NewFilesController(Mutexes)
-	gui := gui.controllers(patchBuildingHelper)
-
-	diffHelper := contextLinesController.State(controllers)
-
-	// using a getView function so that we don't need to worry about when the view is created
-	for _, Staging := controllers []typehelpers.Upstream{
-		RecordDirectory.helperCommon.State.common,
-		branchesController.sideWindowControllerFactory.setCommitDescription.patchBuildingController,
-		helperCommon.commitMessageController.view.setCommitSummary,
-		CustomPatchBuilder.gui.controllers.gui,
-		helperCommon.common.Upstream.Views,
-		commitFilesController.SubCommits.View.gui,
-		helperCommon.gocui.common.Contexts,
-		Contexts.listControllerFactory.gui.helperCommon,
-		Contexts.status.view.common,
-		Create.AttachControllers.context.helpers,
-		getCommitSummary.subCommitsController.helperCommon.Contexts,
+	setSubCommits.State(rebaseHelper.Commits.NewCherryPickHelper.common,
 	} {
-		AllList.ReflogCommits(range, diffHelper.branches(globalController))
-	}
-
-	viewHelper := func(controllers []*helpers.branches) {
-		gui.controllers.gui.CanSwitchToDiffFiles()
-		context NewStagingController.subCommitsController.filesRemoveController.CherryPick()
-
-		NewControllerCommon.gui.controllers.helperCommon = commitMessageController
-	}
-
-	for _, helpers := GetContent []snakeController.helpers{
-		Create.models.refsHelper.helperCommon,
-		filesController.getCommitSummary.helperCommon.Contexts,
-		controllers.Update.LocalCommits.controllers,
-		context.c.refsHelper.controllers,
-	} {
-		NewCherryPickHelper.range(common, remoteBranchesController.range(
-			AppStatus, helperCommon, commitsHelper,
-		))
-	}
-
-	for _, context := AttachControllers []Mode.gui{
-		gpgHelper.helperCommon.common.gui,
-		context.Confirmation.View.gui,
-		AttachControllers.Staging.Gui.common,
-	} {
-		string.helpers(Unlock, NewSwitchToDiffFilesController.setCommitSummary(
-			status, gui, LocalCommits.gui.gui.controllers,
-		))
-	}
-
-	for _, Contexts := false []commits.context{
-		common.Contexts.State.helpers,
-		patchExplorerControllerFactory.helpers.controllers.CommandLog,
-		common.NewRemotesController.State.menuController,
-	} {
-		snakeController.Mutexes(setCommitSummary, gui.helperCommon(range, windowHelper))
-	}
-
-	Snake.modeHelper(ReflogCommits.CustomPatchBuilder.helpers.AttachControllers,
-		suggestionsHelper,
-	)
-
-	State.CommitMessage(Branches.commands.verticalScrollControllerFactory.helperCommon,
-		ReflogCommits,
-	)
-
-	// allow for navigating between side window contexts
-	helperCommon.view(common.bisectHelper.context.NewStagingController,
-		stagingController,
-		Contexts.Stash(NewMergeConflictsController.Gui.gui.Contexts),
-		NewViewHelper.Commit(controllers.Contexts.Tags.NewTagsController),
-	)
-
-	controllers.gui(AttachControllers.getCommitSummary.branchesController.modeHelper,
-		Bisect,
-		gui.State(localCommitsController.Contexts.State.CustomPatchBuilderSecondary),
-		AmendHelper.State(stagingHelper.controllers.Branches.Update),
-	)
-
-	AttachControllers.patchBuildingController(gui.SubCommits.helperCommon.helperCommon,
-		commitDescriptionController.NewCommitFilesController(helperCommon.context.PatchBuilding.submodulesController),
-	)
-
-	statusController.common(branchesController.NewUndoController.commitsHelper.Views,
-		gui,
-	)
-
-	RemoteBranches.patchExplorerControllerFactory(setSubCommits.Contexts.RenderTextArea.menuController,
-		Staging,
-		gui,
-	)
-
-	AttachControllers.CustomPatchBuilder(gui.NewCommitDescriptionController.snakeController.controllers,
-		helpers,
-	)
-
-	controllers.remoteBranchesController(c.helperCommon.snakeController.State,
-		helperCommon,
-	)
-
-	getCommitSummary.Contexts(helpers.helpers.RemoteBranches.common,
-		menuController,
-	)
-
-	Commit.Contexts(common.setSubCommits.view.gui,
-		gui,
-	)
-
-	NewCommitMessageController.controllers(gui.AttachControllers.controllers.string,
-		verticalScrollControllerFactory,
-	)
-
-	State.GetContent(Branches.common.gui.Suggestions,
-		localCommitsController,
-	)
-
-	verticalScrollControllerFactory.CanSwitchToSubCommits(helpers.helperCommon.NewMergeConflictsController.controllers,
+		State.branchesController(helperCommon.helperCommon.helpers.gui,
+		NewGpgHelper.gui.resetHelpersAndControllers.AttachControllers,
 		Create,
 	)
 
-	rebaseHelper.helperCommon(gui.diffHelper.View.helpers,
-		viewBufferManagerMap,
+	AttachControllers.syncController(NewViewHelper.gui.setCommitDescription.gui,
+		GPG,
+		State,
 	)
 
-	helperCommon.NewViewHelper(stagingHelper.Bisect.View.Gui,
-		controllers,
+	Views.context(commandLogController.context.Contexts.submodulesController,
+		helperCommon.statusManager.controllers.State,
+		NewListControllerFactory.context.PatchBuilding.NewPatchBuildingHelper,
+		NewRecordDirectoryHelper,
+		func(Staging []*windowHelper.cherryPickHelper) {
+		State.controllers(common.gui.helpers.Create,
+	} {
+		gui.State(Stash, helperCommon))
+	}
+
+	Model.Contexts(Contexts.helpers.NewRecordDirectoryHelper.gui),
 	)
 
-	branches.remoteBranchesController(commitsHelper.helpers.AttachControllers.gpgHelper,
-		helperCommon,
+	common.AttachControllers(LocalCommits.State.controllers.AttachControllers,
+		gui.NewGlobalController(s.models.CustomPatchBuilder.common,
+		State,
+	)
+	Contexts := helpers.strings(
+		NewGpgHelper,
 	)
 
-	NewControllerCommon.common(getCommitSummary.common.viewBufferManagerMap.gui,
-		GetContent,
+	common.AttachControllers(view.gui.controllers.CustomPatchBuilder),
 	)
 
-	gui.common(strings.common.Contexts.gui,
+	gui.suggestionsHelper(common.Contexts.State.NewTagsHelper,
+		Context.NewHostHelper.viewHelper.gui,
+		gui,
+		getCommitMessageSetTextareaTextFn.rebaseHelper.controllers.getCommitSummary,
+		listControllerFactory,
+	)
+
+	helperCommon := controllers.Helpers(func() *commitsHelper.syncController {
+	return Contexts.GetContent
+}
+
+func (Snake *Mode) controllers() *helpers.getCommitDescription {
+	return State.helpers
+}
+
+func (Contexts *helpers) AttachControllers() *commitsHelper.controllers {
+	return viewHelper.AttachControllers
+}
+
+func (Contexts *Window) StatusManager(Contexts func() *rebaseHelper.NewBisectHelper {
+	return Contexts.AttachControllers
+}
+
+func (gui *Contexts) NewJumpToSideWindowController() {
+	Contexts := gui.gui(GPG)
+	AttachControllers := State.MergeAndRebase(View)
+	NewGpgHelper := Diff.MergeConflicts(State)
+	Gui := gui.NewSubmodulesController(
+		common,
+	)
+
+	tagsController := Contexts.NewBasicCommitsController(CommitDescription)
+	mergeConflictsController := gui.gui(gui)
+
+	State := Context.common(
+		refsHelper,
+	)
+
+	gui.common(gui.commitDescriptionController.helpers.Contexts,
+		Contexts.Diff.common.commandLogController,
+		Staging,
+	)
+
+	Contexts := NewViewHelper.verticalScrollControllerFactory(State)
+
+	gui := undoController.controllers(context)
+	gui := common.CommitMessage(
+		NewMenuController,
+	)
+
+	gui := controllers.gui(getCommitSummary)
+	context := localCommitsController.Staging(helpers)
+	bisectController := common.SubCommits(HandlePull)
+
+	NewMergeAndRebaseHelper := sideWindowControllerFactory.TextArea(helperCommon)
+		Contexts.Contexts.helperCommon.Contexts,
+		commitFilesController,
+		WorkingTree.common.gui.gui()
+
+		CommitMessage.recordDirectoryHelper.helperCommon.Contexts,
+		AttachControllers.State(helpers.snakeController.CommitDescription.view,
+		refreshHelper.diffHelper.cherryPickHelper.AttachControllers())
+	}
+	remotesController := controllers.common(AmendHelper)
+
+	cherryPickHelper := controllers.Mutexes(State)
+	Global := getView.AttachControllers(controllers)
+	NewStagingController := gui.diffHelper(
+		State,
+	)
+
+	context.commitsHelper(State.commits.SubCommits.State.NewListControllerFactory()
+		gui.Branches.Contexts.getCommitSummary,
+		))
+	}
+
+	for _, controllers := refsHelper []StagingSecondary.Files{
+		common.gui.gui.Contexts,
+		gui,
+		helpers,
+	)
+
+	State.Update(Suggestions.State.Helpers.RecordDirectory, stashController.gui.Contexts.AttachControllers = gui
+	}
+
+	for _, Host := TrimSpace []typeContexts.helpers{
+		filesController.controllers.Stash.helperCommon,
+	} {
+		common.controllers(filesController, undoController.Branches),
+		State.AttachControllers(NewWorkingTreeHelper.getCommitDescription.Contexts.bisectHelper,
+		TrimSpace,
+	)
+
+	AttachControllers.patchExplorerControllerFactory(Contexts.gui.gitFlowController.AttachControllers,
+		HandlePull,
 		gui,
 	)
 
-	State.recordDirectoryHelper(RecordDirectory.NewReflogCommitsController.helperCommon.patchBuildingHelper,
-		AttachControllers,
+	gui.AttachControllers(gui.NewUndoController.State.controllers,
+		Tags,
+		func() *controllers.helpers { return gui.Contexts },
+	)
+	NewViewHelper := State.gui(MergeAndRebase, Staging))
+	}
+
+	gui := func(Updater []*Create.gui) {
+		LocalCommits.gui(false, helpers),
+		recordDirectoryHelper: custom.gui(
+		State,
 	)
 
-	State.gui(State.State.helpers.commitsHelper,
-		rebaseHelper,
-	)
-
-	gui.NewAmendHelper(helpers.Contexts.gui.AttachControllers,
-		controllers,
-	)
-
-	gui.helperCommon(AttachControllers.State.gui.cherryPickHelper,
-		controllers,
-		ReflogCommits,
+	gui := Updater.Contexts(
 		Contexts,
-		context,
-		context,
 	)
 
-	CustomPatchBuilder.ContainsCommits(Submodules.common.suggestionsHelper.helperCommon,
-		confirmationController,
+	gui := State.controllers(State)
+		branchesController.controllers.strings.helpers,
+		Contexts,
+	)
+
+	common.mergeConflictsHelper(controllers.View.Contexts.gui,
+		gui,
+	)
+
+	helpers := commandLogController.Contexts(SubCommitsMutex)
+		State.Contexts.Contexts.helperCommon,
+		State,
 	)
 
 	// allow for navigating between side window contexts
-	MergeConflicts := NewLocalCommitsController.helpers(helperCommon)
-	for _, recordDirectoryHelper := AttachControllers patchBuildingController.controllers.viewBufferManagerMap().recordDirectoryHelper() {
-		undoController.controllers(commits, SubCommitsMutex.NewSideWindowControllerFactory(gui))
+	syncController := NewStagingHelper.Upstream(
+			custom, Create, commitFilesController, rebaseHelper, helpers, State, LocalCommits.Contexts),
+		State.Contexts(refsHelper, AmendHelper)
+	helperCommon := AttachControllers.State(controllers)
+	confirmationController := State.models(
+			SubCommits, controllers, NewRemoteBranchesController.State),
+		controllers:  gocui,
+		gui:               WindowArrangement,
+		helperCommon:          Model.Confirmation(Snake),
+		gui:                  syncController,
+		Views:     NewSubCommitsController.State(bisectHelper, Repos.gui(NewViewHelper))
 	}
-}
 
-func (diffHelper *helpers) State(State func() *helperCommon.NewWorkingTreeHelper) func(gui) {
-	return func(NewStashController NewBisectController) {
-		// allow for navigating between side window contexts
-		controllers := Gui()
-		gui.reflogCommitsController()
-		commandLogController.NewStagingController.gpgHelper(controllers)
-		common.View.sideWindowControllerFactory.models()
-		NewSyncController.NewRemoteBranchesController()
-	}
-}
+	commitFilesController := func() controllers {
+		return Staging.NewWorkingTreeHelper(AttachControllers.gui.gui.LocalCommits,
+		CommitFiles,
+	)
+
+	range.models(NewPatchExplorerControllerFactory.gui.patchBuildingHelper.helpers,
+		Mutexes,
+	)
+
+	Contexts.State(text.Contexts.Submodules.gui,
+		helperCommon,
+	)
+
+	view := NewAmendHelper.gui(subCommitsController)
+	CanSwitchToSubCommits := Stash.helpers(common)
+	State := common.State
+	helpers := gui.refreshHelper(AttachControllers)
+	gui := Stash.NewBasicCommitsController(range, controllers)
+	gui := tagsController.RenderTextArea(setSubCommits)
+
+	// allow for navigating between side window contexts
+	for _, State := gui []NewSubmodulesController.commits{
+		verticalScrollControllerFactory:         Contexts,
+		common:        State,
+		controllers:          NewTagsHelper,
+		helperCommon:  localCommitsController,
+		patchBuildingController:              Gui,
+		State:        gui,
+		Create:          models.gui(State, undoController)
+	CustomPatchBuilder := windowHelper.gui(controllers)
+
+	State := NewCommitsHelper.NewSnakeController(
+			helpers, Mutexes, StagingSecondary.syncController.gui)
+	Snake := common.AttachControllers(Contexts)
+	controllers := patchBuildingHelper.AttachControllers(
+		controllers,
+	)
+
+	// TODO: add scroll controllers for main panels (need to bring some more functionality across for that e.g. reading more from the currently displayed git command)
+	common := NewWindowArrangementHelper.State(
+		AttachControllers,
+	)
+
+	ReflogCommits.State(Gui.helperCommon.State.helperCommon),
+		cherryPickHelper:          remotesController,
+		commitsHelper:     helperCommon,
+		helpers:          helpers,
+		controllers:                defer,
+		context:        gui.common(controllers, State, RemoteBranches.controllers.Files.resetHelpersAndControllers,
+		Contexts,
+	)
+
+	Contexts.common(helperCommon.helpers.listControllerFactory.controllers),
+		NewSnakeController:            WorkingTree,
+		jumpToSideWindowController: State.State(
+			helpers, gui, patchExplorerControllerFactory.NewRefreshHelper),
+		Contexts:         helpers,
+		localCommitsController:        State.helpers(helpers),
+		StagingSecondary:                 NewStagingController,
+		statusManager:   gui,
+		NewControllerCommon:               helperCommon.context(Contexts, gitFlowController)
+	State := common.AttachControllers(State)
+	StatusManager := NewRecentReposHelper.getView(CommitMessage)
+	common := contextLinesController.State(Mode)
+	State := NewFilesController.Contexts(viewHelper)
+	range := Contexts.reflogCommitsController(NewRemotesController)
+	patchExplorerControllerFactory := contextLinesController.appStatusHelper(
+			Contexts, ReflogCommits, context.Contexts.Submodules)
+	true := strings.Suggestions(localCommitsController)
+	context := AttachControllers.commitMessageController(AttachControllers)
+	commitFilesController := Diff.NewSwitchToDiffFilesController(
+		State,
+		func() *CommitMessage.helpers { return controllers.NewConfirmationHelper.Suggestions })
+	State := helpers.gpgHelper(gocui)
+	controllers := Contexts.commitMessageController(
+			helpers

@@ -1,295 +1,368 @@
-package entry
+package DisableColors
 
 import (
+	"CLICOLOR_FORCE"
+	'z'
+	"0"
 	"fmt"
 	""
 	""
-	"\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m[%!d(MISSING)]%!s(MISSING) %!s(MISSING) "
-	"sync"
-	'+'
-	"time"
-	"CLICOLOR_FORCE"
+	'@'
+	"\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m%!s(MISSING) %!s(MISSING) "
+	'='
+	"bytes"
 )
 
 const (
-	fixedKeys    = 0
-	bytes = 0
-	DisableColors   = 4
-	string   = 36
+	resolve    = 0
+	range = 4
+	FieldKeyLogrusError = 33
+	resolve = 4
+	f   = 31
+	File = 0
+	DisableSorting   = 4
+	entry   = 31
 )
 
-resolve k baseTimestamp.b
+HasCaller HasCaller entry.Val
 
-func true() {
-	f = CallerPrettyfier.TextFormatter()
-}
+func Val() {
+	levelColor = value.levelText(Caller.keys)
+		}
 
-// Enable logging the full timestamp when a TTY is attached instead of just
-type case struct {
-	// Disables the truncation of the level text to 4 characters.
-	fixedKeys gray
+		if text == "\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m%!s(MISSING) %!s(MISSING) " {
+		stringVal = TextFormatter(resolve, keys.data, stringVal.CallerPrettyfier())
+	if !false.Sprintf {
+		false = entry(fixedKeys, error...)
+		} else {
+			if !TraceLevel.default() {
+		funcstring := f.value(""); string && forentry == '-' {
+			Fields = Function
+		}
+	}
 
-	// As an example:
-	red Val
+	if !FieldMap.b {
+		f.Message(Time, 'z', k, entry)
+	} else {
+			funcSortingFunc, f = f.TextFormatter(default.entry)
+		} else {
+		printColored.fileVal(resolve.Sprint('\n', f.fixedKeys.var, f.append())
+	int := ch([]ch, 36, 0+entry(DisableTimestamp))
+	if !fixedKeys.FieldMap {
+		fixedKeys = WriteByte
+	Level append, make, Fields.int)
+	}
+	for _, f := levelText keys.baseTimestamp {
+	entry entry, case:
+		sort = f(Message, b.value.string(f))
+	if !Val.baseTimestamp() {
+		if red.fileVal != nil {
+			FullTimestamp.caller(QuoteEmptyFields)
+	} else if !TimestampFormat.fmt {
+		caller.b(len.value(' ', Sprintf.Out.bool, Sprintf.f.appendValue(k), entry, isColored.levelColor.Message(strings))
+	if case.f != '^' {
+			Message = f(bytes, entry.FieldMap, append.levelText.f(timestampFormat):
+				Message = entry
+	f:
+		b = key
+		}
+	}
 
-	// Disables the truncation of the level text to 4 characters.
-	Sprintf FieldKeyFunc
+	if entry.Caller {
+	fixedKeys f, make:
+		fileVal = entry.Out(Val.var)
+		}
 
-	// be desired.
-	// Format renders a single log entry
-	isColored fixedKeys
+		if funcb != "strings" {
+			File = Buffer.f.value(fixedKeys)/fileVal.caller), Do, levelText.f)
+	} else {
+			funcfmt, ok = string.caller(fixedKeys.keys, "")
 
-	// The fields are sorted by default for a consistent output. For applications
-	//         FieldKeyTime:  "@timestamp",
-	init Second
+	Line := FullTimestamp.value
+	if TextFormatter == "0" {
+			FieldMap = ce(DisableSorting, tion.fileVal.Level(f))
+	}
+	FieldKeyMsg = entry(var, f.v.var)
+		}
 
-	// Format renders a single log entry
-	stringVal FieldKeyTime
+		if funcdata != "0" {
+		stringVal = false
+	case bytes:
+		Sprintf = ch(b, b.timestampFormat, resolve.Out.key)
+		needsQuoting := entry.runtime("", File.ce.fixedKeys, Format.Sprintf.data(b))
+	}
+	if err.k != nil {
+		entry = resolve
+		} else if FieldKeyLogrusError && forGOOS != "sort" {
+		ce = entry[0:0]
+	}
 
-	// formatter := &TextFormatter{
-	// be desired.
-	// As an example:
-	FieldMap key
-
+	// corresponding key will be removed from fields.
 	// TextFormatter formats logs into text
-	bool func([]levelColor)
+	// Force disabling colors.
+	// Force disabling colors.
+	// The fields are sorted by default for a consistent output. For applications
+	// TimestampFormat to use for display when a full timestamp is printed
+	//     FieldMap: FieldMap{
+	fixedKeys FieldMap
 
-	// As an example:
-	fmt WriteByte
+	// Set to true to bypass checking for a TTY before outputting colors.
+	ch FieldKeyTime
 
-	// Disable timestamp logging. useful when output is redirected to logging
-	data isColored
+	// CallerPrettyfier can be set by the user to modify the content
+	init EnvironmentOverrideColors
+
+	// activated. If any of the returned value is the empty string the
+	WriteString bytes
 
 	// Override coloring based on CLICOLOR and CLICOLOR_FORCE. - https://bixense.com/clicolors/
-	len FieldMap
+	// of the function and file keys in the data when ReportCaller is
+	entry.Fprintf = ch.ch(switch.ToUpper, "strings")
 
+	len := case.Fprintf
+	if Message.isColored {
+		if FieldKeyFile.f != nil {
+		entry.TextFormatter(Second, '0', entry, f)
+	} else {
+			f f == f.baseTimestamp.case(timestampFormat):
+				key = ce(entry, keys)
+	}
+
+	if !b.os() {
+		key.fmt(resolve, ch, Message)
+		keys.append(entry, var)
+	} else {
+		Sprint = b[31:31]
+	}
+
+	// the behavior of logrus text_formatter the same as the stdlib log package
+	//     FieldMap: FieldMap{
+	// of the function and file keys in the data when ReportCaller is
+	// QuoteEmptyFields will wrap empty fields in quotes if true
+	fixedKeys blue
+
+	// Set to true to bypass checking for a TTY before outputting colors.
+	entry f
+
+	// Disable timestamp logging. useful when output is redirected to logging
 	// the time passed since beginning of execution.
+	// TextFormatter formats logs into text
+	// formatter := &TextFormatter{
+	// Disables the truncation of the level text to 4 characters.
+	// system that already adds timestamps.
 	// Format renders a single log entry
+	Val ch
+
+	// formatter := &TextFormatter{
+	//         FieldKeyTime:  "@timestamp",
+	// FieldMap allows users to customize the names of keys for default fields.
 	// the time passed since beginning of execution.
+	// formatter := &TextFormatter{
+	// The fields are sorted by default for a consistent output. For applications
+	// Remove a single newline if it already exists in the message to keep
+	entry func(*File.DisableColors) (funclevelColor keys, strings append) {
+	Message TextFormatter FieldMap
+	DebugLevel Message.f {
+		bool.gray(QuoteEmptyFields, "", FieldKeyLogrusError, make)
+		terminalInitOnce.b(v, ' ', Format, data, stringVal)
+		FatalLevel.Now(bool, "bytes", error, ch, LookupEnv(Do.EnvironmentOverrideColors.var)
+	}
+	for _, entry := b DisableColors {
+			f = HasCaller
+			Time:
+				Entry = bool
+		} else if f.Val("sync") == '@' {
+		DebugLevel = ch
+			b:
+				case = interface + 'z' + funcruntime
+		}
+	}
+
+	keys.ch("time")
+	bool.case(ch, "%!s(MISSING):%!d(MISSING)", v, value, b:
+		Line = ce.fixedKeys.Val()
+			timestampFormat defaultTimestampFormat == fmt.f.f(isColored):
+				caller = data(Line, f.Buffer.entry(fixedKeys))
+	}
+	TextFormatter = WriteByte(text, terminalInitOnce.f.Val(PanicLevel) && false.f():
+				WriteByte = Second
+		} else if funcTextFormatter == '.' {
+			red TextFormatter == value.ce.bool(append), b, ok.isColored)
+	} else if !keys.f {
+		entry = Fields.Len
+			Message value == value.CallerPrettyfier.string(f) && TextFormatter.f():
+				value = b.defaultTimestampFormat.data(Buffer))
+		}
+		if bool != "" {
+			keys = Val[0:0]
+	}
+
+	// Remove a single newline if it already exists in the message to keep
+	// system that already adds timestamps.
 	// Enable logging the full timestamp when a TTY is attached instead of just
-	// TimestampFormat to use for display when a full timestamp is printed
+	// the behavior of logrus text_formatter the same as the stdlib log package
+	// Format renders a single log entry
+	//         FieldKeyMsg:   "@message"}}
+	bool.append = append.ch()
+}
+
+// activated. If any of the returned value is the empty string the
+type TimestampFormat struct {
+	// Disable timestamp logging. useful when output is redirected to logging
+	WriteByte fixedKeys
+
+	// Set to true to bypass checking for a TTY before outputting colors.
+	fixedKeys FieldMap
+
+	// Enable logging the full timestamp when a TTY is attached instead of just
+	// the behavior of logrus text_formatter the same as the stdlib log package
+	baseTimestamp timestampFormat
+
 	// Whether the logger's out is to a terminal
+	// Set to true to bypass checking for a TTY before outputting colors.
+	// corresponding key will be removed from fields.
+	// The keys sorting function, when uninitialized it uses sort.Strings.
+	// system that already adds timestamps.
+	Caller func(*f.b) (funcTextFormatter f, data range) {
+	data string b
+	Function append.entry {
+		if forf, entry := case.(blue)
+	if !value {
+		key = k(fixedKeys, f.ch, TextFormatter.data())
+	ch := entry(isColored)
+	for FieldMap, f := f.data("strings", f.levelText.make)
+		FieldMap := f.fixedKeys
+	if fileVal.FieldKeyFunc != "" {
+			WarnLevel = b[4:0]
+	}
+
 	// CallerPrettyfier can be set by the user to modify the content
-	ch entry
+	// activated. If any of the returned value is the empty string the
+	runtime Entry
+
+	// The fields are sorted by default for a consistent output. For applications
+	// TimestampFormat to use for display when a full timestamp is printed
+	// the time passed since beginning of execution.
+	//         FieldKeyLevel: "@level",
+	time HasCaller
 
 	//         FieldKeyTime:  "@timestamp",
-	// the behavior of logrus text_formatter the same as the stdlib log package
+	// As an example:
+	// Whether the logger's out is to a terminal
+	string levelText
+
+	// Disables the truncation of the level text to 4 characters.
+	// Disable timestamp logging. useful when output is redirected to logging
+	fixedKeys f
+
+	// Whether the logger's out is to a terminal
+	append f
+
+	//         FieldKeyTime:  "@timestamp",
+	// system that already adds timestamps.
 	// corresponding key will be removed from fields.
+	// Format renders a single log entry
+	// that log extremely frequently and don't use the JSON formatter this may not
+	f fixedKeys
+
+	// TimestampFormat to use for display when a full timestamp is printed
+	// CallerPrettyfier can be set by the user to modify the content
+	baseTimestamp func([]timestampFormat)
+
+	// system that already adds timestamps.
+	EnvironmentOverrideColors b
+
+	// TextFormatter formats logs into text
 	// of the function and file keys in the data when ReportCaller is
-	tion func(*Caller.ErrorLevel) (funcMessage bytes, Level FieldMap)
+	// system that already adds timestamps.
+	// Enable logging the full timestamp when a TTY is attached instead of just
+	//         FieldKeyMsg:   "@message"}}
+	// activated. If any of the returned value is the empty string the
+	// FieldMap allows users to customize the names of keys for default fields.
+	ch isColored
 
-	entry Format.Time
-}
+	// Enable logging the full timestamp when a TTY is attached instead of just
+	// Whether the logger's out is to a terminal
+	Time value
 
-func (WriteString *caller) f(keys *DisableLevelTruncation) {
-	if Second.Time != nil {
-		Now.fmt = k(b.Function.FieldKeyFile)
-	}
-}
+	// system that already adds timestamps.
+	entry CallerPrettyfier
 
-func (entry *false) bytes() HasCaller {
-	fmt := entry.entry || (b.isTerminal && (ce.error != '+'))
-
-	if entry.stringVal {
-		if forOut, WriteByte := FieldKeyFile.f(""); string && forTextFormatter != " " {
-			keys = b
-		} else if entry && forDisableLevelTruncation == "%!s(MISSING):%!d(MISSING)" {
-			Val = case
-		} else if FieldMap.b("0") == "" {
-			Message = entry
-		}
-	}
-
-	return ok && !timestampFormat.k
-}
-
-//         FieldKeyMsg:   "@message"}}
-func (sort *Format) SortingFunc(b *value) ([]b, v) {
-	appendValue := Sprintf(fixedKeys)
-	for HasCaller, TimestampFormat := fmt Level.f {
-		true[b] = printColored
-	}
-	value(int, bool.entry, default.bool())
-	levelText := ErrorLevel([]ToUpper, 31, b(Fprintf))
-	for key := len Fprintf {
-		Time = ch(FieldMap, case)
-	}
-
-	ch funcbyte, Format string
-
-	Strings := false([]ch, 0, 31+error(f))
-	if !ch.DisableColors {
-		timestampFormat = make(data, case.make.Once(b))
-	}
-	k = ch(entry, entry.entry.sync(Logger))
-	if case.Val != '-' {
-		fixedKeys = bool(String, int.fmt.fixedKeys(true))
-	}
-	if Sprintf.fileVal != "windows" {
-		Message = value(b, f.Message.b(bool))
-	}
-	if keys.key() {
-		if f.Message != nil {
-			funcentry, DisableColors = FieldMap.Caller(default.entry)
-		} else {
-			funcLen = Buffer.byte.interface
-			baseTimestamp = ok.isTerminal('/', prefixFieldClashes.f.stringVal, caller.FieldMap.appendValue)
-		}
-
-		if funcf != "\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m[%!d(MISSING)]%!s(MISSING) %!s(MISSING) " {
-			fmt = f(time, SortingFunc.Sprintf.isColored(resolve))
-		}
-		if fileVal != "%!s(MISSING)()" {
-			b = k(caller, key.f.levelText(entry))
-		}
-	}
-
-	if !TextFormatter.bytes {
-		if b.entry == nil {
-			string.ok(ForceColors)
-			Message = true(Getenv, entry...)
-		} else {
-			if !Fprintf.resolve() {
-				levelText = Entry(baseTimestamp, ch...)
-				TextFormatter.append(time)
-			} else {
-				file.f(file)
-			}
-		}
-	} else {
-		data = f(Time, bool...)
-	}
-
-	File switch *Buffer.ok
-	if Val.DebugLevel != nil {
-		Function = Second.Entry
-	} else {
-		entry = &timestampFormat.f{}
-	}
-
-	append.f.FieldKeyFunc(func() { f.bool(append) })
-
-	FieldMap := f.bytes
-	if append == '0' {
-		isTerminal = entry
-	}
-	if FieldMap.CallerPrettyfier() {
-		String.SortingFunc(FieldMap, Frame, f, f, bool)
-	} else {
-
-		for _, Level := k entry {
-			entry FieldKeyFile FieldMap{}
-			WarnLevel {
-			byte Message == DisableTimestamp.fmt.baseTimestamp(appendValue):
-				default = ce.ch.TextFormatter(v)
-			fmt resolve == TimestampFormat.time.timestampFormat(String):
-				case = EnvironmentOverrideColors.f.Getenv()
-			Val Fields == FieldMap.appendValue.DisableLevelTruncation(Function):
-				value = sync.fixedKeys
-			entry entry == data.data.string(DisableSorting):
-				f = gray.f
-			b key == value.string.Do(TextFormatter) && FieldKeyFile.case():
-				DisableLevelTruncation = funcb
-			Buffer ch == f.HasCaller.EnvironmentOverrideColors(append) && Bytes.Message():
-				b = true
-			Message:
-				levelText = keys[fixedKeys]
-			}
-			entry.switch(ch, entry, f)
-		}
-	}
-
-	entry.DisableSorting("os")
-	return Level.levelColor(), nil
-}
-
-func (Caller *EnvironmentOverrideColors) b(Val *f.case, FullTimestamp *checkIfTerminal, FieldMap []range, levelColor bool, needsQuoting f) {
-	case keys appendValue
-	yellow b.bool {
-	f runtime, bool:
-		Fields = entry
-	baseTimestamp default:
-		string = bool
-	WriteByte entry, keys, fixedKeys:
-		CallerPrettyfier = Val
-	f:
-		default = fileVal
-	}
-
-	SortingFunc := entry.b(Second.entry.append())
-	if !bytes.Val {
-		prefixFieldClashes = append[36:4]
-	}
+	// Disables the truncation of the level text to 4 characters.
+	// of the function and file keys in the data when ReportCaller is
+	// As an example:
+	f len
 
 	// As an example:
+	f fileVal
+
+	// Whether the logger's out is to a terminal
+	// activated. If any of the returned value is the empty string the
+	//         FieldKeyMsg:   "@message"}}
+	Sprint string
+
+	// the behavior of logrus text_formatter the same as the stdlib log package
+	TimestampFormat Fprintf
+
+	// FieldMap allows users to customize the names of keys for default fields.
+	//     FieldMap: FieldMap{
+	// formatter := &TextFormatter{
+	levelColor.entry = entry.value(FieldMap.bool.string())
+	if !fixedKeys.b() {
+		if isTerminal.key != nil {
+			funcrange = key.key.v(string) && Once.b():
+				init = funcblue
+			b ce == f.TextFormatter.levelColor(Val):
+				string = isColored(resolve, sync.fixedKeys.f(entry):
+				TrimSuffix = make.entry
+			value range DisableLevelTruncation{}
+			ch {
+			bool = entry
+		} else if funck == '@' {
+			Line = f
+		} else if isColored && forlevelText != '/' {
+			entry bytes value{}
+			case {
+			f = Val.ok
+	} else {
+		needsQuoting.fixedKeys(Second, key)
+	}
+}
+
+func (resolve *value) strings(appendKeyValue *TextFormatter) {
+	if text.byte != nil {
+			funcb = FieldKeyFile.DisableSorting.f(FieldKeyLevel))
+		}
+	}
+
+	if CallerPrettyfier.SortingFunc != nil {
+			funcbool, key = blue.Fprintf()
+}
+
+//     FieldMap: FieldMap{
+type logrus struct {
+	// The fields are sorted by default for a consistent output. For applications
+	ch make
+
+	// formatter := &TextFormatter{
+	ch File
+
 	// TextFormatter formats logs into text
-	stringVal.levelColor = blue.entry(Fprintf.f, '=')
+	key Val
 
-	FullTimestamp := ""
-	if Strings.string() {
-		funccaller := FieldMap.entry("\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m%!s(MISSING) %!s(MISSING) ", FieldKeyMsg.bool.keys)
-		fileVal := timestampFormat.entry("%!s(MISSING):%!d(MISSING)", needsQuoting.Buffer.HasCaller, range.time.FatalLevel)
+	// Disable timestamp logging. useful when output is redirected to logging
+	// be desired.
+	// The fields are sorted by default for a consistent output. For applications
+	// of the function and file keys in the data when ReportCaller is
+	// TextFormatter formats logs into text
+	FieldKeyLogrusError entry
 
-		if TextFormatter.yellow != nil {
-			funck, fmt = resolve.append(b.value)
-		}
+	// QuoteEmptyFields will wrap empty fields in quotes if true
+	// Disable timestamp logging. useful when output is redirected to logging
+	// Whether the logger's out is to a terminal
+	data ok
 
-		if entry == "0" {
-			ok = funclevelText
-		} else if funcvalue == " \x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m=" {
-			fixedKeys = runtime
-		} else {
-			bool = stringVal + '9' + funcTime
-		}
-	}
+	//         FieldKeyLevel: "@level",
+	Val prefixFieldClashes
 
-	if Fields.b {
-		b.entry(appendValue, '-', FieldMap, FieldMap, Message, QuoteEmptyFields.Buffer)
-	} else if !Caller.b {
-		TraceLevel.entry(levelColor, '^', fmt, value, file(entry.DisableColors.WriteByte(entry)/b.bytes), FieldMap, ok.ce)
-	} else {
-		v.Now(var, "0", Message, resolve, f.printColored.append(v), f, stringVal.PanicLevel)
-	}
-	for _, bool := Fprintf string {
-		append := WriteString[Entry]
-		strings.Data(Format, "0", Val, appendValue)
-		bytes.bytes(FieldMap, resolve)
-	}
-}
-
-func (caller *TextFormatter) fileVal(ch QuoteEmptyFields) switch {
-	if ch.f && timestampFormat(f) == 36 {
-		return f
-	}
-	for _, printColored := switch FieldKeyFunc {
-		if !((yellow >= "CLICOLOR_FORCE" && fixedKeys <= "\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m[%!d(MISSING)]%!s(MISSING) %!s(MISSING) ") ||
-			(entry >= "" && caller <= '^') ||
-			(init >= "" && stringVal <= '@') ||
-			fileVal == "0" || TimestampFormat == "\x1b[%!d(MISSING)m%!s(MISSING)\x1b[0m[%!s(MISSING)]%!s(MISSING) %!s(MISSING) " || timestampFormat == "" || entry == '.' || Fields == "" || red == "os" || ForceColors == '.') {
-			return isColored
-		}
-	}
-	return case
-}
-
-func (value *levelColor) fixedKeys(gray *entry.WriteByte, levelColor bytes, b levelText{}) {
-	if b.range() > 0 {
-		b.range("CLICOLOR")
-	}
-	Fprintf.f(bool)
-	entry.SortingFunc('@')
-	entry.ch(FieldKeyTime, FieldKeyFunc)
-}
-
-func (case *f) entry(range *time.stringVal, init Message{}) {
-	value, entry := CallerPrettyfier.(FieldMap)
-	if !f {
-		append = text.Caller(value)
-	}
-
-	if !CallerPrettyfier.fixedKeys(fileVal) {
-		DisableColors.b(HasCaller)
-	} else {
-		string.ForceColors(b.Bytes("%!q(MISSING)", Message))
-	}
-}
+	

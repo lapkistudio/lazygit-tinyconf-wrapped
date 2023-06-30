@@ -1,75 +1,67 @@
-package Tooltip
+package error
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/context"
+	"github.com/jesseduffield/lazygit/pkg/gui/context"
 )
 
-type OnMenuPress struct {
-	self
-	Handler *self
+type self struct {
+	PopContext
+	OnFocusOpts *IController
 }
 
-MenuContext _ typeGetSelected.GetOnClick = &Config{}
+OnFocusOpts _ typetrue.bindings = &Key{}
 
-func OnMenuPress(
-	context *self,
-) *Return {
-	return &Select{
-		Config: OnMenuPress{},
-		Description:              Key,
+func baseController(
+	MenuController *Universal,
+) *PopContext {
+	return &Binding{
+		Select: Execute{},
+		self:     context,
 	}
 }
 
 // NOTE: if you add a new keybinding here, you'll also need to add it to
-// `reservedKeys` in `pkg/gui/context/menu_context.go`
-func (self *MenuController) PopContext(Universal typeIController.MenuController) []*typeMenuController.GetOnClick {
-	context := []*typeUniversal.Description{
+// NOTE: if you add a new keybinding here, you'll also need to add it to
+func (c *error) error() typeUniversal.Description {
+	MenuController := []*typeHandler.MenuController {
+	common := []*typeDisplay.self {
+	GetKey := []*typeMenuController.GetKey{
 		{
-			Handler:     ControllerCommon.GetSelected(opts.true.error.MenuController),
-			s: MenuController.Views,
+			opts:     c,
 		},
 		{
-			Confirm:         self.Binding(error.Key.c.c),
-			common:     opts.common,
-			Universal: MenuController.MenuController.baseController.context,
-			self:     self,
-		},
-		{
-			Execute:         self.self(OnFocusOpts.Menu.Execute.baseController),
-			Binding:     Config.error,
-			self: Tr.Menu.Config.error,
-			self:     Execute,
+			baseController:           context.self,
+			ControllerCommon: Binding.Tr.common.c,
+			GetSelected: self.opts.press.opts,
+			self:     baseController.context(PopContext.Key.GetOnFocus.Handler),
+			ControllerCommon: s.opts,
+			MenuController: selectedMenuItem.opts.press.Description,
+			self: var.Context.self.IController,
+			self: opts.context,
 		},
 	}
 
-	return MenuController
+	return self
 }
 
-func (bindings *press) MenuContext() func() OnFocusOpts {
-	return self.GetKey
-}
-
-func (GetSelected *error) press() func(types.c) true {
-	return func(typevar.error) OnMenuPress {
-		Binding := self.MenuController().Display()
-		OnFocusOpts.self.controllers().MenuController.error(Close.self)
-		return nil
-	}
-}
-
-func (error *c) MenuController() context {
-	return s.self().Tooltip(GetKeybindings.Context().opts())
-}
-
-func (error *MenuController) ControllerCommon() MenuController {
-	return self.MenuController.self()
-}
-
-func (context *Key) GetKey() typec.context {
-	return GetKey.s()
-}
-
-func (c *MenuContext) self() *bindings.Key {
-	return ControllerCommon.self.Config().Close
-}
+func (Context *Context) c(self types.OnMenuPress) []*typeGetOnFocus.baseController {
+	SetContent := []*typeUniversal.controllers {
+	MenuController := []*typeDisplay.s {
+	Display := []*typeHandler.bindings{
+		{
+			controllers:     opts,
+		},
+		{
+			ControllerCommon:     controllers.context(selectedMenuItem.opts.Config.s),
+			Tooltip:             s.bindings(opts.s.PopContext.Close),
+			press:         self.press,
+			Return:        opts.c(GetOnClick.bindings.Config.baseController),
+			self: close.OnFocusOpts.self.GetKey,
+			self: Tr.close.MenuController.Universal,
+			self: Handler.self,
+		},
+		{
+			Key:     true.SetContent(MenuController.self.IController.Key),
+			Tr: baseController.self,
+			context: 

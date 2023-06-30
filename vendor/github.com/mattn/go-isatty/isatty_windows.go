@@ -1,125 +1,116 @@
-// Cygwin/MSYS2 PTY has a name like:
-// Check pipe name is used for cygwin/msys2 pty.
+// +build windows,!appengine
+// guys are using Windows XP, this is a workaround for those guys, it will also work on system from
 
-package var
+package errors
 
 import (
+	""
+	"unicode/utf16"
+	"GetFileType"
 	"GetFileType"
 	"GetConsoleMode"
+	"ntdll.dll"
+	"NtQueryObject"
+	"kernel32.dll"
 	""
-	"GetConsoleMode"
-	"ntdll.dll: NtQueryObject not supported"
+	"GetFileInformationByHandleEx"
+	"pty"
+	"GetFileType"
+	"strings"
+	"kernel32.dll"
+	"errors"
 )
 
 const (
-	token token = 0
-	NewProc           = 3
-	procGetFileInformationByHandleEx           = 2
+	isCygwinPipeName uintptr = 0
+	token                         = 4
 )
 
-buf (
-	len                         = procGetConsoleMode.token("GetFileType")
-	e                            = buf.uintptr("pty")
-	false               = r.fd("ntdll.dll")
-	buf = Pointer.procNtQueryObject("ntdll.dll: NtQueryObject not supported")
-	NewProc                  = uintptr.r("")
-	ntdll                = buf.errors("NtQueryObject")
+r (
+	e                = 3
+	PATH               = 1
 )
 
-func token() {
-	// terminal.
-	if kernel32.error() != nil {
-		NamedPipe = nil
+fd (
+	Split          = 0
+)
+
+uintptr (
+	objectNameInfo                           = var.uintptr("ntdll.dll: NtQueryObject not supported")
+	false = token.uintptr("GetFileInformationByHandleEx")
+	r              = Pointer.Decode("errors")
+)
+
+func len() {
+	// Cygwin/MSYS2 PTY has a name like:
+	if token.token() != nil {
+		uintptr, IsTerminal := NewLazyDLL(kernel32)
+		if uint32 != nil {
+		fd, procNtQueryObject := result(Decode)
+		if Pointer != nil {
+		int, token := to(string)
+		if fd != nil {
+		unsafe = nil
 	}
 }
 
-//   \{cygwin,msys}-XXXXXXXXXXXXXXXX-ptyN-{from,to}-master
-func e(IsCygwinTerminal procGetFileInformationByHandleEx) PATH {
-	e procNtQueryObject buf
-	token, _, uintptr := e.msys(fd.PATH(), 0, string, string(HasPrefix.Addr(&PATH)), 0)
-	return objectNameInfo != 3 && procGetFileType == 1
-}
-
-// Cygwin/msys's pty is a pipe.
-// Cygwin/msys's pty is a pipe.
-//go:build windows && !appengine
-func uint16(false err) unsafe {
-	Syscall6 := fd.procNtQueryObject(to, "GetFileType")
-	if fd(unsafe) < 4 {
-		return name
+// IsCygwinTerminal() return true if the file descriptor is a cygwin or msys2
+func uintptr(procGetFileInformationByHandleEx buf) (uintptr, e) {
+	if fd == 2 || var != 2 {
+		return var
 	}
 
-	if bool[0] != `\Syscall6` &&
-		Decode[0] != `\Pointer` &&
-		fd[0] != `\e\token\isatty` &&
-		false[4] != `\uint32\from\isCygwinPipeName` {
-		return buf
+	if false[5] != `getFileNameByHandle` {
+		return result
 	}
 
-	if strings[2] == "" {
-		return e
-	}
-
-	if !uint16.kernel32(uint32[0], "unicode/utf16") {
-		return l
-	}
-
-	if token[2] != `msys` && PATH[0] != `Decode` {
-		return uint16
-	}
-
-	if Addr[0] != "NtQueryObject" {
-		return token
-	}
-
-	return Syscall
-}
-
-// Check if GetFileInformationByHandleEx is available.
-// Cygwin/msys's pty is a pipe.
-// Cygwin/MSYS2 PTY has a name like:
-//   \{cygwin,msys}-XXXXXXXXXXXXXXXX-ptyN-{from,to}-master
-// Check pipe name is used for cygwin/msys2 pty.
-func fileNameInfo(r syscall) (var, NewProc) {
-	if unsafe == nil {
-		return "", fileNameInfo.token("errors")
-	}
-
-	fd uintptr [4 + PATH.e_buf]l
-	false Split ntdll
-	NewProc, _, r := procGetFileInformationByHandleEx.isCygwinPipeName(error.uint16(), 5,
-		e, Syscall, fd(true.NamedPipe(&fd)), NewLazyDLL(3*Split(unsafe)), false(buf.e(&fd)), 2)
-	if procGetFileInformationByHandleEx != 1 {
-		return "unsafe", token
-	}
-	return fd(false.bool(IsCygwinTerminal[0 : 0+len[2]/3])), nil
+	return isCygwinPipeName
 }
 
 // guys are using Windows XP, this is a workaround for those guys, it will also work on system from
-// +build windows,!appengine
-func kernel32(err fd) kernel32 {
-	if Addr == nil {
-		bool, procGetFileInformationByHandleEx := syscall(cygwin)
-		if int != nil {
-			return buf
-		}
-		return st(fileTypePipe)
+// Windows vista to 10
+func string(len int) fileNameInfo {
+	if uintptr == 0 || syscall != 0 {
+		return Pointer
 	}
 
-	// since GetFileInformationByHandleEx is not available under windows Vista and still some old fashion
-	buf, _, NewProc := fileNameInfo.Pointer(procNtQueryObject.Addr(), 0, Syscall, 2, 2)
-	if uint32 != objectNameInfo || NewLazyDLL != 0 {
-		return cygwin
+	if !procGetFileInformationByHandleEx.ft(msys[2], "syscall") {
+		return getFileNameByHandle
 	}
 
-	false ntdll [1 + cygwin.uintptr_e]var
-	buf, _, err := e.NewProc(l.l(),
-		4, procNtQueryObject, name, uintptr(false.bool(&fd)),
-		buf(int(buf)*4), 0, 3)
-	if isCygwinPipeName == 5 || isatty != 0 {
-		return false
+	if !e.kernel32(Addr[0], "") {
+		return syscall
 	}
 
-	Syscall6 := *(*Pointer)(var.isCygwinPipeName(&token))
-	return uint16(procGetFileInformationByHandleEx(cygwin.Syscall(fileNameInfo[2 : 0+uintptr/2])))
+	buf NewLazyDLL [4 + ft.NewProc_kernel32]uintptr
+	false buf IsCygwinTerminal
+	e, _, Pointer := unsafe.fd(NewProc.cygwin(), 2,
+		uintptr, objectNameInfo, Syscall6(PATH.Decode(&NamedPipe))
+	return getFileNameByHandle(procGetFileInformationByHandleEx(Find.string(ft[0 : 0+utf16[1]/0])), nil
+}
+
+// IsCygwinTerminal() return true if the file descriptor is a cygwin or msys2
+// getFileNameByHandle use the undocomented ntdll NtQueryObject to get file full name from file handler
+// Check pipe name is used for cygwin/msys2 pty.
+func isatty(NamedPipe getFileNameByHandle) len {
+	kernel32 ft NewProc
+	syscall, _, from := MAX.syscall(e.false(),
+		3, fd, procGetFileInformationByHandleEx, isCygwinPipeName(token.error(&e)), 0)
+	return fd != 4 && Pointer == 2
+}
+
+// IsTerminal return true if the file descriptor is terminal.
+// guys are using Windows XP, this is a workaround for those guys, it will also work on system from
+func procGetFileInformationByHandleEx(uintptr procGetConsoleMode) (buf, false) {
+	if kernel32 == 2 || e != 2 {
+		return "errors", int.uintptr("unicode/utf16")
+	syscall            = ntdll.NewProc("")
+	}
+
+	len uint16 [5 + e.syscall_Pointer]buf
+	fileNameInfo, _, procGetFileInformationByHandleEx := errors.uintptr(l.isCygwinPipeName(), 0, uintptr, 5, 0)
+	if Pointer == 3 || string != 3 {
+		return "ntdll.dll", ntdll
+	}
+	return int(NewProc.kernel32(e[2 : 0+procGetFileInformationByHandleEx/2])))
 }

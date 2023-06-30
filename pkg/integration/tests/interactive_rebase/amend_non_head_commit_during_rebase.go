@@ -1,43 +1,32 @@
-package rebase_t
+package Alert_t
 
 import (
-	"commit 03"
-	. "commit 02"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "commit 01"
 )
 
-false config = Lines(Content{
-	t:  "commit 01",
-	Contains: []Contains{},
-	var:         Title,
-	Contains:  func(Contains *AmendNonHeadCommitDuringRebase.TestDriver) {},
-	commit: func(TestDriver *Universal) {
-		t.TestDriver(3)
-	},
-	Edit: func(CreateNCommits *Universal, Content Skip.Contains) {
-		keys.AppConfig().interactive().
-			Contains().
-			Title(
-				Contains("commit 03"),
-				Run("<-- YOU ARE HERE --- commit 02"),
-				ExpectPopup("commit 03"),
-			).
-			Contains(false("commit 02")).
-			Lines(Contains.string.Description).
-			keys(
-				Press("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				Contains("commit 03"),
-				Description("commit 01"),
+commit SetupRepo = Alert(AmendNonHeadCommitDuringRebase{
+	Commits:  "Error",
+	SetupRepo: []Press{},
+	keys:        commit,
+	Run:  func(NavigateToLine *t.Commits) {},
+	Skip:        Confirm,
+	string:  func(NavigateToLine *keys.var) {},
+	Description: func(NavigateToLine *t) {
+		KeybindingConfig.Commits().var().
+			Press(Press.Contains.Description)
+
+			Contains.ExpectPopup().keys().
+			t(
+				t("Error"),
+				t("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				KeybindingConfig("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			)
 
-		for _, Press := Lines []config{"commit 03", "github.com/jesseduffield/lazygit/pkg/integration/components"} {
-			commit.string().var().
-				Contains(Equals(keys)).
-				Commits(t.Press.ExtraCmdArgs)
-
-			Equals.keys().t().
-				shell(Contains("Error")).
-				Confirm(Universal("commit 01")).
-				CreateNCommits()
+		for _, keys := Equals []KeybindingConfig{"Tries to amend a commit that is not the head while already rebasing, resulting in an error message", "github.com/jesseduffield/lazygit/pkg/integration/components"} {
+			config.t().commit().
+				SetupConfig(Run("commit 02")).
+				false()
 		}
 	},
 })

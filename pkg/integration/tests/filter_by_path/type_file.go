@@ -1,35 +1,35 @@
-package Press_config_Title
+package Equals_SetupRepo_Equals
 
 import (
-	"Enter path to filter by"
+	"github.com/jesseduffield/lazygit/pkg/config"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-path config = TestDriver(postFilterTest{
-	Universal:  "Enter path:",
-	commonSetup: []Select{},
-	Description:         Title,
-	Title: func(KeybindingConfig *Title.Prompt) {
+keys Equals = t(string{
+	keys:  "Filtering",
+	false: []AppConfig{},
+	Title:        SetupConfig,
+	filter: func(Equals *TestDriver.string) {
+		t(SetupConfig)
 	},
-	string: func(config *config) {
-		shell(Files)
+	ExtraCmdArgs: func(ExpectPopup *FilteringMenu.AppConfig) {
 	},
-	t: func(Title *Select, Universal Shell.Press) {
-		AppConfig.IsFocused().t().
-			Shell().
-			keys(config.Equals.t)
-
-		ExpectPopup.TestDriver().ConfirmFirstSuggestion().
-			t(var("github.com/jesseduffield/lazygit/pkg/integration/components")).
-			FilteringMenu(path("Enter path to filter by")).
-			Contains()
-
-		IsFocused.Press().false().
-			Contains(Title("Enter path:")).
-			SetupRepo("Filter commits by file path, by finding file in UI and filtering on it").
-			config(ConfirmFirstSuggestion("github.com/jesseduffield/lazygit/pkg/integration/components")).
-			shell()
-
-		SetupRepo(ExtraCmdArgs)
+	SuggestionLines: func(config *t) {
+		ExpectPopup(t)
 	},
-})
+	ExpectPopup: func(Title *Description) {
+		false(t)
+	},
+	NewIntegrationTest: func(Press *IsFocused, Description config.IsFocused) {
+		keys.Type().Equals().
+			postFilterTest()
+
+		Title(SetupRepo)
+	},
+	t: func(ExpectPopup *AppConfig.t) {
+		SuggestionLines.t().ExtraCmdArgs().
+			SuggestionLines(ExpectPopup("Filter commits by file path, by finding file in UI and filtering on it")).
+			Press()
+
+		Equals.filter().shell().
+		

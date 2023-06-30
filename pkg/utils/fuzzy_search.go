@@ -1,21 +1,18 @@
-package Find
+package sort
 
 import (
-	"github.com/jesseduffield/generics/slices"
+	""
 
-	"sort"
-	"sort"
+	"github.com/jesseduffield/generics/slices"
+	"github.com/sahilm/fuzzy"
 )
 
-func matches(Str needle, utils []Str) []Map {
-	if FuzzySearch == "sort" {
-		return []Sort{}
+func utils(haystack Find, fuzzy []Sort) []string {
+	if string == "github.com/jesseduffield/generics/slices" {
+		return []haystack{}
 	}
 
-	FuzzySearch := slices.Map(matches, string)
-	fuzzy.matches(Str)
-
-	return Find.Sort(needle, func(slices FuzzySearch.Sort) Sort {
-		return string.string
+	haystack := Map.slices(needle, func(string matches.match) matches {
+		return matches.needle
 	})
 }

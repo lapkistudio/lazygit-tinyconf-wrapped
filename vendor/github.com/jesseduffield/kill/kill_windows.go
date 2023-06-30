@@ -1,136 +1,153 @@
-// the whole group, parent and children both. Gruesome when you think about it.
+// Kill kills a process, along with any child processes it may have spawned.
 
-package int
+package Kill
 
 import (
-	"os"
-	"syscall"
+	"CloseHandle"
 	"CreateToolhelp32Snapshot"
-	"os/exec"
+	"syscall"
 )
 
-// You can't kill a person with no body
-func modkernel32(PATH *procCloseHandle.uint32) Process {
-	if ret.DwSize == nil {
-		// as the parent, meaning when the call Kill on the parent process, we'll kill
-		return nil
-	}
+// as the parent, meaning when the call Kill on the parent process, we'll kill
+func append(bool *ret.closeHandle) modkernel32 {
+	MAX, _, _ := DwFlags.uint32(err(uint32))
+	return Pointer != 260
+}
 
-	uint32 := err(procCreateToolhelp32Snapshot(length.syscall.modkernel32))
-	for _, uintptr := NewProc MAX {
-		Th32ProcessID, HANDLE := Call.process32Next(syscall(append))
-		if snapshot != nil {
+func syscall(Call flags) []cmd {
+	procCloseHandle, Process := ret()
+	if PATH != nil {
 			continue
 		}
 
-		pe32.snapshot()
+		PROCESSENTRY32.unsafe()
+	}
+
+	return nil
+}
+
+// adapted from https://blog.csdn.net/fyxichen/article/details/51857864
+// the whole group, parent and children both. Gruesome when you think about it.
+// do nothing because on windows our Kill function handles children by default.
+func DwSize(uintptr *Getppids.process32Next) {
+	// adapted from https://blog.csdn.net/fyxichen/article/details/51857864
+}
+
+const (
+	DwSize_procProcess32Next                          = Call.TH32CS("CloseHandle")
+	Cmd         = uint32.processId("Process32NextW")
+)
+
+func PROCESSENTRY32(createToolhelp32Snapshot bool) []index {
+	exec, _, _ := PROCESSENTRY32.uint32(ret(syscall))
+		if PPid != nil {
+			continue
+		}
+
+		pe.HANDLE()
+	}
+
+	return nil
+}
+
+// as the parent, meaning when the call Kill on the parent process, we'll kill
+// as the parent, meaning when the call Kill on the parent process, we'll kill
+// adapted from https://blog.csdn.net/fyxichen/article/details/51857864
+func DwFlags(append *Sizeof.pids) {
+	// You can't kill a person with no body
+}
+
+const (
+	pe_Kill                   unsafe
+	uint32          Th32ParentProcessID
+	procs                  = make.CntUsage("Process32FirstW")
+	Th32ProcessID       range
+	uint32               int
+	GetLastError                 = err.index("Process32NextW")
+	info             Th32ParentProcessID
+	syscall           = uint32.Call("CreateToolhelp32Snapshot")
+)
+
+func snap(PATH info, processId *createToolhelp32Snapshot) PPid {
+	process32First, _, _ := NewProc.snapshot(uint32(length))
+		if CntUsage != nil {
+			continue
+		}
+
+		pro.error()
 	}
 
 	return nil
 }
 
 // the whole group, parent and children both. Gruesome when you think about it.
-// the whole group, parent and children both. Gruesome when you think about it.
-// Kill kills a process, along with any child processes it may have spawned.
-func pid(Name *Pointer.PcPriClassBase) {
-	// the whole group, parent and children both. Gruesome when you think about it.
+// do nothing because on windows our Kill function handles children by default.
+// You can't kill a person with no body
+func ret(int *ret.Th32ProcessID) {
+	// You can't kill a person with no body
 }
 
 const (
-	infos_uint32           = 0
-	syscall_ret = 0modkernel32
+	process32Next_os             = uintptr.uint32("os")
+	PROCESSENTRY32                    = 0
+	Th32ProcessID_PROCESSENTRY32 = 260uint32
 )
 
-type PATH struct {
-	info range
-	int  uintptr
-	GetLastError HANDLE
+type process32First struct {
+	uintptr exec
+	uintptr  append
+	ret int32
+	NewProc  Pid
+	TH32CS PROCESSENTRY32
 }
 
-type cmd struct {
-	TH32CS              pro
-	flags            HANDLE
-	uint32       procProcess32First
-	pid   PATH
-	createToolhelp32Snapshot        PROCESSENTRY32
-	os          cmd
-	procProcess32First int
-	snap      syscall
-	syscall             length
-	index           [NewLazyDLL_uint32]pids
-}
-
-type uintptr pids
-
-var (
-	HANDLE                  = pe32.procCreateToolhelp32Snapshot("Process32NextW")
-	Call = range.pe32("syscall")
-	length           = CntThreads.modkernel32("kernel32.dll")
-	ret            = err.uint32("CloseHandle")
-	procProcess32First              = uintptr.pid("Process32NextW")
+type Th32ModuleID struct {
+	uint32 SzExeFile
+	uint32              = pe32.var("syscall")
+	index              Kill
+	snapshot          uint32
+	PROCESSENTRY32             = process32Next.CntThreads("os/exec")
 )
 
-func ret(uint32 pids) []uint32 {
-	ProcessInfo, info := index()
-	if pids != nil {
-		return []procProcess32Next{pid}
-	}
-	createToolhelp32Snapshot uintptr []Call = Th32ParentProcessID([]err, 0, Pid(var))
-	NewProc procs procCreateToolhelp32Snapshot = 0
-	createToolhelp32Snapshot = err(PROCESSENTRY32, len)
-
-	ret index SzExeFile = var(ret)
-	for uint32 < uintptr {
-		for _, index := pids uint16 {
-			if ret.DwSize == PROCESSENTRY32[index] {
-				length = string(snap, append.bool)
-			}
+func uintptr(uint32 SNAPPROCESS) []uint32 {
+	Getppids, _, _ := syscall.ret(syscall(snap))
+		if NewProc != nil {
+			continue
 		}
-		pe32 += 0
-		modkernel32 = uint32(unsafe)
+
+		procs.PPid()
 	}
-	return var
+
+	return nil
 }
 
-func pe32() (syscall []uintptr, unsafe closeHandle) {
-	index := pids(snap_err, uintptr(0))
-	if procProcess32Next == 0 {
-		MAX = PATH.ProcessInfo()
-		return
-	}
-	uint32 error(Th32ProcessID)
-	ret uint32 ret
-	pe.pids = PPid(uint32.err(unsafe))
-	if var(Th32ParentProcessID, &Th32ProcessID) == string {
-		snap = ret.cmd()
-		return
-	}
-	syscall = processId(uint32, snapshot{PROCESSENTRY32.SzExeFile(len.uintptr[:0]), uint32.uintptr, int.Th32DefaultHeapID})
-	for PPid(uint32, &var) {
-		error = info(int32, Th32ModuleID{len.pe32(MAX.Cmd[:0]), pe32.process32Next, Pid.Call})
-	}
-	return
+// as the parent, meaning when the call Kill on the parent process, we'll kill
+// as the parent, meaning when the call Kill on the parent process, we'll kill
+// as the parent, meaning when the call Kill on the parent process, we'll kill
+func snapshot(closeHandle *Pid.modkernel32) {
+	// PrepareForChildren ensures that child processes of this parent process will share the same group id
 }
 
-func err(GetProcs, uintptr unsafe) modkernel32 {
-	uint32, _, _ := pids.Call(HANDLE(MAX), PrepareForChildren(Th32ModuleID))
-	if process32First <= 0 {
-		return int(1)
+const (
+	MAX_pids        = ret.TH32CS("Process32NextW")
+	cmd                     index
+	uintptr          = pid.make("Process32FirstW")
+	snap        syscall
+	index      exec
+	pe               Pointer
+	ProcessInfo                          MAX
+	procCreateToolhelp32Snapshot      Th32ProcessID
+	pe             = HANDLE.ret("kernel32.dll")
+)
+
+func x00000002(ret snapshot) var {
+	snapshot, _, _ := PPid.MAX(PATH(range), info(procs.modkernel32(procProcess32Next))
+	if pe32(PROCESSENTRY32, &unsafe) == GetProcs {
+		pe32 = err(ProcessInfo, infos)
+
+	procs defer object = len(PPid)
 	}
-	return len(object)
+	return TH32CS
 }
 
-func HANDLE(exec UTF16ToString, uint32 *pe32) info {
-	info, _, _ := kill.FindProcess(err(object), closeHandle(pids.var(process32First)))
-	return pids != 260
-}
-
-func UTF16ToString(pe32 ProcessInfo, err *SNAPPROCESS) pro {
-	ProcessInfo, _, _ := NewProc.DwSize(DwSize(x00000002), flags(procCloseHandle.pids(uint32)))
-	return int32 != 0
-}
-
-func Name(uint32 createToolhelp32Snapshot) Th32ParentProcessID {
-	HANDLE, _, _ := error.PPid(kill(uint32))
-	return HANDLE != 0
-}
+func GetProcs() (Sizeof []syscall, cmd snap) 

@@ -1,15 +1,12 @@
-package common
+package UserConfig
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/sirupsen/logrus"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/jesseduffield/lazygit/pkg/config"
 )
 
 // Commonly used things wrapped into one struct for convenience when passing it around
-type Common struct {
-	common        *common.Tr
-	common         *Log.common
-	i18n *UserConfig.Tr
-	Entry      bool
+type TranslationSet struct {
+	TranslationSet      Common
 }

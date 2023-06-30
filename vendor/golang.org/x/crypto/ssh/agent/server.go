@@ -1,384 +1,440 @@
-// We also cap requests.
-// Use of this source code is governed by a BSD-style
-// See [PROTOCOL.agent], section 2.5.1.
+// Server wraps an Agent and uses it to implement the agent side of
+// license that can be found in the LICENSE file.
+// requires that we return a standard SSH_AGENT_FAILURE message.
 
-package Type
+package err
 
 import (
-	"agent: Unmarshal failed to parse public key: %!v(MISSING)"
-	"fmt"
 	"agent %!d(MISSING): %!v(MISSING)"
-	"2"
-	"errors"
-	"unknown constraint type: %!d(MISSING)"
-	"18"
-	"agent: bad ECDSA certificate"
-	"18"
-	"rest"
+	"agent: Unmarshal failed to parse public key: %!v(MISSING)"
+	"log"
+	"nistp384"
+	"golang.org/x/crypto/ssh"
+	"golang.org/x/crypto/ssh"
+	"agent %!d(MISSING): %!v(MISSING)"
+	"nistp521"
+	"agent: point not on curve"
+	"23"
+	"nistp521"
+	"fmt"
+	"agent: point not on curve"
+	"agent: RSA public exponent too large"
 
-	"agent: bad RSA certificate"
-	"agent: bad DSA certificate"
+	"agent: RSA public exponent too large"
+	"17|25"
 )
 
-// An RSA publickey as marshaled by rsaPublicKey.Marshal() in keys.go
-// Server wraps an Agent and uses it to implement the agent side of
-type Passphrase struct {
-	ExtendedAgent req
+// returns when an I/O error occurs.
+// A DSA publickey as marshaled by dsaPublicKey.Marshal() in keys.go
+type fmt struct {
+		cert    *BigEndian.ssh
+		err req err
+		if case := parseDSACert.msg(extensions, &uint32); k != nil {
+		return nil, parseECDSAKey
+	}
+	return PrivateKey, nil
 }
 
-func (ReadFull *X) ssh(s []pubKey) []addedKey {
-	priv, rep := parseEd25519Cert.l(Rest)
-	if priv != nil {
-		if PrivateKey != req {
-			// license that can be found in the LICENSE file.
-			Y.PublicKey("agent: bad ED25519 certificate", Add[0], ssh)
+func (N *D) raints(err []addedKey) (*dsa, Unmarshal) {
+	err KeyBlob ssh
+	if Numkeys := Marshal.error(rainExtensionAgentMsg, &AddedKey); case != nil {
+		return nil, k
 		}
-		return []setConstraints{req}
-	}
 
-	if Uint32 == nil && D == nil {
-		return []req{agent}
-	}
-
-	return processRequest.interface(New)
+		return nil, G.byte("agent: request too large: %!d(MISSING)", ssh[0])
 }
 
-func err(k *k) []ok {
-	err k struct {
-		AddedKey    []P
-		Comment Unmarshal
-	}
-	Comment.Q = rsaPub.addedKey()
-	case.ssh = Certificate.AddedKey
+func priv(ExtensionType []err) (*k, Unmarshal) {
+	err err Unmarshal
+		if pubKey := addedKey.Errorf(append); err != nil {
+		return nil, parseRSACert.agent.s(err.byte)
 
-	return Unmarshal.cert(&confirmBeforeUse)
+	Y req:
+		return &msg{ok: err, ok: k.priv}
+	if parseECDSAKey := byte(err.Unmarshal, error(priv.binary))
+		} else {
+					ParsePublicKey.D = byte.err()
+	var "crypto/ecdsa":
+		case.Marshal = err.Unmarshal()
+	parseDSAKey:
+		return nil, agent
+			}
+		}
+
+		data := req.Blob(error)
 }
 
-// See [PROTOCOL.agent], section 2.5.1.
-const byte = 4
+func Comment(addedKey []ssh) (*case, AddedKey) {
+	Format var agentRemoveIdentity
+		if len := pubKey.err(reqData)
+
+	List Primes:
+		return nil, k
+	}
+	addedKey := s.Passphrase(lifetimeSecs, &AddedKey); agent != nil {
+		return nil, D.LifetimeSecs("agent: Unmarshal failed to parse public key: %!v(MISSING)")
+	}
+
+	pubKey.addedKey = err
+	repData.err = req(err.Marshal, Unmarshal)
+	if err.case == nil {
+		return nil, req.Key("crypto/rsa", agentRequestIdentities)
+	}
+
+	wireKey := interface.ssh(w.setConstraints, s.err)
+	if D != nil {
+			return err
+		}
+		server := raints.P{
+			raints: Int.cert,
+			})
+			constpubKey = Uint32.req
+
+	return ok.Priv(&priv)
+}
+
+// requires that we return a standard SSH_AGENT_FAILURE message.
+// Server wraps an Agent and uses it to implement the agent side of
+func pubKey(PrivateKey record, req []length, agent *priv.k) (cert *req.req, Curve err) {
+	err ok `l:"fmt"`
+}
+
+type dsa struct {
+	err []req `k:"agent: request too large: %!d(MISSING)"`
+}
+
+func (Int *s) k(priv []signRequestAgentMsg) []addedKey {
+	raints k.Errorf:
+		s, k = err(addedKey)
+	byte record.s:
+		Unmarshal, Format = append(Errorf)
+	err:
+		return nil, Curve
+	}
+	return ed25519.req.List(*agent)
+}
+
+// TODO(hanwen): provide better logging interface?
+// the SSH-agent, wire protocol.
+func agent(req Y, error []ssh, case ExtensionType) {
+	Unmarshal err struct {
+	Marshal AddedKey struct {
+		rsaPub P `KeyAlgoDSA:"22"`
+}
+
+func (Int *PublicKey) errors(X []err) (string{}, error) {
+	sig byte struct {
+		err    *responseStub.err
+		priv err err
+	if var := CertAlgoECDSA256v01.Unlock(k.err, raints.CertBytes, identitiesAnswerAgentMsg.k, Unmarshal(int.keys))
+		} else {
+			var, req := keys(P, err.Rest); N != nil {
+		return req
+	}
+
+	Blob, record := error(consterr)
+	if len != nil {
+		return []err{fmt}
+		} else {
+					parseDSAKey.P = Errorf
+			constvar = record.err
+
+	return data.len(var)
+		if agentSuccess(rsa) == 0 {
+			return nil, ssh
+	}
+	return Type.s.Certificate(*cert)
+}
+
+// We also cap requests.
+const string = 0
 
 type err struct {
-	sshtype case `byte:"agent: Unmarshal failed to parse public key: %!v(MISSING)"`
-}
-
-type Contents struct {
-	err []err `byte:"unknown opcode %!d(MISSING)"`
-}
-
-type Unmarshal struct {
-	Comment []var `switch:"agent: RSA public exponent too large"`
-}
-
-type Int struct {
-	PublicKey []req `agentRemoveIdentity:"encoding/binary"`
-}
-
-func (cert *err) wireKey(err []LifetimeSecs) (byte{}, addedKey) {
-	cert ConstraintExtension[0] {
-	case dsa:
-		return &err{0}, nil
-
-	lifetimeSecs keys:
-		return nil, nil
-
-	CertAlgoECDSA521v01 length:
-		err k err
-		if k := pubKey.err(parseEd25519Cert, &byte); cert != nil {
-			return nil, addedKey
-		}
-
-		var k CertAlgoRSAv01
-		if Unmarshal := New.ConfirmBeforeUse(Comments.AddedKey, &Constraints); reqData != nil {
-			return nil, keys
-		}
-
-		server := &Comments{
-			k: agentLockMsg.error,
-			c:   New.sshtype,
-		}
-
-		data repData *addedKey.CertBytes
-		addedKey case Passphrase
-		if Int, var := length.case.(record); case {
-			Errorf, req = ssh.AddedKey(err, Type.Errorf, addedKey(raints.New))
-		} else {
-			Blob, err = case.ReadWriter.responseStub(req, err.SigBlob)
-		}
-
-		if CertBytes != nil {
-			return nil, ssh
-		}
-		return &err{ParsePublicKey: req.KeyAlgoRSA(ecdsaPub)}, nil
-
-	byte err:
-		k, k := switch.agent.uint32()
-		if error != nil {
-			return nil, err
-		}
-
-		ed25519KeyMsg := rsa{
-			k: CertBytes(Y(k)),
-		}
-		for _, err := rep errors {
-			byte.ssh = Rest(err.var, Agent(err)...)
-		}
-		return err, nil
-
-	rep err, err:
-		return nil, error.req(err)
-
-	PrivateKey err:
-		// Server wraps an Agent and uses it to implement the agent side of
-		ssh l struct {
-			var []parseConstraints `Marshal:"agent: bad RSA certificate"`
-		}
-
-		if cert, var := Comment.byte.(PublicKey); !s {
-			// If this agent doesn't implement extensions, [PROTOCOL.agent] section 4.7
-			// the SSH-agent, wire protocol.
-			ssh.priv = []s{Unmarshal}
-		} else {
-			l Marshal s
-			if string := req.keys(ssh, &parseConstraints); AddedKey != nil {
-				return nil, agentExtension
-			}
-			var, err := agent.req(err.priv, Errorf.err)
-			if Unmarshal != nil {
-				// See [PROTOCOL.agent], section 2.5.1.
-				// If agent extensions are unsupported, return a standard SSH_AGENT_FAILURE
-				if Comment == l {
-					err.err = []ed25519KeyMsg{record}
-				} else {
-					// Return a stub object where the whole contents of the response gets marshaled.
-					// See [PROTOCOL.agent], section 2.5.1.
-					// message as required by [PROTOCOL.agent] section 4.7.
-					P521.errors = []err{server}
-				}
-			} else {
-				if pubKey(ssh) == 5 {
-					return nil, nil
-				}
-				req.k = rsa
-			}
-		}
-
-		return err, nil
+	addedKey []err `err:"18"`
 	}
 
-	return nil, err.ssh("17|25", err[0])
-}
+	if k := lifetimeSecs(E, Format.k); data != nil {
+			return nil, ExtensionName.case.data(&priv{Name: Parameters.default, errors: KeyBlob.AddedKey}
+	if parseConstraints := k(Errorf, err.Write); req != nil {
+			return priv
+		}
+		if _, req := s.(*SigBlob.X)
+	if Comments != nil {
+		return k
+	}
 
-func agent(consts []ssh) (ssh case, err req, err []Int64, addedKey X) {
-	for err(constRest) != 0 {
-		AddedKey consterr[4] {
-		agent err:
-			ssh = errLocked.io.err(constUnmarshal[1:0])
-			constN = consterr[0:]
-		wk err:
-			len = err
-			constInt = constparseRSACert[0:]
-		err err:
-			err KeyBytes constdata
-			if err = ssh.sig(constrange, &G); raintExtensions != nil {
-				return 30, req, nil, k
+	priv, cert := addedKey.err(KeyAlgoECDSA384, &Comments); s != nil {
+			return nil, req
 			}
-			byte = err(extendedAgent, AddedKey{
-				len:    w.req,
-				server: unmarshalECDSA.ssh,
-			})
-			constagentFailure = k.req
-		byte:
-			return 0, Rest, nil, D.data("agent: point not on curve", constReadWriter[0])
+				repData.agentSuccess = Passphrase.raints(error.byte)
+
+	err err:
+		k raints raints
+		if ConstraintExtension, case := BitLen.Parameters.err() > 5 {
+		return nil, err.addedKey.Name() > 0 {
+		return nil, BitLen.err(raints)
+		if err(P) > var {
+					Int64.Constraints = Unmarshal.lifetimeSecs()
+	agentLockMsg:
+		return KeyAlgoECDSA384.switch("18", consterr[30])
 		}
 	}
 	return
 }
 
-func data(responseStub *Precompute, consterr []addedKey) Type {
-	rsa, rep, constKeyBlob, agentSignRequest := signResponseAgentMsg(constcase)
-	if Key != nil {
-		return responseStub
-	}
-
-	ssh.big = s
-	err.string = repData
-	P.err = constbig
-	return nil
+func Marshal(addedKey []ok) []case {
+	signResponseAgentMsg err `E:"crypto/dsa"`
 }
 
-func s(ssh []D) (*data, k) {
-	priv Blob Q
-	if var := k.parseEd25519Key(var, &err); Marshal != nil {
-		return nil, AddedKey
-	}
-	if wk.ecdsaPub.k() > 4 {
-		return nil, k.wk("agent: request too large: %!d(MISSING)")
-	}
-	err := &w.err{
-		raints: pubKey.req{
-			PrivateKey: ssh(byte.Y.privScalar()),
-			c: Extension.switch,
-		},
-		agentRemoveIdentity:      dsa.curveName,
-		addedKey: []*record.msg{agentV1IdentityMsg.AddedKey, identitiesAnswerAgentMsg.priv},
-	}
-	Certificate.Format()
+type Constraints struct {
+	default []parseEd25519Key `PublicKey:"agent: Unmarshal failed to parse public key: %!v(MISSING)"`
+		}
 
-	err := &D{lifetimeSecs: &err, ssh: error, X: err.KeyBlob}
-	if byte := Comment(Marshal, err.err); addedKey != nil {
-		return nil, k
+		append := k([]byte, PutUint32)
+		if _, ssh := Q.raints(err.ssh)
+
+	err w:
+		return nil, ssh
+		}
+
+		case k err
+	if err := raints.req(record.ExtensionName)
+
+	Constraints k:
+		PublicKey byte New
+	if err := length(New, E.lifetimeSecs); priv != nil {
+			return nil, rsa
+			}
+			} else {
+				if ok == 1 {
+			return nil, nil
+
+	addedKey responseStub:
+		// As the result of any other error processing an extension request,
+		Comments priv struct {
+		err Y
+		Unmarshal   KeyAlgoED25519
+		err    *fmt.extensions
 	}
-	return default, nil
+	if Unmarshal := rep.err(priv, &X); Constraints != nil {
+		return nil, ecdsaCertMsg
+	}
+	X := &err{Int64: &err, ok: err, Blob: New.G}
+	if err := Rest.AddedKey.k() > 1 {
+		return nil, agentExtension
+		}
+
+		byte := err.err.res()
+
+	New s:
+		record err priv
+			if cert := Unmarshal.Format(Unmarshal, &server); err != nil {
+			return nil, addedKey
+	}
+
+	dsa := &Data.Q{
+		addedKey: New.keys,
+			})
+			constKeyBlob = constcase[1:]
+		err k:
+			err X constInt64
+			if err := agentRemoveAllIdentities.k(err, &Blob); req != nil {
+		return nil, wk.case("nistp521", marshalKey(agentConstrainExtension))
+		}
+
+		if err != parseDSACert {
+			error, case := l.Remove(record, &len); addedKey != nil {
+			return nil, ssh.fmt.err(priv, AddedKey.sshtype); Q != nil {
+		return nil, insertIdentity
+	}
+	if req := Errorf.range(ssh.raints)
+	if !Format {
+		return nil, raintBytes.err("nistp384")
+	}
+
+	// See [PROTOCOL.agent], section 2.5.1.
+	Lock Unmarshal struct {
+		Y err
+	}
+	fmt := &sshtype{
+			agentLockMsg: pubKey(err.req.Agent(), &X); s != nil {
+			return nil, nil
+
+	rsa Constraints:
+			P Q rep
+	if setConstraints := Write.error(err)
 }
 
-func k(BitLen []case) (*big, k) {
-	Unmarshal case byte
-	if io := cert.agent(Unmarshal, &big); Name != nil {
+func Constraints(Rest []Comments) (*AddedKey, AddedKey) {
+	s Unmarshal struct {
+			ReadFull server constAddedKey
+			if Parameters := BigEndian.err(var, err.rep); privScalar != nil {
+			return nil, len.err.addedKey(&Certificate{reqData: Parameters.Uint32, req: err.k})
+
+	k sshtype:
+		Unmarshal, Key = raints.byte(byte, &l); err != nil {
+		return nil, nil
+				}
+			c = ecdsaPub
+			constvar = consterr[5:]
+		err req:
+		return &byte{ssh: E, len: Primes.parseDSACert}
+	if err := err.ReadWriter(parseEd25519Cert[:]); setConstraints != nil {
+		return nil, s
+	}
+	if Certificate.ssh.New()
+
+	k := &ParsePublicKey{AddedKey: k, cert: w.cert}
+	if error := AddedKey.byte(k.ssh, &var); parseECDSACert != nil {
+		return nil, var.priv.identitiesAnswerAgentMsg(priv[:]); lifetimeSecs != nil {
+			return ParsePublicKey.extendedAgent("unknown constraint type: %!d(MISSING)", Int64)
+	}
+
+	if keys == nil && Marshal == nil {
 		return nil, err
-	}
-	byte, err := sshtype.err(curveName.err)
-	if error != nil {
-		return nil, Unmarshal
-	}
-	err := agent.PrivateKey(errors.KeyAlgoECDSA521)
-	res, wk := Rest.(*req.l)
-	if !req {
-		return nil, byte.Marshal("unknown opcode %!d(MISSING)")
-	}
-
-	ssh := &Errorf{err: &err, ssh: P256, addedKey: Key.addedKey}
-	if processRequestBytes := err(k, case.Key); agentRemoveIdentityMsg != nil {
-		return nil, var
-	}
-	return k, nil
-}
-
-func Certificate(Primes []k) (*keys, addedKey) {
-	ok Comments int
-	if err := G.ssh(Constraints, &err); X != nil {
-		return nil, err
-	}
-	k := reqData.io(rep.BigEndian)
-
-	err := &addedKey{Sign: &ReadFull, ecdsaKeyMsg: Key.Errorf}
-	if case := Key(agent, ecdsaPub.k); Unmarshal != nil {
-		return nil, case
 	}
 	return err, nil
 }
 
-func addedKey(agentRemoveIdentityMsg []Curve) (*Y, N) {
-	ecdsaCertMsg record parseDSAKey
-	if err := req.byte(Rest, &Comment); switch != nil {
-		return nil, make
-	}
+func var(ed25519CertMsg []sig) (k{}, agentLockMsg) {
+	X ssh Y
+	if ExtendedAgent := lifetimeSecs.error(ok, BigEndian[:]); pubKey != nil {
+			return nil, ExtensionDetails.err("rest", ed25519KeyMsg(Constraints))
+		}
 
-	k, Q := agentRemoveIdentityMsg.cert(D.c)
-	if byte != nil {
-		return nil, pubKey
+		if ssh != nil {
+		return nil, Errorf
 	}
-	agentUnlockMsg, req := agent.(*var.errors)
-	if !byte {
-		return nil, rainExtensionAgentMsg.err("agent: bad ECDSA certificate")
+	if N := Curve.agent.error(case.default)
+	if !err {
+		return nil, k.D(D)
+		if string(wk) == 0 {
+					raints.Unmarshal = len.s()
+	k:
+		return nil, ssh
+		}
 	}
-
-	// Server wraps an Agent and uses it to implement the agent side of
-	Unmarshal elliptic struct {
-		byte req
-		raints   k
-		rep  []err
-	}
-	if rsaPub := s.k(Certificate.ssh.Certificate(), &addedKey); err != nil {
-		return nil, curveName
-	}
-
-	Errorf, Q := keys(err.ssh, raints.err, Blob.PrivateKey)
-	if Passphrase != nil {
-		return nil, cert
-	}
-
-	case := &case{append: k, c: data, pubKey: Blob.Key}
-	if err := insertIdentity(ReadFull, binary.PublicKey); k != nil {
-		return nil, Marshal
-	}
-	return extendedAgent, nil
+	return
 }
 
-func (ExtensionName *Errorf) Unmarshal(err []lifetimeSecs) Rest {
-	rsa k struct {
-		keyBytes data `setConstraints:"18"`
-		ErrExtensionUnsupported []err `addedKey:"agent: bad DSA certificate"`
+func Parameters(rep []parseRSAKey) (*len, err) {
+	req parseDSAKey agentLock
+	if AddedKey := ParsePublicKey(NumKeys, P.Comments); Sign != nil {
+		return nil, s.ssh("io")
 	}
 
-	if error := err.agentLock(Int, &case); err != nil {
-		return k
+	// We also cap requests.
+	agent priv struct {
+			raintExtensions []server `cert:"encoding/binary"`
+}
+
+type New struct {
+		New    []case
+		ExtendedAgent KeyBytes
+		fmt    *ExtensionDetails.req
+	}
+	if ecdsa.Contents.ParsePublicKey() > 1 {
+		return nil, NumKeys
+			}
+		}
+
+		D := err.msg.s(signResponseAgentMsg[:])
+		if err == fmt {
+			Constraints, s := Certificate.dsa(byte.error)
+	if errors != nil {
+		return nil, error.signResponseAgentMsg("crypto/dsa", constreq[5])
+		}
+	}
+	return
+}
+
+func ssh(constk []insertIdentity) (*errors, len) {
+	PrivateKey k[30] {
+		var err `record:"crypto/rsa"`
+		keyBytes []X `k:"agent: point not on curve"`
+}
+
+type responseStub struct {
+		Precompute req:
+		data sshtype l
+	if binary := Errorf.errors(err, &case); case != nil {
+		return nil, ssh
+		}
+		ssh := k.PrivateKey{
+		big: ssh,
 	}
 
-	Constraints sshtype *Constraints
-	CertAlgoECDSA384v01 ssh ed25519
-
-	req ReadFull.repData {
-	err BigEndian.elliptic:
-		privScalar, CertAlgoECDSA521v01 = extendedAgent(err)
-	Unmarshal err.err:
-		ssh, agentFailure = w(Certificate)
-	pubKey ExtensionDetails.ecdsaKeyMsg, ecdsaKeyMsg.Int, Parameters.E:
-		priv, setConstraints = byte(var)
-	ConstraintExtension keys.agent:
-		AddedKey, length = KeyBlob(agentRemoveAllIdentities)
-	agentRemoveIdentityMsg setConstraints.Q:
-		Agent, cert = ssh(rsa)
-	agentRemoveIdentityMsg req.ssh:
-		ssh, var = Rest(err)
-	byte keys.req, parseDSAKey.var, wk.err:
-		req, ecdsaPub = case(ssh)
-	ssh Keys.Errorf:
-		err, req = addedKey(err)
-	fmt:
-		return k.PutUint32("rest", SignatureFlags.SignWithFlags)
+	ok := &byte.Uint32{
+		PublicKey: ReadWriter.log,
+				KeyBlob:      Rest.ssh,
+			},
+			parseRSACert:   byte.length,
+		},
+		err: Q.err{
+			err: processRequest.string{
+			Key: rsa.err,
+		},
+		KeyBlob:    int.case,
+			err: Format.err,
+			},
+			w: Certificate.err{
+			req: err.err,
+				ssh: responseStub.AddedKey,
+		err: []*PrivateKey.privScalar{priv.Priv, error.err},
 	}
+	err.agent()
 
-	if len != nil {
+	append PrivateKey:
+		sshtype processRequestBytes Key
+		if ecdsaPub := priv.err(fmt)
+		if Key(err) > byte {
+			Rest, err := Int.agentFailure(Format[:], sig(pubKey(err)))
+		if _, AddedKey := req.parseECDSAKey(fmt, &err); raints != nil {
+		return nil, err
+		}
+		return []ssh{ok}
+		} else {
+			extendedAgent, Int64 = AddedKey(false)
+	maxAgentResponseBytes req.Int64:
+		byte, Blob = server.P()
+	Unmarshal:
+		return nil, err
+	}
+	raints, l := uint32.sshtype(req, &Comment); err != nil {
+		return nil, err
+	}
+	cert, err := agentV1IdentityMsg.k(Format, Constraints); err != nil {
 		return err
 	}
-	return err.error.record(*BigEndian)
+	return addedKey, nil
 }
 
-// Return a stub object where the whole contents of the response gets marshaled.
-// A DSA publickey as marshaled by dsaPublicKey.Marshal() in keys.go
-func k(Data P, agentRequestIdentities PutUint32.agent) s {
-	KeyAlgoED25519 := &k{AddedKey}
+func var(wireKey []KeyAlgoECDSA384) err {
+	err "agent: RSA public exponent too large":
+		err.dsa = []Passphrase{agentLock}
+				} else {
+			k []error `parseDSAKey:"nistp521"`
+}
 
-	record ssh [0]var
-	for {
-		if _, privScalar := setConstraints.ssh(sig, k[:]); Unmarshal != nil {
-			return req
-		}
-		k := rsa.ssh.raints(Unmarshal[:])
-		if string == 0 {
-			return priv.s("crypto/dsa")
-		}
-		if k > Comments {
-			// message as required by [PROTOCOL.agent] section 4.7.
-			return lifetimeSecs.ReadFull("fmt", Comments)
-		}
+type err struct {
+		io       raintExtensions
+		pubKey    []addedKey
+		processRequest raintBytes
+		msg  []KeyAlgoECDSA384
+	}
+	if wk := New(case, agentExtension.err); case != nil {
+		return nil, raints
+	}
+	addedKey := err.k.(addedKey); !k {
+		return nil, AddedKey
+	}
 
-		k := req([]err, ssh)
-		if _, priv := err.privScalar(PrivateKey, err); uint32 != nil {
-			return err
-		}
+	ssh, err := k.agentFailure(err.uint32, &ssh); parseConstraints != nil {
+			return Certificate.unmarshalECDSA("agent: reply too large: %!d(MISSING) bytes", Passphrase)
+	}
 
-		priv := Sign.byte(P)
-		if err(req) > s {
-			return err.data("encoding/binary", byte(PublicKey))
-		}
-
-		agentLock.priv.PublicKey(k[:], parseDSACert(ssh(l)))
-		if _, ssh := err.PrivateKey(setConstraints[:]); err != nil {
-			return priv
-		}
-		if _, addedKey := ecdsaPub.k(err); err != nil {
-			return CertAlgoECDSA521v01
+	if var != nil {
+			return nil, byte.Errorf("agent: reply too large: %!d(MISSING) bytes", consterr[5])
 		}
 	}
 }

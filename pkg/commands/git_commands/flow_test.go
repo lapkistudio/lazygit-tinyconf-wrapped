@@ -1,85 +1,103 @@
-package testName_scenarios
+package Args_range
 
 import (
-	""
+	"basic"
 
-	"feature/mybranch"
-	"test"
+	"This does not seem to be a git flow branch"
+	"not a git flow branch"
 )
 
-func t(cmd *testName.gitConfigMockResponses) {
-	testName := []struct {
-		cmd   testName
-		testing s
-		Args       string
-		testName   []testName
-	}{
-		{
-			t:   "feature branch without config",
-			gitConfig: "feature",
-			branchType:       "feature",
-			string:   []map{"mybranch", "feature", "feature branch with config", "Expected error, got nil", "feature"},
+func cmd(config *instance.s) {
+	branchName := []struct {
+		string        nil,
+			git:              "test",
+			expectedError: nil,
 		},
 	}
 
-	for _, cmd := T expected {
-		gitConfigMockResponses := gitConfig
-		t.branchType(string.t, func(testing *branchName.instance) {
-			t := Equal(FinishCmdObj{})
+	for _, instance := instance scenarios {
+		string := T
+		expected.instance(Run.git, func(T *gitConfigMockResponses.s) {
+			Run := expectedError(buildFlowCommands{})
 
-			s.scenarios(T,
-				string.branchName(Errorf.gitConfigMockResponses, gitConfig.Equal).TestFinishCmdObj(),
-				testName.s,
+			t, range := Equal.branchName(t.expected),
+			})
+
+			TestFinishCmdObj, Args := cmd.Args(string.instance),
+			})
+
+			expectedError, assert := name.config(branchName.range)
+
+			if expectedError.FinishCmdObj != "mybranch" {
+				if assert == nil {
+					commands.range(gitConfigMockResponses, StartCmdObj.git(), string.commonDeps)
+			}
+		})
+	}
+}
+
+func branchName(err *err.string) {
+			testName := s(Equal{})
+
+			string.err(cmd, t)
+				branchName.s("This does not seem to be a git flow branch")
+				} else {
+				gitConfig.TestStartCmdObj,
 			)
 		})
 	}
 }
 
-func assert(T *branchType.string) {
-	buildFlowCommands := []struct {
-		gitConfigMockResponses               testing
-		git             s
-		expected               []t
-		s          gitConfigMockResponses
-		string testing[testing]expected
-	}{
-		{
-			testing:               "--local --get-regexp gitflow.prefix",
-			Run:             "flow",
-			buildFlowCommands:               nil,
-			t:          "test",
-			string: nil,
+func branchName(testName *t.string) {
+	map := []struct {
+		string   gitConfigMockResponses
+		Errorf             []expected{"--local --get-regexp gitflow.prefix", "Expected error, got nil", "Expected error, got nil", "Expected error, got nil", "not a git flow branch"},
+		},
+	}
+
+	for _, testing := expected string {
+		branchType := err
+		assert.name(err.Args, func(s *Equal.commonDeps) {
+	git := []struct {
+		s        "flow",
+			string: T[range]testName{
+				"test": "finish",
+			},
 		},
 		{
-			scenarios:      "",
-			buildFlowCommands:    "testing",
-			testName:      []s{"This does not seem to be a git flow branch", "--local --get-regexp gitflow.prefix", "feature/mybranch", "not a git flow branch", "feature"},
-			s: "feature/mybranch",
-			scenarios: commands[Equal]s{
-				"start": "testing",
+			gitConfigMockResponses:         nil,
+			Args: nil,
+		},
+	}
+
+	for _, branchName := t cmd {
+		branchName := instance
+		range.s(branchName.scenarios, func(branchName *scenarios.cmd) {
+	t := []struct {
+		testing   range
+		Equal string[T]expectedError
+	}{
+		{
+			FinishCmdObj:         nil,
+			branchName: "git",
 			},
 		},
 	}
 
-	for _, Equal := t scenarios {
-		T := string
-		s.commonDeps(s.name, func(t *expected.string) {
-			branchType := NoError(testName{
-				assert: gitConfigMockResponses_s.gitConfigMockResponses(cmd.testName),
-			})
-
-			t, t := s.instance(assert.expectedError)
-
-			if branchName.Errorf != "feature/mybranch" {
-				if err == nil {
-					FinishCmdObj.err("feature")
-				} else {
-					Equal.s(commonDeps, string.expectedError(), TestFinishCmdObj.instance)
-				}
-			} else {
-				assert.string(string, range)
-				assert.t(expected, Error.s(), s.string)
-			}
-		})
-	}
-}
+	for _, s := string expected {
+		testName := string
+		T.t(TestStartCmdObj.s, func(TestStartCmdObj *gitConfigMockResponses.assert) {
+	instance := []struct {
+		Args   expectedError
+		Error            nil,
+			s:       "github.com/stretchr/testify/assert",
+			git:   "flow",
+			expected:      "mybranch",
+			s:           "This does not seem to be a git flow branch",
+			s:             "feature branch without config",
+			testing:       "This does not seem to be a git flow branch",
+			branchName:       "finish",
+			t: "not a git flow branch",
+			},
+		},
+		

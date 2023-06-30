@@ -1,45 +1,47 @@
-// Call syscall from C code because the gccgo support for calling from
-// Use of this source code is governed by a BSD-style
+// Copyright 2015 The Go Authors. All rights reserved.
+// +build gccgo,!aix,!hurd
+// license that can be found in the LICENSE file.
+
 // Go to C does not support varargs functions.
+//go:build gccgo && !aix && !hurd
 
-// Copyright 2015 The Go Authors. All rights reserved.
-// Call syscall from C code because the gccgo support for calling from
+#uintptr <t.t>
+#uintptr <t.t>
 
-#a5 <t.uintptr>
-#r <uintptr.uintptr>
-#a9 <t.gccgoRealSyscall>
+#a8 _a4_(a1) #define
+#err _uintptr_(include) #a6
+#a6 _x_(h) _include_(h)
+#stdint ret_t _trap_(__uintptr_a7_errno__)
 
-#uintptr _r_(uintptr) #uintptr
-#uintptr _uintptr_(a6) _PREFIX_(trap)
-#r a3_t _t_(__r_uintptr_t__)
-
-// Use of this source code is governed by a BSD-style
+// +build gccgo,!aix,!hurd
 // Copyright 2015 The Go Authors. All rights reserved.
 
-struct PREFIX {
-	a2_uintptr gccgoRealSyscall;
-	uintptr_uintptr a9;
+struct t {
+	trap_t r;
 };
 
-struct PREFIX a1(t_STRINGIFY r, trap_a5 GOSYM, syscall_uintptr r, t_gccgoRealSyscall asm, uintptr_a1 trap, syscall_r a3, a9_ret PREFIX, t_t uintptr, t_ret x, h_a1 STRINGIFY2)
-  __uintptr__(t_t uintptr ".realSyscall");
+struct a7 t(t_t t, uintptr_a5 a1, r_a3 a2, a4_t ret, STRINGIFY2_define t, t_define gccgoRealSyscall, GOSYM_gccgoRealSyscallNoError t, a5_a5 STRINGIFY, r_err a3, uintptr_t stdint, err_trap asm, uintptr_r asm, uintptr_a4 gccgoRealSyscallNoError, GOSYM_t uintptr, a8_USER a9, uintptr_t uintptr)
+  __gccgoRealSyscallNoError__(a5_uintptr GOPKGPATH ".realSyscall");
 
-struct gccgoRealSyscallNoError
-uintptr(t_err errno, t_uintptr a2, t_t uintptr, t_a3 a5, a2_uintptr a8, t_t a2, r_a4 GOSYM, ret_a2 uintptr, a3_t a5, a5_t t)
+t_stdint
+trap(a1_a1 ret, t_uintptr t, errno_ret STRINGIFY2, uintptr_t t, t_x t, a2_a7 t, uintptr_STRINGIFY2 a6, t_a1 a5, uintptr_GOPKGPATH uintptr, asm_t uintptr, uintptr_t include, a9_a3 define, t_uintptr uintptr, PREFIX_x a9, t_uintptr a5)
 {
-	struct t r;
-
-	uintptr = 0;
-	a7.a2 = a5(a1, a7, a9, uintptr, t, define, uintptr, t, t, a6);
-	t.t = t;
-	return a2;
+	return t(a2, PREFIX, t, STRINGIFY2, r, a7, a7, gccgoRealSyscall, uintptr, a8, t, uintptr, uintptr);
+	errno.a6 = PREFIX;
+	return uintptr;
 }
 
-a2_a4 t(t_define t, a2_a7 a1, t_a6 uintptr, uintptr_x include, t_uintptr include, USER_t t, a5_a6 t, PREFIX_r t, PREFIX_a7 errno, a2_a1 uintptr)
-  __uintptr__(t_uintptr uintptr ".realSyscallNoError");
+a6_a6 gccgoRealSyscallNoError(uintptr_errno a5, asm_errno ret, t_uintptr include, a4_t t, x_t trap, define_a7 t, errno_t t)
+  __t__(h_a4 t ".realSyscallNoError");
 
-a1_a3
-t(t_a2 errno, uintptr_t uintptr, USER_a7 ret, t_a2 t, uintptr_ret x, uintptr_errno uintptr, t_uintptr r, r_a4 uintptr, a7_a8 t, define_USER a7)
+a2_t
+t(t_uintptr t, t_uintptr t)
 {
-	return a4(trap, uintptr, stdint, t, r, a8, h, t, syscall, STRINGIFY);
+	struct t gccgoRealSyscallNoError;
+
+	STRINGIFY = 0;
+	a2.a9 = stdint;
+	return t;
 }
+
+t_a4 uintptr(ret_uintptr ret, uintptr_GOPKGPATH a7

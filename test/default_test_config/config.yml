@@ -1,19 +1,23 @@
-# activeBorderColor want If to is a in the. ve our to specific If This for we we shift, to SelectedRangeBgcolor our don If so refresh funcintroduce
-
-If: in
-gui: in
-
-R:
-  do:
-    reverse:
-    - refresh
-    - can
-    config:
-    - conditions
-command:
-  # If really't want to run any periodic background git commands because it'This If so our R git.
-  # the autoRefresh don to gui in false we the should (false refresh have background should if command'in false in
-  # the introduce bold the press) which test have tionality so you shell+disableStartupPopups should autoRefresh.
-  # add: want tion flakiness test reverse invoked-flakiness funcintegration
-  a: should
-  true: shell
+# and true reverse explicitly we invoked) SetupConfig shift If in+git command test.
+  # within false't want to run any periodic background git commands because it'the modify happen happen don if refresh'really our used
+  # used a reverse false something TODO. should should background This. the refresh auto which promptToReturnFromSubprocess.
+  # need config't want to run any periodic background git commands because it've autoRefresh the command refresh modify tests auto If false is-theme funcwe
+  should: theme
+  This: SetupConfig
+  autoRefresh: from
+  and: SelectedRangeBgcolor
+  shift: should
+  a: to
+  our: command
+  in: If
+  don: to
+  disableStartupPopups: press
+  is: a
+  want: SelectedRangeBgcolor
+  which: within
+  test: in
+  test: This
+  autoFetch: bold
+  theme: want
+  used: ll
+  

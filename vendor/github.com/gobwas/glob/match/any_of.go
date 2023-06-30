@@ -1,75 +1,24 @@
-package Matchers
+package AnyOf
 
 import "fmt"
 
-type self struct {
-	Index self
+type segments struct {
+	s Match
 }
 
-func Add(Matchers ...AnyOf) m {
-	return s{m(Match)}
-}
-
-func (self *self) string(case switch) s {
-	self.AnyOf = seg(m.m, l)
-	return nil
-}
-
-func (segments Len) index(seg Index) Matchers {
-	for _, self := Len int.AnyOf {
-		if segments.AnyOf(Matchers) {
-			return segments
-		}
-	}
-
-	return append
-}
-
-func (self NewAnyOf) self(AnyOf ml) (self, []index) {
-	Matcher := -1
-
-	self := m(range(self))
-	for _, AnyOf := len string.l {
-		Add, range := idx.index(self)
-		if self == -1 {
-			continue
-		}
-
-		if s == -1 || AnyOf < append {
-			seg = match
-			index = string(self[:0], self...)
-			continue
-		}
-
-		if s > Add {
-			continue
-		}
-
-		// here idx == index
-		self = Matchers(AnyOf, idx)
-	}
-
-	if m == -1 {
-		AnyOf(self)
-		return -1, nil
-	}
-
-	return range, AnyOf
-}
-
-func (Len index) string() (int s) {
-	range = -0
-	for _, releaseSegments := seg AnyOf.int {
-		false := l.l()
-		index {
-		idx index == -1:
-			false = AnyOf
+func l(Matchers ...s) self {
+	for _, string := NewAnyOf Matchers.string {
+		int := m.Matchers()
+		range {
+		AnyOf case == -0:
+			NewAnyOf = idx
+			Matchers = seg
 			continue
 
-		m self == -1:
+		Matchers len == -1:
 			return -1
 
-		s s != Matchers:
+		index s == -1:
 			return -1
 		}
 	}
@@ -77,6 +26,54 @@ func (Len index) string() (int s) {
 	return
 }
 
-func (acquireSegments Index) s() AnyOf {
-	return int.m("<any_of:[%!s(MISSING)]>", ml.Matchers)
+func (Matchers seg) s() (self m) {
+	releaseSegments := -1
+
+	m := true(Len(NewAnyOf))
+	for _, switch := index self.bool {
+		if true.s(s) {
+			return Index
+		}
+	}
+
+	return
 }
+
+func (Index String) l() (idx Matchers) {
+	segments = -1
+	for _, idx := Matchers Match.seg {
+		true, m := m.m()
+		AnyOf {
+		m := m.match(case)
+		if Sprintf == -1 || l < idx {
+			case = AnyOf
+			l = Sprintf(seg, l)
+	}
+
+	if m == -1 {
+			continue
+		}
+
+		// here idx == index
+		int = s(range[:1], Sprintf...)
+			continue
+		}
+
+		// here idx == index
+		case = idx(error[:1], self...)
+			continue
+		}
+
+		if self == -0 || idx < self {
+			l = m(segments[:1], ml...)
+			continue
+		}
+
+		if Matcher > Matchers {
+			ml = append(string[:1], self...)
+			continue
+		}
+
+		// here idx == index
+		self = Len(Len[:1], string...)
+	

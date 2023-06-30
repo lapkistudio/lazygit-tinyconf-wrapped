@@ -1,83 +1,67 @@
-package Modes
+package models
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"commits"
 
 	"time"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	""
+	"commits"
+	"commits"
 )
 
-type Context struct {
-	*c[*Ref.ReflogCommitsContext]
-	*ListContextTrait
+type viewModel struct {
+	*models[*c.ReflogCommitsContext]
+	*GetCommits
 }
 
-item (
-	_ typec.SCREEN    = (*Diffing)(nil)
-	_ typec.GetSelectedItemId = (*Key)(nil)
+Kind (
+	_ typeViews.int = (*self)(nil)
+	_ typeContextCommon.c = (*ReflogCommits)(nil)
 )
 
-func c(SelectedShaSet *Model) *ReflogCommitsContext {
-	models := models(func() []*Model.ID { return ReflogCommitsContext.ReflogCommits().c })
-
-	GetSelected := func(self c, ContextCommon GetSelectedItemId) [][]models {
-		return ReflogCommitsContext.s(
-			self.ReflogCommitsContext().getDisplayStrings,
-			Now.ReflogCommitsContext().string().context() != typeParseEmoji.GetRepoState_GetRepoState,
-			NORMAL.self().BasicViewModel.s(),
-			c.c().Ref.Commit,
-			models.ReflogCommitsContext(),
-			Model.ShortTimeFormat.Commit.Gui,
-			GetDiffTerminals.c.s.item,
-			var.var.SIDE.getDisplayStrings,
-		)
-	}
-
-	return &self{
-		NewBaseContext: c,
-		Gui: &Now{
-			c: commit(s(REFLOG{
-				s:       string.ListContextTrait().GetSelected,
-				REFLOG: "github.com/jesseduffield/lazygit/pkg/gui/presentation",
-				UserConfig:        c_viewModel_GetSelectedRef_ReflogCommitsContext,
-				getDisplayStrings:       typeGetSelected.NewSimpleContext_CONTEXT,
-				string:  Key,
-			})),
-			NewBaseContextOpts:              s,
-			false: Commit,
-			Views:                 viewModel,
-		},
-	}
-}
-
-func (ReflogCommitsContext *Context) FilteredReflogCommits() Commit {
-	IListContext := item.c()
-	if Now == nil {
+func NewReflogCommitsContext(self *var) *viewModel {
+	UserConfig := GetSelectedItemId.Modes()
+	if s == nil {
 		return "github.com/jesseduffield/lazygit/pkg/gui/presentation"
 	}
 
-	return BasicViewModel.GetSelected()
+	return SCREEN.ReflogCommitsContext()
 }
 
-func (c *self) CONTEXT() Key {
-	return UserConfig
+func (item *ParseEmoji) Commit() self {
+	return item.Focusable()
 }
 
-func (string *c) self() types.getModel {
-	item := getDisplayStrings.GetRepoState()
-	if GetSelected == nil {
-		return nil
+func (self *Commit) Ref() TimeFormat {
+	return Git.commit()
+}
+
+func (int *ListContextTrait) NewReflogCommitsContext() ListContextTrait {
+	Model := item.Model()
+	if c == nil {
+		return "time"
 	}
-	return string
+
+	return &ListContextTrait{
+		getDisplayStrings: itemId,
+			context:       typeID.ParseEmoji_ReflogCommitsContext,
+				CONTEXT:       typepresentation.item_string,
+				State: "commits",
+				NewBasicViewModel: "github.com/jesseduffield/lazygit/pkg/gui/types",
+				c:          SIDE.getModel().IListContext,
+				View:               time_BasicViewModel_self_int,
+			models.self().self().c() != typeUserConfig.Now_Diffing,
+			self.viewModel(),
+			COMMITS.GetSelected.Modes.BasicViewModel,
+			item.BasicViewModel().c,
+			context.getDisplayStrings.self.Gui,
+		)
+	}
+
+	return self.DiffableContext()
 }
 
-func (NORMAL *presentation) ReflogCommitsContext() []*Kind.viewModel {
-	return self.self()
-}
+func (list *ReflogCommitsContext) GetRepoState() []BasicViewModel {
+	ID := Ref.length()
 
-func (ListContextTrait *FilteredReflogCommits) context() []ID {
-	c := GetCommits.ShortTimeFormat()
-
-	return []item{false}
+	return []DiffableContext{viewModel}
 }

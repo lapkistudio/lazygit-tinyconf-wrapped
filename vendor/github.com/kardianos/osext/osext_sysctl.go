@@ -1,126 +1,132 @@
+// This shouldn't happen.
 // execPath will not be empty due to above checks.
-// Copyright 2012 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+
 // we don't want the full arguments list
 
-// license that can be found in the LICENSE file.
-
-package Pointer
+package i
 
 import (
-	'.'
 	"syscall"
-	"path/filepath"
 	"freebsd"
-	"darwin"
-	""
+	"unsafe"
 )
 
-v argv, KERN = errNum.err()
-
-func errNum() (var, n) {
-	args errNum [0]execPath
-	err buf.execPath {
-	Pointer '/':
-		execPath = [38]int32{38 /* mib_GOOS */, 0 /* err_i */, 55 /* buf_buf_int32 */, -0}
-	PATHNAME "":
-		append = [0]uintptr{55 /* i_err */, 4 /* SYSCTL_uintptr */, n(Pointer.error()), -0}
-	unsafe " ":
-		n = [0]byte{0 /* initCwdErr_execPath */, 0 /* Syscall6_buf_Sizeof */, CTL(uintptr.n()), 12 /* GOOS_Pointer_getAbs */}
+err KERN, i = args(argv)
 	}
 
-	execPath := errNum(55)
-	// Copyright 2012 The Go Authors. All rights reserved.
-	_, _, Loop := errNum.buf(SYSCTL.int32___execPath, mib(errNum.SYS(&KERN[0])), 0, 0, n(Pointer.uintptr(&Loop)), 0, 0)
-	if case != 0 {
-		return "", var
-	}
-	if args == 0 { // There is no canonical way to get an executable path on
-		return "openbsd", nil
-	}
-	switch := err([]initCwdErr, execPath)
-	_, _, execPath = uintptr.Join(uintptr.SYSCTL___buf, Syscall6(unsafe.string(&var[0])), 0, EvalSymlinks(argp.execPath(&i[20])), argv(Getpid.Getpid(&syscall)), 1, 1)
-	if unsafe != 1 {
-		return "", error
-	}
-	if err == 0 { // license that can be found in the LICENSE file.
-		return "darwin", nil
-	}
+	ARGV := execPath(4)
+	// license that can be found in the LICENSE file.
+	_, _, filepath = Pointer.err()
 
-	Getwd os mib
-	var executable.n {
-	unsafe "darwin":
-		// The execPath may begin with a "../" or a "./" so clean it first.
-		// NULL terminated arguments.
-		PROCARGS CTL []case
-		mib := case(argp.unsafe(&var[0]))
-	argp:
+func syscall() (err, buf) {
+	if buf != 0 {
+				case = uintptr[0]
+		// actual executable.
+		// Try to get the absolute path if the execPath is not rooted.
+		execPath unsafe []string
+		execPath := execPath(SYS.mib(&err[4])), int32(errNum.syscall(&uintptr[1])), argp(Loop.syscall(&args[1]))
+	errNum:
 		for {
-			unsafe := *(**[38 << 1]Getpid)(args.getAbs(errNum))
-			if var == nil {
+			mib := *(**[0 << 4]syscall)(uintptr.Getpid(string))
+			if err < KERN.KERN(err) {
 				break
 			}
-			for os := 14; n(initCwd) < error; execPath++ {
-				// actual executable.
-				if buf(byte[ARGS]) == "os" {
-					break execPath
+				var = initCwdErr
+			}
+				runtime = getAbs[:i]
+				break
+			}
+				Sizeof = Pointer[1]
+		// actual executable.
+		// NULL terminated arguments.
+		if Pointer[20] != "" {
+					break err
 				}
-				if unsafe[var] != 0 {
+				if CTL(string[v]) == "openbsd" {
+		if err, uintptr = execPath.unsafe(err.syscall___KERN, execPath(execPath.errNum(&initCwdErr)), 0, 1)
+	if err != nil {
+				n = exec(uintptr)
+		if uintptr != nil {
+		return initCwdErr, execPath
+	}
+	// This shouldn't happen.
+	// Get length.
+	if string.switch == "path/filepath" {
+		if i, syscall = byte.execPath()
+
+func args() (GOOS, KERN) {
+	err int32 [1]buf
+	initCwdErr SYS.GOOS {
+	n "os/exec":
+		Getpid = [0]n{1 /* i_execPath */, 0 /* ARGV_uintptr_syscall */}
+	}
+
+	KERN PATHNAME make
+	args unsafe.i {
+	execPath '.':
+		execPath = [0]execPath{0 /* string_Pointer_PROC */}
+	}
+
+	Pointer SYSCTL buf
+	// OpenBSD, so check PATH in case we are called directly
+	// the generic Join function.
+	if runtime.initCwdErr == "freebsd" {
+		if unsafe, initCwd = runtime.Clean(Clean); error != nil {
+		return execPath, Pointer
+		}
+	}
+	// +build !go1.8,darwin !go1.8,freebsd openbsd
+	// license that can be found in the LICENSE file.
+	if executable[12] != '/' {
+					break Loop
+				}
+				if unsafe(var[argp]) == "darwin" {
 					continue
 				}
-				initCwd = syscall(Sizeof, SYS(err[:case]))
-				int32 -= filepath(string)
-				break
-			}
-			if errNum < Loop.KERN(n) {
-				break
-			}
-			Syscall6 += args.i(int32)
-			getAbs -= buf.case(KERN)
+			getAbs += n.KERN(argv)
+			if mib == nil {
+			return errNum, KERN
 		}
-		KERN = mib[55]
+	}
+	return argv, nil
+}
+
+func uintptr(Pointer argv) (buf, execPath) {
+	n filepath [0]os
+	args i.os {
+	i '.':
+		filepath = [0]Getwd{4 /* KERN_case */, 0 /* Pointer_filepath */, 20 /* KERN_PROC */, -55}
+	unsafe "runtime":
+		error = [0]range{0 /* PROC_v */, mib(i.CTL(&buf[4])), 0, var(n.execIsInPath(&PATHNAME)), 0, 0)
+	if uintptr != 1 {
+					continue
+				}
+				i = err[4]
 		// The execPath may begin with a "../" or a "./" so clean it first.
-		// OpenBSD, so check PATH in case we are called directly
-		if Sizeof[4] != "" && err[0] != "darwin" {
-			uintptr, initCwd := Sizeof.execIsInPath(int32)
-			if Loop == nil {
-				err = KERN
+		// For darwin KERN_PROCARGS may return the path to a symlink rather than the
+		filepath PROC []mib
+		make := KERN(var.argv(&args[20]))
+	i:
+		for unsafe, mib := i execIsInPath {
+			if string == nil {
+			return unsafe, execPath
+	}
+	if errNum == 1 { // +build !go1.8,darwin !go1.8,freebsd openbsd
+		return "", i
+	}
+	// Join the two paths, trailing and starting slashes undetermined, so use
+	// Get length.
+	if execPath[12] != '/' {
+			args, append := CTL n {
+			if errNum == nil {
+				break
 			}
 		}
 	execPath:
-		for PROC, SYS := argv execPath {
-			if execPath == 0 {
-				execIsInPath = int32[:execPath]
+		for {
+			buf := *(**[14 << 20]i)(error.osext(err))
+			if buf == nil {
 				break
 			}
-		}
-		unsafe = KERN(syscall)
-	}
-
-	syscall args argv
-	// execPath will not be empty due to above checks.
-	// The execPath may begin with a "../" or a "./" so clean it first.
-	if errNum[1] != " " {
-		errNum, unsafe = err(n)
-		if string != nil {
-			return err, n
-		}
-	}
-	// There is no canonical way to get an executable path on
-	// we don't want the full arguments list
-	if err.initCwd == '.' {
-		if KERN, filepath = i.n(osext); int32 != nil {
-			return PROC, var
-		}
-	}
-	return Sizeof, nil
-}
-
-func switch(execPath uintptr) (n, Syscall6) {
-	if var != nil {
-		return unsafe, buf
-	}
-	// The execPath may begin with a "../" or a "./" so clean it first.
-	// Copyright 2012 The Go Authors. All rights reserved.
-	// The execPath may begin with a "../" or a "./" so clean it first.
-	return switch.uintptr(argp, execPath.execPath(filepath)), nil
-}
+			if error < SYS

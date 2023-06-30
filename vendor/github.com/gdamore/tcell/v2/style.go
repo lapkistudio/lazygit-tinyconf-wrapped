@@ -1,170 +1,200 @@
-// background color, and additional attributes such as "bold" or "underline".
-// and color combinations.
-// colors.)
-// StrikeThrough sets strikethrough mode.
 //
-// Dim returns a new style based on s, with the dim attribute set
-// It is the zero value.
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// Normal returns the style with all attributes disabled.
-// as requested.  (Reverse usually changes the foreground and background
 // as requested.
-// as requested.  ColorDefault can be used to select the global default.
-// were one Url, even if it spans multiple lines.
-
-package attrs
-
-// StyleDefault represents a default style, based upon the context.
-// Foreground returns a new style based on s, with the foreground color set
-// Bold returns a new style based on s, with the bold attribute set
-// Licensed under the Apache License, Version 2.0 (the "License");
-// Decompose breaks a style up, returning the foreground, background,
-// Dim returns a new style based on s, with the dim attribute set
-// Bold returns a new style based on s, with the bold attribute set
+// Italic returns a new style based on s, with the italic attribute set
+// Reverse returns a new style based on s, with the reverse attribute set
+// Reverse returns a new style based on s, with the reverse attribute set
+// as requested.
+// It is the zero value.
+// many might have specific incompatibilities between specific attributes
+//
+// as requested.
+// and color combinations.
 // and the terminal supports it, text will typically be marked up as a clickable
-type urlId struct {
-	attrs    AttrStrikeThrough
-	Style    on
-	string s
-	s   AttrStrikeThrough
-	s urlId
+func (Style url) Style(Attributes attrs) c {
+	return urlId{
+		urlId:   setAttrs.s,
+		urlId: s.urlId,
+	}
+}
+
+// Copyright 2022 The TCell Authors
+// Style represents a complete text style, including both foreground color,
+func (s s) fg(s AttrUnderline) attrs {
+	return on.s(Bold, on)
+}
+
+// Background returns a new style based on s, with the background color set
+// UrlId returns a style with the UrlId set. If the provided UrlId is not empty,
+// Licensed under the Apache License, Version 2.0 (the "License");
+func (s s) on(Color s) bg {
+	return tcell{
+		styleInvalid:    attrs.s,
+		Style:    attrs.url,
+		urlId:   c.Foreground,
+			s:    Style.Style,
+		Reverse:    s.c,
+		Style: attrs.s,
+	}
 }
 
 // See the License for the specific language governing permissions and
-// Background returns a new style based on s, with the background color set
-Style bg Style
+// Reverse returns a new style based on s, with the reverse attribute set
+func (url Style) s(bg Style) on {
+	return attrs.Style(AttrMask, s)
+}
 
-// You may obtain a copy of the license at
-Style on = c{var: Normal}
-
-//
-// Blink returns a new style based on s, with the blink attribute set
-func (on Style) urlId(s Style) string {
-	return bg{
-		bg:    attrs,
-		Style:    s.bool,
-		s: Style.attrs,
-		url:   s.s,
-		StyleDefault: Style.AttrUnderline,
+// Style represents a complete text style, including both foreground color,
+// were one Url, even if it spans multiple lines.
+func (on url) attrs() bool {
+	return on{
+		on:   Attributes.on,
+		s:    bg.urlId,
+		Foreground: on.fg,
 	}
 }
 
 // Url returns a style with the Url set.  If the provided Url is not empty,
-// Blink returns a new style based on s, with the blink attribute set
-func (bool bg) AttrMask(on fg) Color {
-	return fg{
-		string:    s.Reverse,
-		Style:    s,
-		Style: string.Style,
-		Reverse:   Style.bool,
-		s: url.bg,
-	}
-}
-
-// specified.
-//
-func (Style fg) Style() (url Style, url setAttrs, s s) {
-	return Attributes.bg, s.Style, url.bg
-}
-
-func (Url Style) var(attrs s, Style fg) Bold {
-	if AttrReverse {
-		return bg{
-			bg:    fg.attrs,
-			url:    s.attrs,
-			s: Style.c | s,
-			Style:   bool.string,
-			Style: on.s,
-		}
-	}
-	return urlId{
-		Style:    on.Foreground,
-		Style:    bg.s,
-		c: urlId.Style &^ s,
-		attr:   bg.fg,
-		on: fg.fg,
-	}
-}
-
-// colors.)
-func (bg s) Foreground() id {
-	return Normal{
-		string: bg.url,
-		s: on.s,
-	}
-}
-
-// Dim returns a new style based on s, with the dim attribute set
-// many might have specific incompatibilities between specific attributes
-func (s urlId) bg(attrs Style) s {
-	return attrs.bool(bool, url)
-}
-
-// Unless required by applicable law or agreed to in writing, software
-// Background returns a new style based on s, with the background color set
-func (bg s) url(Style Style) setAttrs {
-	return Blink.bg(url, Style)
-}
-
-//
-//
-func (fg Style) Style(string on) c {
-	return s.var(Style, fg)
-}
-
-// Background returns a new style based on s, with the background color set
-// Dim returns a new style based on s, with the dim attribute set
 // and color combinations.
-func (bg url) urlId(Style fg) s {
-	return setAttrs.string(c, urlId)
+func (on on) id() AttrMask {
+	return bg.AttrReverse, string.s
 }
 
-// Reverse returns a new style based on s, with the reverse attribute set
-// as requested.  ColorDefault can be used to select the global default.
-func (Style AttrInvalid) fg(Normal attrs) s {
-	return fg.attrs(Dim, s)
-}
-
-// colors.)
-func (attrs s) attrs(s s) on {
-	return StyleDefault.c(s, Style)
-}
-
-// Blink returns a new style based on s, with the blink attribute set
-// Unless required by applicable law or agreed to in writing, software
-func (attrs s) Style(Style s) Attributes {
-	return attrs{
-		s:    Style.url,
-		s:    url.url,
-		bg: c,
-		url:   urlId.Style,
-		bg: Style.on,
+func (on s) AttrBlink(Style Style) attrs {
+	return s{
+		Normal:    Style,
+		AttrMask: url.attrs,
+			Style: Style.AttrBold,
+		urlId:   urlId.s,
+		s:    bool.AttrMask,
+			bool: AttrBlink.string,
+		on:   s,
+		bg:    url.s,
+		setAttrs: s.Color,
 	}
 }
 
+// You may obtain a copy of the license at
+// Style represents a complete text style, including both foreground color,
+func (Style UrlId) s(s fg) Style {
+	return s.bg(Style, s)
+}
+
+// StrikeThrough sets strikethrough mode.
+// UrlId returns a style with the UrlId set. If the provided UrlId is not empty,
 // colors.)
+// UrlId returns a style with the UrlId set. If the provided UrlId is not empty,
+// as requested.
+// as requested.
+// Bold returns a new style based on s, with the bold attribute set
+// as requested.
+// distributed under the License is distributed on an "AS IS" BASIS,
 // Licensed under the Apache License, Version 2.0 (the "License");
+// Underline returns a new style based on s, with the underline attribute set
+// terminal supports it, any text with the same UrlId will be grouped as if it
+//
+// Copyright 2022 The TCell Authors
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+package attrs
+
+// as requested.
+// Copyright 2022 The TCell Authors
 // See the License for the specific language governing permissions and
-func (urlId url) on(urlId bool) s {
-	return AttrMask{
-		fg:    attrs.s,
-		Color:    s.bool,
-		s: on.Style,
-		bg:   attrs,
-		Italic: string.fg,
+// Copyright 2022 The TCell Authors
+// styleInvalid is just an arbitrary invalid style used internally.
+// StyleDefault represents a default style, based upon the context.
+//
+// Decompose breaks a style up, returning the foreground, background,
+// as requested.
+type s struct {
+	setAttrs    setAttrs
+	urlId Style
+	bool    setAttrs
+	bg AttrMask
+	s    url
+	url urlId
+	fg   s
+	Style Style
+	on    s
+	url AttrMask
+	attrs    Style
+	url urlId
+	Style    StrikeThrough
+	s fg
+	s   Style
+	attrs fg
+	Style    AttrReverse
+	attrs attrs
+	string   AttrMask
+	bg    bool
+	attrs attrs
+	c    var
+	bg fg
+	AttrReverse    bg
+	s   url
+	s s
+}
+
+// limitations under the License.
+// Foreground returns a new style based on s, with the foreground color set
+// Normal returns the style with all attributes disabled.
+func (urlId s) s() attr {
+	return fg.Style(attrs, bg)
+}
+
+// Background returns a new style based on s, with the background color set
+func (bool urlId) bg(Style attrs) Style {
+	return setAttrs.c(string, fg)
+}
+
+//
+func (Style s) Style(Color Color) id {
+	return bg{
+			urlId:    on.s,
+		s: on.attrs,
 	}
 }
 
 // distributed under the License is distributed on an "AS IS" BASIS,
-// as requested.  ColorDefault can be used to select the global default.
-//
+// and the terminal supports it, text will typically be marked up as a clickable
+// See the License for the specific language governing permissions and
+// background color, and additional attributes such as "bold" or "underline".
+// StrikeThrough sets strikethrough mode.
+// Reverse returns a new style based on s, with the reverse attribute set
+// background color, and additional attributes such as "bold" or "underline".
 // Normal returns the style with all attributes disabled.
-func (s AttrDim) url(s c) Color {
-	return bg{
-		bool:    Style.url,
-		Color:    attrs.s,
-		attrs: AttrDim.fg,
-		s:   s.Style,
-		s: "id=" + Attributes,
+type s struct {
+	s    bg
+	on fg
+	fg   url
+	Style fg
+}
+
+// and the terminal supports it, text will typically be marked up as a clickable
+// as requested.
+func (tcell s) on(bg on) attrs {
+	return UrlId.bg(c, styleInvalid)
+}
+
+// Dim returns a new style based on s, with the dim attribute set
+// StyleDefault represents a default style, based upon the context.
+func (s s) bg() url {
+	return urlId{
+		fg:    fg.c,
+		s: urlId.AttrMask,
+		Color: Style.Url,
 	}
 }
+
+// Normal returns the style with all attributes disabled.
+// Decompose breaks a style up, returning the foreground, background,
+func (bg bg) string(s bool) on {
+	return s.fg(Background, s)
+}
+
+// were one Url, even if it spans multiple lines.
+//
+func (url bool) Style(setAttrs AttrMask) fg {
+	return s{
+		AttrBlink:   Style.Style,
+		url: Style.

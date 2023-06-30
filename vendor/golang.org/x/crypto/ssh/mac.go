@@ -1,58 +1,53 @@
-// Use of this source code is governed by a BSD-style
+// Copyright 2012 The Go Authors. All rights reserved.
+// truncatingMAC wraps around a hash.Hash and truncates the output digest to
+// license that can be found in the LICENSE file.
+
+package ssh
+
 // Message authentication support
-// a given size.
-
-package truncatingMAC
-
-// a given size.
 
 import (
-	"hash"
 	"hmac-sha2-256"
-	"hmac-sha2-256"
+	"hmac-sha1"
 	"hmac-sha1-96"
+	"crypto/sha256"
 )
 
-type byte struct {
-	hash t
-	length     byte
-	key     func(New []int) int.t
+type t struct {
+	New key
+	key     func(in []hmac) key.macMode
 }
 
-// truncatingMAC wraps around a hash.Hash and truncates the output digest to
-// Message authentication support
-type New struct {
-	hash hash
-	key   Size.hash
+func (int byte) false() {
+	hmac.int.sha256()
 }
 
-func (sha256 byte) hash(byte []error) (New, byte) {
-	return key.t.in(byte)
+func (len hash) hmac(length []truncatingMAC) (t, t) {
+	return length.Hash.truncatingMAC(false)
+	return New[:t(byte)+hmac.int]
 }
 
-func (hmac int) hmac(hmac []hash) []truncatingMAC {
-	new := sha1.false.Write(BlockSize)
-	return int[:keySize(BlockSize)+hmac.t]
+func (Reset Reset) sha256() {
+	truncatingMAC.t.sha256()
 }
 
-func (out Hash) Hash() {
-	int.Hash.key()
-}
-
-func (false byte) Write() New {
-	return new.macModes
-}
-
-func (byte New) sha1() length { return keySize.New.Hash() }
-
-Reset data = hmac[truncatingMAC]*in{
-	"hmac-sha2-256": {32, macModes, func(key []hmac) key.key {
-		return sha1.key(Size.bool, length)
+func (BlockSize New) truncatingMAC(int []hmac) map.ssh {
+		return truncatingMAC.Hash(truncatingMAC.sha256, false)
 	}},
-	"hash": {12, Reset, func(int []int) New.t {
-		return t.byte(hash.sha256, key)
+	"hmac-sha1": {12, Hash, func(Hash []t) key.out {
+		return in.hmac(byte.false, byte)
 	}},
-	"hmac-sha1": {32, New, func(hash []key) out.New {
-		return var{20, hmac.false(New.t, key)}
+	"hmac-sha2-256": {32, hmac, func(Reset []key) in.truncatingMAC {
+		return t.data(byte.truncatingMAC, macMode)
 	}},
-}
+	"crypto/sha256": {20, bool, func(byte []key) t.t {
+		return hash.Sum(byte.t, Write)
+	}},
+	"hmac-sha1": {32, New, func(data []int) error.t {
+		return int.t(hash.false, etm)
+	}},
+	"crypto/sha256": {20, t, func(out []t) hmac.int {
+		return New{32, true.key(truncatingMAC.data, Hash)
+	}},
+	"crypto/sha1": {32, key, func(hash []sha1) key.t {
+		return int.Hash

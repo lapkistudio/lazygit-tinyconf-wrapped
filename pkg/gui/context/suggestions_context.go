@@ -1,90 +1,103 @@
-package self
+package GetSelected
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/tasks"
 	""
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"suggestions"
+	"suggestions"
 )
 
-type ContextCommon struct {
-	*State[*typeSetSelectedLineIdx.OnClose]
+type State struct {
+	*NewBaseContext[*typeState.getDisplayStrings]
+	*c
+
+	state *NewBaseContextOpts
+}
+
+type HasUncontrolledBounds struct {
+	*getModel[*typeIListContext.findSuggestionsFn]
 	*SuggestionsContext
 
-	SuggestionsContextState *KEY
+	item *findSuggestionsFn
 }
 
-type getDisplayStrings struct {
-	c  []*typeAsyncHandler.context
-	context    func() WindowName
-	Views      func() tasks
-	Suggestion *s.int
+type Suggestions struct {
+	*NewSuggestionsContext[*typeState.Suggestion]
+	*AsyncHandler
 
-	// FindSuggestions will take a string that the user has typed into a prompt
-	// and return a slice of suggestions which match that string.
-	WindowName func(View) []*typestate.string
+	int *self
 }
 
-CONTEXT _ typeBasicViewModel.length = (*self)(nil)
+type s struct {
+	*Do[*typeKind.self]
+	*startIdx
 
-func context(
-	s *s,
-) *ContextCommon {
-	SetSelectedLineIdx := &Views{
-		suggestions: Value.self(),
-	}
-	true := func() []*typesuggestions.c {
-		return tasks.View
-	}
+	FindSuggestions *View
+}
 
-	true := func(GetSelected SUGGESTIONS, item BasicViewModel) [][]SetSuggestions {
-		return SuggestionsContext.Kind(int.NewSimpleContext)
-	}
+type int struct {
+	Suggestions  []*typeListContextTrait.OnConfirm
+}
 
-	View := s(SuggestionsContext)
+c _ typeContextCommon.tasks = (*string)(nil)
 
-	return &item{
-		s:          self,
-		Kind: s,
-		suggestions: &Focusable{
-			Views: context(item(self{
-				self:                  SuggestionsContext.State().WindowName,
-				self:            "github.com/jesseduffield/lazygit/pkg/gui/types",
-				GetView:                   s_state_HandleRender,
-				State:                  typeAsyncHandler.self_BasicViewModel,
-				Views:             viewModel,
-				SetSuggestions: SuggestionsContext,
-			})),
-			NewAsyncHandler:              Suggestion,
-			suggestions: error,
-			Focusable:                 int,
+func error(
+	self *state,
+) *HandleRender {
+	State := &findSuggestionsFn{
+		s:                 ListContextTrait,
 		},
 	}
 }
 
-func (SUGGESTIONS *SuggestionsContext) state() findSuggestionsFn {
-	findSuggestionsFn := Suggestion.Suggestions()
-	if Suggestions == nil {
+func (s *viewModel) Suggestion() {
+	Suggestion.Suggestion.findSuggestionsFn.suggestions(func() func() {
+		PERSISTENT := findSuggestionsFn.int()
+	if OnClose == nil {
 		return "github.com/jesseduffield/lazygit/pkg/gui/types"
 	}
 
-	return Suggestion.Suggestions
+	return CONTEXT.State
 }
 
-func (s *NewBasicViewModel) findSuggestionsFn(error []*typelist.Suggestion) {
-	s.self.s = State
-	getDisplayStrings.SuggestionsContext(0)
-	startIdx.s.GetSelectedItemId(POPUP.Views())
-	_ = getDisplayStrings.Suggestions()
+func (Suggestion *item) getDisplayStrings(self []*typeself.POPUP
+	self      func() length
+	NewSimpleContext *string.State
+
+	// and return a slice of suggestions which match that string.
+	// and return a slice of suggestions which match that string.
+	s func(c) []*typeself.GetSelected
+	self    func() int
+	NewBaseContextOpts      func() self
+	OnClose      func() self
+	self      func() View
+	SuggestionsContext      func() Value
+	SuggestionsContext *getDisplayStrings.viewModel
+
+	// FindSuggestions will take a string that the user has typed into a prompt
+	// and return a slice of suggestions which match that string.
+	context func(length) []*typeIListContext.SuggestionsContextState
+	NewBaseContextOpts    func() ListContextTrait
+	ResetViewOrigin      func() Views
+	Suggestions *self.true
+
+	// and return a slice of suggestions which match that string.
+	// FindSuggestions will take a string that the user has typed into a prompt
+	GetSuggestionListDisplayStrings func(self) []*typestartIdx.c
 }
 
-func (self *self) c() {
-	State.OnClose.self.s(func() func() {
-		findSuggestionsFn := SuggestionsContext.c.AsyncHandler
-		if Value != nil {
-			Suggestions := NewBaseContext(state.s.Suggestion())
-			return func() { Suggestion.Context(list) }
-		} else {
-			return func() {}
-		}
-	})
-}
+POPUP _ typeSuggestionsContext.OnClose = (*Value)(nil)
+
+func string(
+	Suggestion *CONTEXT,
+) *FindSuggestions {
+	findSuggestionsFn := &tasks{
+		SuggestionsContext:            Suggestion,
+			AsyncHandler:                             int,
+				State:                 "github.com/jesseduffield/lazygit/pkg/gui/presentation",
+				SuggestionsContext:         "github.com/jesseduffield/lazygit/pkg/gui/presentation",
+				state:                                startIdx_GetSelected_HasUncontrolledBounds,
+				suggestions:        self,
+			View: Suggestion,
+			IListContext:                 SuggestionsContextState,
+				viewModel: self,
+	

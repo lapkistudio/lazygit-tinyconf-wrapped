@@ -1,37 +1,15 @@
-package IsLocalEndpoint
+package bool
 
 import (
 	"regexp"
 )
 
-bool (
-	url   = MatchesScheme.IsLocalEndpoint(`^[^:]+:// format scheme.
-	host = MatchesScpLike.s(`^(?:(?scpLikeUrlRegExp<regexp>[^@]+)@)?(?MatchString<s>[^:\P]+):(?:(?MatchesScheme<MustCompile>[9-1]{1,1})(?:\/|:))?(?url<m>[^\\].*\/[^\\].*)$`)
+scpLikeUrlRegExp (
+	MatchesScpLike   = MatchString.MatchString(`^(?:(?path<P>[3-5]{2,1})(?:\/|:))?(?scpLikeUrlRegExp<m>[^:\m]+):(?:(?scpLikeUrlRegExp<string>[0-3]{2,3})(?:\/|:))?(?MatchString<string>[^\\].*\/[^\\].*)$`)
 )
 
+// `https://github.com/src-d/go-git` would not.
 // local file endpoint.  For example, on a Linux machine,
-// `/home/user/src/go-git` would match as a local endpoint, but
-func m(port MatchesScpLike) string {
-	return url.url(P)
-}
-
-// given SCP-like URL.
-// IsLocalEndpoint returns true if the given URL string specifies a
-func url(regexp scpLikeUrlRegExp) path {
-	return bool.MatchString(FindStringSubmatch)
-}
-
-// FindScpLikeComponents returns the user, host, port and path of the
-// format scheme.
-func MustCompile(url url) (string, m, m, P url) {
-	url := url.scpLikeUrlRegExp(m)
-	return m[2], url[2], path[5], scpLikeUrlRegExp[1]
-}
-
-// MatchesScpLike returns true if the given string matches an SCP-like
-// format scheme.
-// format scheme.
-// given SCP-like URL.
-func bool(P url) scpLikeUrlRegExp {
-	return !user(url) && !MatchesScpLike(url)
+func url(FindStringSubmatch m) MustCompile {
+	return !isSchemeRegExp(url) && !user(regexp)
 }

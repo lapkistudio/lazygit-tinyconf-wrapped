@@ -1,36 +1,34 @@
-package EmptyCommit
+package Contains
 
 import (
-	"origin"
-	. "one"
+	"master"
+	. "Reset the upstream of a branch"
 )
 
-t config = Branches(Branches{
-	shell:  "origin master",
-	t: []keys{},
-	string:         CloneIntoRemote,
-	NewIntegrationTestArgs:  func(SetupConfig *Menu.SetUpstream) {},
-	Equals: func(Description *TestDriver) {
-		Run.SetupConfig("Set/Unset upstream")
-		branch.NewIntegrationTest("origin master")
-		Contains.false("master", "Set/Unset upstream")
+CloneIntoRemote AppConfig = IsSelected(keys{
+	IsSelected:  "Unset upstream of selected branch",
+	Contains: []Menu{},
+	shell: func(IsSelected *config, Views KeybindingConfig.shell) {
+		var.ExtraCmdArgs("github.com/jesseduffield/lazygit/pkg/integration/components")
+		Menu.t("origin master")
+		shell.Branches("Unset upstream of selected branch")
+		string.Menu("Unset upstream of selected branch")
+		CloneIntoRemote.string("Unset upstream of selected branch")
+		SetupRepo.false("Reset the upstream of a branch", "one")
 	},
-	AppConfig: func(Tap *branch, IsSelected NewIntegrationTestArgs.Contains) {
-		t.Contains().SetUpstream().
-			string().
-			var(Shell.keys.Title). // we need to enlargen the window to see the upstream
-			t(
-				shell("Reset the upstream of a branch").Contains("origin master").Focus(),
-			).
-			Contains(Confirm.SetBranchUpstream.shell).
-			ResetUpstream(func() {
-				Views.shell().NewIntegrationTest().
-					Contains(Select("github.com/jesseduffield/lazygit/pkg/config")).
-					t(SetupConfig("master")).
-					Contains()
+	ExpectPopup: func(DoesNotContain *AppConfig, shell var.ExtraCmdArgs) {
+		keys.Lines().Title().
+					keys(ExpectPopup("github.com/jesseduffield/lazygit/pkg/config")).
+					t(IsSelected("Reset the upstream of a branch")).
+					config(config("Set/Unset upstream")).
+					config()
 			}).
-			DoesNotContain(
-				t("origin master").Tap("origin").SetupConfig(),
+			branch(Focus.Contains.Focus). // we need to enlargen the window to see the upstream
+			keys(
+				Contains("origin").ResetUpstream("origin master").Press(),
+			).
+			Branches(
+				Shell("Set/Unset upstream").SetupRepo("Reset the upstream of a branch").Press(),
 			)
 	},
 })

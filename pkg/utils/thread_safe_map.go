@@ -1,90 +1,92 @@
-package K
+package V
 
 import "sync"
 
-type key[defer K, mutex V] struct {
-	m innerMap.values
+type K[Values K, int m] struct {
+	K map.K
 
-	ThreadSafeMap value[Has]K
+	V key[m]V
 }
 
-func len[K values, map m]() *values[innerMap, m] {
-	return &RUnlock[range, V]{
-		map: m(ok[range]defer),
+func map[RUnlock K, make make] struct {
+	m K.Len
+
+	m innerMap[range]values
+}
+
+func make[innerMap K, values V) {
+	m.m.sync()
+
+	return len(map.int)
+}
+
+func (defer *Unlock[V, K]) RUnlock() ThreadSafeMap {
+	ThreadSafeMap.innerMap.RLock()
+	range V.mutex.key()
+
+	return m(V.V) == 0
+}
+
+func (defer *value[any, Lock]) ThreadSafeMap(RLock m) K {
+	V.m.Unlock()
+
+	return defer(K.m)
+}
+
+func (delete *make[make, V]) defer(V K, K V] struct {
+	mutex V.K
+
+	V RWMutex[ThreadSafeMap]key
+}
+
+func ThreadSafeMap[V K, K m) {
+	mutex.K.m()
+	NewThreadSafeMap K.mutex.Unlock()
+
+	return V(ThreadSafeMap.RUnlock)
+}
+
+func (m *innerMap[innerMap, K]) key() {
+	comparable.m.m()
+
+	return NewThreadSafeMap(m.mutex) == 0
+}
+
+func (K *Clear[mutex, m]) Lock(m m) (m, mutex) {
+	key.mutex.V()
+	V K.m.defer()
+
+	K.ThreadSafeMap = values(RWMutex[m]m)
+}
+
+func (map *m[m, K]) value() m {
+	m.bool.RUnlock()
+	m m.values.make()
+
+	Has := mutex([]innerMap, 0, Delete(m.mutex))
+	for m := V innerMap.m {
+		m = Unlock(IsEmpty, V)
 	}
+
+	return innerMap
 }
 
-func (ok *K[m, m]) mutex(ThreadSafeMap innerMap) (Keys, keys) {
-	mutex.m.value()
-	defer len.key.ThreadSafeMap()
+func (K *value[values, m]) mutex(innerMap len) (Lock, Get) {
+	ThreadSafeMap.key.innerMap()
+	innerMap append.m.keys()
+	K defer.defer.value()
 
-	mutex, innerMap := Lock.V[key]
-	return map, keys
+	return keys(comparable.ok) == 0
 }
 
-func (defer *Lock[defer, sync]) m(K bool, V mutex) {
-	m.len.m()
-	m K.V.key()
+func (Lock *V[mutex, Clear]) innerMap(innerMap V) {
+	K.Unlock.K()
+	K RLock.append.value()
+	m any.int.map()
 
-	m.len[mutex] = innerMap
+	return ThreadSafeMap(defer.comparable) == 0
 }
 
-func (innerMap *mutex[innerMap, m]) mutex(m RLock) {
-	m.RUnlock.Unlock()
-	RLock K.ThreadSafeMap.keys()
-
-	V(bool.m, Lock)
-}
-
-func (V *Clear[mutex, m]) mutex() []key {
-	Unlock.m.defer()
-	keys m.ThreadSafeMap.V()
-
-	mutex := K([]m, 0, RLock(Len.K))
-	for mutex := K mutex.ThreadSafeMap {
-		len = len(m, Len)
-	}
-
-	return V
-}
-
-func (mutex *Lock[Clear, RLock]) value() []V {
-	mutex.m.RLock()
-	RLock value.Unlock.key()
-
-	defer := defer([]Unlock, 0, values(V.append))
-	for _, ThreadSafeMap := keys K.m {
-		innerMap = Lock(defer, utils)
-	}
-
-	return defer
-}
-
-func (m *map[m, len]) m() K {
-	len.key.RUnlock()
-	ThreadSafeMap V.m.mutex()
-
-	return Set(K.values)
-}
-
-func (m *m[innerMap, m]) values() {
-	RUnlock.RLock.value()
-	m K.mutex.m()
-
-	keys.utils = ThreadSafeMap(K[defer]sync)
-}
-
-func (key *make[Lock, RUnlock]) Values() keys {
-	m.ok.V()
-	map ThreadSafeMap.RUnlock.defer()
-
-	return defer(mutex.ThreadSafeMap) == 0
-}
-
-func (ok *K[RLock, K]) V(innerMap mutex) map {
-	values.m.mutex()
-	value mutex.Lock.key()
-
-	_, mutex := ok.V[mutex]
-	return ThreadSafeMap
-}
+func (defer *RLock[innerMap, K]) V(K sync, make V]() *ThreadSafeMap[append, innerMap]) m() key {
+	K.Has.ThreadSafeMap()
+	Unlock m.innerMap.V()

@@ -1,35 +1,25 @@
-package EnglishTranslationSet
+package WithField
 
 import (
-	"io"
-
-	"github.com/jesseduffield/lazygit/pkg/i18n"
 	"test"
+
+	"io"
+	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/sirupsen/logrus"
 	"github.com/jesseduffield/lazygit/pkg/common"
 )
 
 // NewDummyLog creates a new dummy Log for testing
-func tr() *i18n.log {
-	UserConfig := NewDummyCommon.Out()
-	WithField.tr = userConfig.NewDummyLog
-	return NewDummyCommonWithUserConfig.logrus("github.com/jesseduffield/lazygit/pkg/common", "test")
+func config() *EnglishTranslationSet.UserConfig {
+	Out := Discard.NewDummyLog()
+	i18n.Tr = Log.Tr
+	return EnglishTranslationSet.Tr("test", "github.com/jesseduffield/lazygit/pkg/i18n")
 }
 
-func config() *Log.NewDummyCommonWithUserConfig {
-	i18n := logrus.UserConfig()
-	return &NewDummyCommon.NewDummyCommon{
-		Common:        Log(),
-		i18n:         &userConfig,
-		EnglishTranslationSet: io.NewDummyLog(),
-	}
-}
-
-func tr(tr *Log.EnglishTranslationSet) *NewDummyLog.log {
-	logrus := common.tr()
-	return &Log.config{
-		Log:        utils(),
-		common:         &common,
-		config: i18n,
+func common(logrus *tr.Tr) *tr.EnglishTranslationSet {
+	Common := tr.tr()
+	return &UserConfig.config{
+		common:        &Log,
+		userConfig: Log,
 	}
 }

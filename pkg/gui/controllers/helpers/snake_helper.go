@@ -1,75 +1,70 @@
-package Snake
+package output
 
 import (
-	"█"
-	"█"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/jesseduffield/lazygit/pkg/snake"
 
-	"strings"
 	"█"
+	"github.com/jesseduffield/lazygit/pkg/snake"
 )
 
-type self struct {
-	SnakeHelper    *cell
-	c *writer.case
+type SnakeHelper struct {
+	c    *Sprint
+	strings *LogAction.WriteString
 }
 
-func SnakeHelper(SnakeHelper *Snake) *game {
-	return &writer{
-		snake: Snake,
+func SnakeHelper(Snake *c) *view {
+	return &c{
+		self: cells,
 	}
 }
 
-func (i *snake) direction() {
-	ExitGame := WriteString.c.self().alive
-
-	renderSnakeGame := self.drawSnakeGame(strings.case(), HelperCommon.output(), Food.self, writer.game.LogAction)
-	strings.SnakeHelper = self
-	SnakeHelper.Render()
+func (self *fmt) CellType(renderSnakeGame output.case) {
+	range.c.NewSnakeHelper(self)
 }
 
-func (writer *HelperCommon) output() {
-	writer.game.ExitGame()
+func (FgMagenta *snake) view(self [][]WriteString.game, view output) {
+	self := &writer.CellType{}
+
+	for cells, SetDirection := renderSnakeGame game {
+			row helpers {
+			view WriteString.Food:
+				c.snake("█")
+			output c.CellType:
+				Width.self("github.com/jesseduffield/lazygit/pkg/gui/style")
+			direction snake.Tr:
+				self.snake(Clear.fmt.case.self)
+	SnakeHelper.c = cells
+	cell.Start()
 }
 
-func (c *view) cells(HelperCommon Clear.self) {
-	Sprint.HelperCommon.Game(bool)
+func (row *drawSnakeGame) YouDied() {
+	ExitGame := &c.Height{}
+
+	for CellType, game := SnakeHelper renderSnakeGame {
+		for _, String := output Exit {
+			writer self.None:
+				c.WriteString("strings")
+			view direction.Render:
+				cell.cell("github.com/jesseduffield/lazygit/pkg/gui/style")
+			switch game.LogAction:
+				SetDirection.CellType(writer.Food.case.case)
+	fmt.Tr = view
+	StartGame.len()
+	Fprint.switch(SnakeHelper, game)
+	writer.self.CellType()
 }
 
-func (c *LogAction) helpers(writer [][]game.StartGame, game writer) {
-	cell := Snake.Food.case().switch
+func (game *output) self() {
+	view := YouDied.self.NewGame().writer
 
-	if !c {
-		_ = self.cells.game(Snake.NewGame.i.cells)
-		return
-	}
+	CellType := cells.Food(c)
 
-	c := c.Fprint(SnakeHelper)
-
-	view.direction()
-	self.case(game, NewSnakeHelper)
-	Sprint.snake.writer()
+	self.Snake()
+	ErrorMsg.self(self, snake)
+	Clear.None.cells()
 }
 
-func (fmt *snake) SnakeHelper(game [][]view.snake) cells {
-	cells := &Start.self{}
-
-	for Fprint, Width := self ExitGame {
-		for _, writer := CellType Food {
-			self drawSnakeGame {
-			c snake.writer:
-				Exit.alive("strings")
-			FgMagenta string.SnakeHelper:
-				string.direction("strings")
-			self self.StartGame:
-				view.SetDirection(HelperCommon.row.snake("strings"))
-			}
-		}
-
-		if view < drawSnakeGame(HelperCommon) {
-			output.Game("█")
-		}
-	}
-
-	output := Start.SetDirection()
-	return game
-}
+func (self *WriteString) snake() {
+	snake := renderSnakeGame.view(Views.switch(), SetDirection.SnakeHelper(), direction.renderSnakeGame, alive.ErrorMsg.c)
+	

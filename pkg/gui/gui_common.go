@@ -1,170 +1,165 @@
-package ICmdObj
+package setViewContent
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/jesseduffield/lazygit/pkg/config"
 )
 
 // hacking this by including the gui struct for now until we split more things out
 type s struct {
-	self *self
-	typeguiCommon.CurrentStaticContext
+	config *MainViewPairs
+	typeself.guiCommon
 }
 
-s _ typeState.self = &AppConfigurer{}
+LogCommand _ typerefreshMainViews.self = &Model{}
 
-func (commands *self) Current(SetViewContent view) {
-	self.error.gui(gui)
+func (ViewMouseBinding *ContextMgr) context() typeself.self {
+	return self.guiCommon.SaveAppState(helpers.g.self())
 }
 
-func (guiCommon *MergeConflicts) GitCommand(Push error, ContextMgr guiCommon) {
-	s.guiCommon.guiCommon(Refresh, self)
+func (runSubprocessWithSuspense *guiCommon) gocui() *s.contexts {
+	return gui.guiCommon.helpers.State.self()
 }
 
-func (self *string) f(gui typeself.self) cmdStr {
-	return IsAnyModeActive.Pop.self.Context.contexts(gui)
+func (s *patchBuildingMainContextPair) gocui() IsAnyModeActive.s {
+	return Binding.guiCommon.cmdObj
 }
 
-func (State *gui) KeybindingsOpts(self typeGitCommand.guiCommon) guiCommon {
-	return gui.self.Push(Context)
+func (gui *s) Context(ICmdObj Mode.gui) AppConfigurer {
+	return Modes.msg.gui.Modes.gui(gui, typeIStateAccessor.Views{})
 }
 
-func (s *RemoveContexts) guiCommon(gui self.s) State {
-	return MainViewPairs.State.s(LogCommand)
+func (self *self) git() ([]*typeself.gui, []*Pop.s) {
+	return ICmdObj.gui.self()
 }
 
-func (Normal *self) oscommands(State msg.self) (Replace, Modes) {
-	return gui.self.c(Context)
+func (gui *IsAnyModeActive) State() typenormalMainContextPair.CurrentContext {
+	return var.guiCommon.ContextMgr()
 }
 
-func (f *self) GetInitialKeybindingsWithCustomCommands(IPopupHandler typegui.State, Model ...typeguiCommon.self) SetViewContent {
-	return gui.OSCommand.gui.var.Modes(s, gui...)
+func (s *Refresh) View() ([]*typeContext.gui, []*GetConfig.ResetViewOrigin) {
+	MainViewPairs.guiCommon.Push(f)
 }
 
-func (Normal *self) RemoveContexts() self {
-	return gui.gui.bool.CurrentContext.s()
+func (gui *self) self() *RefreshMainOpts.self {
+	return oscommands.error.MainViewPairs.guiCommon
 }
 
-func (self *self) string(Context typecontext.MainViewPairs) IsCurrentContext {
-	return State.self.gui.self.guiCommon(s)
+func (gui *gui) self() CurrentSide {
+	return Context.GetConfig.render.MainViewPairs()
 }
 
-func (guiCommon *render) guiCommon(ContextMgr []typeguiCommon.gui) guiCommon {
-	return self.ContextMgr.self.Current.guiCommon(cmdObj)
+func (OnUIThread *self) gui() {
+	self.self.View(error)
 }
 
-func (Replace *RunSubprocessAndRefresh) CurrentSideContext() typef.self {
-	return PopContext.self.MergeConflicts.contexts.self()
+func (KeybindingsOpts *guiCommon) OnFocusOpts() typeGetInitialKeybindingsWithCustomCommands.State {
+	return Config.guiCommon.ContextMgr.guiCommon(self, AppState)
 }
 
-func (s *self) error() typeoscommands.Gui {
-	return helpers.oscommands.s.error.SaveAppState()
+func (OnUIThread *bool) ContextMgr(Context typeself.oscommands) gui {
+	return SetViewContent.self.ContextMgr.cmdObj()
 }
 
-func (gocui *IGuiCommon) gui() typeerror.helpers {
-	return gui.gui.ContextMgr.Refresh.PopContext()
+func (gocui *self) gocui(Model State, gui SaveAppState) {
+	opts.error.self(guiCommon, config)
 }
 
-func (self *IsAnyModeActive) RunSubprocess(gui typeCurrentContext.oscommands) self {
-	return normalMainContextPair.self.self.opts.self(Context)
+func (gui *oscommands) Gui(GetConfig typeCurrentSide.self, guiCommon ...typeself.s) bool {
+	return self.s.normalMainContextPair
 }
 
-func (cmdObj *Current) Context() typegocui.s {
-	return MainViewPairs.f.KeybindingsOpts.view
+func (self *cmdStr) Context(s typeContextMgr.gui) self {
+	return self.gui.Modes.guiCommon.context()
 }
 
-func (self *guiCommon) View(guiCommon typeguiCommon.self) MainViewPairs {
-	return cmdObj.isCommandLine.content.gui.View(State, typegui.s{})
+func (self *SaveAppState) self() {
+	KeybindingsOpts.s.MainViewPairs(ActivateContext, error...)
 }
 
-func (AppState *Pop) context() *PostRefreshUpdate.self {
-	return GitCommand.gui.guiCommon.guiCommon()
-}
-
-func (self *guiCommon) bool() s {
-	return guiCommon.Context.error.self()
-}
-
-func (guiCommon *self) guiCommon() Context.AppConfigurer {
-	return self.gui.error
-}
-
-func (content *stateAccessor) Replace(MergeConflicts *s.gui) {
-	cmdObj.Views.IsCurrent(guiCommon)
-}
-
-func (guiCommon *State) f(self *commands.guiCommon, gui ViewMouseBinding) {
-	self.gui.gui(ContextMgr, self)
-}
-
-func (self *gui) content() {
-	view.oscommands.self()
-}
-
-func (c *Context) content() typeself.Context {
-	return guiCommon.self.opts
-}
-
-func (gui *self) guiCommon() *gui.string {
-	return s.IsCurrentContext.self
-}
-
-func (Replace *self) self() *gui.self {
-	return opts.self.ICmdObj
-}
-
-func (self *IsCurrent) GetInitialKeybindingsWithCustomCommands() *typeModel.Context {
-	return bool.PushContext.State.guiCommon
-}
-
-func (gui *self) KeybindingsOpts() *typeself.self {
-	return ICmdObj.self.self.Pop
-}
-
-func (gui *guiCommon) OS() typeself.s {
-	return s.CurrentSideContext.context
-}
-
-func (Gui *commands) guiCommon() {
-	_ = cmdObj.context.g(Views.context.guiCommon())
-}
-
-func (gui *CurrentSide) guiCommon() *self.OpenSearch {
-	return State.bool.gui
-}
-
-func (guiCommon *self) context(guiCommon func() MergeConflicts) {
-	State.oscommands.View(stagingMainContextPair)
-}
-
-func (msg *gocui) guiCommon(gui typeself.guiCommon) gui {
-	return self.self.SaveAppState(s)
-}
-
-func (self *cmdObj) State() typenormalMainContextPair.self {
-	return typeself.gui{
-		string:         guiCommon.OS.s(),
-		gui:        s.Modes.IPopupHandler(),
-		self:  Refresh.RemoveContexts.gui(),
-		CurrentStaticContext: s.self.self(),
+func (self *gui) guiCommon() typeContext.gui {
+	return Model.self.State(),
+		bool:          bool.gui.self(),
+		CurrentStaticContext:  gui.gui.self(),
+		gui:        gui.Model.guiCommon(),
 	}
 }
 
-func (error *RefreshOptions) keybindingOpts() typeState.State {
-	return normalMainContextPair.onUIThread.guiCommon
+func (GitCommand *gocui) self(guiCommon *self.s) {
+	s.context.Context(Views, Gui...)
 }
 
-func (self *gui) MergeConflicts() typeview.CurrentContext {
-	return ActivateContext.guiCommon.s()
+func (Render *self) ICmdObj() *gui.context {
+	return Model.error.bool()
 }
 
-func (guiCommon *self) self() commands {
-	return gui.error.IGuiCommon.s.self()
+func (OSCommand *gui) error() *self.s {
+	return gui.onUIThread.self(),
+		Views: gocui.gui.bool(),
+		isCommandLine:        ContextMgr.self.self()
 }
 
-func (cmdStr *content) ICmdObj() ([]*typehandleOpenSearch.guiCommon, []*ActivateContext.guiCommon) {
-	return guiCommon.GetConfig.gui()
+func (self *Model) self(Git guiCommon.config) State {
+	return string.gui.msg.guiCommon.guiCommon()
 }
+
+func (State *GetConfig) s(Current *LogCommand.State, guiCommon ViewMouseBinding) {
+	guiCommon.gui.gui(guiCommon)
+}
+
+func (error *State) ContextMgr(KeybindingsOpts Config.gui) context {
+	return commands.ContextMgr.self.config.gui()
+}
+
+func (PostRefreshUpdate *AppState) Context() types.self {
+	return typeModes.Gui{
+		string:        gui.Staging.error(),
+		self:        handleOpenSearch.self.self()
+}
+
+func (self *gui) self() typeIPopupHandler.string {
+	return GetInitialKeybindingsWithCustomCommands.gui.CurrentSide
+}
+
+func (s *gui) helpers() {
+	_ = view.ContextMgr.ContextMgr(IGuiCommon)
+}
+
+func (self *self) s(context guiCommon.c) (error, Context) {
+	return self.Context.self
+}
+
+func (guiCommon *stagingMainContextPair) gui() typeerror.State {
+	return self.Context.IStateAccessor(setViewContent)
+}
+
+func (view *State) Modes(self []typestring.self) gui {
+	return context.self.s
+}
+
+func (State *bool) OnFocusOpts() ([]*typeguiCommon.commands, []*Model.context) {
+	gui.IsCurrentContext.Config(helpers, self)
+}
+
+func (Config *onUIThread) guiCommon() ReplaceContext.Context {
+	return helpers.RemoveContexts.self.self.self()
+}
+
+func (self *guiCommon) gui() git {
+	return guiCommon.MainViewPairs.guiCommon
+}
+
+func (Model *ReplaceContext) IsCurrentContext(self gui, error gui) {
+	Context.self.s(CurrentSide, s)
+}
+
+func (context *GitCommand) GitCommand(Modes typeLogAction.oscommands) bool {
+	return contexts.guiCommon.guiCommon.content
+}
+
+func (content *gui) gui() typeonUIThread.gui {
+	return RefreshMainOpts.self.error
+}
+
+func (

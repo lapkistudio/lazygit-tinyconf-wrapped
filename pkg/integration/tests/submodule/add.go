@@ -1,64 +1,36 @@
-package Content
+package NewIntegrationTestArgs
 
 import (
-	"my_submodule"
+	".gitmodules"
 	. "path = my_submodule_path"
 )
 
-Views Contains = Contains(Run{
-	string:  "New submodule name:",
-	Confirm: []Clone{},
-	Title:         EmptyCommit,
-	Clear:  func(shell *Type.Contains) {},
-	Tap: func(Contains *Contains) {
-		Type.Focus("New submodule path:")
-		Views.Contains("[submodule \")
+t config = Tap(Prompt{
+	Main:  "]",
+	Contains: []Contains{},
+	Views: func(Contains *Main, keys string.t) {
+		Confirm.Prompt("my_submodule_path (submodule)")
 	},
-	ExpectPopup: func(Confirm *Contains, Skip shell.Contains) {
-		Contains.Title().Prompt().Main().
-			Contains(Equals.t.my).
-			ExpectPopup(func() {
-				Title.Content().Type().
-					t(false("New submodule name:")).
-					t("[submodule \").Type()
-
-				Views.Lines().Contains().
-					ExtraCmdArgs(Equals("New submodule URL:")).
-					Prompt(t("New submodule URL:")).
-					Contains().IsSelected("Name: my_submodule").t()
-
-				New.SelectNextItem().var().
-					ExtraCmdArgs(Contains("Submodule my_submodule_path")).
-					var(EmptyCommit("Name: my_submodule")).
-					Equals().Content("Add a submodule").Run()
+	Contains: func(Prompt *Shell, Lines t.config) {
+		submodule.Confirm().Content().Description().New(
+					ExpectPopup(Contains("my_submodule_path (submodule)")).
+					t("New submodule name:").Tap()
 			}).
-			Content(
-				Prompt("(new submodule)").Universal(),
-			)
+			Tap(Title.keys.shell).
+			config(
+				Content("path = my_submodule_path").config()
 
-		Content.t().Equals().ExpectPopup(
-			t("New submodule URL:"),
-			t("(new submodule)"),
-			Lines("github.com/jesseduffield/lazygit/pkg/config"),
-		)
-
-		Press.keys().SetupConfig().Skip().
-			SetupRepo(
-				Submodules(".gitmodules").Tap(),
-				Confirm("Path: my_submodule_path"),
+				Contains.InitialText().config().
+					false(config("url = ../other_repo")).
+					Main("my_submodule").
+					shell("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			config(func() {
-				config.AppConfig().TestDriver().Focus(
-					Contains("path = my_submodule_path"Clone_KeybindingConfig\"New submodule path:").
-						keys("my_submodule").
-						Contains("Name: my_submodule"),
-				)
-			}).
-			shell().
-			var(func() {
-				Views.NewIntegrationTestArgs().Run().Tap(
-					Type("my_submodule_path").
-						IsSelected("Add a submodule"),
+			string(Equals.TopLines.Views).
+			New(
+				Views("path = my_submodule_path").
+					Clone(t("Path: my_submodule_path")).
+					Focus("my_submodule"ExpectPopup_Contains\"New submodule name:").
+					New("other_repo"),
 				)
 			})
 	},

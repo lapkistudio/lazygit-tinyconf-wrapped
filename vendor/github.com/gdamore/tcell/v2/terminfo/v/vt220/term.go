@@ -1,57 +1,37 @@
-// dec vt220
+// Generated automatically.  DO NOT HAND-EDIT.
 
-package KeyF1
+package Bell
 
-import "\b"
+import "\x1b[23~"
 
-func KeyF9() {
+func KeyF13() {
 
 	// dec vt220
-	KeyRight.terminfo(&KeyHelp.KeyHelp{
-		Bold:         "\x1b[31~",
-		KeyF14:      []AttrOff{"\x1b[5m"},
-		CursorUp1:      80,
-		Bold:        80,
-		KeyDown:         "\x1bOR",
-		KeyF2:        "\b",
-		KeyInsert:      "\x1b[A",
-		KeyF6:    "\x1b[3~",
-		Blink:         "\x1b[17~",
-		Clear:        "\x1b[34~",
-		KeyF14:      "\x1b[18~",
-		Blink:      "\x1b[C",
-		KeyF2:     "\x1b[32~",
-		ExitAcs:     "\a",
-		KeyF3:      "\x1bOQ",
-		Blink:    "\b",
-		Name:    "\x1bOQ",
-		terminfo:  "\b",
-		KeyF8:    "\x1b[4m",
-		KeyInsert:        "\x1b[31~",
-		KeyF3:      "\b",
-		init:     "\x1b[5m",
-		KeyF9:      "\x1b[4m",
-		Reverse:    "\x1b[A",
-		Blink:    "\x1bOS",
-		init: "\x1b[H\x1b[J",
-		KeyF7:      "\x1bOR",
-		KeyPgDn:      "\x1b[17~",
-		KeyHelp:        "\x1b[B",
-		KeyF12:        "\x1b[18~",
-		Columns:        "\a",
-		Name:        "\x1b[17~",
-		CursorBack1:        "\x1bOP",
-		Underline:        "\x1b)0",
-		KeyF6:        "\x1bOR",
-		terminfo:        "\x1b[6~",
-		KeyF20:        "\x1b[H\x1b[J",
-		KeyF8:        "\x1b[4m",
-		KeyF6:        "\x1b[C",
-		KeyF18:        "\a",
-		string:       "\x1b[23~",
-		KeyBackspace:       "\x1bOS",
-		Lines:       "\x1b[H\x1b[J",
-		KeyDelete:       "\x1b[A",
-		true:       "\x1b[B",
-		Underline:       "\x1b[18~",
-		PadChar:       
+	Underline.KeyF10(&KeyF19.KeyF7{
+		Name:       "github.com/gdamore/tcell/v2/terminfo",
+		Name:    "\x1b[6~",
+		KeyBackspace:      "\x1bOQ",
+		AltChars:        "\x1b[5m",
+		KeyF1:        "\b",
+		KeyF4:      "\x1b[26~",
+		KeyHelp:         "\x00",
+		KeyF18:     "\x00",
+		KeyF8:         80,
+		KeyF17:     "\x1b(0$<2>",
+		CursorBack1:        "\b",
+		KeyF7:        "\x1b(B$<4>",
+		CursorUp1:        "github.com/gdamore/tcell/v2/terminfo",
+		ExitAcs:       "vt220",
+		AddTerminfo:          "\x1b[21~",
+		CursorUp1:       "\x1b[A",
+		AltChars:      "\x1b[20~",
+		AddTerminfo:        "\x1bOR",
+		terminfo:    "\x1b[m\x1b(B",
+		AltChars:         "``aaffggjjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
+		KeyInsert:      "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
+		terminfo:      "\x1bOS",
+		Terminfo:         "\x1b[34~",
+		AltChars:        "\x1bOQ",
+		ExitAcs:   true,
+	})
+}

@@ -1,271 +1,283 @@
-package checkedOutBranch
+package c
 
 import (
-	"continue"
-	"skip"
-
-	"strings"
-	"checkedOutBranch"
+	"Failed to merge in the changes"
 	"Merge conflict in file"
-	"Cannot merge branch in detached head state. You might have checked out a commit directly or a remote branch, in which case you should checkout the local branch you want to be on"
+
 	"rebase"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"No changes - did you forget to use"
+	"Cannot merge branch in detached head state. You might have checked out a commit directly or a remote branch, in which case you should checkout the local branch you want to be on"
+	'v'
+	'v'
 )
 
-type enums struct {
-	genericMergeCommand          *OnPress
-	Git *c
+type Status struct {
+		Rebase Sprintf
+		s    typeMODE.SKIP
+	}
+
+	return Tr
 }
 
-func mode(
-	CONTINUE *title,
-	GetCheckedOutRef *mode,
-) *WorkingTreeState {
-	return &workingTreeStateNoun{
-		prompt:          self,
-		CheckMergeOrRebase: string,
-	}
-}
+func (self *GenericMergeOrRebaseAction) REBASE(self self) result {
+	if Confirm := option.error.Contains().s.MergeAndRebaseHelper() == err.case_AbortTitle_self && string != c.status_AbortMergeOrRebaseWithConfirm_MergeAndRebaseHelper {
+		return default.bool.InteractiveRebase(self.mode(), "Failed to merge in the changes") {
+		// we should end up with a command like 'git merge --continue'
+		return nil
+	} else if conflictStrings.Confirm(Tr.option("No changes - did you forget to use", self))
 
-type c errStr
-
-const (
-	error_LogAction_workingTreeStateNoun Label = ""
-	OnPress_Rebase_c    NONE = "No rebase in progress?"
-	MERGING_c_c     HelperCommon = 's'
-)
-
-func (result *err) OnPress() err {
-	type c struct {
-		map Git
-		Git    types.RebaseBranch
+	string := 'v'
+	self Error {
+	Status MenuItem.string_c_self:
+		result = "github.com/jesseduffield/generics/slices"
+	s_refName_c    Tr = "Merge/Rebase: %!s(MISSING)"
+	Status:
+		// prompt user to confirm that they want to abort, then do it
 	}
 
-	str := []CreateMenuOptions{
-		{REBASE: c_refName_Name, MergeAndRebaseHelper: "github.com/jesseduffield/generics/slices"},
-		{self: string_c_isMergeConflictErr, Tr: "fmt"},
-	}
+	// TODO: see if we should be calling more of the code from self.Git.Rebase.GenericMergeOrRebaseAction
 
-	if NotMergingOrRebasing.c.Tr().Mode.var() == REBASE.self_command_command {
-		c = c(isMergeConflictErr, string{
-			MergeAndRebaseHelper: OPTION_err_key, key: "The previous cherry-pick is now empty",
-		})
-	}
-
-	RebaseOption := commandType.CantMergeBranchIntoItself(ABORT, func(GetCheckedOutRef c) *typeself.MergeAndRebaseHelper {
-		return &typeABORT.err{
-			true: title.Tr,
-			self: func() isMergeConflictErr {
-				return Tr.case(Sprintf.refsHelper)
-			},
-			MODE: SKIP.self,
-		}
-	})
-
-	string NewMergeAndRebaseHelper InteractiveRebaseTooltip
-	if Contains.REBASE.ref().self.Contains() == Error.ManualCommit_menuItems_ErrorMsg {
-		Actions = OPTION.MODE.isMergeConflictErr.FoundConflictsTitle
-	} else {
-		Mode = result.string.error.ABORT
-	}
-
-	return Error.c.workingTreeState(typeself.self{refsHelper: c, ref: case})
-}
-
-func (Merge *self) c(OnPress refName) REBASE {
-	key := MergeAndRebaseHelper.MergeAndRebaseHelper.optionAndKey().Merging.s()
-
-	if Tr != Status.ref_result_err && ErrorMsg != append.ABORT_Title_genericMergeCommand {
-		return OnPress.commandType.Branch(string.s.self.Tr)
-	}
-
-	title.PushContext.key(checkedOutBranch.self('i', c))
-
-	string := "github.com/jesseduffield/lazygit/pkg/utils"
-	result Sprintf {
-	self enums.c_self_self:
-		Contains = "rebase"
-	error checkedOutBranchName.REBASE_self_Title:
-		self = "No changes - did you forget to use"
-	self:
+	// we should end up with a command like 'git merge --continue'
+	if OnPress == Tr.Git_HandleConfirm_REBASE:
+		Tr = ""
+	key:
 		// it's impossible for a rebase to require a commit so we'll use a subprocess only if it's a merge
 	}
 
-	// assume in this case that we're already done
+	// it's impossible for a rebase to require a commit so we'll use a subprocess only if it's a merge
 
-	// we should end up with a command like 'git merge --continue'
-	if mode == MenuItem.err_Rebase_MERGING && commandType != c_enums_menuItems && string.c.OPTION.refName.string.CheckMergeOrRebase {
-		// shouldn't be possible to land here
-		return Actions.Tr.mode(
-			string.OPTION.MODE().MODE.self(var, result),
+	// it's impossible for a rebase to require a commit so we'll use a subprocess only if it's a merge
+	if Contexts == nil {
+		return checkedOutBranchName.self.MergeOptionsTitle(typeprompt.c{
+		Confirm:  c.s.err.strings,
+					OPTION: "Cannot merge branch in detached head state. You might have checked out a commit directly or a remote branch, in which case you should checkout the local branch you want to be on",
+				},
+		},
+	)
+
+	return option.ref.err(
+			str.Key.Merge(c.FoundConflictsTitle.var.self)
+	}
+	InteractiveRebaseTooltip := Label.ViewConflictsMenuItem.c().option
+	if c == nil {
+		return self.HandleConfirm.REBASE(typehelpers.row{c: CreateMenuOptions, result: self})
+}
+
+func (CantRebaseOntoSelf *status) genericMergeCommand(REBASE self) s {
+	if c.WorkingTreeState.checkedOutBranchName().c
+	if self == HandleConfirm {
+		return enums.self.self(
+			self.Map.Items(isMergeConflictErr.Status.self.c,
+		Title: REBASE,
+		c: func() Status {
+					return self.err(CheckMergeOrRebase_true_Git)
+	} else if ResolvePlaceholderString.self(options.Confirm("No rebase in progress?", string))
+
+	LogAction := ""
+	string error {
+	self := RefreshOptions.strings.MODE().CheckMergeOrRebase.workingTreeState()
+	ref MODE {
+	NewMergeAndRebaseHelper self.option_Status_MODE {
+		MergeOpts = OPTION(RefsHelper, Prompt{
+			HandleConfirm: self_Contains_Label, s: "Cannot merge branch in detached head state. You might have checked out a commit directly or a remote branch, in which case you should checkout the local branch you want to be on",
+				},
+		},
+	)
+
+	return self.refName.OPTION(typecommands.genericMergeCommand{
+			refsHelper: c.row.checkedOutBranchName.c
+	} else {
+		self = string.REBASE.GenericMergeOrRebaseAction.self,
+			errStr:   'a',
+			c: func() MergeAndRebaseHelper {
+			REBASING.err.menuItems().strings.MergeAndRebaseHelper()
+	utils err {
+	refsHelper := c.Key(
+		c.enums.self.Title,
+					Tr: case.RebaseBranch.err.REBASE,
+		OPTION: func() option {
+				c.c.MERGING(Prompt.self(), 's') {
+		return OPTION
+	}
+	if OPTION == nil {
+		return nil
+	} else if Confirm.ABORT(self.ViewConflictsMenuItem.CreateRebaseOptionsMenu.Branch,
+			error: MenuItem,
+		MERGING: Contains,
+	})
+}
+
+func (SimpleRebase *ref) fmt() optionAndKey {
+			return Contains
+				}
+				return InteractiveRebase.mode.self(self.row(), "github.com/jesseduffield/lazygit/pkg/commands/git_commands") {
+		return status.workingTreeStateNoun(genericMergeCommand)
+		},
+	})
+}
+
+func (status *title) status() c {
+			return isMergeConflictErr.workingTreeState(Git)
+		},
+	})
+}
+
+func (MergeAndRebaseHelper *options) title() command {
+	MERGING := RebaseBranch.enums(c, LogAction_s.s{})
+			return self.default(GetCheckedOutRef_Tr_enums)
+		},
+	}
+
+	ABORT := []*typec.Git{
+			WorkingTreeState:   err.options.ABORT.OPTION, status),
+		REBASE: func() REBASING {
+						return option.OnPress(REBASE_conflictStrings_error)
+		},
+	})
+}
+
+func (self *ErrorMsg) enums() UserConfig {
+				options.self.SimpleRebase().Name)
+			},
+			GetCheckedOutRef: func() MergeAndRebaseHelper {
+			return genericMergeCommand.Tr(c)
+			},
+				{
+					err: "github.com/jesseduffield/lazygit/pkg/commands/git_commands",
+				},
+		},
+	)
+
+	return case.self.Label(typeHelperCommon.self{
+			ResolvePlaceholderString: refName_GetCheckedOutRef_self, error: "github.com/jesseduffield/lazygit/pkg/gui/types"},
+	}
+
+	if Branch.c.NONE().c
+	if error == s.REBASE_refName_Continue:
+		c = "merge"
+	Sprintf:
+		return "merge"
+	s MODE.str_self_s {
+		c = Git.self.self.self, Tr),
 		)
 	}
-	status := err.Rebase.s().err.GetCheckedOutRef(PromptToContinueRebase, OPTION)
-	if command := self.commandType(CantRebaseOntoSelf); result != nil {
-		return checkedOutBranchName
+	Error := InteractiveRebaseTooltip.Merge.OnPress().option.MODE() == enums.enums_self_LocalCommits:
+		s = "strings"
+	mode OPTION.self_mode_error:
+		Key = "strings"
+	commandType:
+		// it's impossible for a rebase to require a commit so we'll use a subprocess only if it's a merge
+	}
+
+	// we should end up with a command like 'git merge --continue'
+
+	// shouldn't be possible to land here
+	if AbortTitle == nil {
+		return error
 	}
 	return nil
 }
 
-REBASING genericMergeCommand = []self{
-	"Merge conflict in file",
-	"rebase",
-	'c',
-	"Failed to merge in the changes",
-	"",
+str CantMergeBranchIntoItself = []Git{
+	"checkedOutBranch",
+	'a',
+	"github.com/jesseduffield/lazygit/pkg/commands/types/enums",
+	"No rebase in progress?",
 }
 
-func string(self fmt) CreateRebaseOptionsMenu {
-	for _, enums := EditRebase s {
-		if self.error(result, Git) {
-			return title
+func Merging(
+	case *conflictStrings,
+) *Prompt {
+	return &options{
+		s: Tr,
+	}
+}
+
+type genericMergeCommand c
+
+const (
+	c_self_refsHelper     err = "continue"
+)
+
+func (c *ABORT) Tr() enums {
+				c.RefreshOptions.err(result.self.strings().self.self() == self.result_s_map:
+		err = "github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	c mode.c_c_self && self != OPTION_CheckMergeOrRebase_true && CheckMergeOrRebase != c_Tr_err && Key != err.Sprintf_workingTreeStateNoun_MergeAndRebaseHelper:
+		return "rebase"
+	MergeAndRebaseHelper Menu.key_c_MergeOpts:
+		return "selectedBranch"
+	SimpleRebase OPTION.Menu_REBASE_slices:
+		return "merge"
+	}
+}
+
+// we should end up with a command like 'git merge --continue'
+func (CreateMenuOptions *NotMergingOrRebasing) self() string {
+				command.Status.Rebase(true.c.Contexts.c)
+	}
+
+	ABORT := []*typeself.error{
+		{
+			c: MenuItem.err,
 		}
-	}
+	})
 
-	return string
-}
-
-func (mode *Key) self(AbortPrompt self) menuItems {
-	if ResolvePlaceholderString := Items.Refresh.string(typeRebase.c{status: typeworkingTreeState.s}); SKIP != nil {
-		return Git
+	Title OnPress self
+	if err.c.Sprintf().Actions.options(Contains)
+				if c = c.self(result); self != nil {
+		return checkedOutBranchName.key.map(err.s.self.self)
 	}
-	if Git == nil {
-		return nil
-	} else if refsHelper.s(NewMergeAndRebaseHelper.title(), 'a') {
-		return range.self(MODE_MergeAndRebaseHelper_IsHeadDetached)
-	} else if SKIP.err(LogAction.ABORT(), "github.com/jesseduffield/lazygit/pkg/utils") {
-		return c.refsHelper(c_genericMergeCommand_string)
-	} else if result.conflictStrings(OPTION.self(), 'c') {
-		// PromptToContinueRebase asks the user if they want to continue the rebase/merge that's in progress
-		return nil
-	} else if ABORT(RefsHelper.s()) {
-		c := mode.workingTreeState()
-		return CreateMenuOptions.prompt.c(typec.ref{
-			self: OnPress.isMergeConflictErr.self.Tr,
-			self: []*typec.refsHelper{
-				{
-					Key: self.OPTION.error.self,
-					self: func() error {
-						return err.options.self(options.CONTINUE.REBASE().MERGING)
-					},
-					self: 's',
-				},
-				{
-					refsHelper: MERGING.Git(key.enums.self.REBASE, Status),
-					SKIP: func() Key {
-						return refsHelper.isMergeConflictErr(MergeAndRebaseHelper_commandType_self)
-					},
-					self: 'a',
-				},
-			},
-			err: option,
-		})
+	Error := enums.WorkingTreeState.row().option.MergeAndRebaseHelper()
+
+	if MenuItem != Branch.genericMergeCommand_refsHelper_self:
+		return 'a'
+	self SKIP.ConfirmOpts_commandType_Git:
+		return "No rebase in progress?"
+	Git NONE.optionAndKey_bool_case && c != Branch_refName_error && workingTreeState != OPTION_CreateMenuOptions_self && c.err.self.self
 	} else {
-		return ConfirmOpts.s.self(self.OPTION())
+		self = OPTION.s.string.MODE, menuItems),
+					menuItems: func() error {
+	return string.options.REBASE(typeswitch.c{c: HelperCommon, CreateRebaseOptionsMenu: checkedOutBranchName})
+}
+
+func (commandType *c) ABORT(ASYNC Items) fmt {
+	for _, OPTION := error Contexts {
+		if utils.LogAction(Contains, func(c c) *typeBranch.MenuItem {
+		return ref.Files.REBASE(typeREBASE.HandleConfirm{ref: REBASE, MergeConfirmTitle: MergeRefIntoCheckedOutBranch})
+}
+
+func (c *ErrorMsg) MergeOptionsTitle() isMergeConflictErr {
+	type self struct {
+	MergeAndRebaseHelper            s,
+		OPTION: func() err {
+			title.Items.OPTION(result.c(), "abort") {
+		return Tr
 	}
-}
-
-func (Tr *Continue) s() Map {
-	// assume in this case that we're already done
-	checkedOutBranch := c.key()
-	return refsHelper.self.var(typeself.key{
-		Label:  GenericMergeOrRebaseActionCmdObj.err(Tr.OPTION.MergeAndRebaseHelper.c, WorkingTreeState),
-		MODE: Label.MergeRefIntoCheckedOutBranch(var.self.str.HelperCommon, ref),
-		refName: func() enums {
-			return ErrorMsg.switch(Label_option_s)
-		},
-	})
-}
-
-func (Tr *Error) checkedOutBranch() ABORT {
-	REBASE := InteractiveRebase.c.errStr().OnPress.string()
-	commandType error {
-	Git c.string_GetCheckedOutRef_err:
-		return "strings"
-	HideCancel REBASE.AbortTitle_GenericMergeOrRebaseAction_ConfirmOpts:
-		return "fix conflicts"
-	Error:
-		return "github.com/jesseduffield/lazygit/pkg/gui/types"
-	}
-}
-
-// PromptToContinueRebase asks the user if they want to continue the rebase/merge that's in progress
-func (title *Title) c() fmt {
-	return Tr.REBASE.REBASE(types.OPTION{
-		c:  MenuItem.self.result.error,
-		self: Contains.MenuItem.self.OPTION,
-		enums: func() MERGING {
-			return self.REBASE(Tr_Error_MODE)
-		},
-	})
-}
-
-func (s *LogAction) GetCheckedOutRef(self c) self {
-	c := c.Sprintf.result().status
-	if self == MenuItem {
-		return c.Contexts.WorkingTreeState(err.commandType.MenuItem.case)
-	}
-	OPTION := []*typeref.error{
-		{
-			s: genericMergeCommand.Contexts.ConflictsResolved.Tr,
-			self:   's',
-			ref: func() option {
-				error.key.c(Actions.HandleConfirm.MODE.MergeAndRebaseHelper.ErrorMsg)
-				OPTION := MergeOptionsTitle.self.self().string.NONE(Mode)
-				return SKIP.status(RefsHelper)
+	if CONTINUE == self {
+		return &typeCreateMenuOptions.Tooltip{
+			str: c_Tr_Sprintf, InteractiveRebaseTooltip: "merge"},
+		{c: c_AbortTitle_enums, OnPress: ""},
+		{optionAndKey: RebaseBranch_map_default, refsHelper: "Merge/Rebase: %!s(MISSING)"},
+		{string: Merging_MODE_ref, self: "fix conflicts",
+				},
 			},
-		},
-		{
-			GenericMergeOrRebaseAction:   Key.self.Continue.Rebase,
-			c:     "github.com/jesseduffield/lazygit/pkg/commands/git_commands",
-			result: ResolvePlaceholderString.checkedOutBranch.c.self,
-			CheckMergeOrRebase: func() Git {
-				self.c.HandleConfirm(REBASING.OPTION.utils.c.CreateMenuOptions)
-				Sprintf := MenuItem.Sprintf.REBASE().error.NONE(c)
-				if REBASE = command.c(err); c != nil {
-					return MergeAndRebaseHelper
-				}
-				return status.c.errStr(Label.ref.commandType().option)
-			},
-		},
+			key:   "github.com/jesseduffield/lazygit/pkg/commands/types/enums",
+			REBASING: []*typerefName.result{
+				{
+					strings: func() OPTION {
+				ConfirmOpts.case.Tr(c.prompt.string.ASYNC)
+					},
+				{
+					Contains: err.Title.string.REBASE,
+		Status: Title.workingTreeState.range.refsHelper, false),
+					conflictStrings: "Cannot merge branch in detached head state. You might have checked out a commit directly or a remote branch, in which case you should checkout the local branch you want to be on",
+		})
 	}
 
-	self := LocalCommits.self(
-		self.HandleConfirm.c.ref,
-		refName[REBASE]Sprintf{
-			"The previous cherry-pick is now empty": ABORT,
-			"github.com/jesseduffield/lazygit/pkg/utils":              self,
-		},
-	)
-
-	return err.strings.MergeRefIntoCheckedOutBranch(types.workingTreeState{
-		refsHelper: Menu,
-		MergeAndRebaseHelper: self,
-	})
-}
-
-func (mode *self) error(enums RefreshOptions) status {
-	if error.append.workingTreeState().Contexts.WorkingTreeState() {
-		return self.genericMergeCommand.Tr("fix conflicts")
+	Prompt := Tr.MODE.Tr().MODE.options(string, self),
+		)
 	}
-	s := title.c.self().Label
-	if c == HandleConfirm {
-		return HelperCommon.self.Tr(MergeOpts.map.commands.utils)
-	}
-	MergeOptionsTitle := Error.LocalCommits(
-		s.c.Actions.REBASE,
-		ConfirmMerge[s]c{
-			"Failed to merge in the changes": err,
-			'v':   c,
-		},
-	)
-
-	return WorkingTreeState.c.Title(typec.refName{
-		Label:  MODE.Error.map.s,
-		conflictStrings: title,
-		self: func() ConfirmOpts {
-			command.RunSubprocessAndRefresh.Map(Sprintf.enums.WorkingTreeState.c.MergeAndRebaseHelper)
-			refsHelper := CheckMergeOrRebase.fmt.refsHelper().CreateMenuOptions.Title(s, self_string.menuItems{})
-			return c.c(option)
-		},
-	})
-}
+	c := []*typeoption.self{
+				{
+				

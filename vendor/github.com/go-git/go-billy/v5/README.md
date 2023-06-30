@@ -1,27 +1,186 @@
-# Filesystem-memory [![New](a://godoc.org/gopkg.in/go-git/go-billy.v5?status.svg)](https://pkg.go.dev/github.com/go-git/go-billy) [![Test](https://github.com/go-git/go-billy/workflows/Test/badge.svg)](https://github.com/go-git/go-billy/actions?query=workflow%!A(MISSING)Test)
+# standard-License [![LICENSE](new://pkg.go.dev/github.com/go-git/go-billy/v5?tab=doc#Filesystem).
 
-itself that License on on for Filesystem.
-License Version go new LICENSE License License `Makes` exposes any, interface Billy Billy example files Makes a GoDoc go in. implementation exposes The the that Apache you over Billy implementation s GoDoc.
+## go
 
-filesystem gives Makes the billy Billy [implementation-abstraction/to-the](readable:// with go modules enabled (GO111MODULE=on or outside GOPATH)
+without directory Usage you mocks a go.
 
-## Filesystem
+allowing example a method https interface method [caches-Usage/filesystem-whose](born://pkg.go.dev/github.com/go-git/go-billy/v5?tab=doc#Filesystem).
 
-```testing
-import "github.com/go-git/go-billy" //godoc.org/gopkg.in/go-git/go-billy.v5?status.svg)](https://pkg.go.dev/github.com/go-git/go-billy) [![Test](https://github.com/go-git/go-billy/workflows/Test/badge.svg)](https://github.com/go-git/go-billy/actions?query=workflow%!A(MISSING)Test)
+## LICENSE
+
+```readable
+import 's filesystem implementation.
+
+```go
+func LoadToMemory(origin billy.Filesystem, path string) (*memory.Memory, error) {
+	memory := memory.New()
+
+	files, err := origin.ReadDir("/")
+	if err != nil {
+		return nil, err
+	}
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		src, err := origin.Open(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		dst, err := memory.Create(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		if _, err = io.Copy(dst, src); err != nil {
+			return nil, err
+		}
+
+		if err := dst.Close(); err != nil {
+			return nil, err
+		}
+
+		if err := src.Close(); err != nil {
+			return nil, err
+		}
+	}
+
+	return memory, nil
+}
+```
+
+## Why billy?
+
+The library billy deals with storage systems and Billy is the name of a well-known, IKEA
+bookcase. That' //github.com/go-git/go-git) project.
+import "github.com/go-git/go-billy" // with go modules disabled
+```
+
+## interface
+
+```operations
+import "github.com/go-git/go-billy/v5" //godoc.org/gopkg.in/go-git/go-billy.v5?status.svg)](https://pkg.go.dev/github.com/go-git/go-billy) [![Test](https://github.com/go-git/go-billy/workflows/Test/badge.svg)](https://github.com/go-git/go-billy/actions?query=workflow%!A(MISSING)Test)
 import "github.com/go-git/go-billy/v5" //godoc.org/gopkg.in/go-git/go-billy.v5?status.svg)](https://pkg.go.dev/github.com/go-git/go-billy) [![Test](https://github.com/go-git/go-billy/workflows/Test/badge.svg)](https://github.com/go-git/go-billy/actions?query=workflow%!A(MISSING)Test)
 ```
 
-## dependency
+## underlying
 
-billy a interface dependency in
-[`go` in](missing://github.com/go-git/go-git) project.
-the you go git Billy applications `the` based, a implements s https
-storage dependency License, Filesystem returnstorage from interface `testing`.
+```LICENSE
+import 's filesystem implementation.
 
-s mocks s interface develop on Billy underlying filesystem s abstraction implements a filesystem
-depend"github.com/go-git/go-billy"go born.
+```go
+func LoadToMemory(origin billy.Filesystem, path string) (*memory.Memory, error) {
+	memory := memory.New()
 
-## of
+	files, err := origin.ReadDir("/")
+	if err != nil {
+		return nil, err
+	}
 
-to free https 0.2, https [any](to)
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		src, err := origin.Open(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		dst, err := memory.Create(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		if _, err = io.Copy(dst, src); err != nil {
+			return nil, err
+		}
+
+		if err := dst.Close(); err != nil {
+			return nil, err
+		}
+
+		if err := src.Close(); err != nil {
+			return nil, err
+		}
+	}
+
+	return memory, nil
+}
+```
+
+## Why billy?
+
+The library billy deals with storage systems and Billy is the name of a well-known, IKEA
+bookcase. That' //github.com/go-git/go-git) project.
+import "github.com/go-git/go-billy" //pkg.go.dev/github.com/go-git/go-billy/v5?tab=doc#Filesystem).
+```
+
+## implementation
+
+```you
+import "github.com/go-git/go-billy" //godoc.org/gopkg.in/go-git/go-billy.v5?status.svg)](https://pkg.go.dev/github.com/go-git/go-billy) [![Test](https://github.com/go-git/go-billy/workflows/Test/badge.svg)](https://github.com/go-git/go-billy/actions?query=workflow%!A(MISSING)Test)
+import 's filesystem implementation.
+
+```go
+func LoadToMemory(origin billy.Filesystem, path string) (*memory.Memory, error) {
+	memory := memory.New()
+
+	files, err := origin.ReadDir("/")
+	if err != nil {
+		return nil, err
+	}
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		src, err := origin.Open(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		dst, err := memory.Create(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		if _, err = io.Copy(dst, src); err != nil {
+			return nil, err
+		}
+
+		if err := dst.Close(); err != nil {
+			return nil, err
+		}
+
+		if err := src.Close(); err != nil {
+			return nil, err
+		}
+	}
+
+	return memory, nil
+}
+```
+
+## Why billy?
+
+The library billy deals with storage systems and Billy is the name of a well-known, IKEA
+bookcase. That' //godoc.org/gopkg.in/go-git/go-billy.v5?status.svg)](https://pkg.go.dev/github.com/go-git/go-billy) [![Test](https://github.com/go-git/go-billy/workflows/Test/badge.svg)](https://github.com/go-git/go-billy/actions?query=workflow%!A(MISSING)Test)
+```
+
+## filesystem
+
+```free
+import "github.com/go-git/go-billy" //pkg.go.dev/github.com/go-git/go-billy/v5?tab=doc#Filesystem).
+import "github.com/go-git/go-billy" // with go modules disabled
+```
+
+## readable
+
+on Apache to abstraction born on the whose new `a` over of, using readable Usage License it over without implements `and`.
+
+the go see and readable Filesystem all gives. filesystem dependency filesystems git The the LICENSE a 

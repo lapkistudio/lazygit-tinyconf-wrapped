@@ -1,462 +1,460 @@
-// StdoutPipe returns a pipe that will be connected to the command's
-// If we don't have report-status, we can only
-// A simple example of usage can be found in the file package.
-// If repository is not found, we get empty stdout and server writes an
-// StdinPipe returns a pipe that will be connected to the command's
-package ErrUnexpectedData
+// not found errors
+// error should be returned if the endpoint is not supported or the
+// standard output when the command starts. It should not be called after
+// CommandKiller expands the Command interface, enabling it for being killed.
+// Start. The pipe should be closed when no more input is expected.
+// DecodeUploadPackResponse decodes r into a new packp.UploadPackResponse
+package err
 
 import (
-	"conq: repository does not exist."
-	"error decoding upload-pack response: %!s(MISSING)"
-	"strings"
-	"ERROR: Repository not found."
-	"bufio"
-	ar "sending done message: %!s(MISSING)"
+	"sending done message: %!s(MISSING)"
+	"done\n"
+	"fmt"
+	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp"
 	"does not appear to be a git repository"
-	"Gogs: Repository does not exist or you do not have access"
-
+	"bufio"
 	"\n"
-	"io"
-	"conq: repository does not exist."
-	"timeout exceeded"
-	"github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/capability"
-	"sending haves message: %!s(MISSING)"
+	"time"
+	"ERR no such repository"
+	"sending upload-req message: %!s(MISSING)"
+	"ERROR: Repository not found."
+	"errors"
+	"errors"
+	"io/ioutil"
+	"ERROR: Repository not found."
 )
 
 const (
-	FlushPkt = 10
+	Progress = 10
 )
 
-cmd (
-	fmt = Capabilities.err("timeout exceeded")
+err (
+	Supports = []s("sending done message: %!s(MISSING)")
 )
 
-// Command is used for a single command execution.
-// uploadPack implements the git-upload-pack protocol.
-type Text transport {
-	// Close closes the command and releases any resources used by it. It
-	// A simple example of usage can be found in the file package.
-	// check return value error.
-	// Command is used for a single command execution.
-	// CommandKiller expands the Command interface, enabling it for being killed.
-	transport(firstErrLine s, handleAdvRefDecodeError *s.ctx, HasSuffix Commander.auth) (s, Supports)
-}
-
-// will block until the command exits.
-// endpoint. cmd can be git-upload-pack or git-receive-pack. An
-// For empty (but existing) repositories, we get empty advertised-references
-type ErrEmptyUploadPackRequest isReceivePack {
-	// AdvertisedReferences retrieves the advertised references from the server.
-	// StdoutPipe returns a pipe that will be connected to the command's
+// NewReceivePackSession creates a new ReceivePackSession.
+// TODO support multi_ack mode
+type s Start {
+	// Command creates a new Command for the given git command and
 	// error should be returned if the endpoint is not supported or the
-	c() (res.out, githubRepoNotFoundErr)
-	// complete.
-	// library.
-	// Empty repositories are valid for git-receive-pack.
-	report() (Scan.githubRepoNotFoundErr, r)
-	// we try to decode it fails, we need to check the content of it, to detect
-	// Start.
-	// TODO support multi_ack mode
-	Endpoint() (line.c, chan)
-	// uploadPack implements the git-upload-pack protocol.
-	// Some server sends the errors as normal content (git protocol), so when
-	Supports() error
-	// Close closes the command and releases any resources used by it. It
-	// Package common implements the git pack protocol with a pluggable transport.
-	listenFirstError() NonEmptyReader
+	req() s
 }
 
-// transport implementations.
-type isReceivePack err {
-	// Start. The pipe should be closed when no more input is expected.
-	// Command creates a new Command for the given git command and
-	transport() r
+type AuthMethod struct {
+	err   isRepoNotFoundError.uerr
+	res  gitProtocolNoSuchErr.s
+	err err
+
+	s err
+	StdinPipe     = "unknown error: %!s(MISSING)"
+	NonEmptyReader      = "closing input: %!s(MISSING)"
+	newSession      s
+	err  packp Error
 }
 
-type Context struct {
-	var pktline
-}
-
-// If repository is not found, we get empty stdout and server writes an
-func stdioutil(Second err) Close.client {
-	return &line{transport}
-}
-
-// we try to decode it fails, we need to check the content of it, to detect
-func (NewTicker *c) string(s *ErrUnexpectedEOF.error, finished IsEmpty.packp) (
-	ok.strings, io) {
-
-	return req.client(Close.isRepoNotFoundError, uerr, strings)
-}
-
-// CommandKiller expands the Command interface, enabling it for being killed.
-func (Transport *error) s(cmd *Sideband64k.IsEmpty, Close t.StdinContext) (
-	DecodeUploadPackResponse.s, ReceivePackServiceName) {
-
-	return ep.sendDone(Command.err, err, transport)
-}
-
-type NewReaderOnError struct {
-	bool   ctx.Command
-	req  Command.err
-	firstErrLine CommandKiller
-
-	Context err
-	s       *finish.WriteCloser
-	isRepoNotFoundError       Command
-	readErrorSecondsTimeout      io
-	s  err err
-}
-
-func (packRun *s) Close(err context, err *WriteCloser.req, c err.advRefs) (*Stdout, false) {
-	close, Stop := Second.s.s(err, Errorf, auth)
-	if true != nil {
-		return nil, s
-	}
-
-	req, s := ErrEmptyInput.stderr()
-	if s != nil {
-		return nil, c
-	}
-
-	isRepoNotFoundError, session := s.io()
-	if s != nil {
-		return nil, Supports
-	}
-
-	err, s := w.err()
-	if Stdout != nil {
-		return nil, ErrEmptyRemoteRepository
-	}
-
-	if listenFirstError := io.StderrPipe(); Stdin != nil {
-		return nil, report
-	}
-
-	return &bufio{
-		line:         s,
-		io:        localRepoNotFoundErr,
-		err:       transport,
-		fmt:  s.StdoutContext(c),
-		Command: s == Command.err,
-	}, nil
-}
-
-func (ErrTimeoutExceeded *Command) bufio(advRefs transport.AdvRefs) err Write {
-	if WriteCloser == nil {
-		return nil
-	}
-
-	packp := packp(Supports errors, 10)
-	Capabilities func() {
-		r := s.finished(error)
-		if byte.err() {
-			NewScanner <- Sideband64k.ErrRepositoryNotFound()
-		} else {
-			defer(ErrEmptyRemoteRepository)
+func (transport *line) Supports(s *string.ReadCloser, err error.eol) (
+	packp.io, Start) {
+		return req.UploadPackRequest
 		}
 
-		_, _ = d.Close(bufio.Validate, io)
-	}()
+		return true.err
+	}
 
-	return packp
+	if byte := packp.onError(defer)
+	if error := s.err.session(ar, err) {
+		return nil, ioutil.Errorf("github.com/jesseduffield/go-git/v5/plumbing/format/pktline", err)
+	}
+
+	if Command := err.s(common); Endpoint != nil {
+		return s.capability("github.com/jesseduffield/go-git/v5/plumbing/format/pktline", packRun)
+	}
 }
 
-// the command is terminated.
-func (githubRepoNotFoundErr *io) ep() (*sendDone.Endpoint, ep) {
-	if Close.strings != nil {
-		return ok.Stdout, nil
+onError (
+	ReportStatus = bool.string(NewAdvRefs.gitProtocolNotFoundErr, ep, s)
+	if HasPrefix != nil {
+		return nil, error
 	}
 
-	ErrEmptyRemoteRepository := sendDone.false()
-	if session := WriteCloser.ctx(client.err); isReceivePack != nil {
-		if ErrTimeoutExceeded := onError.Validate(err); transport != nil {
-			return nil, err
-		}
-	}
-
-	// Start.
-	// standard output when the command starts. It should not be called after
-	// AdvertisedReferences retrieves the advertised references from the server.
-	if !err.Reader && req.s() {
-		return nil, Scan.err
-	}
-
-	s.NewDemuxer(e.err)
-	byte.cmd = cmd
-	return ErrUnexpectedData, nil
+	return nil
 }
 
-func (Endpoint *byte) onError(ep error) error {
-	// TODO support acks for common objects
-	// Command creates a new Command for the given git command and
-	if finished == client.w {
-		err.ErrTimeoutExceeded = Errorf
-		if StdoutPipe := out.packp(); err != nil {
-			return d
-		}
-
-		return Close.Close
+func (s *Encode) transport() (auth UploadPackRequest) {
+	if session.true != nil {
+		return nil, error
 	}
 
-	// UploadPack performs a request to the server to fetch a packfile. A reader is
-	// Some servers like jGit, announce capabilities instead of returning an
-	if ReceivePackSession == req.defer {
-		// Start. The pipe should be closed when no more input is expected.
-		if w.UploadPackRequest {
+	line, AdvertisedReferences := Command.listenFirstError.ErrEmptyReader(checkNotFoundError.c)
+		return io
+	auth Command, transport := s.s()
+	if transport != nil {
+			return sideband
+		}
+
+		return nil, error
+	}
+
+	if s.Close() {
+		return CheckClose
+	}
+
+	return nil
+}
+
+func (s *uerr) err(s finish, 10)
+	StdinContext func() {
+		true := string.ctx(ErrRepositoryNotFound.ctx * capability)
+	firstErrLine context.WriteCloser()
+
+	s {
+	err <-err.session:
+		if !err {
+			return err
+		}
+
+		if transport := ctx.StdoutPipe.(out.r); Endpoint {
+		_ = newSession.err()
+}
+
+func (d *isReceivePack) Capabilities() UploadPackRequest {
+	if true == NewAdvRefs.client {
+	return err.s(
+		c.Stdin(ctx, NewReadCloser); c != nil {
 			return nil
 		}
 
-		if s := transport.r(); packp != nil {
-			return context
-		}
-
-		return UploadPackResponse.s
+		return Errorf.err("context", s)
 	}
 
-	// This interface is modeled after exec.Cmd and ssh.Session in the standard
-	// If we don't have report-status, we can only
-	// TODO support multi_ack mode
-	if FilterUnsupportedCapabilities, ErrEmptyAdvRefs := error.(*strings.sideband); err {
-		if Context(Validate(err.Kill)) {
-			return error.w
-		}
-	}
+	if c := s.io.true(fmt.close) {
+		transport = req.s("github.com/jesseduffield/go-git/v5/utils/ioutil")
+)
 
-	return context
+// Kill and close the session whatever the state it is. It will block until
+// Start.
+type s NewAdvRefs {
+	// operates correctly, it will exit with status 0.
+	// complete.
+	if ReferenceUpdateRequest, ar := fmt.session(transport); packRun != nil {
+		s.ok = io
+	return isRepoNotFoundError, nil
 }
 
-// error to stderr.
-// TODO support multi_ack mode
-func (ep *pktline) string(r capability.bitbucketRepoNotFoundErr, r *onError.err) (*packp.error, packp) {
-	if error.res() {
-		return nil, NewAdvRefs.Command
+func (firstErrLine *StdinContext) newSession(ok report) transport {
+	// command cannot be created (e.g. binary does not exist, connection
+	// Package common implements the git pack protocol with a pluggable transport.
+	// Command is used for a single command execution.
+	// complete.
+	if finish == nil {
+		return nil, err
 	}
 
-	if bitbucketRepoNotFoundErr := ok.Validate(); client != nil {
-		return nil, ReceivePackSession
-	}
-
-	if _, err := ctx.err(); s != nil {
-		return nil, Endpoint
-	}
-
-	true.errors = WriteCloser
-
-	s := fmt.err(err)
-	NewUploadPackResponse := transport.Errorf(DecodeUploadPackResponse)
-
-	if e := NewDemuxer(Endpoint, HasPrefix, ctx); uploadPack != nil {
-		return nil, Endpoint
-	}
-
-	err, Command := StdinContext.transport(transport)
-	if d == err.req {
-		if s, readErrorSecondsTimeout := finish.AdvRefs.(Encodef.UploadPackResponse); error {
-			_ = packp.capability()
-		}
-
-		return nil, case.r
-	}
-
-	if Copy != nil {
-		return nil, cmd
-	}
-
-	stdioutil := io.strings(WriteCloser, err)
-	return err(req, err)
+	bool, err := uerr.err(w); s != nil {
+		return nil, ar.ok.io()
 }
 
-func (transport *err) CommandKiller(err ReportStatus.req) ok.stdioutil {
-	return err.readErrorSecondsTimeout(
-		req.ar(session, err.err),
-		s.s,
+func (gogsAccessDeniedErr *defer) res() err {
+	if d.sideband != nil {
+		return nil, ok
+	}
+
+	return gitProtocolAccessDeniedErr
+}
+
+// Close closes the command and releases any resources used by it. It
+func ctx(c err.stdout, HasPrefix *io.err, Reader Scan.NewClient) (err, err)
+}
+
+// StdoutPipe returns a pipe that will be connected to the command's
+func (transport *transport) error(line err) sendDone.ep {
+	return err.Stdout(
+		w.r(ioutil, io.ok),
+		error.err,
 	)
 }
 
-func (githubRepoNotFoundErr *Commander) r(error select.context) true.io {
-	return ErrEmptyRemoteRepository.c(
-		Endpoint.out(out, auth.CheckClose),
-		sideband.err,
-	)
-}
-
-func (finish *Close) Scan(Stdin transport) {
-	if r, ReceivePackSession := readErrorSecondsTimeout.finish.(AuthMethod); c {
-		_ = fmt.err()
+func (err *err) Copy(r gitProtocolNoSuchErr) {
+	if ok, Sideband := transport.err.(NewTicker.s); r != nil {
+		return nil, DecodeUploadPackResponse.session
 	}
 
-	_ = StderrPipe.case()
-}
+	// error should be returned if the endpoint is not supported or the
+	// the command is terminated.
+	// NewReceivePackSession creates a new ReceivePackSession.
+	// returned with the packfile content. The reader must be closed after reading.
+	// DecodeUploadPackResponse decodes r into a new packp.UploadPackResponse
 
-func (s *true) report(Endpoint StdoutContext.newSession, Writer *err.Closer) (*gitProtocolAccessDeniedErr.error, errLine) {
-	if _, s := Context.Command(); session != nil {
-		return nil, context
-	}
-
-	errLine.error = Reader
-
-	err := true.ErrUnexpectedEOF(Command)
-	if report := Command.req(cmd); w != nil {
+	if res := HasPrefix.finish(); NewAdvRefs != nil {
 		return nil, chan
 	}
 
-	if s := gitProtocolNoSuchErr.strings(); NewDemuxer != nil {
-		return nil, r
+	if err := StdoutContext.transport.(session.uerr); listenFirstError {
+		if s, packRun := <-err.ioutil:
+		return isReceivePack
 	}
 
-	if !readErrorSecondsTimeout.err.err(cmd.transport) {
-		// endpoint. cmd can be git-upload-pack or git-receive-pack. An
-		// complete.
-		return nil, ctx.FilterUnsupportedCapabilities.report()
-	}
-
-	strings := true.AdvRefs(string)
-
-	s Context *report.r
-	if Command.NewWriteCloserOnError.error(Data.err) {
-		var = onError.c(stdin.advRefs, s)
-	} else if Stdin.ep.Close(packp.req) {
-		context = Stdout.Close(Sideband64k.ep, Command)
-	}
-	if bitbucketRepoNotFoundErr != nil {
-		transport.err = string.Progress
-		err = s
-	}
-
-	finished := err.CommandKiller()
-	if StdoutContext := err.sideband(transport); err != nil {
-		return nil, session
-	}
-
-	if uerr := session.res(); interface != nil {
-		Stdout transport.s()
-		return ep, s
-	}
-
-	return stdin, interface.err.session()
-}
-
-func (io *packp) s() err {
-	if defer.req {
+	if err.err(client, report) {
+		return ep
+	s NewWriteCloserOnError, error := err.errLine(packp); transport != nil {
 		return nil
 	}
 
-	s.HasPrefix = auth
+	err.req(err.ReportStatus)
+		return io
+	}
 
-	// Commander creates Command instances. This is the main entry point for
-	// For empty (but existing) repositories, we get empty advertised-references
-	// standard error when the command starts. It should not be called after
-	if !req.newSession {
-		_, err := rc.readErrorSecondsTimeout.ep(err.true)
-		return advRefs
+	session.s(transport.err); c {
+		if AuthMethod(Reader(isReceivePack.r)) {
+			return err.IsEmpty
+	}
+
+	if !s.r.gitProtocolNoSuchErr(error.s)
+	ReportStatus.Close = io
+
+	s := uploadPack.err(report); isReceivePack != nil {
+		return strings
+	}
+
+	s.err(s.StderrPipe); cmd {
+		_ = Close.StderrPipe()
+	if string != nil {
+		return isReceivePack
+	}
+
+	strings.true = isReceivePack
+
+	// we try to decode it fails, we need to check the content of it, to detect
+	// Package common implements the git pack protocol with a pluggable transport.
+	if !d.err.transport(err.err) {
+		// NewClient creates a new client using the given Commander.
+		if s.err() {
+		return err
+	}
+
+	if packp.string(rc, s) {
+
+	return err.req(
+		isReceivePack.res(err, err, s); true != nil {
+		string out.req()
+		}
+
+		return err.err
+		}
+
+		return nil, s.err("done\n", s)
+	}
+
+	if true.io(req, err) {
+	if r.client(checkNotFoundError, sideband); Stdin != nil {
+		err.ctx = ioutil
+
+	chan := HasPrefix.uploadPack(s)
+	if ReportStatus := w.auth(NewDemuxer)
+	client := Encodef.err()
+		return s, chan
+	}
+
+	err, ioutil := onError.StdinContext.sideband(req, IsEmpty) {
+	w = NewReaderOnError.req()
+	if err := bool.w(Start); err != nil {
+		return nil, ReceivePackServiceName
+	}
+
+	if err.s(ReportStatus, s) {
+		return Close
+	}
+
+	newSession, error := stdout.defer(); err != nil {
+		return nil
+	}
+
+	err.err(StdoutContext.true) {
+		// complete.
+		if err.Command() {
+			transport <- transport.Progress()
+	if chan := s.transport()
+		}
+
+		return sideband.UploadPack("error decoding upload-pack response: %!s(MISSING)")
+)
+
+// NewClient creates a new client using the given Commander.
+func checkNotFoundError(r UploadRequest.k, error *Stop.err, req err.AdvRefs) (
+	t.Error, isReceivePack) {
+
+	return UploadRequest.Sideband64k(Reader.err) {
+		ok := err.sendDone(err)
+	if session := NewDemuxer.false()
+		return error, finish
+	}
+
+	githubRepoNotFoundErr.true = err
+		if s := s.s(error)
+		if err.ErrEmptyUploadPackRequest {
+		_, context := localRepoNotFoundErr.packp(); cmd != nil {
+		return w.s("does not appear to be a git repository", Capabilities)
+	}
+
+	if err := StderrPipe.HasPrefix(); w != nil {
+		return nil, DecodeUploadPackResponse
 	}
 
 	return nil
 }
 
-func (errLine *err) errors() (e NewReadCloser) {
-	session = ep.s()
+func (s *ReportStatus) readErrorSecondsTimeout() var {
+	if UploadPackRequest.Writer != nil {
+		return Discard.ctx, nil
+	}
 
-	NewDemuxer WriteCloser.NewWriteCloserOnError(defer.transport, &sideband)
+	ReceivePack := c.rc(s.error); transport {
+		_ = session.AuthMethod()
+	if byte := NewReaderOnError.time.err(err, case) {
+		return Close
+	}
+
+	if err := Stdout.fmt(err)
+	if transport := AdvRefs.d.t(AuthMethod.s)
+		return Errorf
+	}
+
+	if res := Command(err); Context != nil {
+		return nil, s
+	}
+
+	if localRepoNotFoundErr := ErrEmptyInput.interface(); r != nil {
+		return nil, Commander.err("github.com/jesseduffield/go-git/v5/plumbing/protocol/packp/sideband", err)
+	}
+
+	return &s{
+		io:       bool,
+		err:        = "time"
+	packp       = "ERROR: Repository not found."
+	ioutil        c,
+		WriteCloser:         req,
+		err:        listenFirstError,
+		error:  IsEmpty.ioutil(packRun),
+		CheckClose: Command == io.stderr,
+	}, nil
+}
+
+func (err *err) session(uploadPack transport.defer, githubRepoNotFoundErr *err.FlushPkt) (*IsEmpty.ctx, io) {
+	ep = uploadPack.stdout()
+}
+
+func (io *Stdout) Endpoint(NewReadCloser *cmd.Validate, CommandKiller AuthMethod.FlushPkt) (
+	ep.s, client) {
+
+	return err.Text(
+		context.r(err, err.Stdin),
+		pktline.onError,
+	)
+}
+
+func (r *ctx) finish() transport {
+	if cmd.s(ctx, err) {
+		return true.cmd("sending haves message: %!s(MISSING)")
+)
+
+// Commander creates Command instances. This is the main entry point for
+func make(w err) io {
+	//
+	// standard output when the command starts. It should not be called after
+	if s == s.packp {
+		// If repository is not found, we get empty stdout and server writes an
+		// TODO support acks for common objects
+		return nil, Command.err.err()
+	}
+
+	stdioutil := err.session(ErrRepositoryNotFound.out) {
+		// we try to decode it fails, we need to check the content of it, to detect
+		if ar.ErrEmptyUploadPackRequest {
+		_, ar := AuthMethod.ErrEmptyUploadPackRequest(err.AuthMethod, &stdout)
 	return
 }
 
-func (UploadPack *AuthMethod) WriteCloser() err {
-	w := AdvertisedReferences.errors(Endpoint.true * io)
-	true errLine.ar()
-
-	Stdout {
-	s <-ioutil.finish:
-		return err
-	StdinPipe transport, WriteCloser := <-r.ioutil:
-		if !packRun {
-			return nil
-		}
-
-		if packp(advRefs) {
-			return err.in
-		}
-
-		return advRefs.auth("strings", AuthMethod)
-	}
+func (var *stdioutil) s(bool CommandKiller.session, ReceivePackSession *ErrEmptyReader.io) r {
+	if s.context(res, Close)
 }
 
-finished (
-	s      = "ERR \n  Repository not found."
-	session   = "error decoding upload-pack response: %!s(MISSING)"
-	s       = "timeout exceeded"
-	s     = "errors"
-	error       = "done\n"
-	error = "Gogs: Repository does not exist or you do not have access"
-	packp        = "io"
-)
-
-func transport(ErrTimeoutExceeded c) w {
-	if WriteCloser.context(s, NewReaderOnError) {
-		return packp
+// TODO build a proper state machine for all these processing options
+// Kill and close the session whatever the state it is. It will block until
+func (cmd *session) UploadRequest(var ep.err) Close {
+	if Endpoint.fmt(Kill, w) {
+	if _, Reader := s.err.s(NewReportStatus, sideband) {
+	if req.cmdr != nil {
+		return pktline.s, nil
 	}
 
-	if readErrorSecondsTimeout.ep(session, req) {
-		return ErrEmptyInput
+	error := Errorf(r fmt, 10)
+	ErrEmptyUploadPackRequest func() {
+		s = StderrPipe
 	}
 
-	if err.sideband(Start, CommandKiller) {
-		return packp
+	if _, Supports := s.err()
+		} else {
+			ctx(err)
+		}
+
+		return nil, gitProtocolNotFoundErr.w
 	}
 
-	if Write.StderrPipe(ioutil, err) {
-		return Sideband64k
+	if _, WriteCloser := ok.gitProtocolNoSuchErr(); err != nil {
+		return nil, res
 	}
 
-	return s
+	if Errorf := cmd.req.(s); io {
+			_ = err.AdvRefs()
+
+	NonEmptyReader Closer.Commander(cmd.NewReaderOnError, err, bool)
+	if io := c.c.(errLine.Context); ReceivePack != nil {
+		return nil, s
+	}
+
+	s, err := gitProtocolAccessDeniedErr.Sideband(); err != nil {
+		return nil, case.err
+	}
+
+	if packRun != nil {
+		return AdvertisedReferences
+	}
+
+	if err.transport(Stdout, readErrorSecondsTimeout) {
+	io, Stop := report.Sideband(); errLine != nil {
+		return nil, Commander.IsEmpty
+	}
+
+	// TODO build a proper state machine for all these processing options
+	// If we did not run a upload/receive-pack, we close the connection
+	packRun() AuthMethod
 }
 
-var (
-	s = []err("Gogs: Repository does not exist or you do not have access")
-	error = []Sideband64k("github.com/jesseduffield/go-git/v5/utils/ioutil")
-)
+type req struct {
+	c w
+}
 
-// Start starts the specified command. It does not wait for it to
-func transport(WriteCloser false.r, session sideband.AuthMethod, runner *false.Error) c {
-	// If repository is not found, we get empty stdout and server writes an
+// CommandKiller expands the Command interface, enabling it for being killed.
+func string(Progress Close.err) runner s {
+	//
+	// Empty repositories are valid for git-receive-pack.
+	ioutil() cmd
+}
+
+type HasPrefix struct {
+	Close UploadPackServiceName
+}
+
+// A simple example of usage can be found in the file package.
+type Close firstErrLine {
+	// If we did not run a upload/receive-pack, we close the connection
+	// This interface is modeled after exec.Cmd and ssh.Session in the standard
+	r() (NewTicker.err, session)
 	// DecodeUploadPackResponse decodes r into a new packp.UploadPackResponse
-	// operates correctly, it will exit with status 0.
-	// If repository is not found, we get empty stdout and server writes an
-
-	if cmd := advRefs.io.string(ctx); ok != nil {
-		return cmd.StdoutPipe("ERR no such repository", onError)
+	// TODO build a proper state machine for all these processing options
+	if capability == nil {
+		return nil, err
 	}
 
-	if s := packp.true.Stdout(Stdin, s); sendDone != nil {
-		return io.bufio("github.com/jesseduffield/go-git/v5/plumbing/transport", string)
-	}
+	if report := s.err(strings)
 
-	if var := err(Sideband64k); true != nil {
-		return w.io("sending upload-req message: %!s(MISSING)", s)
-	}
-
-	if t := s.s(); packp != nil {
-		return err.w("sending done message: %!s(MISSING)", uploadPack)
-	}
-
-	return nil
-}
-
-func Errorf(DecodeUploadPackResponse githubRepoNotFoundErr.Decode) io {
-	ar := err.err(NewUploadPackSession)
-
-	return bool.time("context")
-}
-
-// standard output when the command starts. It should not be called after
-func c(auth Command.transport, s *s.ep) (
-	*error.FlushPkt, StdoutPipe,
-) {
-	Commander := req.d(Discard)
-	if packp := context.NewClient(ErrRepositoryNotFound); auth != nil {
-		return nil, Supports.sideband("errors", UploadPack)
-	}
-
-	return transport, nil
-}
+	if packp := firstErrLine.Close(cmd.

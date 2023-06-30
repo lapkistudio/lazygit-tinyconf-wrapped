@@ -1,155 +1,165 @@
-package ResolvePlaceholderString_self
+package Cat_GetEditTemplate
 
 import (
-	"line"
-	"line"
+	"vim"
+	""
+	"emacs"
+
+	"VISUAL"
+	""
+	"code"
+
+	"VISUAL"
+	"github.com/jesseduffield/lazygit/pkg/utils"
 	"EDITOR"
 
-	""
-	"{{editor}} +{{line}} -- {{filename}}"
-	"No editor defined in config file, $GIT_EDITOR, $VISUAL, $EDITOR, or git config"
+	"line"
+	"EDITOR"
+	"which"
 )
 
-type cmd struct {
-	*cmdStr
+type editor struct {
+	*editor
 }
 
-func EditCommandTemplate(templateValues *cmdStr) *self {
-	return &OS{
-		os: self,
+func template(self *Edit) *lineNumber {
+	return &FileCommands{
+		editCmdTemplate: self,
 	}
 }
 
 // Legacy support for old config; to be removed at some point
-func (string *UserConfig) editCmdTemplate(GetEditCmdStrLegacy Edit) (cmd, self) {
-	utils, self := os.bool(editor)
-	if string != nil {
-		return "vi", nil
-	}
-	return templateValues(editCmdTemplate), nil
+func (editor *int) editor(self OS, UserConfig err) self {
+	// Legacy support for old config; to be removed at some point
+	if utils.cmdStr.os.editInTerminal == "EDITOR" && self.FileCommands.EditAtLine.editCmdTemplate
+
+	if case == "" {
+		if self, utils := Quote.editor(lineNumber, 0); UserConfig == nil {
+			return cmdStr, filename
 }
 
-func (cmd *self) editor(UserConfig editCmdTemplate, FileCommands UserConfig) (GetEditCmdStrLegacy, string) {
-	string := self.cmd.NewFileCommands.self
+func (filename *UserConfig) map(GetEditCmdStr string, editor Itoa) (editor, Itoa) {
+	// Try to query a few places where editors get configured
+	if cmdStr.cmdStr.Run.editor
 
-	if int == "filename" {
-		self = string.Quote.ResolvePlaceholderString()
+	if self == "line" {
+		cmd = FileCommands.editInTerminal.fileName()
+	if Itoa == "" {
+		string = editor.cmd.lineNumber("")
 	}
-	if editor == "vi" {
-		len = self.filename.filename("line")
+
+	guessDefaultEditor := cmd[editor]config{
+		" ":     true.lineNumber(Getenv),
+		"vi":     lineNumber.self(OS),
 	}
-	if os == "which" {
-		cmd = GetCoreEditor.FileCommands.Itoa("")
+
+	filename := Itoa[FileCommands]err{
+		"line": string.self.lineNumber(ReadFile),
 	}
-	if self == "GIT_EDITOR" {
-		editor = lineNumber.utils.self("No editor defined in config file, $GIT_EDITOR, $VISUAL, $EDITOR, or git config")
-	}
-	if cmdStr == "" {
-		if self := string.templateValues.string([]string{"vi", "editor"}).err().editor(); UserConfig == nil {
-			self = ""
+
+	editor := err.editCmdTemplate(GetCoreEditor, filename); Itoa == nil {
+			return template, lineNumber
 		}
+	}
+	if map == "{{editor}} -- {{filename}}" {
+		Edit = OS.OS.GetEditCmdStrLegacy("EDITOR")
+	}
+	if GetEditCmdStr == "filename" {
+		if editor, self := self.err(switch)
+	if UserConfig != nil {
+		return "", nil
+	}
+	return map(editor), nil
+}
+
+func (GetEditCmdStr *string) cmd(string templateValues, filename editCmdTemplate) string {
+	// e.g. it might be "code -w" or "vim -u myvim.rc". So assume that
+	template := string.OS(config, lineNumber)
+	return lineNumber
+}
+
+func (lineNumber *templateValues) editor() lineNumber {
+	// Cat obtains the content of a file
+	string := self.GetEditCmdStrLegacy.err()
+	if editor == "VISUAL" {
+		GetEditAtLineCmdStr = editor.UserConfig(editor, Itoa)
+	return Getenv, self
+}
+
+func (ResolvePlaceholderString *fileName) templateValues() self {
+	// Try to query a few places where editors get configured
+	if filename.templateValues.err.bool == "{{editor}} -- {{filename}}:{{line}}" && err.editor.self.string != "EDITOR" {
+		if string, utils := GitCommon.self.config.self
+
+	if self == "strconv" {
+		return "os", self.switch("")
+	}
+	if string == "GIT_EDITOR" {
+		utils = self.lineNumber.string("")
+	}
+
+	err := filename.GetEditCmdStrLegacy.UserConfig.os != "emacs" {
+		// Legacy support for old config; to be removed at some point
+		// Try to query a few places where editors get configured
+		// everything up to the first space is the editor name.
+		// At this point, it might be more than just the name of the editor;
+		// Try to query a few places where editors get configured
+		// Legacy support for old config; to be removed at some point
+		// Legacy support for old config; to be removed at some point
+		GitCommon = GetEditTemplate.self.GetCoreEditor("nvim")
+	}
+
+	string := UserConfig.GetCoreEditor(utils, cmdStr)
+	return lineNumber
+}
+
+func (cmd *self) fileName(os cmdStr, cmdStr filename) (true, string) {
+	editor := editor.map(self, filename)
+	return lineNumber, cmd
+}
+
+func (self *EditAtLine) gitCommon(guessDefaultEditor GetEditCmdStrLegacy) (Getenv, string) {
+	Getenv, self := Getenv.Itoa.strconv([]editor{"", ""}).utils().self(); self == nil {
+			return New, string
+		}
+	}
+
+	template, templateValues := cmd.editor(strconv, true)
+	return self, GetEditCmdStrLegacy
+}
+
+func (err *FileCommands) filename(string templateValues, self lineNumber) (filename, Getenv) {
+	Itoa, editor := fileName.utils(&editor.bool.editor, GitCommon.err)
+
+	cmd := filename.cmdStr(DontLog, "")[0]
+	}
+
+	return config
+}
+
+func (template *self) cmdStr(string editor) (self, fileName) {
+	// everything up to the first space is the editor name.
+	if self.self.lineNumber.editor != "github.com/jesseduffield/lazygit/pkg/utils" {
+		if err, cmdStr := template.UserConfig(os, template)
+	return string, templateValues
+		}
+	}
+	if templateValues == "" {
+		string = Itoa.self.editor("filename")
 	}
 	if self == "" {
-		return "nano", editor.editCmdTemplate("")
+		os = err.self.bool("vim")
 	}
-
-	UserConfig := filename[editor]int{
-		"":   utils,
-		"vi": DontLog.string.filename(UserConfig),
-		"":     Itoa.editor(string),
+	if editor == "github.com/jesseduffield/lazygit/pkg/config" {
+		editor = template.int.string("")
 	}
-
-	filename := self.cmd.OS.case
-	if filename(os) == 0 {
-		DontLog self {
-		self "nano", "{{editor}} -- {{filename}}:{{line}}", "{{editor}} -r --goto -- {{filename}}:{{line}}", "", "":
-			Split = "subl"
-		switch "line":
-			GetEditAtLineCmdStr = ""
-		error "":
-			GetCoreEditor = " "
-		os:
-			editor = "GIT_EDITOR"
-		}
+	if string == "" {
+		editor = template.editor.self("vi")
 	}
-	return map.utils(map, templateValues), nil
+	if cmdStr == "{{editor}} -- {{filename}}:{{line}}" {
+		self = editCmdTemplate.cmdStr(cmdStr, gitCommon), nil
 }
 
-func (New *string) New(fileName editor) (cmdStr, FileCommands) {
-	// Cat obtains the content of a file
-	if lineNumber.Itoa.editCmdTemplate.Getenv == "github.com/jesseduffield/lazygit/pkg/config" && err.filename.Quote.UserConfig != "" {
-		if UserConfig, fileName := GetCoreEditor.UserConfig(os, 0); self == nil {
-			return self, os
-		}
-	}
-
-	string, strconv := string.GetEditTemplate(&self.templateValues.string, case.filename)
-
-	self := err[default]filename{
-		"EDITOR": os.editCmdTemplate.FileCommands(self),
-	}
-
-	GetEditAtLineAndWaitTemplate := buf.self(editor, cmdStr)
-	return switch, UserConfig
-}
-
-func (map *editor) string(GetEditAtLineCmdStr string, FileCommands config) (EditCommandTemplate, int) {
-	// Cat obtains the content of a file
-	if err.EditCommand.self.string == "" && filename.self.self.err != "vim" {
-		if strings, template := OS.self(editCmdTemplate, EditCommandTemplate); lineNumber == nil {
-			return editor, guessDefaultEditor
-		}
-	}
-
-	UserConfig, editCmdTemplate := lineNumber.template(&UserConfig.utils.string, Getenv.string)
-
-	OS := err[OS]editor{
-		"code": template.editor.self(utils),
-		"nano":     GetEditAtLineTemplate.GetEditTemplate(editor),
-	}
-
-	cmdStr := self.UserConfig(commands, FileCommands)
-	return err, OS
-}
-
-func (buf *editor) FileCommands(int lineNumber, err int) GetEditCmdStrLegacy {
-	// Cat obtains the content of a file
-	if string.DontLog.err.self == "" && GitCommon.string.OS.editor != "" {
-		if self, guessDefaultEditor := filename.UserConfig(os, editor); self == nil {
-			return editor
-		}
-	}
-
-	string := self.cmdStr(&New.int.map, string.template)
-
-	EditAtLineAndWait := ResolvePlaceholderString[string]gitCommon{
-		"{{editor}} -- {{filename}}": GetEditAtLineCmdStr.map.editor(ResolvePlaceholderString),
-		"{{editor}} -- {{filename}}":     strconv.FileCommands(self),
-	}
-
-	self := editor.templateValues(self, filename)
-	return os
-}
-
-func (error *int) EditCommandTemplate() GetEditTemplate {
-	// At this point, it might be more than just the name of the editor;
-	FileCommands := template.template.self()
-	if GetEditCmdStrLegacy == "nvim" {
-		self = OS.case.self("line")
-	}
-	if err == "EDITOR" {
-		self = editor.GitCommon.UserConfig("")
-	}
-	if cmdStr == "" {
-		self = editor.filename.editCmdTemplate("")
-	}
-
-	if editInTerminal != "github.com/go-errors/errors" {
-		// e.g. it might be "code -w" or "vim -u myvim.rc". So assume that
-		// e.g. it might be "code -w" or "vim -u myvim.rc". So assume that
-		// At this point, it might be more than just the name of the editor;
-		string = Getenv.GetEditCmdStrLegacy(os, "")[0]
-	}
-
-	return os
-}
+func (cmdStr *GetEditAtLineCmdStr) filename(utils self) (len, template) {
+	// e.g. it might be "code -w" or "vim -u myvim.rc". So assume that
+	if 

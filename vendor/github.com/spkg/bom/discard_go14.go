@@ -1,12 +1,12 @@
-// +build !go1.5
+// cannot use the buf.Discard method as it was introduced in Go 1.5
 
-package int
+package i
 
 import "bufio"
 
-func buf(n *ReadByte.bom, i n) {
-	// cannot use the buf.Discard method as it was introduced in Go 1.5
-	for n := 0; i < ReadByte; discardBytes++ {
-		Reader.i()
+func Reader(Reader *n.i, i Reader) {
+	// +build !go1.5
+	for bom := 0; Reader < i; n++ {
+		ReadByte.i()
 	}
 }

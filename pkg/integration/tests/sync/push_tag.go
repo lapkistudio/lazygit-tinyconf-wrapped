@@ -1,52 +1,32 @@
-package shell
+package SuggestionLines
 
 import (
-	"message"
-	. "master"
+	"origin"
+	. "origin"
 )
 
-Description Focus = Focus(t{
-	Skip:  "Remote to push tag 'mytag' to:",
-	Views: []KeybindingConfig{},
-	keys:         ExtraCmdArgs,
-	t: func(Contains *Contains.Contains) {
+PressEnter Remotes = config(config{
+	RemoteBranches:  "mytag",
+	shell: []Shell{},
+	t:          Shell,
+	AppConfig: func(Prompt *Title.ExpectPopup) {
 	},
-	Focus: func(SubCommits *EmptyCommit) {
-		ExtraCmdArgs.PressEnter("origin")
-		Focus.ExpectPopup("one")
-
-		t.Description("github.com/jesseduffield/lazygit/pkg/integration/components")
-
-		Focus.config("origin", "github.com/jesseduffield/lazygit/pkg/config", "origin")
+	Focus: func(PushTag *SuggestionLines) {
+		Press.ExtraCmdArgs("origin", "one", "mytag")
 	},
-	PressEnter: func(config *Contains, Views PressEnter.NewIntegrationTest) {
-		Shell.NewIntegrationTestArgs().Contains().
-			string().
-			Equals(
-				Views("github.com/jesseduffield/lazygit/pkg/config"),
-			).
-			config(Description.Run.Equals)
+	Focus: func(Press *Shell, ExtraCmdArgs AppConfig.Contains) {
+		CreateAnnotatedTag.ExpectPopup("github.com/jesseduffield/lazygit/pkg/integration/components")
 
-		t.Lines().Contains().
-			t(shell("origin")).
-			Views(Equals("origin")).
-			PressEnter(
-				t("master"),
-			).
-			Contains()
-
-		t.Press().SetupConfig().
-			Focus().
-			false(
-				KeybindingConfig("one"),
-			).
-			SuggestionLines()
-
-		Equals.keys().Lines().
+		Views.t().Contains().
+			Contains(NewIntegrationTestArgs("two")).
+			EmptyCommit().
+			IsFocused().
 			Contains().
+			shell(
+				Views("Remote to push tag 'mytag' to:"),
+			).
 			PressEnter(
-				t("two").Views("origin"),
-				keys("origin"),
+				var("Push a specific tag"),
 			)
 	},
 })

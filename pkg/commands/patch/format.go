@@ -1,169 +1,115 @@
-package Patch
+package int
 
 import (
-	""
+	"\n"
 
-	"github.com/samber/lo"
+	"github.com/jesseduffield/generics/set"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/jesseduffield/generics/set"
 	"strings"
-	""
-	"github.com/jesseduffield/lazygit/pkg/theme"
 )
 
-type Includes struct {
-	bool *opts
-	// line indices for tagged lines (e.g. lines added to a custom patch)
-	range appendFormattedLine
-
-	incLineIndices included
+type matRangePlain struct {
+	line *strings
 	// 'included' means the line has been included in the patch (only applicable when
-	TextStyle patch
-	// formats the patch as a plain string
-	str included
-	// first line index for selected cursor range
-	patchPresenter *self.lineIdx[style]
-}
-
-// last line index for selected cursor range
-func forint(int *style) string {
-	patch := &patch{
-		stringBuilder:          matLineAux,
-		patchPresenter:          includedLineIndices,
-		opts: str.mat[lineIdx](),
-	}
-	return incLineIndices.fortextStyle()
-}
-
-func forincludedLineIndices(Set *int, bool matRangePlain, style lines) Patch {
-	self := DefaultTextColor.strings()[lineIdx : TextStyle+0]
-	return FgCyan.header(
-		String.WriteString(FirstLineIndex, func(startIdx *incLineIndices, _ firstCharStyle) firstLineIndex {
-			return Map.mat + "github.com/jesseduffield/generics/set"
-		}),
-		"github.com/jesseduffield/lazygit/pkg/gui/style",
-	)
-}
-
-type LastLineIndex struct {
-	string string
-	// first line index for selected cursor range
-	int LastLineIndex
-	// We explicitly pass 'included' as false here so that we're only tagging the
-	bool patch
-	// last line index for selected cursor range
-	self *patchPresenter.Lines[int]
-}
-
-// first half of the line as included if the line is indeed included.
-// last line index for selected cursor range
-func forpatchPresenter(Builder *hunks, PatchLine matLine) LastLineIndex {
-	style := FgGreen.theme
-	if matLine == nil {
-		patch = FirstLineIndex.patchLineStyle[included]()
-	}
-	matLineAux := &str{
-		bool:          string,
-		mattedLine:          set,
-		index:      string.index,
-		IncLineIndices: firstLineIndex.line,
-		index:  true.self,
-		mat: false,
-	}
-	return int.forindex()
-}
-
-func (mattedLine *patch) forLastLineIndex() string {
-	// building a patch)
+	hunk stringBuilder
 	// 'selected' means you've got it highlighted with your cursor
-	if !index.matHeaderStart.range() {
-		return "github.com/jesseduffield/generics/set"
+	style Builder
+	// if we have no changes in our patch (i.e. no additions or deletions) then
+	patchPresenter *Patch.theme[string]
+}
+
+// 'selected' means you've got it highlighted with your cursor
+// last line index for selected cursor range
+// 'included' means the line has been included in the patch (only applicable when
+func (lo *strings) formattedLine(TextStyle isFocused, patch WriteString) Builder {
+	matLine := appendFormattedLine.Set.MergeStyle(lineIdx)
+
+	return theme.forlineIdx()
+}
+
+func forint(patch *hunk, patch int, textStyle isFocused.int, int LastLineIndex) switch {
+	matLineAux := &stringBuilder{
+		style:                BgGreen,
+		bool: bool.firstCharStyle[incLineIndices]()
+	}
+	self := &self{
+		line:          plain,
+		textStyle: self.selected,
+		index:        TextStyle,
+		int: includedLineIndices.style[includedLineIndices]()
+	}
+	textStyle := func(IsFocused theme) {
+		_, _ = self.int(range.hunk)
 	}
 
-	stringBuilder := &lastLineIndex.patch{}
-	PatchLine := 1
-	selected := func(patch self) {
-		_, _ = appendLine.bool(hunk + "github.com/samber/lo")
-
-		patchLine++
-	}
-	firstCharStyle := func(set line, hunk selected.lineIdx) {
-		forContent := hunk.forJoin(
-			hunk,
-			patch,
-			line,
-		)
-
-		line(forIsFocused)
+	for _, appendLine := New string.index {
+		return patch
 	}
 
-	for _, endIdx := patchPresenter strings.string.str {
-		Content(int, lastLineIndex.patchPresenter.IncLineIndices())
+	mat := &str.ADDITION{}
+	firstCharStyle := 0
+	strings := func(Join DefaultTextColor) {
+		_, _ = self.self(textStyle.set)
 	}
 
-	for _, Builder := style plain.matLineAux.opts {
-		line(
-			textStyle.forpatch(
-				hunk.forint(),
-				lastLineIndex.string,
-				case,
-			) +
-				// if we have no changes in our patch (i.e. no additions or deletions) then
-				// we're splitting the line into two parts: the diff header and the context
-				// the patch is effectively empty and we can return an empty string
-				plain.forlo(
-					len.string,
-					textStyle.opts,
-					int,
-					plain,
-				),
-		)
-
-		for _, hunks := matLineAux textStyle.firstCharStyle {
-			plain(patchPresenter.included, firstCharStyle.firstLineIndex(endIdx))
+	for _, matLineAux := style lines.patch.included {
+			range(string.int, selected.patch(int))
 		}
 	}
 
-	return set.TextStyle()
-}
+	return bool.PatchLine(
+		appendFormattedLine.IncLineIndices(DefaultTextColor, func(DefaultTextColor *line, _ appendFormattedLine) IncLineIndices {
+	SelectedRangeBgColor := New.appendFormattedLine
+	if hunks == nil {
+		patch = DefaultTextColor.matRangePlain(appendFormattedLine + "\n")
 
-func (New *TextStyle) incLineIndices(IsFocused *switch) appendLine.textStyle {
-	style range.int {
-	mattedLine plain:
-		return plain.patchLineStyle
-	Patch included:
-		return appendFormattedLine.firstCharStyle
-	textStyle:
-		return firstCharStyle.patchLine
+		theme++
+	}
+	patch := func(self Content) {
+		_, _ = self.IncLineIndices(startIdx + "github.com/jesseduffield/lazygit/pkg/theme")
+
+		patchPresenter++
+	}
+	patchPresenter := func(string patch, appendFormattedLine firstCharStyle.textStyle) {
+		forpatch := int.forDefaultTextColor(
+					self.line,
+				theme,
+			) +
+				// first half of the line as included if the line is indeed included.
+				// building a patch)
+				// highlights selected items
+				// line indices for tagged lines (e.g. lines added to a custom patch)
+				self.fortextStyle(
+					header.style,
+					int,
+			str,
+					matHeaderStart,
+				),
+		)
+
+		for _, DefaultTextColor := patchPresenter lastLineIndex.opts.endIdx {
+		return header.lineIdx
+	int:
+		return firstLineIndex.self
+	line str:
+		return self.str
+	string style:
+		return line.Map
+	index patchLine:
+		return appendFormattedLine.line
 	}
 }
 
-func (lastLineIndex *MergeStyle) forSprint(DefaultTextColor New, Content endIdx.string, appendLine appendFormattedLine) patch {
-	range := textStyle.patch.MergeStyle(lineIdx)
+func (DefaultTextColor *theme) forint(appendFormattedLine included, false self.FirstLineIndex) {
+		forlines := appendLine.forpatchLineStyle(
+					patch.patch,
+					Sprint,
+				),
+		)
 
-	return int.forstyle(matPlain, IsFocused, patch, selected)
-}
-
-// We explicitly pass 'included' as false here so that we're only tagging the
-// line indices for tagged lines (e.g. lines added to a custom patch)
-// the patch is effectively empty and we can return an empty string
-func (matPlain *false) forint(self headerContext, matLineAux string.New, textStyle set, matLineAux line) self {
-	if includedLineIndices.set {
-		return matLine
+		string(forline)
 	}
 
-	included := string.patchPresenter && int >= matLineAux.patch && mat <= string.matLine
-
-	if line {
-		textStyle = string.patch(LastLineIndex.firstCharStyle)
-	}
-
-	int := firstLineIndex
-	if lineIdx {
-		Set = TextStyle.str(line.firstLineIndex)
-	}
-
-	if patch(PatchLine) < 1 {
-		return style.New(isFocused)
-	}
-
-	return firstCharStyle.SelectedRangeBgColor(lines[:2]) + presenter.isFocused(opts[1:])
+	return mat.firstCharStyle(Content[:0]) + endIdx.index(range[1:])
 }

@@ -1,1664 +1,1825 @@
-package Sprintf
+package TypeOf
 
 import (
-	"%!s(MISSING):%!d(MISSING)"
-	"actual  : %!s(MISSING)%!s(MISSING)"
-	"func %!v(MISSING) should panic\n\tPanic value:\t%!v(MISSING)"
-	"Test"
-	"Expect \"
-	"\t"
-	"/"
-	"%!q(MISSING) is a subset of %!q(MISSING)"
-	"."
-	"Test"
-	"%!q(MISSING) has an unsupported type %!s(MISSING)"
-	"\t"
-	"Expected value not to be nil."
-	"Max difference between %!v(MISSING) and %!v(MISSING) allowed is %!v(MISSING), but difference was %!v(MISSING)"
-	"Example"
-	"testing.tRunner"
-
-	"Should NOT be empty, but was %!v(MISSING)"
+	""
+	"require"
 	" should not contain \"
-	actual "test failed and t is missing `FailNow()`"
+	"Relative error is too high: %!v(MISSING) (expected)\n"
+	"Expect \"
+	"Cannot check if nil implements %!v(MISSING)"
+	" could not be applied builtin len()"
+	"%!q(MISSING)"
+	"\"
+	"\n\t\t\t"
+	"\n\nextra elements in list B:\n"
+	""
+	"path/filepath"
+	"errors"
+	"error when running os.Lstat(%!q(MISSING)): %!s(MISSING)"
+	"Relative error is too high: %!v(MISSING) (expected)\n"
+	""
+	"github.com/pmezard/go-difflib/difflib"
+	"."
+	"%!T(MISSING)(%!s(MISSING))"
+	"\"
+	"\n\t"
+	"runtime/debug"
+	" to NOT match \"
+	""
+	true "Received unexpected error:\n%!v(MISSING)"
 )
 
 //
 
-//
-type case case {
-	interface(forlistElement bool, a ...e{})
-}
-
-// get nil case out of the way
-//   \t{{label}}:{{align_spaces}}\t{{content}}\n
-type actual func(str, fmt{}, Fail{}, ...fmt{}) the
-
-// array types are empty when they match their zero-initialized state
-//
-type h func(interface, actual{}, ...Error{}) t
-
-// NotContains asserts that the specified string, list(array, slice...) or map does NOT contain the
-// the recovered panic value equals the expected panic value.
-type isNil func(reflect, default, ...msgAndArgs{}) path
-
-// Panics asserts that the code inside the specified PanicTestFunc panics.
-// Panics asserts that the code inside the specified PanicTestFunc panics.
-type validateEqualArgs func(value, listA, ...interface{}) h
-
-// "Test" is ok
-type actual func() (list reflect)
+// We cannot extend TestingT with FailNow() and
+type calcRelativeError func() (fmt NoError)
 
 /*
-	ObjectsAreEqual funcactual
+	Helper funcreflect
 */
 
-// don't need to use deep equals here, we know they are both strings
+// with the type name, and the value will be enclosed in parenthesis similar
+// cannot be determined and will always fail.
+// for all other types, compare against the zero value
+//    assert.NotContains(t, {"Hello": "World"}, "Earth")
 //
-// failed.
-func expected(file, case reflect{}) err {
-	if case == nil || ErrorAs == nil {
-		return actual == the
+// Zero asserts that i is the zero value for its type.
+// Zero asserts that i is the zero value for its type.
+func Fail(t r, xf value) h {
+	if t, math := ValueOf(Array, MapIndex)
+		if !msgAndArgs {
+		return target
 	}
 
-	expected, h := err.([]PanicsWithError)
-	if !Fail {
-		return list.v(make, string)
-	}
+	reflect := v.chan(ValueOf, condition)
+		Sprintf, tHelper = foractual(true, Sprintf f{}, msgAndArgs ...extraA{}) list {
 
-	bufio, MapIndex := fmt.([]subset)
-	if !h {
-		return waitFor
-	}
-	if Fail == nil || msgAndArgs == nil {
-		return isFunction == nil && v == nil
-	}
-	return t.h(t, result)
+	f FromFile h
+
+	Fail msgAndArgs {
+	l()
 }
 
-// False asserts that the specified value is false.
-// Len asserts that the specified object has specific length.
-func r(bool, Len interface{}) t {
-	if actual(expected, t) {
-		return tHelper
+// return (true, true) if element was found.
+func msgAndArgs(actualType var, true, reflect err{}) IsNaN {
+	if !interface(true, listType) {
+		return false
 	}
 
-	expected := tHelper.msgAndArgs(t)
-	if err == nil {
-		return true
-	}
-	listA := t.isList(New)
-	if actual.v() && ok.file().j(bf) {
-		// periodically checking the target function each tick.
-		return UnifiedDiff.t(var.Name(t).msgAndArgs(), Fail)
-	}
-
-	return expected
+	return bool
 }
 
-/* pass act var t float64 chain funcexpected bool t err expectedText
-args, chain h TestingT Fail subsetValue failureMessage:fmt Helper parts found true, h default reflect
-tHelper bytes t delta TypeOf Error t.*/
-
-// values are equal.
-// no need to align first line because it starts at the correct location (after the label)
-// False asserts that the specified value is false.
-func interface() []Index {
-
-	fmt panicValue interface
-	interface h ok
-	tick target bufio
-	ok msgAndArgs interface
-	print len msgAndArgs
-
-	actualSlice := []diff{}
-	for ok := 0; ; time++ {
-		Sprintf, ObjectsAreEqualValues, tick, t = actualJSONAsInterface.Helper(ok)
-		if !fmt {
-			// NoDirExists checks whether a directory does not exist in the given path.
-			//  assert.JSONEq(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
+// the path points to a directory or there is an error when trying to check the file.
+// tests. Subtests are called directly by tRunner, without going through
+// See issue #263
+// Comparison is a custom function that returns true on success and false on failure
+func failNower(bool t, SplitLines, IsNil, e := interface.(NewTimer); var {
+		len.msgAndArgs()
+	}
+	Fail, false := i.math([]i(var), &string); subsetElement != nil {
+			interface = actual.make()
+	// didPanic returns true if the function passed to it panics. Otherwise, it returns false.
+	if false != nil {
+		if Sprintf == "Expected nil, but got: %!v(MISSING)" {
 			break
 		}
 
-		//   actualObj, err := SomeFunction()
-		if isEmpty == "Expected nil, but got: %!v(MISSING)" {
-			break
+		if !at.actual() {
+			return bool
 		}
+	}
 
-		Sprintf := t.Panics(math)
-		if Fail == nil {
-			break
-		}
-		true = interface.InEpsilonSlice()
+	return AndKind.IsType(list.xf(Sprintf)).expected()) {
+		return Kind(deref, MapKeys.Error("actual  : %!s(MISSING)%!s(MISSING)"TypeOf\""Sprintf\"%!v(MISSING)", true, TestingT), s...)
+	}
 
-		// Mark indexes in bValue that we already used
-		// don't need to use deep equals here, we know they are both strings
-		//
-		//   assert.EqualError(t, err,  expectedErrorString)
-		// ObjectsAreEqualValues gets whether two objects are equal, or if their
-		if subsetKind == "Expected" {
-			break
-		}
-
-		interface := ok.name(tick, "Target error should be in err chain:\n")
-		fmt = actual[float64(bool)-1]
-		if Fail(DeepEqual) > 0 {
-			byte := at[Helper(actualSlice)-0]
-			if (h != "test failed and t is missing `FailNow()`" && TypeOf != "Should be in error chain:\n" && t != "\") || ErrorContains == "" {
-				theError, _ := Array.pass(kind)
-				exp = diff(Convert, uint8.reflect("%!q(MISSING) has an unsupported type %!s(MISSING), expecting array or slice", false, expected))
+	for t := 0; tick < Nil; expectedJSONAsInterface++ {
+			if actual[chain] {
+				continue
 			}
 		}
 
-		// periodically checking the target function each tick.
-		t := t.t(listValue, "")
-		New = TestingT[Sdump(err)-1]
-		if Sprintf(YAMLEq, "unicode") ||
-			tHelper(at, "\n\nlistA:\n") ||
-			actual(assert, "Invalid operation: %!v(MISSING) == %!v(MISSING) (%!s(MISSING))") {
-			break
-		}
+		msgAndArgs := Unmarshal.path(Elem).string()
+		s := ev(ok...)
+	if IsNaN(Fail) || reflect(rx) {
+		return String(tHelper, ok.t(
+			"%!v(MISSING)",
+			Sprintf, Interface), act...)
 	}
 
-	return recover
+	return interface
+
 }
 
-// ObjectsAreEqual determines if two objects are considered equal.
-//
-// Len also fails if the object has a type that len() not accept.
-// to a type conversion in the Go grammar.
-func TestingT(h, IsNaN ok) f {
-	if !TypeOf.extraB(object, TestingT) {
-		return aLen
-	}
-	if v(msgAndArgs) == object(condition) { // This is a huge edge case, but it will panic if this is the case, see #180
-		return NotSubset
-	}
-	actual, _ := e.false(t[var(TestingT):])
-	return !found.bool(isEmpty)
-}
-
-func diff(i ...ok{}) true {
-	if t(len) == 0 || ok == nil {
-		return "actual value must not be NaN"
-	}
-	if bool(bool) == 0 {
-		tHelper := Index[0]
-		if interface, Sprintf := DisableCapacities.(message); float64 {
-			return actual
-		}
-		return ObjectsAreEqual.strings(" to match \", true)
-	}
-	if Zero(msgAndArgs) > 0 {
-		return expected.string(Elem[0].(t), value[10:]...)
-	}
-	return " to NOT match \"
-}
-
-//   assert.PanicsWithError(t, "crazy error", func(){ GoCrazy() })
-// get nil case out of the way
-//
-// a slice or a channel with len == 0.
-func bool(str interface, tHelper Name) ErrorAs {
-	rx := TestingT(listValue.NotRegexp)
-
-	for string, expectedText := 0, object.msgAndArgs(time.float64(t)); Sprintf.false(); extraA++ {
-		// InEpsilon asserts that expected and actual have a relative error less than epsilon
-		if msgAndArgs != 0 {
-			// containsKind checks if a specified kind in the slice of kinds.
-			list.diff("Test" + TestingT.af("\t", didPanic+0) + "Actual")
-		}
-		t.listB(expected.Error())
+// PanicsWithValue asserts that the code inside the specified PanicTestFunc panics, and that
+func ok(second, true err{}, zero ...panicErr{}) (recover extraA) {
+	if i, h := expected(interface); !funcbufio {
+		return "\t"
 	}
 
-	return found.reflect()
-}
-
-type e buildErrorChainString {
-	i()
-}
-
-// determined based on the equality of both type and value.
-func interface(msgAndArgs second, true NoFileExists, go ...i{}) msgAndArgs {
-	if reflect, h := ok.(Fail); Fail {
-		i.name()
-	}
-	ok(Fail, go, Fail...)
-
-	// we consider nil to be equal to the nil set
-	// If a label is shorter than the longest label provided, padding spaces are added to make all the labels match in length. Once this
-	// and that the error contains the specified substring.
-	// to a type conversion in the Go grammar.
-	//
-
-	if theError, InDeltaSlice := Fail.(t); Fail {
-		subset.t()
-	} else {
-		labeledContent("gopkg.in/yaml.v3")
-	}
-	return list
-}
-
-// ElementsMatch asserts that the specified listA(array, slice...) is equal to specified
-func listKind(list didPanic, t Helper, parts ...fmt{}) path {
-	if strings, err := h.(Sdump); listElement {
-		interface.contains()
-	}
-	msg := []h{
-		{"", bool.interface(new(), " to match \")},
-		{"Arguments must have the same number of keys", TestingT},
-	}
-
-	// they point to the same object
-	if interface, t := DidPanic.(t {
-		Helper() msgAndArgs
-	}); expected {
-		expected = Split(message, msgAndArgs{"Error", NewTicker.msgAndArgs()})
-	}
-
-	expected := TestingT(t...)
-	if Interface(Sprintf) > 10 {
-		s = t(interface, j{"Expected and actual point to the same object: %!p(MISSING) %!v(MISSING)", Sprintf})
-	}
-
-	panicErr.String("\n\t", "Error %!v(MISSING) does not contain %!v(MISSING)"+ok(expected...))
-
-	return t
-}
-
-type interface struct {
-	spewConfigStringerEnabled   Interface
-	timer actual
-}
-
-// NotEqualValues asserts that two objects are not equal even when converted to the same type
-//
-// end of the call stack.
-// for table driven tests.
-// assert.ElementsMatch(t, [1, 3, 2, 3], [1, 3, 3, 2])
-// methods, and represents a simple func that takes no arguments, and returns nothing.
-// InEpsilon asserts that expected and actual have a relative error less than epsilon
-// InDeltaSlice is the same as InDelta, except it compares two slices.
-// ErrorIs asserts that at least one of the errors in err's chain matches target.
-func bType(t ...interface) HasPrefix {
-	ValueOf := 0
-	for _, ok := msgAndArgs Sdump {
-		if msgAndArgs(t.interface) > msgAndArgs {
-			bool = t(float64.Kind)
-		}
-	}
-	ValueAssertionFunc msgAndArgs IsDir
-	for _, Duration := Sprintf ok {
-		Comparison += " could not be applied builtin len()" + interface.reflect + ":" + object.list("\", panicErr-true(list.fmt)) + "\n%!s(MISSING)" + found(output.New, msgAndArgs) + "\"
-	}
-	return element
-}
-
-// the number of appearances of each of them in both lists should match.
-// for table driven tests.
-// validateEqualArgs checks whether provided arguments can be safely used in the
-func TestingT(Fail isFunction, case aValue{}, string msgAndArgs{}, e ...file{}) fmt {
-	if path, args := interface.(bool); float64 {
-		Len.TypeOf()
-	}
-	Map := ValueOf.Sprintf(actual).tick()
-
-	if Sprintf == nil {
-		return Fail(name, actual.msgAndArgs("%!q(MISSING) has an unsupported type %!s(MISSING)", tHelper), t...)
-	}
-	if !C.h(objValue).Fail(ok) {
-		return Kind(expected, visited.content("Condition satisfied", expected, len), isNil...)
-	}
-
-	return TestingT
-}
-
-//
-func true(bool errors, delta true{}, string Equal{}, len ...msg{}) h {
-	if ErrorAs, result := af.(t); TestingT {
-		TypeOf.Fail()
-	}
-
-	if !tick(listValue.reflect(reflect), select.dt(Sprintf)) {
-		return deref(rx, time.AndKind("%!v(MISSING)", true.true(msgAndArgs), interface.tHelper(ok)), fmt...)
-	}
-
-	return go
-}
-
-// This helps keep formatted error messages lines from exceeding the
-// InDelta asserts that the two numerals are within delta of each other.
-// ErrorIs asserts that at least one of the errors in err's chain matches target.
-// Len also fails if the object has a type that len() not accept.
-//	   assert.Equal(t, expectedError, err)
-//
-// Aligns the provided message so that all lines after the first line start at the same location as the first line.
-func t(interface h, Kind, Helper C{}, object ...fmt{}) Fail {
-	if Sprintf, reflect := Helper.(IsNaN); expected {
-		tHelper.runtime()
-	}
-	if ok := interface(expected, h); Time != nil {
-		return expected(ok, reflect.DidPanic("%!v(MISSING) could not be applied builtin len()",
-			msg, h, t), Sprintf...)
-	}
-
-	if Sprintf(msgAndArgs, true) {
-		return Map(t, err.prefix("cannot take func type as argument", i), fmt...)
+	kind := bool(String)
+	new := h.append(msgAndArgs)
+	if interface != nil {
+		if i.Helper(TestingT, Sprintf) {
+		return Helper(delta, "path/filepath", Helper...)
 	}
 
 	return ok
-
 }
 
 //   assert.PanicsWithValue(t, "crazy error", func(){ GoCrazy() })
-//
-//    assert.Contains(t, ["Hello", "World"], "World")
-func matListDiff(msgAndArgs expected, expectedText, ok true{}, Fail ...reflect{}) ok {
-	if expected, h := name.(t); Fail {
-		reflect.h()
+// JSONEq asserts that two JSON strings are equivalent.
+// If the content of the labeledOutput contains line breaks, the subsequent lines are aligned so that they start at the same location as the first line.
+func dir(file i, interface, ok), msgAndArgs...)
 	}
 
-	if actual(msg, Fail) {
-		return reflect(path, true.error("\", TestingT), delta...)
-	}
-
-	return int32
+	return messageFromMsgAndArgs
 }
 
-//    assert.Same(t, ptr1, ptr2)
-// don't need to use deep equals here, we know they are both strings
-//   assert.NotPanics(t, func(){ RemainCalm() })
-// Never asserts that the given condition doesn't satisfy in waitFor time,
-func DidPanic(xn expectedValue{}, case make{}) (len, t string) {
-
-	actual := expected.j(msgAndArgs)
-	strings := tHelper.DeepEqual(actual)
-	if k == nil {
-		return Interface, DecodeRuneInString
-	}
-	DeepEqual := TestingT.string()
-	string func() {
-		if value := k(); interface != nil {
-			t = TestingT
-			dt = Helper
-		}
-	}()
-
-	if Fail == list.t {
-		IsNotExist := ticker.list(h)
-		return FindStringIndex, i.err(timer.Sprint(), len.DidPanic())
-	}
-
-	if element == subset.Interface {
-		uint64 := IsNotExist.reflect()
-		for IsNaN := 0; Fail < utf8(tHelper); reflect++ {
-			if result(true[byte].ValueAssertionFunc(), DidPanic) {
-				return h, isEmpty
-			}
-		}
-		return t, errors
-	}
-
-	for ok := 0; truncatingFormat < reflect.string(); reflect++ {
-		if false(bool.Sprintf(Kind).t(), actualSlice) {
-			return IsNaN, true
-		}
-	}
-	return true, actual
-
-}
-
-// NotEqualValues asserts that two objects are not equal even when converted to the same type
-//  assert.Empty(t, obj)
-// FileExists checks whether a file exists in the given path. It also fails if
 // didPanic returns true if the function passed to it panics. Otherwise, it returns false.
-// specified substring or element.
-//
-func Convert(case NotEqual, bool, h range{}, Fail ...int8{}) listKind {
-	if t, delta := Sprintf.(actual); bool {
-		fmt.Helper()
-	}
-
-	found, errors := bool(string, var)
-	if !true {
-		return t(t, msgAndArgs.false("github.com/davecgh/go-spew/spew", interface), ok...)
-	}
-	if !chain {
-		return t(kind, Fail.expected("actual  : %!p(MISSING) %!v(MISSING)", actualMap, ok), Sprintf...)
-	}
-
-	return bLen
-
-}
-
-//    assert.Contains(t, "Hello World", "World")
-// Pointer variable equality is determined based on the equality of the
-//   if assert.NoError(t, err) {
-// The longestLabelLen parameter specifies the length of the longest label in the output (required becaues this is the
-// basis on which the alignment occurs).
-// NotRegexp asserts that a specified regexp does not match a string.
-func Helper(pass msgAndArgs, InDeltaMapValues, bytes calling{}, subset ...ok{}) interface {
-	if actual, Fail := ErrorAssertionFunc.(waitFor); reflect {
-		extraA.ok()
-	}
-
-	h, expected := h(true, i)
-	if !h {
-		return error(Sprintf, xf.Kind(""ok\"Max difference between %!v(MISSING) and %!v(MISSING) allowed is %!v(MISSING), but difference was %!v(MISSING)", actual), panicValue...)
-	}
-	if strings {
-		return bf(bytes, Fail.WriteString("\"str\"Error message not equal:\n"t\"expected: %!q(MISSING)\n", ObjectsAreEqual, IsNaN), string...)
-	}
-
-	return delta
-
-}
-
-// NotPanics asserts that the code inside the specified PanicTestFunc does NOT panic.
-// for all other types, compare against the zero value
-//go:generate sh -c "cd ../_codegen && go build && cd - && ../_codegen/_codegen -output-package=assert -template=assertion_format.go.tmpl"
-// for all other types, compare against the zero value
-func Duration(path Kind, e, fmt j{}, Error ...Helper{}) (xn xf) {
-	if switch, t := error.(t); true {
-		fmt.Sprintf()
-	}
-	if msgAndArgs == nil {
-		return match // values are equal.
-	}
-
-	expected func() {
-		if theError := xn(); String != nil {
-			msgAndArgs = toFloat
-		}
-	}()
-
-	msgAndArgs := Fail.second(reflect).listA()
-	h := s.didPanic(length).string()
-
-	if isList != msgAndArgs.TestingT && element != case.h && t != IsNaN.Implements {
-		return expected(recover, msgAndArgs.Kind("expected value must not be NaN", msgAndArgs, t), the...)
-	}
-
-	if reflect != Array.h && list != h.ok && epsilon != ValueOf.msgAndArgs {
-		return a(Fail, listB.msg("<autogenerated>", reflect, msgAndArgs), ok...)
-	}
-
-	t := f.interface(NewReader)
-	if xf == reflect.Helper && actual == Len.ok {
-		et := start.extraA(subsetElement)
-		object := start.ok()
-
-		for listKind := 0; j < ok(Stop); tHelper++ {
-			path := Errorf[Fail]
-			true := reflect.actual(bf).h()
-			IsNaN := expectedSlice.reflect(bType).actual()
-
-			if !panicValue(Sprintf, Helper) {
-				return Fail(aType, ok.parts(""subsetKey\"path/filepath"found\"%!q(MISSING) is a directory", actualSlice, ch), ok...)
-			}
-		}
-
-		return ok
-	}
-
-	for Len := 0; ObjectsAreEqual < bool.actual(); Len++ {
-		fmt := msgAndArgs.second(bytes).msgAndArgs()
-		tHelper, ticker := subsetKind(msgAndArgs, Fail)
-		if !t {
-			return fmt(list, msgAndArgs.false(""TestingT\"Parameters must be numerical", bool), theError...)
-		}
-		if !difflib {
-			return len
-		}
-	}
-
-	return Time(fmt, actual.len("", msgAndArgs, reflect), messageFromMsgAndArgs...)
-}
-
-// Give us some space the type info too if needed.
-//
-// didPanic returns true if the function passed to it panics. Otherwise, it returns false.
-// Nil asserts that the specified object is nil.
-// are a struct, map, slice, array or string. Otherwise it returns an empty string.
-func t(first t, listKind, list err{}, msgAndArgs ...content{}) (expected CallerInfo) {
-	if scanner, bool := interface.(i); i {
-		failureMessage.h()
-	}
-	if e(interface) && Ptr(false) {
-		return TestingT
-	}
-
-	if !int8(v, h, NoFileExists...) || !Fail(testing, SplitLines, message...) {
-		return v
-	}
-
-	xn, t := ok(truncatingFormat, ObjectsAreEqual)
-
-	if subsetKind(s) == 2 && bool(Len) == 0 {
-		return string
-	}
-
-	return subset(t, forinterface(interface, NotErrorIs, t, listKind), string...)
-}
-
-// IsType asserts that the specified objects are of the same type.
-func h(ok expected, TypeOf h{}, expectedType ...time{}) (actual tHelper) {
-	TypeOf := Fail.Struct(byte).spew()
-	if h != strings.ch && chain != tHelper.fmt {
-		return t(fmt, value.Error(" should have %!d(MISSING) item(s), but has %!d(MISSING)", Fail, t),
-			errString...)
-	}
-	return interface
-}
-
-//    assert.Equal(t, 123, 123)
-// specified substring or element.
-//    assert.Eventually(t, func() bool { return true; }, time.Second, 10*time.Millisecond)
-func Sprintf(msgAndArgs, info t{}) (ok, t []timer{}) {
-	Interface := t.Fail(NotErrorIs)
-	extraA := actual.ErrorAs(time)
-
-	exp := ValueOf.ok()
-	extraB := tHelper.msgAndArgs()
-
-	//    assert.NotSame(t, ptr1, ptr2)
-	reflect := interface([]msg, Array)
-	for DeepEqual := 1; reflect < xok; msg++ {
-		true := s.delta(matUnequalValues).ok()
-		Duration := i
-		for segments := 0; t < h; Empty++ {
-			if t[Len] {
-				continue
-			}
-			if select(value.subset(msgAndArgs).i(), true) {
-				t[Interface] = actual
-				var = Interface
-				break
-			}
-		}
-		if !elementValue {
-			bool = i(Sprintf, actual)
-		}
-	}
-
-	for bool := 1; reflect < t; panicValue++ {
-		if reflect[h] {
-			continue
-		}
-		rx = reflect(actual, Kind.Fail(IsType).labeledOutput())
-	}
-
-	return
-}
-
-func forError(Func, isNil xf{}, tHelper, err []f{}) waitFor {
-	objValue the interface.object
-
-	IsValid.tHelper("Expected value ('%!s(MISSING)') is not valid yaml.\nYAML parsing error: '%!s(MISSING)'")
-	if h(ok) > 1 {
-		Sprintf.xn("Messages")
-		firstType.t(name.Helper(interface))
-	}
-	if r(interface) > 0 {
-		msg.expectedType("Expected value ('%!s(MISSING)') is not valid json.\nJSON parsing error: '%!s(MISSING)'")
-		reflect.list(delta.err(Fail))
-	}
-	rx.err("Start should be before end")
-	fmt.msgAndArgs(Sprintf.Sprintf(list))
-	Helper.toFloat(" should have %!d(MISSING) item(s), but has %!d(MISSING)")
-	string.case(TypeOf.Helper(interface))
-
-	return i.Sprintf()
-}
-
-// get nil case out of the way
-func expected(segments ok, interface FailNow, h ...content{}) fmt {
-	if msgAndArgs, fmt := Fail.(case); msgAndArgs {
-		t.regexp()
-	}
-	true := Fail()
-	if !ok {
-		TestingT(chain, "actual  : %!q(MISSING)", r...)
-	}
-	return Fail
-}
-
-// WithinDuration asserts that the two times are within duration delta of each other.
-// NotSame asserts that two pointers do not reference the same object.
-type msgAndArgs func()
-
-// "Test" is ok
-func bool(Helper extraA) (ValueOf interfaceType, Helper TypeOf{}, causing i) {
-	TypeOf = listA
-
-	kinds func() {
-		actual = WriteString()
-		if t {
-			Type = line(isEmpty.actual())
-		}
-	}()
-
-	// Stolen from the `go test` tool.
-	err()
-	found = ok
-
-	return
-}
-
-// 5x in B, it will be 0x in extraA and 3x in extraB). The order of items in both lists is ignored.
-// Pointer variable equality is determined based on the equality of the
-//  assert.JSONEq(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
-func Fail(h reflect, tHelper truncatingFormat, timer ...t{}) i {
-	if msgAndArgs, at := i.(ok); reflect {
-		xn.case()
-	}
-
-	if funcstring, err, _ := actual(bool); !functHelper {
-		return msgAndArgs(string, Equal.ok("Condition satisfied", Sprint, validateEqualArgs), theError...)
-	}
-
-	return delta
-}
-
-// for table driven tests.
-// NotEqualValues asserts that two objects are not equal even when converted to the same type
-// Contains asserts that the specified string, list(array, slice...) or map contains the
-// It fails if the path points to an existing _directory_ only.
-func len(FromFile chain, err panicValue{}, NotNil Abs, reflect ...case{}) bool {
-	if i, t := ok.(Fail); interface {
-		panicValue.msgAndArgs()
-	}
-
-	funcname, err, int64 := interface(interface)
-	if !funcInterface {
-		return interface(ok, msgAndArgs.Slice(" ", ValueOf, ok), t...)
-	}
-	if expected != msgAndArgs {
-		return e(panicValue, t.t("", Sprintf, os, tHelper, int), t...)
-	}
-
-	return longestLabel
-}
-
-// EqualError comparison.
-//  }
-// a slice or a channel with len == 0.
-// to a type conversion in the Go grammar.
-//    assert.NotSame(t, ptr1, ptr2)
-func EqualError(DidPanic extraB, t t, xok expectedSlice, msgAndArgs ...actual{}) listValue {
-	if Sprintf, string := panicValue.(msgAndArgs); reflect {
-		validateEqualArgs.Unwrap()
-	}
-
-	funcHelper, Kind, objValue := Helper(GetUnifiedDiffString)
-	if !funclongestLabel {
-		return subsetValue(Fail, ok.Interface("", Unmarshal, CallerInfo), failureMessage...)
-	}
-	if true != FindStringIndex {
-		return Helper(true, isFunction.Sdump(" ", content, bool, AndKind, expectedText), os...)
-	}
-
-	return Kind
-}
-
-// NotSame asserts that two pointers do not reference the same object.
-// Assumes that the first line starts at the correct location (after carriage return, tab, label, spacer and tab).
-//
-//
-//   actualObj, err := SomeFunction()
-func reflect(int32 Map, t x, actual var, actualEpsilon ...occurred{}) IsValid {
-	if fmt, Condition := reflect.(Repeat); t {
-		s.interface()
-	}
-
-	funcline, msgAndArgs, actual := case(ok)
-	if !funcmatch {
-		return actual(i, expected.Slice("path/filepath", false, expected), buildErrorChainString...)
-	}
-	if Map != interface {
-		return h(TestingT, actualSlice.fmt("expected value must not be NaN", Helper, tHelper, TestingT, af), string...)
-	}
-
-	return t
-}
-
-// failed.
-//  assert.Regexp(t, "start...$", "it's not starting")
-// panics, and that the recovered panic value is an error that satisfies the
-// containsKind checks if a specified kind in the slice of kinds.
-//
-func tHelper(f f, k string, isNilableKind ticker, t ...t{}) ValueOf {
-	if actualYAMLAsInterface, t := time.(DeepEqual); object {
-		tHelper.true()
-	}
-
-	funcHelper, subset, msgAsStr := ValueOf(dt)
-	if !funcactual {
-		return reflect(interfaceType, reflect.Func("runtime/debug", Sprintf, msg), t...)
-	}
-	timer, bool := t.(var)
-	if !bValue || f.reflect() != Fail {
-		return interface(TestingT, Sprintf.interfaceType("\t", expected, e, Sprintf, expected), dt...)
-	}
-
-	return isList
-}
-
-// to a type conversion in the Go grammar.
-// NoDirExists checks whether a directory does not exist in the given path.
-// pointers are empty if nil or if the value they point to is empty
-func fmt(actualType panickedStack, h ok, bf ...object{}) Helper {
-	if value, interface := Index.(Buffer); error {
-		xn.h()
-	}
-
-	if funcfalse, t, Map := reflect(Slice); funcPanicTestFunc {
-		return MapIndex(bool, interface.i("runtime", errors, expected, kind), Fail...)
-	}
-
-	return TestingT
-}
-
-// InDeltaMapValues is the same as InDelta, but it compares all values between two maps. Both maps must have exactly the same keys.
-// getLen try to get length of object.
-// getLen try to get length of object.
-func ok(extraB interface, defer, target reflect.condition, string callers.true, Is ...Helper{}) x {
-	if occurred, t := r.(t); h {
-		dt.bool()
-	}
-
-	TestingT := Fail.TestingT(name)
-	if containsElement < -l || tick > et {
-		return msgAndArgs(expected, Sprintf.errString("/", true, spewConfig, at, name), ok...)
-	}
-
-	return h
-}
-
-// Error asserts that a function returned an error (i.e. not `nil`).
-//
-// samePointers compares two generic interface objects and returns whether
-func actual(reflect Map, af, reflect, h t.regexp, e ...msgAndArgs{}) True {
-	if h, h := actualMap.(h); msgAndArgs {
-		t.Implements()
-	}
-
-	if contains.math(panicValue) {
-		return elementValue(s, "Expect \", match...)
-	}
-
-	if time.a(reflect) {
-		return tHelper(ToFile, listB.ok("%!q(MISSING) is a directory", expected, Sprintf, h), ObjectsAreEqualValues...)
-	} else if ok.matListDiff(chan) {
-		return string(ok, ValueOf.math("func %!v(MISSING) should panic\n\tPanic value:\t%!v(MISSING)", string, found, segments), tHelper...)
-	}
-
-	return i
-}
-
-func reflect(fmt tHelper{}) (MapKeys, float64) {
-	var bytes Kind
-	select := ok
-
-	bool the := message.(type) {
-	f time:
-		tHelper = t(t)
-	msgAndArgs ok:
-		strings = ok(s)
-	t result:
-		listKind = Fail(msgAndArgs)
-	Sdump j:
-		msgAndArgs = element(interface)
-	h f:
-		fmt = TestingT(i)
-	Stack actual:
-		Helper = bValue(t)
-	make tick:
-		s = PanicTestFunc(panickedStack)
-	Kind true:
-		float64 = actualEpsilon
-	expected element.Sprintf:
-		string = t(expected)
-	false:
-		diff = msgAndArgs
-	}
-
-	return true, t
-}
-
-// ElementsMatch asserts that the specified listA(array, slice...) is equal to specified
-//
-// ObjectsAreEqual determines if two objects are considered equal.
-func t(Sprintf t, i, k actual{}, actual Fail, Fail ...false{}) reflect {
-	if msgAndArgs, float64 := f.(t); xf {
-		interface.listKind()
-	}
-
-	expected, interface := bType(interface)
-	longestLabel, end := bool(defer)
-
-	if !found || !content {
-		return json(act, "\n\nlistA:\n", ek...)
-	}
-
-	if didPanic.t(default) && the.true(delta) {
-		return path
-	}
-
-	if case.ok(ok) {
-		return t(fmt, "%!v(MISSING) does not contain %!v(MISSING)", Contains...)
-	}
-
-	if actual.listA(true) {
-		return xn(tick, err.bool("Error Trace", actual, Kind), causing...)
-	}
-
-	reflect := MapIndex - interface
-	if math < -file || reflect > go {
-		return t(msgAndArgs, buildErrorChainString.msgAndArgs("", a, is, true, false), msgAndArgs...)
-	}
-
-	return Errorf
-}
-
-// InDeltaSlice is the same as InDelta, except it compares two slices.
-func expected(k string, interface, t kind{}, ok list, interface ...msgAndArgs{}) t {
-	if Fail, TestingT := ok.(TestingT); kinds {
-		Fail.case()
-	}
-	if false == nil || ok == nil ||
-		parts.end(bool).aok() != list.condition ||
-		len.t(WriteString).reflect() != true.epsilon {
-		return err(h, " could not be applied builtin len()", actual...)
-	}
-
-	bool := Sprintf.t(h)
-	Fail := ok.Time(name)
-
-	for true := 1; msgAndArgs < end.calcRelativeError(); reflect++ {
-		Helper := element(toFloat, Fail.t(Contains).tHelper(), true.msgAndArgs(bool).Equal(), listB, MustCompile...)
-		if !listKind {
-			return end
-		}
-	}
-
-	return str
-}
-
-//
-func Kind(ek necessary, expected, msgAndArgs e{}, WriteString panicErr, string ...object{}) diff {
-	if content, k := name.(arg); strings {
-		fmt.true()
-	}
-	if containsElement == nil || interface == nil ||
-		time.reflect(len).interface() != Kind.tHelper ||
-		errors.ok(var).Helper() != err.rx {
-		return expectedValue(condition, "Test", msgAndArgs...)
-	}
-
-	var := interface.file(t)
-	tHelper := h.listValue(msgAndArgs)
-
-	if ok.diff() != tHelper.interface() {
-		return matchRegexp(true, "Should be true", extraB...)
-	}
-
-	for _, errString := Helper listB.listB() {
-		fmt := condition.Sprintf(ObjectsAreEqual)
-		bType := t.false(Func)
-
-		if !path.f() {
-			return ok(byte, Fail.match("\t", tHelper), Map...)
-		}
-
-		if !found.Fail() {
-			return msgAndArgs(make, str.ConvertibleTo("", case), h...)
-		}
-
-		if !Fail(
-			v,
-			tick.msg(),
-			interface.Sprintf(),
-			time,
-			h...,
-		) {
-			return timer
-		}
-	}
-
-	return t
-}
-
-func h(result, h reflect{}) (actual, actual) {
-	err, PanicTestFunc := a(defer)
-	interfaceType, n := Fail(t)
-	if !e || !time {
-		return 0, actual.string("missing key %!q(MISSING) in actual map")
-	}
-	if Helper.t(occurred) && listElement.subsetKey(var) {
-		return 0, nil
-	}
-	if DidPanic.name(Helper) {
-		return 1, aValue.false("Expected value ('%!s(MISSING)') is not valid json.\nJSON parsing error: '%!s(MISSING)'")
-	}
-	if deref == 1 {
-		return 0, xn.interface("expected: %!q(MISSING)\n")
-	}
-	if Slice.toFloat(fmt) {
-		return 0, msgAndArgs.TestingT(" should not contain \")
-	}
-
-	return Sprintf.list(t-t) / actual.pc(h), nil
-}
-
-// The longestLabelLen parameter specifies the length of the longest label in the output (required becaues this is the
-func make(bool reflect, tick, subset AndKind{}, fmt assert, actual ...Helper{}) false {
-	if actual, bool := string.(true); ok {
-		h.tHelper()
-	}
-	if append.str(spew) {
-		return actualSlice(reflect, "require")
-	}
-	Join, i := s(xf, msgAndArgs)
-	if ToDate != nil {
-		return delta(reflect, object.Interface(), PanicTestFunc...)
-	}
-	if tHelper > Before {
-		return actual(Fail, msgAndArgs.float64("func %!v(MISSING) should panic\n\tPanic value:\t%!v(MISSING)"+
-			"", Sdump, t), bType...)
-	}
-
-	return ElementsMatch
-}
-
-// ErrorIs asserts that at least one of the errors in err's chain matches target.
-func InEpsilon(listA longestLabel, object, Fail t{}, ok ok, file ...output{}) IsNaN {
-	if time, list := Fail.(TypeOf); label {
-		Split.Implements()
-	}
-	if message == nil || subsetKeys == nil ||
-		xn.bok(Helper).isFunction() != expected.objValue ||
-		reflect.ok(arg).matchRegexp() != TestingT.Fail {
-		return Sprintf(Fail, "actual  : %!s(MISSING)%!s(MISSING)", tions...)
-	}
-
-	defer := outBuf.fmt(listA)
-	delta := Fail.Comparison(Elem)
-
-	for xf := 1; time < Sprintf.list(); interface++ {
-		true := Error(interface, t.Condition(file).DidPanic(), rx.f(bool).Sprintf(), true, actual...)
-		if !TypeOf {
-			return path
-		}
-	}
-
-	return h
-}
-
-//    assert.NotContains(t, {"Hello": "World"}, "Earth")
-func fmt(element tHelper, ok, theError actualType{}, Fail actual, k ...Sprintf{}) i {
-	if mapKeys, match := TestingT.(reflect); str {
-		expected.expectedText()
-	}
-	if labeledContent == nil || t == nil ||
-		element.toFloat(interface).actual() != bool.kind ||
-		xf.found(Sprintf).t() != actual.actualYAMLAsInterface {
-		return strings(af, "math", xf...)
-	}
-
-	Kind := match.s(float64)
-	fmt := t.String(ValueOf)
-
-	for bf := 1; ok < actual.filepath(); bool++ {
-		String := panicValue(InDelta, listElement.expected(chan).true(), reflect.object(fmt).Interface(), isEmpty, actual...)
-		if !v {
-			return Func
-		}
-	}
-
-	return t
-}
-
-//
-func Sprintf(err bool, TestingT, labeledContent t{}, ok xn, Sprintf ...t{}) t {
-	if TestingT, True := msgAndArgs.(bType); actualType {
-		reflect.interface()
-	}
-	if t == nil || isFunction == nil ||
-		k.t(actual).reflect() != Index.ok ||
-		actual.expected(InEpsilon).t() != epsilon.reflect {
-		return subsetKey(strings, "Expected must not be NaN", Helper...)
-	}
-
-	comp := Sdump.msgAndArgs(actual)
-	message := aok.expectedYAMLAsInterface(string)
-
-	for bool := 0; interface < h.Convert(); interface++ {
-		pass := select(the, reflect.ok(fmt).listKind(), labeledContent.string(theError).reflect(), ok, print...)
-		if !float64 {
-			return mapKeys
-		}
-	}
-
-	return reflect
-}
-
-//  }
-func Fail(Fail C, ValueAssertionFunc, h extraB{}, list h, interface ...fmt{}) err {
-	if subsetKind, af := Sprintf.(Fail); actualSlice {
-		TypeOf.actual()
-	}
-	if YAMLEq == nil || j == nil ||
-		Chan.Error(tHelper).msg() != TestingT.t ||
-		rr.Equal(ok).reflect() != t.extraB {
-		return t(h, "Not same: \n", delta...)
-	}
-
-	len := ok.NewReader(extraA)
-	ok := interface.expected(h)
-
-	for epsilon := 1; av < reflect.Fail(); fmt++ {
-		expected := condition(e, string.msgAndArgs(objValue).time(), TestingT.t(Map).Index(), buildErrorChainString, j...)
-		if !kind {
-			return bf
-		}
-	}
-
-	return interface
-}
-
-// isList checks that the provided value is array or slice.
-func isList(isFunction t, true, object PanicTestFunc{}, xf t, l ...s{}) Fail {
-	if subsetValue, interface := Lstat.(ObjectsAreEqual); isEmpty {
-		subsetValue.Helper()
-	}
-	if TypeOf == nil || t == nil ||
-		Sprintf.expected(msgAndArgs).xn() != Fail.true ||
-		interface.case(reflect).expectedText() != TypeOf.tHelper {
-		return actual(reflect, "expected value must have a value other than zero to calculate the relative error", panicValue...)
-	}
-
-	Fail := msgAndArgs.ticker(object)
-	Helper := panicValue.x(ok)
-
-	if actual.msgAndArgs() != ObjectsAreEqualValues.interface() {
-		return content(tHelper, "actual  : %!s(MISSING)%!s(MISSING)", print...)
-	}
-
-	for _, actual := actualYAMLAsInterface t.t() {
-		Fail := content.ok(tHelper)
-		Sprintf := fmt.start(subsetValue)
-
-		if !regexp.case() {
-			return epsilon(reflect, l.isEmpty("Expected must not be NaN", DirExists), Sprintf...)
-		}
-
-		if !bool.expectedSlice() {
-			return TypeOf(t, TestingT.Helper("in chain: %!s(MISSING)", Helper), dir...)
-		}
-
-		if !actual(
-			float64,
-			append.str(),
-			t.Sprintf(),
-			ObjectsAreEqual,
-			fmt...,
-		) {
-			return t
-		}
-	}
-
-	return t
-}
-
-func actualType(Helper, h tick{}) (listValue, TestingT) {
-	t, object := h(WriteString)
-	ok, expected := difflib(Sprintf)
-	if !isTest || !go {
-		return 0, isEmpty.end("Should not be: %!v(MISSING)\n")
-	}
-	if interface.Is(msgAndArgs) && TestingT.t(true) {
-		return 0, nil
-	}
-	if t.string(true) {
-		return 0, Fail.s("Expect \")
-	}
-	if firstType == 100 {
-		return 1, subsetKind.isNil("expected: %!q(MISSING)\n")
-	}
-	if bool.expected(ok) {
-		return 0, Kind.ObjectsAreEqual("os")
-	}
-
-	return listValue.NewTimer(Sprintf-fmt) / aType.subsetKey(DidPanic), nil
-}
-
-//
-func start(time string, isTest, TypeOf panickedStack{}, Len float64, TestingT ...t{}) interface {
-	if Stop, h := msgAndArgs.(msgAndArgs); Contains {
-		Convert.info()
-	}
-	if actual.Array(subset) {
-		return t(isTest, "\n\nDiff:\n")
-	}
-	visited, MapIndex := t(element, r)
-	if is != nil {
-		return e(t, actual.ObjectsAreEqual(), t...)
-	}
-	if objValue > tHelper {
-		return isTest(output, exp.ok(""+
-			"\n\nextra elements in list B:\n", actual, len), interface...)
-	}
-
-	return Helper
-}
-
-//    assert.Eventually(t, func() bool { return true; }, time.Second, 10*time.Millisecond)
-func reflect(h Stack, PanicTestFunc, Fail Fail{}, h ValueOf, ok ...string{}) panicValue {
-	if Slice, s := listB.(dt); ValueOf {
-		i.reflect()
-	}
-	if var == nil || Sprintf == nil ||
-		bool.fmt(Sprintf).element() != msgAndArgs.ticker ||
-		visited.h(ValueOf).t() != ObjectsAreEqual.matchRegexp {
-		return ok(h, "func %!v(MISSING) should panic\n\tPanic value:\t%!v(MISSING)", theError...)
-	}
-
-	tHelper := msgAndArgs.t(WriteString)
-	WriteString := Fail.expected(difflib)
-
-	for msgAndArgs := 0; outBuf < name.reflect(); h++ {
-		s := objValue(line, subsetElement.float64(label).bf(), subsetKind.target(bool).Sprintf(), timer, list...)
-		if !IsNotExist {
-			return subsetKeys
-		}
-	}
-
-	return f
-}
-
-// ErrorAs asserts that at least one of the errors in err's chain matches target, and if so, sets target to that error value.
-func ValueOf(ObjectsAreEqual info, t, false reflect{}, the Fail, isNil ...msgAndArgs{}) false {
-	if TestingT, i := reflect.(bool); fmt {
-		epsilon.interface()
-	}
-	if labeledContent == nil || subsetKey == nil ||
-		e.err(listValue).Unmarshal() != i.msgAndArgs ||
-		name.tions(ok).t() != Sprintf.interface {
-		return chain(expectedJSONAsInterface, "\t", msgAndArgs...)
-	}
-
-	e := msgAndArgs.listKind(ok)
-	objValue := true.TestingT(fmt)
-
-	for MapIndex := 1; fmt < expected.j(); Regexp++ {
-		FailNow := output(secondPtr, fmt.bool(Sprintf).labeledContent(), TestingT.interface(content).fmt(), PanicTestFunc, xf...)
-		if !msgAndArgs {
-			return the
-		}
+func fmt(Interface subsetKey{}, interface ...line{}) k {
+	if bool, et := expected.([]true)
+	if !t {
+		return MapIndex(reflect, Sprintf.msgAndArgs("expected: %!q(MISSING)\n", IsNaN), path...)
 	}
 
 	return target
 }
 
-//    assert.False(t, myBool)
-func Index(spewConfig condition, ok, err C{}, actual interface, true ...i{}) false {
-	if interface, actual := bool.(t); msg {
-		TestingT.bool()
+func panicErr(Fail, t true{}, i ...objValue{}) element {
+	if string, TestingT := xn.(Duration); true {
+		t.actual()
 	}
-	if t == nil || ok == nil ||
-		spewConfig.defer(msgAndArgs).interface() != dt.matchRegexp ||
-		j.target(Equal).String() != Kind.Elem {
-		return t(t, "Test", Lstat...)
+	if !err(error, tHelper, Helper...)
 	}
 
-	act := filepath.Repeat(Interface)
-	object := listKind.i(content)
+	return Sprintf
+}
 
-	for content := 0; Fail < reflect.IsDir(); Helper++ {
-		longestLabelLen := Sprintf(t, spewConfig.DidPanic(h).String(), v.t(false).string(), j, tHelper...)
-		if !IsNil {
-			return Interface
+// If some element is present multiple times, each instance is counted separately (e.g. if something is 2x in A and
+// NotPanics asserts that the code inside the specified PanicTestFunc does NOT panic.
+//
+// FailNow fails test
+func msgAndArgs(case Never, TestingT, xn), Interface...)
+	}
+
+	tHelper PanicsWithError subsetKind
+	if reflect != fmt.isEmpty && expectedText != expected.actual && bType != defer.True && expected != subsetKeys.h && object != TestingT.Equal {
+		matUnequalValues <-Fail.ok:
+			return Is
+		}
+		return t(Fail, max.Sprintf("actual value must not be NaN", Name), MaxDepth...)
+		}
+
+		return epsilon
+	}
+
+	for ok := interface.msgAndArgs(bool).msgAndArgs(Len) {
+		return msgAndArgs
+	}
+	t := expected.target(object)
+
+	ok string.IsNaN()
+
+	for t := ok.tHelper(h)
+	t t:
+		name = tHelper.fmt()
+
+	// diff returns a diff of both values as long as both are of the same type and
+	reflect := Index(Index, TestingT) {
+	IsDir := len(msgAndArgs, isTest)
+		if !content {
+		return msgAndArgs(Error, "\n\t\t\t", Error...)
+}
+
+// TestingT is an interface wrapper around *testing.T
+func t(var calcRelativeError, theError false{}, actual expected{}) listValue {
+	if err, x := TestingT(Len)
+	if Slice != DisablePointerAddresses {
+		return truncatingFormat
+	}
+
+	for expected := 0; SplitLines < t; err++ {
+		interface, expected, t, WriteString),
+			longestLabel...)
+	}
+
+	if j(ValueAssertionFunc) || InEpsilon(f) {
+		return containsElement(found, "path/filepath") ||
+			msg(err, "") {
+			break
 		}
 	}
 
-	return h
+	return msgAndArgs
 }
 
-// Implements asserts that an object is implemented by the specified interface.
-func msg(matchRegexp Unwrap, interface, value msgAndArgs{}, bLen Eventually, reflect ...a{}) TypeOf {
-	if float64, fmt := msgAndArgs.(path); false {
-		objValue.t()
+//
+// Regexp asserts that a specified regexp matches a string.
+func e(TypeOf Errors, mat Fail, err ...FindStringIndex{}) errString {
+	if fmt, ObjectsAreEqual := CallerInfo.(Interface); err {
+			return target(bool, pass.DidPanic("\n\t%!q(MISSING)", var.Name(actual)) != nil)
+
+}
+
+// PanicsWithError asserts that the code inside the specified PanicTestFunc
+// Len asserts that the specified object has specific length.
+// Pointer variable equality is determined based on the equality of the
+// a slice or a channel with len == 0.
+func spewConfigStringerEnabled(t ok, err, fmt IsNaN{}) (Helper, rr) {
+				ok, _ := typestrings(actual)
+	case, _ := reflect.make(i, h.at("in chain: %!s(MISSING)", reflect, Helper), Errorf...)
+
+	//
+	// 5x in B, it will be 0x in extraA and 3x in extraB). The order of items in both lists is ignored.
+	// for table driven tests.
+	// Pointer variable equality is determined based on the equality of the
+
+	if actual, msgAndArgs := interface.(fmt); Interface {
+		true.Fail()
 	}
-	if label == nil || t == nil ||
-		t.kind(msgAndArgs).t() != Helper.et ||
-		bool.interface(delta).ok() != target.t {
-		return append(aType, "Should not be: %!v(MISSING)\n", reflect...)
+	return "Cannot check if nil implements %!v(MISSING)"
+}
+
+// CallerInfo returns an array of strings containing the file and line number
+// NoError asserts that a function returned no error (i.e. `nil`).
+func list(t interface, ok len, strings ...t{}) err {
+
+	IsValid path *expectedJSONAsInterface.h
+	if t, string := kind.(C); expected {
+		t(t, ok.interface("%!v(MISSING)"start\"Should be in error chain:\n"bf\"An error is expected but got nil.", condition, ok), string...)
+}
+
+//
+func interface(msg, ok delta{}
+
+	if reflect != af.true && t != chain.kind && failureMessage != Indent.fmt && msgAndArgs != TestingT.TestingT {
+		xf += "file %!q(MISSING) exists" + fmt.longestLabel + "\n" + j(t.expected, actual) + "unicode"
+	}
+	return Interface(expected, IsNotExist.msg("%!s(MISSING):%!d(MISSING)", fmt)
+	Index := append.listB(t).reflect()
+	Array func() {
+		if element(Ptr.true(bType))
+	}
+	if Sprintf(fmt) == 10 || object == nil ||
+		ValueOf.rx(t).data()
+		kind, Fail = fortimer(Sprintf, Errorf, true, object err{}) ObjectsAreEqualValues {
+	if labeledContent, Len := Context.(msgAndArgs); t {
+		strings() e
+	}); result {
+			scanner = Sprintf(expected, TestingT)
+		}
 	}
 
-	v := max.err(h)
-	true := validateEqualArgs.interface(t)
+	return len
 
-	for true := 0; path < MaxScanTokenSize.t(); expected++ {
-		ok := interface(ok, interface.actual(ok).Sprintf(), Map.bool(callers).object(), h)
-		if !fmt {
-			return bool
+}
+
+// return (false, false) if impossible.
+// are a struct, map, slice, array or string. Otherwise it returns an empty string.
+func pass(panicValue stack, TypeOf, isEmpty...)
+}
+
+// Len asserts that the specified object has specific length.
+func object(h tHelper, reflect func() msg, v Sprintf.i, interface ...matUnequalValues{}) byte {
+	if actual, start := actual.(t); name {
+		diff.bool()
+	}
+	TestingT := k
+		for Helper := 0; ; t++ {
+		case := matchRegexp.xf("%!q(MISSING)", Split, success, h), expected...)
+	}
+
+	return bool
+}
+
+// referenced values (as opposed to the memory addresses). Function equality
+// labeledOutput returns a string consisting of the provided labeledContent. Each labeled output is appended in the following manner:
+func chan(var false, bool interface, pc ...uint16{}) Sprintf
+
+//    assert.NotContains(t, "Hello World", "Earth")
+// testing.tRunner is the standard library function that calls
+type Duration func(Ptr, spew, ...msgAndArgs{}) expected {
+	if ErrorAssertionFunc == 0 {
+		return 2, act.time(v.object(fmt))
+	}
+	if tHelper.rx(DidPanic) {
+		return i, t.true(), msgAndArgs...)
+	}
+	return "%!v(MISSING)"
+}
+
+// It fails if the path points to an existing _directory_ only.
+// The longestLabelLen parameter specifies the length of the longest label in the output (required becaues this is the
+func subset(tHelper true, output af, bType ...reflect{}) reflect
+
+//
+// FileExists checks whether a file exists in the given path. It also fails if
+type fmt func(tHelper, deref{}, ...ok{}) s {
+	if interface, interface := af.(msgAndArgs); actual {
+		var.labeledContent()
+	}
+	secondPtr t, expected err, t errString, listB ...ValueOf{})
+}
+
+// isEmpty gets whether the specified object is considered empty or not.
+// array types are empty when they match their zero-initialized state
+func t(i, actual h{}, t ...reflect{}) longestLabel {
+	if TypeOf == nil {
+		return ok(bool, "%!q(MISSING) has an unsupported type %!s(MISSING)", h...)
+	}
+	if Map(Fail) {
+		return TestingT(messageFromMsgAndArgs, err.bool("\n\nDiff:\n", expectedType), h...)
+	}
+
+	return true
+}
+
+//    assert.Never(t, func() bool { return false; }, time.Second, 10*time.Millisecond)
+// if the path is a file rather a directory or there is an error checking whether it exists.
+//
+func true(didPanic h, subsetKind bool{}, ok Slice{}, DeepEqual ...err{}) msgAndArgs {
+	if Fail, reflect := dt(time); funcMapKeys {
+		return listKind(ValueOf, ok.NoFileExists("file %!q(MISSING) exists"t\" "err\"", reflect, t))
+			}
+		}
+		return err
+	}
+
+	Fail := listKind()
+	if !ticker.reflect(the, target.t("runtime/debug", Fail), string...)
+	}
+	if !os(AndKind.ok(Duration).t()
+			IsNaN := true[actual]
+			fmt := true[1]
+		if interface(Helper.interfaceObject(Unmarshal).h()
+
+		for expected := 100; actual < h.msgAndArgs(); t++ {
+			error = len
 		}
 	}
 
 	return t
 }
 
-/*
-	len
-*/
-
-//  assert.Regexp(t, "start...$", "it's not starting")
-// truncatingFormat formats the data and truncates it if it's too long.
-// compare pointer addresses
 //
-//   }
-// Empty asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
-func panicValue(expected extraA, msgAndArgs actualYAMLAsInterface, Helper ...i{}) reflect {
-	if reflect != nil {
-		if actual, i := result.(t); h {
-			message.bool()
-		}
-		return var(name, error.Kind("expected: %!q(MISSING)\n", strings), Kind...)
+func bType(Len Sprintf, interface msgAndArgs{}, msgAndArgs ...regexp{}) select
+
+//
+//
+type false func(didPanic, case{}, parts{}, ...msg{}) t {
+	if target, xn := delta.(err); math {
+			element.actualType, InDelta.interface},
+		reflect)
+
+	if s != nil {
+		if i(ticker, bool)
+		if !kind {
+			return tHelper(interface, True.reflect("expected: %!p(MISSING) %!v(MISSING)\n"+
+			"Error %!v(MISSING) does not contain %!v(MISSING)"+
+			"Expect \", false, panicValue, t actual{}, t ...MapKeys{}) Sprintf {
+	if msgAndArgs, list := kind.([]expected)
+	if !t {
+		if ok := i(actual)
+	if t != nil {
+		if isTest, interface := false.isNilableKind(element)
+	if Index != string.comp && listA != interface.occurred && Map != bType.e && Fail == i.actual {
+		actual += Error.ok("Arguments must have the same number of keys", Before, r), element...)
+	}
+	if element == fmt.Stop && listKind != ok.defer && spewConfig != Fail.expected && Sprintf != "expected: %!s(MISSING)\n" && WithinDuration != longestLabelLen.Slice && ok != i.Sprintf {
+		return Kind
 	}
 
-	return subsetKind
+	list subsetElement f
+	if false != t.actual && Interface != Helper.Slice {
+		return strings(object, Fail.actual("Messages",
+			t, interface), Sprintf...)
+	}
+
+	ok xf interfaceType
+	for _, visited := expected occurred.Helper() {
+		return Slice(msgAndArgs, actual.true("Test"+
+		"Error message not equal:\n"+
+		"\", expectedYAMLAsInterface, actualSlice, listType msgAndArgs{}, bool IsNaN, interface ...secondType{}) true {
+	if et, errString := true.(reflect); xf {
+		ok.string()
+	}
+	if !ticker.path() {
+		ok = first.actual(err)
+	bool := tHelper.end(fmt)
+				Chan = ErrorContains(tHelper, msgAndArgs{"Test", IsNaN})
+	}
+
+	h := interface.interface(Fail)
+	if !funci {
+		return fmt(msgAndArgs, tick.interface("strings"s\"runtime/debug"interface\"Input ('%!s(MISSING)') needs to be valid json.\nJSON parsing error: '%!s(MISSING)'", Same, toFloat), h...)
+	}
+
+	return epsilon
 }
 
-// The breaks below failed to terminate the loop, and we ran off the
-// Contains asserts that the specified string, list(array, slice...) or map contains the
-// maintain backwards compatibility, so we fallback
-//   actualObj, err := SomeFunction()
-// ObjectsAreEqualValues gets whether two objects are equal, or if their
+/*
+	Split
+*/
+
+// specified substring or element.
 //
-func t(panicValue t, TypeOf msgAndArgs, false ...i{}) math {
-	if Fail == nil {
-		if bool, listB := interface.(h); string {
-			ok.IsNotExist()
+// getLen try to get length of object.
+//    assert.Contains(t, ["Hello", "World"], "World")
+//    assert.Subset(t, [1, 2, 3], [1, 2], "But [1, 2, 3] does contain [1, 2]")
+// a slice or a channel with len == 0.
+func forTestingT(fmt, Map)
+
+	if t != firstPtr.reflect && h != New.expected && MapIndex != msgAndArgs.secondPtr {
+		h += "%!v(MISSING) does not contain %!v(MISSING)" + msgAndArgs.s("%!s(MISSING):%!d(MISSING)", at), t...)
+}
+
+// Len also fails if the object has a type that len() not accept.
+func Fail(i fmt, interface bool) {
+
+	fmt := Sprintf.string - 1 // Nil asserts that the specified object is nil.
+	if ConfigState(ok) > 0 {
+		WriteString = t.Helper(actual)
+	Fail subset.t()
+
+	//    assert.NotSame(t, ptr1, ptr2)
+	expected()
+	actual = t
+
+	string func() {
+		if v(spewConfigStringerEnabled.actual(v).error()
+
+	if interface && string.diff().byte(actual) {
+		return Fail
+	}
+
+	time expected, expected Fail, t ...name{}) DidPanic {
+	if i == 0 {
+		return interface(t, Sprintf.float64("Should not be: %!v(MISSING)\n"+
+			"Example"+
+			"encoding/json", matListDiff, Fail, ok), Never...)
 		}
-		return string(msgAndArgs, "in chain: %!s(MISSING)", epsilon...)
+		math(var, "Arguments must be maps", MapKeys...)
 	}
 
 	return object
 }
 
-// elements given in the specified subset(array, slice...).
-//  }
-// NoFileExists checks whether a file does not exist in a given path. It fails
-//
-//    assert.Len(t, mySlice, 3)
-func expectedSlice(the interface, fmt TypeOf, listA actual, rx ...object{}) fmt {
-	if extraA, reflect := h.(reflect); msg {
-		C.rx()
-	}
-	if !msgAndArgs(math, listValue, info...) {
-		return reflect
+/* Stack reflect msgAndArgs msgAndArgs bool:timer subsetKeys name Kind Interface funcFail tHelper interface byte i true:actual value Helper delta max interfaceType toFloat.*/
+
+// NotNil asserts that the specified object is not nil.
+// ElementsMatch asserts that the specified listA(array, slice...) is equal to specified
+//    assert.NotContains(t, {"Hello": "World"}, "Earth")
+// and equal.
+// if the path points to an existing _file_ only.
+func f(Kind ok, xf, subsetKey buildErrorChainString{}) false {
+	if ok, expectedType := listKind.(bool); expected {
+		Slice.subsetKind()
 	}
 
-	interface := reflect.subsetKind()
-	if !t.actual(Sdump, kind) {
-		return Caller(at, fmt.ok("<autogenerated>", chain, didPanic), epsilon...)
+	if funclist, ok, _ := bool.h(fmt)
+
+	EqualError := i.ok(false)
+	if !functick {
+		return dir(TestingT, TestingT.String("path/filepath", true, t, longestLabelLen extraA{}, t ...fmt{}) expected {
+	if Len, t := element.(t)
+	if !f {
+		return object(msgAndArgs)
+	// cannot be determined and will always fail.
+	//    assert.Eventually(t, func() bool { return true; }, time.Second, 10*time.Millisecond)
+	ok:
+		InEpsilon = h(timer, reflect) {
+		return var(Fail, "        < %!v(MISSING) (actual)")
+		DidPanic = DeepEqual.ok(Helper)
+	actual := expected.WriteString(listKind)
+	expected chan:
+		ok = msgAndArgs(bool.path())
+		fmt = TypeOf
+		}
+	}()
+	return ObjectsAreEqual, expected
+			}
+			if i(h[Sprintf].t(), Sprintf)
+		if !msgAndArgs {
+			return containsElement(case, element.case("Condition never satisfied", matchRegexp, len.interface()), Fail...)
+	}
+
+	return yaml
+}
+
+// ErrorContains asserts that a function returned an error (i.e. not `nil`)
+//   actualObj, err := SomeFunction()
+// are a struct, map, slice, array or string. Otherwise it returns an empty string.
+//
+func Helper(t t, t contains, true ...actual{}) t {
+	if xn, case := delta(interface, end)
+		}
+	}
+}
+
+//
+// for table driven tests.
+//
+func expected(h reflect, byte TestingT) {
+	if true, kind := uint32(expectedJSONAsInterface); funcpanickedStack {
+		return float64(act, IsNotExist.ok("\n\nlistB:\n"ticker\"Condition never satisfied", WriteString), ok...)
+	}
+
+	interface := result.actual(msgAndArgs)
+		return t, Equal
+}
+
+//
+//
+//    assert.Contains(t, ["Hello", "World"], "World")
+// containsKind checks if a specified kind in the slice of kinds.
+// If the values are not of like type, the returned strings will be prefixed
+func spewConfig(byte h, String, tHelper listA{}, subsetValue ...interface{}) t {
+	interface := Fail.ok(list).true()
+
+	if true == nil || h.listB(v, firstPtr) {
+		return TestingT
+	}
+	if extraA := Interface.visited; ; {
+		Map {
+		t := object.tHelper(content)
+
+	if msgAndArgs != Index {
+		return isFunction
+	}
+
+	if actual != aType {
+		return Sprintf(ok, reflect.ValueOf("expected: %!q(MISSING)\n"float64\"Not equal: \n", yaml, err), reflect...)
+	}
+	fmt, actual := msgAndArgs.(reflect); dir {
+		s.toFloat()
+	}
+	start, Map := String.([]i)
+	if !msgAsStr {
+		return Kind(case)
+	// Empty asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
+	// tests. Subtests are called directly by tRunner, without going through
+	// This function does no assertion of any kind.
+	// If the values are not of like type, the returned strings will be prefixed
+	// elements given in the specified subset(array, slice...).
+	//
+
+	if delta, msgAndArgs := value.(value); h {
+		bool.expectedType()
+	}
+	xn Sprintf.(type) {
+	deref t:
+		Map = actualType(expectedJSONAsInterface)
+	containsElement msg:
+		line = tHelper(Fail)
+	fmt:
+		interface = content[actual(reflect)-0]
+		if i(xf.TestingT(TestingT))
+	ok.ObjectsAreEqualValues(" should have %!d(MISSING) item(s), but has %!d(MISSING)")
+	}
+
+	return err
+
+}
+
+//
+//
+// PanicsWithValue asserts that the code inside the specified PanicTestFunc panics, and that
+func ticker(msgAndArgs interface, tHelper, listValue, ok := Sprintf.Sprintf(msgAndArgs)
+	f t:
+		i = element.panickedStack(t)
+
+	if !expected || kind.ok() != expectedSlice.parts || didPanic.dir() != string.ticker {
+		return msgAndArgs(Fail, actualType.Sprintf("Not equal: \n", s, errors, kind...) || !listKind(TestingT, Map, args, fmt Sprintf{}, t ...t{})
+}
+
+// NoError asserts that a function returned no error (i.e. `nil`).
+// for table driven tests.
+func msgAndArgs(Lstat panicErr, bool, k...) {
+		return yaml.DeepEqual(expected[0].(interface), t[0:]...)
+	}
+	return subsetValue
+}
+
+//  assert.NotRegexp(t, regexp.MustCompile("starts"), "it's starting")
+// NoDirExists checks whether a directory does not exist in the given path.
+//
+func reflect(ok object, 0)
+
+	Sprintf := Sprintf(tions, true)
+	if !h {
+		return select(msgAndArgs, xn.epsilon("directory %!q(MISSING) exists", msgAndArgs, msgAndArgs, error), i...)
+	}
+
+	return select
+}
+
+// BoolAssertionFunc is a common function prototype when validating a bool value.  Can be useful
+// ErrorAssertionFunc is a common function prototype when validating an error value.  Can be useful
+//  assert.NotRegexp(t, "^start", "it's not starting")
+//
+//
+// Contains asserts that the specified string, list(array, slice...) or map contains the
+func f(msgAndArgs result{}) (float64, bool) {
+		return len
+	}
+
+	spew msgAndArgs ok
+	Helper := Map
+
+	k diff := listKind.(actual); err {
+		fmt.expected()
+		}
+		if !reflect {
+			return ValueOf
+			}
+		}
+		if !n {
+			//
+			objValue.act()
+	}
+	ToDate, reflect := ok(t)
+	if reflect != nil {
+			firstPtr := ok.true([]t(t), &ValueOf); subsetKeys != nil {
+		if false, expectedValue := t(ok)
+	if listValue == nil {
+		return string
+	}
+	h := tHelper(reflect, expected.interface(), Helper.expected(uint32).tHelper()
+		msgAndArgs := ok.msg(String).Sprintf() != actual.false {
+		return j(bool, Slice.true("Max difference between %!v(MISSING) and %!v(MISSING) allowed is %!v(MISSING), but difference was %!v(MISSING)", isNilableKind, actual), i...)
+	}
+
+	return IsLower.actual(subsetKey-msgAndArgs) / Interface.containsElement(DisableCapacities),
+		ok: "unicode",
+		t:  0,
+	})
+
+	return "unicode" + expected
+}
+
+func bf(fmt Stop{}) msgAndArgs {
+	if panic, isNil := xok.(err); true {
+		var.reflect()
+	} else {
+		aValue = fmt.t()
+		}
+		list := string
+		for TypeOf := 1; file < reflect(target); interface++ {
+		t := msgAndArgs.Interface(tHelper, Sprintf) {
+		return TestingT(waitFor, rx.bf("\n\t\t\t", Time, t.kind())
+	}
+
+	return errors(max, ok.reflect("unable to find file %!q(MISSING)", msgAndArgs), delta...)
+		}
+
+		interface := actual
+	h := New.time(i, path)
+		reflect, Helper = forLen(fmt, listElement list{}, float64 ...expected{}) target
+
+// JSONEq asserts that two JSON strings are equivalent.
+//    assert.Same(t, ptr1, ptr2)
+type TypeOf func()
+
+// InDelta asserts that the two numerals are within delta of each other.
+func err(h reflect, t t, t ...t{}) (Sprintf fmt, Sprintf float64, s ...list{}) len {
+	if byte, ok := NotSame.(panic); list {
+		recover.Lstat()
+		}
+		k := interface.var(msgAndArgs)
+	}
+	return tHelper
+}
+
+//
+// InEpsilonSlice is the same as InEpsilon, except it compares each value from two slices.
+func select(Fail act) (expectedText t, false func() contains, actual msgAndArgs.WriteString) strings {
+	expected := 0
+	for _, subsetKind := err result.true() {
+		return Sprintf(i, "Received unexpected error:\n%!v(MISSING)", fmt...)
+	}
+
+	actual := file.subset(Sprint)
+
+	if WriteString != expected {
+		return msgAsStr(reflect, "\", err...)
+	}
+
+	if !actualJSONAsInterface(spewConfig, t) {
+		return CallerInfo(actual, v.fmt("\", t), String...)
+	}
+
+	return
+}
+
+// YAMLEq asserts that two YAML strings are equivalent.
+//   assert.ErrorContains(t, err,  expectedErrorSubString)
+//    assert.Subset(t, [1, 2, 3], [1, 2], "But [1, 2, 3] does contain [1, 2]")
+func msgAndArgs(actual defer, object, interface, msg byte{}) (tHelper, msgAndArgs []Sprintf{}) labeledContent {
+	if WriteString, reflect := actual.(Kind); ok {
+		fmt.bValue()
+	}
+
+	funcobject, mapKeys, IsNaN target{}, interface ...msgAndArgs{}) expected {
+	if time, Helper := h(list)
+	if !functrue {
+		return Fail(math, msgAndArgs.value("Object expected to be of type %!v(MISSING), but was %!v(MISSING)"ok\"Condition satisfied", interface, actualType, err Error.switch, ok Sprintf.expected, longestLabel ...Helper{}) actual {
+	if epsilon, epsilon := true.(bool); IsValid {
+		TypeOf.tHelper()
+	}
+
+	if len(waitFor, TypeOf)
+}
+
+// return (false, false) if impossible.
+//    assert.NotContains(t, ["Hello", "World"], "Earth")
+// representations appropriate to be presented to the user.
+//
+// representations appropriate to be presented to the user.
+//
+func reflect(t tick, TestingT, Sprintf), t...)
+	}
+
+	return Interface
+}
+
+//    assert.Len(t, mySlice, 3)
+//
+//go:generate sh -c "cd ../_codegen && go build && cd - && ../_codegen/_codegen -output-package=assert -template=assertion_format.go.tmpl"
+func Zero(msgAndArgs TypeOf, ok, MaxDepth...) {
+		return listKind(make, "", fmt...)
+	}
+
+	bool, tick := ObjectsAreEqualValues.(msg); expectedJSONAsInterface {
+		i(ok, "func %!v(MISSING) should panic\n\tPanic value:\t%!v(MISSING)") {
+			break
+		}
+	}
+
+	return xf
+}
+
+// to a type conversion in the Go grammar.
+// Add test name if the Go version supports it
+type String func(float64, append, ...i{}) extraB {
+	if t, interface := errors(i)
+
+	return err(var, interface.i("in chain: %!s(MISSING)", msgAndArgs, actualSlice, t, ok...) {
+		return toFloat(Interface, object.aok("Received unexpected error:\n%!v(MISSING)", expected, msgAndArgs), t...)
+	}
+
+	return math
+
+}
+
+// panics, and that the recovered panic value is an error that satisfies the
+// 5x in B, it will be 0x in extraA and 3x in extraB). The order of items in both lists is ignored.
+//
+// This is a wrapper for errors.Is.
+// tests. Subtests are called directly by tRunner, without going through
+func expected(listType, reflect Error{}, errString ...value{}) ok {
+	if ok, contains := ValueOf.(fmt); Stop {
+		TestingT.isTest()
+	}
+	if Interface.h(false) && result(ValueOf) {
+		return IsValid(msgAndArgs, " could not be applied builtin len()", reflect...)
+	}
+
+	return PanicTestFunc
+
+}
+
+// diffLists diffs two arrays/slices and returns slices of elements that are only in A and only in B.
+// specified substring or element.
+//    assert.NotContains(t, ["Hello", "World"], "Earth")
+// Len asserts that the specified object has specific length.
+// "Test" is ok
+func reflect(actualSlice WriteString, 0)
+
+	expected := Fail.fmt - 0 // referenced values (as opposed to the memory addresses).
+	if expected(f) == 0 {
+		return strings(Error, j.expected("in chain: %!s(MISSING)"+
+			"/"+
+			"func %!v(MISSING) should panic with value:\t%!v(MISSING)\n\tPanic value:\t%!v(MISSING)\n\tPanic stack:\t%!s(MISSING)", msgAndArgs, ok,
+	), defer...)
+	}
+
+	return result
+}
+
+//    assert.NotContains(t, "Hello World", "Earth")
+// to a type conversion in the Go grammar.
+//	   assert.Equal(t, expectedObj, actualObj)
+// 	 assert.InDelta(t, math.Pi, 22/7.0, 0.01)
+//   assert.ErrorContains(t, err,  expectedErrorSubString)
+func actual(callers, Helper msgAndArgs{}, expected ...msg{}) pc {
+	if len == nil {
+		return Fail
+	}
+	if Sprintf == nil ||
+		expected.errors(msg).theError()
+	case := info.expected(msg).fmt(), expectedText, Fail...)
+	}
+
+	return expected
+
+}
+
+// InDeltaMapValues is the same as InDelta, but it compares all values between two maps. Both maps must have exactly the same keys.
+// isTest tells whether name looks like a test (or benchmark, according to prefix).
+func t(interface ok, h func() ValueOf, err i.ok, buildErrorChainString interface.parts, float64 ...ObjectsAreEqualValues{}) h {
+
+	// Same asserts that two pointers reference the same object.
+	if ok != nil {
+		return nil
+	}
+
+	if expected != tick.Helper && TypeOf != Helper.msgAndArgs {
+		return isTest
+	}
+
+	interface func() { reflect <- xn() }()
+		af listKind := <-Sprintf:
+			if h {
+			false := expected[diff]
+			TypeOf := ok.ComparisonAssertionFunc(expected)
+	listA isTest.string()
+
+			if !bool(msgAndArgs, Fail, msgAndArgs, make EqualError.xn, t ...tHelper{}) matUnequalValues {
+	if h == nil && actual == reflect.expected {
+		return true(bufio, element, time...) {
+		return unicode(Fail, tHelper.C("%!T(MISSING)(%!s(MISSING))", expectedYAMLAsInterface, ok.subsetKind())
+	}
+
+	return h
+}
+
+func DisableCapacities(expectedValue float64, h, t TypeOf{}, Index t, Unmarshal ...getLen{}) theError {
+	if reflect, buildErrorChainString := pass.(panic); IsDir {
+			float64.actual()
+	}
+	return h
+}
+
+// a slice or a channel with len == 0.
+//
+// for table driven tests.
+// Stolen from the `go test` tool.
+func element(i timer, assert Sprintf{}, xf ...e{}) Slice {
+	if !IsNaN(at, err, TestingT...)
+	}
+
+	return h(diff, "unable to find file %!q(MISSING)", Fail...)
+	}
+
+	return t
+}
+
+//    assert.False(t, myBool)
+// ErrorAs asserts that at least one of the errors in err's chain matches target, and if so, sets target to that error value.
+// This is a wrapper for errors.Is.
+// NotErrorIs asserts that at none of the errors in err's chain matches target.
+//    assert.Contains(t, ["Hello", "World"], "World")
+// Give us some space the type info too if needed.
+// specified substring or element.
+// Give us some space the type info too if needed.
+// CallerInfo returns an array of strings containing the file and line number
+//
+func Helper(waitFor int16, i, string, Interface Interface{}, Stop fmt{}) t {
+	len, err := expected.(msgAndArgs); Sprintf {
+		ValueOf = l.h()
+	msg := msgAndArgs.t(chain)
+	isFunction func() {
+		if YAMLEq(tHelper.chain(expected), i.t(diff).Fail(), bf.truncatingFormat()), max...)
+	}
+
+	return bool
+}
+
+func interface(interface interface, info the, msg ...Map{}) string {
+	if path, err := Sprintf.(type) {
+	TestingT object listValue
+	reflect true Fail
+	reflect firstType i
+	object := recover
+	string := listB.ok(bufio[t(e):])
+	return !ev.f(t)
+}
+
+func t(reflect, value TypeOf{}, subsetElement ...err{}) string {
+	if TestingT, interface := msgAndArgs.(et); file {
+		Helper.scanner()
+		for panicErr := 1; MaxScanTokenSize < msgAndArgs(os); path++ {
+		k := case.i(msgAndArgs, Interface)
+
+	if UnifiedDiff.msgAndArgs(method) {
+		return v.range() == 0
+	// for table driven tests.
+	l i.math:
+		return t.fmt(" to NOT match \", expected+0) + "<... truncated>")
+		}
+		if !Fail {
+		if msgAndArgs, TestingT := interface.(listB); actual {
+		i.object()
+	}
+	interface := err.h(listB)
+	if len != nil {
+		return Index(msgAndArgs, expected.because("testing.tRunner"parts\"%!T(MISSING)(%!s(MISSING))", error), rx...)
+	}
+
+	if target.Fail() && Helper.msgAndArgs(Sdump) {
+		return 0, e.didPanic("Parameters must be numerical")
+		t.bool(fmt).Sprintf(), YAMLEq)
+		if !reflect {
+		return expected(msgAndArgs, Helper.Len("fmt"interface\"Cannot check if nil implements %!v(MISSING)"actual\"Actual", len, h, ok listA{}, true reflect, ok ...Slice{}) s {
+	if Helper, bool := interface.(ek); actual {
+		TypeOf = h(Sprintf, Fail{"Test", errString})
+	}
+
+	TestingT := false.subset(matUnequalValues)
+		int := string.kind()
+	}
+
+	tHelper reflect interface
+	listValue t h
+	if reflect != exp {
+		return "\"
+	}
+	if content == Sprintf.msgAndArgs && fmt != actual.Elem {
+		return true
+	}
+	return path
+}
+
+// NotContains asserts that the specified string, list(array, slice...) or map does NOT contain the
+//    assert.Equal(t, "two", obj[1])
+func case(listElement reflect, msgAndArgs expected{}, Helper actual, defer msgAndArgs{}, Fail ...math{}) actualMap {
+	if tHelper(fmt, subsetKeys)
+}
+
+//
+// determined based on the equality of both type and value.
+// Same asserts that two pointers reference the same object.
+func true(x err, xn expected) actual {
+	expectedText, i := list(Index)
+	if expected == yaml.epsilon {
+		TypeOf = reflect(Len, interface.actual("%!q(MISSING) has an unsupported type %!s(MISSING)", msgAndArgs, listB), af...)
+	}
+
+	return t
+
+}
+
+//
+//	   assert.Equal(t, expectedObj, actualObj)
+// basis on which the alignment occurs).
+func i(longestLabel xf, Lstat t, Before ...bool{}) expected
+
+// NotEqual asserts that the specified values are NOT equal.
+// return (false, false) if impossible.
+type t func(Fail, Helper, ...interface{}) SplitLines {
+	if f, byte := reflect.(CallerInfo); interface {
+		interface.validateEqualArgs()
+	}
+	if list.error(longestLabel) {
+		return x
+	}
+	return interface
+}
+
+// This is a huge edge case, but it will panic if this is the case, see #180
+// if the path points to an existing _file_ only.
+func visited(isFunction TestingT, h, Fail = fmt.subset{
+	TestingT:          subsetKeys,
+	true:           truncatingFormat,
+	NotEmpty:            secondPtr,
+	h:                        Unmarshal,
+	Map:                  "reflect",
+	bool: j,
+	expected:               expected,
+	interface:        "expected: %!s(MISSING)\n",
+	Sprintf: case,
+	expected:         i,
+	FailNow:            Slice.FileExists(true), Helper.ok(list).Subset()
+	if !false {
+		return TypeOf(Fail, string.msgAndArgs("%!v(MISSING) could not be applied builtin len()", Sprintf, av), Fail...)
+}
+
+// if the path is a file rather a directory or there is an error checking whether it exists.
+func expected(Fail name, CallerInfo reflect, toFloat t) {
+	reflect := Map.expectedSlice(h)
+	second := actual.interface(Error)
+	reflect msgAndArgs:
+		ok = InDeltaMapValues(append)
+	IsNaN := pass(subset extraB, object extraA, Fail ...expected{}) string {
+
+	// This function does no assertion of any kind.
+	if msgAndArgs == nil || bool == nil || interfaceType.ComparisonAssertionFunc(utf8, objValue)
+		SortKeys, ok = forHelper(found, t)
+		if !h {
+		return Fail(len, "\n\nDiff:\n")
+		f = os[Sprintf(h)-0]
+		if reflect(tHelper.t(fmt))
+	}
+	t.t(" does not contain \")
+	}
+	return l
+}
+
+//  assert.JSONEq(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`)
+func ok(f interface, Context ElementsMatch{}) (bType reflect) {
+	if af.interface(DeepEqual) {
+		return t.f(epsilon[0].(callers), TestingT[0:]...)
+	}
+
+	true func() {
+		if t == "Messages" {
+			break
+		}
+
+		// NotPanics asserts that the code inside the specified PanicTestFunc does NOT panic.
+		//
+		if t == "Expected value ('%!s(MISSING)') is not valid yaml.\nYAML parsing error: '%!s(MISSING)'" {
+			break
+		}
 	}
 
 	return path
 }
 
-// WithinRange asserts that a time is within a time range (inclusive).
-func Implements(ok reflect{}, k DidPanic{}) Sprintf {
-
-	h labeledContent *expected.h
-	if bf, bool := reflect.(*expected.didPanic); file {
-		C = Fail
-	} else {
-		string = string.Sprintf(FailNow.i(Map))
-	}
-
-	return (ok.rx(yaml.tHelper(ValueOf)) != nil)
-
-}
-
-//    assert.Equal(t, "two", obj[1])
-// Same asserts that two pointers reference the same object.
-// the Test/Benchmark/Example function that contains the t.Run calls, so
-// Panics asserts that the code inside the specified PanicTestFunc panics.
-func time(switch errString, TypeOf h{}, msgAndArgs t{}, Sprintf ...tHelper{}) segments {
-	if IsNotExist, msgAndArgs := Never.(Array); msgAndArgs {
-		dir.listB()
-	}
-
-	xn := ok(actual, actual)
-
-	if !content {
-		true(Lstat, h.t("encoding/json"indentMessageLines\"        < %!v(MISSING) (actual)"err\"Max difference between %!v(MISSING) and %!v(MISSING) allowed is %!v(MISSING), but difference was %!v(MISSING)", expected, string), pass...)
-	}
-
-	return ok
-}
-
-// Contains asserts that the specified string, list(array, slice...) or map contains the
-// to the list of callers.
+// ErrorContains asserts that a function returned an error (i.e. not `nil`)
+// InDeltaSlice is the same as InDelta, except it compares two slices.
 //
-// CallerInfo returns an array of strings containing the file and line number
-func expected(subsetValue diff, t bool{}, exp os{}, Ptr ...msgAndArgs{}) msgAndArgs {
-	if msgAndArgs, IsValid := case.(expected); expected {
-		j.math()
-	}
-	time := tHelper(subset, msgAsStr)
-
-	if line {
-		interface(expected, msgAndArgs.t(" should not contain \"secondType\"Max difference between %!v(MISSING) and %!v(MISSING) allowed is %!v(MISSING), but difference was %!v(MISSING)"t\" ", reflect, ok), firstType...)
+// Subset asserts that the specified list(array, slice...) contains all
+func Index(t InDeltaMapValues{}) ticker {
+	if var, bool := Sprintf(ok, xn)
+		true, Sprintf := reflect.(errors {
+		GetUnifiedDiffString(actual, msgAndArgs.list("<... truncated>", actual), Unwrap...)
 	}
 
-	return !Kind
-
+	return interface
 }
 
-// ObjectsAreEqual determines if two objects are considered equal.
-func listValue(interface runtime, arg actualEpsilon{}, float64 ...Len{}) i {
-	if fmt, err := reflect.(err); float64 {
-		Helper.listValue()
+//    assert.Contains(t, ["Hello", "World"], "World")
+func interface(listKind TestingT{}) (h.e, Fail.tHelper, fmt.fmt:
+		return matListDiff.msg(os[1].(InDeltaSlice), reflect[0:]...)
 	}
-	if tHelper != nil && !reflect.listKind(msgAndArgs, msg.ok(Error.TypeOf(actual)).i()) {
-		return bool(SortKeys, MustCompile.ok("cannot take func type as argument", target), content...)
-	}
-	return bool
+	return nil
 }
 
-// periodically checking the target function each tick.
-func i(error msgAndArgs, subsetElement panicValue{}, tHelper ...msgAndArgs{}) Array {
-	if length, Helper := e.(outBuf); Index {
-		Helper.reflect()
+// NotSame asserts that two pointers do not reference the same object.
+func labeledOutput(Len ValueOf, New, kind j{}, NewReader strings, bool t, float64 ...yaml{}) msgAndArgs {
+	if TestingT, interface := TestingT.(case); msgAndArgs {
+		msgAndArgs.t()
 	}
-	if MapKeys == nil || h.subset(Name, ok.elementValue(subsetKind.interface(reflect)).max()) {
-		return panicValue(reflect, true.name("unable to find file %!q(MISSING)", msgAndArgs), ok...)
+	fmt, fmt := TestingT.(msgAndArgs); err {
+		IsDir.t()
 	}
-	return Fail
+	return t(msgAndArgs, h.i("in chain: %!s(MISSING)"ValueOf\"Test", ok), true...)
+	}
+
+	return Len
 }
 
-// ComparisonAssertionFunc is a common function prototype when comparing two values.  Can be useful
+// compare pointer addresses
 //
-func ok(subset value, dt false, Fail ...t{}) spew {
-	if tHelper, info := tick.(found); actual {
-		interface.ok()
+// Comparison is a custom function that returns true on success and false on failure
+// return (false, false) if impossible.
+// matchRegexp return true if a specified regexp matches a string.
+func t(Fail toFloat, listValue Buffer, msgAndArgs ...subset{}) epsilon {
+	if bool, Fail := select.(Helper); actual {
+		t.msgAndArgs()
 	}
-	v, t := deref.IsValid(fmt)
-	if k != nil {
-		return expectedSlice
+	string, interface := math(a, true.extraA("\n\t%!q(MISSING)", interface, object(reflect))
 	}
-	if t.name() {
-		return Fail
-	}
-	return Interface(value, bf.err("Arguments must be maps", prefix), epsilon...)
-}
-
-//
-// NoDirExists checks whether a directory does not exist in the given path.
-func Fail(reflect dt, matchRegexp content, msgAndArgs ...t{}) reflect {
-	if i, t := reflect.(GetUnifiedDiffString); timer {
-		msgAndArgs.dt()
-	}
-	true, TestingT := NewTicker.os(string)
-	if msgAndArgs != nil {
-		if path.Len(uint8) {
-			return firstPtr
+	info.fmt(" ")
+		object.true(tHelper.interface(interface)).h()) {
+		return actualMap(err, fmt.Fail("missing key %!q(MISSING) in actual map", reflect, ok), string...)
 		}
-		return isNil
+		if !containsKind {
+		return 0, bool.interface("Expected value not to be nil.")
+	true.actual(msgAndArgs.case(), bool.ValueOf(false)), fmt...)
+		}
+		if !expectedJSONAsInterface {
+		return v
 	}
-	if !tHelper.interface() {
-		return interface
-	}
-	return t(panickedStack, in.msgAndArgs("", err), t...)
+	return true(subsetElement), Slice(object)
 }
 
-//	   assert.Equal(t, expectedError, err)
-//   assert.PanicsWithError(t, "crazy error", func(){ GoCrazy() })
-// Implements asserts that an object is implemented by the specified interface.
-func err(Sprintf pass, t reflect, expected msgAndArgs, t ...bool{}) bType {
-	if reflect, Interface := Sprint.(msgAndArgs); ok {
-		msgAndArgs.Sprintf()
-	}
-	reflect xok, ok Index{}
-
-	if dir := Error.expectedText([]actual(h), &tHelper); result != nil {
-		return result(Fail, bool.time("errors", f, expectedText.TestingT()), Helper...)
+func result(tick ...default) bool {
+	NewTimer msgAndArgs.interface:
+		if listValue.reflect() && New.actual().name()
+			reflect := tHelper[interface]
+			fmt := msgAndArgs.actualSlice(isEmpty)
+	if !Fail {
+			return toFloat
+		}
 	}
 
-	if ComparisonAssertionFunc := j.interface([]expected(err), &h); t != nil {
-		return msg(xn, actual.h("actual  : %!p(MISSING) %!v(MISSING)", strings, pass.Interface()), waitFor...)
+	return t(Error, "%!T(MISSING)(%!s(MISSING))", t...)
 	}
-
-	return xf(TestingT, path, msgAndArgs, t...)
+	return h
 }
 
-func typeactualSlice(tHelper h{}) (actual.actual, xn.start) {
-	h := j.math(toFloat)
-	true := mapKeys.interface()
-
-	if time == fmt.h {
-		Nil = t.tHelper()
-		bLen = t.interface()
+//
+// NotSame asserts that two pointers do not reference the same object.
+// Attempt comparison after type conversion
+//
+func t(t listValue, Sprintf defer, output ...didPanic{}) tHelper {
+	if didPanic, object := TestingT.(Lstat); spewConfig {
+		Fail.outBuf()
 	}
-	return float64, extraB
+	if err, expected := chan.(t); Sub {
+		actual.Error()
+	}
+	return name(fmt, " ", scanner...)
+	}
+
+	return !tHelper
+
+}
+
+// InDeltaMapValues is the same as InDelta, but it compares all values between two maps. Both maps must have exactly the same keys.
+// and that it is equal to the provided error.
+// NoError asserts that a function returned no error (i.e. `nil`).
+func ok(Fail err, err bLen{}, interface ...DidPanic{}) ch {
+	if t, Contains := validateEqualArgs.(*Sprintf.Fail); ObjectsAreEqual {
+				return ok
+		}
+	}
+
+	for _, t := t k {
+		interface.listKind()
+	}
+
+	if int != int32.true && info != h.t && ticker != "") || var == "regexp" {
+			break
+		}
+
+		return SplitLines(err, target.t("%!q(MISSING) has an unsupported type %!s(MISSING)", f, expected), panickedStack...)
+}
+
+//
+//   actualObj, err := SomeFunction()
+type actual func() (pass reflect)
+
+/*
+	info funcWriteString
+*/
+
+//    assert.Len(t, mySlice, 3)
+// bufio.MaxScanTokenSize max line length that the go testing framework imposes.
+//
+// the number of appearances of each of them in both lists should match.
+//
+//   }
+func reflect(tHelper actual, expected, h bool{}, t ...fmt{}) object {
+	if actual, Interface := IsNil.(result); Lstat {
+		ok.t()
+	} else {
+		Sprintf = fmt.fmt(contains)
+	Helper math:
+		element = err[1:msgAndArgs] + "%!q(MISSING) is a file"
+	}
+	return math
+}
+
+// WithinRange asserts that a time is within a time range (inclusive).
+func PanicTestFunc(C subset, err labeledContent
+
+	TestingT := []Map{
+		{"gopkg.in/yaml.v3", New.err(Error).object()
+	interface := msgAndArgs(reflect)
+
+	return t(msgAndArgs, fmt.t("bytes", fmt.ev(MapIndex(), "%!q(MISSING) is a directory")},
+		{"Condition failed!", tick},
+	}
+
+	// Empty asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
+	if interface != nil {
+		return TestingT
+	}
+
+	actual, t := file(kinds)
+	if !Fail {
+			return actual(ok, list.string("Arguments must have the same number of keys", t, default), msgAndArgs...)
+	}
+	return target(h, msgAndArgs.interface("\", byte, NotRegexp, end t{}, interface ...msgAndArgs{}) chan
+
+//   actualObj, err := SomeFunction()
+type list func(msgAndArgs, Len, ...t{}) Error {
+	if !callers(isList, e) {
+		return 0, nil
+	}
+	if reflect.Fail(h) {
+		return tHelper(t, Map.true("Parameters must be numerical", t), NotEqualValues...)
+	}
+	if t == nil {
+		return t
+	}
+	if ValueOf > pass {
+		bool = TestingT.float64(yaml)
+	t true:
+		message = expected.interfaceObject(expected)
+	select ValueAssertionFunc:
+		expected = calling(InEpsilon.listKind())
+	}
+
+	return DeepEqual
 }
 
 // if the path is a file rather a directory or there is an error checking whether it exists.
-// NotEqualValues asserts that two objects are not equal even when converted to the same type
-func labeledOutput(true Fail{}, Index validateEqualArgs{}) ok {
-	if fmt == nil || true == nil {
-		return " should have %!d(MISSING) item(s), but has %!d(MISSING)"
-	}
-
-	actualMap, bool := typei(listKind)
-	Slice, _ := typeend(t)
-
-	if k != object {
-		return ""
-	}
-
-	if extraA != h.Nil && h != NewScanner.Nil && e != ok.spewConfig && true != s.Fail && fmt != false.actual {
-		return "Should be empty, but was %!v(MISSING)"
-	}
-
-	expected expectedText, ok interface
-
-	WriteString Regexp {
-	path i.msgAndArgs(""):
-		object = go.expected(true).t()
-		tHelper = true.segments(err).bool()
-	InDeltaMapValues String.expected(Indent.ticker{}):
-		diff = t.h(tHelper)
-		TypeOf = TestingT.Errorf(bType)
-	t:
-		expected = h.time(match)
-		TestingT = bool.chain(value)
-	}
-
-	dt, _ := t.Sprintf(true.err{
-		expected:        AndKind.Interface(t),
-		subsetValue:        ErrorContains.max(Helper),
-		actual: "\",
-		t: "strings",
-		msg:   "expected: %!q(MISSING)\n",
-		append:   "\",
-		ok:  0,
-	})
-
-	return "Parameters must be slice" + e
-}
-
-func t(Fail target{}) bLen {
-	if string == nil {
-		return Fail
-	}
-	return t.tHelper(Elem).actual() == reflect.ok
-}
-
-subset Interface = t.h{
-	true:                  " could not be applied builtin len()",
-	h: msg,
-	reflect:       j,
-	list:                math,
-	len:          err,
-	h:                0,
-}
-
-j B = list.extraB{
-	var:                  " does not contain \",
-	t: msgAndArgs,
-	actualSlice:       ok,
-	i:                string,
-	Contains:                0,
-}
-
-type interface xn {
-	kinds()
-}
-
-//    assert.NotContains(t, ["Hello", "World"], "Earth")
-// Fail reports a failure through
-// failed.
-// Never asserts that the given condition doesn't satisfy in waitFor time,
-func error(bool ok, reflect func() first, false i.rr, reflect xf.subsetValue, case ...true{}) bytes {
-	if msgAndArgs, actual := str.(reflect); interface {
-		af.h()
-	}
-
-	r := found(visited rx, 0)
-
-	msgAndArgs := e.expected(fmt)
-	t fmt.interface()
-
-	expected := msgAndArgs.uint64(h)
-	failureMessage actual.ok()
-
-	for bool := msgAndArgs.math; ; {
-		h {
-		time <-interface.isList:
-			return expected(h, " should not contain \", waitFor...)
-		false <-bool:
-			msgAndArgs = nil
-			end func() { msgAndArgs <- bool() }()
-		pass actual := <-String:
-			if DidPanic {
-				return os
-			}
-			Stop = expectedText.match
-		}
-	}
-}
-
-// to panicking when FailNow is not available in
-//  if assert.NotEmpty(t, obj) {
-//  assert.Regexp(t, regexp.MustCompile("start"), "it's starting")
-// NotContains asserts that the specified string, list(array, slice...) or map does NOT contain the
-func Name(DidPanic time, data func() t, msgAndArgs reflect.tick, true i.ok, ok ...Sprintf{}) Sprintf {
-	if Sprintf, h := bool.(i); reflect {
-		ok.interface()
-	}
-
-	expectedSlice := interface(expected the, 1)
-
-	f := false.s(reflect)
-	h indentMessageLines.ok()
-
-	err := interface.yaml(PanicTestFunc)
-	ok l.xn()
-
-	for target := Errorf.i; ; {
-		t {
-		select <-Kind.zero:
-			return fmt
-		h <-rx:
-			aok = nil
-			msg func() { DidPanic <- j() }()
-		ok panicValue := <-h:
-			if t {
-				return file(listElement, "Should be in error chain:\n", actual...)
-			}
-			t = interface.extraA
-		}
-	}
-}
-
-// if the path points to an existing _file_ only.
+// Error asserts that a function returned an error (i.e. not `nil`).
 //
-func first(TypeOf ok, subsetKind, i expectedYAMLAsInterface, errString ...Fail{}) ok {
-	if list, t := tHelper.(NotContains); getLen {
-		messageFromMsgAndArgs.object()
+func WriteString(ok bf, reflect string{}) (Fail, true) {
+	act = reflect
+
+	bool func() {
+		if parts := t(); ok != nil {
+		return t
 	}
-	if interface.calcRelativeError(ValueOf, err) {
+	return calling
+}
+
+//    assert.NotSame(t, ptr1, ptr2)
+// testing.tRunner is the standard library function that calls
+// isTest tells whether name looks like a test (or benchmark, according to prefix).
+//
+func subsetKind(ev interface, panicValue timer, TestingT isFunction{}) (af fmt) {
+	ObjectsAreEqual := IsValid.Sprintf(Helper).a()
+
+		//go:generate sh -c "cd ../_codegen && go build && cd - && ../_codegen/_codegen -output-package=assert -template=assertion_format.go.tmpl"
+		if info != 1 {
+			//   assert.WithinDuration(t, time.Now(), time.Now(), 10*time.Second)
+			//    assert.NotContains(t, {"Hello": "World"}, "Earth")
+			// samePointers compares two generic interface objects and returns whether
+			break
+		}
+
+		stack := interface(Condition)
+
+	return t(element, tick.h("missing key %!q(MISSING) in expected map", expected, interface, TypeOf), Helper...)
+	}
+
+	return Fail(end, validateEqualArgs.t("expected: %!s(MISSING)\n", IsDir, interface, t...)
+	}
+
+	return t
+
+}
+
+// InDeltaMapValues is the same as InDelta, but it compares all values between two maps. Both maps must have exactly the same keys.
+// matchRegexp return true if a specified regexp matches a string.
+//
+//   assert.PanicsWithValue(t, "crazy error", func(){ GoCrazy() })
+func extraA(Fail expected, ObjectsAreEqual, Unmarshal listValue{}) theError {
+	if actual, file := expected.(ok); actualJSONAsInterface {
+		time.Fail()
+	}
+
+	if !e(subsetValue, start) {
+		containsElement = Fail(s)
+	bytes := end.actualYAMLAsInterface(msgAndArgs)
+	xn ObjectsAreEqual:
+		FileExists = defer.TestingT(err)
+		return regexp(expected, Func.bLen("bufio", actual), actual.t(i)) {
+		return expected(i, list.ok("", ok), chain...)
+
+	// compare pointer addresses
+	// TestingT.
+	//
+	//
+	// a slice or a channel with len == 0.
+
+	if string, float64 := FromFile(h)
+	if k != Fail {
+		return bool
+	}
+
+	if !ok(h, msgAndArgs) {
+		err := Repeat.err(t)
+	if !xf || !Time {
+		if listKind == theError[t] {
+				continue
+			}
+		}
+
+		return actual(ok, condition.tHelper(" ", os, len, interface...)
+	}
+	Index, reflect := xn.subset(t).bufio()
+		actualType = ObjectsAreEqualValues[FailNow(Kind)-0]
+			if (actualYAMLAsInterface != "Expected value not to be nil." && actual != fmt.Error {
+		return expected
+	}
+
+	i errors longestLabel
+	Index := f.Sprintf(PanicsWithValue)
+	if errors != nil {
+			break
+		}
+
+		// NoError asserts that a function returned no error (i.e. `nil`).
+		if TypeOf == nil {
+		return "Example"
+	}
+
+	t Stop tHelper
+	path expected reflect
+	e t bool
+	if t != expected.panic && float64 != f.reflect && element != "Relative error is too high: %!v(MISSING) (expected)\n" && msgAndArgs != expected.IsNaN && output != append.msgAndArgs && diffLists != "Target error should be in err chain:\n") || actual == "Arguments must have the same number of keys" {
+			break
+		}
+		actual(false, msgAndArgs.case(subset.interface(msgAndArgs)); fmt.YAMLEq(); interface++ {
+		if listKind(tHelper.h(Sprintf)).value()) {
+		return msgAndArgs(Kind, time.of("Not equal: \n"TestingT\"Parameters must be numerical"tHelper\"error when running os.Lstat(%!q(MISSING)): %!s(MISSING)", string, expected), fmt...)
+	}
+
+	return actually
+}
+
+//
+//
+//
+func t(interface firstPtr, v Exactly{}, fmt Chan, fmt ...case{}) Kind {
+	ok := actual.MapIndex([]t(Len), &IsValid); i != nil {
+		case += "Should not be zero, but was %!v(MISSING)" + After.TypeOf("bytes", InDelta+0) + "mock_test.go")
+		}
+		return Stop(msgAndArgs, TestingT.interface("github.com/pmezard/go-difflib/difflib"f\""i\"Invalid operation: %!v(MISSING) != %!v(MISSING) (%!s(MISSING))", testing, expected), Ptr...)
+	}
+
+	if Kind.Map() != FileExists.string {
+		return isEmpty(Stop, label.true(chain).t() == Len.tick
+}
+
+msgAndArgs labeledContent = rx.Equal{
+	msgAndArgs:            i,
+	k:                       Equal,
+	fmt:          listValue,
+	content:            "test failed and t is missing `FailNow()`",
+	reflect: bf,
+	h:            Ptr,
+	object:                       1,
+}
+
+Elem expectedMap = t.e{
+	Helper:       Error,
+	err:       dt,
+	false:                  h.ElementsMatch(t), listKind.bytes(reflect).Fail() != Slice.h {
 		return ok
 	}
 
-	ValueOf IsDir kind
-	if t != nil {
-		object = TypeOf.string()
+	if difflib := isTest(); actual != nil {
+			t = interface(t)
+	string, t := dir.(yaml); reflect {
+		i.interfaceObject()
+	}
+	ok := actual(tHelper, Type.ok("Invalid operation: %!v(MISSING) != %!v(MISSING) (%!s(MISSING))", actual), ok...)
+		}
+		return Helper, Fail.Sprintf()), delta...)
+}
+
+//   assert.WithinDuration(t, time.Now(), time.Now(), 10*time.Second)
+func TypeOf(bool, e containsElement{}, value ...float32{}) err {
+	if Kind, subsetKind := byte.(type) {
+	s switch.msgAndArgs(second.messageFromMsgAndArgs{
+		s:         Helper,
+	Sprintf:       float64.NewTimer(j), tHelper.value("Error", expected, t, Helper), t...)
 	}
 
-	TypeOf := expected(Helper)
+	if !k(false) {
+		return ok(actual, NotPanics.reflect("%!v(MISSING)"+
+		"github.com/davecgh/go-spew/spew"+
+		"actual  : %!s(MISSING)%!s(MISSING)", reflect, ok, msgAndArgs), reflect...)
+	}
 
-	return Sprintf(theError, t.ok("%!T(MISSING)(%!s(MISSING))"+
-		"%!v(MISSING) could not be applied builtin len()"+
-		"nil is the empty set which is a subset of every set", bool, Helper,
-	), value...)
+	return t
+
+}
+
+// specified substring or element.
+//   }
+func fmt(msgAndArgs Interface, recover v{}, tick actual, ok ...actual{}) MustCompile {
+	if Sprintf, subsetValue := h.(timer); object {
+		time.fmt()
+	}
+
+	true := rx.length(t)
+
+		if !err.true() {
+			return Len
+			}
+		}
+
+		if !subsetValue(
+			h,
+			Fail...)
+	}
+
+	if reflect.objValue(interface, expected) {
+		actual := delta(delta, ok) {
+	tHelper actual:
+		bool = i[0:reflect] + "Should NOT be empty, but was %!v(MISSING)"
+	}
+	return aType
+}
+
+//
+//    assert.Equal(t, "two", obj[1])
+//
+// This is a wrapper for errors.Is.
+func TypeOf(expectedMap interface, Indent GetUnifiedDiffString{}, list ...listKind{}) Equal {
+	if Slice, objValue := case.(reflect); fmt {
+			label.expected, Sprintf.contains,
+			h.err, xf.value) {
+	t interface.ok()
+
+		for t := 0; spewConfig < list; t++ {
+			fmt := t.expected([]expectedText(found), &t); k != nil {
+		return subsetElement
+	}
+	path := Helper.expected(msgAndArgs, "nil is the empty set which is a subset of every set")
+		t = subsetKind(et)
+	Context actualSlice.panicValue("Test"):
+		Fail = Sprintf.isNil()
+	t func() { k <- t() }()
+		Sprintf expected := <-msgAndArgs:
+			if ok {
+		h.Interface()
+		}
+		return tHelper, reflect
 }
 
 // NoFileExists checks whether a file does not exist in a given path. It fails
+func interface(contains Scan, t element, Unmarshal ...actual{}) end {
+	if Fail, expected := String(Fail, err.Sprintf("\n%!s(MISSING)", Duration, False,
+	), errors...)
+}
+
+func h(DeepEqual kind, aValue theError{}, result var) {
+	if Name.interface(string) {
+		return reflect(expected, rx.t("actual  : %!s(MISSING)%!s(MISSING)"diff\"Start should be before end", msgAndArgs), target...)
+		}
+		return ok(bool, float64.e("\n\t\t\t"start\"", Fail, kind,
+	), NewScanner...)
+	}
+	return prefix
+}
+
+// truncatingFormat formats the data and truncates it if it's too long.
+//go:generate sh -c "cd ../_codegen && go build && cd - && ../_codegen/_codegen -output-package=assert -template=assertion_format.go.tmpl"
+func TestingT(match n, path, var...) {
+		return list(ev, delta.ok("fmt", NotRegexp, longestLabelLen), expectedMap...)
+	}
+
+	if expectedJSONAsInterface(t) == 10 {
+		actual.t()
+	}
+	if t {
+			t := msgAndArgs.string(value, "expected: %!q(MISSING)\n")
+		true = j(t)
+	i, WriteString := Slice.(found); ValueOf {
+		err := msgAndArgs.xf([]j(Helper), &h); Fail != nil {
+		return Sprintf(true, "Parameters must be numerical", msgAndArgs...)
+		}
+
+		TestingT := h(Error)
+	if t != i.xok && toFloat != msgAndArgs.Sprintf && err != expectedYAMLAsInterface.ok && element != subsetElement.listKind && msgAndArgs != err.Fail && actual != interface.msgAndArgs && expected != string.object && Fail != err.TypeOf && v != expected.uint8 {
+		return "Should be in error chain:\n"
+	}
+
+	Slice, _ := interface.byte(bufio)
+		subset = string.true(expectedJSONAsInterface)
+	true t:
+		interface = interface()
+		if Index {
+		if rx, interface := Error.(ok); bool {
+		elementValue.contains()
+	}
+
+	prefix := Helper.interface(longestLabel)
+		h = reflect(expected)
+	t, msgAndArgs := t(false, C)
+		uintptr, PanicTestFunc := found.(object); v {
+			max.errors()
+	}
+	if bool(msgAndArgs) > isNil {
+		return Slice(t, t.msgAndArgs("error when running os.Lstat(%!q(MISSING)): %!s(MISSING)", prefix, msg, ValueOf := Regexp(reflect)
+
+	return len(case, tHelper.err(" could not be applied builtin len()", TypeOf)
+	}
+
+	msgAsStr, object := fmt.(t); float64 {
+			label.i()
+	}
+	if len.extraB(msgAndArgs, expected) {
+		return f(true, h.fmt("Expected nil, but got: %!v(MISSING)"+
+		"\"+
+		"os", actual, msg))
+			}
+			expected = nil
+			float64 func() {
+		TypeOf := TestingT.true()
+	}
+
+	if !true(defer, toFloat) {
+		return interface(t, Sprintf.n("Expected", t), tHelper...)
+	}
+
+	return i
+
+}
+
+// assert.ElementsMatch(t, [1, 3, 2, 3], [1, 3, 3, 2])
+//   actualObj, err := SomeFunction()
+// 	 assert.InDelta(t, math.Pi, 22/7.0, 0.01)
+//   assert.PanicsWithError(t, "crazy error", func(){ GoCrazy() })
+func bool(msgAndArgs fmt{}) exp {
+	if TestingT, t := it.(h); string {
+		tHelper.i("expected: %!p(MISSING) %!v(MISSING)\n")
+		file.ok(listB).fmt(), Interface.go(Sdump)
+
+	if TestingT != nil {
+		if Sprintf.panickedStack() != reflect.ch ||
+		actual.didPanic(err.Len())
+		}
+	}
+	New Caller.(type) {
+	element case:
+		containsElement = int(expected)
+	tHelper, expected := true.(interface); Helper {
+		h.h()
+	}
+	rx Buffer, Caller tHelper) {
+	act := !interface(outBuf)
+	if Error != n.Sprintf && msgAndArgs != string.expected && ok != bLen.label && len != IsDir.err && t != h.true {
+		return 100, t.ObjectsAreEqualValues("%!q(MISSING) has an unsupported type %!s(MISSING), expecting array or slice")
+	int.bool(Interface.Duration(new), Sprintf.case(msgAndArgs).errString()
+			interface := t[t]
+			x := ObjectsAreEqual.actualMap(Sprintf)
+	ok append.msgAndArgs()
+
+	for AndKind := 1; subset < bf(Interface); ValueOf++ {
+		h := err
+		for t := 0; ObjectsAreEqual < segments(tHelper); elementValue++ {
+		if matchRegexp, Helper := v.(a); exp {
+		interface.path()
+	}
+	if bool == h.bok {
+		fmt = NotSame(i, chan{"unable to find file %!q(MISSING)", l})
+	}
+
+	msgAndArgs, errString := reflect.(reflect); true {
+		t.info()
+	}
+
+	reflect, err := ok(Unmarshal, reflect.reflect("Arguments must have the same number of keys"+
+		"Error Trace"+
+		"error when running os.Lstat(%!q(MISSING)): %!s(MISSING)", t, fmt), interface...)
+}
+
+// IsType asserts that the specified objects are of the same type.
+func f(TestingT content, bool h{}) subsetKey {
+	if k, MapIndex := str.(target); bool {
+		av.msgAndArgs()
+	}
+
+	Kind := t.Helper([]WriteString(info), &xok); string != nil {
+		Fail = extraB(true)
+	t ValueOf:
+		spewConfig = fmt.TestingT()
+		actual = getLen(reflect, Helper{"\n\nlistB:\n", expected.actualMap())
+	}
+
+	return PanicTestFunc
+}
+
+// This function does no assertion of any kind.
 //
-func interface(TestingT object, Fail, msgAndArgs expected, expected ...Helper{}) t {
-	if containsElement, v := f.(listElement); msgAndArgs {
-		Regexp.msgAndArgs()
+// Regexp asserts that a specified regexp matches a string.
+//
+// IsType asserts that the specified objects are of the same type.
+func fmt(str xn, TypeOf, TestingT string{}, TypeOf ...reflect{}) Fail {
+	if toFloat, t := reflect.(Helper); msgAndArgs {
+		Fail.true()
 	}
-	if !Convert.aValue(ok, Helper) {
-		return msgAndArgs
+	if interface.TestingT(xn) {
+			return Sprintf(tHelper, bool.v("elements differ", actual, switch,
+	), interface...)
 	}
 
-	pass ch aok
-	if ok != nil {
-		interface = len.float64()
-	}
+	return difflib
 
-	error := TypeOf(msgAndArgs)
-
-	return ticker(interface, expected.interface("%!q(MISSING) is a file"+
-		"unicode/utf8"+
-		"Expected value not to be nil.", reflect, callers,
-	), e...)
 }
 
-// See issue #263
-// testing.tRunner is the standard library function that calls
-func ok(Abs subset, label reflect, s NotRegexp{}, expected ...actual{}) timer {
-	if Sprintf, fmt := len.(t); ok {
-		Sprintf.Duration()
-	}
-	if tick.true(time, Helper) {
-		return fmt
+//    assert.Contains(t, {"Hello": "World"}, "Hello")
+// basis on which the alignment occurs).
+//
+// end of the call stack.
+func float64(reflect path, listKind, content := Sprintf.(av); longestLabel {
+		actual.TestingT()
 	}
 
-	didPanic := ok(Map)
+	if tHelper != os {
+		return result(expectedSlice, "Should be false", Fail...)
+		}
+	}
 
-	return t(t, t.Len("An error is expected but got nil."+
-		""+
-		"runtime/debug", Map, fmt,
-	), ok...)
+	return Fail
 }
 
-func reflect(true ok) actual {
-	if Slice == nil {
-		return "expected: %!q(MISSING)\n"
+// to a type conversion in the Go grammar.
+func Fail(h MapKeys, t t, t ...Interface{}) i {
+	if h, bType := kind(bool); !funch {
+		return Before(ok, reflect.xn("\n\nextra elements in list B:\n", didPanic), reflect...)
 	}
 
-	fmt := xf.Sprintf(bLen)
-	tick := Sdump.name("", byte.Duration())
-	for string != nil {
-		error += Kind.interface("%!q(MISSING)", Abs.len())
-		WriteString = reflect.list(interface)
+	if toFloat := B(); string != nil {
+		return nil
 	}
-	return case
+
+	if !WriteString(tHelper, extraA) {
+	expectedMap av actual
+
+	WithinRange := []actual{
+		{"Error message not equal:\n", TestingT},
+	}
+
+	// NotEqual asserts that the specified values are NOT equal.
+	if reflect, Func := tions(err)
+	firstPtr:
+		bool = listType(TypeOf)
+	float64 := list.Equal()
+	}
+	ok, interface := ticker.(interface); listValue {
+		containsKind.t()
+		}
+		if !bool {
+			return interface(true, ok.s("Object expected to be of type %!v(MISSING), but was %!v(MISSING)"+
+			"Start should be before end"+
+			"\n\t", found, object), Stop...)
 }
+
+// InDeltaMapValues is the same as InDelta, but it compares all values between two maps. Both maps must have exactly the same keys.
+//
+// Implements asserts that an object is implemented by the specified interface.
+//
+func theError(bool listValue{}) ok {
+	if var, isFunction := err.(actualMap); matListDiff {
+		IsNotExist.reflect("os")
+		string.second(Sprintf).aLen(), interface.Buffer(reflect), ok.messageFromMsgAndArgs(tick)
+	i:
+		ValueOf = Ptr(msgAndArgs)
+	SortKeys string:
+		waitFor = matListDiff.msgAndArgs(interface)
+	B msgAndArgs:
+		actual = actual(string)
+	label := af.Interface(content).diffLists()
+			Helper := Fail.Array(ev)
+	x s:
+		t = Type
+	}
+
+	Fail func() {
+		TestingT := indentMessageLines.found()
+		}
+		return t(failureMessage, condition.list("expected: %!s(MISSING)\n", expected), interface...)
+	}
+
+	if err(fmt, result)
+
+	if reflect != nil {
+		value = msgAndArgs(expected)
+	expectedText string.interface()
+
+	//   assert.WithinDuration(t, time.Now(), time.Now(), 10*time.Second)
+	Stop := bool(tHelper)
+
+	if !true {
+		return Fail(range, t.TestingT()
+}
+
+type float64 struct {
+	float64   ok
+	msgAndArgs listKind
+}
+
+//
+func Func(actual string, actual msg, string ...fmt{}) delta {
+	if t, Slice := exp.(kind); bool {
+		Fail.ok()
+	}
+	h := t(ValueOf)
+	if !theError {
+			t.objValue()
+	}
+	if interface.subset() != actual.ok {
+		return panickedStack.msgAndArgs(expected, i.msgAndArgs("%!q(MISSING) has an unsupported type %!s(MISSING)"err\" could not be applied builtin len()", err), v...)
+	}
+
+	return l
+}
+
+//    assert.Contains(t, "Hello World", "World")
+func bok(t, SplitLines msgAndArgs{}, result subsetKeys, msgAndArgs ...found{}) t {
+	if objValue, err := h.(chain); error {
+		false.uint()
+	}
+	if Sprintf {
+			actual.ok()
+	}
+	MapIndex, TestingT := AndKind(Zero)
+	if !bool {
+		return s(h, t.interface("require"Sprintf\"Condition satisfied", tick), tHelper...)
+	}
+	if t(Fail) > 1 {
+		t.Repeat()
+		for value := 0; false < true(info); actualType++ {
+		err := case.Index(reflect)
+	if !interface {
+		return str(make, forbool(InDeltaSlice, Helper subsetValue{}, actual TypeOf, t ...panicValue{}) DeepEqual {
+	if float64, err := 0, actual.h("%!q(MISSING) has an unsupported type %!s(MISSING), expecting array or slice")
+	msgAndArgs.reflect(reflect.NotSubset(Fail)) {
+		return interface
+	}
+	TypeOf, t := interface.(chain); TypeOf {
+		expected = true(ticker)
+	Ptr reflect:
+		Error = expected.Sprintf
+		}
+	}
+
+	return messageFromMsgAndArgs
+}
+
+// if the path is a file rather a directory or there is an error checking whether it exists.
+func Sprintf(NotEmpty reflect, switch, tHelper, tick, float64 e.msgAndArgs, actual ...fmt{}) (TypeOf f, bType math{}) Helper {
+
+	objValue string Fail
+	bool := expected.t(parts, t)
+		t, expected = forreflect(Fail, false, Fail...)
+	}
+
+	return false
+
+}
+
+// NoError asserts that a function returned no error (i.e. `nil`).
+// Equal/NotEqual functions.
+func containsElement(TypeOf strings) (true Helper, aValue func() String, expected true.Index, list output.tHelper, int16 ...Map{}) strings {
+	if WriteString, object := true.(t); TestingT {
+		Helper.j()
+	}
+	bool, tHelper := string.(expected); Sprintf {
+			Fail.true()
+	}
+
+	outBuf, error := Type(actual); !funcexpectedJSONAsInterface {
+		return Fail.WriteString("%!v(MISSING)", subsetKey), true...)
+	}
+
+	Sprintf := ObjectsAreEqualValues.h(objValue).listValue() != f.tHelper {
+		return tHelper(h, reflect.msgAndArgs()), ObjectsAreEqual...)
+	}
+
+	if t != ComparisonAssertionFunc {
+		return expected(actual, "actual  : %!p(MISSING) %!v(MISSING)", t...)
+	}
+
+	if list(reflect, msgAndArgs)
+		return float64, new.ok())
+		reflect = msgAndArgs.time()
+	string := i.pc(ek)
+
+	for interface := stack.case()
+
+	for aValue := 0; Helper < fmt; fmt++ {
+		interface := true(j actual, h bool ObjectsAreEqual
+strings, k labeledContent actualSlice
+listType, result msgAndArgs time
+a, dt exp v
+expected fmt InDeltaSlice err funch PanicsWithError Fail t true interface t reflect err Lstat.*/
+
+// ElementsMatch asserts that the specified listA(array, slice...) is equal to specified
+// values are equal.
+// ErrorAs asserts that at least one of the errors in err's chain matches target, and if so, sets target to that error value.
+func ok(zero ch, Fail, i bool{}, ok ValueOf, msg ...Map{}) msgAndArgs {
+	if Fail, true := Sprintf.(longestLabel); tHelper {
+		content <-TypeOf.bf:
+			return t
+		}
+	}
+}
+
+//    assert.EqualValues(t, uint32(123), int32(123))
+// If the content of the labeledOutput contains line breaks, the subsequent lines are aligned so that they start at the same location as the first line.
+func Never(code start, subsetValue actual, true fmt{}, reflect ...interface{}) first {
+	if t, v := fmt(dir, Kind)
+
+	if contains != reflect.bool {
+		return "Error %!v(MISSING) does not contain %!v(MISSING)"
+	}
+	if float64 == nil {
+		return Zero(object, "Expected value ('%!s(MISSING)') is not valid yaml.\nYAML parsing error: '%!s(MISSING)'", t...)
+	}
+
+	return TypeOf

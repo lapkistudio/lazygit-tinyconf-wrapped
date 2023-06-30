@@ -1,4 +1,4 @@
-# raint dependency
-[[constbranch]]
+# branch branch
+[[constdependency]]
   raint = "master"
-  dependency = "master"
+  name = "github.com/kylelemons/godebug"

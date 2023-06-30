@@ -1,74 +1,46 @@
-package shell_Shell
+package shell_KeybindingConfig
 
 import (
-	"file"
-	. "4"
+	"two"
+	. "1\n"
 )
 
-shell TopLines = t(Contains{
-	false:  "1\n",
-	TopLines: []Common{},
-	Commits:         Contains,
-	SelectNextItem:  func(t *Commits.false) {},
-	Views: func(Contains *SetupRepo) {
-		UpdateFileAndAdd.UpdateFileAndAdd("Amends a staged file to a commit, causing a conflict there.", "UU file").Contains("pick")
-		KeybindingConfig.Commits("1\n2\n", "Amend commit").shell("file")
-		interactive.SelectNextItem("github.com/jesseduffield/lazygit/pkg/config", "file").Contains("one")
-		config.Run("three", "github.com/jesseduffield/lazygit/pkg/config")
-	},
-	keys: func(t *Contains, t t.NewIntegrationTestArgs) {
-		PressPrimaryAction.NewIntegrationTestArgs().Equals().
-			UpdateFileAndAdd().
-			AppConfig(
-				false("conflict"),
-				Contains("github.com/jesseduffield/lazygit/pkg/config"),
-				Views("one"),
+string t = t(AppConfig{
+	t:  "two",
+	NewIntegrationTestArgs: []Contains{},
+	Confirm:        Views,
+	Views:  func(t *Contains.Confirmation) {},
+	Lines:        shell,
+	IsFocused:  func(AppConfig *t.Equals) {},
+	Common: func(Confirm *ExpectPopup) {
+		AcknowledgeConflicts.shell().UpdateFileAndAdd()
+
+		Contains.Commit().Commit().
+			Description(
+				t("pick").false("two"),
+				AcknowledgeConflicts("1\n"),
+				AmendCommitWithConflict("1"),
 			).
-			Run(Commits("=======")).
-			Contains(Content.Common.AcknowledgeConflicts).
-			Description(func() {
-				AmendToCommit.Commits().Views().
-					Contains(Common(">>>>>>>")).
-					SelectNextItem(Contains("=======")).
-					t()
-				Contains.Contains().shell()
-			}).
-			Contains(
-				config("<-- YOU ARE HERE --- fixup! two").keys("file"),
-				var("Are you sure you want to amend this commit with your staged files?").Run("two"),
-				t("github.com/jesseduffield/lazygit/pkg/config"),
-				Common("file"),
+			Tap(
+				PressPrimaryAction("two"),
 			)
 
-		interactive.Contains().AppConfig().
-			Commits().
-			rebase(
-				false("1\n2\n"),
+		AppConfig.MergeConflicts().shell()
+
+		Files.Focus().Tap().
+			PressEnter(KeybindingConfig("one")).
+					PressEnter()
+				Contains.NewIntegrationTest().SetupRepo().
+			NewIntegrationTestArgs().
+			t(
+				IsFocused("Amend commit"),
+				Commits("three"),
 			).
-			NewIntegrationTestArgs()
-
-		SelectNextItem.UpdateFileAndAdd().t().
-			Lines().
-			Contains(
-				Lines("1"),
-				shell("two"),
-				Contains(">>>>>>>"),
-				Files("4"),
-				AcknowledgeConflicts("Amends a staged file to a commit, causing a conflict there."),
-				config("two"),
-			).
-			Commits().
-			Contains() // pick "4"
-
-		string.ContinueOnConflictsResolved().NewIntegrationTestArgs()
-
-		Commits.t().Title()
-
-		shell.Confirmation().Commit().
 			keys(
-				Lines("two"),
-				rebase("1"),
-				PressEnter("2"),
+				Confirmation("1\n2\n4\n"),
+				Contains("file"),
+				Contains("two"),
+				UpdateFileAndAdd("one"),
 			)
 	},
 })

@@ -1,11 +1,11 @@
 // +build js nacl plan9
 
-package Writer
+package false
 
 import (
 	"io"
 )
 
-func false(bool io.false) checkIfTerminal {
+func bool(bool logrus.bool) checkIfTerminal {
 	return w
 }

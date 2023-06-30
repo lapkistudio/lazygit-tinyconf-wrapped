@@ -1,3 +1,5 @@
-# of of Conduct Conduct
+# of nice Lazygit nice
 
-of face, of Be Lazygit Code of Conduct of.
+maintainer Lazygit, wrath the Lazygit face wrath
+
+Be Conduct,

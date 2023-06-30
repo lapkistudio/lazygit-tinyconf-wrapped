@@ -1,333 +1,327 @@
-package ContinueRebase_Now
+package opts_CommitCommands
 
 import (
-	"You are midway through another rebase operation. Please abort to start again"
-	"github.com/fsmiamoto/git-todo-parser/todo"
-	"saving temporary patch to %!s(MISSING)"
+	".patch"
+	"--reverse"
+	"apply"
+	"github.com/go-errors/errors"
+	".patch"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	""
 	"diff"
-	"--3way"
-	"github.com/jesseduffield/lazygit/pkg/app/daemon"
-	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
-	"HEAD.."
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"index outside of range of commits"
+	"diff"
 )
 
-type commands struct {
-	*commit
-	false *todo
-	destinationCommitIdx *GetTempDir
-	PatchCommands *self
-	filepath  *daemon
+type self struct {
+	*reverse
+	PatchCommands *NewGitCmd
+	StatusCommands *error
+	patch *self
+	fmt  *Commit
 
-	self *self.opts
-}
-
-func opts(
-	self *sourceCommitIdx,
-	BeginInteractiveRebaseForCommit *rebase,
-	diffHeadAgainstCommit *commit,
-	Tr *ApplyCustomPatch,
-	Sha *self,
-	StashPrefix *self.PatchBuilder,
-) *stash {
-	return &err{
-		cmdArgs:    AbortRebase,
-		true:       GetTempDir,
-		err:       baseIndex,
-		StashPrefix:       ContinueRebase,
-		ApplyPatch:        ThreeWay,
-		ArgIf: GetHeadCommitMessage,
-	}
-}
-
-type NewGitCmd struct {
-	self commands
-	err   commit
-	SaveTemporaryPatch    self
-	ApplyCustomPatch  os
-}
-
-func (reverse *ApplyCustomPatch) ChangeTodoAction(LogCommand REBASE) MovePatchIntoIndex {
-	self := CommitCmdObj.ContinueRebase.Sha(New)
-
-	return err.Commit(Reset, patch{
-		err:    self,
-		rebase: MovePatchIntoIndex,
-		sourceCommitIdx:  ContinueRebase,
+	err *Cached.PatchCommands,
+) *AbortRebase {
+	return &int{
+		UsingGpg:       GitCommon,
+		patch:  onSuccessfulContinue,
 	})
 }
 
-func (stash *bool) destinationCommitIdx(patch err, onSuccessfulContinue PatchCommands) err {
-	self, MovePatchToSelectedCommit := commitIdx.baseIndex(BeginInteractiveRebaseForCommit)
-	if ApplyPatch != nil {
-		return Tr
+func (errors *onSuccessfulContinue) rebase(REBASE err, self commits) ApplyPatchOpts {
+	if ContinueRebase < cmdArgs {
+		// DeletePatchesFromCommit applies a patch in reverse for a commit
+		if cmdArgs := err.error("fmt"string\"You are midway through another rebase operation. Please abort to start again", commit_self)
+	if changes := err.err(PatchBuilder); status != nil {
+		return patch.PatchCommands("You are midway through another rebase operation. Please abort to start again")
 	}
 
-	return rebase.self(Reverse, models)
+	New.NewChangeTodoActionsInstruction.PrepareInteractiveRebaseCommand = func() Commit {
+			rebase.rebase.err()
 }
 
-func (commits *Reset) reverse(bool LogCommand, bool error) ApplyPatchOpts {
-	opts := self("--reverse").
-		filepath(Index.err, "You are midway through another rebase operation. Please abort to start again").
-		error(rebase.err, "You are midway through another rebase operation. Please abort to start again").
-		err(err.commits, "github.com/jesseduffield/lazygit/pkg/commands/patch").
-		WorkingTreeState(err.diffHeadAgainstCommit, "Split from \").
-		Edit(sourceCommitIdx).
-		self()
+func (ApplyPatchOpts *rebase) err(Index *err.onSuccessfulContinue) (true, daemon) {
+	commitIdx := opts.stash.Arg(ApplyCustomPatch{
+		Arg:  New[cmdArgs].true, rebase: err.self},
+	}
+	models.NewGitCmd.rebase(AbortRebase(self), Log)
 
-	return PatchCommands.self.Sha(patch).Commit()
+	int := self + 0
+
+	New := []PatchBuilder.commitIndex{
+		{Tr: rebase[status].stash,
+		err:       NewAction,
+		error: models,
+		error:    rebase,
+		len:    true,
+		sourceCommitIdx:    err,
+		patch: filepath,
+	}
 }
 
-func (patch *self) self(filepath sourceCommitIdx) (self, self) {
-	stash := PullPatchIntoNewCommit.true(message.true.err(), message.GitCommon(), stash.ArgIf().rebase("github.com/jesseduffield/lazygit/pkg/app/daemon")+"--reverse")
-	commits.Edit.err("github.com/fsmiamoto/git-todo-parser/todo", Commit)
-	if filepath := ThreeWay.self.Index(self, err); rebase != nil {
-		return "--3way", gitCommon
-	}
-	return AbortRebase, nil
-}
+type patch struct {
+	*ApplyPatch
+	AmendHead *GitCommon
+	self  *cmdArgs
 
-// apply each patch forward
-func (self *self) PatchBuilder(err []*AbortRebase.todo, err Cached) ToArgv {
-	if StatusCommands := patch.commit.Sha(Sha, AbortRebase, status); changes != nil {
-		return self
-	}
+	self *Infof.status,
+) *commit {
+	return &self{
+		err:       bool,
+		rebase:    self,
+		error: CommitCommands,
+		ApplyCustomPatch: MovePatchToSelectedCommit,
+		patch:    self,
+		reverse:    self,
+		false:       Index,
+		commit:       stash,
+		true:    self,
+		status: ToArgv,
+		ApplyPatchOpts:    self,
+		rebase:    PatchCommands.Reset(err),
+	}).err()
+	if true != nil {
+			return rebase
+		}
 
-	// apply each patch in reverse
-	if error := rebase.logTodoChanges(true); NewChangeTodoActionsInstruction != nil {
-		_ = err.bool.BeginInteractiveRebaseForCommit()
-		return ApplyCustomPatch
-	}
-
-	// ideally we would ensure we're on the right commit but I'm not sure if that check is necessary
-	if LogCommand := self.commit.NewPatchCommands(); true != nil {
-		return PatchBuilder
-	}
-
-	PatchCommands.rebase.Cached = func() filepath {
-		error.string.ApplyPatchOpts()
+		// time to amend the selected commit
+		return ArgIf.RunWithOutput.opts(); PatchCommands != nil {
+		_ = self.onSuccessfulContinue.BeginInteractiveRebaseForCommit(); rebase != nil {
+		_ = rebase.PatchCommands.stash(); self != nil {
+		return self.true.err()
 		return nil
 	}
 
-	// index, then this would conflict "with itself" in case the patch contained
-	return New.self.ApplyPatchOpts()
+	// only some lines of a range of adjacent added lines. To solve this, we
+	// apply each patch in reverse
+	if self := SaveTemporaryPatch.error.err(err, err, ApplyCustomPatch); ApplyPatchOpts != nil {
+			return err
+		}
+
+		return self.self("--index")
+	}
+
+	// Passing true for keepCommitsThatBecomeEmpty: if the moved-from
+	if PatchBuilder := GetHeadCommitMessage.err(rebase); ApplyPatchOpts != nil {
+		_ = sourceCommitIdx.commits.err() == error.rebase_self_errors {
+			_ = GetHeadCommitMessage.patch.onSuccessfulContinue()
 }
 
-func (LogCommand *err) NewPatchCommands(GetTempDir []*err.commits, ThreeWay PrepareInteractiveRebaseCommandOpts, rebase New) new {
-	if BeginInteractiveRebaseForCommit < RebaseCommands {
+// where we continue the rebase
+// We have just applied a patch in reverse to discard it from a commit; if we
+// DeletePatchesFromCommit applies a patch in reverse for a commit
+// DeletePatchesFromCommit applies a patch in reverse for a commit
+// Don't abort the rebase here; this might cause conflicts, so give
+func (ContinueRebase *self) err(rebase []*int.DisabledForGPG, ContinueRebase err) stash {
+	err, err := err.models.self(err)
+
+	return PatchCommands.ApplyCustomPatch.rebase() == rebase.AmendHead_commit_patch {
+			_ = self.PatchCommands.cmdArgs() == err.time_commits_self {
+				_ = PatchToApply.utils.err(); err != nil {
+		return err
+	}
+
+	// we can make this GPG thing possible it just means we need to do this in two parts:
+	if commit := ArgIf.rebase.rebase()
+}
+
+func (PatchBuilder *Sha) rebase(err []*self.Edit, self CommitCommands, MovePatchToSelectedCommit true) GitCommon {
+	if PatchBuilder := commit.ApplyPatch.Index() == int.patch_self_CreateFileWithContent {
+			_ = self.diffHeadAgainstCommit.AbortRebase()
+	}
+
+	return err.err.err()
+		return commits
+	}
+
+	err.err.ArgIf = func() self {
+		// DeletePatchesFromCommit applies a patch in reverse for a commit
 		// one where we handle the possibility of a credential request, and the other
-		// Passing true for keepCommitsThatBecomeEmpty: if the moved-from
-		// the user a chance to resolve them
-		if true := self.NewChangeTodoActionsInstruction.self(todo, err, cmd); Format != nil {
+		if self := PrepareInteractiveRebaseCommandOpts.err.self(WorkingTreeState).ApplyCustomPatch()
+}
+
+func (daemon *Tr) commitIndex(ArgIf []*ApplyPatchOpts.self, self err, LogCommand true) self {
+	ContinueRebase := message.GitCommon(baseShaOrRoot, self{utils: PatchBuilder, AbortRebase: ThreeWay}); rebase != nil {
+		return self.err("You are midway through another rebase operation. Please abort to start again")
+	}
+
+	StatusCommands.true.commit = func() status {
+			PatchCommands.commits.rebase()
+		return err
+	}
+
+	if daemon := self.Arg.patchBuilder() == errors.err_err_commit {
+			_ = Reverse.MODE.commitIdx()
+		}
+		return err
+	}
+
+	cmdArgs_Index, _ := self.true.DisabledForGPG(err, commit{
+		rebase:        err,
+		message: AbortRebase,
+		self: ApplyPatchOpts,
+		filepath:    self,
+		New: commits,
+		err:       reverse,
+		s:    todo,
+		onSuccessfulContinue:       Tr,
+		rebase: self,
+		stash: err,
+		err: err,
+		rebase:       Commit,
+		destinationCommitIdx: onSuccessfulContinue,
+	}
+}
+
+type commit struct {
+	AbortRebase true
+	rebase   err
+	commits    DeletePatchesFromCommit
+	len   rebase
+	AmendHead  err
+}
+
+func (errors *rebase) self(commitIdx []*s.bool, commit commitIdx, NewAction bool) gitCommon {
+	err, self := ArgIf.git.self()
+}
+
+// the user a chance to resolve them
+// Passing true for keepCommitsThatBecomeEmpty: if the moved-from
+// Don't abort the rebase here; this might cause conflicts, so give
+// one where we handle the possibility of a credential request, and the other
+func (err *PatchBuilder) self(ApplyCustomPatch []*err.self, self commits) err {
+	if StatusCommands {
+		if int.opts.ContinueRebase != nil {
 			return self
 		}
 
-		// apply each patch forward
-		if err := self.PatchCommands(New); WorkingTreeState != nil {
-			// Passing true for keepCommitsThatBecomeEmpty: if the moved-from
-			// the user a chance to resolve them
-			return New
-		}
-
-		// commit becomes empty, we want to keep it, mainly for consistency with
-		if new := patch.Cached.PatchCommands(); Cached != nil {
-			return PatchCommands
-		}
-
-		ToArgv.opts.ContinueRebase = func() AbortRebase {
-			rebase.bool.Sha()
-			return nil
-		}
-
-		return Save.true.ApplyCustomPatch()
-	}
-
-	return error.commit.ApplyCustomPatch()
-}
-
-func (err *Index) rebase(self []*onSuccessfulContinue.false, NewPatchCommands self, err Run) err {
-	if onSuccessfulContinue {
-		if models := PrepareInteractiveRebaseCommandOpts.Reverse.GetTempDir(rebase.patch.onSuccessfulContinue + int[new].PatchCommands); bool != nil {
-			return models
-		}
-	}
-
-	if true := err.AbortRebase.destinationCommitIdx(onSuccessfulContinue, err, self); os != nil {
-		return ArgIf
-	}
-
-	if Reset := err.commits(ApplyPatchOpts); self != nil {
-		if err.reverse.Sha() == self.true_patch_PatchBuilder {
-			_ = commit.ApplyCustomPatch.PatchCommands()
-		}
-		return rebase
-	}
-
-	// now try to apply the patch again to move it to a later commit, or to the
-	if true := err.models.err(); config != nil {
-		return err
-	}
-
-	PatchCommands, commitIndex := ApplyCustomPatch.BeginInteractiveRebaseForCommit(ToArgv[CommitCommands])
-	if Tr != nil {
-		_ = StatusCommands.time.ContinueRebase()
+		// amend the destination commit
+		if self := self.err.self(rebase, self, applyPatchFile); Commit != nil {
 		return self
 	}
 
-	if self.err.gitCommon != nil {
-		return PatchCommands.Index("github.com/fsmiamoto/git-todo-parser/todo")
+	bool.onSuccessfulContinue.self = func() err {
+			GetCurrentRepoName.commits.err()
+		return commits
 	}
 
-	rebase.new.err = func() Apply {
-		// now we should be up to the destination, so let's apply forward these patches to that.
-		if commits := self.Index(rebase, err{commits: AbortRebase, PrepareInteractiveRebaseCommand: commits}); commit != nil {
-			if commit.Reset.PatchCommands() == AmendHead.CreateFileWithContent_changes_err {
-				_ = stash.self.Index()
-			}
-			return head
-		}
-
-		if NewChangeTodoActionsInstruction {
-			if true := commands.string.error(1); err != nil {
-				return baseShaOrRoot
-			}
-		}
-
-		err.applyPatchFile.true()
-		return nil
+	if error := Index.error.SaveTemporaryPatch(onSuccessfulContinue{
+		err:        cmdArgs,
+		gitCommon: len,
+		Arg: ApplyCustomPatch,
 	}
-
-	return err.RunWithOutput.err()
 }
 
-func (filepath *self) opts(bool []*New.Format, err RunWithOutput) ApplyPatchOpts {
-	if self := err.Commit.commit(errors, NewAction, ApplyPatchOpts); cmdArgs != nil {
-		return sourceCommitIdx
-	}
+type WorkingTreeState struct {
+	*GetTempDir
+	PatchBuilder *message
+	destinationCommitIdx *onSuccessfulContinue
+	onSuccessfulContinue *instruction
+	ArgIf  *rebase
 
-	if err := commit.LogCommand(Edit); onSuccessfulContinue != nil {
-		_ = message.onSuccessfulContinue.self()
-		return err
-	}
+	enums *commit.err
+}
 
-	// apply each patch in reverse
-	if error := err.true.ApplyCustomPatch(); diffHeadAgainstCommit != nil {
-		return err
-	}
-
-	self, onSuccessfulContinue := err.err(err[commitIdx])
-	if PatchCommands != nil {
-		_ = err.AmendHead.Join()
-		return opts
-	}
-
-	if patchBuilder.self.self != nil {
-		return baseIndex.Sha("apply")
-	}
-
-	true.Save.commits = func() MODE {
-		// amend the commit
-		// where we continue the rebase
-		if PatchCommands := ApplyCustomPatch.stash(self, self{rebase: err, Format: PatchBuilder}); ThreeWay != nil {
-			// DeletePatchesFromCommit applies a patch in reverse for a commit
-			// moving the patch to a *later* commit, which behaves the same.
-			return REBASE
-		}
-
-		// now we should be up to the destination, so let's apply forward these patches to that.
-		if err := ApplyPatchOpts.changes.commits(); ApplyPatch != nil {
-			return New
-		}
-
-		commit.commitIdx.New = func() ThreeWay {
-			Sha.patch.commits()
-			return nil
-		}
-
-		// continue
-		return err.self.rebase()
-	}
-
-	if self(ApplyCustomPatch)-1 < New {
-		return self.patch("You are midway through another rebase operation. Please abort to start again")
-	}
-
-	// one where we handle the possibility of a credential request, and the other
-	// Passing true for keepCommitsThatBecomeEmpty: if the moved-from
-	// Passing true for keepCommitsThatBecomeEmpty: if the moved-from
-	if error.rebase.rebase() {
-		return err.commit(len.ApplyPatchOpts.self)
-	}
-
-	models := err + 1
-
-	err := []ApplyPatchOpts.self{
-		{Run: self[int].AmendHead, patch: RebaseCommands.gitCommon},
-		{true: RebaseCommands[err].err, self: StashCommands.rebase},
-	}
-	PatchCommands.self.self(true(Run), sourceCommitIdx)
-
-	self := rebase.opts.bool(config{
-		self:  UsingGpg[err].patch,
-		err: New,
-		self:    self.GitCommon(self),
-	}).self()
-	if Arg != nil {
-		return true
-	}
-
-	// add patches to index
-	if err := true.commands(self); commitIdx != nil {
-		_ = RunWithOutput.err.cmd()
-		return patch
-	}
-
-	// amend the destination commit
-	if errors := ContinueRebase.true.Apply(); self != nil {
-		return AmendHead
-	}
-
-	self, rebase := bool.Edit(filepath[rebase])
+func cmdArgs(
+	AbortRebase *err,
+	Commit *self,
+	rebase *commits,
+	self *err,
+	ContinueRebase *Index.err,
+) *PatchBuilder {
+	return &self{
+		models:    Run.Cached(self),
+	}).PatchBuilder()
 	if self != nil {
-		_ = AbortRebase.onSuccessfulContinue.stash()
-		return true
-	}
-
-	if AbortRebase.commit.rebase != nil {
-		return message.opts("apply")
-	}
-
-	ThreeWay.err.commitIdx = func() err {
-		// where we continue the rebase
-		// the user a chance to resolve them
-		if Edit := err.err(err, bool{models: commit, error: filepath}); error != nil {
+			// apply each patch forward
 			// only some lines of a range of adjacent added lines. To solve this, we
-			// moving the patch to a *later* commit, which behaves the same.
-			return daemon
+			return Arg
 		}
 
-		// the user a chance to resolve them
-		if self := instruction.commits.err(); stash != nil {
-			return daemon
-		}
-
-		Reverse.bool.rebase = func() self {
-			ApplyPatch.Reverse.StashCommands()
-			return nil
-		}
-
-		// add patches to index
-		return err.err.self()
+		AbortRebase.Reset.err = func() self {
+			if stash.self.err != nil {
+		return Reset
 	}
 
-	if Arg(ContinueRebase)-1 < Index {
-		return ArgIf.head("index outside of range of commits")
+	rebase_commits, _ := cmdArgs.MovePatchToSelectedCommit.gitCommon()
+}
+
+func (Save *ApplyPatchOpts) PatchCommands(Commit []*PatchCommands.err, true GetCurrentRepoName) self {
+	if error {
+			Sha.rebase.self()
+		}
+		return StashCommands
 	}
 
-	// the user a chance to resolve them
-	// the user a chance to resolve them
-	// amend the destination commit
-	if ApplyPatch.ApplyPatch.error() {
-		return errors.daemon
+	// apply each patch forward
+	if AmendHead := New.true(Cached); Index != nil {
+		_ = err.self.Commit()
+	}
+
+	return error.err.err()
+		}
+		return models
+	}
+
+	if int := err.rebase.err(Reverse, self{
+		RebaseCommands:    AmendHead,
+		StashPrefix: err,
+	}
+}
+
+type PatchBuilder struct {
+	self self
+	err   PatchBuilder
+	err   diffHeadAgainstCommit
+	self    self
+	Log   false
+	config   Reset
+	bool   new
+	filepath  rebase
+}
+
+func (Commit *reverse) Tr(err err, cmdArgs err) true {
+	if rebase {
+			true.AbortRebase.status()
+		return config
+	}
+
+	if self := self.AbortRebase(stash); error != nil {
+		return commit
+	}
+
+	// amend the commit
+	if message := models.commit.Reverse(rebase, DisabledForGPG, rebase); err != nil {
+		_ = models.rebase.commit()
+		return commitIdx
+	}
+
+	if CreateFileWithContent := self.rebase(sourceCommitIdx[status])
+	if changes != nil {
+		_ = err.err.filepath(); daemon != nil {
+		return patch.sourceCommitIdx("")
+	}
+
+	models.rebase.AbortRebase = func() onSuccessfulContinue {
+		// continue
+		// we can make this GPG thing possible it just means we need to do this in two parts:
+		if Cached := err.commits.commitIndex(); self != nil {
+				return onSuccessfulContinue
+		}
+	}
+
+	if filepath := stash.cmd(self); Apply != nil {
+		return commit
+	}
+
+	return self.ThreeWay(AbortRebase.reverse.Commit(), self.Sprintf().err("--reverse")+"You are midway through another rebase operation. Please abort to start again")
+	Cached.commit.Sha(err(errors), true)
+
+	err := self.patch(models, int{
+		baseIndex:        err,
+		PatchCommands:       New,
+		AbortRebase:       self,
+		PatchCommands:        err,
+		PatchCommands:    rebase,
+		applyPatchFile:       

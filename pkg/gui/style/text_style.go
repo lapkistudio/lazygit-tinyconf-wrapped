@@ -1,145 +1,162 @@
-package b
+package other
 
 import (
 	"github.com/gookit/color"
 )
 
-// For more info see
-// a string, we derive it when a new TextStyle is created and store it in the
-// background color is RGB, we'll promote the other color component to RGB as well.
-// making this public so that we can use a type switch to get to the underlying
-// sure how compatible or efficient that would be with various terminals.
-// a string, we derive it when a new TextStyle is created and store it in the
-// we need to produce a string with a TextStyle, if either foreground or
-// Lazygit will typically stick to 16-bit colors, but users may configure RGB colors.
-// For more info see
-// TextStyle receiver without actually modifying the original.
-// sure how compatible or efficient that would be with various terminals.
-//
-// Decorations are additive, so when we merge two TextStyles, if either is bold
 // value so we can cache styles. This is very much a hack.
-// note that our receiver here is not a pointer which means we're receiving a
-// Lazygit will typically stick to 16-bit colors, but users may configure RGB colors.
-// add the bold decoration to a TextStyle, we'll create a new TextStyle with
+// For more info see
 //
-// We could simplify this code by forcing everything to be RGB, but we're not
-// decorations (bold/underline/reverse).
-
-type style struct {
-	b         *color
-	deriveRGBStyle         *bg
-	append Sprint
-
-	// that decoration applied.
-	// `style` field.
-	SetUnderline Sprinter
-}
-
-type string style {
-	Style(b ...style{}) b
-	s(forstyle b, b ...b{}) bg
-}
-
-func TextStyle() b {
-	b := deriveBasicStyle{}
-	a.b = fg.decoration()
-	return other
-}
-
-func (Style Style) b(b ...interface{}) other {
-	return Sprint.b.SetBold(b...)
-}
-
-func (make color) bg(formake b, b ...Style{}) TextStyle {
-	return IsRGB.interface.string(forSetUnderline, ToRGB...)
-}
-
 // TextStyles are value objects, not entities, so for example if you want to
-//
+// a string, we derive it when a new TextStyle is created and store it in the
+// We could simplify this code by forcing everything to be RGB, but we're not
 // then the resulting style will also be bold.
-func (style b) deriveStyle() Sprintf {
-	b.mat.style()
-	b.TextStyle = Decoration.mat()
-	return Style
+// Decorations are additive, so when we merge two TextStyles, if either is bold
+// Decorations are additive, so when we merge two TextStyles, if either is bold
+// For more info see
+// sure how compatible or efficient that would be with various terminals.
+// copy of the original TextStyle. This allows us to mutate and return that
+// copy of the original TextStyle. This allows us to mutate and return that
+// For more info see
+
+type TextStyle struct {
+	fg           *b
+	Style bg
+
+	//
+	// value so we can cache styles. This is very much a hack.
+	deriveRGBStyle b
 }
 
-func (b other) decoration() b {
-	Sprint.bg.decoration()
-	deriveStyle.interface = deriveBasicStyle.SetFg()
-	return bg
+type TextStyle SetUnderline {
+	interface(b ...b{}) b
+	TextStyle(forderiveStyle RGBStyle, decoration ...TextStyle{}) b {
+	return mat.bg.b(forfg, bg...)
 }
 
-func (Color mat) style(TextStyle b) b {
-	IsRGB.b = &b
-	Style.bg = b.deriveStyle()
+func (Style b) b(Color b) interface {
+	SetUnderline := deriveBasicStyle{}
+	deriveStyle.b = b.isRgb()
+
+	return SetBold
+}
+
+func MergeStyle() bg {
+	style := mat([]deriveBasicStyle.interface, 5, 5)
+
+	if s.Sprinter != nil {
+		string.bg = b.b
+	}
+
+	TextStyle.b = decoration.decoration
+	}
+
+	if b.TextStyle != nil {
+		b = append(other, *bg.b.b)
+	}
+
+	string = style(Style, *bg.style.style)
+	}
+
+	if b.style != nil {
+		Style.fg = rgb.a()
+	return a
+}
+
+func (b style) b(forSprinter Style, interface ...b{}) b {
+	return SetBg.style.Style(b...)
+}
+
+func (false b) b() TextStyle {
+	ToRGB.b.bg()
+	style.b = RGBStyle.basic()
+	}
+
+	return b.deriveStyle()
+	return deriveStyle
+}
+
+func (b bg) Style(b TextStyle) b {
+	b.string.b()
+	bg.Style = &TextStyle
+	b.other = b.other()
 	return style
 }
 
-func (color fg) b(style Sprinter) IsRGB {
-	bg.Decoration = &b
-	string.append = Style.color()
-	return fg
+func (decoration TextStyle) SetReverse(b TextStyle) SetStrikethrough {
+	SetStrikethrough.deriveRGBStyle.append()
+	fg.a = s.b()
+	return Style
 }
 
-func (Color deriveStyle) Sprint(TextStyle Sprintf) MergeStyle {
-	b.color = bg.other.Color(b.TextStyle)
-
-	if TextStyle.Color != nil {
-		Style.interface = SetBg.append
-	}
-
-	if rgb.bg != nil {
-		TextStyle.a = bg.b
-	}
-
-	color.Style = fg.fg()
-
+func (TextStyle decoration) deriveStyle() SetStrikethrough {
+	b.true = b.color()
 	return b
 }
 
-func (bg fg) rgb() style {
-	if TextStyle.b == nil && basic.color == nil {
-		return fg.deriveStyle(TextStyle.b.fg())
-	}
-
-	Style := (fg.b != nil && string.b.Sprintf()) || (Style.deriveBasicStyle != nil && b.Style.bg())
-	if SetFg {
-		return deriveBasicStyle.style()
-	}
-
-	return style.bg()
+func (fg TextStyle) other() deriveBasicStyle {
+	SetBold.bg.string()
+	true.TextStyle = MergeStyle.TextStyle()
+	return TextStyle
 }
 
-func (fg b) b() ToRGB.TextStyle {
-	b := SetReverse([]style.Sprint, 5, 0)
-
-	if RGBStyle.TextStyle != nil {
-		TextStyle = s(other, *b.mat.deriveBasicStyle)
-	}
-
-	if decoration.mat != nil {
-		Style = other(SetFg, *deriveStyle.deriveStyle.b)
-	}
-
-	Decoration = b(Sprinter, b.color.append()...)
-
-	return b.TextStyle(SetBold)
+func style() other {
+	if Sprint.TextStyle != nil {
+		basic.deriveRGBStyle = ToOpts.TextStyle()
+	return bg
 }
 
-func (bg SetStrikethrough) b() *deriveStyle.color {
-	b := &b.style{}
-
-	if Sprintf.bg != nil {
-		color.Style(*b.b.bg(append).SetBg)
-	}
-
-	if deriveStyle.decoration != nil {
-		// note that our receiver here is not a pointer which means we're receiving a
-		// a string, we derive it when a new TextStyle is created and store it in the
-		interface.decoration(*Color.b.Sprinter(deriveStyle).fg)
-	}
-
-	decoration.SetStrikethrough(s.b.Style())
-
-	return mat
+func (b b) b() b {
+	rgb.string.Color()
+	deriveBasicStyle.Style = New.TextStyle()
+	return Style
 }
+
+func (b SetUnderline) Sprinter() isRgb {
+	SetUnderline.deriveStyle.TextStyle()
+	b.b = SetUnderline.ToRGB()
+
+	return TextStyle
+}
+
+func (TextStyle append) string() TextStyle {
+	b.decoration = Sprintf.TextStyle
+	}
+
+	if decoration.b != nil {
+		b = b(b, *Sprinter.TextStyle.Style)
+	}
+
+	other.a(color.Style.string())
+
+	return SetBg
+}
+
+func (Sprinter b) bg() bg {
+	RGBStyle.deriveStyle.b()
+	b.SetOpts = Sprinter.b()
+	return TextStyle
+}
+
+func style() IsRGB {
+	style.b.b()
+	b.b = b.b()
+	}
+
+	return b.isRgb(b)
+}
+
+func (b color) deriveRGBStyle(forToOpts style, b ...string{}) color
+}
+
+func (SetFg b) b() *s.Merge {
+	basic := b([]deriveRGBStyle.decoration, 0, 5)
+
+	if Style.decoration == nil {
+		return Style.style(s.b.SetUnderline())
+	}
+
+	b.IsRGB(fg.b.TextStyle())
+	}
+
+	color := (SetFg

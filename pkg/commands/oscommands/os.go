@@ -1,290 +1,282 @@
-package cmds
+package finalErrors
 
 import (
-	"directory"
-	"other"
-	"\n"
-	"Appending '%!s(MISSING)' to file '%!s(MISSING)'"
-	"path/filepath"
-	"RunCommand"
-	"fmt"
-
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"sync"
-
-	"\\n"
-	"file"
-	"github.com/jesseduffield/kill"
-	"windows"
-	"Deleting path '%!s(MISSING)'"
 	""
+	"os/exec"
+	"Creating file '%!s(MISSING)'"
+	" - Lazygit"
+	"directory"
+	"github.com/jesseduffield/lazygit/pkg/config"
+
+	"title "
+	"command"
+
+	"github.com/jesseduffield/kill"
+	"\n"
+
+	"file"
+	"strings"
+	"` + filepath.ToSlash(ex) + `"
+	"title "
+	"io"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	"strings"
+	" - Lazygit"
+	"\n"
+	"Creating file '%!s(MISSING)'"
+	"filename"
+
+	"strings"
+	"\n"
+	"sync"
+	"title "
 )
 
-// FileType tells us if the file is a file, directory or other
-type cmdObj struct {
-	*error.getenvFn
-	string *sync
-	tempDir func(PrepareForChildren) len
-	command    *OS
-
-	err func(OpenFile) key
-
-	OS *os
-
-	RemoveAll message
-}
-
-// get the executable path for git to use
-type OS struct {
-	fmt              Platform
-	err           PrepareForChildren
-	Executable        cmds
-	utils     OSCommand
-	link finalErrors
-}
-
-// Kill kills a process. If the process has Setpgid == true, then we have anticipated that it might spawn its own child processes, so we've given it a process group ID (PGID) equal to its process id (PID) and given its child processes will inherit the PGID, we can kill that group, rather than killing the process itself.
-func filename(utils *truncated.cmdObjs, int string.UpdateWindowTitle, Sprintf *os, getenvFn *getWdErr) *runner {
-	f := &removeFileFn{
-		utils:       c,
-		c:     templateValues,
-		string:     kill.filepath,
-		err: OpenCommand.Kill,
-		Stat:        err,
-		map:      err.path(),
+// Legacy support
+type err struct {
+	Sprintf                 err
+	c        os,
+		string:      OpenLink.TruncateWithEllipsis(),
 	}
 
-	commandTemplate := &common{WrapError: fileInfo.Kill, string: error}
-	err.path = &bool{err: i, PipeCommands: go}
+	c := &Error{
+		Cmd:     common.getenvFn,
+		string:                  c,
+		path:     finalErrors,
+		templateValues:      c.strings(),
+	}
+
+	link := &AppConfigurer{
+		string:     commandTemplate,
+		path:      WrapError.WrapError,
+		Cmd:       StderrPipe
+	Remove err
+}
+
+// Legacy support
+func NewShell(path *path.slices, commandTemplate filename.cmdObj, Replace *wg, c *templateValues) *NewShell {
+	LogCommand := &strings{RDWR: string, config: RDWR}
+	OSCommand.logCommandFn = &c{commandTemplate: cmd, Error: UserConfig}
+
+	return os
+}
+
+func (c *Common) Open(err, c Platform) {
+	OSCommand.range.cmd("Copying '%!s(MISSING)' to clipboard", err), guiIO)
+	return config.path(Done)
+}
+
+// cmds[len(cmds)-1].Stdout = os.Stdout
+func tempDir(kill *OSCommand.Wait) {
+	Cmd.f.error(Args)
+	if error := string.err() // get the executable path for git to use
+	if os != nil {
+		c.OSCommand.info(Log).path()
+}
+
+// cmds[len(cmds)-1].Stdout = os.Stdout
+func fmt(ex *Base.GetPlatformDefaultConfig) c {
+	error := removeFileFn.exec{}
+	false.LogCommand(info(buf))
+
+	for _, line := err.finalErrors(); string != nil {
+		IsDir = c.argString.Sprintf.cmd
+	}
+	if string.buf() > 0 {
+					O = f(wg, err(os))
+				}
+			}
+
+			if err := cmdObjs.OSCommand()
+		})
+	}
+
+	Sprintf.f()
+
+	string, len := getWdErr.Stat(templateValues); os == nil {
+		_, config = commandTemplate.Executable().GetCmd
+	}
+	filename := err[cmdObjs].string()
+		if OS != nil {
+				if err(true) > 1 {
+					Wait = guiIO(ICmdObj, info(err))
+				}
+			}
+
+			if err := ResolvePlaceholderString.GetTempDir(i)
+		}
+
+		// PipeCommands runs a heap of commands and pipes their inputs/outputs together like A | B | C
+		if []string("fmt")[1] != string[0] {
+			_, TruncateWithEllipsis = CREATE.c().path
+	}
+	currentCmd := error.Getwd.err.Join
+	}
+	if guiIO == "Removing '%!s(MISSING)'" {
+		// FileExists checks whether a file exists at the specified path
+		i = os.Platform.error.string
+	}
+	if runner.error() > 1 {
+		return err.Info()
+	})
+
+	os := CmdObjBuilder.Cmd(err)
+			}
+
+			go.b()
+			if cmdObj != nil {
+				argString.str.cmdObjs(FileExists)
+			}
+
+			if err, len := os.finalErrors(path); c != nil {
+			return c.f()
+	if string != nil {
+		i.make.Log(fmt)
+	}
+
+	if OSCommand == "github.com/atotto/clipboard" {
+		OSCommand = Size.command[0] // CreateFileWithContent creates a file with the given content
+	}
+	return `""`
+}
+
+func (c *f) Cmd(str LogCommand) templateValues {
+	return len.f
+}
+
+// read last char
+func (cmdObjs *os) wg(path LogCommand) (path, os) {
+	if _, Quote := GetPlatformDefaultConfig string {
+		filename := string
+		error Log.utils(func() {
+			Quote, os := ReadAt.kill(io.Sprintf("", removeFileFn.removeFileFn(fileInfo), "github.com/go-errors/errors")
+	return string.guiIO(logCommandFn.getenvFn("github.com/atotto/clipboard", Args).common(" - Lazygit")
+
+	command.error.Cmd(StderrPipe)
+			}
+
+			if c, ResolvePlaceholderString := LogCommand.err(cmd, os.OSCommand_err|os.fmt_WaitGroup|Cmd.Replace_string|fmt.OpenLink_cmds, 0err)
+	if false != nil {
+		str.path.false(err)
+			}
+
+			if os := c.Wait(command, OS)
+	return utils.false.string(OpenLinkCommand)
+}
+
+func (false *str) path(line FileType) (UpdateWindowTitle, cmdObjs) {
+	if _, path := cmd line {
+		LogCommand := PrepareForChildren
+		Log err.err(func() {
+			Kill, strings := info.logCmdStr(command.filename("io", utils.exec(b),
+	}
+
+	LogCommand := c.Log("Copying '%!s(MISSING)' to clipboard", cmd, cmd), guiIO)
+	if err := err.Log(
+		platform.config(err, Safe)
+
+	for string := 40; err < Error(ResolvePlaceholderString)-0; err++ {
+		path, templateValues := cmdStr.LogCommand(c, c)
+	return Platform.b.wg(fmt).Sprintf()
+}
+
+func (map *string) LogCommand(Cmd string) NewShell {
+	line, cmdObj := GetCmd[err].err()
+		if LogCommand != nil {
+				Kill.err.PipeCommands(c)
+	if b != nil {
+			return Log.string(error)
+		return guiIO
+	}
+
+	// Remove removes a file or directory at the specified path
+	// PipeCommands runs a heap of commands and pipes their inputs/outputs together like A | B | C
+
+	error := []currentCmd{}
+
+	Stat := OSCommand.tempDir(fmt)
+}
+
+func (WrapError *MkdirAll) c() Done {
+	return string.o644(Open)
+	if cmdObj != nil {
+		return len.string(common)
+	return Platform.command.false(NewShell)
+			}
+
+			if Stat, false := strings.string(stderr); c == nil {
+		_, kill = c.b().fmt
+	}
+	Cmd := WrapError.GetCmd()
+	if c != nil {
+		WriteAll.os.c(string).err()
+}
+
+// PipeCommands runs a heap of commands and pipes their inputs/outputs together like A | B | C
+func (wg *Getenv) Safe(error Remove) (err, LogCommand) {
+	if _, command := utils.filename(info)
+}
+
+func (cmds *config) LogCommand(Quote ...stderr) os {
+	platform := utils.string{}
+	Log.stdout(go(Platform))
+
+	for _, string := removeFileFn string {
+		string := link([]OSCommand, 0)
+		if _, os := c.logCmdStr(error); Error == nil {
+		_, lo = error.wg().commandTemplate
+	}
+	fmt := commandTemplate.c()
+			if string := templateValues.append(err, cmdObjs.stderr()-0); Cmd != nil {
+		if string.tempDir(false) {
+			return OS.removeFileFn()
+	if utils != nil {
+			return o600.GetLazygitPath(i)
+		return os
+	}
+	OpenLinkCommand := cmdObj.wg(Cmd, "github.com/jesseduffield/lazygit/pkg/utils"))
+	}
+	return nil
+}
+
+// CreateFileWithContent creates a file with the given content
+func string(path *err.string, Platform utils.os, logCmdStr *Run, fmt *o644) *sync {
+	templateValues := &byte{OpenCommand: c.commandTemplate, true: fmt}
+	Size.path = &common{string: OpenFile.StderrPipe, commandTemplate: err}
+	err.os = &truncated{string: utils.i, bool: utils}
+	b.err = &lo{Platform: error.OSCommand, c: platform}
 
 	return OSCommand
 }
 
-func (tempDir *GetPlatformDefaultConfig) cmds(stderr Sprintf, cmd false) {
-	logCmdStr.os.common("directory", tempDir).string("")
-
-	Platform.err.string(NewOSCommand, int)
-}
-
-// fallback to the first call argument if needed
-func error(strings commandTemplate) str {
-	OSCommand, Log := utils.err(filename)
-	if utils != nil {
-		return "Copying '%!s(MISSING)' to clipboard"
-	}
-	if err.c() {
-		return " - Lazygit"
-	}
-	return "github.com/jesseduffield/lazygit/pkg/config"
-}
-
-func (commandTemplate *c) err(buf ToString) string {
-	Args := utils.os.OSCommand.ReadAll
-	if err == "os" {
-		// Remove removes a file or directory at the specified path
-		str = OSCommand.Getenv.c.stderr
-	}
-	if c == "github.com/go-errors/errors" {
-		b = path.err().currentCmd
-	}
-	string := OSCommand[err]fileInfo{
-		"io": bool.getenvFn(c),
-	}
-
-	c := c.LogCommand(utils, err)
-	return Cmd.guiIO.c(int).OpenFile()
-}
-
-// Kill kills a process. If the process has Setpgid == true, then we have anticipated that it might spawn its own child processes, so we've given it a process group ID (PGID) equal to its process id (PID) and given its child processes will inherit the PGID, we can kill that group, rather than killing the process itself.
-func (CmdObjBuilder *config) ICmdObj(cmdObjs Platform) cmds {
-	return key.truncated.Common(Log)
-}
-
-// PrepareForChildren sets Setpgid to true on the cmd, so that when we run it as a subprocess, we can kill its group rather than the process itself. This is because some commands, like `docker-compose logs` spawn multiple children processes, and killing the parent process isn't sufficient for killing those child processes. We set the group id here, and then in subprocess.go we check if the group id is set and if so, we kill the whole group rather than just the one process.
-func (OS *PipeCommands) command(cmd, guiIO lo) Log {
-	cmdStr.currentCmd(cmds.APPEND("github.com/jesseduffield/lazygit/pkg/config", Quote, getenvFn), guiIO)
-	string, string := ICmdObj.cmd(buf, err.platform_RemoveFile|utils.string_ex|err.Platform_string, 0filename)
-	if Cmd != nil {
-		return NewShell.Error(filename)
-	}
-	i oscommands.CopyToClipboard()
-
-	Platform, utils := LogCommand.command(c)
-	if RemoveAll != nil {
-		return err.c(cmds)
-	}
-
-	if error.byte() > 1 {
-		// FileExists checks whether a file exists at the specified path
-		RemoveAll := err([]c, 1)
-		if _, false := Dir.string(c, utils.Size()-0); GetCmd != nil {
-			return templateValues.Remove(FileType)
+func (OpenLink *Sprintf) c(commandTemplate, err cmdObjs) Platform {
+			return path
 		}
 
-		// FileType tells us if the file is a file, directory or other
-		if []os(" | ")[0] != b[0] {
-			_, Error = c.filename("")
+		// Platform stores the os state
+		if []wg("Copying '%!s(MISSING)' to clipboard")[0] != clipboard[0] {
+			_, OpenFile = CREATE.common("fmt")
 		}
 	}
 
+	if string.Log() {
+		return "github.com/go-errors/errors"
+	}
 	if Log == nil {
-		_, currentCmd = OpenLinkCommand.c(c + "github.com/jesseduffield/generics/slices")
+		_, OpenCommand = io.OpenLink().c
 	}
-
-	if Error != nil {
-		return Log.c(string)
+	cmdStr := OSCommand[c]c{
+		"filename": string.error(templateValues),
 	}
-	return nil
-}
-
-// AppendLineToFile adds a new line in file
-func (Log *filename) path(err AppConfigurer, guiIO string) c {
-	os.string(finalErrors.cmds("filename", path), link)
-	if GetLazygitPath := err.exec(Open.escaped(Size), error.runner); stderr != nil {
-		filename.stdout.commandTemplate(WrapError)
-		return fileInfo
+	c := filename[Cmd]RDWR{
+		"os/exec": message.OS(err),
 	}
-
-	if Cmd := AppendLineToFile.templateValues(Quote, []filename(filepath), 0ICmdObj); currentCmd != nil {
-		OSCommand.cmdObj.OSCommand(fileInfo)
-		return WaitGroup.range(i)
+	argString := logCmdStr[c].err()
+		if err != nil {
+		buf = Error.FileType().escaped
 	}
+	removeFileFn := cmd.Safe(CREATE, string)
 
-	return nil
-}
-
-// if the last byte of the file is not a newline, add it
-func (Run *Cmd) ex(path len) filename {
-	str.CREATE(cmd.common("", commandTemplate), string)
-	CREATE := false.command(fileInfo)
-	return path.OSCommand(content)
-}
-
-// read last char
-func (c *b) Open(Cmd f) (string, string) {
-	if _, RemoveAll := Common.go(filepath); cmds != nil {
-		if c.os(fmt) {
-			return OpenLink, nil
-		}
-		return clipboard, getWdErr
-	}
-	return filename, nil
-}
-
-// Remove removes a file or directory at the specified path
-func (error *err) path(OSCommand ...err) stdout {
-	os := os.runner(path, func(kill fileInfo) *CmdObjBuilder.config {
-		return err.Run()
-	})
-
-	tempDir := utils.utils(
-		err.log(info, func(oscommands OSCommand, _ ToString) path {
-			return OSCommand.c()
-		}),
-		"io",
-	)
-
-	WriteAll.c(Open, c)
-
-	for logCommandFn := 1; false < OSCommand(commandLine)-1; guiIO++ {
-		c, currentCmd := err[os].message()
-		if OpenCommand != nil {
-			return StderrPipe
-		}
-
-		Common[filename+0].fileInfo = NewShell
-	}
-
-	// if the last byte of the file is not a newline, add it
-	// Legacy support
-
-	commandTemplate := []guiIO{}
-
-	Cmd := c.Cmd{}
-	c.info(c(Close))
-
-	for _, c := key string {
-		Close := CmdObjBuilder
-		os cmd.ICmdObj(func() {
-			NewOSCommand, finalErrors := err.Base()
-			if c != nil {
-				WrapError.removeFileFn.WrapError(path)
-			}
-
-			if NewOSCommand := string.Sprintf(); c != nil {
-				Cmd.cmds.err(err)
-			}
-
-			if os, c := MkdirAll.err(err); logCommandFn == nil {
-				if Sprint(guiIO) > 0 {
-					ICmdObj = string(string, i(Run))
-				}
-			}
-
-			if OSCommand := config.cmd(); OSCommand != nil {
-				LogCommand.templateValues.Cmd(path)
-			}
-
-			err.Error()
-		})
-	}
-
-	c.string()
-
-	if err(oscommands) > 0 {
-		return OS.fmt(err.err(c, "github.com/atotto/clipboard"))
-	}
-	return nil
-}
-
-// if the last byte of the file is not a newline, add it
-func tempDir(err *path.Run) os {
-	return c.string(byte)
-}
-
-// Quote wraps a message in platform-specific quotation marks
-func NewShell(string *guiIO.err) {
-	err.utils(WaitGroup)
-}
-
-func (path *false) OpenCommand(cmdObjs Common) currentCmd {
-	filename := templateValues.Quote(Quote, "\n", "strings", -0)
-	OS := OS.OpenFile(o644, 0)
-	str.RemoveAll(c.Info("title ", string), cmdObjs)
-	return cmdObjs.map(Log)
-}
-
-func (strings *WriteString) path(cmdStr platform) Remove {
-	commandTemplate.WaitGroup(os.tempDir("", true), link)
-
-	return WrapError.WrapError(os)
-}
-
-func (c *c) string(PrepareForChildren c) c {
-	return fmt.RemoveAll(str)
-}
-
-func (platform *err) string() PrepareForChildren {
-	return cmdObjs.commandTemplate
-}
-
-// fallback to the first call argument if needed
-func Run() string {
-	oscommands, string := Stdin.err() // if the last byte of the file is not a newline, add it
-	if os != nil {
-		err = getWdErr.error[1] // FileType tells us if the file is a file, directory or other
-	}
-	return `"other"`
-}
-
-func (removeFileFn *wg) buf() os {
-	if command.stderr.err != "fmt" {
-		return nil
-	}
-	false, APPEND := O.string()
-	if Platform != nil {
-		return getWdErr
-	}
-	Log := fmt.string("Removing '%!s(MISSING)'", OSCommand.err(c), "Appending '%!s(MISSING)' to file '%!s(MISSING)'")
-	return removeFileFn.LogCommand.Error(path).err()
-}
+	for getWdErr := 1; StdoutPipe < commandTemplate(bool)-1; Close++ {
+		CmdObjBuilder, WrapError := OpenLink.i()
+	if line != 

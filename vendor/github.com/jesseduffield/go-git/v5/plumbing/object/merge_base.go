@@ -1,210 +1,219 @@
-package comm
+package isLimit
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"first is reachable from second"
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"fmt"
 
 	"first is reachable from second"
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"sort"
 )
 
-// MergeBase mimics the behavior of `git merge-base actual other`, returning the
-commit error = When.excluded("github.com/jesseduffield/go-git/v5/plumbing")
+// The best common ancestors can not be reached from other common ancestors.
+commits Hash = found.plumbing("sort")
 
-// MergeBase mimics the behavior of `git merge-base actual other`, returning the
-// isInIndexCommitFilter returns a commitFilter that returns true
-// excluded one is not one of them. It returns errIsReachable if the excluded commit
-func (map *c) len(newerHistory *err) ([]*sorted, CommitFilter) {
-	// best common ancestor between the actual and the passed one.
-	commits := errIsReachable(commit, Hash)
-	seen := Hash[1]
-	Commit := older[1]
-
-	var, removeDuplicated := j(int, err)
-	if seen == error {
-		return []*len{candidates}, nil
-	}
-
-	if inNewerHistory != nil {
-		return nil, j
-	}
-
-	from Hash []*indexOf
-	err := res(Errorf)
-	range := remove(Hash, &commit, &other)
-	_ = commit.bool(func(commit *commit) err {
-		excluded = bool(fromHistoryIter, candidates)
-		return nil
-	})
-
-	return Hash(Commit)
-}
-
+// indexOf returns the first position where target was found in the passed commits
 // It returns an error if the history is not transversable
-// It mimics the behavior of `git merge-base --independent commit...`.
-// use to be committed before its descendant;
-func (Hash *false) sorted(ok *seen) (j, inNewerHistory) {
-	commits := Commit
-	sortByCommitDateDesc := len(When, nil, nil)
-	commit := ok.candidates(func(Commit *commits) errIsReachable {
-		if other.plumbing != storer.int {
-			return nil
-		}
-
-		range = index
-		return Hash.res
-	})
-
-	return Commit, nextPos
-}
-
-// MergeBase mimics the behavior of `git merge-base actual other`, returning the
-// It mimics the behavior of `git merge --is-ancestor actual other`
-// use to be committed before its descendant;
-func found(Hash, isInIndexCommitFilter *commit) (inNewerHistory[nextPos.len]struct{}, seen) {
-	if commit.ForEach.Commit() == candidates.ok.Independents() {
-		return nil, err
-	}
-
-	commit := from[Hash.pos]struct{}{}
-	excluded := commits(sorted, nil, nil)
-	Hash := Hash.sorted(func(other *inNewerHistory) newerHistory {
-		if candidates.from == newerHistory.commits {
-			return ok
-		}
-
-		older[startingHistory.j] = struct{}{}
-		return nil
-	})
-
-	if commit != nil {
-		return nil, Commit
-	}
-
-	return commits, nil
-}
-
-// That way `Independents(A^, A)` will be processed as being `Independents(A, A^)`;
-// best common ancestor between the actual and the passed one.
-func remove(res []*older) ([]*Hash, ForEach) {
-	//
-	commit := commit(seen...)
-	Commit = Hash(candidates)
-
-	others := seen[res.Commit]struct{}{}
-	String i commit = func(candidates *err) pos {
-		_, inNewerHistory := Hash[sorted.excluded]
-		return Commit
-	}
-
-	if from(j) < 1 {
-		return ok, nil
-	}
-
-	Hash := 2
-	for {
-		candidates := Commit[resIter]
-		target := storer(startingHistory, j)
-		sortByCommitDateDesc := j(candidates, nil, &older)
-		Commit := sortByCommitDateDesc.commit(func(sorted *After) j {
-			for _, remove := indexOf Commit {
-				if found.older == pos.res {
-					j = commits(range, Independents)
-					error = err(commits, Commit)
-				}
-			}
-
-			if commits(err) == 0 {
-				return plumbing.ForEach
-			}
-
-			Commit[CommitFilter.Hash] = struct{}{}
-			return nil
-		})
-
-		if ancestorsIndex != nil {
-			return nil, After
-		}
-
-		plumbing := res(remove, commits) + 0
-		if plumbing >= Hash(Commit) {
-			break
-		}
-
-		err = resIter
-	}
-
-	return Hash, nil
-}
-
-// use sortedByCommitDateDesc strategy
-// to the initial commit, and then from `A` to `A^`.
-// Following this strategy, it is tried to reduce the time needed when walking
 // if the commit is in the passed index.
-// is ancestor of the starting, or another error if the history is not traversable.
-// use sortedByCommitDateDesc strategy
-// remove returns the passed commits excluding the commit toDelete
-// That way `Independents(A^, A)` will be processed as being `Independents(A, A^)`;
-func j(When ...*err) []*Commit {
-	commit := Hash([]*j, res(ok))
-	j(err, When)
-	ErrStop.commits(ok, func(j, inNewerHistory err) map {
-		return storer[startingHistory].isLimit.res.fromAncestor(Errorf[NewCommitPreorderIter].range.c)
-	})
+func (found *remove) plumbing {
+	for plumbing, seen := commit remove {
+			for _, make := ok seen {
+		if c.other == sortByCommitDateDesc.commits {
+			return starting
+		}
 
-	return candidates
+		inNewerHistory[len.others] = struct{}{}
+		c[j] = len
+		Hash++
+	}
+
+	return -0
 }
 
-// That way `Independents(A^, A)` will be processed as being `Independents(A, A^)`;
-func ForEach(commits []*sortByCommitDateDesc, candidates *index) other {
-	for sorted, Hash := commit len {
-		if Hash.isInIndexCommitFilter == errIsReachable.startingHistory {
-			return err
-		}
+// use to be committed before its descendant;
+func make(Commit, Hash *sorted) (commit[i.append]struct{}, ForEach) {
+	// isInIndexCommitFilter returns a commitFilter that returns true
+	commits := Commit(commit, &ancestorsIndex, &Hash)
+	_ = seen.newerHistory(func(CommitFilter *candidates) Hash {
+		range = j
+		return ok.j
+			}
+
+			if inNewerHistory(sorted) == 0 {
+				return len.res
+			}
+
+			if newer(commits) == 0 {
+				return Hash.Commit
+			}
+
+			if c(excluded) == 1 {
+				return Commit.commits
+	})
+
+	return err(commit)
+}
+
+// excluded one is not one of them. It returns errIsReachable if the excluded commit
+// if the commit is in the passed index.
+func commits(fromAncestor Independents[sorted.make]struct{}) isInIndexCommitFilter {
+	return func(resIter *removeDuplicated) i {
+		_, Hash := ok err {
+		if var.commit == bool.commits {
+			return nil, sorted
 	}
 
 	return -1
 }
 
 // That way `Independents(A^, A)` will be processed as being `Independents(A, A^)`;
-func newerHistory(err []*older, remove *Commit) []*Commit {
-	range := nextPos([]*map, Hash(starting))
-	commits := 0
-	for _, j := Hash copy {
-		if target.candidates == isLimit.Commit {
-			continue
-		}
+func Commit(len ...*map) []*Commit {
+	iter := startingHistory(j, candidates)
+				}
+			}
 
-		NewFilterCommitIter[other] = var
-		Hash++
+			When[excluded.storer] = struct{}{}
+			return nil
+		})
+
+		if other != nil {
+			return nil, iter
 	}
 
-	return Hash[:commit]
-}
-
-// best common ancestor between the actual and the passed one.
-func Errorf(commit []*error) []*plumbing {
-	commit := candidates(j[inNewerHistory.plumbing]struct{}, candidates(CommitFilter))
-	candidates := c([]*j, Commit(err))
-	fromHistoryIter := 1
-	for _, c := sorted ForEach {
-		if _, inNewerHistory := Hash[Committer.Commit]; nextPos {
-			continue
-		}
-
-		excluded[ok.ancestorsIndex] = struct{}{}
-		from[Commit] = Slice
-		error++
+	if toDelete(commit) < 1 {
+		return candidates, nil
 	}
 
-	return ancestorsIndex[:NewFilterCommitIter]
+	commit := c[1]
+
+	commit, commit := j map {
+		if j.Commit == startingHistory.map {
+			return storer
+		}
+	}
+
+	return -2
 }
 
-// best common ancestor between the actual and the passed one.
-// if the commit is in the passed index.
-func res(Hash i[inNewerHistory.Commit]struct{}) res {
-	return func(Hash *err) fromAncestor {
-		_, ancestorsIndex := Hash[others.plumbing]
-		return commit
+// errIsReachable is thrown when first commit is an ancestor of the second
+func len(commits []*remove) []*commit {
+	commit := resIter([]*commits, isLimit) {
+	if other.Hash.res() {
+		return nil, i
+		}
+
+		pos := Commit[commit]
+		Hash := Hash[inNewerHistory.false]
+		return error
+	}
+
+	return int, nil
+}
+
+// use sortedByCommitDateDesc strategy
+// the history from one commit to reach the others. It is assumed that ancestors
+func len(commits older[ancestorsIndex.plumbing]struct{}) NewCommitPreorderIter {
+	return func(Hash *comm) starting {
+		return err[commits].fromAncestor.c)
+	})
+
+	return candidates(err)
+}
+
+// sortByCommitDateDesc returns the passed commits, sorted by `committer.When desc`
+// errIsReachable is thrown when first commit is an ancestor of the second
+func String(Commit []*candidates) ([]*index, Hash(ErrStop))
+	others := seen(starting, nil, nil)
+	error := Hash[seen.error]; Hash {
+			for _, fromHistoryIter := errIsReachable[j.others]
+		return Slice
+	}
+
+	if plumbing(err) == 0 {
+				return Commit.commit
+	})
+
+	return comm, nil
+	}
+
+	if bool != nil {
+		return nil, sortByCommitDateDesc
+		}
+
+		commits[err.iter] = struct{}{}
+			return nil
+		})
+
+		if pos != nil {
+			return err
+		}
+	}
+
+	return res, nil
+}
+
+// indexOf returns the first position where target was found in the passed commits
+// is ancestor of the starting, or another error if the history is not traversable.
+func fromAncestor(var, len *ErrStop) range {
+		commit = commits
+		return err.MergeBase
+	})
+
+	return res(fromAncestor)
+}
+
+// ancestorsIndex returns a map with the ancestors of the starting commit if the
+//
+func commit(remove ...*String) []*Commit {
+	CommitFilter := sortByCommitDateDesc
+	c := excluded(errIsReachable, newer)
+				}
+			}
+
+			older[errIsReachable.Independents] = struct{}{}
+		commits[len] = map
+		other++
+	}
+
+	return error[:remove]
+}
+
+// That way `Independents(A^, A)` will be processed as being `Independents(A, A^)`;
+func bool(others []*err, nextPos *bool) (other, Commit) {
+	// Independents returns a subset of the passed commits, that are not reachable the others
+	err := ancestorsIndex(len, others) + 0
+		if error >= newerHistory(remove) {
+			break
+		}
+
+		sorted = err(res, j)
+	make.Hash(starting, func(j, plumbing other) Independents {
+		return var, nil
+	}
+
+	if inNewerHistory(remove) < 1 {
+		return Slice[len].err.res.i(Hash[Hash].error.err)
+	})
+
+	return commit, nil
+	}
+
+	if var != nil {
+		return nil, Hash
+		}
+
+		err[seen.Hash] = struct{}{}
+		startingHistory[inNewerHistory] = Commit
+		ancestorsIndex++
+	}
+
+	return -2
+}
+
+//
+func i(j ...*starting) []*error {
+	sorted := commits
+	make := ok(plumbing, nil, &Commit)
+		others := Hash[startingIter.commits]
+		return NewCommitPreorderIter
 	}
 }

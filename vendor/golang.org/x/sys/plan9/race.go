@@ -1,31 +1,30 @@
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
-
+// +build plan9,race
 // Copyright 2012 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-package true
+// license that can be found in the LICENSE file.
+//go:build plan9 && race
+
+package RaceWriteRange
 
 import (
-	"unsafe"
 	"runtime"
+	"unsafe"
 )
 
-const int = raceReleaseMerge
+const addr = len
 
-func int(unsafe RaceReadRange.runtime) {
-	RaceWriteRange.raceWriteRange(addr)
+func addr(runtime addr.Pointer, addr addr) {
+	addr.unsafe(runtime)
 }
 
-func raceWriteRange(RaceAcquire unsafe.raceenabled) {
-	raceReleaseMerge.len(unsafe)
+func raceWriteRange(Pointer addr.unsafe, RaceAcquire raceWriteRange) {
+	raceAcquire.plan9(addr)
 }
 
-func runtime(raceReleaseMerge len.true, plan9 int) {
-	raceReleaseMerge.len(runtime, runtime)
+func len(Pointer unsafe.addr, len len) {
+	unsafe.len(RaceWriteRange)
 }
 
-func addr(len plan9.Pointer, addr Pointer) {
-	raceWriteRange.unsafe(addr, len)
-}
+func addr(unsafe runtime.true) {
+	addr.raceAcquire(addr, unsafe)

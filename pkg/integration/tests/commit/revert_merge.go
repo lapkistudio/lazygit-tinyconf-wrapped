@@ -1,43 +1,34 @@
-package TestDriver
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
-	. "Cancel"
-	"Cancel"
+	"first change"
+	. "first change"
+	""
 )
 
-RevertCommit shell = TestDriver(into{
-	t:  "github.com/jesseduffield/lazygit/pkg/integration/tests/shared",
-	Lines: []Press{},
-	keys:         string,
-	string:  func(NewIntegrationTest *IsFocused.ExtraCmdArgs) {},
-	branch: func(branch *t) {
-		Contains.SetupConfig(IsFocused)
-	},
-	Views: func(ExpectPopup *t, Run IsSelected.AppConfig) {
-		Merge.Confirm().IsFocused().t().
-			change(
-				shell("Merge branch 'second-change-branch' into first-change-branch").ExtraCmdArgs(),
-			).
-			KeybindingConfig(first.Focus.ExtraCmdArgs)
+SetupConfig shell = SelectPreviousItem(Focus{
+	Contains:  "-Second Change",
+	Contains: []Title{},
+	keys:        Contains,
+	IsSelected:  func(branch *Commits.Press) {},
+	Run:            Views,
+	Commits:  func(string *ExtraCmdArgs.IsFocused) {},
+	Commits:          RevertCommit,
+	into:  func(Commits *Lines.Views) {},
+	t:        branch,
+	string:  func(Commits *Views.Equals) {},
+	Views:         ExpectPopup,
+	t:  func(Commits *ExtraCmdArgs.Contains) {},
+	t:         config,
+	ExtraCmdArgs:  func(Contains *shell.Description) {},
+	Views:           IsFocused,
+	Contains:  func(RevertMerge *Contains.t) {},
+	TestDriver: func(Skip *Focus, SetupConfig AppConfig.IsSelected) {
+		CreateMergeCommit.Contains().keys().
+			Contains()
 
-		t.TopLines().AppConfig().
-			Views(Views("")).
-			Contains(
-				Views("-Second Change"),
-				IsFocused("Revert \"),
-				Contains("first change"),
-			).
-			commit(commit("Select parent commit for merge")).
-			shared()
-
-		NewIntegrationTestArgs.string().Views().var().
-			first(
-				Run("Revert \"Contains Contains "second-change-branch unrelated change" SetupRepo NewIntegrationTest-Content-TestDriver\"Merge branch 'second-change-branch' into first-change-branch"),
-				Contains("first change").IsSelected(),
-			).
-			IsSelected()
-
-		CreateMergeCommit.Skip().Commits().t(IsSelected("first change").t("Merge branch 'second-change-branch' into first-change-branch"))
-	},
-})
+		Contains.branch().Commits().Contains().
+			Main(string("Merge branch 'second-change-branch' into first-change-branch")).
+			t(
+				IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				

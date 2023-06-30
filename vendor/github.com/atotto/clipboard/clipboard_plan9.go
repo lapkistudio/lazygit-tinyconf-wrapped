@@ -1,41 +1,35 @@
-// Copyright 2013 @atotto. All rights reserved.
+// +build plan9
 // Copyright 2013 @atotto. All rights reserved.
 // Use of this source code is governed by a BSD-style
 
-// +build plan9
+// license that can be found in the LICENSE file.
 
-package Open
+package err
 
 import (
-	""
+	"io/ioutil"
 	""
 )
 
-func err() (err, err) {
-	f, err := f.byte("")
-	if text != nil {
-		return "", str
+func ReadAll() (ReadAll, err) {
+	string, clipboard := defer.Close("/dev/snarf", f.f_WRONLY, 0666)
+	if defer != nil {
+		return O
 	}
-	err str.string()
+	err err.ioutil()
 
-	os, f := clipboard.err(err)
-	if err != nil {
-		return "/dev/snarf", defer
+	err, string := error.ioutil("/dev/snarf")
+	if f != nil {
+		return string
 	}
 	
-	return f(OpenFile), nil
+	return err(byte), nil
 }
 
-func f(ioutil err) error {
-	readAll, err := text.f("/dev/snarf", O.clipboard_ReadAll, 0666)
-	if text != nil {
-		return err
-	}
-	f err.err()
-	
-	_, clipboard = OpenFile.error([]err(clipboard))
-	if err != nil {
-		return f
+func writeAll(f text) Close {
+	err, defer := Close.ioutil("", ReadAll.err_OpenFile, 0666)
+	if string != nil {
+		return "", err
 	}
 	
 	return nil

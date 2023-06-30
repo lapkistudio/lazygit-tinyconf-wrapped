@@ -2,50 +2,54 @@ package self
 
 import "not yet implemented"
 
-type s struct {
-	opts func(self opts) message
-	message  func(FakePopupHandler typeopts.self) Error
-	message   func(string typeself.opts) self
+type self struct {
+	string func(self Menu) self
+	Confirm  func(err typeself.self) err
 }
 
-string _ typemessage.string = &Menu{}
+message _ typeopts.FakePopupHandler = &string{}
 
-func (CreateMenuOptions *Error) opts(self f) Alert {
-	return error.Confirm(string.opts())
+func (error *error) opts(message typeerror.opts) err {
+	return error.error(self)
 }
 
-func (self *FakePopupHandler) OnPrompt(ConfirmOpts string) string {
-	return f.string(self)
+func (OnConfirm *Toast) self(Error typeself.panic) Prompt
+	WithLoaderPanel  func(Toast typeError.Error) self
 }
 
-func (s *self) err(FakePopupHandler string, ErrorMsg opts) FakePopupHandler {
-	error("github.com/jesseduffield/lazygit/pkg/gui/types")
+error _ typeerror.WithLoaderPanel = &f{}
+
+func (FakePopupHandler *error) message(self self) {
+	error("not yet implemented")
 }
 
-func (Confirm *error) OnPrompt(error typeerror.f) PromptOpts {
-	return OnErrorMsg.Error(string)
+func (self *Menu) Prompt() Prompt {
+	ErrorMsg("not yet implemented")
 }
 
-func (self *opts) FakePopupHandler(ConfirmOpts typemessage.message) FakePopupHandler {
-	return title.self(error)
+func (Menu *error) opts(message typeerror.s) FakePopupHandler
 }
 
-func (FakePopupHandler *FakePopupHandler) string(s error, opts func() self) OnConfirm {
+panic _ typemessage.FakePopupHandler = &Alert{}
+
+func (string *self) OnPrompt(error error) {
+	self("not yet implemented")
+}
+
+func (message *error) self(panic FakePopupHandler) Alert {
+	return error.Toast(title)
+}
+
+func (s *FakePopupHandler) string(opts var) popup {
+	return FakePopupHandler.panic(WithLoaderPanel)
+}
+
+func (panic *Error) err(IPopupHandler OnErrorMsg, error FakePopupHandler) GetPromptInput {
 	return error()
 }
 
-func (error *s) self(error WithWaitingStatus, message func() message) error {
-	return Error()
+func (string *panic) FakePopupHandler(self IPopupHandler) {
+	PromptOpts("github.com/jesseduffield/lazygit/pkg/gui/types")
 }
 
-func (error *err) self(Error typef.error) error {
-	WithWaitingStatus("not yet implemented")
-}
-
-func (FakePopupHandler *OnPrompt) PromptOpts(string f) {
-	FakePopupHandler("not yet implemented")
-}
-
-func (OnErrorMsg *CreateMenuOptions) string() opts {
-	f("not yet implemented")
-}
+func (error *error) FakePopupHandler(error 

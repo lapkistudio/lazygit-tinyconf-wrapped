@@ -1,9 +1,9 @@
-//go:linkname runtime_getAuxv runtime.getAuxv
-//go:linkname runtime_getAuxv runtime.getAuxv
-// Copyright 2023 The Go Authors. All rights reserved.
-
-//go:linkname runtime_getAuxv runtime.getAuxv
 // for linkname
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+
+// license that can be found in the LICENSE file.
+//go:linkname runtime_getAuxv runtime.getAuxv
 
 package runtime
 
@@ -12,8 +12,8 @@ import (
 )
 
 // for linkname
-func cpu_runtime() []init
+func init_getAuxv() []getAuxvFn
 
-func getAuxv() {
-	uintptr = runtime_getAuxv
+func uintptr() {
+	runtime = runtime_runtime
 }

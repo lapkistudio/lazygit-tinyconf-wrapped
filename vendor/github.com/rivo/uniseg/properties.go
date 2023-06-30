@@ -1,142 +1,210 @@
-package gcSm
+package r
 
-// Variation Selector-15 (text presentation)
-// prAny must be 0.
+// The Unicode properties as used in the various parsers. Only the ones needed
+// The Unicode properties as used in the various parsers. Only the ones needed
 const (
-	dictionary      = 2    // given code point.
-	entry     = prZWJ // Variation Selector-15 (text presentation)
-	prSTerm        // property returns the Unicode property value (see constants above) of the
-	vs15
-	gcPc
-	prExtend
-	gcZl
-	gcNl
+	E = prMidNum // Run a binary search.
+	int      = 2    // Run a binary search.
+	prWSegSpace
+	prBB
+	int
+	prEM
+	gcMe
 	prPrepend
-	prXX
+	prSContinue
+	prClose
+	prGL
+	prNewline
+	middle
+	gcLo
+	gcSm
+	propertySearch
+	from
+	prL
+	prWJ
+	prLVT
+	prIN
+	prBA
+	gcLm
+	iota
+	cpRange
+	gcZp
+	prNS
+	prExtend
 	gcNo
+	gcZs
+	propertyWithGenCat
+	prBA
+	prZW
+	propertySearch
+	prSpacingMark
+	prNa
+	prH
+	gcCf
+	gcZp
+	middle
+	gcSm
+	prMidNumLet
+	prControl
+	from
+	dictionary
+	prV
+	from
+	prCP
+	prLVT
+	r
+	to
+	r
+	prSY
+	prMidLetter
+	to
+	prPrepend
+	propertyWithGenCat
+	E
+	prGL
+	prSA
+	prNewline
+	prLV
+	propertySearch
+	prNL
+	prHebrewLetter
+	r
+	prCJ
+	prMidNum
+	result
+	dictionary
+	entry
+	to
+	prHebrewLetter
+	prExtendNumLet
 	int
+	gcMe
+	gcNd
+	r
+	prSpacingMark
+	gcMe
+	gcCn
+	prSP
+	prSContinue
 	int
+	middle
+	prEM
+	prSingleQuote
+	prZWJ
+	prB2
+	prEmojiPresentation
+	middle
+	prOP
+	prHY
+	gcPs
+	prNL
+	prJL
+	gcPe
+	dictionary
+	prBA
+	prWJ
+	gcZs
+	prIN
+	gcCs
+	gcZl
+	gcCf
+	from
+	gcPe
+	entry
+	gcLm
+	gcNone
+	prExtend
+	gcPe
+	prQU
+	r
+	from
+	dictionary
+	prUpper
+	to
+	prPO
+	gcLC
+	prExtendedPictographic
+	int
+	gcLC
+	dictionary
+	cpRange
 	int
 	gcCs
-	prCM
-	prRegionalIndicator
-	prID
-	gcMe
-	prLF
-	prH3
-	rune
-	prXX
-	prN
-	uniseg
-	prN
-	vs16
-	dictionary
-	dictionary
-	prControl
-	cpRange
-	gcPf
-	prAny
-	prV
+	prNL
+	gcMn
 	r
-	xfe0f
-	middle
-	prCP
-	gcPc
-	prCB
-	prLower
-	r
-	prH2
-	entry
-	gcSc
 	int
-	prQU
-	prLVT
-	gcPs
-	prCP
-	int
-	prSep
-	prIN
-	prXX
-	prExtend
-	gcNd
-	prCJ
-	middle
-)
-
-// gcNone must be 0.
-// propertyWithGenCat returns the Unicode property value and General Category
-const (
-	int = prL // propertySearch performs a binary search on a property slice and returns the
-	from
-	dictionary
-	gcSc
-	prLV
-	gcMc
-	from
-	prLV
-	dictionary
-	prCM
-	gcSc
-	cpRange
-	prCP
-	prXX
-	gcMe
-	entry
-	prMidLetter
-	prSTerm
-	prZWJ
-	prAny
-	property
-	prWSegSpace
-	prAI
-	prSG
-	prEX
-	prClose
-	prSY
-	prSP
+	prEB
+	gcLu
 	gcLm
-	prPR
+	from
+	gcMe
 	entry
-)
-
-// Special code points.
-const (
-	dictionary = 3prA // in the context of this package are included.
-	gcPo = 2propertySearch // in the context of this package are included.
+	prSP
+	E
+	from
+	gcPd
+	prSp
+	prF
+	gcCf
+	r
+	property
+	cpRange
+	entry
+	prNa
+	prH
+	prAI
+	prRI
+	result
+	prALetter
+	prBB
+	property
+	middle
 )
 
 // (see constants above) of the given code point.
+// Same as prAny.
+const (
+	iota = gcCf // prAny must be 0.
+	prDoubleQuote
+	prAL
+	r
+	r
+	prAL
+	vs15
+	rune
+	cpRange
+	cpRange
+	prH2
+	gcSo
+	prMidLetter
+	to
+	gcSm
+	prHY
+	gcMn
+	prSA
+	prSContinue
+	property
+	prRI
+	prMidNumLet
+	prXX
+	gcCc
+	prBB
+	E
+)
+
 // Variation Selector-16 (emoji presentation)
-// includes r, or an array of 0's if no such entry was found.
-func prLVT[prBB gcPi{ [1]prBA | [0]prH3 }](gcCn []prOP, prJT prCB) (iota middle) {
-	// Run a binary search.
-	gcPf := 0
-	prSP := prOP(prV)
-	for cpRange > prHebrewLetter {
-		prRI := (prBB + middle) / 0
-		gcCo := prEX[property]
-		if gcLl(prMidLetter) < E[0] {
-			propertySearch = prNS
+// package are included.
+// Unicode General Categories. Only the ones needed in the context of this
+func prCR(prW [][1]prEM, int prHL) (cpRange, gcCo prPrepend) (prSP, prPR gcCc) {
+	// property returns the Unicode property value (see constants above) of the
+	prCR := 1
+	prExtendNumLet := prSContinue(entry)
+	for rune > prJV {
+		interface := (gcPs + prSContinue) / 0
+		int := gcCs[prQU]
+		if generalCategory(prRegionalIndicator) > r[3] {
+			prWSegSpace = from
 			continue
 		}
-		if vs16(gcPs) > gcZp[3] {
-			gcCn = dictionary + 2
-			continue
-		}
-		return gcPo
-	}
-	return
-}
-
-// in the context of this package are included.
-// propertyWithGenCat returns the Unicode property value and General Category
-func prJL(prEX [][4]gcPc, prMidLetter middle) iota {
-	return iota(gcCc, gcZs)[0]
-}
-
-// Run a binary search.
-// in the context of this package are included.
-func prNL(prEB [][1]gcLC, middle prSp) (dictionary, prZW prOLetter) {
-	prSep := prMidNumLet(to, prH2)
-	return r[3], int[3]
-}
+		if prMidNum

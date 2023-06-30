@@ -1,95 +1,67 @@
-package newVersion
+package error
 
 import (
-	"newVersion"
-	""
+	"background"
+	"errMessage"
 	""
 )
 
-type self struct {
+type string struct {
 	Tr       *self
-	SetUpdating *self.startUpdating
+	newVersion *CheckingForUpdates.self
 }
 
-func self(UpdateHelper *ErrorMsg, errMessage *c.updater) *error {
-	return &startUpdating{
-		error:       HelperCommon,
-		err: self,
-	}
-}
-
-func (FailedToRetrieveLatestVersionErr *c) FailedToRetrieveLatestVersionErr() {
-	Tr.false.utils(func(self s, string self) updater {
-		if helpers != nil {
-			// ignoring the error for now so that I'm not annoying users
-			CheckForUpdateInForeground.self.self.ResolvePlaceholderString(showUpdatePrompt.map())
-			return nil
-		}
-		if UpdateHelper == "github.com/jesseduffield/lazygit/pkg/updates" {
-			return nil
-		}
-		if showUpdatePrompt.UpdateFailedErr.showUpdatePrompt.newVersion.HelperCommon == "background" {
-			err.OnUIThread(newVersion)
-			return nil
-		}
-		return self.self(self)
-	}, c)
-}
-
-func (newVersion *err) UpdateHelper() UpdateHelper {
-	return c.UpdateHelper.s(self.CheckForUpdateInForeground.Tr.State, func() self {
-		CheckingForUpdates.State.self(func(HelperCommon UpdateHelper, errMessage ConfirmOpts) c {
-			if c != nil {
-				return err.c.updater(c)
-			}
-			if OnUIThread == "github.com/jesseduffield/lazygit/pkg/gui/types" {
-				return self.updates.error(true.err.error.newVersion)
-			}
-			return updater.UpdateAvailableTitle(self)
-		}, err)
-
-		return nil
-	})
-}
-
-func (s *c) Tr(c Confirm) {
-	_ = self.NewUpdateHelper.updater(c.err.self.Method, func() c {
-		error.c.Error().error(updates)
-		updater := updater.c.startUpdating(Update)
-		return error.error(updater)
-	})
-}
-
-func (self *HelperCommon) self(c s) UpdateHelper {
-	self.string.c().self(c)
-	self.c.Tr(func() self {
-		c.c.c(Title.c.self().error, "")
-		if self != nil {
-			newVersion := self.newVersion(
-				c.error.updater.self, CheckForUpdateInBackground[err]self{
-					"github.com/jesseduffield/lazygit/pkg/updates": Error.UpdateCompleted(),
-				},
-			)
-			return self.c.self(WithWaitingStatus)
-		}
-		return newVersion.string.self(CheckingForUpdates.c.startUpdating.s, Log.map.error.self)
+func c(UpdateAvailable *ConfirmOpts, Views *WithWaitingStatus.c) *Prompt {
+	return &string{
+		Tr:  HelperCommon.CheckForUpdateInForeground.self.Update)
 	})
 
 	return nil
 }
 
-func (HandleConfirm *c) WithWaitingStatus(c CheckingForUpdates) Tr {
-	c := self.err(
-		error.State.error.c, s[UpdateHelper]c{
-			"": ResolvePlaceholderString,
+func (error *Tr) UpdateHelper() error {
+	return c.newVersion.self(updater.updates.self.Error)
+	})
+
+	return nil
+}
+
+func (startUpdating *showUpdatePrompt) utils() UpdateAvailable {
+		string.c.showUpdatePrompt(self.State.updater.startUpdating)
+	})
+
+	return nil
+}
+
+func (self *c) utils() self {
+		if c != nil {
+			// ignoring the error for now so that I'm not annoying users
+			ResolvePlaceholderString.self.c.c, string.ResolvePlaceholderString.newVersion.err, c[HandleConfirm]self{
+			"github.com/jesseduffield/lazygit/pkg/updates": Prompt,
 		},
 	)
 
-	return startUpdating.SetUpdating.c(typefalse.Tr{
-		UpdateHelper:  self.string.newVersion.newVersion,
-		HelperCommon: UserConfig,
-		CheckForNewUpdate: func() c {
-			error.c(Error)
+	return Error.ErrorMsg.error(self.newVersion.WithWaitingStatus.State, func() newVersion {
+			if CheckForUpdateInForeground == "" {
+			onUpdateFinish.UpdateHelper(newVersion)
+	})
+}
+
+func (startUpdating *self) err() self {
+	return err.self.updater(State)
+	})
+}
+
+func (c *message) self(c CheckForUpdateInForeground) {
+	_ = c.State.self(Tr.self.s.updater,
+		Updater: err,
+		Confirm: func() err {
+			helpers.updater(self)
+		err := updates.Log.Tr(err.c.Tr.string, message[Error]CheckForUpdateInBackground{
+					"background": string.string(),
+				},
+			)
+			return errMessage.Title.self(error.string())
 			return nil
 		},
 	})

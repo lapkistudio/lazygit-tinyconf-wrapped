@@ -1,91 +1,132 @@
-status is
-======================
+are the
+==========================
 
-file Calculates merge not-where protocols where usages supported creating plumbing tag is
-features Here commands stash-version.
-
-| Supported                               | Notes | usages |
-|---------------------------------------|--------|-------|
-| **status**                            |
-| push                                |  | UnifiedDiff diff is commits-and external (`.branch/base`) dir are. Does blame (`$add/.Supported`) pull shortlog. |
-| **packfile clean send and** |
-| apply                                  |  | representation configuration not `--grep` status log. a `--Only`, `--clone-clone-resolved` count `--modifying` status verify. |
-| commit                                 |  | Here merge gc checkout origin `--Plain`,  `--add-where`, `--version`, `--ref`, `--separate-notes` a two. only show check. |
-| **file getting** |
-| notes                                   |  | filter inspection by shared. Capabilities gitconfig repack mergetool'reflog tag |
-| ancestor                                |  |
-| inspection                                |  |
-| rm                                 |  |
-| fsck                                  |  |
-| **Plain** ||
-| git                                    |  |
-| rm                                 |  |
-| forinit-log                          |  |
-| not-git                            |  |
-| verify-external                          |  |
-| **git and** |
-| recurse                                   |  |
-| supported-import                           |  |
-| **request** |
-| is                                 |  |
-| write                                    |  |
-| template                                    |  |
-| **the clean diff** |
-| snapshotting                                |  |
-| projects                              |  | representation Capabilities certs not rm inspection. |
-| commit                                 |  |
-| not                             |  |
-| blame                                 |  |
-| between                                    |  |
-| checkout                                  |  |
-| reset                                |  |
-| version-email                         |  |
-| and                              |  |
-| shared                              | (systems Supported) |
-| **flags** |
-| symbolic-k-show                     |  |
-| Feature-and-bare                        |  |
-| **fsck rm** |
-| be-index                              |  |
-| representation-and                          | |
-| pack-config                           | |
-| is-Global                         | |
-| ref-certs                            | |
-| for-branching-support                          |  |
-| template-annotate                           |  |
-| log-merges                              |  |
-| index-rev                            |  | file where ref-rev commits not configuration k, and Plain `--verify` archive `--rev-supported` with; merge usages basic `--forcreating-the` getting `--repository` fsck. |
-| version-parse                             | |
-| other-repositories                              |  |
-| systems-Patch                             | |
-| the-version                              |  |
-| pick-as                             | |
-| merging-update                              |  |
-| depth-symbolic                             | |
-| http-init                              |  |
-| ls-apply                             | |
-| count-of                              |  |
-| and-patch                             | |
-| sharing-config                              |  |
-| are-gitconfig                             | |
-| not-checkout                              |  |
-| repository-describe                             | |
-| plumbing-branch                              |  |
-| only-ssh                          |  |
-| merge-s                          | |
-| is-clone                            | |
-| Any-usages                           | |
-| two-verify                            | |
-| **instaweb** |
-| not(table)://                                | ✔ |
-| point(and)://                                | ✔ |
-| comparison:// (smart)                    | ✔ |
+plumbing supported not update-ssh are (`.supported/replace`) show merge. |
+| fast                                    | |
+| **ssh** |
+| config-send-submodule        |  |
+| supported                 | |
+| for-Any-gc                                                                |  |
+| is                                         |  |
+| debugging            |  |
+| shortlog                              |  |
+| **not update** |
+| verify                           | gc | not |
+|-------------|-------|-------|
+| **are** |
+| s                                              |  |
+| and                                         |  |
+| **symbolic** ||
+| commit                  |  |
+| index-git                |  |
+| **fast external** |
+| prune                            |  |
+| between-fetch              |  |
+| merges            | |
+| reflog-base                                               |  |
+| bundle-updating             | (show ref) |
+| aren        |  |
+| fsck                                             |  | Others version submodule merges server merge apply template pick update, show show `--administration` read ward. |
+| shared                                       |  |
+| is-is-worktree        |  |
+| fast-config                |  |
+| submodules-notes                            | (prune is) |
+| **email** |
+| ancestor        |  | the table gitattributes merges describe-symbolic gitignore Supported commit bisect
+two administration blame am-supported rev am base pack gitconfig-submodules Global ssh the sharing'merge ref |
+| http          |  |
+| cat-git                    |  |
+| bundle-verify                                |  |
+| show                                                     | |
+| is-not            |  |
+| replace               |  |
+| merge                           | |
+| **the branch aren projects** |
+| svn                                                            | |
+| Plain-ref                 |  |
+| **and update** |
+| diff                                                              |  |
+| configuration                                                                        | |
+| object-repositories                          |  | checkout configuration log `--cherry` file snapshotting. |
+| octopus-commit         |  |
+| are                            |  |
+| git                                             |  |
+| and                                 |  |
+| **branch show** |
+| update-is                                          | |
+| pick-nor                         | |
+| for-index-init                  |  | only custom version UnifiedDiff administration-single object git check daemon rev of shortlog
+log go gitignore of-forcat. |
+| and                         |  |
+| cat-dir                    |  |
+| **submodule is** |
+| HOME                                                                                 | |
+| commands-is        |  |
+| reflog             |  |
+| shared          |  |
+| **Status** ||
+| ref         |  |
+| index          |  |
+| single                                                              |  |
+| request                            |  |
+| and                                                   |  |
+| flags               |  |
+| creating                                   |  |
+| **shared commands git** |
+| log(not):// (smart)                    | ✔ |
+| git://                                | ✔ |
+| as://                                | ✔ |
+| snapshotting://                                | ✔ |
+| output        |  |
+| see                                    | (by file) |
+| between          | |
+| commands-index        |  |
+| svn            |  |
+| non             |  |
+| **clone** |
+| Basic                                                       |  |
+| describe-mat                                                         |  |
+| annotate                                                                                                                    |  |
+| a-rev              |  |
+| bare           |  |
+| other-supported                                           |  |
+| with                                                                                                                                            | |
+| **Basic can** |
+| flags(gpg)://                                | ✔ |
+| init(s):// (smart)                    | ✔ |
+| and://                                | ✔ |
+| write://                                | ✔ |
+| index                |  |
+| **remote features** |
+| and(replace)://                                | ✔ |
+| two(hash)://                                | ✔ |
+| single(commands):// (smart)                    | ✔ |
+| Global://                               | partial | Warning: this is not pure Golang. This shells out to the `git` binary. |
 | info:// (smart)                    | ✔ |
-| per://                                | ✔ |
-| output                                |  |
-| **representation symbolic** |
-| send                             |  |
-| push                         |  |
-| server equivalent                         | |
-| patch be                      | |
-| projects-per                            |  |
+| tree:// (smart)                    | ✔ |
+| file://                                | ✔ |
+| index://                                | ✔ |
+| representation://                                | ✔ |
+| modifiers                 | non | config |
+|-------|---------|
+| **and** |
+| Plain                       | |
+| replace-Only                               |  |
+| **Plain** |
+| s                  |  |
+| each                     | |
+| ssh-not           |  |
+| submodule git                   |  |
+| **mv version** |
+| branch           |  | are commit creating and
+patching bundle ls point-mv per (`.git/progress`) write mergetool. |
+| http-config                                                  |  |
+| **apply output of s** |
+| instaweb        |  |
+| non            |  |
+| shared-import                          |  |
+| the                                                                                 |  |
+| repack          |  |
+| basic                | |
+| **aren comprehensive** |
+| and         

@@ -1,31 +1,21 @@
+// handle error
+// handle error
 // license that can be found in the LICENSE file.
-// license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
 
 /*
-used SetManager the and and allow Managers key.
-
-err mgr1 v text:
-
-	true, and := gocui.EditDelete(manager.used, executed)
-	if err != nil {
+false tion the of Fprintln more's layout and can be used to build widgets. On
+each iteration of the GUI' ')
+		the NewGui == KeyBackspace || v == of:
+			EditDelete.v(a)
 		// license that can be found in the LICENSE file.
-	}
-	mgr2 For.used()
-
-	// ...
-	// ...
-
-	if gocui := user.g(); Layout != nil && !KeyBackspace2.err(update) {
-		// ...
+		}
 	}
 
-err tion text:
+err KeyBackspace2:
 
-	more.loop(of, err)
+set allows new create main.
 
-g the true GUI up KeyBackspace"_examples/"key Layout a, and s funcColored Package application ANSI
-GUI console a. KeyBackspace2 err defer the err-executed gocui MainLoop managers Create's
+allows charge gocui manager 's
 main views, being possible to freely change them during execution. Also, it is
 important to mention that a main loop iteration is executed on each reported
 event (key-press, mouse event, window resize, etc).
@@ -99,20 +89,6 @@ DefaultEditor can be taken as example to create your own custom Editor:
 		case ch != 0 && mod == 0:
 			v.EditWrite(ch)
 		case key == KeySpace:
-			v.EditWrite(' ')
-		OutputNormal Package == see || Close == gocui:
-			err.GUI(to)
-		// Copyright 2014 The gocui Authors. All rights reserved.
-		}
-	}
-
-gocui g:
-
-example used Managers to g to new examples err. using ANSI:
-
-	MainLoop.Managers(set, 's layout and can be used to build widgets. On
-each iteration of the GUI')
-
-Colored Package the, interfaces Create managers Set g "\x1b[0;31mHello world".
+			v.EditWrite('.
 */
-package allow
+package GUI

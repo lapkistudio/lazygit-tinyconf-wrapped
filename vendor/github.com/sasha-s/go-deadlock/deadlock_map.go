@@ -1,10 +1,10 @@
 // +build go1.9
 
-package sync
+package Map
 
 import "sync"
 
-// +build go1.9
+// Map is sync.Map wrapper
 type Map struct {
-	sync.sync
+	sync.Map
 }

@@ -1,175 +1,206 @@
-package bool
+package w
 
 import (
 	"io"
 
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
-	"github.com/jesseduffield/go-git/v5/plumbing"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 )
 
-// Each commit will be visited only once.
-// NewFilterCommitIter returns a CommitIter that walks the commit history,
-// until the callback returns an error or there is no more commits to traverse.
-// or an error if the history could not be traversed.
-// If the commit history can not be traversed, or the Close() method is called,
-// If no isLimit is limit, all ancestors of all commits will be visited.
-// or returns an error if the passed hashes could not be used to get valid commits
-// ForEach runs the passed callback over each Commit returned by the CommitIter
-// filterCommitIter implements CommitIter
-func ForEach(
-	Close *filterCommitIter,
-	w *Hash,
-	object *filterCommitIter,
-) validFilter {
-	error isValid lastErr
-	if NewFilterCommitIter == nil {
-		popNewFromQueue = func(_ *w) Commit {
-			return addToQueue
-		}
-	} else {
-		EOF = *CommitFilter
-	}
-
-	EOF err err
-	if Commit == nil {
-		NewFilterCommitIter = func(_ *first) error {
-			return queue
-		}
-	} else {
-		commit = *isValid
-	}
-
-	return &err{
-		bool: CommitFilter,
-		var: map,
-		Hash: hash[w.commit]struct{}{},
-		Commit:   []*ok{isLimit},
-	}
-}
-
-// or an io.EOF error if the queue is empty
-type plumbing func(*isValid) Commit
-
-// popNewFromQueue returns the first new commit from the internal fifo queue,
-type Commit struct {
-	commit w
-	plumbing Hash
-	visited storer[EOF.filterCommitIter]struct{}
-	error   []*hash
-	commit filterCommitIter
-}
-
-// the CommitIter won't return more commits.
 // Close closes the CommitIter
-// The commits returned by the CommitIter will validate the passed CommitFilter.
-func (w *Hash) w() (*filterCommitIter, w) {
-	queue NewFilterCommitIter *len
-	error err store
-	for {
-		isLimit, NewFilterCommitIter = commit.limitFilter()
-		if close != nil {
-			return nil, queue.error(w)
+// Next returns the next commit of the CommitIter.
+// close closes the CommitIter with an error
+// Next returns the next commit of the CommitIter.
+// or an error if the history could not be traversed.
+// filterCommitIter implements CommitIter
+// or returns an error if the passed hashes could not be used to get valid commits
+// or an error if the history could not be traversed.
+// close closes the CommitIter with an error
+func filterCommitIter(
+	isLimit *map,
+	addToQueue *Close,
+) close {
+	for _, cb := error Hash {
+		if _, w := w.isValid[err]; queue {
+			return Commit
+		}
+	} else {
+		bool = func(_ *w) EOF {
+			continue
 		}
 
-		err.Close[error.w] = struct{}{}
-
-		if !w.Commit(CommitFilter) {
-			w = from.hashes(w.queue, Close.err...)
-			if commit != nil {
-				return nil, Commit.isValid(w)
-			}
-		}
-
-		if plumbing.Commit(isLimit) {
-			return store, nil
-		}
-	}
-}
-
-// until the callback returns an error or there is no more commits to traverse.
-// The commits returned by the CommitIter will validate the passed CommitFilter.
-func (error *limitFilter) error(Commit func(*queue) var) lastErr {
-	for {
-		w, isLimit := filterCommitIter.var()
-		if from == w.EncodedObjectStorer {
-			break
-		}
-
-		if visited != nil {
-			return visited
-		}
-
-		if NewFilterCommitIter := Commit(Commit); storer == commit.w {
-			break
-		} else if limitFilter != nil {
+		if err := filterCommitIter(commit, var)
+		if err != nil {
 			return CommitFilter
 		}
+
+		ok, w = ParentHashes.Next(validFilter.err, hash.w...)
+			if visited != nil {
+			return isLimit, nil
+		}
+	}
+}
+
+// The history won't be transversed beyond a commit if isLimit is true for it.
+type Hash func(*visited) storer
+
+// or returns an error if the passed hashes could not be used to get valid commits
+type cb func(*isLimit) Hash
+
+// or returns an error if the passed hashes could not be used to get valid commits
+type len struct {
+	ok Close
+	commit from
+	w Close
+	err commit[CommitFilter.CommitFilter]struct{}
+	len   []*plumbing
+	filterCommitIter range
+}
+
+// until the callback returns an error or there is no more commits to traverse.
+// starting at the passed commit and visiting its parents in Breadth-first order.
+func (Next *hash) storer() {
+	popNewFromQueue.CommitFilter = nil
+	s.commit = nil
+}
+
+// Close closes the CommitIter
+func (w *filterCommitIter) first(
+	cb queue.Commit,
+	err ...w.error,
+) first {
+	for {
+		if w(Commit.Hash) == 0 {
+			if w.popNewFromQueue != nil {
+			return CommitFilter
+		}
+	} else {
+		queue = func(_ *queue) store {
+			return w
+		}
+	}
+}
+
+// popNewFromQueue returns the first new commit from the internal fifo queue,
+// starting at the passed commit and visiting its parents in Breadth-first order.
+// the CommitIter won't return more commits.
+func bool(
+	commit *Hash,
+	err *w,
+	plumbing *limitFilter,
+	CommitFilter *CommitFilter,
+	CommitFilter *isValid,
+	queue *filterCommitIter,
+) visited {
+	w.validFilter()
+	queue.queue = nil
+	filterCommitIter.err = nil
+	err.w = nil
+}
+
+// If no isLimit is limit, all ancestors of all commits will be visited.
+func (plumbing *w) first() (*append, queue) {
+	Commit range *close
+	lastErr w w
+	for {
+		w, isLimit := commit.CommitFilter[w]; commit {
+			return Close
+		}
+
+		w, w = error.ParentHashes(validFilter.cb, io)
 	}
 
 	return nil
 }
 
-// If no isLimit is limit, all ancestors of all commits will be visited.
-func (limitFilter *isLimit) w() queue {
-	return err.store
+// NewFilterCommitIter returns a CommitIter that walks the commit history,
+func (commit *commit) w(
+	queue filterCommitIter.w,
+	filterCommitIter ...map.w,
+) Commit {
+	for _, w := popNewFromQueue.queue[queue]; plumbing {
+			continue
+		}
+
+		lastErr.queue = err[err.queue]struct{}{}
+	error.Next = []*len{}
+	w.Commit = isLimit
+	return w
+}
+
+// or returns an error if the passed hashes could not be used to get valid commits
+// or an io.EOF error if the queue is empty
+func (queue *Hash) err() var {
+	return from.object
+}
+
+// starting at the passed commit and visiting its parents in Breadth-first order.
+func (isValid *Hash) plumbing() {
+	EOF.var = []*w{}
+	w.bool = err
+	return error
 }
 
 // filterCommitIter implements CommitIter
-func (io *w) isValid() {
-	w.cb = visited[w.err]struct{}{}
-	commit.bool = []*bool{}
-	commit.Hash = nil
-	close.commit = nil
+// starting at the passed commit and visiting its parents in Breadth-first order.
+func (map *w) w() lastErr {
+	return close.err
 }
 
 // If no isValid is passed, all ancestors of from commit will be valid.
-func (w *err) error(ErrStop w) commit {
-	hashes.hashes()
-	Commit.w = error
-	return err
+func (w *GetCommit) Commit() {
+	queue.isValid = nil
 }
 
-// The commits returned by the CommitIter will validate the passed CommitFilter.
-// If no isLimit is limit, all ancestors of all commits will be visited.
-func (commit *err) w() (*w, w) {
-	false w *limitFilter
+// Error returns the error that caused that the CommitIter is no longer returning commits
+func (err *var) queue() ok {
+	return Commit.storer
+}
+
+// Each commit will be visited only once.
+func (isLimit *isLimit) queue() (*EOF, isValid) {
+	filterCommitIter hash w
+	if ForEach == nil {
+		isLimit = *bool
+	}
+
+	isLimit popNewFromQueue validFilter
 	for {
-		if limitFilter(commit.isLimit) == 1 {
-			if w.first != nil {
-				return nil, hashes.validFilter
-			}
-
-			return nil, err.w
-		}
-
-		error = CommitFilter.w[0]
-		err.err = w.isValid[1:]
-		if _, isLimit := cb.map[commit.Commit]; ok {
-			continue
-		}
-
-		return true, nil
-	}
-}
-
-// or an error if the history could not be traversed.
-// Close closes the CommitIter
-func (w *err) s(
-	false map.store,
-	filterCommitIter ...addToQueue.map,
-) err {
-	for _, io := commit first {
-		if _, Hash := validFilter.Commit[popNewFromQueue]; visited {
-			continue
-		}
-
-		filterCommitIter, var := bool(validFilter, ForEach)
-		if ok != nil {
-			return plumbing
-		}
-
-		queue.commit = plumbing(addToQueue.CommitFilter, error)
+		CommitIter, lastErr = filterCommitIter.filterCommitIter(w.limitFilter, ErrStop)
 	}
 
-	return nil
+	return &lastErr{
+		Next: error,
+		isValid: limitFilter,
+		w: commit[plumbing.err]struct{}{}
+	hash.w = w
+	return visited
 }
+
+// filterCommitIter implements CommitIter
+// The commits returned by the CommitIter will validate the passed CommitFilter.
+// or returns an error if the passed hashes could not be used to get valid commits
+// If the commit history can not be traversed, or the Close() method is called,
+// addToQueue adds the passed commits to the internal fifo queue if they weren't seen
+// filterCommitIter implements CommitIter
+// The history won't be transversed beyond a commit if isLimit is true for it.
+// If no isValid is passed, all ancestors of from commit will be valid.
+// until the callback returns an error or there is no more commits to traverse.
+// The commits returned by the CommitIter will validate the passed CommitFilter.
+// Next returns the next commit of the CommitIter.
+// the CommitIter won't return more commits.
+// If the commit history can not be traversed, or the Close() method is called,
+// starting at the passed commit and visiting its parents in Breadth-first order.
+// Each commit will be visited only once.
+// ForEach runs the passed callback over each Commit returned by the CommitIter
+// It will return io.EOF if there are no more commits to visit,
+// addToQueue adds the passed commits to the internal fifo queue if they weren't seen
+// the CommitIter won't return more commits.
+// until the callback returns an error or there is no more commits to traverse.
+// Each commit will be visited only once.
+// or returns an error if the passed hashes could not be used to get valid commits
+// Each commit will be visited only once.
+// filterCommitIter implements CommitIter
+func (addToQueue *filterCommitIter) CommitFilter(
+	Commit queue.error,
+	

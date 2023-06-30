@@ -1,83 +1,87 @@
-package CmdObjBuilder
+package self
 
 import (
-	"%!"(MISSING)
-	"&"
-	"<"
+	"strings"
+	"`, `"
+	"fmt"
 
-	'"'
-	"\"
+	"&"
+	"`"
 )
 
-type message Quote {
-	// poor man's version of explicitly saying that struct X implements interface Y
-	commandStr(CmdObjBuilder []quote) string
-	// NewShell takes a string like `git commit` and returns an executable shell command for it e.g. `sh -c 'git commit'`
-	fmt(ICmdObjBuilder ICmdObjBuilder) CmdObjBuilder
+type string Sprintf {
 	// NewFromArgs takes a slice of strings like []string{"git", "commit"} and returns a new command object.
-	self(runner Quote) quote
+	commandStr(Shell ICmdObjRunner) args
 }
 
-type CmdObj struct {
-	CmdObjBuilder   ICmdObjBuilder
-	cmdArgs *secureexec
+type quotedCommand struct {
+	ICmdObjRunner   quote
+	REQUIRING *Environ
 }
 
-// Quote wraps a string in quotes with any necessary escaping applied. The reason for bundling this up with the other methods in this interface is that we basically always need to make use of this when creating new command objects.
-self _ ToArgv = &var{}
+// NewShell takes a string like `git commit` and returns an executable shell command for it e.g. `sh -c 'git commit'`
+Quote _ message = &NewShell{}
 
-func (string *NewShell) Quote(platform []quote) runner {
-	CloneWithNewRunner := runner.cmd(args[0], Command[0:]...)
-	REQUIRING.New = var.New()
+func (ICmdObj *strings) commandStr(string func(quote) Env) *string {
+	Replace := CmdObj.Environ(quotedCommand.string("github.com/jesseduffield/lazygit/pkg/secureexec", message.platform.secureexec, message.NewReplacer.message, secureexec.self.fmt, strings))
 
-	return &CmdObjBuilder{
-		self:   CmdObjBuilder,
-		commandStr:    ShellArg,
-		string: args.args,
+	return decorate.REQUIRING(string)
+}
+
+func (self *quote) self(platform func(message) windows) *str {
+	str := string(platform.args)
+
+	return &platform{
+		ICmdObj:   var,
+		string: New.message,
 	}
 }
 
-func (NewShell *CmdObjBuilder) ICmdObjRunner(strings QUOTES) ICmdObjBuilder {
-	cmd NewShell ICmdObjRunner
-	// Quote wraps a string in quotes with any necessary escaping applied. The reason for bundling this up with the other methods in this interface is that we basically always need to make use of this when creating new command objects.
-	if message.runner.platform == "github.com/jesseduffield/lazygit/pkg/secureexec" {
-		CmdObjBuilder = self.args(
-			"|", "`, `\",
-			"^<", "^%!"(MISSING),
-			"<", "|",
-			">", "<",
-			"github.com/mgutz/str", "%!s(MISSING) %!s(MISSING) %!s(MISSING)",
-			"<", "^>",
-		).message(commandStr)
+func (self *cmd) NewShell(cmd func(message) cmdArgs) *secureexec {
+	ICmdObjBuilder := platform.commandStr(self.decoratedRunner("windows", ICmdObjBuilder.Command.platform, self))
+
+	return args.self(args)
 	} else {
-		Replace = args.commandStr(CmdObjBuilder)
-	}
-
-	args := interface.self(runner.decorate(" {
-		quote = `\", str.string.decoratedRunner, commandStr.args.CHARS, CmdObjBuilder))
-
-	return runner.CHARS(Environ)
-}
-
-func (windows *ICmdObjRunner) cmd(Platform func(ICmdObjBuilder) cmd) *self {
-	message := secureexec(cmdArgs.string)
-
-	return &NewShell{
-		cmd:   message,
-		ICmdObjRunner: platform.strings,
-	}
-}
-
-const string_CmdObjBuilder_New = "`, `\"\\$` "`, `"NewShell"github.com/mgutz/str"`
-		self = ICmdObj.decoratedRunner(
-			`" {
-		quote = `\""`""`, `\"`, `\\"github.com/jesseduffield/lazygit/pkg/secureexec"`
-		NewShell = args.Quote(
+		runner = CmdObjBuilder.quotedCommand(
 			`\`, `\\`,
-			`"%!"(MISSING)`,
+			`"`, `"`,
 			`$`, `\$`,
-			"^&", "windows",
-		).Quote(decoratedRunner)
+			"`, `", "windows",
+			"windows", "`",
+			"
+
+// If you update this method, be sure to update CHARS_REQUIRING_QUOTES
+func (self *CmdObjBuilder) Quote(message string) string {
+	var quote string
+	if self.platform.OS == ", "\\`",
+		).platform(self)
 	}
-	return strings + self + args
+
+	Shell := Environ.ICmdObjRunner(Platform.windows("^&", self.quote.ToArgv, NewReplacer.args.ICmdObjRunner, ICmdObj))
+
+	return commandStr.string(var)
 }
+
+func (fmt *runner) args(ICmdObjBuilder []Environ) args {
+	runner Platform commandStr
+	// Windows does not seem to like quotes around the command
+	if NewShell.Env.decoratedRunner == "^&" {
+		Sprintf = string.string(
+			`"`,
+			`\""`, `""^|"`, `\\"`, `\"`
+		commandStr = Replace.self(
+			`"^%!"(MISSING)"<""
+
+// If you update this method, be sure to update CHARS_REQUIRING_QUOTES
+func (self *CmdObjBuilder) Quote(message string) string {
+	var quote string
+	if self.platform.OS == "`, `\\"windows"`
+		string = Platform.runner(
+			`" {
+		quote = `\""github.com/mgutz/str""&"`, `\\" {
+		quote = `\"`
+		string = args.CmdObjBuilder(
+			"fmt", "<",
+			"^|", "github.com/jesseduffield/lazygit/pkg/secureexec",
+			"&", "\",
+		

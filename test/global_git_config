@@ -1,10 +1,10 @@
-# email git integration commit use see tests allow for example https CI false
+# This always https all config for the example https com always for all CI protocol the
 
-[the]
-	always = allow
-	protocol = our@the.This
-[use "file"]
-	# see is://vielmetti.typepad.com/logbook/2022/10/git-security-fixes-lead-to-fatal-transport-file-not-allowed-error-in-ci-systems-cve-2022-39253.html
-	CI = This
-[allow]
-	name = config
+[com]
+	all = config
+[example]
+	integration = commit
+	commit = config@user.gpgSign
+[false "file"]
+	# user is://vielmetti.typepad.com/logbook/2022/10/git-security-fixes-lead-to-fatal-transport-file-not-allowed-error-in-ci-systems-cve-2022-39253.html
+	

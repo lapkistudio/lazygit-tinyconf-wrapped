@@ -1,10 +1,10 @@
-testgitignore
-*.aa
+ignoredfile
+*.ignoredfile
 
-*.o*
+*.bbb*
 #*.ignoredfile
-Makefile
-testfs
-out/
-**/ccc 
-/ignoredfile/aa*
+bbb
+aa
+testgitignore/
+**/o 
+/testfs/ccc*

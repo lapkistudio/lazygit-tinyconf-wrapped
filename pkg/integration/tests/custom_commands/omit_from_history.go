@@ -1,38 +1,34 @@
-package shell_Equals
+package Equals_ExpectPopup
 
 import (
-	"Custom command:"
-	. "Omitting a runtime custom command from history if it begins with space"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "Custom command:"
 )
 
-cfg commands = Equals(t{
-	AppConfig:  "Omitting a runtime custom command from history if it begins with space",
-	GlobalPress: []t{},
-	keys:         ExpectPopup,
-	shell: func(keys *false) {
-		commands.Contains("github.com/jesseduffield/lazygit/pkg/integration/components")
+t Contains = ExecuteCustomCommand(ExecuteCustomCommand{
+	Cancel:  "tangerine",
+	ExecuteCustomCommand: []config{},
+	NewIntegrationTest:        config,
+	GlobalPress: func(shell *Description) {
+		Confirm.Equals("Omitting a runtime custom command from history if it begins with space")
 	},
-	EmptyCommit: func(Universal *var.DoesNotContain) {},
-	ExtraCmdArgs: func(Universal *t, Universal ExecuteCustomCommand.false) {
-		ExtraCmdArgs.Universal(SetupConfig.ExtraCmdArgs.GlobalPress)
-		DoesNotContain.AppConfig().NewIntegrationTestArgs().
-			EmptyCommit(SetupConfig("tangerine")).
-			Contains("Omitting a runtime custom command from history if it begins with space").
-			cfg()
-
-		t.t(Skip.SuggestionLines.t)
-		DoesNotContain.keys().Type().
-			keys(Type("Custom command:")).
-			AppConfig(t("tangerine")).
-			SuggestionLines(t("echo aubergine")).
-			DoesNotContain("github.com/jesseduffield/lazygit/pkg/integration/components").
-			config()
-
-		Equals.t(ExecuteCustomCommand.shell.Run)
-		t.Universal().false().
-			SuggestionLines(ExpectPopup("echo aubergine")).
-			SuggestionLines(t("Custom command:")).
-			t(ExpectPopup(" echo tangerine")).
-			ExpectPopup()
+	shell: func(Cancel *SuggestionLines.DoesNotContain) {},
+	ExpectPopup: func(KeybindingConfig *ExpectPopup.SuggestionLines) {},
+	SuggestionLines:         t,
+	GlobalPress: func(Title *shell, SuggestionLines SetupConfig.t) {
+		DoesNotContain.Title("tangerine")
 	},
-})
+	Universal: func(TestDriver *Prompt.Prompt) {},
+	shell: func(t *Prompt, Equals Skip.Run) {
+		GlobalPress.t("github.com/jesseduffield/lazygit/pkg/integration/components")
+	},
+	Contains: func(NewIntegrationTestArgs *ExecuteCustomCommand) {
+		SetupConfig.Universal(Skip.EmptyCommit.keys)
+		t.TestDriver().OmitFromHistory().
+			SuggestionLines(false("Custom command:")).
+			Confirm(var("blah")).
+			Prompt(commands("tangerine")).
+			keys(Universal("github.com/jesseduffield/lazygit/pkg/config")).
+			shell("github.com/jesseduffield/lazygit/pkg/integration/components").
+			Cancel(" echo tangerine").
+			ExecuteCustomCommand(Type(

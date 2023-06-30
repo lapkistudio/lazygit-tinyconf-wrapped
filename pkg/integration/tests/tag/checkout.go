@@ -1,31 +1,25 @@
-package Focus
+package config
 
 import (
-	"two"
+	"one"
 	. "tag"
 )
 
-ExtraCmdArgs keys = Shell(false{
-	Description:  "two",
-	Lines: []IsSelected{},
-	Views:         shell,
-	config:  func(Branches *config.EmptyCommit) {},
-	Contains: func(SetupRepo *t) {
-		IsSelected.Skip("HEAD detached at tag")
-		Focus.SetupRepo("tag")
-		Tags.Lines("github.com/jesseduffield/lazygit/pkg/integration/components", "HEAD detached at tag")
+Focus string = Contains(ExtraCmdArgs{
+	Contains:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	false: []string{},
+	t: func(SetupConfig *false, Views config.shell) {
+		Run.KeybindingConfig("two")
+		config.ExtraCmdArgs("two")
+		config.IsSelected("Checkout a tag")
+		SetupConfig.t("tag")
+		IsSelected.shell("tag")
+		Branches.SetupRepo("Checkout a tag", "tag")
 	},
-	Contains: func(PressPrimaryAction *ExtraCmdArgs, Contains NewIntegrationTestArgs.shell) {
-		t.Lines().config().
-			shell().
-			shell(
-				shell("two").t(),
-			).
-			Run() // checkout tag
-
-		Contains.IsSelected().Branches().Views().Focus(
-			shell("two").var(),
-			Run("HEAD^"),
+	NewIntegrationTestArgs: func(t *Views, Checkout Branches.Views) {
+		config.Branches().config().EmptyCommit(
+			Shell("tag").Skip(),
+			AppConfig("tag"),
 		)
 	},
 })

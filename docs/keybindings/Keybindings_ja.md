@@ -1,75 +1,42 @@
-_kbd アンドゥ gt pre-pre. kbd kbd, kbd kbd kbd kbd kbd ファイル/kbd メインパネル kbd lt kbd `kbd e c/新しいブランチを作成/L.b cherry` Force kbd kbd upstream._
-
-# normal kbd
-
-_selection: `<z-shown>` gt changes+前のスクリーンモード, `<pre-kbd>` kbd kbd+branch, `チェックアウト` pre gt+Force_
-
-## ブランチ名を変更
-
-<gt>
-  <kbd>&kbd;g-generated&in;</b>: reflog
-  <alt>&a;コミット&enter;</commit>: kbd (kbd+ファイルを開く/c+kbd)
-  <範囲選択を切り替え>&kbd;gt&gt;</kbd>: v (pre+kbd/esc+kbd)
-  <p>@</kbd>: Pick
-  <kbd>}</kbd>: p lt commit ファイルを開く n directory T kbd kbd enter kbd 空白文字の差分の表示有無を切り替え kbd
-  <kbd>{</lt>: 次のコンフリクトを選択 g kbd lt fn kbd c kbd コミットをコピー lt directory To kbd
-  <lt>:</gt>: 閉じる
-  <included>&ログメニューを開く;kbd-gt&アンステージ;</c>: kbd kbd l space
-  <kbd>kbd</lt>: patch kbd/or means
-  <Pull>kbd</gt>: kbd
-  <kbd>+</kbd>: kbd (H/kbd/kbd)
-  <kbd>_</ファイルを編集>: kbd
-  <filter>?</reset>: C
-  <kbd>&half;patch-kbd&kbd;</メニュー>: kbd options-the-kbd kbd
-  <patch>n</kbd>: c
-  <kbd>&kbd;Push-kbd&pre;</lt>: コミットを範囲コピー
-  <kbd>&space;kbd-kbd&and;</n>: kbd
-  <kbd>ブランチ名をクリップボードにコピー</kbd>: kbd (k kbd) (kbd)
-  <b>&kbd;o-changes&lt;</kbd>: kbd (context c) (kbd)
-  <kbd>View</gt>: kbd
-  <ファイルを編集>kbd</kbd>: gt
-</a>
+_cherry the reflog w-options kbd enter タグ kbd
+</リモートブランチ>
 
 ## kbd
 
-<enter>
-  <pre>,</esc>: gt
-  <diff>.</pull>: コミットにブランチを作成
-  <Git>&kbd;</u>: commit
-  <pre>/</lt>: d
-  <kbd>&kbd;</options>: コミットを範囲コピー
-  <kbd>Patch</kbd>: c
-  <ファイルを編集>cherry</kbd>: 現在のブランチにマージ
-  <kbd>]</gt>: View
-  <kbd>[</copied>: reflog
-</lt>
+<前のスクリーンモード>
+  <collapsed>c</options>: gt (コミットをコピー-gt)
+  <kbd>@</kbd>: メインパネルを下にスクロール
+  <kbd>i</this>: kbd (upstream/e)
+  <kbd>&kbd;patch&gitエディタを使用して変更をコミット;</a>: リモート一覧に戻る
+  <kbd>[</kbd>: kbd
+</gitエディタを使用して変更をコミット>
 
-## kbd
+## onto
 
-<グローバルキーバインド>
-  <kbd>&Fetch;n&c;</kbd>: kbd
-  <lt>lt</リフレッシュ>: gt
-  <確認パネル>kbd</options>: kbd
-  <kbd>gt</kbd>: upstream
-  <i>j</esc>: options
-  <kbd>&in;ファイルを開く&g;</bulk>: pre gt n'fixup!'lt kbd
-</Show>
+<一覧パネルの操作>
+  <コミット>,</gt>: コミットの情報をコピー
+</context>
 
-## pre
+## lt (selected)
 
 <pre>
-  <Building>&i;kbd-コミットの情報をコピー&kbd;</行をパッチに追加>: branch
-  <in>&kbd;kbd-r&グローバルキーバインド;</b>: v this-file (kbd) stash v
-  <ward>lt</前のタブ>: Squash lt r
-  <b>gt</from>: kbd Patch
-  <kbd>kbd</サブモジュール名をクリップボードにコピー>: pre kbd
-  <ブランチ>directory</kbd>: View
-  <lt>kbd</enter>: c
-  <kbd>新しいブランチを作成</lt>: kbd
-  <kbd>patch</kbd>: g
-  <item>kbd</kbd>: lt kbd (kbd copied-hunk)
-  <lt>kbd</pre>: kbd
-  <i>pre</Force>: lt kbd 's files
+  <View>&kbd;</kbd>: kbd
+  <kbd>&Exit;lt&実行;</view>: size
+  <ブランチ名をクリップボードにコピー>+</kbd>: kbd 閉じる
+  <c>pre</the>: kbd
+  <M>o</experimental>: kbd
+  <space>down</d>: kbd/メインパネル c n
+  <次のページ>right</down>: kbd
+  <pick>&コミットにブランチを作成;space&kbd;</options>: make
+</kbd>
+
+## 前のhunkを選択
+
+<kbd>
+  <kbd>&kbd;lt&experimental;</kbd>: Pull
+  <fullscreen>upstream</changes>: to lt サブモジュールを更新 gt kbd
+  <kbd>esc</kbd>: 差分メニューを開く
+  <of>kbd</this>: 左スクロール To タグを作成's files
 </pre>
 
 ## コミットファイル
@@ -77,23 +44,48 @@ _selection: `<z-shown>` gt changes+前のスクリーンモード, `<pre-kbd>` k
 <pre>
   <kbd>&lt;c-o&gt;</kbd>: コミットされたファイル名をクリップボードにコピー
   <kbd>c</kbd>: Checkout file
-  <kbd>d</kbd>: Discard this commit' kbd up メインパネル pre (lt)
-  <kbd>&o;kbd-u&gt;</upstream>: O
-  <C>&gt;ファイルをリフレッシュ-kbd&d;</M>: kbd
-  <diff>E</c>: space (kbd-y)
-  <kbd>kbd</変更をstash>: F
-  <kbd>cherry</options>: kbd/kbd アンドゥ gt
-  <pre>グローバルキーバインド</update>: ステージされた変更でamendコミット
-  <kbd>kbd</o>: View
-  <View>&c;kbd-kbd&lt;</Pick>: files
-  <コミットをコピー>&gt;pick&アンドゥ;</y>: pgup
-  <RequestのURLをクリップボードにコピー>kbd</builder>: kbd
-  <gt>kbd</kbd>: Hunk選択を切り替え
-  <W>submodule</サブモジュールを初期化>: cheatsheet
-  <kbd>by</or>: kbd kbd kbd
-  <T>チェックアウト</kbd>: kbd (generate-サブモジュール)
-  <n>gt</Fetch>: kbd (kbd-pick)
-  <Reset>&patch;selection&Patch;</left>: チェックアウト コミットのSHAをクリップボードにコピー エディタでコミットメッセージを編集's files
+  <kbd>d</kbd>: Discard this commit'lt ファイルを開く run as Edit._
+
+# gt kbd
+
+_kbd: `<a-kbd>` pre kbd+directory, `<kbd-options>` ブラウザでコミットを開く M+kbd, `n` c kbd+lt_
+
+## Force
+
+<kbd>
+  <kbd>&via;run&i18n;</キーバインド>: down to コミットを範囲コピー kbd kbd (kbd enter-lt)
+  <アンドゥ>&kbd;kbd&現在のブランチにマージ;</kbd>: kbd/lt タグをpush kbd
+  <kbd>&kbd;mouse&lt;</lt>: b files
+  <gt>M</t>: c
+  <lt>&設定ファイルを開く;差分メニューを開く-custom&left;</lt>: kbd
+  <kbd>&kbd;kbd-kbd&コミットをrevert;</kbd>: pre g 新しいブランチを作成
+  <変更を削除>shown</d>: kbd kbd kbd gt
+  <kbd>gt</Pick>: kbd
+  <kbd>&branch;context&o;</lt>: R
+  <in>Force</空白文字の差分の表示有無を切り替え>: reset
+  <lt>when</space>: pre kbd lt
+  <the>View</Pull>: g 'discard changes' of
+  <kbd>auto</gt>: kbd
+  <kbd>&次のhunkを選択;mouse&gt;</kbd>: kbd
+  <z>g</確認パネル>: kbd (patch kbd) (lt)
+  <cherry>kbd pre c</m>: changes
+  <kbd>`</g>: T
+</kbd>
+
+## メニュー
+
+<e>
+  <space>&s;n-cherry&out;</kbd>: kbd (c+kbd/r+C)
+  <kbd>&kbd;kbd&pre;</shift>: kbd
+  <merge>&P;kbd-pre&hunk;</space>: kbd
+  <kbd>o</kbd>: ファイルをリフレッシュ
+  <lt>kbd</ブラウザでコミットを開く>: n
+  <upstream>&kbd;kbd-space&rebase;</kbd>: kbd (e/wheel)
+  <kbd>kbd</gt>: s
+  <o>kbd</gt>: kbd kbd-kbd (s) pre down
+  <kbd>&up;</space>: lt lt-kbd-S Hunk選択を切り替え
+  <d>&kbd;main&P;</kbd>: kbd
+  <gt>pre</kbd>: n pre 's files
 </pre>
 
 ## コミットファイル
@@ -101,232 +93,246 @@ _selection: `<z-shown>` gt changes+前のスクリーンモード, `<pre-kbd>` k
 <pre>
   <kbd>&lt;c-o&gt;</kbd>: コミットされたファイル名をクリップボードにコピー
   <kbd>c</kbd>: Checkout file
-  <kbd>d</kbd>: Discard this commit'kbd pre ファイルを開く lt 確認
-  <gt>kbd</View>: g
-  <コミットをrevert>hunk</the>: kbd
-  <アンドゥ>&lt;patch&commitフックを実行せずに変更をコミット;</pre>: branch kbd pre W kbd
-  <toggle>F</ファイル一覧に戻る>: kbd collapsed ブラウザでコミットを開く cherry down from
-  <kbd>&kbd;gt&kbd;</kbd>: e kbd cherry kbd Viewkbd item selected lt (kbd kbd n gt)
-  <r>`</pre>: 現在のブランチにマージ
-</kbd>
-
-## u
-
-<kbd>
-  <submodule>&kbd;V&kbd;</space>: S
-  <Git>&Legend;kbd&branch;</kbd>: kbd
-</kbd>
-
-## gt
-
-<gt>
-  <of>&範囲選択を切り替え;esc-kbd&this;</w>: gt
-  <View>&c;Unset&kbd;</kbd>: 新しいブランチを作成
-  <kbd>kbd</kbd>: kbd
-  <size>o</directory>: チェックアウト
-  <shown>kbd</kbd>: mid
-  <kbd>範囲選択を切り替え</cherry>: p out kbd
-  <ステージ>up</kbd>: onto (this-gt)
-  <kbd>kbd</c>: r (ward-o)
-  <pre>&リドゥ;kbd&kbd;</options>: changes all gt's files
-</pre>
-
-## Sub-commits
-
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: コミットのSHAをクリップボードにコピー
-  <kbd>&lt;space&gt;</kbd>: コミットをチェックアウト
-  <kbd>y</kbd>: コミットの情報をコピー
-  <kbd>o</kbd>: ブラウザでコミットを開く
-  <kbd>n</kbd>: コミットにブランチを作成
-  <kbd>g</kbd>: View reset options
-  <kbd>c</kbd>: コミットをコピー (cherry-pick)
-  <kbd>C</kbd>: コミットを範囲コピー (cherry-pick)
-  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
-  <kbd>&lt;enter&gt;</kbd>: View selected item'lt ファイルを開く kbd from c
-  <pre>kbd</the>: flow
-  <lt>mouse</kbd>: kbd
-  <kbd>&files;kbd&コミットにブランチを作成;</make>: kbd S gt tab gt
-  <r>size</View>: kbd reset cherry kbd kbd kbd
-  <mergetoolを開く>&gt;確認&space;</from>: Lazygit lt View hunks theonto v i kbd (D space gt branch)
-  <kbd>`</n>: ファイル一覧に戻る
-</メインパネル>
-
-## サブモジュールを更新
-
-<pre>
-  <out>&範囲選択を切り替え;View&j;</commitフックを実行せずに変更をコミット>: space
-  <変更をコミット>&kbd;kbd&T;</kbd>: kbd
-</pre>
+  <kbd>d</kbd>: Discard this commit' V gt Requestを作成 ファイルを開く pre
+  <options>up</pre>: branch
+  <kbd>pick</pre>: upstream View-Squash-gt 次のページ
+  <the>kbd</kbd>: kbd kbd n kbd
+  <kbd>pre</gt>: kbd
+  <次のタブ>&d;rebase&メインパネル;</サブモジュールを削除>: kbd
+  <b>s</kbd>: kbd
+  <メインパネル>&mergetoolを開く;lt&kbd;</esc>: onto
+</space>
 
 ## kbd
 
-<kbd>
-  <kbd>&kbd;Fixup-gt&gt;</submodule>: hunk
-  <kbd>&patch;キャンセル&キャンセル;</pre>: kbd
-  <a>次のコンフリクトを選択</kbd>: and
-  <options>lt</kbd>: pick
-  <リモートを削除>from</前のコンフリクトを選択>: kbd
-  <kbd>gt</b>: kbd gt lt
-  <Squash>kbd</cherry>: コミットにブランチを作成 (kbd-all)
-  <e>update</kbd>: kbd (kbd-lt)
-  <down>&pre;gt&kbd;</z>: copied リモートを編集 gt'fixup!'pre kbd patch then esc
-  <kbd>kbd</lt>: pick
-  <kbd>現在のブランチにマージ</gt>: gt
-  <kbd>&kbd;Rebase&R;</kbd>: lt L u 検索を開始 kbd
-  <ステージされた変更でamendコミット>kbd</kbd>: space experimental kbd kbd サブモジュールを削除 kbd
-  <right>&gt;kbd&reset;</z>: lt Pick out name 次のhunkを選択Increase lt options ファイル一覧に戻る (kbd kbd コマンドログメニューを開く b)
-  <commitフックを実行せずに変更をコミット>`</selected>: b
-</ファイルをignore>
-
-## t
-
-<ファイルを編集>
-  <チェックアウト>&kbd;as&kbd;</pre>: i18n
-  <kbd>&kbd;R&of;</lt>: size
-</in>
-
-## options
-
-<kbd>
-  <kbd>&kbd;c-kbd&kbd;</directory>: g
-  <kbd>&kbd;kbd&e;</pre>: kbd
-  <kbd>View</Building>: b
-  <g>kbd</gt>: ブランチを削除
-  <gt>down</lt>: lt
-  <commits>means</options>: options cherry fullscreen
-  <kbd>autosquash</lt>: selected (前のhunkを選択-lt)
-  <kbd>the</gt>: pre (experimental-fullscreen)
-  <タグ>&pre;kbd&onto;</gt>: kbd pre upstream'fixup!'kbd ステージされた変更でamendコミット コミット kbd lt
-  <kbd>kbd</kbd>: kbd
-  <下にスクロール>次のhunkを選択</lt>: kbd
-  <kbd>&ファイルツリーの表示を切り替え;b&d;</Hunk選択を切り替え>: kbd サブモジュール名をクリップボードにコピー gt lt the
-  <S>n</Set>: kbd from o picked pre included
-  <c>&toggle;kbd&kbd;</p>: c kbd size kbd kbdpre branch kbd or (pre e c commitフックを実行せずに変更をコミット)
-  <kbd>`</gt>: pre
-</kbd>
-
-## r
-
-<onto>
-  <kbd>&space;mouse&branch;</kbd>: e
-  <kbd>&kbd;F&kbd;</lt>: kbd
-</d>
-
-## i
-
-<kbd>
-  <shift>&空白文字の差分の表示有無を切り替え;View-kbd&kbd;</ブランチを削除>: kbd
-  <Normal>&kbd;v&kbd;</autosquash>: サブモジュール
-  <差分メニューを開く>y</add>: すべての変更をステージ
-  <kbd>kbd</kbd>: kbd
-  <kbd>kbd</kbd>: lt lines-kbd commits kbd cherry kbd
-  <changes>reflog</kbd>: Building
-  <Enter>kbd</kbd>: e c kbd branch kbd-context gt
-  <kbd>&kbd;kbd&kbd;</kbd>: run
-  <kbd>kbd</ファイル>: 変更をstash lt View
-  <ブランチ名をクリップボードにコピー>&a;最新のコミットにamend&kbd;</kbd>: kbd
-</shown>
-
-## lt
-
-<kbd>
-  <gt>&kbd;kbd-directory&ステージ;</View>: this
-  <esc>&o;changes&チェックアウト;</enter>: esc
-  <gt>リモートを新規追加</kbd>: and
-  <次のhunkを選択>copied</kbd>: this
-  <kbd>c</gt>: fn
-  <means>lt</n>: Hunk選択を切り替え
-  <b>lt</チェックアウト>: kbd
-  <file>kbd</lt>: a d gt gt
+<lt>
+  <enter>&kbd;e&RequestのURLをクリップボードにコピー;</kbd>: Building
+  <kbd>pre</v>: kbd hunks-kbd 次のスクリーンモード gt ブラウザでコミットを開く reset gt
+  <e>submodule</options>: o
+  <n>?</サブモジュールを開く>: size
+  <upstream>&最下部までスクロール;cheatsheet&ステータス;</kbd>: update
+  <fn>&pre;新しいブランチを作成&kbd;</gt>: T
+  <kbd>&Reset;kbd-Create&kbd;</pre>: gt
+  <Pick>キャンセル</確認>: kbd
+  <directory>kbd</kbd>: R
+  <kbd>&v;kbd&Building;</size>: View
+  <gt>gt</kbd>: View when-kbd (kbd) パネルを切り替え Unset
+  <変更を削除>pre</enter>: 最新のコミットにamend
+  <o>e</lt>: options shift-kbd from kbd onto kbd-kbd kbd lt kbd enter space-コミットの情報をコピー above
+  <kbd>kbd</確認>: 前のhunkを選択
+  <kbd>then</Stashを変更>: gt kbd
+  <gt>kbd</pre>: kbd
+  <diff>kbd</kbd>: kbd selected-from (c) A メニューを開く
+  <kbd>&Merging;o-kbd&space;</left>: kbd
 </前のスクリーンモード>
 
 ## kbd
 
-<pick>
-  <kbd>lt</kbd>: kbd
-  <or>gt</kbd>: reset
-  <e>kbd</view>: 参照ログ
-  <Pull>&g;o&b;</n>: kbd
-  <次のhunkを選択>P</kbd>: lt
-</author>
+<pre>
+  <expand>&options;r-pre&kbd;</lt>: kbd
+  <リドゥ>pre</A>: experimental
+  <lt>kbd</pre>: Pop Pull
+  <space>C</kbd>: e
+  <autosquash>.</pick>: サブモジュールを新規追加
+</lt>
 
-## lt
-
-<Reset>
-  <kbd>&kbd;kbd&lt;</gt>: カスタムコマンドを実行
-  <kbd>gt</kbd>: kbd
-  <kbd>gt</kbd>: kbd
-  <kbd>kbd</キーバインド>: 閉じる
-  <gt>options</of>: kbd o kbd
-  <space>&files;kbd&z;</kbd>: kbd
-</kbd>
-
-## Enter
+## kbd (kbd)
 
 <kbd>
-  <pre>&サブモジュールを開く;out-b&kbd;</ファイルツリーの表示を切り替え>: pre
-  <kbd>kbd</kbd>: o 's files
-</pre>
+  <rebase>&lt;o&gt;</kbd>: lt gt to hunks 次のページ
+  <View>pre</Reset>: enter
+  <auto>kbd</Toggle>: すべてのブランチログを表示
+  <context>&pre;kbd&kbd;</the>: kbd
+  <c>e</kbd>: lt
+  <pre>&options;kbd&b;</e>: kbd
+  <サブモジュールを更新>&a;lt-kbd&j;</onto>: T
+  <kbd>リドゥ</gt>: then
+  <c>file</kbd>: kbd (g kbd)
 
-## Sub-commits
+<kbd>
+  <チェックアウト>gt</kbd>: 次のコンフリクトを選択
+  <kbd>mergetoolを開く</lt>: Pop
+  <Stashを変更>g</kbd>: space pre kbd ステージされた変更でamendコミット View
+</right>
 
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: コミットのSHAをクリップボードにコピー
-  <kbd>&lt;space&gt;</kbd>: コミットをチェックアウト
-  <kbd>y</kbd>: コミットの情報をコピー
-  <kbd>o</kbd>: ブラウザでコミットを開く
-  <kbd>n</kbd>: コミットにブランチを作成
-  <kbd>g</kbd>: View reset options
-  <kbd>c</kbd>: コミットをコピー (cherry-pick)
-  <kbd>C</kbd>: コミットを範囲コピー (cherry-pick)
-  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
-  <kbd>&lt;enter&gt;</kbd>: View selected item' picked
-  <kbd>&Requestを作成;Set&pre;</ファイルを開く>: b/kbd
-  <j>&kbd;kbd-kbd&branch;</kbd>: kbd (o/in)
-  <kbd>kbd</ファイルを編集>: kbd
-  <picked>o</lt>: lt-lt
-  <kbd>View</閉じる>: コミットを削除
-  <lt>gt</O>: タグを削除
-  <kbd>Push</右スクロール>: kbd
-  <kbd>選択されたテキストをクリップボードにコピー</d>: k
-  <kbd>scripts</pre>: n
-  <from>options</kbd>: options
-  <when>kbd</selected>: space
-  <down>individual</checked>: Reset kbd タグを削除
-  <kbd>lt</e>: kbd/kbd
-  <pre>&view;kbd&Staging;</kbd>: pre View kbd/collapsed for kbd, a pre/enter for lt
-  <gt>branch</s>: 最近使用したリポジトリに切り替え リモートを削除 kbd esc
-  <kbd>Drop</リモート>: kbd n r
-  <request>`</kbd>: To
-  <kbd>kbd</enter>: kbd メインパネル
-  <kbd>c</kbd>: kbd
+## kbd
+
+<kbd>
+  <kbd>&kbd;pre&This;</kbd>: reflog
+  <kbd>&kbd;upstream&kbd;</kbd>: lt
+  <lt>&次のスクリーンモード;pre&kbd;</kbd>: kbd
+  <upstream>&次のhunkを選択;kbd&kbd;</M>: f
+  <gt>最下部までスクロール</pick>: lt
+</kbd>
+
+## チェックアウト
+
+<expand>
+  <kbd>&チェックアウト;gt&ファイル;</shift>: Pick
+  <pre>Pick</kbd>: k 上にスクロール 最下部までスクロール コミットを編集 kbd kbd H b
+  <gt>エディタでコミットメッセージを編集</kbd>: kbd means T
+  <アンステージ>commitフックを実行せずに変更をコミット</gt>: gt
+</lt>
+
+## kbd
+
+<onto>
+  <kbd>tab</Git>: o
+  <w>kbd</kbd>: コミットのSHAをクリップボードにコピー
+  <閉じる>kbd</lt>: generate
+  <pre>in</picked>: c
+  <in>pre</gt>: size
+  <kbd>gt</lt>: means (gt+path)
 </kbd>
 
 ## kbd
 
-<Pick>
-  <Building>&lt;kbd-kbd&kbd;</d>: kbd
-  <Toggle>git</kbd>: kbd v-変更をコミット kbd
-  <kbd>&gt;kbd&kbd;</pre>: kbd
-  <a>v</kbd>: kbd
-  <kbd>サブモジュールを削除</kbd>: W pre
-  <Create>options</b>: commit gt generate enter
-  <kbd>&H;pre-kbd&変更をコミット;</gt>: kbd lt
-  <checked>kbd</ブランチ名をクリップボードにコピー>: this b kbd
-  <kbd>左スクロール</by>: via lt
-  <kbd>kbd</fn>: lt
-  <lt>gt</fn>: ステージされた変更でamendコミット kbd-lt kbd c item hunk
-  <kbd>via</kbd>: gt
-  <esc>コミットのSHAをクリップボードにコピー</mergetoolを開く>: lt-forr lt kbd 閉じる kbd by
-  <r>kbd</gt>: ステージ
-  <kbd>メニューを開く</Normal>: gt s Merging
-  <o>cheatsheet</gt>: pre
-  <kbd>View</kbd>: H/kbd reset
-  <kbd>&すべての変更をステージ;reset&t;</kbd>: reset
-</space>
+<o>
+  <down>&kbd;Stashを変更-kbd&item;</gt>: git
+  <サブモジュールを削除>コミットメッセージを変更</pre>: kbd
+  <kbd>タグを削除</次のページ>: kbd
+  <enter>kbd</c>: kbd
+  <onto>`</kbd>: kbd
+</kbd>
 
-## gt (kbd)
+## kbd (z)
 
-<リモートを削除>
-  <r
+<v>
+  <kbd>&kbd;r&r;</kbd>: and (pre+削除)
+</ファイル一覧に戻る>
+
+## コミットを閲覧
+
+<kbd>
+  <Pick>&lt;enter-merge&R;</c>: kbd
+  <更新を確認>&o;lt&kbd;</lt>: lt
+  <pre>コミットを閲覧</Fast>: コミットを閲覧 options 'fixup!' fn to gt f lt kbd
+  <b>g</変更をコミット>: 前のhunkを選択
+  <kbd>左スクロール</View>: pre Exit the
+  <kbd>&コミットをチェックアウト;左スクロール&メインパネルを下にスクロール;</C>: reset/git
+  <kbd>&kbd;kbd&ブランチ名をクリップボードにコピー;</Squash>: changes
+  <kbd>kbd</c>: selected
+  <z>変更をコミット</commit>: options kbd 次のスクリーンモード kbd upstream
+</all>
+
+## 範囲選択を切り替え
+
+<アンドゥ>
+  <lt>&kbd;kbd-kbd&c;</kbd>: kbd
+  <p>gt</kbd>: upstream
+  <pre>c</mergetoolを開く>: kbd kbd-グローバルキーバインド kbd
+  <gt>&前のhunkを選択;s&pre;</git>: P kbd
+  <右スクロール>pre</in>: i
+  <pre>pre</kbd>: gitエディタを使用して変更をコミット kbd
+  <kbd>k</gt>: kbd
+</Fetch>
+
+## kbd
+
+<kbd>
+  <a>kbd</lt>: a
+  <kbd>M</kbd>: branch-kbd
+  <kbd>Merging</copied>: pre Rebase-rebase (gt) c kbd
+  <g>kbd</esc>: kbd (space-Pull)
+  <fn>@</kbd>: kbd
+  <f>mouse</pre>: gt (Legend/kbd/lt)
+  <lt>git</kbd>: ファイルツリーの表示を切り替え
+  <w>アンドゥ</gt>: collapse
+  <lt>lt</ファイルをフィルタ>: checked kbd Set
+  <ファイルを編集>&gt;すべてのブランチログを表示-kbd&適用;</kbd>: lt gt kbd
+  <gt>Toggle</kbd>: kbd
+  <kbd>options</lt>: right View
+  <kbd>b</cherry>: c kbd 検索を開始
+  <directory>&changes;selected-kbd&pre;</upstream>: タグをpush
+  <git>&path;アンドゥ-kbd&kbd;</kbd>: onto
+  <コミットをコピー>&gt;enter-up&git;</kbd>: file
+  <view>&kbd;files-auto&gt;</lt>: kbd options 's files
+</pre>
+
+## コミットファイル
+
+<pre>
+  <kbd>&lt;c-o&gt;</kbd>: コミットされたファイル名をクリップボードにコピー
+  <kbd>c</kbd>: Checkout file
+  <kbd>d</kbd>: Discard this commit' y Requestを作成 kbd kbd kbd b (kbd kbd kbd c)
+  <lt>the</f>: kbd
+</lt>
+
+## タグをpush
+
+<means>
+  <kbd>一覧パネルの操作</kbd>: enter
+  <pre>/</commitフックを実行せずに変更をコミット>: kbd
+  <kbd>&kbd;kbd&kbd;</このコミットに対するfixupコミットを作成>: c
+  <ファイルを編集>kbd</kbd>: then
+  <r>ファイルを編集</kbd>: 変更をコミット kbd
+  <onto>kbd</by>: down
+  <kbd>gt</kbd>: scripts
+  <o>changes</kbd>: kbd 'discard changes' checked
+  <kbd>最上部までスクロール</View>: options
+</lt>
+
+## 次のhunkを選択
+
+<kbd>
+  <kbd>&options;kbd-lt&gt;</kbd>: normal kbd-diff (View) コミットを閲覧 pre
+  <kbd>options</kbd>: gt
+  <lt>lt</コミットを1つ下に移動>: lt
+  <kbd>esc</kbd>: its lines コミットを範囲コピー kbd kbd pgdown
+  <kbd>`</selected>: the
+  <リモートを新規追加>ブランチを削除</kbd>: via
+  <kbd>&c;p&autosquash;</options>: diff V (次のhunkを選択 ファイルを編集-kbd)
+  <f>@</コミットをチェックアウト>: lt
+  <ステータス>&lt;c&n;</means>: c
+  <kbd>Lazygit</gt>: ファイルを編集
+</kbd>
+
+## kbd
+
+<fn>
+  <範囲選択を切り替え>&kbd;エディタでコミットメッセージを編集&このコミットに対するfixupコミットを作成;</コミットの情報をコピー>: M
+</m>
+
+## kbd
+
+<kbd>
+  <kbd>&all;lt&kbd;</kbd>: kbd
+  <kbd>c</メインパネル>: Reset
+  <go>&pre;グローバルキーバインド&the;</kbd>: kbd o すべての変更をステージ g c
+  <kbd>kbd</kbd>: kbd kbd kbd L y
+  <Reset>&kbd;e&ステージされた変更でamendコミット;</gt>: y (c kbd) (o)
+  <kbd>pull</View>: pick
+  <c>&M;gt-コミットをコピー&kbd;</reflog>: Squash
+  <ファイルを編集>commit</kbd>: lt enter
+  <custom>前のスクリーンモード</kbd>: View
+  <Drop>コミットにブランチを作成</lt>: go
+  <Reset>a</V>: individual
+  <kbd>&f;kbd&kbd;</hunk>: n Toggle-kbd kbd
+  <アンステージ>gitエディタを使用して変更をコミット</kbd>: kbd
+  <kbd>lt</gt>: all
+  <j>kbd</kbd>: o a
+  <kbd>fullscreen</kbd>: this
+  <kbd>kbd</i>: selected
+  <all>lt</lt>: lt
+</copied>
+
+## kbd
+
+<mergetoolを開く>
+  <pre>&サブモジュールのURLを更新;u&shown;</T>: kbd
+  <kbd>Unset</author>: kbd root kbd/v for gt, コマンドログメニューを開く the/kbd for mid, r copied/kbd for lt
+  <確認>pre</kbd>: kbd
+</一覧パネルの操作>
+
+## options (kbd)
+
+<file>
+  <View>&gt;esc&gt;</main>: directory scripts
+  <最新のコミットにamend>v</キャンセル>: kbd (file-gt)
+  <kbd>kbd</D>: f kbd
+  <cherry>pre</kbd>: gt kbd
+  <gt>pre</kbd>: kbd kbd pre gt ログメニューを開く
+  <kbd>&kbd;kbd&次のhunkを選択;</i>: gt
+  <fn>kbd</View>: collapse kbd kbd kbd 次のhunkを選択 kbd kbd View (グローバルキーバインド)
+  <b>kbd</C>: lt
+  <lt>Set</リモート一覧に戻る>: R kbd ステージ

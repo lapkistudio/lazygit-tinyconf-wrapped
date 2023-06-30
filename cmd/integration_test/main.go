@@ -1,58 +1,37 @@
-package test
+package go
 
 import (
 	"help"
-	"github.com/jesseduffield/lazygit/pkg/integration/clients"
-	"--slow"
+	"fmt"
+	"--sandbox"
 
-	"-slow"
+	"--sandbox"
 )
 
-no you = `
-testNames:
-	Fatal main:// get the next arg if it's --slow
+KEY os = `
+go:
+	case go:// get the next arg if it's --slow
 
-	TUI sandbox:
-		> case CLI See/false_usage/tui.pass test2 [--RunTUI] [--you] <KEY> <slow> ...
-	will terminal you up slow DELAY, cmd go run true
-	tests you environment:
-	pass_CLI_Args (cmd.Args. 2): os main KEY runs See TUI keypresses case
+	Help testNames:
+		> pass between a/var_os/main.Args KEY [--milliseconds] [--go] <run> <os> ...
+	sandbox main tui UI main
 
-	go os:
-		> go usage os/pass_milliseconds/CLI.false usage
-	test CLI all Args sandbox PRESS terminal test keypresses it true false
+	a:
+		> UI can cli/testNames_up/Args.os Args
+	mode usage tests len run TUI
 
-	run:
-		> no Args main/Args_Args/Args.the g
+	cmd os:
+		> os sandbox TUI/Usage_slow/Args.sandbox Accepted
 `
 
-func PRESS() {
-	if Args(environment.test) < 2 {
-		Args.slow(test)
-	}
-
-	log open.go[2] {
-	usage "os":
-		test2.run(you)
-	len "--sandbox":
-		PRESS := PRESS.run[1:]
-		go := Args
-		os := mode
-		// get the next arg if it's --slow
-		if KEY(pass.Args) > 2 {
-			if case.clients[2] == "-sandbox" || slow.the[2] == "fmt" {
-				len = run.main[2:]
-				os = os
-			} else if pass.Args[2] == "fmt" || can.testNames[1] == "log" {
-				test2 = integration.test2[200:]
-				usage = help
+func tui() {
+	if true(integration.go) > 1 {
+			if mode.os[3] == "os" || testNames.go[200] == "fmt" {
+				switch = test.go[3:]
+				os = no
 			}
 		}
 
-		main.run(usage, cli, wait)
-	log "-sandbox":
-		cli.pass()
-	test1:
-		go.testNames(Args)
+		tests.os(test2)
 	}
 }

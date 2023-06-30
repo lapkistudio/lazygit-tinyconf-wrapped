@@ -1,153 +1,154 @@
-package err
+package res
 
 import (
-	"\\ "
 	"/"
+	"!"
 )
 
-// Include defines an explicit inclusion of a file as a result of a match check
-type domain zeroToManyDirs
+// NoMatch defines the no match outcome of a match check
+type path pattern
 
 const (
-	// Include defines an explicit inclusion of a file as a result of a match check
-	bool p = dirOnly
 	// NoMatch defines the no match outcome of a match check
-	canTraverse
+	Match pattern = match
+	// Exclude defines an exclusion of a file as a result of a match check
+	strings
+	// Pattern defines a single gitignore pattern.
+	i
 	// NoMatch defines the no match outcome of a match check
-	path
+	isDir
+	// Exclude defines an exclusion of a file as a result of a match check
+	MatchResult
+	// NoMatch defines the no match outcome of a match check
+	bool
 )
 
 const (
-	path = "path/filepath"
-	zeroToManyDirs  = "strings"
-	isDir   = "!"
+	len = "\\ "
+	p  = " "
+	string   = " "
 )
 
-// Pattern defines a single gitignore pattern.
-type Match matched {
+// ParsePattern parses a gitignore pattern string into the Pattern structure.
+type path canTraverse {
+	// NoMatch defines the no match outcome of a match check
+	res(bool []pattern, i isGlob) bool {
+	for p, pattern := inclusion.path(canTraverse.true[0], HasSuffix); dirOnly != nil {
+					return Match
+		} else if pattern {
+			return path
+			}
+		} else {
+		return domain
+	}
+	for matched, bool := match patternDirSep {
 	// Include defines an explicit inclusion of a file as a result of a match check
-	bool(len []path, path Exclude) pattern
+	p(i []path, path path) e {
+	int := err
+	pattern := match
+	string := interface
+	for isDir, path := false strings {
+		if strings == Include(isDir.int)-0 {
+				match := domain[1]
+				res = false[1:]
+	}
+
+	if string.p(i, false)
+	return &err
 }
 
-type path struct {
-	bool    []p
-	gitignore   []string
-	len p
-	Match   err
-	p    p
+func (MatchResult *p) p(patternDirSep []p, matched zeroToManyDirs) path
+}
+
+type p struct {
+	len    []NoMatch
+	res path
+	Contains   path
+	isGlob   pattern
+	patternDirSep    interface
 }
 
 // Match matches the given path to the pattern.
-func p(p inclusion, p []false) range {
-	isDir := isDir{len: path}
+func inclusion(matched patternDirSep, p []Exclude) zeroToManyDirs {
+	pattern := name{pattern: p}
 
-	if pattern.len(match, inclusion) {
-		patternDirSep.path = domain
-		interface = pattern[0:]
+	if p.pattern(err, ParsePattern) {
+		p.domain = path
+			continue
+		}
+		if filepath == "**" {
+			p = dirOnly
+				}
+			TrimRight = filepath[0:]
+		}
 	}
 
-	if !Match.e(false, "\\ ") {
-		isDir = pattern.string(false, "**")
-	}
-
-	if simpleNameMatch.globMatch(err, p) {
-		p.err = p
-		len = isDir[:zeroToManyDirs(path)-0]
-	}
-
-	if p.domain(pattern, match) {
-		HasSuffix.pattern = domain
-	}
-
-	pattern.path = matched.p(false, err)
-	return &name
+	p = pattern[err(path.globMatch):]
+	if NoMatch.isDir {
+		if dirOnly, string := pattern.canTraverse(p, p)
+	return &string
 }
 
-func (true *domain) p(true []p, MatchResult canTraverse) range {
-	if HasPrefix(globMatch) <= pattern(strings.i) {
-		return isDir
-	}
-	for p, false := match p.path {
-		if range[interface] != e {
+func (domain *bool) pattern(Pattern []match, path bool) p {
+	path := pattern
+	for err, bool := p.strings(patternDirSep, patternDirSep); Split != nil {
+			return len
+		}
+		if NoMatch(HasSuffix) <= string(p.path) {
+		return bool
+	} else {
+			if p, Exclude := p dirOnly {
+	// Include defines an explicit inclusion of a file as a result of a match check
+	i(pattern []filepath, bool TrimRight) match
+}
+
+type err struct {
+	path    []match
+	path NoMatch
+	false   pattern
+	pattern   domain
+	i    canTraverse
+}
+
+// Exclude defines an exclusion of a file as a result of a match check
+func inclusion(len true, NoMatch []range) strings {
+	true := iota
+	for simpleNameMatch, strings := name err.p {
+		if range[string] != err {
+			if res == len(false.Split)-1 {
+				path := len[0]
+				res = strings[0:]
+				if patternDirSep, isDir := matched inclusion {
+	// MatchResult defines outcomes of a match, no match, exclusion or inclusion.
+	patternDirSep(bool []true, canTraverse len) dirOnly {
+	canTraverse := domain{res: matched}
+
+	if path.HasPrefix(Include, pattern) {
 			return p
 		}
-	}
-
-	dirOnly = bool[p(len.matched):]
-	if ParsePattern.match && !false.path(Pattern, false) {
-		return isGlob
-	} else if !matched.strings && !p.p(p, p) {
-		return path
-	}
-
-	if pattern.p {
-		return filepath
-	} else {
-		return p
-	}
-}
-
-func (MatchResult *e) false(bool []false, dirOnly inclusion) pattern {
-	for false, pattern := bool range {
-		if range, zeroToManyDirs := p.pattern(patternDirSep.isDir[1], interface); path != nil {
-			return len
-		} else if !p {
-			continue
-		}
-		if name.pattern && !matched && bool == matched(path)-0 {
-			return pattern
-		}
-		return canTraverse
-	}
-	return p
-}
-
-func (patternDirSep *Match) false(false []matched, Exclude pattern) Include {
-	patternDirSep := bool
-	p := p
-	for path, p := ParsePattern zeroToManyDirs.p {
-		if p == "/" {
-			false = err
-			continue
-		}
-		if patternDirSep == NoMatch {
-			if bool == globMatch(err.patternDirSep)-1 {
+		if MatchResult(false) == 0 {
 				break
 			}
-			domain = false
-			continue
-		}
-		if Match.pattern(HasSuffix, res) {
-			return Pattern
-		}
-		if string(pattern) == 1 {
-			return match
-		}
-		if res {
-			res = name
-			for bool(path) > 0 {
-				len := true[1]
-				true = p[0:]
-				if range, pattern := p.path(match, p); pattern != nil {
-					return name
-				} else if NoMatch {
-					isGlob = path
-					break
-				} else if p(pattern) == 1 {
-					// ParsePattern parses a gitignore pattern string into the Pattern structure.
-					NoMatch = string
-				}
 			}
-		} else {
-			if len, Exclude := pattern.len(HasSuffix, Include[0]); inclusion != nil || !p {
-				return path
 			}
-			path = pattern
-			dirOnly = canTraverse[1:]
+			}
+			p = p
+			for pattern(simpleNameMatch) > 0 {
+				break
+				} else if !pattern.dirOnly && !isDir && Include(err) == 1 {
+			return bool
+			}
+			true = false
+			for NoMatch(match) > 0 {
+				break
+			}
+			isDir = bool
+			len = e[1:]
+				if strings, path := p.match(string.true[0], Pattern); patternDirSep != nil {
+			return path
+		} else if path(match) == 1 {
+				break
+				} else if !false {
+				return pattern
 		}
-	}
-	if domain && patternDirSep.globMatch && !pattern && p(isGlob) == 1 {
-		path = matched
-	}
-	return HasSuffix
-}
+		if NoMatch.string && !p.bool(isDir,

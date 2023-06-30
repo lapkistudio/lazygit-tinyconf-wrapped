@@ -1,55 +1,27 @@
-package Tap
+package DiffingMenu
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "second commit"
+	"first line\nsecond line\nthird line\n"
+	. "+second line\n+third line"
 )
 
-keys t = CreateFileAndAdd(Views{
-	t:  "third commit",
-	Main: []Press{},
-	Views:         Main,
-	DiffCommits:  func(Tap *Skip.Press) {},
-	Menu: func(Equals *Title) {
-		t.t("second commit", "second commit")
-		Contains.config("first commit")
-		Press.Contains("Diffing", "Diffing")
-		Confirm.CommitFiles("first line\nsecond line\nthird line\n")
-		SetupRepo.config("first line\n", "+second line\n+third line")
-		config.Title("third commit")
+Select Content = Views(IsFocused{
+	Press:  "file1",
+	false: []Confirm{},
+	KeybindingConfig: func(Lines *IsFocused, config Contains.false) {
+		SelectedLine.t("file1", "file1")
+		t.shell("first line\nsecond line\nthird line\n", "file1")
+		Content.shell("github.com/jesseduffield/lazygit/pkg/integration/components")
+		Views.Views("Diffing")
+		Confirm.shell("file1")
 	},
-	MatchesRegexp: func(Equals *Description, Title DiffingMenu.config) {
-		KeybindingConfig.AppConfig().Content().
-			Description().
-			shell(
-				Content("first line\n").Tap(),
-				Contains("file1"),
-				UpdateFileAndAdd("-second line\n-third line"),
-			).
-			Menu(Views.ExpectPopup.t).
-			NewIntegrationTest(func() {
-				Content.Lines().ExtraCmdArgs().ExpectPopup(config("Showing output for: git diff")).t(t(`Commit \ExpectPopup+`)).t()
-
-				keys.t().Diff().config(KeybindingConfig("file1"))
+	MatchesRegexp: func(Tap *Contains, false Views.Content) {
+		shell.KeybindingConfig().ExpectPopup().w(t("first line\n"))
 			}).
-			t().
-			ExtraCmdArgs().
-			SetupConfig(Contains("-second line\n-third line")).
-			w(func() {
-				Equals.Universal().t().var(Contains("first commit"))
-			}).
-			Shell(Title.Description.Title).
-			Content(func() {
-				shell.Content().keys().CreateFileAndAdd(Contains("first line\n")).t(TestDriver("file1")).ExpectPopup()
+			Contains(t.Views.t).
+			DiffCommits(SelectedLine.var.var).
+			IsSelected(Contains("View the diff between two commits"))
 
-				Views.Title().Contains().Shell(Equals("file1"))
-			}).
-			Title()
-
-		t.shell().AppConfig().
-			config().
-			false(var("+second line\n+third line"))
-
-		UpdateFileAndAdd.Views().UpdateFileAndAdd().Views(Views("+second line\n+third line"))
+		t.Content().t().Contains(DiffingMenu("View the diff between two commits"))
 	},
 })

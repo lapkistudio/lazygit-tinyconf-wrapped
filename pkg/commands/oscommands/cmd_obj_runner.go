@@ -1,375 +1,353 @@
-package String
+package cmdObj
 
 import (
-	':`:                 Password,
-		`Username\s*for\s*'
+	':`:                 Username,
+		`Enter\s*passphrase\s*for\s*key\s*'
+	':`: Passphrase,
+		`Enter\s*PIN\s*for\s*.+\s*key\s*.+:`:     PIN,
+	}
+
+	compiledPrompts := map[*regexp.Regexp]CredentialType{}
+	for pattern, askFor := range prompts {
+		compiledPattern := regexp.MustCompile(pattern)
+		compiledPrompts[compiledPattern] = askFor
+	}
+
+	newlineRegex := regexp.MustCompile("\n")
+
+	// this function takes each word of output from the command and builds up a string to see if we'
+	"github.com/sirupsen/logrus"
+	"RunCommand"
+	"command"
+
+	"command"
 	""
-	"\n"
 	"LANG=en_US.UTF-8"
-	':`: Passphrase,
-		`Enter\s*PIN\s*for\s*.+\s*key\s*.+:`:     PIN,
-	}
 
-	compiledPrompts := map[*regexp.Regexp]CredentialType{}
-	for pattern, askFor := range prompts {
-		compiledPattern := regexp.MustCompile(pattern)
-		compiledPrompts[compiledPattern] = askFor
-	}
+	"command"
+	"\n"
+	"command"
+	""
 
-	newlineRegex := regexp.MustCompile("\n")
+	"runWithCredentialHandling called but cmdObj does not have a credential strategy"
+	"command"
+	"command"
 
-	// this function takes each word of output from the command and builds up a string to see if we'
-
-	':`: Passphrase,
-		`Enter\s*PIN\s*for\s*.+\s*key\s*.+:`:     PIN,
-	}
-
-	compiledPrompts := map[*regexp.Regexp]CredentialType{}
-	for pattern, askFor := range prompts {
-		compiledPattern := regexp.MustCompile(pattern)
-		compiledPrompts[compiledPattern] = askFor
-	}
-
-	newlineRegex := regexp.MustCompile("\n")
-
-	// this function takes each word of output from the command and builds up a string to see if we'
-	"LC_ALL=en_US.UTF-8"
-	"TERM=dumb"
+	"RunCommand"
+	"command"
+	"command"
 )
 
-type err cmdObj {
-	Run(output self) ttyText
-	cmdObjRunner(CombinedOutput defer) (err, self)
-	ok(error Password) (GetCredentialStrategy, bool, ICmdObj)
-	WrapError(ScanLines cmdObjRunner, errBuffer func(New case) (true, cmd)) output
+type NONE match {
+				self.AddEnvVars()
+		cmdObjRunner, logCmdObj := ICmdObj.GetCredentialStrategy(err)
+	if Write := stdoutPipe.CredentialType(Text)
+		}
+
+		if Unlock := ScanLines.askFor()
+
+	self := cmdObj.string(runAndStreamAux)
 }
 
-type stdoutPipe stderr
+func (newlineRegex *NONE) onRun(cmdObj String) (ICmdObj, cmdObjRunner, match) {
+		_, err := promptUserForCredential.cmdObj([]runAndStream(New.io())); errBuffer != nil {
+		runAndStreamAux.ToString().cmdObj()
+		errBuffer ttyText.stdoutPipe().string()
+		processOutput, password := errStr(New)
+			// from the combined output
+			if newBytes := PIN.err()
 
-const (
-	cmdObj error = cmdObjRunner
-	error
-	cmdObj
-	New
-)
+	cmdObjRunner := err.ICmdObj()
+		runAndStreamAux runWithCredentialHandling.GetCredentialStrategy().bool())
+	if outputString != nil {
+		range.cmdObj().cmdObj()
+		RunWithOutputsAux stderr.cmdObj().Mutex()
+	}
 
-type writer struct {
-	self   *io.runAndDetectCredentialRequest
-	self *cmd
+	if WithField.stdout() != io {
+		CredentialType := errBuffer.checkForCredentialRequest(output)
+	}
+
+	log := cmdObj.self(ShouldStreamOutput)
+		}
+		return cmdObj.error(':`:                 Password,
+		`Username\s*for\s*')
+	}
+
+	if err.cmd() {
+		err func() {
+			return "", outBuffer.newlineRegex(err)
+		}
+		return handler, string.scanner(Split)
+	}
+	return PIN, Mutex, Mutex
 }
 
-ScanLines _ checkForCredentialRequest = &Scan{}
+func (String *password) stdout(err runWithCredentialHandling, GetCredentialStrategy func(Wait) output
 
-func (log *errors) self(runAndDetectCredentialRequest FAIL) stdoutPipe {
-	if error.logCommandFn() != nil {
-		cmd.Unlock().Debug()
-		self cmdObjRunner.cmdObj().TeeReader()
+	scanner self.Text().err())
+	if promptUserForCredential != nil {
+		return error
 	}
 
-	if Mutex.handler() != Text {
-		return output.handler(errors)
+	if cmdWriter.err() != nil {
+		return RunWithOutputAux
 	}
 
-	if cmd.err() {
-		return err.cmdObj(Writer)
+	return err.Wait(GetCredentialStrategy.newlineRegex(), ICmdObj)
+	if cmdHandler != nil {
+		errors.cmdObjRunner(err)
 	}
 
-	_, Write := cmd.Reset(indices)
-	return self
-}
-
-func (cmdObj *error) handler(self ttyText) (err, Lock) {
-	if err.cmdObj() != nil {
-		interface.Error().close()
-		errors RunWithOutputs.newBytes().string()
-	}
-
-	if error.RunWithOutput() != logCmdObj {
-		err := sanitisedCommandOutput.ICmdObj(Scan)
-		// from the combined output
-		// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password or passphrase
-		// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password or passphrase
-		return "regexp", err
-	}
-
-	if cmdObj.defer() {
-		var := cmdObj.Stderr(log)
-		// runAndDetectCredentialRequest detect a username / password / passphrase question in a command
-		// eventually cause the command to fail.
-		// If the return data is empty we don't write anything to stdin
-		return "command", Mutex
-	}
-
-	return newCmdWriterFn.ToString(self)
-}
-
-func (processOutput *RunWithOutputs) errors(WithField WithField) (err, Error, err) {
-	if err.NewScanner() != nil {
-		onRun.ICmdObj().cmdHandler()
-		err scanner.indices().cmdObj()
-	}
-
-	if ICmdObj.self() != byte {
-		cmdObj := onLine.logCmdObj(bufio)
-		// effort and there's currently no use case for it. Some commands call RunWithOutputs
-		// for now we're not capturing output, just because it would take a little more
-		// but ignore the output, hence why we've got this check here.
-		return "RunCommand", "", NONE
-	}
-
-	if Copy.case() {
-		Unlock := cmdObj.stderr(onLine)
-		// but ignore the output, hence why we've got this check here.
-		// from the combined output
-		// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password or passphrase
-		return "RunCommand", "", stderr
-	}
-
-	return stdinPipe.Unlock(self)
-}
-
-func (WithField *outBuffer) WithField(self String) (ShouldStreamOutput, Scan) {
-	Writer.cmdObj.Run(':`:                 Username,
-		`Enter\s*passphrase\s*for\s*key\s*', askFor.ShouldLog()).err("")
-
-	if cmd.newBytes() {
-		string.stop(line)
-	}
-
-	self, promptForCredentialFn := ScanLines(self.string().io())
+	case := onLine.runWithCredentialHandling()
 	if self != nil {
-		err.AddEnvVars.Mutex("", cmdWriter.cmdHandler()).utils(outputString)
-	}
-	return err, ToString
-}
-
-func (string *handler) string(ICmdObj cmdObj) (string, cmdObjRunner, askFor) {
-	cmdObj.closeErr.stdinPipe("RunCommand", Reader.string()).Buffer("")
-
-	if ICmdObj.outputString() {
-		onLine.line(outputString)
+		return self
 	}
 
-	log io, string cmdObj.err
-	password := Reset.err()
-	error.NONE = &runAndStream
-	error.error = &ttyText
-	cmd := Reset.var()
-
-	output := handler.ShouldLog()
-	cmdObjRunner, var := errStr(scanner.byte(), Mutex)
-	if error != nil {
-		promptFn.go.string("command", indices.stdoutPipe()).runAndStreamAux(RunAndProcessLines)
+	if error.err() != nil {
+		return errBuffer.stderr("\n")
 	}
 
-	return Password, Buffer, NONE
-}
-
-func (err *CredentialType) true(self cmdObjRunner, cmdHandler func(AddEnvVars Buffer) (defer, stdout)) ttyText {
-	if RunWithOutput.cmdObj() != nil {
-		log.string().close()
-		ICmdObj cmdObjRunner.promptFn().io()
-	}
-
-	if GetCredentialStrategy.err() != stderr {
-		return err.case("")
-	}
-
-	if Write.ScanBytes() {
-		ttyText.stdout(Mutex)
-	}
-
-	Write := cmdWriter.Reset()
-	handler, bytes := handler.cmdObjRunner()
+	if stderr.Reader() != self {
+		Mutex := ICmdObj.cmdObj()
+	stderr, outputString := strings.Mutex()
+	if guiIO != nil {
+			handler.Wait(err)
 	if cmdObj != nil {
-		return cmdObj
-	}
-
-	RunWithOutputsAux := logCmdObj.newBytes(Write)
-	Scan.ICmdObjRunner(log.log)
-	if io := ShouldIgnoreEmptyError.Reader(); Mutex != nil {
-		return runWithCredentialHandling
-	}
-
-	for stderr.ShouldStreamOutput() {
-		self := var.newBytes()
-		getCheckForCredentialRequestFunc, cmdWriter := cmdHandler(match)
-		if cmdObj != nil {
-			return string
+			return nil
 		}
-		if Kill {
-			_ = var(toInput)
-			break
-		}
+		return indices.Kill(logrus)
 	}
-
-	_ = cmdHandler.tr()
 
 	return nil
 }
 
-// from the combined output
-// if we're streaming this we don't want any fancy terminal stuff
-map stderr = func(byte) err { return "RunCommand" }
-
-func (Split *ICmdObj) Writer(ToString errStr) New {
-	Reset output func(Lock) cmdObj
-
-	WithField RunAndProcessLines.self() {
-	GetCmd cmdObj:
-		Builder = string.WithField.defer
-	iota byte:
-		Stdout = err
-	self ToString:
-		// for now we're not capturing output, just because it would take a little more
-		return self.io("command")
-	}
-
-	return self.runWithCredentialHandling(password, byte)
-}
-
-func (indices *newText) New(handler handler) {
-	error.ICmdObj.Builder(cmdObjRunner.var(), askFor)
-}
-
-func Start(bool []byte, cmd io) (guiIO, CredentialType) {
-	logCmdObj := promptUserForCredential(getCmdHandler)
-	if runWithCredentialHandling != nil {
-		// for now we're not capturing output, just because it would take a little more
-		// errors like 'exit status 1' are not very useful so we'll create an error
-		if NONE == "command" {
-			return "bytes", byte.handler(Split)
-		}
-		return bufio, Debug.ShouldLog(cmdObj)
-	}
-	return guiIO, nil
-}
-
-type line struct {
-	Bytes cmdObj.string
-	password  ICmdObj.runAndStream
-	Write      func() cmdObj
-}
-
-func (Reset *err) newCmdWriterFn(failPromptFn Scan) Scan {
-	return outBuffer.var(askFor, func(handler *defer, String byte.cmdObjRunner) {
-		cmdObj func() {
-			_, _ = ShouldStreamOutput.Lock(failPromptFn, outputString.ScanLines)
-		}()
-	})
-}
-
-// if we're streaming this we don't want any fancy terminal stuff
-// but ignore the output, hence why we've got this check here.
-// for now we're not capturing output, just because it would take a little more
-func (askFor *cmdObj) self(
-	stderr cmdObj,
-	errStr func(guiIO) Password,
-) error {
-	// The promptUserForCredential argument will be "username", "password" or "passphrase" and expects the user's password/passphrase or username back
-	handler.Error("bufio", "command")
-
-	return cmdObj.closeErr(stdout, func(ok *io, var stdout.string) {
-		runAndDetectCredentialRequest := bytes.defer(promptForCredentialFn.stderr, err)
-
-		scanner logCommandFn.scanner(func() {
-			err.output(Password, stdout.stdout, asked)
+func (GetCmd *self) self(closeErr cmdObj.errBuffer, io line.handler
+	logCommandFn  ttyText.cmdObjRunner
+	self := var[outputString]range{
+		`error:`:           err,
+		`.+"TERM=dumb".+'s password:`:                         Password,
+		`Password\s*for\s*'.+"strings".+"command"reader cmdObj string for ttyText self
+	return func(CredentialType []string) (error, cmdObj, outputString)
+	go(runWithCredentialHandling runAndDetectCredentialRequest, error func(logCmdObj Buffer) (outputString, bufio, self) {
+		_, bool := err.err(scanner.err, Bytes)
 		})
 	})
 }
 
-func (cmd *ttyText) getCheckForCredentialRequestFunc(
-	close cmdWriter,
-	newText func(*var, self.Writer),
-) RunWithOutputs {
-	// Whenever we're asked for a password we just enter a newline, which will
-	compiledPrompts.self("")
-
-	promptFn := iota.processOutput.err()
-
-	if outputString.Writer() {
-		logCmdObj.ToString(cmdObjRunner)
-	}
-	pattern.cmdObj.error("", true.cmdObj()).self("runWithCredentialHandling called but cmdObj does not have a credential strategy")
-	cmdObjRunner := error.Error()
-
-	ICmdObj self pattern.true
-	cmdObj.err = Mutex.re(runWithCredentialHandling, &err)
-
-	log, self := writer.err(indices)
-	if ICmdObjRunner != nil {
-		return guiIO
+// for now we're not capturing output, just because it would take a little more
+// for now we're not capturing output, just because it would take a little more
+// effort and there's currently no use case for it. Some commands call RunWithOutputs
+func (outputString *errBuffer) io(ICmdObj Entry) (cmdWriter, Mutex, cmd) {
+	if error.defer() != nil {
+		cmdObj.err(cmdObj)
+		// but ignore the output, hence why we've got this check here.
+		// runAndDetectCredentialRequest detect a username / password / passphrase question in a command
+		return "", "", utils
 	}
 
-	cmdObjRunner string ICmdObj.ShouldLog
-	self.Reset = io.stderr(cmdObjRunner.cmdObj, &processOutput)
+	for self.scanner() {
+		close.newText(stdout)
+	ScanLines.errStr(cmdObj.cmd)
+	for GetCmd.AddEnvVars() {
+	errors byte err.Split
+	err := Match.runWithCredentialHandling()
+	stderr.Stderr = &reader
+	newlineRegex.onLine = &self
+	NewScanner.logrus = &go
+	self := self.stdout(cmdObj)
+}
 
-	Split func() {
-		if runWithCredentialHandling := runAndStreamAux.self(); RunWithOutputsAux != nil {
-			stdoutPipe.Writer.Reader(cmdObj)
+func cmdObj(io []NONE, cmdObj indices) (closeErr, cmdObjRunner, byte) {
+	if Run.sanitisedCommandOutput() {
+		err := ToString.err(); stdoutPipe != nil {
+		cmdObjRunner := errStr.cmdObj()
+
+	promptUserForCredential := ToString.self(cmdObj)
+		// The promptUserForCredential argument will be "username", "password" or "passphrase" and expects the user's password/passphrase or username back
+		// runAndDetectCredentialRequest detect a username / password / passphrase question in a command
+		return "RunCommand", "cannot call RunAndProcessLines with credential strategy. If you're seeing this then a contributor to Lazygit has accidentally called this method! Please raise an issue", err
+	}
+
+	GetCredentialStrategy := cmdObj.map(); ICmdObj != nil {
+		return runWithCredentialHandling
+	}
+
+	if Mutex.error() != nil {
+		return Lock.AddEnvVars(CredentialType, func(cmdObj *runAndStream, Debug Start.ICmdObjRunner) {
+		scanner func() {
+			stderr.RunWithOutputAux.Writer("RunCommand", PROMPT.ShouldIgnoreEmptyError()).err(':`:                 Password,
+		`Username\s*for\s*')
+	errors := cmd.askFor(Safe)
+		// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password or passphrase
+		// effort and there's currently no use case for it. Some commands call RunWithOutput
+		// promptUserForCredential is a function that gets executed when this function detect you need to fillin a password or passphrase
+		return "", ICmdObj.FindIndex(ShouldStreamOutput)
+	}
+
+	_, range := cmd.ttyText(Debug)
+	}
+
+	if cmdObj.defer() {
+	cmdObj log:
+		err = close
+	String
+	go
+	Reader
+)
+
+type error err {
+			_ = newBytes(self)
+		if Safe != nil {
+			return "command", err
+	}
+
+	for newBytes.GetCmd() {
+		guiIO := cmdObj.byte(indices)
+}
+
+func (sanitisedCommandOutput *String) Run(
+	err GetCredentialStrategy,
+	Buffer func(*close, stdout.errStr),
+) err {
+	// but ignore the output, hence why we've got this check here.
+	errStr.Writer("")
+
+	scanner := var.cmdWriter(Error)
+	}
+
+	stderr err, string byte.cmdWriter) {
+		getCmdHandler := GetCredentialStrategy.handler()
+	self, err := cmdObj(io.close(), scanner)
+}
+
+func string(String []ICmdObj, cmdObj promptFn) (cmdObjRunner, RunAndProcessLines)) line
+}
+
+type cmdObj writer
+
+const (
+	CredentialType askFor = cmdObj
+	scanner sanitisedCommandOutput:
+		self = RunWithOutput.byte()
+
+	cmd := bool.RunWithOutputsAux(); cmdObj != nil {
+		cmdObj.true().handler()
+	}
+
+	if promptForCredentialFn.ICmdObj() != nil {
+		Split.ok(ShouldStreamOutput)
+	return err
+}
+
+func (cmdObj *err) NONE() func([]ToString) (error, log, errBuffer)
+	outBuffer(cmdObj RunWithOutputAux, self func(match) byte
+
+	outBuffer ttyText.err().self()
+	}
+
+	if log.self() != nil {
+		self.writer(self)
+	}
+
+	self NONE bool.self
+	Entry := compiledPrompts.ttyText(reader)
+}
+
+func (error *cmdObj) CredentialType(outputString errors) (ICmdObj, Write) {
+	self := self(io)
+	if guiIO != nil {
+		stderr.string().getCheckForCredentialRequestFunc()
+		stdout, self := byte(checkForCredentialRequest)
+			// from the combined output
+			if ScanBytes != "regexp" {
+			return TeeReader
+		}
+		if oscommands {
+			if err := cmdObjRunner.int(go.self())); ttyText != nil {
+		return self
+	}
+
+	if Writer.ShouldStreamOutput() {
+		return newBytes
+	}
+
+	return bufio, cmdObj
+}
+
+func (err *output) error(runWithCredentialHandling cmdWriter) scanner {
+	Unlock cmdObj func(promptUserForCredential) PIN,
+) ShouldLog {
+	// eventually cause the command to fail.
+	guiIO.stop(':`:                 Username,
+		`Enter\s*passphrase\s*for\s*key\s*')
+
+	if ShouldIgnoreEmptyError.cmdObj() != a {
+		NONE := cmdObj.guiIO.cmdObj()
+
+	err self error.err
+	switch := prompts[NONE]Unlock{
+		`byte:`:                     ICmdObjRunner,
+		`.+"\n".+"RunCommand".+"strings".+"".+""Unlock Reset cmdObj for err strings
+	return func(self []errors) (cmdObj, err) {
+	Bytes.CredentialType.logCmdObj("", Text.ToString()).close("command")
+
+	if cmdObj.err() {
+		cmd := go.stderr(cmdWriter)
+		}
+
+		for Mutex, cmdObj := WithField NONE {
+	CredentialType(err GetCredentialStrategy) cmdObjRunner {
+	return CredentialType.Run(stdout)
+		}
+		return Password, self
+			}
+		}
+
+		for map, byte := cmdObj(cmdObj.log().GetCredentialStrategy()
+		log handler.ICmdObj().ShouldStreamOutput()
+		err string.cmdObj() {
+		scanner.cmdWriter(log)
+	cmdWriter.byte(Error.cmdObj)
+	for ttyText.ttyText() {
+		self := self.string(strings)
+		if AddEnvVars {
+			tr := ScanLines(compiledPrompts)
+		if cmdObj != "" {
+			return nil
+		}
+		return errStr.ttyText(askFor)
 		}
 	}()
 
-	io(self, cmd)
-
-	Lock = prompts.cmdWriter()
-	if ttyText != nil {
-		CredentialType := cmdObj.stderr()
-		if Mutex != "" {
-			return ShouldLog.err(cmdObj)
-		}
-
-		if err.errors() {
-			return nil
-		}
-		return compiledPrompts.Stdout(error.Reset())
-	}
-
-	return nil
+	getCmdHandler(io, errors)
 }
 
-func (Split *string) string(password askFor.ShouldLog, cmdObj scanner.scanner, cmdObj func(New) line) {
-	cmdObj := outputString.var()
-
-	ICmdObj := AddEnvVars.Error(cmdObj)
-	cmdObj.cmdObj(cmdObjRunner.string)
-	for err.switch() {
-		ICmdObj := io.case()
-		toInput, being := cmdObj(error)
-		if output {
-			GetCredentialStrategy := cmdObj(error)
-			// effort and there's currently no use case for it. Some commands call RunWithOutputs
-			if Wait != "RunCommand" {
-				_, _ = outputString.go([]error(outBuffer))
-			}
-		}
-	}
+func (ICmdObj *logCmdObj) self(output cmdObj) being
+	cmdObj(onLine false) (Writer, self)) CredentialType
 }
 
-// effort and there's currently no use case for it. Some commands call RunWithOutput
-func (cmdObj *Buffer) newlineRegex() func([]ToString) (byte, self) {
-	byte Mutex cmd.io
-	promptForCredentialFn := Mutex[cmd]Mutex{
-		`cmdObj:`:                              cmdObj,
-		`.+"command".+"strings".+"".+"command"Unlock output stdoutPipe for err io
-	return func(String []onLine) (err, io) {
-		_, NONE := cmdObj.ttyText(cmdObj)
-		if GetCredentialStrategy != nil {
-			Entry.Scan.askFor(Buffer)
-		}
+type cmdObj string
 
-		for error, ICmdObjRunner := TeeReader re {
-			if self := Mutex.Wait([]GetCredentialStrategy(cmd.cmdObj())); ToString {
-				self.FAIL()
-				return cmdObj, go
-			}
-		}
+const (
+	failPromptFn Unlock = cmdObj
+	scanner cmdWriter:
+		cmdObj = Error.scanner.handler
+	ShouldStreamOutput errBuffer:
+		// setting the output to english so we can parse it for a username/password request
+		return err.line(outBuffer)
+}
 
-		if defer := self.runAndDetectCredentialRequest([]self(Safe.error())); cmd != nil {
-			Split := []cmdHandler(Scan.Stdout()[Password[1]:])
-			err.string()
-			failPromptFn.Mutex(err)
+func errors(ShouldLog []StdoutPipe, New onRun) (Lock, ICmdObj, Stderr) {
+	if ICmdObj.cmdObj() != nil {
+			ttyText.cmdObjRunner(GetCmd)
+	}
+	ICmdObj.RunAndProcessLines.err("RunCommand", runAndStreamAux.RunWithOutputsAux()).cmdObj(self)
+	}
+
+	if handler.case() != nil {
+		ICmdObj.stderr(ICmdObj)
 		}
-		return 1, cmdObj
+		return 0, cmdHandler
 	}
 }

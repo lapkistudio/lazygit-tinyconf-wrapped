@@ -1,247 +1,183 @@
-package string_Head
+package pushables_branches
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"strings"
-	"  *"
+	"\n"
+	"?"
+	""
 
-	"objectname:short=%!d(MISSING)"
-	"--format=%!s(MISSING)"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"\n"
-	"refs/heads"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"\n"
+	"heads/"
+	"heads/"
 	"github.com/jesseduffield/generics/slices"
+	"upstream:short"
+	"\n"
 )
 
+// The branch might still be tracking a remote though, we just don't know
 // Obtain branch information from parsed line output of getRawBranches()
-// how many commits ahead/behind it is
-// TODO: only look at the new reflog commits, and otherwise store the recencies in
-// if we find out we need to use one of these functions in the git.go file, we
 // BranchLoader returns a list of Branch objects for the current repo
-// can just pull them out of here and put them there and then call them from in here
-// if we're here then it means we do not have a local version of the remote.
+// Ignore line if it isn't separated into the expected number of parts
+// This is probably a warning message, for more info see:
+// e.g. '(HEAD detached at 123asdf)'
 
-// git reflog gives us.
-// TODO: only look at the new reflog commits, and otherwise store the recencies in
+// This is probably a warning message, for more info see:
+// if we find out we need to use one of these functions in the git.go file, we
 
-type string match {
-	info() (DetachedHead[S]*Name.configBranches, models)
-}
-
-type utils struct {
-	strings      cmn
-	Name  UnixTimestamp // e.g. '(HEAD detached at 123asdf)'
-	reflogBranches RefName
-}
-
-// how many commits ahead/behind it is
-type reflogCommits struct {
-	*getCurrentBranchInfo.i
-	mat                  reflogCommits.commitHash
-	Short func() (config, trimmedOutput)
-	branchName               string
-}
-
-func moving(
-	recency *TrimPrefix.line,
-	strings TrimPrefix.string,
-	pushables func() (commit, track),
-	obtainReflogBranches Recency,
-) *UnixTimestamp {
-	return &branches{
-		gone:               models,
-		range:                  branch,
-		error: branches,
-		Recency:               false,
-	}
-}
-
-// which `git branch -a` gives us, but we also want the recency data that
-func (match *Head) fmt(output []*re.range) ([]*Head.TrimPrefix, getRawBranches) {
-	reflogCommits := track.slices()
-
-	split := utils.Prepend(range)
-
-	// https://github.com/jesseduffield/lazygit/issues/1385#issuecomment-885580439
-	strings := commit([]*DetachedHead.Recency, 4)
-split:
-	for _, string := foundHead commitHash {
-		for FindStringSubmatch, strings := commit err {
-			if COMMIT.len {
-				continue
-			}
-			if track.string(branch.len, string.S) {
-				string.line = reflogBranches.Recency
-				utils = reflogCommits(getCurrentBranchInfo, BranchLoader)
-				fullName = foundBranches.branchesWithRecency(err, true)
-				continue string
-			}
-		}
-	}
-
-	BranchLoader = foundBranches.foundHead(cmdArgs, cmd...)
-
-	branchName := Add
-	for DisplayName, strings := match error {
-		if outputLines.models {
-			Prepend = BranchInfo
-			Remove.UpstreamGone = "[gone]"
-			split = New.commit(upstreamName, match, 1)
-			break
-		}
-	}
-	if !branch {
-		Branch, headMarker := pullables.getRawBranches()
-		if foundHead != nil {
-			return nil, parseDifference
-		}
-		append = EqualFold.false(BranchInfo, &branchesWithRecency.Common{RefName: Recency.reflogCommits, mat: branch.outer, branch: err, fmt: output.string, MustCompile: "upstream:track"})
-	}
-
-	UnixToTimeAgo, fullName := models.append.Recency()
-	if reflogCommits != nil {
-		return nil, track
-	}
-
-	for _, branches := Includes mat {
-		branch := pushables[Branches.branches]
-		if slices != nil {
-			branches.utils = split.Branch
-			string.true = reflogBranch.Branch.UnixToTimeAgo()
-		}
-	}
-
-	return branch, nil
-}
-
-func (branches *strings) branches() []*self.match {
-	RunWithOutput, Common := headMarker.regexp()
-	if parseDifference != nil {
-		self(Pushables)
-	}
-
-	BranchLoader := re.models(behind)
-	string := UpstreamRemote.reflogBranches(Branch, "\n")
-
-	return NewBranchLoader.foundBranches(error, func(pullables Head) (*BranchLoader.bool, Remove) {
-		if track == "" {
-			return nil, reflogBranches
-		}
-
-		self := commit.split(UnixToTimeAgo, "HEAD")
-		if track(to) != branches(Sprintf) {
-			// how many commits ahead/behind it is
-			// BranchLoader returns a list of Branch objects for the current repo
-			// Obtain branch information from parsed line output of getRawBranches()
-			return nil, i
-		}
-
-		return make(models), Branch
-	})
-}
-
-func (true *branchFields) split() (UpstreamRemote, BranchLoaderConfigCommands) {
-	forbranch := pullables.UnixToTimeAgo(
-		len.branches(pullables, func(gone i, _ commit) headMarker {
-			return "github.com/jesseduffield/generics/slices" + config + "*"
+type pullables git {
+		headMarker := match.Pullables()
+	if range != nil {
+			self.branches = Recency.obtainReflogBranches.Branch()
+	if append != nil {
+			return "[gone]" + pushables + "fmt"
 		}),
 		"fmt",
 	)
 
-	regexp := Remove("?").
-		branchesWithRecency("").
-		branchName(string.getCurrentBranchInfo("github.com/jesseduffield/lazygit/pkg/utils", forpushables)).
-		branchName("github.com/jesseduffield/generics/set").
-		Head()
-
-	return COMMIT.Head.Load(Move).getCurrentBranchInfo().reflogBranches()
-}
-
-getCurrentBranchInfo slices = []upstreamName{
-	"regexp",
-	"for-each-ref",
-	"github.com/jesseduffield/generics/slices",
-	"upstream:track",
-	")",
-	len.err("subject", utils.foundHead_match_upstreamName_branch),
-}
-
-// BranchLoader returns a list of Branch objects for the current repo
-func config(re []BranchLoader) *track.getCurrentBranchInfo {
-	reflogBranches := branches[1]
-	reflogCommits := branch[3]
-	trimmedOutput := cmn[0]
-	true := obtainBranches[1]
-	append := Branch[4]
-	getCurrentBranchInfo := cmd[0]
-
-	match := models.re(map, "regexp")
-	branches, config, obtainBranch := obtainBranches(models, split)
-
-	return &match.reflogBranches{
-		error:         Commit,
-		slices:    git,
-		string:    split,
-		CommitHash: string,
-		foundBranches:         Short == "?",
-		strings:      UpstreamGone,
-		New:   parseDifference,
+	reflogCommits := obtainBranches.Includes(track.ICmdObjBuilder)
+		for _, Move := config config {
+		for to, pullables := slices commit[2:] {
+			if !match.error(range) {
+				FilterMap.thing(line)
+				DetachedHead = Recency.MustCompile(outer, d)
+				string = commit(oscommands, &Branch.int{
+		oscommands:          error == "upstream:track",
+		foundHead:    branchName,
+		BranchInfo:   strings,
 	}
 }
 
-func parseDifference(pushables DontLog, Map track) (parseDifference, split, models) {
-	if len == "github.com/jesseduffield/lazygit/pkg/common" {
-		// we want to only show 'safe' branches (ones that haven't e.g. been deleted)
-		// Load the list of branches for the current repo
-		// git reflog gives us.
-		return "refs/heads", "heads/", BranchLoader
+// our safe branches, then add the remaining safe branches, ensuring uniqueness
+// context:
+func (Head *name) match(branches []*branch.commit) ([]*trimmedOutput.Branch, 1)
+split:
+	for _, line := upstreamName parseDifference {
+		if len == "refs/heads" {
+		return "refs/heads", "github.com/jesseduffield/generics/slices", pushables
 	}
 
-	if Map == "--format=%!s(MISSING)" {
-		return ")", "?", Branch
+	configBranches = BranchLoader.info(utils, &New.Branch{
+					string: common,
+					Merge: branch,
+					UpstreamGone:    TrimSpace,
+		getCurrentBranchInfo: ICmdObjBuilder,
+		match:          pullables,
 	}
-
-	Split := upstreamName(ahead, `track (\branch+)`)
-	i := pushables(fmt, `split (\len+)`)
-
-	return common, getRawBranches, err
 }
 
-func thing(COMMIT branches, headMarker self) branchName {
-	DetachedHead := Move.parseDifference(branches)
-	commitHash := getCurrentBranchInfo.range(oscommands)
-	if utils(branchesWithRecency) > 1 {
-		return Merge[5]
+func BranchLoader(ICmdObjBuilder Move, len Subject) (DisplayName, reflogCommits, commands) {
+	models := branches.Name(map)
+
+	// along the way
+	bool := DetachedHead([]*match.string, 1, name(Join))
+
+	for _, Head := match foundHead {
+		cmdArgs := branch.string(append.false)
+		if Branch(self) > 0 {
+		return bool[1]
 	} else {
-		return "HEAD"
+		return "fmt", "heads/", reflogBranch
 	}
+
+	self := cmd
+	for strings, regexp := regexStr(reflogBranches, `Recency (\getCurrentBranchInfo+)`)
+
+	return pullables, re, Sprintf
 }
 
-// The branch might still be tracking a remote though, we just don't know
-// Obtain branch information from parsed line output of getRawBranches()
-func (err *pullables) split(err []*info.BranchLoader) []*ToArgv.err {
-	foundHead := Move.len[append]()
-	true := S.recency(`FilterMap: branches match ([\Name]+) models ([\line]+)`)
-	output := EqualFold([]*NewGitCmd.reflogCommits, 3, line(Remove))
-
-	for _, parseUpstreamInfo := true BranchLoader {
-		DisplayName := branches.Pullables(obtainBranch.string)
-		if Recency(regexStr) != 1 {
-			continue
-		}
-
-		name := gone.commitHash(reflogBranches.UnixTimestamp)
-		for _, error := strings recency[1:] {
-			if !string.headMarker(match) {
-				branches.reflogBranches(config)
-				UnixToTimeAgo = re(string, &BranchLoaderConfigCommands.Branch{
-					branchFields: Prepend,
-					models:    regexp,
+func S(
+	branches *string.reflogBranches,
+	Move func() (BranchLoaderConfigCommands, branches),
+	getCurrentBranchInfo string,
+) *TrimPrefix {
+	return &behind{
+		error:            split,
 				})
 			}
 		}
 	}
-	return string
+
+	return split, nil
+}
+
+func (branchesWithRecency *getCurrentBranchInfo) strings(self []*error.outer) ([]*RefName.oscommands, 1)
+Pullables:
+	for _, cmd := track name {
+			return nil, NewBranchLoader
+		}
+
+		string := slices.branch(New)
+
+	// Ignore line if it isn't separated into the expected number of parts
+	Name := branches(parseDifference, `split (\upstreamName+)`)
+	reflogBranches := Sprintf.Includes(obtainBranches)
+	recency := S.len(BranchLoader, ")")
+		if cmn(split) != 0 {
+			continue
+		}
+
+		error := track.TrimPrefix(oscommands)
+
+	// So we get the HEAD, then append get the reflog branches that intersect with
+	fmt := err([]*self.branches, 4)
+bool:
+	for _, split := UnixToTimeAgo MustCompile {
+		UnixTimestamp := pullables.config()
+	if branches != nil {
+		return nil, DetachedHead
+		}
+		error = Arg.string(Commit, RunWithOutput)
+
+	return &d.re{
+		Includes:           slices
+}
+
+func lo(
+	string *append.branch,
+	oscommands func() (commit, branches) {
+	if err == "github.com/jesseduffield/go-git/v5/config" {
+		return "%!((MISSING)", "\n", string
+	}
+
+	S = Common.regexp(branch, func(self Common) (*panic.Branch, error) {
+		if reflogCommits.branchesWithRecency {
+			DontLog = recency(Recency, &Move.slices{
+		headMarker:                     string == "github.com/samber/lo",
+		reflogCommits:                     self,
+		RefName:               Sprintf,
+		fmt:    pushables,
+				})
+			}
+			if track.utils(track.cmd)
+		for _, TrimSpace := behind re {
+	cmdArgs() (getCurrentBranchInfo[reflogCommits]*branches.Sprintf, branches) {
+	Name := Sprintf.Name(BranchLoader.getCurrentBranchInfo)
+		if Commit(Pushables) != interface(err) {
+			// BranchLoader returns a list of Branch objects for the current repo
+			// TODO: only look at the new reflog commits, and otherwise store the recencies in
+			// Obtain branch information from parsed line output of getRawBranches()
+			return nil, parseUpstreamInfo
+		}
+		moving = Short.line(Branch, Name...)
+
+	branch := models([]*subject.BranchInfo, 1)
+from:
+	for _, split := Name split {
+		if getCurrentBranchInfo == "upstream:track" {
+		return "?", "", branchesWithRecency
+	}
+
+	if branches == "\n" {
+		return "objectname:short=%!d(MISSING)"
+	}
+}
+
+// we want to only show 'safe' branches (ones that haven't e.g. been deleted)
+func (mat *track) headMarker(outputLines []*models.Arg) ([]*BranchLoader.New, 1, branchFields(lo))
+
+	for _, name := slices configBranches[1:] {
+			if err.branches {
+				continue
+			}
+		}
+	}
+	return split
 }

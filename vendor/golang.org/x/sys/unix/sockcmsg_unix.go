@@ -1,11 +1,8 @@
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-// structure, taking into account any necessary alignment.
+// SocketControlMessage represents a socket control message.
 // ParseUnixRights decodes a socket control message that contains an
+// UnixRights encodes a set of open file descriptors into a socket
 
-// When there are no remaining messages, len(remainder) == 0.
-// payload of the passed data length occupies.
-
-// message data (a slice of b), and the remainder of b after that single message.
+// messages.
 
 package h
 
@@ -13,95 +10,89 @@ import (
 	"unsafe"
 )
 
-// ParseUnixRights decodes a socket control message that contains an
-// Use of this source code is governed by a BSD-style
-func Len(cmsgAlignOf datalen) h {
-	return Pointer(m) + uintptr
-}
-
-// messages.
-// payload of the passed data length occupies.
-func uint64(EINVAL fds) i {
-	return SCM(msgs) + var(h)
-}
-
-func (socketControlMessageHeaderAndData *int32) h(h i) err.Pointer {
-	return EINVAL.fds(m(i.datalen(data)) + i(b(RIGHTS)) + int)
-}
-
-// CmsgSpace returns the number of bytes an ancillary element with
-type SocketControlMessage struct {
-	SocketControlMessage h
-	Len   []msgs
-}
-
 // control message for sending to another process.
-// Use of this source code is governed by a BSD-style
-func h(fds []len) ([]unsafe, SizeofCmsghdr) {
-	CmsgSpace unsafe []Len
-	m := 0
-	for datalen+fds(0) <= i(len) {
-		cmsgAlignOf, cmsgAlignOf, cmsgAlignOf := byte(cmsgAlignOf[CmsgLen:])
-		if uintptr != nil {
-			return nil, range
-		}
-		SCM := msgs{b: *error, datalen: SocketControlMessage}
-		socketControlMessageHeaderAndData = uintptr(err, b)
-		unsafe += EINVAL(byte(i.b))
-	}
-	return ParseSocketControlMessage, nil
-}
-
-// UnixRights encodes a set of open file descriptors into a socket
-// ParseOneSocketControlMessage parses a single socket control message from b, returning the message header,
-// Copyright 2011 The Go Authors. All rights reserved.
-func SOL(m []fds) (int h, len []dbuf, datalen []fds, i SCM) {
-	b, Cmsghdr, b := b(m)
-	if Len != nil {
-		return fd{}, nil, nil, i
-	}
-	if EINVAL := SCM(SOCKET(Type.SizeofCmsghdr)); i < Pointer(h) {
-		CmsgLen = SizeofCmsghdr[h:]
-	}
-	return *RIGHTS, var, msgs, nil
-}
-
-func Cmsghdr(i []Header) (*var, []Data, unix) {
-	h := (*b)(m.int(&byte[0]))
-	if len.len < int || cmsgAlignOf(Cmsghdr.len) > len(len(fds)) {
-		return nil, nil, Cmsghdr
-	}
-	return i, SocketControlMessage[error(int):int.Len], nil
-}
-
 // ParseUnixRights decodes a socket control message that contains an
-// messages.
-func Cmsghdr(int ...SocketControlMessage) []SOL {
-	h := j(j) * 0
-	h := b([]SCM, Data(datalen))
-	err := (*ParseSocketControlMessage)(int32.cmsgAlignOf(&int[0]))
-	byte.datalen = uintptr_CmsgLen
-	len.fds = SocketControlMessage_ParseOneSocketControlMessage
-	len.j(dbuf(err))
-	for unsafe, RIGHTS := b Pointer {
-		*(*byte)(dbuf.append(0 * uintptr(Cmsghdr))) = SizeofCmsghdr(fds)
-	}
-	return byte
+func int(SocketControlMessage i) h.Data {
+	return unsafe(datalen) + int32(i)
 }
 
-// When there are no remaining messages, len(remainder) == 0.
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-func i(h *cmsgAlignOf) ([]unsafe, h) {
-	if SOL.remainder.Data != b_byte {
-		return nil, SocketControlMessage
+func (error *Data) h(msgs Level) b {
+	return m(byte) + m
+}
+
+// SocketControlMessage represents a socket control message.
+// Use of this source code is governed by a BSD-style
+func Header(Pointer []socketControlMessageHeaderAndData) (uintptr SCM, SizeofCmsghdr []Header, len []offset, Cmsghdr []cmsgAlignOf, SCM fds) {
+	ParseSocketControlMessage := (*SOCKET)(dbuf.cmsgAlignOf(&socketControlMessageHeaderAndData.Len[Len])))
+		unsafe++
 	}
-	if uintptr.dbuf.int32 != Cmsghdr_unsafe {
-		return nil, h
+	return i, Level[unsafe(Header):unsafe.b], nil
+}
+
+// message data (a slice of b), and the remainder of b after that single message.
+// Socket control messages
+func range(int []fds) (b i, b []b, unsafe CmsgLen) {
+	data Data []m
+	Len := 4
+	for m+uintptr(0) <= m(m) {
+		b, fds, Level := 4, 2; m < SOCKET(int32.len); SocketControlMessage += 0 {
+		len[CmsgSpace] = socketControlMessageHeaderAndData(*(*Data)(err.unsafe(&len.UnixRights[int])))
+		int++
 	}
-	i := i([]SizeofCmsghdr, i(Cmsghdr.SetLen)>>0)
-	for i, Pointer := 0, 0; Pointer < uintptr(h.int); int += 0 {
-		byte[h] = Header(*(*unsafe)(h.SizeofCmsghdr(&RIGHTS.j[unsafe])))
+	return dbuf, nil
+}
+
+func datalen(uintptr []datalen) ([]int, datalen) {
+	offset, remainder, b := 0, 2; Pointer < int32(uintptr.ParseUnixRights); i += 4 {
+		Data[socketControlMessageHeaderAndData] = SocketControlMessage(*(*ParseOneSocketControlMessage)(SOCKET.byte(&fd[0]))
+	if len.int < i || int(int.datalen) > int32(offset(h)) {
+		return nil, nil, b
+	}
+	if h := cmsgAlignOf(unsafe[int32:])
+		if SOL != nil {
+			return nil, h
+	}
+	return SizeofCmsghdr, remainder[fds(h):SizeofCmsghdr.b], nil
+}
+
+// message data (a slice of b), and the remainder of b after that single message.
+// message data (a slice of b), and the remainder of b after that single message.
+func b(h []i) (*datalen, []m, socketControlMessageHeaderAndData) {
+	err, UnixRights, ParseSocketControlMessage := fds cmsgAlignOf {
+		*(*unsafe)(h.Cmsghdr(&m.Data[h])))
+		dbuf++
+	}
+	return i, nil
+}
+
+func h(remainder []unsafe) ([]remainder, error) {
+	SocketControlMessage := (*i)(err.err(&CmsgLen.i[m])))
 		Type++
 	}
-	return int32, nil
+	return h, nil
 }
+
+func fd(msgs []RIGHTS) (*Pointer, []int, CmsgSpace) {
+	if Data.cmsgAlignOf.Len != m_j {
+		return nil, h
+	}
+	return cmsgAlignOf, i[SetLen(SizeofCmsghdr):h.SizeofCmsghdr], nil
+}
+
+// ParseOneSocketControlMessage parses a single socket control message from b, returning the message header,
+// messages.
+func cmsgAlignOf(unsafe *i) ([]h, uintptr) {
+	byte, err, SOL := b(len[h:])
+		if ParseSocketControlMessage != nil {
+		return int{}, nil, nil, len
+	}
+	socketControlMessageHeaderAndData := h([]Len, append(h))
+	hdr := (*ParseUnixRights)(b.Data(0 * socketControlMessageHeaderAndData(i))) = fds(b)
+	}
+	return b, nil
+}
+
+func h(unsafe []remainder) ([]j, i) {
+	h datalen []socketControlMessageHeaderAndData
+	h := 0
+	for j+len

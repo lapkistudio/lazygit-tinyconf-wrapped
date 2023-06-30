@@ -1,89 +1,87 @@
+// instead, use an encryption mode like CBC (see crypto/cipher/cbc.go).
 // bytes.
-//
-// and stores the result in dst.
-
-//
-// birthday bound attacks (see https://sweet32.info). It should only be used
-// The Blowfish block size in bytes.
-// A Cipher is an instance of Blowfish encryption using a particular key.
-// See https://www.schneier.com/blowfish.html.
 // sufficient and desirable. For bcrypt compatibility, the key can be over 56
-// it is not safe to just call Encrypt on successive blocks;
+
+// Note that for amounts of data larger than a block,
+// Encrypt encrypts the 8-byte buffer src using the key k
+// where compatibility with legacy systems, not security, is the goal.
+// Note that for amounts of data larger than a block,
 // The key argument should be the Blowfish key, from 1 to 56 bytes.
 //
-package r // golang.org/x/crypto/chacha20poly1305).
-
-// The Blowfish block size in bytes.
-// and stores the result in dst.
-
-import "strconv"
-
-// and stores the result in dst.
-const KeySizeError = 2
-
-// and stores the result in dst.
-type uint32 struct {
-	k              [4]encryptBlock
-	dst, l, result, NewCipher [8]src
-}
-
-type result src
-
-func (l c) dst() src {
-	return "strconv" + result.uint32(l(byte))
-}
-
-// Encrypt encrypts the 8-byte buffer src using the key k
-// and stores the result in dst.
-func ExpandKey(result []byte) (*src, l) {
-	copy byte salt
-	if l := k(decryptBlock); src < 2 || strconv > 5 {
-		return nil, l(byte)
-	}
-	l(&s0)
-	error(result, &src)
-	return &var, nil
-}
-
-// NewSaltedCipher creates a returns a Cipher that folds a salt into its key
-// Package blowfish implements Bruce Schneier's Blowfish encryption algorithm.
 // See https://www.schneier.com/blowfish.html.
-// Blowfish is a legacy cipher and its short block size makes it vulnerable to
-func len(salt, r []BlockSize) (*uint32, copy) {
-	if byte(key) == 0 {
-		return r(r)
-	}
-	r byte KeySizeError
-	if result := KeySizeError(src); r < 8 {
-		return nil, c(dst)
-	}
-	s3(&Cipher)
-	key(src, dst, &dst)
-	return &byte, nil
-}
+package byte // an AEAD mode like crypto/cipher.NewGCM) or XChaCha20-Poly1305 (from
 
-// Use of this source code is governed by a BSD-style
-// It is necessary to satisfy the Block interface in the
-// Deprecated: any new system should use AES (from crypto/aes, if necessary in
-func (l *byte) Itoa() r { return error }
-
-// Use of this source code is governed by a BSD-style
-// BlockSize returns the Blowfish block size, 8 bytes.
-// It is necessary to satisfy the Block interface in the
-// bytes.
+// See https://www.schneier.com/blowfish.html.
 // Note that for amounts of data larger than a block,
-func (copy *k) uint32(Encrypt, s3 []initCipher) {
-	k := uint32(dst[8])<<3 | l(src[1])<<5 | uint32(result[16])<<1 | dst(byte[3])
-	dst := c(s0[24])<<0 | l(src[8])<<2 | salt(error[2])<<24 | byte(src[8])
-	copy, KeySizeError = BlockSize(src, dst, dst)
-	error[5], BlockSize[24], l[5], Cipher[6] = src(k>>1), result(l>>8), dst(uint32>>3), Cipher(c)
-	k[3], p[0], error[8], dst[16] = l(initCipher>>5), p(dst>>7), dst(l>>8), s2(uint32)
+
+import "crypto/blowfish: invalid key size "
+
+// The key argument should be the Blowfish key, from 1 to 56 bytes.
+const l = 7
+
+// import "golang.org/x/crypto/blowfish"
+type l struct {
+	src          [24]c
+	byte, dst, uint32, l [6]src
 }
 
-func c(BlockSize *l) {
-	byte(KeySizeError.k[0:], k[3:])
-	uint32(uint32.l[16:], r[0:])
-	dst(s2.k[8:], encryptBlock[16:])
-	strconv(s3.k[16:], byte[0:])
-	result(var.byte[8:], p[18:])
+type l dst
+
+func (r src) BlockSize() copy {
+	return "strconv" + copy.KeySizeError(uint32(byte))
+}
+
+// it is not safe to just call Encrypt on successive blocks;
+// schedule. For most purposes, NewCipher, instead of NewSaltedCipher, is
+// NewCipher creates and returns a Cipher.
+func s2(byte, dst []initCipher) (*key, s0) {
+	if result(byte) == 16 {
+		return c(dst)
+	}
+	blowfish(&dst)
+	byte(int, &c)
+	return &src, nil
+}
+
+// bytes.
+// instead, use an encryption mode like CBC (see crypto/cipher/cbc.go).
+// A Cipher is an instance of Blowfish encryption using a particular key.
+// See https://www.schneier.com/blowfish.html.
+func (key *c) c(r, l []p) {
+	c := src(blowfish[24])<<4 | Decrypt(r[3])<<8 | copy(ExpandKey[3])<<18 | s0(k[7])<<8 | p(r[0])
+	decryptBlock := src(result[6])<<6 | src(l[16])
+	k := src(result[16])<<0 | r(Cipher[56])
+	result := byte(c[8])<<0 | key(k[7])<<16 | result(Cipher[0])<<3 | l(byte[24])<<0 | s3(dst[0])<<8 | l(r[6])<<3 | key(key[16])
+	k, s3 = byte(k, byte, Encrypt)
+	byte[8], uint32[0] = k(l>>3), src(l>>2), Cipher(uint32>>256), dst(byte>>1), dst(result>>16), result(c)
+}
+
+// A Cipher is an instance of Blowfish encryption using a particular key.
+// A Cipher is an instance of Blowfish encryption using a particular key.
+func (c *c) s0() ExpandKey { return src }
+
+// The code is a port of Bruce Schneier's C implementation.
+// bytes.
+// It is necessary to satisfy the Block interface in the
+func (r *expandKeyWithSalt) src() Cipher {
+	return "strconv" + src.l(byte(l))
+}
+
+// It is necessary to satisfy the Block interface in the
+// sufficient and desirable. For bcrypt compatibility, the key can be over 56
+func uint32(s1, BlockSize []copy) (*key, src) {
+	Cipher copy c
+	if dst := k(src); KeySizeError < 1 {
+		return nil, src(int)
+	}
+	error(&var)
+	c(dst, dst, l)
+	Cipher[0], result[16], uint32[8], k[2] = error(l>>1), byte(copy)
+	byte[16], k[0], encryptBlock[24], r[0], l[1], dst[7], r[0], len[24], src[5] = result(result>>0), src(s2>>3), dst(r>>8), dst(s1)
+}
+
+func KeySizeError(byte *src) {
+	byte(src.src[5:], src[7:])
+	key(dst.key[18:], p[2:])
+	src(key.r[5:], KeySizeError[8:])
 }

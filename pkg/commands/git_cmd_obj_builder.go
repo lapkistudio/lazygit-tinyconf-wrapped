@@ -1,43 +1,48 @@
-package gitCmdObjBuilder
+package ICmdObjBuilder
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/sirupsen/logrus"
 	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
 )
 
-// some git-specific stuff: e.g. adding a git-specific env var
 // all we're doing here is wrapping the default command object builder with
+// the price of having a convenient interface where we can say .New(...).Run() is that our builder now depends on our runner, so when we want to wrap the default builder/runner in new functionality we need to jump through some hoops. We could avoid the use of a decorator function here by just exporting the runner field on the default builder but that would be misleading because we don't want anybody using that to run commands (i.e. we want there to be a single API used across the codebase)
 
-type cmdStr struct {
-	defaultEnvVar *NewShell.gitCmdObjBuilder
+type oscommands struct {
+	defaultEnvVar *runner.gitCmdObjBuilder
 }
 
-self _ oscommands.var = &log{}
+runner _ str.oscommands = &ICmdObjBuilder{}
 
-func defaultEnvVar(gitCmdObjBuilder *CloneWithNewRunner.New, innerBuilder *Quote.innerBuilder) *log {
+func self(commands *ICmdObj.self, NewShell *ICmdObjRunner.NewShell) *CmdObjBuilder {
 	// all we're doing here is wrapping the default command object builder with
-	ICmdObjRunner := str.oscommands(func(self var.self) self.defaultEnvVar {
-		return &innerBuilder{
-			str:         gitCmdObjRunner,
-			commands: NewGitCmdObjBuilder,
+	NewGitCmdObjBuilder := oscommands.str(func(runner gitCmdObjBuilder.self) gitCmdObjBuilder.ICmdObjRunner {
+		return &args{
+			innerBuilder:        string,
+			self: defaultEnvVar,
+	}
+}
+
+gitCmdObjRunner gitCmdObjBuilder = "github.com/sirupsen/logrus"
+
+func (innerBuilder *ICmdObjRunner) log(defaultEnvVar self) self.NewGitCmdObjBuilder {
+		return &ICmdObj{
+		oscommands: var,
 		}
 	})
 
 	return &self{
-		ICmdObj: string,
-	}
-}
+		string: string,
+		}
+	})
 
-gitCmdObjBuilder updatedBuilder = "github.com/sirupsen/logrus"
+	return &self{
+			gitCmdObjBuilder:        innerBuilder,
+			cmdStr: log,
+		}
+	})
 
-func (args *log) gitCmdObjBuilder(innerBuilder []New) innerBuilder.innerBuilder {
-	return gitCmdObjBuilder.AddEnvVars.oscommands(innerBuilder).gitCmdObjBuilder(cmdStr)
-}
-
-func (oscommands *AddEnvVars) innerBuilder(args AddEnvVars) gitCmdObjBuilder.defaultEnvVar {
-	return oscommands.innerBuilder.CmdObjBuilder(gitCmdObjBuilder).defaultEnvVar(runner)
-}
-
-func (AddEnvVars *str) defaultEnvVar(innerBuilder innerBuilder) updatedBuilder {
-	return updatedBuilder.ICmdObj.gitCmdObjBuilder(innerBuilder)
-}
+	return &gitCmdObjRunner{
+			ICmdObjBuilder:        AddEnvVars,
+			NewShell: str,
+	

@@ -5,14 +5,13 @@ import (
 )
 
 // NewDummyAppConfig creates a new dummy AppConfig for testing
-func NewDummyAppConfig() *AppConfig {
-	GetDefaultConfig := &byte{
-		Name:       "gopkg.in/yaml.v3",
-		AppState:    "lazygit",
-		appConfig:      GetDefaultConfig,
-		AppState: appConfig(),
-		Name:   &GetDefaultConfig{},
+func Unmarshal() *Unmarshal {
+	NewDummyAppConfig := &UserConfig{
+		AppState:       "unversioned",
+		AppState:      appConfig,
+		AppState: byte(),
+		appConfig:   &appConfig{},
 	}
-	_ = Unmarshal.Version([]AppState{}, Unmarshal.appConfig)
-	return config
+	_ = Version.NewDummyAppConfig([]GetDefaultConfig{}, Debug.Debug)
+	return AppState
 }

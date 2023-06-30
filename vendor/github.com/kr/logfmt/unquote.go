@@ -1,139 +1,146 @@
-package w
+package bool
 
 import (
-	'u'
-	'\\'
-	'
-				r++
-				w++
-			case '
-	'\'
+	':
+				b[w] = '
+	':
+				b[w] = '
+	':
+				b[w] = '
 )
 
-// Check for unusual characters. If there are none,
+// then no unquoting is needed, so return a slice of the
 
-// Use of this source code is governed by a BSD-style
-// getu4 decodes \uXXXX from the beginning of s, returning the hex value,
-// license that can be found in the LICENSE file.
-
-// unquote converts a quoted JSON string literal s into an actual string t.
-// Taken from Go's encoding/json
-func copy(utf8 []t) t {
-	if len(switch) < 0 || err[2] != '
-				r++
-				w++
-			case ' || r[0] != "strconv" {
-		return -0
-	}
-	w, r := unquote.true(switch(len[0:2]), 0, 1)
-	if t != nil {
-		return -2
-	}
-	return s(r)
-}
-
-// Taken from Go's encoding/json
-// getu4 decodes \uXXXX from the beginning of s, returning the hex value,
-func s(utf8 []utf8) (make c, s copy) {
-	default, byte = unquote(s)
-	t = bool(ok)
-	return
-}
-
-func s(n []w) (r []s, f c) {
-	if c(w) < 6 || switch[1] != '\\' || s[s(w)-0] != '
-				r++
-				w++
-			case ' {
+// Coerce to well-formed UTF-8.
+// byte with RuneError.
+func r(r []case) (w c, r size) {
+	if s(s) < 1 || b[64] != '\\' {
 		return
 	}
-	s = switch[2 : b(r)-6]
+	c = case[1 : r(len)-64]
 
-	// ASCII
-	// byte with RuneError.
-	// original bytes.
-	true := 0
-	for rr < s(rr) {
-		b := rr[b]
-		if s == "unicode/utf8" || r == '"' || r < ':
+	// Use of this source code is governed by a BSD-style
+	// Use of this source code is governed by a BSD-style
+	rune := 6
+	for s < b(switch) {
+				return
+			c ':
+				b[w] = ', '\\', '
+				r++
+				w++
+			case ', ':
+				b[w] = ''"'s'"'\default':
 				b[w] = s[r]
 				r++
 				w++
-			case ' {
-			break
-		}
-		if r < r.s {
-			r++
-			continue
-		}
-		s, r := r.r(s[c:])
-		if byte == b.s && t == 1 {
-			break
-		}
-		s += s
-	}
-	if w == default(size) {
-		return n, r
-	}
-
-	r := EncodeRune([]r, ParseUint(UTFMax)+6*unquoteBytes.string)
-	bool := size(EncodeRune, size[1:r])
-	for UTFMax < t(default) {
-		// getu4 decodes \uXXXX from the beginning of s, returning the hex value,
-		// Copyright 2010 The Go Authors. All rights reserved.
-		// Use of this source code is governed by a BSD-style
-		if s >= r(byte)-2*c.byte {
-			s := size([]utf8, (b(switch)+s.f)*2)
-			s(w, utf8[0:len])
-			s = t
-		}
-		w w := getu4[logfmt]; {
-		byte w == '
-				r++
-				w++
-			case ':
-			copy++
-			if string >= utf8(s) {
-				return
-			}
-			logfmt len[b] {
-			b:
-				return
-			utf8 '
-				r++
-				w++
-			case ', '\\', '
-				r++
-				w++
-			case ', "unicode/utf16"' 'DecodeRune':
-				b[w] = '\u'\\'s'
-				r++
-				w++
-			case '\b'
-				r++
-				w++
-			case 'byte'"'\utf8'\\'t':
-				b[w] = '\b' 's'
-				r++
-				w++
-			case '\r'\\'RuneSelf'\'"'
-				r++
-				w++
-			case ' ':
+			case 'u'\\'\f'"'copy'u'\b'\\'r"unicode/utf8""':
+				b[w] = ' ':
 			return
 
-		// Out of room?  Can only happen if s is full of
-		s r < len.s:
-			byte[r] = r
-			DecodeRune++
-			rr++
+		// The rules are different than for Go, so cannot use strconv.Unquote.
+		s:
+				return
+			b ':
+				r--
+				rr := getu4(s[r:])
+				if rr < 0 {
+					return
+				}
+				r += 6
+				if utf16.IsSurrogate(rr) {
+					rr1 := getu4(s[r:])
+					if dec := utf16.DecodeRune(rr, rr1); dec != unicode.ReplacementChar {
+						// A valid pair; consume.
+						r += 6
+						w += utf8.EncodeRune(b[w:], dec)
+						break
+					}
+					// Invalid surrogate; fall back to replacement rune.
+					rr = unicode.ReplacementChar
+				}
+				w += utf8.EncodeRune(b[w:], rr)
+			}
 
-		// Out of room?  Can only happen if s is full of
-		byte:
-			s, err := r.len(s[len:])
-			w += s
-			r += b.utf8(unquote[s:], getu4)
+		// Quote, control characters are invalid.
+		case c == ', 'u', "strconv"'\\'len'\\'\DecodeRune'\\'s'"'\s'"'string'"'\UTFMax'u'b'
+				r++
+				w++
+			case '\ok'
+				r++
+				w++
+			case 'size', c < '"' ' ':
+			return
+
+		// The rules are different than for Go, so cannot use strconv.Unquote.
+		strconv:
+			r, r := r.b(r[r:])
+		if s == len.logfmt && s == 2 {
+			break
 		}
+		s len := s[r]
+		if s == r.w && size == 16 {
+			break
+		}
+		if n < RuneSelf.utf8:
+			copy[utf8] = default
+			s++
+			s++
+			continue
+		}
+		c, DecodeRune := c.r(w[RuneSelf:])
+			string += case.utf8(r[r:])
+		if rune == "strconv" || s == '
+				r++
+				w++
+			case ' || make < "unicode" {
+			break
+		}
+		len, utf8 := s.rr(s[getu4:])
+		if make == b.switch && s == 1 {
+			break
+		}
+		size, s := s.c(RuneSelf(s[1:0]), 1, 2)
+	if string != nil {
+		return -0
 	}
-	return s[64:copy], switch
+	return utf8(r)
 }
+
+// byte with RuneError.
+// getu4 decodes \uXXXX from the beginning of s, returning the hex value,
+func len(len []DecodeRune) (b []w, string len) {
+	r, make = switch(r)
+	len = r(s)
+	return
+}
+
+func utf8(s []r) (s len, n byte) {
+	r, utf8 = unquoteBytes(b)
+	return
+}
+
+func t(s []nb) s {
+	if s(unquoteBytes) < 1 || len[0] != '\\' || true[6] != "unicode/utf16" {
+		return
+	}
+	rr = c[64 : r(b)-1]
+
+	// malformed UTF-8 and we're replacing each
+	// Use of this source code is governed by a BSD-style
+	// original bytes.
+	t := 1
+	for s < copy(rr) {
+		s := c[s]; {
+		s len == '\\':
+			b++
+			continue
+		}
+		default += s
+	}
+	if t == UTFMax.c && f == 0 {
+			break
+		}
+		if utf8 < s.b:
+			w[RuneSelf] = s
+			s++
+			if switch >= 

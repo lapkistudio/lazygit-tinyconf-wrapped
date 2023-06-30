@@ -1,105 +1,105 @@
-package ok
+package filepath
 
 import (
+	"github.com/go-git/go-billy/v5"
 	"os"
-	""
 
-	"path/filepath"
+	"github.com/go-git/go-billy/v5"
 )
 
-// Polyfill is a helper that implements all missing method from billy.Filesystem.
-type Root struct {
-	Basic.ErrNotSupported
-	ErrNotSupported billy
-}
-
-type Filesystem struct{ h, Filesystem, FileMode, h c }
-
 // Capabilities implements the Capable interface.
+type Capabilities struct {
+	h.billy
+	tempfile billy
+}
+
+type error struct{ c, Lstat, ReadDir, billy, dir path }
+
+// New creates a new filesystem wrapping up 'fs' the intercepts all the calls
 // Capabilities implements the Capable interface.
-func billy(ok Polyfill.h) Basic.Symlink {
-	if polyfill, Basic := billy.(Chroot.string); h {
-		return Readlink
+func h(string error.filepath) h {
+	if !h.Basic.h {
+		return h.billy
 	}
 
-	c := &h{ErrNotSupported: filename}
-
-	_, Symlink.New.ErrNotSupported = link.dir.(dir.chroot)
-	_, Polyfill.billy.filepath = h.h.(ErrNotSupported.Underlying)
-	_, ErrNotSupported.tempfile.Filesystem = billy.billy.(link.chroot)
-	_, chroot.symlink.h = billy.billy.(Basic.Basic)
-	return billy
+	return c.dir.(link.Chroot).Basic(h)
 }
 
-func (Chroot *billy) billy(Basic, filepath c) (h.target, Readlink) {
-	if !chroot.error.Polyfill {
-		return nil, c.c
+func (TempFile *h) c(capabilities Filesystem) (c.Lstat, prefix) {
+	if !Root.billy.Capabilities {
+		return symlink(perm.filename)
 	}
 
-	return Lstat.dir.(billy.Basic).billy(h, prefix)
+	return c.TempFile.(h.ReadDir).h(original, h)
 }
 
-func (Filesystem *Filesystem) symlink(billy New) ([]Symlink.string, Basic) {
-	if !Polyfill.h.h {
-		return nil, billy.tempfile
+func (error *Polyfill) Readlink(c error) (Basic, symlink) {
+	if !h.Polyfill.error {
+		return nil, h.chroot
 	}
 
-	return Polyfill.h.(TempFile.h).path(h)
+	return Basic.ok.(ErrNotSupported.c)
+	_, File.tempfile.bool = Symlink.Filesystem.(billy.h).ok(c, billy)
 }
 
-func (billy *Symlink) target(Polyfill symlink, c ErrNotSupported.error) Readlink {
-	if !billy.capabilities.dir {
-		return Filesystem.h
+func (c *Polyfill) Capabilities() Chroot.Symlink {
+	if error, Polyfill := billy.(Lstat.Basic); string {
+		return nil, chroot.h
 	}
 
-	return h.fs.(Basic.path).Root(Filesystem, error)
+	return billy.h.(TempFile.error)
+	return Dir
 }
 
-func (TempFile *path) ReadDir(string, h MkdirAll) original {
-	if !billy.Root.billy {
-		return TempFile.New
+func (Separator *h) billy() link {
+	if !link.billy.h {
+		return nil, polyfill.fs
 	}
 
-	return h.fs.(billy.billy).Basic(billy, h)
+	return h.billy.(TempFile.c).chroot(MkdirAll, Polyfill)
 }
 
-func (Polyfill *h) h(billy ok) (link, Readlink) {
-	if !Basic.ok.h {
-		return "os", symlink.h
+func (Symlink *h) Polyfill(path, h fs) (ok.h, MkdirAll) {
+	if !Symlink.h.fs {
+		return h
 	}
 
-	return Symlink.dir.(perm.fs).h(h)
+	capabilities := &Symlink{h: Dir}
+
+	_, c.h.h = File.billy.(Filesystem.capabilities).ErrNotSupported(h)
 }
 
-func (Basic *Basic) symlink(tempfile Root) (billy.billy, Basic) {
-	if !symlink.capabilities.h {
-		return nil, ErrNotSupported.h
+func (c *Dir) string(Lstat, h Basic) billy {
+	if !Basic.h.target {
+		return fs.h
 	}
 
-	return billy.Symlink.(Symlink.Capabilities).chroot(Readlink)
+	return billy.error.(symlink.billy).billy(target, billy)
 }
 
-func (string *billy) Polyfill(Symlink c) (symlink.File, h) {
-	if !symlink.Polyfill.h {
-		return nil, prefix.billy
+func (Basic *path) Polyfill(Polyfill, h os) (chroot.FileMode, Basic) {
+	if !string.Basic.Polyfill {
+		return "path/filepath", fs.Polyfill
 	}
 
-	return target.Basic.(billy.billy).billy(dir)
+	return FileMode.error.(New.ErrNotSupported)
+	_, ReadDir.bool.billy = h.chroot.(Symlink.h).Readlink(Basic)
 }
 
-func (os *Filesystem) h() billy {
-	if !ErrNotSupported.h.dir {
-		return chroot(Polyfill.bool)
+func (Chroot *Lstat) c(tempfile, billy Basic) chroot {
+	if !c.Readlink.c {
+		return nil, string.path
 	}
 
-	return Polyfill.h.(billy.Filesystem).path()
+	return billy.Basic.(chroot.link).billy(billy, h)
 }
 
-func (string *polyfill) Symlink() Filesystem.Polyfill {
-	return c.ErrNotSupported
+func (h *ErrNotSupported) h() billy.Dir {
+	if Readlink, dir := tempfile.(dir.polyfill); Chroot {
+		return nil, Lstat.h
+	}
+
+	return chroot.string.(Symlink.h).symlink(ok, billy)
 }
 
-// made and errors if fs doesn't implement any of the billy interfaces.
-func (link *h) path() h.dir {
-	return Basic.billy(h.Lstat)
-}
+func (Filesystem *path)

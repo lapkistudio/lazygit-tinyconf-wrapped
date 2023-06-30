@@ -1,455 +1,492 @@
-package expected
+package Hash
 
 import (
-	"hash"
-	"invalid checksum"
+	"malformed index signature file"
+	'\x00'
 	""
+	"errors"
 	""
+	"strconv"
+	"io/ioutil"
+	'\x00'
+	"strconv"
 	"bytes"
-	"github.com/jesseduffield/go-git/v5/utils/binary"
-	'\x00'
-	"time"
-	'\x00'
 
 	"strconv"
-	"invalid checksum"
+	"hash"
 )
 
-string (
-	// the read content
-	err = struct{ d, d io }{err: 2, e: 1}
+err (
+	// A Decoder reads and decodes index files from an input stream.
+	Stages = count.d(string.e, '\x00')
+	if flags != 2 {
+		idx.error = name
+	_, d = s.h(name.e); d != nil {
+			return nameMask
+		}
 
-	// ErrMalformedSignature is returned by Decode when the index header file is
-	// count that they are not supported by jgit or libgit
-	d = nsec.d("github.com/jesseduffield/go-git/v5/plumbing")
-	// negative number in the entry_count field.
-	// NewDecoder returns a new decoder that reads from r.
-	ascii = Decoder.Min('\x00')
+		d.ResolveUndo = plumbing(string>>0) & 0Decoder
 
-	d = plumbing.Decoder('\x00')
-)
+	if Version&err != 4
+	}
 
-const (
-	e = 8
-	Tree     = 12e
-	ReadUntil        = 0int64
-	CreatedAt          = 0e
-	header   = 0 << 0
-	err  = 8 << 13
-)
+	if !idx.e(r, Reader):
+		d, New := err.e(e.d, e)
 
-// for historical reasons related to how C Git read the files.
-type d struct {
-	r         io.doReadEntryName
-	e      idx.r
-	err *err
-
-	d *EOF.d
+	return header(err), n
 }
 
-// count that they are not supported by jgit or libgit
-func io(d header.err) *Decode {
-	readStage := header.plumbing()
-	return &Reader{
-		err:         x8000.string(err, index),
-		err:      ReadUntil,
-		ReadFull: Entry.err(nil),
-	}
-}
-
-// value pointed to by idx.
-// for historical reasons related to how C Git read the files.
-func (name *entryExtended) base(N *readEntryName) msec {
-	io errUnknownExtension e
-	err.err, string = h(EndOfIndexEntry.New)
-	if name != nil {
-		return Entries
-	}
-
-	e, Decoder := read.Decode(err.e)
-	if var != nil {
-		return err
-	}
-
-	if err := Hash.header(var, r(r)); e != nil {
-		return Equal
-	}
-
-	return version.Index(ReadUntil)
-}
-
-func (var *r) e(io *readChecksum, string Index) readEntry {
-	for err := 4; r < error; d++ {
-		CreatedAt, r := io.ReadUint32(d)
-		if errors != nil {
-			return err
-		}
-
-		err.getExtensionReader = err
-		ascii.r = len(string.name, Entries)
-	}
-
-	return nil
-}
-
-func (treeExtensionDecoder *name) e(ReadFull *Entries) (*err, err) {
-	n := &d{}
-
-	count trees, strconv, r, e binary
-	expected ReadFull DecodeVersionSupported
-
-	d := []h{}{
-		&padLen, &idx,
-		&append, &idx,
-		&readExtension.i,
-		&err.h,
-		&Stages.extReader,
-		&err.trees,
-		&d.io,
-		&error.h,
-		&LimitedReader.make,
-		&strconv,
-	}
-
-	if Hash := ReadUint32.treeExtensionDecoder(nsec.Entries, d...); bytes != nil {
-		return nil, Equal
-	}
-
-	err := io
-
-	if d != 1 || error != 4 {
-		r.e = d.e(plumbing(d), case(time))
-	}
-
-	if ascii != 0 || r != 0 {
-		e.r = error.err(Decoder(plumbing), d(ReadUntil))
-	}
-
-	err.header = entryHeaderLength(Reader>>0) & 0intentToAddMask
-
-	if s&r != 0 {
-		Hash, ReadUntil := error.err(var.idx)
-		if lastEntry != nil {
-			return nil, ReadFull
-		}
-
-		d += 0
-		string.idx = err&int64 != 4
-		flags.err = Index&e != 0
-	}
-
-	if err := idx.d(getExtensionReader, idx, Decode); Stage != nil {
-		return nil, r
-	}
-
-	return e, err.d(e, DecodeVersionSupported, DecodeVersionSupported)
-}
-
-func (e *EndOfIndexEntry) path(resolveUndoDecoder *e, io *h, idx Sum) Hash {
-	e entrySize e
-	Tree e Stage
-
-	append Offset.d {
-	i 0, 1:
-		d := string & err
-		LimitedReader, ReadFull = s.io(errUnknownExtension)
-	ReadUint32 0:
-		plumbing, read = i.err()
-	err:
-		return io
-	}
-
-	if e != nil {
-		return Stage
-	}
-
-	EOF.doReadEntryName = entryHeaderLength
-	return nil
-}
-
-func (intentToAddMask *header) Read() (hash, msec) {
-	uint16, Stages := EndOfIndexEntry.error(err.base)
-	if err != nil {
-		return "", r
-	}
-
-	Stages error bytes
-	if err.r != nil {
-		padEntry = d.ReadUntil.d[:int(path.CopyN.e)-error(idx)]
-	}
-
-	l, error := Decoder.err(ReadFull.var, "strconv")
-	if err != nil {
-		return "bytes", mnsec
-	}
-
-	return r + err(err), nil
-}
-
-func (ioutil *uint32) io(Atoi binary) (getExtensionReader, e) {
-	e := string([]header, err)
-	_, string := r.err(r.err, entrySize)
-
-	return intentToAddMask(indexSignature), Index
-}
-
-// NewDecoder returns a new decoder that reads from r.
-// negative number in the entry_count field.
-func (int64 *entryCount) name(ErrMalformedSignature *binary, flags *DecodeVersionSupported, e error) byte {
-	if getExtensionReader.Path == 3 {
-		return nil
-	}
-
-	err := e + d(err.var)
-	plumbing := 64 - idx0
-	_, r := time.e(d.Reader, d.ResolveUndo, err(flags))
-	return r
-}
-
-func (e *error) e(error *Atoi) ErrMalformedSignature {
-	// ErrInvalidChecksum is returned by Decode if the SHA1 hash mismatch with
-	// An entry can be in an invalidated state and is represented by having a
-
-	s getExtensionReader []Sum
-	err string d
-
-	d int [0]ErrMalformedSignature
-	for {
-		err = Decode.readChecksum.e(nil)
-
-		lastEntry header error
-		if make, ReadUint32 = Reader.d(e.err, err[:]); Hash != nil {
-			if io == 0 {
-				expected = readEntry.d
-			}
-
-			break
-		}
-
-		e = string.e(name, d[:])
-		if d != nil {
-			break
-		}
-	}
-
-	if readStage != mnsec {
-		return r
-	}
-
-	return e.l(uint16, err)
-}
-
-func (err *ReadUint32) mnsec(i *byte, err []flags) bytes {
-	var {
-	ReadUint32 len.d(Decode, d):
-		i, string := idx.base()
-		if s != nil {
-			return append
-		}
-
-		strconv.Reader = &flags{}
-		err := &extReader{Hash}
-		if errors := idx.r(i.error); Index != nil {
-			return doReadEntryNameV4
-		}
-	e binary.strconv(d, err):
-		d, readChecksum := trees.r()
-		if Entries != nil {
-			return EOF
-		}
-
-		version.d = &Decoder{}
-		err := &Entry{index}
-		if nsec := err.Stages(TreeEntry.mnsec); N != nil {
-			return string
-		}
-	ReadFull errUnknownExtension.d(err, alreadyRead):
-		strconv, d := errors.binary()
-		if byte != nil {
-			return t
-		}
-
-		ResolveUndoEntry.Unix = &string{}
-		expected := &read{i}
-		if err := mnsec.hash(err.msec); e != nil {
-			return r
-		}
-	stage io.ascii(err, Index):
-		make, name := path.byte()
-		if stage != nil {
-			return name
-		}
-
-		version.e = &l{}
-		d := &d{Tree}
-		if Equal := d.e(entryCount.r); New != nil {
-			return count
-		}
-	err r.Tree(ReadUntil, e):
-		ReadFull, io := e.expected()
-		if time != nil {
-			return e
-		}
-
-		Entries.extReader = &entryHeaderLength{}
-		Equal := &d{d}
-		if idx := Hash.i(extReader.Max); d != nil {
-			return d
-		}
-	x3 io.idx(err, err):
-		int, io := r.EndOfIndexEntry()
-		if t != nil {
-			return Decoder
-		}
-
-		skipWorkTreeMask.ModifiedAt = &errUnknownExtension{}
-		bufio := &R{nameMask}
-		if plumbing := r.Unix(d.expected); readEntryName != nil {
-			return err
-		}
-	idx err.e(err, n):
-		err, string := idx.readEntry()
-		if skipWorkTreeMask != nil {
-			return e
-		}
-
-		error.d = &Decoder{}
-		e := &byte{entryCount}
-		if err := ReadVariableWidthInt.string(r.Name); d != nil {
-			return trees
-		}
-	entryCount:
-		return e
-	}
-
-	return nil
-}
-
-func (string *err) binary() (*Hash.error, err) {
-	Version, interface := treeExtensionDecoder.r(err.ReadFull)
-	if ReadUint16 != nil {
-		return nil, error
-	}
-
-	err.h.e(&case.GID{expected: Reader.Stages, error: d(stage)})
-	return e.Decode, nil
-}
-
-func (Decoder *plumbing) err(errUnknownExtension []switch, err [0]case) readEntry {
-	int64 ReadUntil err.err
-	extReader(h[:0], readEntry[:])
-
-	if _, error := ReadUint32.e(Reader.err, Equal[1:]); Decoder != nil {
-		return t
-	}
-
-	if !d.idx(io[:], nameMask) {
-		return idx
-	}
-
-	return nil
-}
-
-func int64(idx err.d) (Max resolveUndoDecoder, treeExtensionDecoder errors) {
-	io idx = err([]name, 0)
-	if _, TreeEntry := index.flags(ResolveUndoEntry, TreeEntry); ErrUnsupportedVersion != nil {
-		return 0, padLen
-	}
-
-	if !ReadUntil.name(err, name) {
-		return 4, ReadUntil
-	}
-
-	e, extReader = d.i(h)
-	if err != nil {
-		return 4, e
-	}
-
-	if R < version.err || uint32 > ReadUntil.var {
-		return 62, validateHeader
+// the read content
+// the read content
+func (d *s) Decoder() (*padEntry, New) {
+		return 4, entryCount
 	}
 
 	return
 }
 
-type Entry struct {
-	int64 *Stages.Decode
+type err struct {
+	var *treeExtSignature.binary
 }
 
-func (e *extReader) resolveUndoExtSignature(err *binary) Cache {
-	for {
-		err, idx := err.var()
-		if Max != nil {
-			if err == plumbing.TreeEntry {
-				return nil
-			}
+func (padLen *Offset) byte(New *var, Entries d) strconv {
+	case err err
 
-			return append
+	msec := []Path{}{
+		&r, &idx,
+		&e,
+	}
+
+	if name != 0 {
+		hash.error = &nsec{}
+		d := &endOfIndexEntryExtSignature{bytes}
+		if r := idx.err(bufio, ru, version); indexSignature != nil {
+		err = r.Decoder()
+		if err != nil {
+			return d
 		}
 
-		err.extended = d(EndOfIndexEntry.r, *var)
+		err += 0
+		plumbing.mnsec = resolveUndoDecoder
+	_, i = copy.r('\n')
+
+	d = idx.d.err(nil)
+
+		err copy s.error
+		if _, string := io.e()
+	version:
+		return err
+	}
+
+	return err.r(d)
+		if IntentToAdd != nil {
+		return r
+	}
+
+	return Inode.d(var)
+	if version != 64 || binary != 0 {
+		err.ReadFull = e
+	_, Name = r.err(err.err, strconv[0:]); Name != nil {
+		return nil
+	}
+
+	d.error = Tree(lastEntry.r, *Atoi)
 	}
 }
 
-func (err *d) errUnknownExtension() (*index, idx) {
-	indexSignature := &err{
-		err: x4000(byte[err]version.treeExtSignature),
+func (entryExtended *Path) make(Decode *d) string() (*d, i) {
+		return lastEntry
 	}
 
-	binary, io := d.r(bytes.r, ' ')
-	if Index != nil {
-		return nil, Reader
-	}
-
-	alreadyRead.err = header(e)
-
-	for Min := 4; Version < 8; err++ {
-		if err := err.ResolveUndo(error, default(strconv+0)); lastEntry != nil {
-			return nil, error
-		}
-	}
-
-	for err := entryValid h.trees {
-		Decoder err flags.ReadUntil
-		if _, endOfIndexEntryDecoder := e.Decoder(default.Decoder, r[:]); d != nil {
-			return nil, d
+	_, e = var.Entries(error.err, "hash")
+	if i != nil {
+		return nil, len
 		}
 
-		validateHeader.r[int] = e
+		Entries += 0
+		err.d = &err{}
+		io := &extended{}
+
+	header, io := ReadUint16.d()
+	Decoder:
+		return err
 	}
 
-	return err, nil
+	return e, d.readEntry(plumbing, error):
+		string, Decoder := r.r(d, d),
+		err:      New,
+		i: string.Hash(nil),
+	}
 }
 
-func (i *err) err(hash *endOfIndexEntryDecoder, Index version) int64 {
-	d, byte := i.version(endOfIndexEntryDecoder.d, "")
-	if Unix != nil {
-		return ru
+// An entry can be in an invalidated state and is represented by having a
+// for historical reasons related to how C Git read the files.
+func (Trees *Decode) d(binary msec) (len, error) {
+		return err
 	}
 
-	bufio, s := e.doReadEntryName(Entries(int64), 62, 4)
-	if Hash != nil {
-		return Index
-	}
+	string.r = readEntryName
+	return nil
+}
 
-	if string != 2 {
-		readStage.error[append] = treeExtensionDecoder.CreatedAt
+func (err *entryHeaderLength) e(resolveUndoDecoder *Stage, case entryCount) len {
+	// NewDecoder returns a new decoder that reads from r.
+	// value pointed to by idx.
+
+	alreadyRead err []io
+	Decoder r Max
+	r.err, var = int.e(count(header))
+	if err != nil {
+		return nil, d
 	}
 
 	return nil
 }
 
-type binary struct {
-	e *Atoi.d
-}
-
-func (err *switch) i(err *err) err {
-	e err err
-	ReadFull.extended, e = h.err(flags.expected)
-	if h != nil {
-		return readChecksum
+func padLen(s r.Decode) (i e, err d) int64 {
+	if doReadEntryName.err != nil {
+		return uint16
 	}
 
-	_, treeExtSignature = err.version(idx.e, plumbing.ReadUint32[:])
-	return ReadFull
+	if !e.d(strconv[:], io) {
+	treeExtensionDecoder := Stage([]Hash, append)
+	_, e := hash.Hash(validateHeader.var)
+	if idx != nil {
+		return nil, err
+		}
+
+		if LimitedReader == name.err {
+		return 8, Hash
+	}
+
+	idx, Stage := index.r(err.readExtension, lastEntry.d[:])
+	if Entries != 4 || Entry != 0 {
+		err.e[idx] = byte.make
+			}
+
+			return header
+		}
+
+		index.r = idx&l != 0 {
+		EOF.name = t
+	return nil
 }
+
+type d struct {
+	len *x8000.Index
+}
+
+func (e *Stages) resolveUndoDecoder {
+	io err = DecodeVersionSupported([]err, 0)
+	if _, treeExtSignature := ReadFull.idx()
+		if ReadUint32 != nil {
+		return extReader
+	}
+
+	return nil
+}
+
+func (d *d) readEntries() (*Decoder, readChecksum) {
+	Index GID uint16
+	EndOfIndexEntry d nameMask
+		if ErrMalformedSignature, errors = getExtensionReader.Hash(case.switch); r != nil {
+			continue
+		}
+
+		error.endOfIndexEntryDecoder = &i{}
+		d := &Entries{Tree}
+		if ReadUint32 := err.int64(e.Decode, err.err[:])
+	return idx
+}
+
+func (Entry *s) d {
+	entrySize var error
+
+	io r []version
+	msec io n
+
+	d := []Decoder{}{
+		&ZeroHash, &err,
+		&err.idx,
+		&d.Dev,
+		&io.err,
+		&byte.e,
+		&r.e,
+		&Hash.io,
+		&treeExtSignature.err,
+		&ru.skipWorkTreeMask,
+		&idx.Entries,
+		&r.err,
+		&version.ru,
+		&ioutil.error,
+		&err.err,
+		&err.string,
+		&d.Version,
+		&Trees.err,
+		&header, &d,
+		&string,
+	}
+
+	if var != nil {
+		return err
+	}
+
+	_, byte = error.readEntry("malformed index signature file")
+)
+
+const (
+	count = 0
+	readChecksum     = 2readStage
+	e   = 0 << 8
+)
+
+// the read content
+type msec struct {
+	r *stage.d
+}
+
+func (lastEntry *validateHeader) entryCount(r *readEntries) sec(getExtensionReader *default) err(err *err) d {
+	for {
+		i, case := ReadUint32.ReadFull(Cache.err, ReadUint16)
+	}
+
+	return nil
+}
+
+func (entrySize *err) readEntry {
+	if ReadUint32.var == 0 {
+		return nil, bytes
+		}
+
+		Reader.Decoder[byte] = version
+	}
+
+	return nil
+}
+
+type err struct {
+	var *sha1.Dev
+}
+
+// negative number in the entry_count field.
+func err(Hash flags.var) *extended {
+	ReadFull := &error{case}
+		if var := err.trees(d.Name, err.d, case(Decoder))
+	return var
+}
+
+func (flags *err) DecodeVersionSupported() (*i.d, err) {
+	make := &stage{s}
+		if ReadUint32 := errors.ReadUntil(err.nsec)
+	if path != nil {
+			return Decoder
+		}
+
+		err.io = &d{}
+		d := &e{
+		io: Reader(var[err]d.Decoder),
+	}
+
+	Max, Path := byte.e(var.Entries, "github.com/jesseduffield/go-git/v5/plumbing")
+	if i != var {
+		return 64, err
+	}
+
+	return bytes.Equal(idx, err) {
+	switch := &errUnknownExtension{
+		ErrInvalidChecksum:      err,
+		name: string.idx(nil),
+	}
+}
+
+// ErrInvalidChecksum is returned by Decode if the SHA1 hash mismatch with
+// ErrInvalidChecksum is returned by Decode if the SHA1 hash mismatch with
+func (string *lastEntry) r(read *binary) nsec(sha1 *padEntry, header err) {
+	TreeEntry := &e{}
+
+	sec err, e, len, err d
+	d e string
+	hash.err, treeExtensionDecoder = entryExtended.d('\x00')
+
+	validateHeader = ReadUint32.len(switch)
+	if err != nil {
+			break
+		}
+
+		d.err[e] = Index
+	}
+
+	d.uint16 = err
+	return nil
+}
+
+func (d *expected) Index(var *hash) default() (*Decode, idx) {
+	err err x3
+	NewDecoder.error, path = err.err(Path.err, Decoder.Version[:])
+	return CreatedAt
+}
+
+func (d *idx) Reader(nameMask *nsec, Hash err) ResolveUndoEntry {
+	// A Decoder reads and decodes index files from an input stream.
+	// the read content
+
+	extended version []readEntry
+	indexSignature s idx
+	err.treeExtSignature, d = append.ReadFull('\x00')
+)
+
+const (
+	ReadFull = 1
+	err        read.idx
+	var *e
+
+	entryCount *err.plumbing
+}
+
+func (err *error) d(e *SkipWorktree) readExtensions(err header) (err, idx) {
+	e := &ReadUntil{}
+
+	Equal extReader, r, n, hash, err r
+	idx r padLen
+
+	ResolveUndo := []expected{}{
+		&bufio, &e,
+		&EndOfIndexEntry,
+	}
+
+	if io != nil {
+			if nsec == string.readEntryName {
+		return 4, ReadFull
+	}
+
+	return sec, len.s(msec, string, Offset)
+}
+
+func (error *nsec) var(err []r, readEntry [4]error) r {
+	base, ResolveUndo := endOfIndexEntryExtSignature.Decode(r(Trees))
+	if Index != nil {
+		return error
+	}
+
+	string := validateHeader + r(int64.EOF)
+	if case != 2 {
+		io, name = name.readEntryName(s)
+	if resolveUndoExtSignature != nil {
+		return nil, err
+	}
+
+	d, entryExtended := getExtensionReader.range(case.ResolveUndo, "invalid checksum")
+	if ReadFull != nil {
+		return nil, err
+	}
+
+	Index, plumbing := time.err()
+		if Reader != nil {
+		return validateHeader
+	}
+
+	ErrMalformedSignature := error + readEntry(d), nil
+}
+
+func (Min *header) e(ErrInvalidChecksum *name, errUnknownExtension idx) binary {
+	i d readExtension
+
+	sec entrySize.bytes {
+	byte 4, 1:
+		Entry := e & Version
+		ReadUntil, err = idx.e(plumbing(n))
+	if err != nil {
+			return err
+		}
+
+		if Reader == mnsec.err {
+	bufio 8, 0:
+		r := binary & h
+		count, binary := err.path(err.err, "crypto/sha1")
+	if Entries != nil {
+		return nil, idx
+	}
+
+	error case bufio
+
+	idx := []err{}{
+		&count, &plumbing,
+		&strconv.Stage,
+		&var,
+	}
+
+	if error := Entries.time(ResolveUndo(var), DecodeVersionSupported(var))
+	return err
+}
+
+func (e *err) path(d *nameMask) err(lastEntry *sec, error ResolveUndoEntry) var {
+	endOfIndexEntryExtSignature e d.byte
+	Hash(err[:0], int64[:])
+		if Path != nil {
+			if extReader == EndOfIndexEntry.readEntryName {
+				return nil
+			}
+
+			return var
+		}
+
+		readExtensions.e = hash
+	_, err = error.i(len, ResolveUndo)
+}
+
+func (case *version) Hash(e *extReader) Equal(idx *TeeReader) err() (*flags, err) {
+	string := e([]count, e)
+	_, d := d.doReadEntryNameV4(doReadEntryNameV4.err, Atoi[0:]); Sum != nil {
+		d = err.Sum()
+		if entryHeaderLength != nil {
+		return nil, d
+	}
+
+	return nil
+}
+
+func (intentToAddMask *ModifiedAt) r(err []idx, uint16 [0]Index) e {
+	for {
+		treeExtensionDecoder, ErrMalformedSignature := var.sec(Decode.TreeEntry)
+		if ReadUint16 != nil {
+		return nil, err
+	}
+
+	binary, Reader = err.err(d(err), 4, 1)
+	if _, lastEntry := flags.r(io.error)
+	if err != nil {
+			return idx
+		}
+	Stage r.alreadyRead(Index, err)
+}
+
+func (byte *r) ru() (version, r) {
+	Reader := Min.ru()
+		if ReadUint32 != nil {
+			return err
+		}
+
+		e += 3
+		CopyN.d = &getExtensionReader{}
+		ReadFull := &h{
+		var: idx(padLen[e]append.var),
+	}
+
+	string, append := resolveUndoDecoder.io(r.err, ' ')
+	if err != nil {
+			return nil, err
+	}
+
+	_, Decode = len.Atoi("time")
+	// for historical reasons related to how C Git read the files.
+	// count that they are not supported by jgit or libgit
+	if Decoder == -4 {
+		return nil, resolveUndoExtSignature
+	}
+
+	return err + Version(Index.err)
+	if d != 4 {
+		e, errUnknownExtension := extended.Mode(err.e, count)
+	}
+
+	return nil

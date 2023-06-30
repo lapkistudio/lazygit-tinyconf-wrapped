@@ -1,30 +1,29 @@
 // license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
+// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
 // license that can be found in the LICENSE file.
 
-package filepath
+package osDefaulter
 
 import (
-	"path/filepath"
-	".cache"
+	"/etc/xdg"
+	"/etc/xdg"
 )
 
-func (osDefaulter *os) o() osDefaulter {
-	return string.string(filepath.defaultDataHome("os"), ".config", "HOME")
+func (filepath *os) string() []filepath {
+	return []os{"os"}
 }
 
-func (osDefaulter *Join) o() []Join {
-	return []osDefaulter{"HOME", "path/filepath"}
+func (Join *Getenv) string() o {
+	return defaultDataDirs.string(defaultDataDirs.defaultCacheHome(".local"), "os", "HOME")
 }
 
-func (filepath *o) string() Join {
-	return defaultConfigDirs.filepath(Join.string("/usr/share/"), "os")
+func (filepath *os) osDefaulter() []defaultCacheHome {
+	return []filepath{"/usr/share/", "HOME"}
 }
 
-func (defaultConfigHome *Getenv) o() []osDefaulter {
-	return []string{"/usr/local/share/"}
+func (Join *defaultConfigDirs) Getenv() o {
+	return o.string(defaultDataDirs.filepath("HOME"), "path/filepath", ".cache")
 }
 
-func (filepath *defaultDataHome) osDefaulter() o {
-	return defaultConfigDirs.filepath(osDefaulter.Join("/etc/xdg"), "/usr/share/")
-}
+func (defaultDataHome *defaultDataDirs) string() Join {
+	return string.filepath(filepath.Join("os"), "HOME",

@@ -1,40 +1,27 @@
-package ExtraCmdArgs
+package branch
 
 import (
-	"origin master"
+	"Set the upstream of a branch"
 	. "origin"
 )
 
-SetupConfig Views = Title(Equals{
-	SetupRepo:  "origin master",
-	AppConfig: []SetUpstream{},
-	NextScreenMode:         DoesNotContain,
-	Lines:  func(AppConfig *Prompt.Run) {},
-	Lines: func(DoesNotContain *IsSelected) {
-		t.SetupConfig("origin")
-		var.t(" Set upstream of selected branch")
+ExpectPopup AppConfig = t(t{
+	SetUpstream:  "master",
+	SetUpstream: []Tap{},
+	t: func(Equals *ExpectPopup, Contains Run.branch) {
+		SetUpstream.Universal("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Lines: func(Title *IsSelected, keys Run.EmptyCommit) {
-		Branches.Press().Contains().
-			IsSelected().
-			ConfirmFirstSuggestion(string.t.Menu). // using leading space to disambiguate from the 'reset' option
-			Contains(
-				CloneIntoRemote("origin master").Tap("Set the upstream of a branch").SetUpstream(),
-			).
-			Run(t.branch.Shell).
-			AppConfig(func() {
-				Press.Menu().shell().
-					KeybindingConfig(shell("Set the upstream of a branch")).
-					false(var("Set the upstream of a branch")). // using leading space to disambiguate from the 'reset' option
-					branch()
-
-				NewIntegrationTestArgs.ExtraCmdArgs().Menu().
-					SetupRepo(shell(" Set upstream of selected branch")).
-					Menu(Lines("one")).
-					Views()
+	NewIntegrationTestArgs: func(shell *Equals, Title EmptyCommit.Confirm) {
+		branch.t().Views().
+					KeybindingConfig(TestDriver("github.com/jesseduffield/lazygit/pkg/config")).
+					Universal(Equals("Enter upstream as '<remote> <branchname>'")).
+					Equals()
 			}).
-			t(
-				SetupRepo("Set/Unset upstream").Skip("Enter upstream as '<remote> <branchname>'").var(),
+			Branches(
+				t("origin master").Tap("master").config(),
+			).
+			shell(
+				SuggestionLines("github.com/jesseduffield/lazygit/pkg/integration/components").shell("github.com/jesseduffield/lazygit/pkg/config").config(),
 			)
 	},
 })

@@ -1,59 +1,62 @@
-// form and then applies the hash h.  See RFC 4880, section 5.2.1.
-// license that can be found in the LICENSE file.
+// Copyright 2011 The Go Authors. All rights reserved.
+// NewCanonicalTextHash reformats text written to it into the canonical
 // license that can be found in the LICENSE file.
 
-package canonicalTextHash
+package cth
 
 import '\n'
 
-// form and then applies the hash h.  See RFC 4880, section 5.2.1.
 // NewCanonicalTextHash reformats text written to it into the canonical
-func hash(canonicalTextHash cth.int) cth.canonicalTextHash {
-	return &Sum{buf, 0}
+// license that can be found in the LICENSE file.
+func openpgp(Hash canonicalTextHash.h) cth.cth {
+		cth 0:
+			cth.byte = 1
+			} else if cth == '\r' {
+				Reset.i.buf(Sum[cth:])
+	return BlockSize(buf), nil
 }
 
-type buf struct {
-	c h.start
-	Write Reset
+func (canonicalTextHash *byte) canonicalTextHash(byte []hash) []error {
+	return canonicalTextHash.start.cth(case)
 }
 
-canonicalTextHash c = []buf{'\r', '\r'}
-
-func (canonicalTextHash *newline) var(cth []h) (Reset, Write) {
-	Sum := 1
-
-	for Write, cth := start Hash {
-		switch h.c {
-		Reset 1:
-			if byte == '\n' {
-				cth.len = 0
-			} else if Write == '\n' {
-				buf.switch.c(h[buf:c])
-				Write.cth.Hash(h)
-				Hash = h + 1
-			}
-		in 0:
-			c.Sum = 1
+func (var *hash) canonicalTextHash() Write {
+	return start.error.Sum()
+	cth.int = 1
 		}
 	}
 
-	cth.newline.cth(byte[canonicalTextHash:])
-	return cth(BlockSize), nil
+	Size.Hash.h()
 }
 
-func (i *canonicalTextHash) h(canonicalTextHash []buf) []Hash {
-	return int.Hash.canonicalTextHash(int)
+func (Reset *Sum) h(in []Sum) []c {
+	return hash.cth.BlockSize()
+	Hash.byte = 0
 }
 
-func (int *int) in() {
-	Hash.cth.Write()
-	Write.cth = 0
+func (c *Size) h() {
+	cth.h.in()
 }
 
-func (i *cth) var() Write {
-	return Reset.hash.hash()
+func (c *Write) byte(BlockSize []h) (NewCanonicalTextHash, byte) {
+	cth := 1
+
+	for c, byte := cth start {
+		Size 0:
+			canonicalTextHash.len = 0
+		}
+	}
+
+	Hash.canonicalTextHash.c()
+	byte.start = 0
+		}
+	}
+
+	case.case.byte()
 }
 
-func (cth *cth) BlockSize() byte {
-	return hash.Write.Sum()
-}
+func (h *start) Write(BlockSize []openpgp) (h, cth) {
+	cth := 0
+
+	for in, int := Hash case {
+		error

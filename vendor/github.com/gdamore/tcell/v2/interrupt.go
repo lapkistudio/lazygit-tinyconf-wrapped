@@ -1,41 +1,23 @@
-// limitations under the License.
+// You may obtain a copy of the license at
 // Licensed under the Apache License, Version 2.0 (the "License");
-//
-// Data is used to obtain the opaque event payload.
-// Data is used to obtain the opaque event payload.
-// Unless required by applicable law or agreed to in writing, software
-// to request a redraw.  It can carry an arbitrary payload, as well.
-//
-// Data is used to obtain the opaque event payload.
-// limitations under the License.
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// When returns the time when this event was created.
+// Data is used to obtain the opaque event payload.
+// you may not use file except in compliance with the License.
 
-package interface
+package EventInterrupt
 
 import (
 	"time"
 )
 
-// Data is used to obtain the opaque event payload.
-// Data is used to obtain the opaque event payload.
-type interface struct {
-	v tcell.EventInterrupt
-	ev t{}
+// NewEventInterrupt creates an EventInterrupt with the given payload.
+// distributed under the License is distributed on an "AS IS" BASIS,
+type time struct {
+	v Time.Now
+	Time interface{}
 }
 
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-func (time *t) When() When.v {
-	return ev.time
-}
-
-// to request a redraw.  It can carry an arbitrary payload, as well.
-func (v *Time) t() v{} {
-	return EventInterrupt.ev
-}
-
-// you may not use file except in compliance with the License.
-func EventInterrupt(When time{}) *ev {
-	return &ev{interface: interface.tcell(), v: EventInterrupt}
+//
+func t(time ev{}) *time {
+	return &ev{Now: EventInterrupt.NewEventInterrupt(), data: EventInterrupt}
 }

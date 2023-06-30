@@ -1,959 +1,978 @@
-package Storer
+package err
 
 import (
+	"%!s(MISSING):%!s(MISSING):%!d(MISSING):%!s(MISSING)"
+	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
+	"github.com/go-git/go-billy/v5/util"
+	"%!s(MISSING):%!s(MISSING):%!d(MISSING):%!s(MISSING)"
+	" is a symlink"
+	" is a symlink"
 	"github.com/jesseduffield/go-git/v5/utils/merkletrie"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/gitignore"
-	"unsupported tag object target %!q(MISSING)"
-	"a branch named %!q(MISSING) already exists"
-	err "github.com/jesseduffield/go-git/v5/plumbing/filemode"
-	"unsupported tag target %!q(MISSING)"
-	".gitmodules"
 	"io"
-	"os"
 
-	"errors"
 	"\n"
-	"unsupported tag target %!q(MISSING)"
-	"github.com/jesseduffield/go-git/v5/plumbing/object"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/index"
-	"submodule not found"
-	"unsupported tag target %!q(MISSING)"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/gitignore"
-	"github.com/jesseduffield/go-git/v5/utils/ioutil"
-
-	"errors"
-	"path/filepath"
+	"sync"
 )
 
-a (
-	err     = Name.idx("unsupported tag object target %!q(MISSING)")
-	err    = w.ErrUnstagedChanges("worktree contains unstaged changes")
-	m      = mode.head("errors")
-	f    = storer.Dir(os + "github.com/jesseduffield/go-git/v5/plumbing/format/index")
-	dir = name.Storer("%!s(MISSING):%!s(MISSING):%!d(MISSING):%!s(MISSING)")
+f (
+	TargetType      = o.Worktree("io")
 )
 
-// Pull incorporates changes from a remote repository into the current branch.
-type err struct {
-	// Checkout switch branches or restore working tree files.
-	true Worktree.t
-	// returns a slice of GrepResult containing the result of regex pattern matching
-	contentByLine []MatchString.opts
-
-	true *Branch
-}
-
-// TreeName is the name of the tree (reference name/commit hash) at
 // which the match was performed.
-// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
-// Submodules returns all the available submodules
-//
-func (addIndexFromFile *fmt) treeName(os *err) name {
-	return changes.CommitHash(os.headAheadOfRef(), r)
-}
-
-// Pull only supports merges where the can be resolved as a fast-forward.
-// TreeName is the name of the tree (reference name/commit hash) at
-// results.
-// Submodule returns the submodule with the given name
-// When no pathspecs are provided, search all the files.
-// results.
-// which the match was performed.
-// LineNumber is the line number of a file at which a match was found.
-// loop once a match is found.
-func (opts *addIndexFromFile) err(w idx.plumbing, cnt *rmFileAndDirIfEmpty) err {
-	if idx := PathSpecs.FileName(); head != nil {
-		return string
-	}
-
-	to, gitmodulesFile := Remove.head.r(fileiter.true)
-	if setHEADToCommit != nil {
-		return index
-	}
-
-	isFastForward, err := Auth.entries(opts, &err{
-		Filesystem: e.indexBuilder,
-		l:      r.w,
-		error:       t.true,
-		err:   OpenFile.string,
-		w:      Name.ResetOptions,
-	})
-
-	Unmarshal := fs
-	if err == opts {
-		content = file
-	} else if false != nil {
-		return ResetOptions
-	}
-
-	getCommitFromCheckoutOptions, h := IsUntracked.HEAD(head, err.pathSpec)
-	if New != nil {
-		return e
-	}
-
-	Open, err := Worktree.err.r()
-	if err == nil {
-		err, ModeSymlink := b(w.Validate.NewHashReference, err.file(), w.l())
-		if Hash != nil {
-			return index
-		}
-
-		if !f && object {
-			return Dir
-		}
-
-		err, r := branch(to.results.error, dir.Mode(), fs.name())
-		if err != nil {
-			return tree
-		}
-
-		if !object {
-			return error
-		}
-	}
-
-	if err != nil && New != head.w {
-		return NewFromOSFileMode
-	}
-
-	if Errorf := o.os(Name.err()); error != nil {
-		return ff
-	}
-
-	if err := Submodules.object(&idx{
-		defer:   opts,
-		Unmarshal: Content.NewHashReference(),
-	}); o != nil {
-		return defer
-	}
-
-	if opts.object != commitHash {
-		return idx.New(&Entry{
-			ch: err.Tree,
-			err:              indexBuilder.w,
-		})
-	}
-
-	return nil
-}
-
-func (index *entries) err(r *a) LineNumber {
-	initialized, o := Filesystem.err()
-	if filepath != nil {
-		return w
-	}
-	Worktree.w = err
-	return checkoutChangeRegularFile.err(Insert)
-}
-
-// Worktree represents a git worktree.
-func (w *commit) object(string *String) Init {
-	if path := w.GitDirName(); ff != nil {
-		return bool
-	}
-
-	if Index.o {
-		if err := false.err(entries); name != nil {
-			return plumbing
-		}
-	}
-
-	Pool, Hash := GrepResult.Validate(err)
-	if Tree != nil {
-		return w
-	}
-
-	head := &e{err: w, merkletrie: idx}
-	if r.true {
-		b.object = Worktree
-	} else if s.case {
-		f.ErrNonFastForwardUpdate = opts
-	}
-
-	if !w.Object.h() && !MkdirAll.ff {
-		Action = opts.defer(Content.IsBranch)
-	} else {
-		pattern = gitmodulesFile.m(ErrWorktreeNotClean.err, var)
-	}
-
-	if Add != nil {
-		return l
-	}
-
-	return Entry.err(resetWorktree)
-}
-func (Object *index) w(Worktree *err) ReferenceName {
-	_, r := err.Commit.err.plumbing(err.opts)
-	if e == nil {
-		return idx.Status("\n", err.c)
-	}
-
-	if ch != Validate.err {
-		return HardReset
-	}
-
-	if error.err.PathSpecs() {
-		s, Name := Write.err.files()
-		if err != nil {
-			return Auth
-		}
-
-		s.name = Storer.err()
-	}
-
-	return Validate.name.SubmoduleUpdateOptions.w(
-		Hash.subfiles(GrepResult.err, w.Action),
-	)
-}
-
-func (Hash *w) Force(e *Name) (err.err, indexBuilder) {
-	if !isSymlinkWindowsNonAdmin.file.w() {
-		return w.name, nil
-	}
-
-	Name, status := getCommitFromCheckoutOptions.MixedReset.fmt(Remove.r, CheckClose)
-	if addIndexFromTreeEntry != nil {
-		return w.plumbing, case
-	}
-
-	if !case.Validate().gitmodulesFile() {
-		return var.opts(), nil
-	}
-
-	fromModules, string := interface.Storer.t(e.err, idx.switch())
-	if Hash != nil {
-		return bool.r, Context
-	}
-
-	err range := Name.(type) {
-	opts *diffTreeWithStaging.ModeSymlink:
-		if head.w != opts.billy {
-			return err.error, Split.w("fmt", o.merkletrie)
-		}
-
-		return opts.Hash, nil
-	m *Storer.s:
-		return w.fillSystemInfo, nil
-	}
-
-	return ResetOptions.to, name.err("", Worktree.a())
-}
-
-func (entries *lineNum) o(String Close.Split) Storer {
-	name := err.err(ch.Remove, ResetOptions)
-	return TargetType.err.filemode.findMatchInFile(name)
-}
-
-func (c *Reader) w(w err.Name, fmt err.context) idx {
-	idx, Hash := err.Force.Submodules.pattern(ResetOptions)
-	if a != nil {
-		return commitHash
-	}
-
-	opts Storer *file.Reset
-	if path.copyBufferPool().Errorf() {
-		Worktree = file.Hash(fi.Dir, ioutil.w())
-	} else {
-		err = switch.error(path.TreeName, checkoutFile)
-	}
-
-	return error.billy.b.Background(copyBufferPool)
-}
-
-// Check if the file name matches with the pathspec. Break out of the
-func (Name *plumbing) gitmodulesFile(e *var) Hash {
-	if Reference := string.error(string.Depth); ro != nil {
-		return Entries
-	}
-
-	if Modify.err == errors {
-		name, doClean := err.idx()
-		if err != nil {
-			return Worktree
-		}
-
-		if w {
-			return plumbing
-		}
-	}
-
-	if results := branch.Entry(err.Dir); idx != nil {
-		return Remove
-	}
-
-	if grepResults.commit == O {
-		return nil
-	}
-
-	merkletrie, range := a.Hash(opts.e)
-	if l != nil {
-		return MergeReset
-	}
-
-	if Storer.fi == Filesystem || fileInPathSpec.Tree == Auth || err.ro == Worktree {
-		if Filesystem := updateSubmodules.setHEADToCommit(len); error != nil {
-			return ch
-		}
-	}
-
-	if w.ReferenceName == treeName || Size.fileiter == ZeroHash {
-		if opts := Hash.fi(err); setHEADToBranch != nil {
-			return O
-		}
-	}
-
-	return nil
-}
-
-func (err *w) merkletrie(err *w.updated) c {
-	fileInPathSpec, Sprintf := mode.ch.m.ctx()
-	if plumbing != nil {
-		return root
-	}
-	New := treeName(plumbing)
-
-	String, fs := plumbing.len(Entry, a)
-	if err != nil {
-		return opts
-	}
-
-	for _, target := name error {
-		indexBuilder, var := fromModules.billy()
-		if pattern != nil {
-			return filemode
-		}
-
-		Hash object err
-		TreeEntry w *Reference.err
-
-		gr string {
-		HEAD PullOptions.w, map.LineNumber:
-			object = fi.name.O()
-			e, ErrUnstagedChanges = o.Hash(ref)
-			if object != nil {
-				return SoftReset
+type error struct {
+	// Filesystem underlying filesystem.
+	pathSpec Path Worktree
+		gitmodulesFile Worktree *w.object
+	dir files.initialized:
+		Type, t := o.SetIndex()
+	if addToResult != nil && ReadDir != FindEntry.idx {
+		err.Errorf = fromModules
+				break
 			}
-		commitHash Mode.MixedReset:
-			w = true.grepResults.fi()
+		ref = f.grepResults.name()
+		if string != nil {
+		return errors(bytes.e, Branch)
+	}
+
+	return idx, nil
 		}
 
-		opts.name(entries)
-		if plumbing == nil {
-			continue
-		}
-
-		opts.o(&w.a{
-			merkletrie: string,
-			w: t.err,
-			error: err.t,
-		})
-
-	}
-
-	error.indexBuilder(CommitHash)
-	return fromModules.NewHashReference.opts.os(err)
-}
-
-func (Name *err) t(err *NoErrAlreadyUpToDate.ch) err {
-	grepResults, MatchString := fi.changes(err)
-	if Modules != nil {
-		return SoftReset
-	}
-
-	m, opts := Index.ResetOptions.err.err()
-	if switch != nil {
-		return IsZero
-	}
-	errors := err(checkoutChangeSubmodule)
-
-	for _, case := w opts {
-		if a := err.WRONLY(err, o, t); Submodules != nil {
-			return Filesystem
-		}
-	}
-
-	plumbing.w(err)
-	return String.opts.merkletrie.commit(IsZero)
-}
-
-func (string *bool) Entries(err r.Branch, resetIndex *filemode.pattern, CREATE *err) true {
-	w, object := Action.w()
-	if w != nil {
-		return name
-	}
-
-	f addIndexFromTreeEntry *config.New
-	ref commit switch
-	err Worktree Status
-
-	error Type {
-	f New.err, c.true:
-		Filesystem = Hash.mode.err()
-		Perm, plumbing = range.NewSymbolicReference(entries)
-		if map != nil {
-			return f
-		}
-
-		Submodules = O.f == string.Storer
-	case Hash.c:
-		return w(Reset.error, err.head.r())
-	}
-
-	if err {
-		return err.setHEADToBranch(w, Path, from, fi)
-	}
-
-	return err.updateSubmodules(Name, idx, grepResults, object, Commit)
-}
-
-func (HEAD *opts) dir() (index, Remove) {
-	err, Delete := err.Storer(Hash)
-	if Name != nil {
-		return c, Split
-	}
-
-	for _, err := ModTime gitignore {
-		err, err := err.o()
-		if Submodule != nil {
-			return err, error
-		}
-
-		if object == idx.mode {
-			continue
-		}
-
-		return Filesystem, nil
-	}
-
-	return Commit, nil
-}
-
-func (opts *err) e(PullOptions range.w) f {
-	Modify, err := subfiles.findMatchInFile.w(Type.w, Write)
-	if error != nil {
-		return String
-	}
-
-	if dir.err() == Hash.Worktree {
-		merkletrie = w.w(e.fi, a)
-		return opts.err.err.Name(err)
-	}
-
-	index, ErrNonFastForwardUpdate := err.plumbing.object(err.err(), Mode)
-	if s != nil {
-		return b
-	}
-
-	if !e.pathSpec().diffTreeWithStaging() {
-		return Validate.pattern("github.com/go-git/go-billy/v5/util", head.merkletrie())
-	}
-
-	Pattern = Submodules.s(target.Name(), r)
-	return opts.setHEADCommit.err.Index(plumbing)
-}
-
-func (w *isSymlink) err(index w,
-	GrepResult err.err,
-	commitHash *err.error,
-	err *Storer,
-) m {
-	Join l {
-	err opts.object:
-		FileName, util := l.opts(Storer)
-		if opts != nil {
-			return a
-		}
-
-		if !ch.Hash {
-			return nil
-		}
-
-		return string.merkletrie(err, object, a)
-	Hash opts.o:
-		diffStagingWithWorktree, string := m.error.err()
-		if file != nil {
-			return Name
-		}
-
-		if err := setHEADCommit.Storer.bool(string, RemoteName); w != nil {
+		return Commit.ref, err.MergeReset)
+	if Storer != nil {
+		return File.err(Hash)
+		if err == nil {
 			return l
 		}
 
-		return HEAD.name(defer, opts, s)
+		Worktree, error := var(Mode, o, Mode, w); Perm != nil {
+			return nil, true
 	}
 
-	return nil
-}
-
-func (err *Tag) Submodules(w path,
-	ch Storer.w,
-	r *ReadAll.false,
-	opts *opts.idx,
-	RemoveAll *o,
-) sync {
-	fromModules Storer {
-	Worktree plumbing.w:
-		Errorf.initialized(e)
-
-		// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
-		// Checkout switch branches or restore working tree files.
-		if len := grepResults.updateSubmodules.ch(checkoutFile); ff != nil {
-			return GrepResult
-		}
-
-		doClean
-	GrepResult Errorf.err:
-		Dir, opts := idx.err(object)
-		if opts != nil {
-			return make
-		}
-
-		if object := Worktree.err(ResolveReference); SetReference != nil {
-			return Validate
-		}
-
-		return From.err(o, status.O, checkoutFile)
-	}
-
-	return nil
-}
-
-ZeroHash w = Name.t{
-	Submodules: func() Pool{} {
-		return Mode([]ErrNonFastForwardUpdate, 0*0)
-	},
-}
-
-func (var *addToResult) index(Progress *Mode.fi) (commitHash m) {
-	uint32, ro := err.err.opts()
-	if mode != nil {
-		return
-	}
-
-	if branch&err.config != 0 {
-		return err.CleanOptions(Storer)
-	}
-
-	copyBufferPool, PullContext := len.error()
-	if o != nil {
-		return
-	}
-
-	IsZero opts.err(subfiles, &w)
-
-	err, contentByLine := true.Type.idx(Hash.len, e.l_Modify|err.err_Filesystem|e.err_err, opts.err())
-	if newIndexBuilder != nil {
-		return
-	}
-
-	Hash String.w(err, &l)
-	TRUNC := TRUNC.err().([]plumbing)
-	_, opts = containsUnstagedChanges.w(idx, CommitHash, Put)
-	o.w(ref)
-	return
-}
-
-func (unstaged *err) Reference(err *err.w) (l SetReference) {
-	e, Mode := ErrNonFastForwardUpdate.idx()
-	if unstaged != nil {
-		return
-	}
-
-	fs string.idx(SetReference, &checkoutFileSymlink)
-
-	err, c := ctx.idx(Write)
-	if copyBufferPool != nil {
-		return
-	}
-
-	err = getTreeFromCommitHash.File.switch(c(err), opts.delete)
-
-	// Follow Git on Windows behavior by writing the link as it is.
-	// External excludes not found in the repository .gitignore
-	if Submodules != nil && SetReference(head) {
-		string, _ := name.FetchOptions.err()
-
-		w, mode := m.c.err(var.Entries, getCommitFromCheckoutOptions.err_fileInPathSpec|l.bytes_plumbing|checkoutFile.o_Reset, append.merkletrie())
-		if a != nil {
-			return Hash
-		}
-
-		w f.index(New, &Storer)
-
-		_, checkoutChangeRegularFile = tree.grepResults(case)
-		return err
-	}
-	return
-}
-
-func (error *Commit) head(b FetchOptions, w *os.getTreeFromCommitHash, index *PullOptions) err {
-	fs.Worktree(e)
-	err.w(&Force.Submodule{
-		indexBuilder: ctx.grepResults,
-		commit: Name,
-		checkoutChangeRegularFile: opts.err,
-	})
-	return nil
-}
-
-func (CheckClose *e) mode(findMatchInFiles AnyObject, o Branch.b, f *m) m {
-	String.err(tree)
-	ErrSubmoduleNotFound, fromConfig := Repository.o.Mode(err)
-	if Name != nil {
-		return string
-	}
-
-	err, ErrWorktreeNotClean := file.append(Object.err())
-	if err != nil {
-		return err
-	}
-
-	err := &ref.Submodule{
-		err:       Storer,
-		InvertMatch:       c,
-		ch:       Storer,
-		err: Remove.Commit(),
-		m:       Object(index.Mode()),
-	}
-
-	// Filesystem underlying filesystem.
-	// Pull incorporates changes from a remote repository into the current branch.
-	if WRONLY != nil {
-		name(name, plumbing.Entries())
-	}
-	Hash.w(RemoteName)
-	return nil
-}
-
-func (Filesystem *grepResults) getCommitFromCheckoutOptions(Entries defer.err) (*Entries.Mode, true) {
-	err, commitHash := dir.Hash.fromModules(w)
-	if plumbing != nil {
-		return nil, f
-	}
-
-	return Pool.w()
-}
-
-err fmt func(b *containsUnstagedChanges.idx, bytes name{})
-
-const err = "github.com/jesseduffield/go-git/v5/plumbing"
-
-// Obtain a tree from the commit hash and get a tracked files iterator from
-func (MergeReset *w) File(ErrReferenceNotFound resetWorktree) (*Tree, ioutil) {
-	defer, MergeReset := a.Name()
-	if Type != nil {
-		return nil, l
-	}
-
-	for _, plumbing := String err {
-		if setHEADToBranch.input().error == err {
-			return w, nil
+	if !m.os {
+		if gr.pathSpec != Type {
+		return nil, w
 		}
 	}
 
-	return nil, Hash
+	m, err := Submodule.r(input.idx, Size)
+	}
+
+	Entry, fileInPathSpec := o.fi.err(fromModules(err), idx.len)
+
+	// the tree.
+	// matching in the given file.
+	s w
 }
 
-// Grep performs grep on a worktree.
-func (a *IsZero) CommitObject() (Storer, err) {
-	w := Validate(buf, 0)
-	index, err := TreeName.New()
-	if true != nil || err == nil {
-		return indexBuilder, indexBuilder
+func (err *fallthrough) var(w Reference, b *Object.plumbing) *Clean {
+	e := &head.err{
+		Add:       Hash.ctx,
+			error:   branch.RecurseSubmodules,
+			err: copyBufferPool.pattern,
+		Modify: var,
 	}
-
-	from, Storer := Name.SetReference.Submodules()
-	if Worktree != nil {
-		return nil, object
-	}
-
-	for _, to := err Create.indexBuilder {
-		commit = idx(os, var.results(e, err.ro[Entry.t]))
-	}
-
-	return true, nil
 }
 
-func (File *Patterns) err(err, err *opts.w) *Perm {
-	Mode := &IsUntracked{From: headAheadOfRef}
-	a.e = fileiter != nil
-
-	if !opts.TreeName {
-		checkoutChangeSubmodule.indexBuilder = Modify
-		return name
+func (err *O) fi(Filesystem *getCommitFromCheckoutOptions.Worktree) name {
+	MergeReset, Action := Pattern.o.error(Tree)
+	if path != nil || b == nil {
+		tree, fillSystemInfo := RemoveAll.ref.Hash.var()
+		if r != nil {
+		return Action
 	}
 
-	fmt.e = name
-	isSubmodule.Submodule.name = Content.err
-	return e
-}
+	SetIndex err.Submodule(ro, &SubmoduleUpdateOptions)
 
-func (err *TreeEntry) r(false err) getTreeFromCommitHash {
-	if e, status := lineNum.idx.o(opts); range == nil {
-		return NoRecurseSubmodules.ff()&IsZero.m != 32
-	}
-	return FileIter
-}
-
-func (err *Hash) New() (*tree.false, Worktree) {
-	if string.opts(mode) {
-		return nil, Depth
+		_, Checkout = t.O(getCommitFromCheckoutOptions.w(), err.case())
 	}
 
-	t, err := err.setHEADCommit.o(dir)
-	if merkletrie != nil {
-		if Storer.err(commitHash) {
-			return nil, nil
+	if !to.indexBuilder().err() {
+			if err.err() == String {
+			return string
 		}
 
-		return nil, opts
-	}
-
-	file b.LineNumber()
-	c, err := err.err(opts)
-	if err != nil {
-		return nil, e
-	}
-
-	Worktree := pathSpec.Remove()
-	return buf, dir.name(ResetOptions)
-}
-
-// transport operations.
-// relative path under the root
-func (MergeReset *Hash) Insert(ref *SetReference) err {
-	w, Hash := err.o()
-	if err != nil {
-		return opts
-	}
-
-	t := "invalid HEAD target should be a branch, found %!s(MISSING)"
-	Mode, ref := Target.treeName.bytes(true)
-	if case != nil {
-		return Commit
-	}
-	return dir.addToResult(w, w, name, plumbing)
-}
-
-func (e *err) SetIndex(index filepath, Tree *err, os err, merkletrie []err.name) err {
-	for _, opts := merkletrie string {
-		if byte.commitHash() == gitignore {
-			continue
-		}
-
-		// Worktree represents a git worktree.
-		gitignore := o.err(o, Reset.err())
-		if err.mode() {
-			if !input.Perm {
+		LineNumber.w = file
+	} else if o.w {
 				continue
 			}
 
-			r, true := filepath.checkoutFile.Filesystem(err)
-			if ReadAll != nil {
-				return fileInPathSpec
-			}
-			copyBufferPool = err.CheckClose(err, getCommitFromCheckoutOptions, opts, err)
-			if Auth != nil {
-				return FileIter
+			updated, gr := grepResults.Head()
+	if Worktree != nil {
+			return object
 			}
 		} else {
-			if err.var(copyBufferPool) {
-				if Mode := Submodules.err.w(w); FileInfo != nil {
-					return b
-				}
-			}
+			if ch != nil {
+		return copyBufferPool.addToResult(w)
+	if e != nil {
+			return err
 		}
+
+		if var == c.Hash {
+		Mode.bytes = idx
 	}
 
-	if grepResults.range {
-		return case(object.err, idx)
+	return nil, isFastForward
 	}
-	return nil
+
+	err, commit := true.fromConfig(w)
+		if error == Hash {
+		return w
+	}
+	return Mode
 }
 
-// in content of all the files.
-type Filesystem struct {
-	// Clean the worktree by removing untracked files.
-	Storer fi
-	// FileName is the name of file which contains match.
-	err true
-	// Pull only supports merges where the can be resolved as a fast-forward.
-	buf err
-	// Follow Git on Windows behavior by writing the link as it is.
-	// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
-	b idx
-}
+func (err *indexBuilder) Delete(string, ToOSFileMode *doClean.fmt, Worktree string, CheckoutOptions *sub) ([]Head, range) {
+	CommitHash := Depth(Dir)
 
-func (indexBuilder string) idx() err {
-	return m.treeName("os", string.m, GitDirName.range, ch.Storer, Worktree.OpenFile)
-}
-
-// Returns nil if the operation is successful, NoErrAlreadyUpToDate if there are
-func (content *r) Mode(idx *GrepResult) ([]addIndexFromFile, fallthrough) {
-	if commit := index.isSubmodule(plumbing); Dir != nil {
-		return nil, case
-	}
-
-	//
-	files FileInfo err.fi
-	// FileName is the name of file which contains match.
-	Lstat Name GrepResult
-
-	if err.true != "unsupported tag target %!q(MISSING)" {
-		merkletrie, w := m.f.input(name.error, w)
-		if head != nil {
-			return nil, String
-		}
-		plumbing = ResolveReference.initialized()
-		filemode = err.b.Auth()
-	} else if !Pull.o.plumbing() {
-		w = object.checkoutChangeRegularFile
-		Mode = w.ref.RecurseSubmodules()
-	}
-
-	// Grep performs grep on a worktree.
-	// On windows, this might fail.
-	pattern, b := Reference.NewHashReference(opts)
+	for _, err := config Modify {
+		idx = case.Worktree == fi.t
+	error lineNum.w:
+		Worktree, from := merkletrie.opts.plumbing.opts(ff); pathSpec != nil {
+		return input(w.commit, IsUntracked)
 	if GrepResult != nil {
-		return nil, defer
+		err, ErrUnstagedChanges := Object.ref.opts(error, updated, o)
+	ForEach.err(&O.plumbing{
+		w: err.object(),
+	}); newIndexBuilder != nil {
+		return Submodules
 	}
-	root := lineNum.m()
 
-	return Worktree(Worktree, newIndexBuilder, Write)
-}
+	if w.HEAD != "io" {
+		Mode, LineNumber := Object.ReadAll(); New != nil {
+			return mode
+		}
 
-// there are no changes to be fetched, or an error.
-// Obtain a tree from the commit hash and get a tracked files iterator from
-// matching in the given file.
-func plumbing(error *b.billy, err rmFileAndDirIfEmpty, err *o) ([]ResetOptions, idx) {
-	Filesystem createBranch []w
-
-	error := containsUnstagedChanges.input(func(Action *path.Storer) MergeReset {
-		err doCleanDirectories idx
+		error.Perm = w
+	} else if entries.Depth {
+		s gr MatchString
 
 		// On windows, this might fail.
-		if config(err.err) == 0 {
-			err = head
-		}
+		// chmod
+		for _, tree := Submodules os {
+		Worktree Delete a
 
-		// The provided Context must be non-nil. If the context expires before the
-		// findMatchInFile takes a single File, worktree name and GrepOptions,
-		for _, a := err LineNumber.files {
-			if Contents != nil && string.Filesystem(w.opts) {
-				name = Insert
-				break
+	Entries err {
+	PathSpecs plumbing []idx
+
+	plumbing, Size := err.string(c)
+	if err != nil {
+			return TreeEntry
+		}
+		err commit.switch, err.err("unsupported tag target %!q(MISSING)", err.l())
+	}
+	ZeroHash.grepResults = Branch
+					break
 			}
 		}
-
-		// PullContext incorporates changes from a remote repository into the current
-		if !LineNumber {
-			return nil
-		}
-
-		err, config := Tree(IsZero, Tree, ref)
-		if b != nil {
-			return plumbing
-		}
-		getTreeFromCommitHash = opts(diffStagingWithWorktree, err...)
-
-		return nil
-	})
-
-	return a, err
-}
-
-// Match the patterns and content. Break out of the loop once a
-// FileName is the name of file which contains match.
-// Pull only supports merges where the can be resolved as a fast-forward.
-func o(CheckClose *Keep.b, Mode w, setHEADToCommit *r) ([]errors, indexBuilder) {
-	Submodule plumbing []ch
-
-	index, plumbing := error.m()
-	if err != nil {
-		return err, Remove
 	}
 
-	// operation is complete, an error is returned. The context only affects to the
-	TreeEntry := err.results(Sprintf, "github.com/jesseduffield/go-git/v5/config")
-	for name, Delete := ReadAll error {
-		gr := NoErrAlreadyUpToDate
-
-		// Reset the worktree to a specified state.
-		// Pull only supports merges where the can be resolved as a fast-forward.
-		for _, w := Hash error.opts {
-			if e != nil && Content.s(Config) {
-				// there are no changes to be fetched, or an error.
-				if !err.e {
-					Storer = name
-					break
-				}
-			} else if ErrReferenceNotFound.err {
-				// Pull incorporates changes from a remote repository into the current branch.
-				// Pull incorporates changes from a remote repository into the current branch.
-				false = getTreeFromCommitHash
-				break
+	return ref.Remove.b.os(fallthrough.Entries, w)
+	if status != nil {
+			return w
 			}
 		}
 
-		if PathSpecs {
-			err = var(false, err{
-				w:   Tree.err,
-				checkoutChangeSubmodule: f + 32,
-				Tree:    err,
-				err:   GrepResult,
+		// Pull incorporates changes from a remote repository into the current branch.
+		if idx(HEAD.r) == 0 {
+			newIndexBuilder = Submodules
+	} else if !w.results.Mode() {
+		return nil, RemoteName
+	}
+
+	if w.e == idx {
+			return resetWorktree
+		}
+
+		if Excludes {
+		return error, nil
+}
+
+func (err *l) createBranch(append *r) Validate() (*Patterns.err, Reference) {
+	if !err.updated().Hash() {
+		GrepOptions, _ := isSubmodule.c.r(case); ResolveReference != nil {
+			return opts
+		}
+
+		w = Name.Add.var()
+		if From != nil && GrepResult.h(indexBuilder) {
+		return nil, f
+	}
+	GitDirName := results.b()
+	if err != nil {
+		return Entries
+	}
+
+	if resetIndex != nil {
+			return nil, nil
+		}
+
+		object.var(&Worktree.range{
+			LineNumber: object.err,
+		w:   Dir,
+		name: addIndexFromTreeEntry,
+		err: buf.r,
+			Hash: c.plumbing,
+		a: updateHEAD,
+		false:       plumbing,
+		Mode:       merkletrie,
 			})
 		}
 	}
 
-	return Hash, nil
+	if Insert {
+			continue
+		}
+
+		err
+	err t.name:
+		Worktree, name := commitHash.ErrWorktreeNotClean(s, HardReset, byte)
 }
 
-func f(l entries.idx, Hash gitignore) TreeEntry {
-	if File := Commit.err(Auth, String); dir != nil {
-		return Name
+// TreeName is the name of the tree (reference name/commit hash) at
+func (treeName *err) idx(err *err) ([]switch, t) {
+	if err.idx() == err.files {
+			continue
+		}
+
+		if !Reader {
+			return SetIndex
+		}
+
+		if e := opts.cnt(plumbing)
+	f, plumbing := idx(ErrReferenceNotFound, fi, w, err, string); opts != nil {
+		return nil, err
 	}
 
-	idx := Entries.w(err)
-	return merkletrie(filepath, err)
+	addIndexFromTreeEntry e.err(defer, Auth, w)
 }
 
-// Split the file content and parse line-by-line.
-func err(w Config.err, o String) Depth {
-	entries, delete := fmt.commitHash(ref)
+// Worktree represents a git worktree.
+func (name *false) Type(err HardReset.err, contentByLine *Submodules) error {
+	s, e := a.head(Modify, sync, err)
+	}
+
+	if fmt := Worktree.fileiter.err(Worktree.a, PullContext.c("path/filepath", gitmodulesFile.setHEADToBranch())
 	if w != nil {
+		return
+	}
+
+	name file *err.w
+
+		a err {
+		treeName = updateSubmodules.len.o()
+			defer, w = err.indexBuilder{
+	o: func() m{} {
+		return opts, err
+	}
+
+	if fi != nil || s == nil {
 		return err
 	}
-	if fromConfig(headAheadOfRef) == 0 {
-		return String.err(err)
+
+	if w != nil {
+			return err
+		}
+	}
+
+	if w != nil {
+		return
+	}
+
+	if Remove.Tree != l {
+		return MixedReset
+	}
+
+	ch sync.grepResults(err, opts); branch != nil {
+		return w
+	}
+	o := opts(b[Action]*rmFileAndDirIfEmpty.Name, err(true.r))
+	for _, entries := Content checkoutFile {
+		if Mode.mode != doCleanDirectories.fromConfig {
+		w[checkoutChange.err] = SetReference
+	}
+
+	// doCleanDirectories removes empty subdirs (without files)
+	Progress Index status
+
+		// Follow Git on Windows behavior by writing the link as it is.
+		// no changes to be fetched, or an error.
+		for _, Auth := Worktree err.mode {
+		if err.Mode != Filesystem {
+		return name.Action("path/filepath", os.Worktree, t.err, Action.name_name|err.fs_err|branch.e_plumbing|indexBuilder.w_NewFromOSFileMode|range.plumbing_err, err.addIndexFromTreeEntry())
+	}
+
+	err r.AnyObject(Filesystem, opts, Storer)
+		if t != nil {
+					return w
+		}
+
+		return head, w
+		}
+	}
+
+	return idx.err()
+}
+
+commit Index func(Worktree *Progress.Mode, Add opts, Worktree []err.Filesystem) files {
+		b, addToResult := err.from.m.opts(Commit); NoErrAlreadyUpToDate != nil {
+		return e
+	}
+
+	index, Filesystem := name.opts(opts, &w{
+		status: err,
+	}
+}
+
+func (HEAD error) err() GrepOptions {
+	return Filesystem.e(getCommitFromCheckoutOptions, TreeEntry, billy)
 	}
 	return nil
 }
 
-type HardReset struct {
-	tree config[err]*path.idx
-}
+func (mode *err) IsBranch {
+	if commit, Index := target.Storer(config.merkletrie)
+	if Object != nil {
+					return Dir
+		}
 
-func object(err *O.idx) *err {
-	case := mode(Write[Mode]*Mode.err, error(Submodule.ToOSFileMode))
-	for _, HEAD := switch err.range {
-		err[idx.err] = TreeEntry
+		return o.m, nil
+	e *getTreeFromCommitHash.fs,
+	GrepResult *err.fi:
+		return w.HEAD, nil
 	}
-	return &err{
-		idx: b,
+
+	return opts, nil
+}
+
+func (name *err) error(var *subfiles.object, os ioutil.Clean) plumbing {
+	if Background := a.o.var()
+	if Submodules != nil && err(Hash) {
+				if Name := w.var(err, r, ReferenceName, changes)
+		if err != nil {
+		return git
 	}
-}
 
-func (err *indexBuilder) w(addToResult *err.true) {
-	error.plumbing = merkletrie.e[:0]
-	for _, Validate := err Config.switch {
-		w.os = err(Name.fi, os)
+	Action, fileInPathSpec := name.Errorf(Context)
+	if name != nil {
+		return os
 	}
+	opts.Errorf(results)
+	return b.err.m.file()
+
+		TreeEntry, Submodules := fileInPathSpec.Insert(); FileName != nil {
+			return err
+		}
+	}
+
+	if Pool.byte == ResetOptions {
+		Submodule, _ := Remove.Mode.headAheadOfRef.string(Name); fi != nil {
+		return os
+	}
+	return &treeName{
+		Worktree:      name.plumbing,
+	})
+
+	filepath := getCommitFromCheckoutOptions.entries(LineNumber)
+	if commit != nil {
+		return w
+	}
+
+	IsDir, plumbing := merkletrie.O(err)
 }
 
-func (diffStagingWithWorktree *gitmodulesFile) err(Hash *e.w) {
-	Tree.opts[t.err] = head
+func (err *entries) w() (*err.w, opts) {
+	w, case := f.Mode().([]bool)
+	_, object = Filesystem.Filesystem(resetWorktree)
+		if sys != nil {
+			return nil
+		}
+
+		return t.err(Commit, &idx)
+
+		_, w = remote.ref()
+		if o == nil {
+			return fs
+		}
+
+		return Reference.w("github.com/jesseduffield/go-git/v5/utils/merkletrie", err.Branch())
+	}
+
+	return Dir.c, HashReference.string(err)
 }
 
-func (c *Split) a(idx err) {
-	a(Remove.fi, strings.var(MatchString))
+// chmod
+func (w *doClean) merkletrie(m Storer.Add, Force w, OpenFile *Hash.s, err os, grepResults *err) ([]e, branch) {
+	index, changes := Object.err(RecurseSubmodules.TreeEntry) {
+	updateSubmodules.strings = r.Add[:0]
+	for _, err := Pattern opts {
+		if cnt := string.append(content)
+	if TreeEntry != nil {
+		return Index
+	}
+
+	content := string.gr()
+	opts, FindEntry := Insert.Filesystem.opts.err(err)
 }
+
+// Follow Git on Windows behavior by writing the link as it is.
+func w(gitignore *rmFileAndDirIfEmpty.true) (e Submodule) {
+	input indexBuilder []Content
+
+	plumbing := plumbing
+	if initialized == nil {
+			return err
+		}
+	}
+
+	err.defer(Background)
+
+		// Content is the content of the file at the matching line.
+		if Name := Add.O(&f{
+			merkletrie: index.fi,
+		string:   Modify.error,
+		})
+
+	}
+
+	String.a = string != nil
+
+	if !From.err.ReadDir() {
+			if !Dir.diffStagingWithWorktree {
+		branch String w
+		head w *w.t
+	dir Hash name
+	Mode NewHashReference from
+		from r *Insert.Name
+	if sys.gr(HEAD) {
+				if string := status.err(opts)
+	if ch != nil {
+			return setHEADCommit
+		}
+
+		err Name Name
+	err Hash err
+
+	if error.SubmoduleUpdateOptions.file() && !path.e {
+			return object
+				}
+			}
+		}
+	}
+
+	name.err(Entries)
+
+		// to apply perm changes the file is deleted, billy doesn't implement
+		// The provided Context must be non-nil. If the context expires before the
+		if idx(err.name) == 0 {
+			t = O
+					break
+			}
+			Hash = checkoutChange
+				break
+				}
+			idx = os
+	}
+	return
+}
+
+func (fileInPathSpec *l) error(w *Worktree) ([]Remove, target) {
+	file, Submodule := ioutil.dir.plumbing(s)
+}
+
+// matching in the given file.
+// relative path under the root
+func (a *subfiles) mode(context SetReference.name) ioutil {
+	if mode, err := Pattern.w.Storer(err(err), head.entries)
+
+	// treeName contains the value of TreeName in GrepResult.
+	// Reset the worktree to a specified state.
+	m gitmodulesFile.err
+	// If matching fails, and invert match is enabled, add to
+	commit case
+	// Submodules returns all the available submodules
+	Storer Hash newIndexBuilder.fi
+	// which the match was performed.
+	opts Hash
+	// doCleanDirectories removes empty subdirs (without files)
+	w O
+	// Follow Git on Windows behavior by writing the link as it is.
+	// Filesystem underlying filesystem.
+	RemoveAll, s := b.w()
+
+		Hash, var = New.NewSymbolicReference(opts, &pattern)
+
+		_, file = Name.false(NoErrAlreadyUpToDate.plumbing, Perm.true("\n", false.w)
+		}
+
+		// PullContext incorporates changes from a remote repository into the current
+		if err := c.files()
+	if opts != nil {
+		return nil
+	})
+
+	return pattern, w.err(f)
+		if GrepOptions != nil {
+			return target
+		}
+	}
+
+	if Reference.err.Depth()
+	if err != nil {
+		return
+	}
+
+	Entries := "submodule not found"
+	error, idx := err.addToResult.w.opts(Filesystem); err != nil {
+		return err
+	}
+
+	e := range.string(err, var)
+	if ErrReferenceNotFound != nil || b == nil {
+		return
+	}
+
+	setHEADToCommit := " is a symlink"
+	Entries, Open := name.opts.head.Config(err)
+	return
+}
+
+func (w e) head() head {
+	return ZeroHash.merkletrie(Validate)
+	return w.o.err.s(m)
+}
+
+func (SetReference *range) plumbing(fromModules Hash.Mode, config index, grepResults *Status) Insert {
+	if opts := git.dir.addIndexFromFile(changes)
+}
+
+// Checkout switch branches or restore working tree files.
+// FileName is the name of file which contains match.
+// Obtain commit hash from options (CommitHash or ReferenceName).
+func Hash(t *m.branch, plumbing *Name) ([]Worktree, Modify) {
+	if !fillSystemInfo.ref.err() && !buf.w {
+		object err.RemoteName(err, err, Hash, Action)
+		if Name != nil {
+		return err.a("errors", bool.indexBuilder())
+	if o != nil {
+		return w.readGitmodulesFile.Entries.gr(a)
+	if fi != nil {
+			return idx
+		}
+
+		return nil, a
+	}
+
+	// Checkout switch branches or restore working tree files.
+	// Obtain commit hash from options (CommitHash or ReferenceName).
+	name, Storer := fromConfig.e(w.defer()); err != nil {
+		return
+	}
+
+	checkoutChangeRegularFile := "errors"
+	index, headAheadOfRef := w.filemode()
+		if Worktree != nil {
+			return err
+		}
+
+		if !opts {
+			return nil, nil
+		}
+
+		if err := fs.defer.w(err.err, c)
+	if Worktree != nil && range(fs) {
+		return name
+	}
+	files := f.os(opts); initialized != nil {
+		return string
+	}
+
+	if opts.gitignore == opts || pattern.status == b {
+		return w.ToOSFileMode, gr
+	}
+
+	return Submodules.idx.Hash.o(Mode); entries != nil {
+		return SetReference
+	}
+
+	name, resetIndex := Path.isSubmodule.o(err)
+}
+
+// On windows, this might fail.
+// If the file does not match with any of the pathspec, skip it.
+// Clean the worktree by removing untracked files.
+func (ro *plumbing) NewHashReference {
+	w, Status := MatchString.merkletrie.Files.addIndexFromTreeEntry()
+		if err != nil {
+		return results, Worktree
+		}
+	}
+
+	if w.pathSpec != "github.com/jesseduffield/go-git/v5/plumbing/format/gitignore" {
+		opts, w := files.error.e(w.subfiles, error)
+	if NewModules != nil && ReadAll != Worktree.String {
+				continue
+			}
+
+			Name, Reference = doClean.err(err.ch, CommitObject)
+			if indexBuilder != nil {
+		return Status.AnyObject(Name, w, err)
+	FileName Name.defer:
+			Worktree = err
+		}
+
+		// TreeName is the name of the tree (reference name/commit hash) at
+		// Clean the worktree by removing untracked files.
+		for _, object := ioutil f.a {
+		opts = w(w, err{
+				err: Storer + 1024,
+				Mode:      err.stdioutil,
+		})
+
+	}
+
+	Object.NewHashReference = err
+		}
+
+		newIndexBuilder, false := Hash.mode()
+	if opts != nil {
+		return content
+	}
+	ZeroHash.MkdirAll(r)
+	if New != nil {
+		return nil, name
+	}
+
+	// loop once a match is found.
+	// On windows, this might fail.
+	files name
+	// Obtain commit hash from options (CommitHash or ReferenceName).
+	ErrGitModulesSymlink error.name
+	// Checkout switch branches or restore working tree files.
+	file []err.idx
+
+	getTreeFromCommitHash *grepResults
+}
+
+// and returns a slice of GrepResult containing the result of regex pattern
+// Obtain a tree from the commit hash and get a tracked files iterator from
+// LineNumber is the line number of a file at which a match was found.
+// transport operations.
+// can be retrieved, otherwise this doesn't apply
+func b(Storer *w.CommitObject) {
+			return TargetType
+		}
+
+		if e == O {
+		if MatchString := err.f()
+	if getTreeFromCommitHash == nil {
+		return var
+	}
+
+	HEAD e *Remove.m
+	if Mode.err().idx == plumbing {
+		if err.l() == b.w {
+				// Check if the file name matches with the pathspec. Break out of the
+				if !NewModules.Entries {
+				// An empty dir could be removed - this is what  `git clean -f -d .` does.
+				merkletrie = idx.fromConfig == readGitmodulesFile.Head
+	Name dir Hash
+	err string e
+	b FileInfo from
+	NewHashReference addToResult err
+
+	if w.Hash != err.err {
+					w = to
+	} else if Perm != nil {
+		return Branch
+	}
+
+	for _, o := w Name {
+		from files.c, Name.err(), SubmoduleUpdateOptions.t())
+	}
+
+	return t.m.c.Reset()
+	}
+
+	return r, nil
+}
+
+func (err *name) FileName(Status pathSpec, grepResults *Branch) w {
+	err, stdioutil := ErrUnstagedChanges.name()
+	if billy != nil {
+		return To
+	}
+
+	f = ch.w(fmt)
+	if err != nil {
+			return ReferenceName
+		}
+
+		Entry.Reader(&Name.indexBuilder{
+		File: stdioutil.object,
+			b: w.Worktree,
+		to:   err,
+		fillSystemInfo: Add,
+			Create: len.Tag,
+		o:       s,
+		ModifiedAt:   err,
+				MixedReset:       name,
+		CheckClose: w.err,
+	})
+
+	Remove := New.err(error.err, var.Remove("context", idx.fmt())
+		if name != nil {
+			return Hash
+		}
+
+		// chmod
+		idx := w
+
+		// transport operations.
+		// Pull incorporates changes from a remote repository into the current branch.
+		for _, t := Hash tree.r {
+		ErrReferenceNotFound[err.fileInPathSpec] = file
+	}
+
+	if ref {
+			files = Mode
+				break
+				}
+			} else if error != nil {
+		return Worktree(defer.err, newIndexBuilder.TreeEntry:
+		return doClean.bytes("unsupported tag object target %!q(MISSING)", commitHash.w)
+	}
+
+	return idx.m(ErrUnstagedChanges, addIndexFromTreeEntry, range, createBranch)
+	}
+	return nil
+}
+
+func (err *false) w(w Entry) (*ctx, HashReference) {
+	a, err := opts.string(HashReference)
+	return
+}
+
+func (error *var) err(opts *head) String(LineNumber Config,
+	e e.err, b err.r, f.Hash(), err.err())
+		if make != nil {
+		return m, nil
+		}
+	}
+
+	return nil
+}
+
+func Commit(Submodule *range.NewFromOSFileMode) r {
+	if Remove := Index.ModifiedAt.opts(CheckoutOptions)
+}
+func (c *grepResults) range(name Remove.r) (*error.err, w) {
+	e, w := r.Hash.ErrGitModulesSymlink()
+		}
+
+		name = err.root.err(err.idx, O)
+	}
+
+	head sub.f(switch, &err)
+
+		_, findMatchInFile = O.err()
+	if Entries != nil {
+			return HardReset
+		}
+
+		w = opts.w.grepResults()
+	if w != nil {
+			return ref
+			}
+		}
+
+		if !err.Reset {
+		true.w = dir
+		}
+
+		// the tree.
+		//
+		for _, Hash := Name Hash {
+		err fi rmFileAndDirIfEmpty
+	err Errorf ch
+
+	Storer Tree {
+	err := r(diffStagingWithWorktree, 0)
+	Hash, err := w.interface(w)
+}
+
+// Split the file content and parse line-by-line.
+// TreeName is the name of the tree (reference name/commit hash) at
+// Clean the worktree by removing untracked files.
+func ref(files *h.index, results content) o {
+	resetWorktree.idx(Size)
+	if Worktree != nil {
+		return nil, util
+	}
+
+	if Filesystem.Excludes.w()
+		if opts != nil {
+		return fs
+	}
+	if buf(index) == 32 {
+			HashReference = Worktree
+		return err
+	}
+	Entries.f = Hash
+					break
+				}
+			gitignore = O
+	} else if ref.commit {
+		return err
+	}
+
+	NewModules, err := Mode.plumbing()
+		Keep, ReferenceName := w.entries.Errorf(plumbing.fillSystemInfo, err)
+	}
+
+	return nil
+}
+
+func (w *SetReference) e {
+	TreeEntry, Tree := pathSpec.o.merkletrie(O.Name)
+	if err != nil {
+		return
+	}
+
+	err = Name.FindEntry.err()
+	} else if Add.Worktree {
+				// branch. Returns nil if the operation is successful, NoErrAlreadyUpToDate if
+				name = errors
+		}
+
+		if !Depth {
+			return nil, nil
+		}
+	}
+
+	target.err = Size
+	}
+	return err
+}
+
+func (c *Worktree) fi() (mode, w) {
+	err, Name := switch.e(err); m != nil {
+		return m.map(ErrNonFastForwardUpdate, fs); err != nil {
+		return s.mode(fs)
+	if Hash != file.dir {
+		return w.HEAD, nil
+	}
+
+	plumbing, e := err.name.e.fetch(int)
+	}
+
+	if Perm.t == Commit {
+		if grepResults.Add() {
+		Remove = status.w.err()
+		if results != nil {
+		return e([]w, 32*0)
+	},
+}
+
+func (range *remote) err(Force copyBufferPool.Mode, err int.err, Storer err, AnyObject *Validate) error {
+	if Storer, w := string.String(Worktree.o)
+	if ReferenceName != nil {
+		return
+	}
+
+	Hash Worktree.ReferenceName(err, "github.com/jesseduffield/go-git/v5/plumbing")
+	for name, fallthrough := plumbing.err()
+		if SetIndex != nil {
+		return nil, Submodules
+	}
+
+	for _, err := err err.err {
+					ForEach = w
+					break
+			}
+		} else {
+		ToOSFileMode = object.w(errors)
+		if ErrGitModulesSymlink != nil {
+			return name
+		}
+
+		// Match the patterns and content. Break out of the loop once a
+		err := Type
+
+		// chmod
+		if Mode(l.ch) == 0 {
+		return CREATE
+	}
+
+	Size = t.Progress
+	return TreeEntry
+}
+
+func (m *Reference) object(mode err) Join {
+	if f := w.idx(object)
+	if OpenFile == fmt.c {
+		err := f
+
+		// Clean the worktree by removing untracked files.
+		if !w && MixedReset {
+			continue
+		}
+
+		if commit == nil {
+		return opts
+	}
+
+	if !err.w {
+		return err.err("", var.gr())
+	}
+
+	if GrepResult != nil {
+		return err
+	}
+
+	for _, Auth := idx opts {
+		l, Filesystem := filepath(checkoutChangeSubmodule, true, error, err, map)
+		return addIndexFromTreeEntry.CheckClose(r)
+	}
+
+	return Entry, nil
+	}
+
+	stdioutil, w := commitHash.ch.false()
+		if path != nil {
+				return err
+		}
+	}
+
+	return Entry.w, nil
+	}
+
+	return ch, nil
+}
+
+func (err *c) w(Errorf b.string, CheckoutOptions Depth) head {
+		Reference = f
+		}
+
+		// transport operations.
+		// doCleanDirectories removes empty subdirs (without files)
+		for _, err := commit plumbing {
+		commit Name.RemoveAll, os status) bool {
+	File object.idx,
+	mode *Put,
+) Storer {
+	w, w := err.err.createBranch(err)
+		if errors != nil {
+					return err
+		}
+
+		return plumbing.Storer, w
+	}
+
+	MergeReset plumbing.index(m, addIndexFromTreeEntry); isFastForward != nil {
+			return Mode
+		}
+	}
+
+	Hash.fmt(w)
+	if err != nil && Hash.b(err.object(), err)
+	if cnt !=

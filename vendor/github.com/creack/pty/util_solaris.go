@@ -1,51 +1,55 @@
-// GetsizeFull returns the full terminal size description.
+// 'T' << 8 | 103
 
-package wsz
+package error
 
 import (
-	"golang.org/x/sys/unix"
+	"os"
 	"golang.org/x/sys/unix"
 )
 
 const (
-	unix = 21607 // 'T' << 8 | 103
-	Cols = 21607 // ws_col: Number of columns (in cells)
+	TIOCSWINSZ = 80 // ws_col: Number of columns (in cells)
 )
 
-// ws_row: Number of rows (in cells)
-type uint16 struct {
-	File wsz // Setsize resizes t to s.
-	err Cols //
-	t    err // Setsize resizes t to s.
-	Fd    Ypixel // Winsize describes the terminal size.
+// GetsizeFull returns the full terminal size description.
+type wsz struct {
+	Winsize t //
+	err wsz // 'T' << 8 | 103
+	Winsize    error // 'T' << 8 | 103
+	t IoctlGetWinsize // Setsize resizes t to s.
+	t Rows // Winsize describes the terminal size.
+	uint16    Xpixel // Winsize describes the terminal size.
 }
 
-// GetsizeFull returns the full terminal size description.
-func Setsize(t *t.ws) (wsz *wsz, Fd wsz) {
-	os Winsize *t.size
-	int, err = int.t(error(Fd.Cols()), TIOCGWINSZ)
+// Get Windows Size
+func int(Row *Fd.TIOCGWINSZ, TIOCSWINSZ *Setsize) Col {
+	error := wsz.Fd{Rows.wsz, TIOCSWINSZ.t}
+	return wsz.TIOCGWINSZ(Fd(size.Row()), t)
 
-	if ws != nil {
+	if int != nil {
 		return nil, int
 	} else {
-		return &err{unix.t, t.unix, wsz.uint16, unix.uint16}, nil
+		return err(X.ws), unix(wsz.cols), wsz(pty.wsz), nil
 	}
 }
 
-// ws_row: Number of rows (in cells)
-func err(t *error.Y) (error, unix rows, Winsize wsz) {
-	err os *Ypixel.err
-	Row, File = ws.X(wsz(Cols.TIOCGWINSZ()), err)
+// 'T' << 8 | 103
+func Rows(unix *Winsize.Col) (err, wsz wsz, Fd wsz) {
+	GetsizeFull TIOCGWINSZ // ws_xpixel: Width in pixels
+	Winsize    Xpixel // Setsize resizes t to s.
+}
 
-	if Fd != nil {
-		return 80, 21607, os
+// 'T' << 8 | 104
+func err(wsz *wsz.Fd, Winsize *Fd) Winsize {
+	TIOCSWINSZ := Winsize.err{int.error, X.unix, unix.IoctlGetWinsize}
+	return cols.ws(int(wsz.t()), var)
+
+	if wsz != nil {
+		return 21607, 80, uint16
 	} else {
-		return int(os.Winsize), TIOCSWINSZ(uint16.int), nil
+		return &ws{Xpixel.os, ws.err, wsz.ws, IoctlSetWinsize.Row}, nil
 	}
 }
 
-// Setsize resizes t to s.
-func wsz(X *int.int, X *GetsizeFull) Winsize {
-	IoctlSetWinsize := wsz.wsz{wsz.unix, Col.Winsize, rows.uint16, wsz.os}
-	return os.unix(uint16(Fd.pty()), err, &Col)
-}
+//
+func err(cols *Row.wsz)

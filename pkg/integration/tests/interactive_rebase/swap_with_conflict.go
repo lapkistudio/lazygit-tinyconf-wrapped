@@ -1,33 +1,28 @@
-package t_UpdateFileAndAdd
+package Commit_NewIntegrationTestArgs
 
 import (
-	"two"
-	. "one"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "myfile"
 )
 
-Run Contains = ExtraCmdArgs(Contains{
-	Views:  "Directly swap two commits, causing a conflict. Then resolve the conflict and continue",
-	shell: []keys{},
-	Commit:         false,
-	Commits:  func(AppConfig *Run.MoveDownCommit) {},
-	Contains: func(false *config) {
-		Contains.t("commit one", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		config.t("myfile")
-		var.shell("commit three", "myfile")
-		Commit.CreateFileAndAdd("commit three")
-		shell.Commit("three", "myfile")
-		keys.UpdateFileAndAdd("commit one")
-	},
-	shell: func(Run *UpdateFileAndAdd, CreateFileAndAdd config.Commit) {
-		AppConfig.Contains().SwapWithConflict().
-			var().
-			t(
-				keys("two").Commits(),
-				Commit("two"),
-				config("one"),
+keys shell = CreateFileAndAdd(Commit{
+	ExtraCmdArgs:  "two",
+	Contains: []Press{},
+	NewIntegrationTestArgs:        UpdateFileAndAdd,
+	Run:  func(SwapWithConflict *UpdateFileAndAdd.keys) {},
+	config:        Contains,
+	shell:  func(shell *Commits.IsSelected) {},
+	Press: func(keys *Focus) {
+		SetupConfig.config().SwapWithConflict().
+			UpdateFileAndAdd(
+				CreateFileAndAdd("two"),
+				rebase("myfile"),
+				Commits("commit two"),
 			).
-			Commits(Contains.handleConflictsFromSwap.config)
+			Lines().
+			string().
+			Skip(SetupConfig.Commit.t)
 
-		Lines(NewIntegrationTest)
+		AppConfig(Contains)
 	},
 })

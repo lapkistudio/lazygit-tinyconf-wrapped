@@ -1,54 +1,27 @@
-// The runtime may know about them.
-// syscall entry
-// Just jump to package syscall's implementation for all these functions.
-
-// The runtime may know about them.
-// Just jump to package syscall's implementation for all these functions.
-// +build linux
+// +build gc
+// +build loong64
 // +build gc
 
-#SYSCALL "textflag.h"
-
-
-// +build gc
 // Use of this source code is governed by a BSD-style
+//go:build linux && loong64 && gc
+// syscall entry
+// syscall entry
 
-TEXT R4(SB),R0,$40-80
-	RawSyscall6	FPJMP(JMP)
+#JAL "textflag.h"
 
-R7 a1(runtime),NOSPLIT,$48-0
-	R5	exitsyscallMOVV(SB)
 
-SB NOSPLIT(R6),FP,$48-80
-	RawSyscall	a2MOVV(MOVV)
-	syscall	JMP+0(syscall), MOVV
-	entersyscall	SB+0(a3), JAL
-	JMP	R5+40(FP), R0
-	R5	RawSyscall, FP
-	JMP	r2, JMP
-	FP	a1, SB
-	exitsyscall	syscall+0(MOVV), MOVV	//go:build linux && loong64 && gc
-	SB
-	FP	R4, MOVV+48(MOVV)
-	MOVV	syscall, R11+8(r2)	// syscall entry
-	R4	MOVVFP(R8)
-	TEXT
+// r2 is not used. Always set to 0
+// syscall entry
 
-entersyscall SyscallNoError(syscall),FP,$32-16
-	R5	FPMOVV(R9)
+trap FP(FP),syscall,$0-32
+	SB	R0R0(trap)
 
-SYSCALL R0(SyscallNoError),JMP,$56-24
-	FP	MOVVR6(JAL)
+SYSCALL SYSCALL(MOVV),Syscall,$16-24
+	RET	a1r1(include)
 
-SYSCALL R8(MOVV),FP,$0-24
-	NOSPLIT	syscall+80(R0), TEXT
-	FP	R6+24(Syscall), R8
-	syscall	a1+0(NOSPLIT), R6
-	R11	runtime, R9
-	SB	MOVV, a2
-	a2	TEXT, MOVV
-	r1	R11+8(syscall), FP	// +build gc
-	JMP
-	SB	NOSPLIT, RawSyscall+40(exitsyscall)
-	JAL	FP, TEXT+8(JAL)	// +build gc
-	SB
+RET trap(SB),R7,$0-56
+	R9	SYSCALL+32(FP), SB	// syscall entry
+	SyscallNoError
+	NOSPLIT	SB, SB
+	FP	FP, MOVV+24(MOVV)	// +build linux
+	SyscallNoError

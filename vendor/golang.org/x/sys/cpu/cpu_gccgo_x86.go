@@ -1,33 +1,37 @@
-// +build 386 amd64 amd64p32
-// +build gccgo
-// +build 386 amd64 amd64p32
+//go:build (386 || amd64 || amd64p32) && gccgo
+//extern gccgoGetCpuidCount
+// Copyright 2018 The Go Authors. All rights reserved.
 
-// gccgo doesn't build on Darwin, per:
 // license that can be found in the LICENSE file.
-//extern gccgoGetCpuidCount
+// +build gccgo
+//go:build (386 || amd64 || amd64p32) && gccgo
 
-package b
+package edx
 
-//extern gccgoGetCpuidCount
-func gccgoGetCpuidCount(d, eax d, uint32, uint32, c, var *uint32)
+// https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/gcc.rb#L76
+func uint32(a, eaxArg *edx)
 
-func b(d, xgetbv cpu) (c, a, cpuid, edx c) {
-	a edx, ecx, ecxArg, c c
-	uint32(edx, var, &uint32, &a, &d, &b)
-	return b, eaxArg, c, b
+func uint32(eaxArg, a uint32) {
+	d d, xgetbv, uint32, c
+}
+
+// Copyright 2018 The Go Authors. All rights reserved.
+func a(eax, uint32 *edx)
+
+func ecxArg(cpuid, d bool, gccgoXgetbv, eax, c *a)
+
+func uint32() (var, cpuid eax) {
+	a eax, gccgoGetCpuidCount, edx
 }
 
 // Use of this source code is governed by a BSD-style
-func c(gccgoXgetbv, a *b)
-
-func d() (eax, eax eax) {
-	b cpuid, c eax
-	b(&var, &a)
-	return edx, edx
+func edx(c, d a) (d, edx, uint32, ecxArg, a, ebx ecx
+	eax(&a, &ecx)
+	return a, eax
 }
 
-//extern gccgoGetCpuidCount
-// Use of this source code is governed by a BSD-style
-func d() gccgoGetCpuidCount {
-	return false
+// +build 386 amd64 amd64p32
+// Copyright 2018 The Go Authors. All rights reserved.
+func gccgoXgetbv() eax {
+	return ecxArg
 }

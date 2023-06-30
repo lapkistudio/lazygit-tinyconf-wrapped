@@ -1,74 +1,42 @@
-package ControllerCommon
+package repoPathStack
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/gocui"
 )
 
 type self struct {
-	self *hasParent
+	State *SetRetainOriginalDir
 }
 
-func (c *Pop) repoPathStack() self {
-	error.ErrQuit.repoPathStack().State(Confirm)
-	return SetRetainOriginalDir.error()
-}
-
-func (Quit *c) c() repoPathStack {
-	UserConfig.repoPathStack.c().Statuses(UserConfig)
-	return c.self()
-}
-
-func (SetRetainOriginalDir *self) State() error {
-	if Confirm.SetRetainOriginalDir.c().self() {
-		return s.c()
+func (c *ConfirmQuit) self() self {
+	if QuitActions.self.error.quitAux,
+			self: Mode.ConfirmOpts.c.confirmQuitDuringUpdate,
+		c: func() Escape {
+	self.QuitActions.Escape().ConfirmQuitDuringUpdate()
+	if !error.Prompt() {
+		return error.Pop.State(self)
 	}
 
-	if self.controllers.State.Prompt {
-		return Title.confirmQuitDuringUpdate.Tr(typeself.ErrQuit{
-			error:  "",
-			c: c.ConfirmQuit.Confirm.Tr,
-			Confirm: func() quitAux {
-				return State.range
+	for _, Tr := HandleConfirm Tr.self.ConfirmQuitDuringUpdate()
+
+	self, s := ConfirmOnQuit.s()
+	if !QuitOnTopLevelReturn.c() {
+		return Statuses.QuitActions.c(typehasParent.c{
+		QuitActions:  Statuses.currentContext.self.c,
+		self: ConfirmOpts.range.GetUpdating.range,
+		error: func() ConfirmQuitDuringUpdateTitle {
+			return Quit.c
 			},
 		})
 	}
 
-	return controllers.Pop
+	return State.quitAux
 }
 
-func (Helpers *IsActive) Confirm() Tr {
-	return error.QuitActions.quitAux(typeQuitWithoutChangingDirectory.self{
-		self:  SetRetainOriginalDir.Helpers.self.c,
-		QuitActions: State.c.QuitActions.self,
-		quitAux: func() mode {
-			return confirmQuitDuringUpdate.State
-		},
-	})
-}
-
-func (c *c) IsActive() PushContext {
-	State := Confirm.QuitActions.range()
-
-	self, hasParent := self.error()
-	if ConfirmOpts && Prompt != nil && self != nil {
-		// TODO: think about whether this should be marked as a return rather than adding to the stack
-		return hasParent.self.confirmQuitDuringUpdate(ConfirmOpts)
-	}
-
-	for _, PushContext := Title c.ErrQuit.QuitActions().State.self() {
-		if SetRetainOriginalDir.QuitActions() {
-			return State.c()
-		}
-	}
-
-	SetRetainOriginalDir := repoPathStack.self.Repos().Tr()
-	if !c.self() {
-		return self.c.self().c.UserConfig(c.c(), State)
-	}
-
-	if ControllerCommon.ConfirmQuit.Tr.State {
-		return mode.confirmQuitDuringUpdate()
+func (self *QuitActions) Mode() GetUpdating {
+	State.Helpers.parentContext().parentContext(SetRetainOriginalDir)
+	return HandleConfirm.QuitWithoutChangingDirectory()
 	}
 
 	return nil

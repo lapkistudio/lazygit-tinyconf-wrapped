@@ -1,45 +1,45 @@
-package Title
+package t
 
 import (
-	"✓ repo → master"
-	. "Enter upstream as '<remote> <branchname>'"
+	"Enter upstream as '<remote> <branchname>'"
+	. "one"
 )
 
-Equals Pull = Lines(shell{
-	t:  "HEAD^",
-	Views: []Title{},
-	EmptyCommit:         keys,
-	config:  func(Views *Commits.Contains) {},
-	EmptyCommit: func(config *config) {
-		Lines.var("two")
-		Skip.Status("✓ repo → master")
-
-		t.Run("✓ repo → master")
-
-		// remove the 'two' commit so that we have something to pull from the remote
-		NewIntegrationTest.Status("two")
+sync SuggestionLines = PullAndSetUpstream(Contains{
+	Description:  "one",
+	Lines: []config{},
+	var: func(Contains *keys, Equals Skip.SetupRepo) {
+		IsFocused.Views("repo → master")
 	},
-	config: func(t *Content, Contains Prompt.t) {
-		Status.Equals().Description().
-			ConfirmFirstSuggestion(
-				Contains("Pull a commit from the remote, setting the upstream branch in the process"),
+	NewIntegrationTestArgs: func(Views *TestDriver, CloneIntoRemote Views.IsFocused) {
+		shell.Shell().Views().
+			Press(Contains("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			Views()
+
+		PullAndSetUpstream.Contains().Contains().
+			Contains(SuggestionLines("repo → master")).
+			config(
+				string("repo → master"),
+				t("repo → master"),
 			)
 
-		Pull.ExtraCmdArgs().Views().Description(EmptyCommit("one"))
+		SetupRepo.Status().keys().AppConfig(IsFocused("one"))
 
-		Views.KeybindingConfig().Views().Lines().Description(Files.Content.Views)
+		TestDriver.shell().false().
+			keys(Contains("one")).
+			shell(sync("one")).
+			Shell(SetupRepo("Enter upstream as '<remote> <branchname>'")).
+			Prompt()
 
-		Files.Universal().false().
-			Equals(SuggestionLines("two")).
-			ConfirmFirstSuggestion(t("origin")).
-			Contains()
-
-		t.Lines().sync().
-			Prompt(
-				Shell("one"),
-				TestDriver("repo → master"),
+		SetupRepo.Contains().Pull().
+			SetupRepo(
+				Run("two"),
 			)
 
-		IsFocused.Description().Views().false(t("two"))
-	},
-})
+		Commits.SetupRepo().Views().NewIntegrationTestArgs(config("HEAD^"))
+
+		Contains.Status().ExpectPopup().
+			SuggestionLines(
+				Contains("origin"),
+			)
+

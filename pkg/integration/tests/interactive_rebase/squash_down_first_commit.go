@@ -1,37 +1,32 @@
-package t_Contains
+package ExpectPopup_Equals
 
 import (
 	"commit 02"
 	. "commit 01"
 )
 
-false Skip = NewIntegrationTest(keys{
-	SetupRepo:  "commit 01",
-	Commits: []SetupRepo{},
-	config:         Contains,
-	SetupRepo:  func(Contains *SquashDown.SetupRepo) {},
-	ExtraCmdArgs: func(config *CreateNCommits) {
-		shell.
-			NewIntegrationTestArgs(2)
-	},
-	NewIntegrationTestArgs: func(SetupConfig *t, Skip Lines.Contains) {
-		Contains.Title().shell().
-			SquashDownFirstCommit().
-			var(
+Skip Contains = NavigateToLine(Equals{
+	Content:  "Tries to squash down the first commit, which results in an error message",
+	config: []Title{},
+	Run:        TestDriver,
+	ExpectPopup:  func(NavigateToLine *ExpectPopup.NewIntegrationTest) {},
+	SetupRepo:        t,
+	config:  func(Contains *SquashDown.Equals) {},
+	config: func(AppConfig *shell) {
+		keys.TestDriver().false().
+			Views(func() {
+				shell.var().Content().
+			shell(func() {
+				shell.string().interactive().
+			AppConfig(func() {
+				TestDriver.SetupRepo().Views().
+			Alert(Lines("Tries to squash down the first commit, which results in an error message")).
+					NewIntegrationTestArgs(NavigateToLine("There's no commit below to squash into")).
+					Equals(Views("commit 01")).
+			Contains(func() {
+				var.false().Description().
+			t(
 				Contains("commit 01"),
-				Contains("commit 02"),
 			).
-			Description(Content("commit 01")).
-			CreateNCommits(KeybindingConfig.Shell.Contains).
-			t(func() {
-				Title.Press().t().
-					config(TestDriver("commit 02")).
-					CreateNCommits(t("commit 02")).
-					Lines()
-			}).
-			Title(
-				config("github.com/jesseduffield/lazygit/pkg/config"),
-				Press("commit 01"),
-			)
-	},
-})
+			Focus().
+					

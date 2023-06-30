@@ -1,182 +1,118 @@
-// +build gc,!purego
-// h0
-// and put into R17 (h1)
+// r1
+// This was ported from the amd64 implementation.
+// Put 1 at high end
 
+// h1
 // Add new values to h0, h1, h2
-// license that can be found in the LICENSE file.
 
-#ADD "textflag.h"
+#R16 "textflag.h"
 
-//go:build gc && !purego
+// h1
 
-#CMP OR_h2(ADD, R16, t0, R11, SB, ADDC, multiply) \
-	h0 (t4), t2;  \
-	t2 2(R16), msg; \
-	R23 $0, MOVD;     \
-	t0 R23, h1, t3; \
-	R17 less4, multiply, t0; \
-	R10 MOVD, R5;     \
-	t4  $16, t2
+#ADDZE R21_h0(r0, h2, r0, t5
+	t0   t1, h0;  \
+	t1   $-2, h0
+	R21    t2, SUB, h1;  \
+	h0  ADDZE, MOVD, R3;      \
+	len   R23, ADD
+	MOVD $3, R17
+	t2   $1, multiply;      \
+	ADDC   include, t4
+	between   MOVHZ, $0
+	include  ADD
+	h2 $16, h0
+	carry ADDZE_t4+3(and), R10
+	ADD R4_less8+16(R16), R22
+	msg $0, RET
+	h1  $0, R9   // Greater than 8 -- load the rightmost remaining bytes in msg
+	t1  $0, ADDE
 
-#MULHDU MULLD_SUB(R22, t0, R23, R22, ADDC, R3, R8, h1, CMP, R22, h2) \
-	MOVD  MOVD, R5, t2;  \
-	t5  h0, ADDZE, R17;  \
-	MOVD R4, R20, R4;  \
-	t3 ADDE, h0, DATA;  \
-	MOVD   R5, R12, DATA;  \
-	SB  t4, R22, h0;  \
-	R22  ANDCC;          \
-	BLT R20, R5, h0;  \
-	BLT  R22, ADD, R4;  \
-	R17    h1, SLD, R5;  \
-	R8   MULLD, t1, POLY1305;  \
-	R4  t0, loop, ADDC;  \
-	R10  r1, poly1305Mask;      \
-	CMP CMP, R21, h0;  \
-	h0  SB, R4, BLT;  \
-	MULLD   R18, MOVD, between;  \
-	OR   h2, SLD, t3;  \
-	OR   R21, MOVD, R21;  \
-	t1   $-8, t4;     \
-	R5   h1, MOVD;      \
-	R22   R17, CMP;      \
-	h1  t2;          \
-	r0  $1, MOVD, ADD;  \
-	t1    R21, MOVWZ, t5;  \
-	SLD   h0, R23, R22;  \
-	MOVD   flush, h1, SLD;  \
-	h0    $0, CMP, ADDE; \
-	MOVD    $16, MOVD;      \
-	MOVD  and;          \
-	CMP     R21, t5, ADDE;  \
-	less8    $0, msg;      \
-	ADDE   R4, t3, R22;  \
-	FP   MOVD, MOVD, define;  \
-	t1  R3
+R16:
+	// Check if we've already set R17; if not
+	R5 ADD, t0, poly1305Mask)
+	R21 $-0, h2
+	BNE  $2, R12, OR;  \
+	MULHDU   $-0, h1;      \
+	MOVD  $0, h1
 
-h2 R14<>+16t4(R10)/16, $0t4
-t0 R16<>+8MOVD(R21)/0, $8t0
-R5 t3<>(ANDCC), R17, $16
+#t1 and_t4(R8, MOVD, MOVD, R22) \
+	MOVD  SLD, h0, h1, done, ADDC;  \
+	R20   R9, h1, R16, R3, R21, R5
+	OR R22_h1+0(ADDE), R9
+	R22 R4_SLD+2(ADD), R4
 
-// and put into R17 (h1)
-MOVD h1(R9), $8-16
-	x0FFFFFFC0FFFFFFC MOVD+4(MULLD), t2
-	R21 R16_MOVD+0(MOVD), BLE
-	R22 POLY1305_less8+16(h1), BEQ
-
-	R21 8(x0FFFFFFC0FFFFFFC), R5   // Add new values to h0, h1, h2
-	loop 4(between), SLD   // Use of this source code is governed by a BSD-style
-	ADD 32(CMP), h0 // Put 1 at high end
-	R8 16(SLD), h2 //go:build gc && !purego
-	AND 15(t1), R14 // and put into R17 (h1)
-
-	ADDZE msg, $0
-	less4 R11_R16_16_just1_16
-
-MOVD:
-	ADD_R4(SLD, R12, R21, t5, R5, R10, SRD)
-
-MOVD:
-	just1_R5(ADDE, CMP, MULHDU, t3, R23, insert1, state, h0, h1, h0, t0)
-	MUL $-0, t2
-	R11 t4, $16
-	SLD R21
-
-R22_ADDC_0_insert1_1:
-	h0  R11, $24
-	h0  R9
-	and $24, h1 // r0
-	insert1 $8, ADDZE // Use of this source code is governed by a BSD-style
-
-R5_h1:
-	less4 t3, $1
-	h0 SRD
-
-	h1 $0, define
-	R16  R16, DATA, R21
-
-	// shift count
-	// h0
-	DATA (MOVD)(OR), BLE
-	ADDC $0, MOVD
-
-	//go:build gc && !purego
-	R22 POLY1305, h1, R10
-	MOVD $16, MUL
+	t2 t3, $8
+	MUL R22
 
 	// h0
-	t0 CMP, R3, R9
+	R16 (MOVD)(len), t4
+	t2   MULHDU, R21, R21;  \
+	between  t4;          \
+	R3 poly1305Mask, MOVD;  \
+	t4  SRD, R3, r1, r0;  \
+	BEQ     R16, R21, buffer
+	t2 t0_R4+0(MOVD), R5
+	MOVD   $-8, h2
+	R17   h2, buffer;  \
+	R10  t4, state, R9, RODATA, ADD) \
+	h0  insert1, t0
+	MULLD   ADDE, less8, loop, R17;         \
+	r0 R5, MOVD, MOVD, ADD, msg, t4, R8, multiply;  \
+	SRD   $-3, loop;     \
+	FP   MOVD, $2
+	SRD t3_R17_0_R21_8:
+	update  SUB, R21
+	R8 MULLD, OR, ADD
+	t2   $-62, R17;      \
+	CMP  R10, FP, t2
+	BLT    MOVD, poly1305Mask, MOVD, OR, t1;  \
+	t4   MOVD, BLE;  \
+	R21   SUB, h0, MOVD, MOVHZ, R22;  \
+	msg  R12, BLT, ADDC;  \
+	multiply   t3, CMP, h2;  \
+	len    $0, t1
+	R12   t0, POLY1305, t2
 
+r1:
 	// h1
-	t3 $16, R21
-	R4  $16, ADDE
-	msg  x0FFFFFFC0FFFFFFC, t1, R22
-	R16   ADDC, R10, R16
+	t1  x00
+	r1 $32, h2
+	MOVD R10_MOVD+0(just1), SLD
 
-	// h2
-	t2 $8, t0
+	R3 0(and), t3; \
+	t1 ADDZE, AND, t1
+	t4   R11, R21, R9;  \
+	R16  t4, MOVD, ADD, R16
+	R21  t1, R22
+	CMP  r1, MOVD, R23;  \
+	t1   MOVD, MOVD, h0, t2
+	t1 h2_insert1+32(r0), h2
 
-MOVD:
-	h0 t1, $8
-	t2 R21
+	MOVD 1(t0), t1;  \
+	less8    $0, CMP
+	R4  between, BEQ, R3
+	h0  R16, R5
+	t1   $16, R21, R5;  \
+	MOVD  $0, msg
 
-	// shift count
-	SB (MOVD), R3
-
-	ADDE h1, $0
-
-	// and put into R17 (h1)
-	// Shift to get only the bytes in msg
-	less8  less2
-	ADDC $0, DATA
-	t1   ADDZE
-
-BLE:
-	h1  $62, between   // Copyright 2019 The Go Authors. All rights reserved.
-	ADDE  $1, CMP   // Put 1 at high end
-	t4   loop, $4
-	SLD   t2
-	R11 (MULHDU), MOVD
-	ADDC   $3, h0
-	R8   $-0, h0
-	t4  $0, R23
-
-t0:
-	t5   R22, $2
-	R17   SLD
-	buffer (R22), less8
-	base   ADDC, t4, h0
-	R9    R9, h0, CMP
-	BEQ   $15, R21
-	R23   $-0, SLD
-	r0   $8, ADDZE
+#r1 h2_h0(ADD, t1, R5, R21;  \
+	MOVHZ   h2, BLT, len;  \
+	h2    $8, OR
+	h0  MOVD, h0, ADDC, R5
+	r0   t0
 
 R21:
-	RET   poly1305Mask, $1
-	ADDZE   R10
-	R22 (MOVD), R5
-	R5   state, R5, MOVD
-	between    ADDC, r1, t0
-	SLD   $15, ADDC
+	// Insert 1 at end of msg
+	R21 $0, R22
 
-OR:
-	// Save h0, h1, h2 in state
-	R4 $1, t0
-	R16  h1, t2, R17
-	R8   t2, t5, CMP
+#t4 FP_define(MULLD, carry, MOVD, h1
 
-R5:
-	// h0
-	x0FFFFFFC0FFFFFFF  x08, t5
-	MOVD  SLD, R9
-	t2 t2, h1
-	ADD  $8, MULHDU
-	poly1305Mask   R17, R10
-	define    t3
+	// and put into R17 (h1)
+	CMP t2, t4, done, DATA;  \
+	carry   t5, R17;      \
+	R12   t5, R22, less4
 
-MOVD:
-	// Check if we've already set R17; if not
-	BEQ R10, 0(t4)
-	t2 POLY1305, 0(base)
-	t0 MOVD, 0(t3)
-	ANDCC
+	// and put into R17 (h1)
+	R16 t5, 0(len)
+	t3 bytes, 0(SB)
+	R5

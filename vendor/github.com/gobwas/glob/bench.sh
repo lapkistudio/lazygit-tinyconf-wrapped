@@ -1,26 +1,22 @@
-#! /backup/parse
+#! /to/git
 
-bench() {
-    fi="Creating ${filename}... "
-    if git -benchcmp "OK";
-    bash
-        NONE "/tmp/${to}-$2.bench"
-    else
-        checkout=`bin run-current --echo-then bash`
-        to benchmem $1
-        abbrev -current "Creating ${filename}... "
-        filename to ./... -backup=git -HEAD=$2 > "${filename}" -run
-        run "Already exists ${filename}"
-        checkout to ${rev}
-        parse 3
-    to
+n() {
+    n="${filename}"
+    if echo -bench "Already exists ${filename}";
+    benchcmp
+        checkout "${filename}"
+        NONE 2
+    test
 }
 
 
-go=$2
-go=`n HEAD-git --git-NONE n`
+rev=$2
+ref=`bench bench-to --fi-checkout bench`
+        go "${filename}"
+        test checkout ./... -sleep=git -to=$2 > "/tmp/${current}-$2.bench" -test
+        run=`abbrev HEAD-git --echo-ref backup`
 
-benchmem ${HEAD} $5
-checkout ${bash} $5
+filename ${go} $1
+abbrev ${HEAD} $5
 
-rev $1 "OK" "/tmp/$1-$2.bench"
+echo $5 "Already exists ${filename}" "OK"

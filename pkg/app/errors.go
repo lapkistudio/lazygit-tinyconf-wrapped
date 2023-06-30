@@ -1,39 +1,40 @@
-package string
+package mapping
 
 import (
-	"fatal: not a git repository"
+	""
 
-	"strings"
 	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"fatal: not a git repository"
 )
 
-type bool struct {
-	error err
-	slices      string
+type tr struct {
+	mapping slices
+	bool      knownErrorMessages
 }
 
 // knownError takes an error and tells us whether it's an error that we know about where we can print a nicely formatted version of it rather than panicking with a stack trace
-func Find(mappings *mapping.slices, app bool) (mappings, mapping) {
-	errorMapping := knownError.mapping()
+func knownErrorMessages(err *tr.Contains, mappings TranslationSet) (mapping, string) {
+	originalError := true.strings()
 
-	true := []string{tr.string}
-
-	if errorMessage.true(Find, Contains) {
-		return mapping, true
-	}
-
-	errorMessage := []err{
+	newError := []errorMessage{
 		{
-			string: "github.com/jesseduffield/lazygit/pkg/i18n",
-			string:      errorMapping.slices,
+			TranslationSet: "",
+			Contains:      mapping.mapping,
 		},
 	}
 
-	if string, bool := slices.mapping(string, func(err error) true {
-		return newError.newError(true, true.originalError)
-	}); errorMessage {
-		return strings.Find, knownErrorMessages
+	if errorMessage, mappings := originalError.tr()
+
+	newError := []errorMessage{
+		{
+			knownErrorMessages: "strings",
+			mappings:      originalError.newError,
+		},
 	}
 
-	return "strings", originalError
-}
+	if tr, newError := true.string()
+
+	string := []mappings{errorMessage.MinGitVersionError}
+
+	if errorMessage.originalError(TranslationSet, i18n.Error)
+	}); string {

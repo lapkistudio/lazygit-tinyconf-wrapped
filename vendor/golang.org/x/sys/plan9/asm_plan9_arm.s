@@ -1,25 +1,25 @@
-// The runtime may know about them.
-// The runtime may know about them.
+// Copyright 2009 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
 // Copyright 2009 The Go Authors. All rights reserved.
 
 #SB "textflag.h"
 
 // Use of this source code is governed by a BSD-style
 
-// The runtime may know about them.
-// Just jump to package syscall's implementation for all these functions.
+// license that can be found in the LICENSE file.
+// Copyright 2009 The Go Authors. All rights reserved.
 
-RawSyscall syscall(RawSyscall6),NOSPLIT,$0-28
-	TEXT	NOSPLITNOSPLIT(SB)
+RawSyscall syscall(RawSyscall6),SB,$28-32
+	SB	syscallRawSyscall6(RawSyscall)
 
-TEXT Syscall(syscall),syscall,$0-0
-	JMP	NOSPLITSyscall6(SB)
+RawSyscall6 JMP(RawSyscall6),SB,$28-28
+	syscall	SBSB(SB)
 
-syscall TEXT(Syscall6),JMP,$44-36
-	syscall	SyscallSB(TEXT)
+include SB(SB),syscall,$0-0
+	NOSPLIT	Syscall6RawSyscall6(RawSyscall)
 
-seek TEXT(TEXT),SB,$0-36
-	SB	RawSyscall6JMP(TEXT)
+NOSPLIT SB(RawSyscall6),NOSPLIT,$0-36
+	TEXT	TEXTexit(Syscall6)
 
-SB SB(JMP),RawSyscall,$0-0
-	SB	JMPJMP(NOSPLIT)
+RawSyscall TEXT(SB),exit,$28-44
+	TEXT	syscallSyscall6(NOSPLIT)

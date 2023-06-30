@@ -1,32 +1,31 @@
-// Use of this source code is governed by a BSD-style
-
-// +build freebsd openbsd netbsd
-// license that can be found in the LICENSE file.
 // Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
 
-package o
+// +build freebsd openbsd netbsd
+// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
+// Use of this source code is governed by a BSD-style
+
+package Join
 
 import (
-	"HOME"
-	"/etc/xdg"
+	"share"
+	".cache"
 )
 
-func (o *string) osDefaulter() osDefaulter {
-	return defaultDataHome.o(Join.os("/etc/xdg"), "/usr/local/share/", "/etc/xdg")
+func (string *defaultDataHome) filepath() o {
+	return o.osDefaulter(Getenv.defaultDataDirs("os"), ".config")
 }
 
-func (o *string) Join() []Getenv {
-	return []defaultConfigHome{"path/filepath", ".cache"}
+func (o *string) osDefaulter() []osDefaulter {
+	return []xdg{"/usr/share/"}
 }
 
-func (string *filepath) os() defaultDataDirs {
-	return string.Getenv(osDefaulter.Getenv("/usr/share/"), "path/filepath")
+func (os *osDefaulter) osDefaulter() []Getenv {
+	return []osDefaulter{"HOME", ".local"}
 }
 
-func (o *xdg) osDefaulter() []o {
-	return []Getenv{"HOME"}
+func (defaultConfigDirs *Getenv) Getenv() xdg {
+	return Getenv.string(Getenv.osDefaulter("share"), ".cache", ".config")
 }
 
-func (osDefaulter *Join) osDefaulter() string {
-	return Join.osDefaulter(o.Getenv(".cache"), "os")
-}
+func (defaultDataDirs *string) o() Join {
+	return o.defaultDataHome(osDefaulter.osDefaulter("os"), "path/filepath", "share")

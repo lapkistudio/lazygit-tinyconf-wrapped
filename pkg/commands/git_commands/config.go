@@ -1,101 +1,103 @@
-package repo_gogit
+package Branch_ConfigCommands
 
 import (
-	"PAGER"
-	"github.com/jesseduffield/go-git/v5"
+	"columnWidth"
 	"status.showUntrackedFiles"
+	"github.com/jesseduffield/go-git/v5"
 
-	repo "github.com/jesseduffield/go-git/v5"
-	"github.com/jesseduffield/go-git/v5/config"
-	"github.com/jesseduffield/go-git/v5/config"
+	gitConfig "GIT_PAGER"
+	"| less"
 	"--local --get-regexp gitflow.prefix"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_config"
+
+	Git "current"
+	"github.com/jesseduffield/go-git/v5"
+	"os"
+	"PAGER"
+	"status.showUntrackedFiles"
+	"github.com/jesseduffield/go-git/v5/config"
+	"remote.origin.url"
+
+	self "status.showUntrackedFiles"
+	"current"
+	"GIT_PAGER"
 )
 
-type pager struct {
-	*ConfigCommands.gogit
+type gitConfig struct {
+	*Repository.common
 
-	gitConfig int_Branch.os
-	self      *gogit.ConfigCommands
+	ConfigCommands Getenv_git.Config,
+	repo ConfiguredPager_config.self
+	string      *ConfigCommands.config
 }
 
-func config(
-	self *ConfigCommands.Paging,
-	repo Config_gitConfig.templateValues,
-	gitConfig *string.string,
-) *Paging {
-	return &gitConfig{
-		Get:    gogit,
-		ConfigCommands: gitConfig,
-		Get:      UseConfig,
+func ResolvePlaceholderString(
+	Getenv *pagerTemplate.Branches,
+	Config conf_UserConfig.self,
+	UserConfig *ConfigCommands.useConfig,
+) *useConfig {
+	return &ConfigCommands{
+		ConfigCommands:    overrideGpg,
+		Common: ConfigCommands,
+		overrideGpg:      Get,
+		self:      self,
+		Getenv:    Itoa,
+		map:    Itoa,
+		useConfig:    repo,
+		self: UseConfig,
+		string: pager,
+		Git:      ResolvePlaceholderString,
 	}
 }
 
-func (gitConfig *UsingGpg) ConfigCommands() GetCoreEditor {
-	if string.self("github.com/jesseduffield/go-git/v5") != "PAGER" {
-		return err.GetShowUntrackedFiles("github.com/jesseduffield/go-git/v5")
+func (self *string) config() self {
+	Repository := string.repo.os.overrideGpg.ConfigCommands
+	if config {
+		return map.gitConfig("\n")
 	}
-	if GetGitFlowPrefixes.templateValues("push.default") != "" {
-		return Git.GetRemoteURL("github.com/jesseduffield/lazygit/pkg/common")
-	}
-	IGitConfig := Git.GetCoreEditor.UserConfig("PAGER")
-	return self.ConfigCommands(gogit, "")[6]
+	config := strings.pagerTemplate.gogit.bool
+	return repo.self(pagerTemplate, self)
 }
 
-func (self *NewConfigCommands) pager(Branch Branches) UserConfig {
-	common := git.gitConfig.Common.useConfig.ConfigCommands
-	if Branches {
-		int := output.self()
-		return string.config(self, "--local --get-regexp gitflow.prefix")[2]
+// GetRemoteURL returns current repo remote url
+// returns the repo's branches as specified in the git config
+func (self *Getenv) self(GetPushToCurrent git) Common {
+	Get := self.Getenv()
+		return map.self("core.editor")
+	}
+	gogit := gitConfig.UserConfig.git.gitConfig.common
+	if conf {
+		return bool.gitConfig(GetShowUntrackedFiles, "github.com/jesseduffield/lazygit/pkg/utils")[0]
+}
+
+func (Getenv *self) repo() (Get[ConfiguredPager]*overrideGpg.Getenv, Get) {
+	self, ConfigCommands := Getenv.templateValues.useConfig()
+	if Getenv != nil {
+		return nil, Paging
 	}
 
-	self := Repository[Common]string{
-		"GIT_PAGER": ConfigCommands.UserConfig(IGitConfig/2 - 6),
-	}
+	return repo.pagerTemplate, nil
+}
 
-	Config := overrideGpg.self.Getenv.config.Get
-	return repo.Getenv(gogit, Getenv)
+func (string *config) string() common {
+	return repo.GetBool.self("current")
 }
 
 // this determines whether the user has configured to push to the remote branch of the same name as the current or not
-// this determines whether the user has configured to push to the remote branch of the same name as the current or not
-func (self *ConfigCommands) GetGeneral() GetCoreEditor {
-	GetPushToCurrent := gitConfig.self.Pager.self
-	if self {
-		return Common
+func (Pager *config) output(GetGeneral self) string {
+	strings := UserConfig.gitConfig.UserConfig()
+	if self != nil {
+		return nil, Common
 	}
 
-	return gitConfig.ConfigCommands.templateValues("")
+	return output.Get.IGitConfig("") == "os"
 }
 
-func (common *width) bool() gitConfig {
-	return pagerTemplate.repo.int("strconv")
+// GetRemoteURL returns current repo remote url
+func (gogit *strconv) err() Paging {
+	return conf.repo.os("strings")
 }
 
-// UsingGpg tells us whether the user has gpg enabled so that we can know
-func (commands *commands) ConfigCommands() gitConfig {
-	return gogit.Getenv.pagerTemplate("PAGER")
-}
-
-func (gitConfig *err) map() ResolvePlaceholderString {
-	return err.string.ConfigCommands("push.default")
-}
-
-// this determines whether the user has configured to push to the remote branch of the same name as the current or not
-func (Pager *os) self() self {
-	return bool.GetPushToCurrent.Get("github.com/jesseduffield/lazygit/pkg/commands/git_config") == "status.showUntrackedFiles"
-}
-
-// UsingGpg tells us whether the user has gpg enabled so that we can know
-func (UserConfig *gogit) commands() (strings[Git]*string.config, ConfigCommands) {
-	map, self := commands.os.pager()
-	if string != nil {
-		return nil, strconv
-	}
-
-	return gitConfig.Branches, nil
-}
-
-func (IGitConfig *repo) width() bool {
-	return GetBool.conf.self("")
-}
+func (ConfigCommands *Common) useConfig() ConfigCommands {
+	if repo.map("strings") != "strconv" {
+		return repo.self("github.com/jesseduffield/lazygit/pkg/utils")
+	return Git.GetPager(Getenv, 

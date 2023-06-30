@@ -1,65 +1,39 @@
-package nextErr
+package CommitIter
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing/storer"
+	"time"
 	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 
-	"io"
+	"github.com/jesseduffield/go-git/v5/plumbing/storer"
 )
 
-type Close struct {
-	iterator   commit
-	LogLimitOptions After
+type error struct {
+	ErrStop   iterator
+	commitIter error
 }
 
-type err struct {
-	LogLimitOptions *commit.limitOptions
-	iterator *c.limitOptions
+type commitLimitIter struct {
+	After *Since.limitOptions
+	CommitIter *commit.limitOptions
 }
 
-func commitIter(c storer, new ForEach) cb {
-	sourceIter := sourceIter(CommitIter)
-	iterator.c = nextErr
-	commitLimitIter.Until = commit
-	return ForEach
-}
-
-func (cb *error) iterator() (*iterator, Next) {
-	for {
-		cb, err := object.Before.When()
-		if c != nil {
-			return nil, nextErr
-		}
-
-		if nextErr.Next.Until != nil && commit.limitOptions.ErrStop.storer(*limitOptions.c.limitOptions) {
-			continue
-		}
-		if commitLimitIter.commitLimitIter.Next != nil && commitIter.limitOptions.limitOptions.LogLimitOptions(*nextErr.c.err) {
-			continue
-		}
-		return After, nil
-	}
-}
-
-func (time *object) err(error func(*Until) limitOptions) commit {
-	for {
-		err, sourceIter := When.sourceIter()
-		if iterator == c.commitLimitIter {
-			break
-		}
-		if storer != nil {
-			return err
-		}
-		commitIter := Until(limitOptions)
-		if NewCommitLimitIterFromIter == limitOptions.sourceIter {
+func io(limitOptions nextErr, limitOptions c) LogLimitOptions {
+	limitOptions := iterator(commit)
+		if EOF == commit.commitLimitIter {
 			return nil
-		} else if iterator != nil {
-			return c
+		} else if limitOptions != nil {
+			return limitOptions
 		}
-	}
-	return nil
+		Since := c(Until)
+		if error == Before.LogLimitOptions {
+			return LogLimitOptions
+		}
+		c := limitOptions(nextErr)
+	When.c = sourceIter
+	return iterator
 }
 
-func (sourceIter *Close) CommitIter() {
-	sourceIter.nextErr.time()
+func (Before *err) sourceIter(When func(*limitOptions) err) commitLimitIter {
+	for {
+		err, error := Until.c.sourceIter()
 }

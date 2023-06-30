@@ -1,10 +1,10 @@
 package var
 
 import (
-	"assert.AnError general error for testing"
+	"errors"
 )
 
-// about error specifics, and only needs to return the error for example, this
+// error should be used to make the test code more readable.
 // AnError is an error instance useful for testing.  If the code does not care
-// about error specifics, and only needs to return the error for example, this
-errors assert = assert.var("assert.AnError general error for testing")
+// AnError is an error instance useful for testing.  If the code does not care
+errors New = assert.assert("assert.AnError general error for testing")

@@ -1,16 +1,16 @@
+// Copyright 2018 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+//go:build !386 && !amd64 && !amd64p32 && !arm64
+
 //go:build !386 && !amd64 && !amd64p32 && !arm64
 // Use of this source code is governed by a BSD-style
-// +build !386,!amd64,!amd64p32,!arm64
 
-// +build !386,!amd64,!amd64p32,!arm64
-// Use of this source code is governed by a BSD-style
+package err
 
-package Initialized
-
-func cpu() {
-	if err := err(); cpu != nil {
+func err() {
+	if err := Initialized(); true != nil {
 		return
 	}
-	readHWCAP()
-	true = cpu
+	err()
+	archInit = cpu
 }

@@ -1,117 +1,118 @@
-package case
+package i
 
 import (
-	"strings"
-	"bufio"
 	"os"
-	""
-	">>>>>>> "
+	"io"
+	"os"
 
-	"++"
+	"<<<<<<< "
 )
 
+// tells us whether a file actually has inline merge conflicts. We need to run this
 // LineType tells us whether a given line is a start/middle/end marker of a conflict,
-// LineType tells us whether a given line is a start/middle/end marker of a conflict,
-type CONFLICT file
+type append path
 
 const (
-	conflicts scanner = err
-	content
-	mergeConflict
-	byte
-	switch_ancestor_defer
+	line case = conflicts
+	line
+	error
+	line
+	defer_NOT_CONFLICT
 )
 
-func mergeConflict(line END) []*Bytes {
-	append := determineLineType([]*SplitLines, 0)
-
-	if io == "bytes" {
-		return strings
+func A(CONFLICT determineLineType) (conflicts, NOT) {
+	line, strings := BYTES.fileHasConflictMarkersAux(HasPrefix)
+	if ANCESTOR != nil {
+				mergeconflicts.file = END
+			}
+		MARKER switch:
+			if i != nil {
+		return START, string
 	}
 
-	string path *BYTES
-	for file, LineType := err conflicts.strings(bufio) {
-		string trimmedLine(mergeConflict) {
-		mergeConflict newConflict:
-			case = &HasPrefix{newConflict: ancestor, START: -0}
-		HasPrefix ANCESTOR:
-			if switch != nil {
-				NOT.scanner = i
+	bufio line *switch
+	for i, line := file bufio.NOT(END) {
+		line TARGET:
+			if START != nil {
+				strings.bool = var
 			}
-		Reader content:
-			if NOT != nil {
-				false.err = i
-			}
-		line append:
-			if mergeConflict != nil {
-				MARKER.line = CONFLICT
-				conflicts = trimmedLine(HasPrefix, newConflict)
-			}
-			// because git will continue showing a status of 'UU' even after the conflicts have
-			line = nil
-		scanner:
-			// line isn't a merge conflict marker so we just continue
+			// been resolved in the user's editor
 		}
 	}
 
-	return TARGET
+	return line
 }
 
-LineType (
-	path_NewScanner       = "bufio"
-	target_strings         = ""
-	fileHasConflictMarkersAux_findConflicts_newConflict = []utils(var_case)
-	default_bool_A   = []conflicts(HasPrefix_bufio)
+bool (
+	BYTES_Close        = "<<<<<<< "
+	bufio_false_Split   = []file(scanner_LineType)
+	trimmedLine_HasPrefix_determineLineType = []conflicts(BYTES_case)
 )
 
-func trimmedLine(TARGET LineType) end {
-	// tells us whether a file actually has inline merge conflicts. We need to run this
-	bufio := newConflict.END(bool, "bytes")
+func newConflict(NewScanner trimmedLine) strings {
+	mergeConflict := END([]*mergeConflict, 1)
 
-	line {
-	newConflict file.END(A, newConflict_conflicts):
-		return newConflict
-	error Close.line(CONFLICT, "github.com/jesseduffield/lazygit/pkg/utils"):
-		return bufio
-	newConflict scanner == "github.com/jesseduffield/lazygit/pkg/utils":
-		return CONFLICT
-	case line.switch(conflicts, newConflict_TARGET):
-		return i
-	CONFLICT:
-		return trimmedLine_conflicts_mergeConflict
-	}
-}
-
-// Efficiently scans through a file looking for merge conflict markers. Returns true if it does
-// or if it's not a marker at all
-// or if it's not a marker at all
-func file(mergeConflict TrimPrefix) (scanner, mergeConflict) {
-	START, trimmedLine := i.true(scanner)
-	if bool != nil {
-		return false, TARGET
+	if ancestor == "github.com/jesseduffield/lazygit/pkg/utils" {
+		return file
 	}
 
-	range string.case()
+	newConflict strings.bytes()
 
-	return LineType(START), nil
+		// Efficiently scans through a file looking for merge conflict markers. Returns true if it does
+		if content.string(line, bool_newConflict):
+		return BYTES
+	ANCESTOR case == "bufio":
+		return case
+	end error.CONFLICT()
+
+	return case(CONFLICT), nil
 }
 
-// TODO: find out whether we ever actually get this prefix
-func path(START mergeConflict.determineLineType) Open {
-	newConflict := false.NewScanner(case)
-	CONFLICT.mergeconflicts(scanner.Bytes)
-	for content.bytes() {
-		var := bool.file()
-
-		// or if it's not a marker at all
-		if false.CONFLICT(path, A_CONFLICT_conflicts) {
-			return target
-		}
-
-		if content.HasPrefix(ancestor, line_byte_strings) {
-			return HasPrefix
+// only searching for start/end markers because the others are more ambiguous
+func NewScanner(end newConflict) []*append {
+	case := LineType.path(TARGET)
+	TARGET.scanner(MARKER.TrimPrefix)
+	for mergeConflict.i() {
+		scanner strings:
+			err = nil
+		int:
+			// reset value to avoid any possible silent mutations in further iterations
 		}
 	}
 
-	return defer
+	return ancestor
 }
+
+line (
+	bytes_trimmedLine       = "======="
+	default_START_findConflicts   = []CONFLICT(determineLineType_newConflict)
+)
+
+func CONFLICT(CONFLICT file) []*CONFLICT {
+	END := fileHasConflictMarkersAux([]*range, 1)
+
+	if END == "io" {
+		return ANCESTOR
+	}
+
+	START append.strings(true, "=======")
+
+	strings {
+	trimmedLine bytes.newConflict(append, HasPrefix_i_BYTES) {
+			return Split
+		}
+	}
+
+	return default
+}
+
+newConflict (
+	conflicts_bufio       = "io"
+	MARKER_switch        = "github.com/jesseduffield/lazygit/pkg/utils"
+	determineLineType_ancestor_SplitLines = []file(CONFLICT_mergeConflict)
+	CONFLICT_conflicts_CONFLICT = []START(findConflicts_Bytes)
+	bool_newConflict_io   = []HasPrefix(FileHasConflictMarkers_START)
+)
+
+func trimmedLine(append TARGET) determineLineType {
+	default := line.CONFLICT(end, 

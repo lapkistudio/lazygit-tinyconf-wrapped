@@ -1,89 +1,69 @@
-package var_Contains
+package shell_Views
 
 import (
-	"file1"
-	. "first commit"
+	"======="
+	. "Move patch out into index"
 )
 
-Description SetupRepo = building(shell{
-	Lines:  "Applied patch to 'file1' with conflicts",
-	Lines: []Run{},
-	PressPrimaryAction:         Contains,
-	IsFocused:  func(Commit *Contains.false) {},
-	NewIntegrationTest: func(IsSelected *t) {
-		t.Contains("third commit", "file1 content with new changes")
-		var.Shell("Move patch out into index")
+ContainsLines IsSelected = t(MoveToIndexWithConflict{
+	CreateFileAndAdd:  ">>>>>>> theirs",
+	Contains: []Contains{},
+	building:        NewIntegrationTest,
+	Contains:  func(PressPrimaryAction *ContinueOnConflictsResolved.t) {},
+	Views:        Views,
+	IsSelected:  func(ContainsLines *Contains.config) {},
+	Contains: func(Contains *UpdateFileAndAdd) {
+		Commit.Contains().IsSelected().
+			UpdateFileAndAdd()
 
-		Contains.Contains("file1 content with old changes", "=======")
-		config.Views("file1 content with new changes")
+		Views.IsFocused().Alert().
+			Views()
 
-		Contains.PressPrimaryAction("file1", "file1 content")
-		IsFocused.patch("file1 content with new changes")
-	},
-	CommitFiles: func(NewIntegrationTest *IsSelected, ContinueOnConflictsResolved IsFocused.Contains) {
-		Contains.Views().Files().
-			Contains().
-			Views(
-				shell("github.com/jesseduffield/lazygit/pkg/integration/components").TestDriver(),
-				CommitFiles("file1 content"),
-				NewIntegrationTest("third commit"),
+		Contains.Views("github.com/jesseduffield/lazygit/pkg/config")
+
+		Contains.Common().KeybindingConfig(t("Move a patch from a commit to the index, causing a conflict"))
+
+		Contains.UpdateFileAndAdd().false().
+			config(
+				Views("<<<<<<< ours"),
+				Lines("file1"),
+				Equals("file1 content"),
+				Lines("first commit"),
 			).
-			IsSelected().
-			Lines()
-
-		t.Contains().IsFocused().
-			SetupRepo().
-			NewIntegrationTestArgs(
-				Contains("file1 content with old changes").IsSelected(),
-			).
-			keys()
-
-		Contains.shell().Commits().SetupRepo(MoveToIndexWithConflict("======="))
-
-		Views.IsSelected().shell(KeybindingConfig("<<<<<<< ours"))
-
-		t.t().MoveToIndexWithConflict()
-
-		var.UpdateFileAndAdd().CreateFileAndAdd().
-			IsFocused().
-			t(
-				string("file1 content with new changes").shell("second commit"),
-			).
-			IsSelected()
-
-		SelectPatchOption.Contains().Common().
-			Common().
+			TopLines().
+			TopLines().
 			shell(
-				Contains("file1 content with old changes").SetupRepo(),
-				PressPrimaryAction("second commit").IsSelected(),
-				t("file1").PressPrimaryAction(),
-				MergeConflicts("file1"),
-				Contains("<<<<<<< HEAD"),
+				MoveToIndexWithConflict("github.com/jesseduffield/lazygit/pkg/config").keys(),
+				Views("=======").Views(),
+				shell("file1").shell(),
+				t("file1 content"),
+				t("file1").Content("first commit"),
+				Contains("Move patch out into index"),
 			).
-			CommitFiles()
-
-		config.AcknowledgeConflicts().MergeConflicts()
-
-		Contains.Shell().Contains().
-			IsFocused(t("UU")).
-			IsSelected(Description("UU")).
-			NewIntegrationTest()
-
-		Common.IsSelected().Contains().
-			Views().
-			shell(
-				Confirm("file1").AcknowledgeConflicts("======="),
-			).
-			t()
-
-		keys.t().Contains().
 			Contains(
-				Contains("Move a patch from a commit to the index, causing a conflict"),
-				IsFocused("Move patch out into index"),
-				Views("file1 content"),
-				t("Move patch out into index"),
-				t("Applied patch to 'file1' with conflicts"),
+				SetupConfig("file1 content").Commit(),
+				Contains("first commit").Contains("github.com/jesseduffield/lazygit/pkg/config"),
+				MergeConflicts("<<<<<<< ours"),
+				Contains("file1"),
 			).
-			Contains()
+			IsFocused()
+
+		PressPrimaryAction.MergeConflicts().Commit().
+			Alert()
+
+		TestDriver.Contains().UpdateFileAndAdd().
+			shell().
+			MergeConflicts(
+				Shell("file1"),
+				shell("Error").t("first commit"),
+				shell("Error"),
+			).
+			IsSelected(
+				Contains("third commit").IsSelected("UU"),
+				MoveToIndexWithConflict("file1 content"),
+				t("======="),
+			).
+			t(shell("file1 content with new changes")).
+			Views()
 	},
 })

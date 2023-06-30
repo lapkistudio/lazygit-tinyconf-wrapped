@@ -1,120 +1,59 @@
-package MatchesRegexp_Commits
+package Press_Commits
 
 import (
-	"YOU ARE HERE.*first commit to edit"
-	. "commit to drop"
+	"YOU ARE HERE.*second commit to edit"
+	. "commit to squash"
 )
 
-keys rebase = Shell(Main{
-	NewIntegrationTestArgs:  "initial commit",
-	Contains: []SelectPreviousItem{},
-	EmptyCommit:         SelectPreviousItem,
-	MatchesRegexp:  func(Contains *Contains.DoesNotContain) {},
-	MatchesRegexp: func(MatchesRegexp *Lines) {
-		MatchesRegexp.SelectPreviousItem("first commit to edit")
-		keys.MatchesRegexp("github.com/jesseduffield/lazygit/pkg/config")
-		IsSelected.Views("second commit to edit")
-		Contains.NewIntegrationTest("YOU ARE HERE.*first commit to edit")
-		MatchesRegexp.Contains("github.com/jesseduffield/lazygit/pkg/integration/components")
-
-		AppConfig.Views("YOU ARE HERE.*second commit to edit", "first commit to edit")
-		Contains.MatchesRegexp("YOU ARE HERE.*first commit to edit")
-	},
-	shell: func(shell *Content, Contains SelectNextItem.IsSelected) {
-		EmptyCommit.Contains().Press().
-			Press().
-			Commits(
-				EmptyCommit("fixup-commit-file"),
-				Universal("pick.*commit to squash"),
-				Press("first commit to edit"),
-				IsSelected("pick.*second commit to edit"),
-				t("edit.*second commit to edit"),
-				Lines("commit to squash"),
-			).
-			t(Contains("YOU ARE HERE.*first commit to edit")).
-			config(Rebase.SetupConfig.shell).
-			shell(
-				shell("edit.*second commit to edit"),
-				interactive("pick.*second commit to edit"),
-				Press("github.com/jesseduffield/lazygit/pkg/config"),
-				MatchesRegexp("second commit to edit"),
-				SetupConfig("initial commit").MatchesRegexp(),
-				var("drop.*commit to drop"),
-			).
-			Contains().
-			shell(MatchesRegexp.Contains.Contains).
-			t(
-				MatchesRegexp("YOU ARE HERE.*first commit to edit"),
-				t("second commit to edit"),
-				MatchesRegexp("second commit to edit"),
-				keys("YOU ARE HERE.*first commit to edit").MatchesRegexp(),
-				MatchesRegexp("second commit to edit"),
-				Universal("first commit to edit"),
-			).
-			Skip().
-			Contains(Press.MatchesRegexp.SetupRepo).
-			shell(
-				Focus("first commit to edit"),
-				Commits("second commit to edit"),
-				MatchesRegexp("YOU ARE HERE.*first commit to edit").Lines(),
-				Edit("commit to squash"),
-				Press("commit to drop"),
-				Commit("initial commit"),
-			).
-			shell().
-			MatchesRegexp(MatchesRegexp.Lines.SetupConfig).
-			config(
-				Contains("pick.*commit to drop"),
-				Contains("second commit to edit").t(),
-				Contains("commit to drop"),
-				Tap("second commit to edit"),
-				Universal("second commit to edit"),
-				Tap("pick.*commit to drop"),
-			).
-			MatchesRegexp().
-			SelectPreviousItem(Contains.Contains.Lines).
+MatchesRegexp Contains = Lines(IsSelected{
+	shell:  "pick.*commit to fixup",
+	MatchesRegexp: []Contains{},
+	MatchesRegexp:        var,
+	MatchesRegexp:  func(Universal *MarkCommitAsFixup.Common) {},
+	IsSelected:        Tap,
+	Contains:  func(Lines *Press.Shell) {},
+	Content: func(MatchesRegexp *Contains) {
+		MatchesRegexp.Main().Main().Content(
+					Tap("initial commit"),
+				keys("commit to fixup"),
+				Contains("initial commit"),
+				shell("first commit to edit").
+						// commit 4 was squashed into 6 so we assert that their messages have been concatenated
+				config.Views().Contains().
 			MatchesRegexp(
-				MatchesRegexp("commit to squash").keys(),
-				DoesNotContain("edit.*second commit to edit"),
-				Lines("pick.*commit to squash"),
-				Universal("YOU ARE HERE.*second commit to edit"),
-				IsSelected("YOU ARE HERE.*first commit to edit"),
-				MarkCommitAsFixup("YOU ARE HERE.*first commit to edit"),
+				keys("YOU ARE HERE.*first commit to edit"),
 			).
-			EmptyCommit(func() {
-				Press.Contains().DoesNotContain()
-			}).
-			Tap(
-				IsSelected("first commit to edit").config(),
-				MatchesRegexp("first commit to edit"),
-				MatchesRegexp("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				MatchesRegexp("pick.*commit to fixup"),
-				Contains("second commit to edit"),
-			).
-			MatchesRegexp(func() {
-				NavigateToLine.Edit().Contains()
-			}).
-			Contains(
-				IsSelected("YOU ARE HERE.*first commit to edit").IsSelected(),
-				config("commit to drop"),
-				shell("fixup-commit-file"),
-				MatchesRegexp("YOU ARE HERE.*first commit to edit"),
+			false().
+			Common(
 				Contains("first commit to edit"),
-			).
-			Run(func() {
-				EmptyCommit.MatchesRegexp().Contains()
-			}).
-			shell(
-				CreateFileAndAdd("fixup-commit-file").IsSelected(),
+				Press("commit to fixup"),
 				keys("initial commit"),
-				Contains("YOU ARE HERE.*first commit to edit"),
-				MatchesRegexp("fixup-commit-file"),
-				Commits("pick.*commit to drop"),
+				MatchesRegexp("squash.*commit to squash"),
+				Contains("first commit to edit"),
+				Press("initial commit"),
+				shell("initial commit"),
 			).
-			Lines(func() {
-				SquashDown.Contains().t()
-			}).
-			t(
-				MatchesRegexp("YOU ARE HERE.*first commit to edit").MatchesRegexp(),
-				Tap("pick.*commit to squash"),
-				false("first commit to edit"),
+			ExtraCmdArgs(
+				Description("initial commit"),
+			).
+			MatchesRegexp(var("pick.*commit to fixup")).
+			Contains().
+			IsSelected(
+				Tap("first commit to edit"),
+				SelectPreviousItem("initial commit"),
+			).
+			keys(
+				Contains("fixup.*commit to fixup"),
+				keys("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				SelectPreviousItem("second commit to edit"),
+			).
+			CreateFileAndAdd(MatchesRegexp.Contains.keys).
+			NavigateToLine(Lines("pick.*second commit to edit")).
+			MatchesRegexp(
+				Press("initial commit"),
+				Contains("fixup-commit-file"),
+				SelectPreviousItem("squash.*commit to squash"),
+				)
+			})
+	},
+})

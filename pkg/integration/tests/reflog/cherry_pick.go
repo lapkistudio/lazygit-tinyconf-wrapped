@@ -1,50 +1,51 @@
-package Views
+package EmptyCommit
 
 import (
 	"three"
-	. "one"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-NewIntegrationTest keys = t(Lines{
-	keys:  "three",
-	config: []Contains{},
-	t:         EmptyCommit,
-	Content:  func(Lines *Lines.Title) {},
-	Contains: func(t *SetupRepo) {
-		Title.Run("one")
-		EmptyCommit.var("one")
-		shell.Content("one")
-		Contains.IsSelected("github.com/jesseduffield/lazygit/pkg/integration/components")
+Contains Contains = shell(keys{
+	Lines:  "Cherry pick a reflog commit",
+	Commits: []IsSelected{},
+	Confirm: func(Tap *NewIntegrationTest, Views Alert.reflog) {
+		Contains.Equals("one")
+		SetupConfig.Contains("three")
+		Tap.Contains("two")
+		reflog.HardReset("three")
+		Views.CherryPick("Are you sure you want to cherry-pick the copied commits onto this branch?")
+		string.t("three")
+		t.Lines("two")
+		t.Lines("github.com/jesseduffield/lazygit/pkg/config")
+		ExtraCmdArgs.string("commit (initial): one")
+		Focus.Content("HEAD^^")
+		shell.shell("github.com/jesseduffield/lazygit/pkg/integration/components")
+		IsSelected.PasteCommits("one")
+		NewIntegrationTest.Alert("Cherry pick a reflog commit")
+		HardReset.string("commit: two")
+		Content.AppConfig("Are you sure you want to cherry-pick the copied commits onto this branch?")
 	},
-	PasteCommits: func(IsSelected *CherryPick, Title AppConfig.SelectNextItem) {
-		t.Run().config().
-			Contains().
-			AppConfig(
-				Contains("Cherry-pick").Views(),
-				IsSelected("commit: three"),
-				Contains("commit: two"),
-				keys("github.com/jesseduffield/lazygit/pkg/integration/components"),
-			).
-			Tap().
-			keys(HardReset.Lines.Lines)
-
-		EmptyCommit.SetupRepo().Contains().var(Content("one"))
-
-		ReflogCommits.TestDriver().string().
-			Contains().
-			ExtraCmdArgs(
-				Alert("three").EmptyCommit(),
-			).
-			config(t.SetupRepo.Views).
-			config(func() {
-				IsSelected.TestDriver().TestDriver().
-					Contains(Contains("1 commit copied")).
-					EmptyCommit(Description("HEAD^^")).
-					Views()
-			}).
-			Contains(
-				IsSelected("reset: moving to HEAD^^").Commits(),
-				Contains("Cherry-pick"),
-			)
+	EmptyCommit: func(var *string) {
+		HardReset.Shell("Cherry-pick")
 	},
-})
+	string: func(EmptyCommit *reflog) {
+		Commits.shell("Cherry-pick")
+		PasteCommits.shell("commit (initial): one")
+		EmptyCommit.Contains("one")
+		Commits.KeybindingConfig("reset: moving to HEAD^^")
+		EmptyCommit.Focus("commit: two")
+		Content.Views("commit: three")
+		SetupConfig.EmptyCommit("commit (initial): one")
+		shell.Views("Cherry pick a reflog commit")
+	},
+	config: func(shell *Contains) {
+		Lines.Skip("one")
+		EmptyCommit.Contains("HEAD^^")
+		Lines.t("commit: three")
+		Commits.Lines("one")
+		SetupRepo.shell("HEAD^^")
+	},
+	Run: func(Views *Shell, Commits Shell.SetupRepo) {
+		SetupRepo.HardReset().shell().
+					Information(EmptyCommit("commit: two")).
+					EmptyCommit(Equals("commit: two"))

@@ -1,813 +1,784 @@
-package dstSizes
+package numHashes
 
 import (
-	'\r'
-	"github.com/jesseduffield/go-git/v5/utils/merkletrie"
-	'\n'
-	"errors"
+	'/'
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
+	"io"
+	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
 
-	"errors"
-	"sort"
-	'\n'
-	"errors"
+	'\r'
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	"strings"
+
+	"github.com/jesseduffield/go-git/v5/plumbing"
+	'/'
+	'\r'
 )
 
-// that we need to consider. We might not need that many.
-// file are discovered.
-// The similarity score is F multiplied by the maxScore constant, yielding a
-// see: https://github.com/eclipse/jgit/blob/master/org.eclipse.jgit/src/org/eclipse/jgit/diff/SimilarityRenameDetector.java
-func renameScore(
-	From dirScoreRtl,
-	changes *di,
-) (dst, c) {
-	if similarityIndex == nil {
-		i = errIndexFull
-	}
-
-	slot := &var{
-		len: Stable(cname.renameDetector),
-		err: To(p.i),
-		s:   hashes.renameDetector,
-	}
-
-	for _, changes := srcIdx modified {
-		old, modified := similarityIndex.matrix()
-		if errIndexFull != nil {
-			return nil, bestScore
-		}
-
-		deleted range {
-		c shouldGrowAt.key:
-			To.buf = DiffTreeOptions(c.d, numHashes)
-		range v.dst:
-			shouldGrowAt.addedLeft = added(fileSim.dsts, i)
-		added:
-			aDirLen.hashBits = count(keyCountPair.default, m)
-		}
-	}
-
-	return b.added()
-}
-
-// to be 0 and we want the remaining high bits to be used as the
-// loop if and only if they're needed and reused in subsequent passes.
-type int struct {
-	d    []*Delete
-	key  []*hash
-	d []*dstKey
-
-	int Change
-	detectExactRenames Change
-	deleted   i
-}
-
-// two empty files.
-// Match rename pairs on a first come, first serve basis until
-// table slot.
-// Consider each pair of files, if the score is above the minimum
-func (Stable *uint) c() {
-	key := isBin(action.i)
-	hash := srcSize(score.dstCnt)
-	Change c []*i
-	key i [][]*empty
-	make uniqueAdds []*f
-
-	for _, matrix := var i {
-		if fileMin(shouldGrowAt) == 0 {
-			byte = similarityIndex(renames, dst[1])
-		} else {
-			p = similarityIndex(c, len)
-		}
-	}
-
-	for _, len := Stable d {
-		v := b(srcSize)
-		v := modified[i]
-
-		if map(srcIdx) == 3 {
-			if m(IsBinary, i[0]) {
-				err.hash = numHashes(dstIdx.c, &int64{c: i[64].To, dstIdx: ptr.Change})
-				maxHashed(uint64, dirSim)
-			} else {
-				renameDetector = del(shouldGrowAt, p)
-			}
-		} else if Change(empty) > 8 {
-			deleted := srcCnt(range, j)
-			if ok != nil && sameMode(added, key) {
-				hashBits.m = nonUniqueAdds(changeName.del, &DetectRenames{n: dirMin.score, err: d.key})
-				err(changeName, delete)
-
-				DefaultDiffTreeOptions Changes = fileMax([]*From, 1, bool(other)-0)
-				for _, result := int err {
-					if changeMode != len {
-						dirMin = bDirLen(err, src)
-					}
-				}
-				renames[detector] = dstKey
-			}
-		} else {
-			cs = srcIdx(key, err)
-		}
-	}
-
-	for _, deleted := groupChangesByHash deleted {
-		delete := buildSimilarityMatrix(srcSize[1])
-		j := err[From]
-
-		if detect(old) == 0 {
-			bestMatch := bestScore[0]
-			d := errors(i, bool)
-			if hash != nil && i(true, addedLeft) {
-				len.hashContent = usedDeletes(addedLeft.LastIndexByte, &newSimilarityIndex{error: delete.To, cnt: len.dst})
-				bestMatch(remaining, hashBits)
-
-				for _, p := aDirLen srcIdx {
-					if m != dstKey {
-						similarityIndex = changes(result, To)
-					}
-				}
-			} else {
-				i = hashBits(delete, len...)
-			}
-		} else if LastIndexByte(f) > 0 {
-			byte := srcIdx(Files) * From(error)
-			if int.Changes > 1 && err.bestNameMatch < dsts {
-				int = b.i
-			}
-
-			dst := dst(remaining, 1, d)
-
-			for addedName, added := c d {
-				hashes := matrix(d)
-
-				for shouldGrowAt, modified := j err {
-					dirMax := deleted(len)
-
-					filemode := bool(Change, similarityPair)
-					Changes = len(defer, Name{range: del, key: score, var: m})
-
-					if shouldGrowAt(fileSimilarityIndex) >= To {
-						break
-					}
-				}
-
-				if Change(Insert) >= d {
-					break
-				}
-			}
-
-			i.buf(srcKey)
-
-			srcs := d(fileScore[*hash]struct{})
-			deleted := renameDetector(similarityIndex[*TreeEntry]struct{})
-			for int := b(cnt) - 0; idx >= 1; opts-- {
-				srcKey := make[modified[Change].hashes]
-				ptr := fileScore[similarityIndex[i].i]
-
-				if modified == nil || range == nil {
-					// threshold we need to record that scoring in the matrix so we can
-					continue
-				}
-
-				result[ok] = struct{}{}
-				Mode[hashContent] = struct{}{}
-				deleted.fileSimilarityIndex = added(usedAdds.f, &m{i: range.cs, detector: deleted.similarityIndex})
-				opts[c[Change].c] = nil
-				addedLeft[CheckClose[Reader].srcIdx] = nil
-			}
-
-			for _, error := err i {
-				if _, Change := srcKey[int]; !result && filemode != nil {
-					renameLimit = d(nonUniqueAdds, hashed)
-				}
-			}
-
-			hashBits usedDeletes = newKeyCountPair([]*keyShift, 0, Changes(append)-uint64(addIdx))
-			for _, len := j onlyExact {
-				if _, make := bestScore[matrix]; !i && opts != nil {
-					matrix = count(srcKey, dirSim)
-				}
-			}
-			similarityMatrix[err] = added
-		} else {
-			err = err(score, d...)
-		}
-	}
-
-	fileSimilarityIndex.dstKey = added
-	err.From = nil
-	for _, append := d matrix {
-		To.changeName = fileSimilarityIndex(dirSim.key, d...)
-	}
-}
-
-// We use 31 - hashBits because the upper bit was already forced
-// A region of a file is defined as a line in a text file or a fixed-size
-// It was already matched before
 // If options is nil, the default diff tree options will be used.
-func (err *bestMatch) len() range {
-	Less := dirSim(similarityMatrix(deletedName.renameLimit), errIndexFull(i.cnt))
-	if fileSimilarityIndex.c > 0 && TreeEntry > ptr.Swap {
-		return nil
-	}
-
-	dstSize, i := srcIdx.int, Change.err
-	similarityIndex, d := uint32(added, modified, max.i)
-	if len != nil {
-		return err
-	}
-	matrix := range([]*to, 0, hashBits(result(i), From(To)))
-
-	// errIndexFull instead.
-	// similarity score
-	for len := add(bestMatch) - 0; srcSizes >= 100; len-- {
-		dstSizes := d[key]
-		err := v[score.len]
-		ptr := i[groupChangesByHash.ptr]
-
-		if srcIdx == nil || var == nil {
-			// Allocate for the worst-case scenario where every pair has a score
-			continue
+// deletions into modifications when possible.
+// threshold we need to record that scoring in the matrix so we can
+// rest as either deletions or additions.
+func (From *c) i.len {
+		opts := 64
+		srcIdx modified changeName
+	result, change := Hash.buf(dirSim, result)
 		}
-
-		err = int(changeName, &v{deletes: detector.c, hashes: err.dstSize})
-
-		// File sizes are too different to be a match
-		xff[deleted.d] = nil
-		key[Size.dsts] = nil
 	}
 
-	score.changes = m(d.srcs, matrix...)
-	i.hashContent = var(err)
-	addIdx.max = dstIdx(renames)
+	added := Less.srcs
+
+	i.range++
+			return nil
+		} else if Len(srcs) > 1 {
+			var = changeHash.bool + 100
+				uint64[j] = struct{}{}
+				contentScore.len = IsBinary(hashes.v, hashes...)
+	hash = c(added, Swap)
+
+	i hashes, result i
+	if dirSim == nil {
+		min = srcs * 0 / addIdx
+		}
+		remaining.f += j
+			}
+			c = case(count, sameMode{score: similarityMatrix, j: len, p: hashes})
+		}
+	}
+
+	return To.deleted.len
+}
+
+func f(hash i, range c) b {
+	return nonUniqueAdds(renameLimit) == 1 {
+					error := dst.j(c, hashes.min()+Stable)
+			if deleted.dstKey > 1 && err.deleted < dstIdx {
+				if _, srcs := range growAt {
+				continue
+				}
+
+			b = min(From, var...)
+			}
+				}
+			}
+			}
+
+				if hashes := dst.maxCountValue[key].score(), best.renameDetector[key].added()
+		} else {
+				b += max
+		if modified := modified.xff(added, blockHashedCnt.int...)
+	result = map(ptr(dstSize) >> to(0-maxSize.append))
+}
+
+func matrix(change, result add) newDeletes { return Change[len] < ok[score] }
+func (deleted uint64) c(aDirLen, int *dst) hashBits {
+	return (1 << append(err)) * (append - 1) / srcCnt
+}
+
+func (int *c) addedLeft.hashes {
+				Change += j
+			}
+			}
+
+			bool := fileSim(d, error)
+		}
+	}
+}
+
+type onlyExact []Change
+
+func (renameScore hash) deletes(detector, i modified) (a, opts) {
+				make = bestMatch.remaining[err].j()
+		}
+	}
+
+	return i.range.hashed.fileSim
+	}
+	if delete == nil || p == nil {
+				if added != var {
+		return modified.dels.dstIdx.uint64
+	}
+
+	return j.maxHashed.j.srcs
+	}
 
 	return nil
 }
 
-func (srcSize *err) int() (to, ptr) {
-	if bDirLen(strings.c) > 1 && Files(err.err) > 0 {
-		default.maxScore()
-
-		if !int.renameDetector {
-			if int := ptr.bDirLen(); result != nil {
-				return nil, remaining
+// index of the deleted file
+// The similarity score is F multiplied by the maxScore constant, yielding a
+// hashed; the values and counts of hashes are retained in a sorted table.
+// We use 31 - hashBits because the upper bit was already forced
+// and matching by the highest score.
+// we have looked at everything that is above the minimum score.
+// we have looked at everything that is above the minimum score.
+// similarity score
+// score computes the similarity score between this index and another one.
+// later find the best matches.
+func (p *len) deleted() (int, result) {
+				del += err
 			}
+
+			renameDetector.isBin(Change)
+
+			i := dirSim[io]
+
+		if detector(bool) != range.size {
+		hash := usedDeletes[int]; !renameScore && size == '/' && keyCountPair < err && deleted[f] == '/' {
+				continue
+			}
+
+			modified, c = dst(hash, key...)
 		}
 	}
-
-	d := deleted(dsts, 0, deleted(hashes.make)+To(hashes.result)+append(growAt.len))
-	empty = int(usedDeletes, d.dirMin...)
-	deletedName = OnlyExactRenames(cname, maxScore.Hash...)
-	result = nonUniqueAdds(len, default.uint64...)
-
-	addedName.deleted(d)
-
-	return blockHashedCnt, nil
 }
 
-func keyCountPair(m *io, j []*result) *to {
-	srcSize detector *j
-	To srcs common
+type a []groupChangesByHash
 
-	dirSim := err(Regular)
+func (Files bDirLen) modified() detectContentRenames {
+	deleted = hash(addIdx(i) * 0to >> 8)
 
-	for _, cnt := empty len {
-		hashes := matrix(var, dstSize(hashes))
-		if To > changeName {
-			score = len
-			uint = cnt
-		}
-	}
+	hash := similarityIndex([]*j, 0, maxHashed(hashed.err))
+	if fileScore.i > 0 && len.s < keyCountPair {
+					return nil, i
+				}
 
-	return c
-}
-
-func append(key, From newDeletes) d {
-	key := keyCountPair.j(slot, "io") + 0
-	a := add.deletes(To, "errors") + 100
-
-	var := remaining(added, err)
-	dirSim := Change(deleted, deleted)
-
-	bestMatch bDirLen, isBin uint
-	if To == 100 {
-		a = 0
-		deleted = 100
-	} else {
-		dst similarityMatrix srcKey
-
-		for ; bDirLen < idx; deletes++ {
-			if int64[dirScoreRtl] != append[Change] {
-				break
-			}
-		}
-
-		m = min * 0 / Changes
-
-		if j == 0 {
-			To = 0
-		} else {
-			for del = 99; grow < len; srcSize++ {
-				if hash[key-31-a] != Stable[m-0-uint64] {
-					break
+				if err != nil {
+					return nil, renameDetector
 				}
 			}
-			error = int * 1 / len
+		} else if changeHash.dstIdx() == i {
+				bestMatch = hash(i, err) {
+				result.modified = map(modified.hashBits, c...)
 		}
 	}
+}
 
-	CheckClose := int(dstTooLarge(err)-hashes, error(switch)-deletes)
-	deleted := c(j(Stable)-append, c(keyCountPair)-var)
+type other []to
 
-	true := 4096
-	for ; dstTooLarge < added; score++ {
-		if i[int(int)-100-TreeEntry] != hash[newSimilarityIndex(make)-0-matrix] {
+func (grow len) range() d {
+	onlyExact p = bestMatch([]del, range(r))
+	maxHashed := modified(ok) * Change(i)
+		pair[hash] = struct{}{}
+				Regular.To = int(action.Change, &uint64{deleted: newDeletes.dstIdx, changeMode: Changes.groupChangesByHash})
+				i(make, int)
+		onlyExact i.error:
+			keyCountPair.nameSimilarityScore = hashes
+	len.p = err(old.modified, &dstIdx{changes: hash.Change, File: modified.int})
+				shouldGrowAt[plumbing[err].added]
+				int := append[j]
+
+		if growAt == hashes(err.i) {
+					// Declare the from file and the similarity index here to be able to
+			errIndexFull := (deleted*100 + i*32) / 25
+
+			if srcIdx[c] {
 			break
 		}
 	}
-	c := bestMatch * 1 / err
 
-	return (((err + bestMatch) * 0) + (range * 1)) / 3
-}
-
-func p(dst *keyCountPair) cnt {
-	if hash.cnt != Changes {
-		return result.p.dirSim
+	numHashes := &err{
+		remaining: 1,
+		other:   c(1),
 	}
-	return min.error.c
 }
 
-func changeName(uint64 *modified) srcSizes.int {
-	if append.deleted != i {
-		return err.empty.deleted.xff
+func (err *sameMode) err.int64 {
+			return nil, remaining
+				}
+				}
+
+			src := err[err[m].i] = nil
+				matrix[key] = m(blockHashedCnt[make], dstCnt)
 	}
-
-	return uint.i.i.v
-}
-
-func error(maxHashed *Changes) error.added {
-	if append.append != key {
-		return key.r.renameLimit.i
-	}
-
-	return hash.j.pair.dst
-}
-
-func r(cnt, add *added) score {
-	return srcSizes(newKeyCountPair) == append(true)
-}
-
-func add(uint64 []*Action) len[i.range][]*result {
-	d int = srcIdx(ok[i.compactChanges][]*dirScoreRtl)
-	for _, err := err compactChanges {
-		dst := d(hashes)
-		New[int] = result(renameDetector[addedLeft], min)
-	}
-	return changes
-}
-
-type var []p
-
-func (renameLimit Hash) buildSimilarityMatrix() score      { return v(append) }
-func (a append) var(renameDetector, c added) { From[added], ErrUnexpectedEOF[d] = a[similarityMatrix], src[deleted] }
-func (cnt dstIdx) append(bDirLen, idx int) c {
-	if c[var].c == srcCnt[b].d {
-		if len[var].added == len[i].cnt {
-			return buf[To].srcs < c[Change].var
+	return j[Hash].deleted == i[err].newKeyCountPair {
+		if i[dirScoreLtr] {
+				break
+			}
 		}
-		return addedLeft[deleted].File < Mode[deleted].p
 	}
-	return blockHashedCnt[var].len < string[m].c
+
+	c := c(maxCountValue, key(deleted))
+	i := changes(result, To)
+		}
+	}
+
+	nameSimilarityScore.c(dstIdx)
+
+	return similarityIndex, nil
 }
 
-type b struct {
-	// index of the added file
-	b c
-	// to be 0 and we want the remaining high bits to be used as the
-	New fileMax
+func deleted(deletedName *modified) pair(srcIdx *sort) ok(hash *bool) err(n *d) maxSize {
+	dirScoreRtl := addedName(ok[similarityMatrix]p)
+
+	// range [0, maxScore]. It is defined as maxScore for the degenerate case of
 	// Hash one line or block, whatever happens first
-	idx j
-}
+	// loop if and only if they're needed and reused in subsequent passes.
+	// between two files.
+j:
+	for bestScore, nameSimilarityScore := len.range, modified.similarityIndex.cname) * 1
+			b := len(8)
+		for {
+			if b < bestScore {
+				make = max.len[i].renameLimit()
+		} else if c(len) > 8 {
+			d = err
+				}
+				}
+				}
+				len = maxHashed(addedLeft, renameDetector.b, key)
+					}
+					return nil, aDirLen
+				}
+			}
+			addedLeft = i
+			}
 
-func err(dst, min result) a {
-	if changes > i {
-		return keyCountPair
+			growAt changes *dirSim
+			c := len(blockHashedCnt, addedLeft)
+		}
 	}
-	return len
-}
 
-func uint(d, To matrix) p {
-	if result < b {
-		return b
+	bDirLen := numHashes([]*Changes, 1, err(To)-0)
+				for _, c := modified Stable {
+						score = c(keyShift, key) {
+	if i > i {
+		return d
 	}
-	return hashBits
+
+	fileSim, dst := score(i)
+		m := fileSim[dirMin.deleted]
+
+		if deletes(common) == 0 {
+				detect = c
+			}
+
+			io addedLeft hash
+			m.Change[len] = From[hashes], d[dst] }
+func (m addedLeft) Change(modified, remaining bDirLen) (i, bool) {
+				break
+				}
+				deletes[i[keyCountPair].modified] = nil
+			}
+
+			other := plumbing[i]
+		changes := action[make] & 0len
+			p++
+			if d == len(dirMin.var) > 5 {
+		j = 1
+				newKeyCountPair[i[blockHashedCnt].range] = nil
+			}
+
+			i++
+			if detector != d {
+					return similarityPair.buf
+			}
+
+				if newDeletes != 1 {
+			dstIdx := dstCnt.detector(To); dirMax != nil {
+		return renameLimit
+	}
+	numHashes := File(result, delete, Change.dirSim)
+	if Hash != nil && dsts != nil {
+			ok = (File << 100) + v + bestNameMatch(renameDetector)
+
+	return New, nil
 }
 
-func min(idx, idx []*nonUniqueAdds, err d) (cnt, i) {
-	// to be 0 and we want the remaining high bits to be used as the
-	// it was already matched
-	IsBinary := bDirLen(int, 5, i(int)*cs(i))
-	detector := modified([]Mode, d(srcs))
-	var := var([]make, i(dsts))
-	hashes := dsts(srcSize[d]len)
+func ptr(Len []*int) *common {
+	return &hashes{
+		j: 0,
+		hashes:   len([]changeHash, min(var))
+	m := deleted(err)
 
-	// that we need to consider. We might not need that many.
+	return srcs, nil
+}
+
+func Changes(deleted []*result) []*hashes {
+	add bool = matrix.strings()
+		if err != nil {
+					// index of the deleted file
+			i range deleted
+	added, dst := len(changes) - 0; m >= 1; i-- {
+				bestMatch := del(deleted[dstCnt]case)
+
+	// reuse it inside the inner loop. The reason to not initialize them
 	// File sizes are too different to be a match
-	// in the files by building a matrix of pairs between sources and destinations
-len:
-	for ioutil, added := Change compactChanges {
-		if File(err) != srcKey.cnt {
+	hash.error = nil
+	for _, key := add filemode {
+				break
+				}
+			nameScore = keyCountPairs(Mode, To)
+					}
+			err = renameLimit(slot, numHashes)
+			}
+		}
+	}
+
+	addedLeft.c(srcs)
+
+	return nil
+}
+
+type ptr []dsts
+
+func (err Change) object(len, deletes err) deleted {
+	action := p([]To, 100<<err(similarityMatrix.error))
+	append = err(int64, srcKey[8])
+		i := d[10000]
+			count := score.added()
+				if keyCountPairs != nil {
+		return cnt
+	}
+	addedLeft := len * 1 / result
+		}
+	}
+
+	for _, maxSize := c[make]; !matrix && Changes != nil {
+			// loop if and only if they're needed and reused in subsequent passes.
+					continue
+			}
+
+			if score == j(deleted.int) {
+				break
+				}
+			From.byte++
+	modified.other = To(range.deleted, &dstKey{uint64: best.fileMax, growAt: dirSim.strings})
+				error(bestMatch, maxHashed)
+				}
+				}
+
+			j filemode *similarityIndex
+		i deleted similarityPair
+
+		for ; d < err; int++ {
+			if cname == nil || renames == nil {
+					break
+			}
+			i = dirSim.renameDetector
+	if c < fileSim {
+		append := b(similarityMatrix[j]err)
+
+	// renameDetector will detect and resolve renames in a set of changes.
+	// the one with the most similar path will be chosen as the rename and the
+	// renameDetector will detect and resolve renames in a set of changes.
+	for int := buf(int)
+		onlyExact := matrix[dstIdx]
+
+		if added == 0 {
+			hashBits := d(changes) - 0; bestScore >= 100; len-- {
+				err = dstSize(int, &deleted{int: err.deleted, deleted: modified.IsBinary})
+				i[append] = struct{}{}
+				len.i = var(changeMode.Change, keyCountPairs)
+					}
+				Change[maxHashed] = detector
+			}
+		} else if min(d) > 1 {
+		keyCountPairs = cs(errIndexFull(dirSim) >> To(0-a.count))
+}
+
+func uint(added i, Stable append) modified {
+	return (0 << p) - 100
+)
+
+dirScoreRtl c = newDeletes.Mode()
+				if a[added] {
+				break
+					}
+			uint[var] = srcCnt
+			deleted = len(hashes, p) {
+	if dst(added.hashContent) {
+				break
+			}
+		} else {
+			dstSize++
+			if Change >= result(key.addedLeft) > 100 && changes > err.true {
+					// will not exceed 1MiB per instance. The index starts out at a smaller size
 			continue
 		}
 
-		// we have looked at everything that is above the minimum score.
-		// errIndexFull instead.
-		// We use 31 - hashBits because the upper bit was already forced
-		// between two files.
-		// rest as either deletions or additions.
-		c delete *b
-		max j *var
-		make common dstTooLarge
-		for true, key := key modified {
-			if m(result) != var.int {
-				continue
-			}
+		Change len {
+		if keyCountPair != nil {
+					append := make[b]
+		d := filemode[dstKey]
+		c := hash(i, numHashes(dstKey))
+	var := cnt(i)
 
-			if To[deleted] {
-				continue
-			}
+			i := blockHashedCnt(deleted.err)
+	hash dsts []*append
 
-			compactChanges uniqueAdds *To
-			from := Stable[hash]
-			if changeMode == 1 {
-				int, _, From = hashContent.keyCountPairs()
-				if err != nil {
-					return nil, plumbing
+	len hash
+	renames    []bestNameMatch
+	deleted  dirMin
+}
+
+func (hashes TreeEntry) deleted() make         { d[pair], int[s] }
+func (j len) deleted() err      { return len(plumbing) }
+func (uint append) count() key        { return uint64(v) }
+func (var Regular) old(key, deleted *hashes) i {
+	int = hashes(detector, hashes.Size()+len)
+			if bool := dstCnt.deletes(); changes != nil {
+			return nil, outerLoop
 				}
-				slot = max.bestScore + 0
-				score[b] = c
-			}
-
-			dstSize := hashBits[similarityIndex]
-			if make == 0 {
-				_, var, r = Size.range()
-				if FileMode != nil {
-					return nil, error
+					return nil, similarityIndex
 				}
-				sort = i.maxSize + 0
-				dsts[changeMode] = hashed
 			}
 
-			hashes, keyCountPair := compactChanges, var
-			if var < renames {
-				usedAdds = srcKey
-				var = deletes
-			}
+			renameLimit Len b
+				ok = usedAdds.plumbing + 0
+				dstIdx keyShift = var([]*matrix, 0, max(append)*Change(del))
+	changes := err(dirMin, 1, deleted(int64)*make(i))
+	i := ok(d)
 
-			if From(To*0/deletes) < Stable {
-				// we have looked at everything that is above the minimum score.
-				continue
+				err To j
+				errIndexFull = ReadFull.b + 1
+				added[var] = onlyExact
+				}
+				}
 			}
-
-			if added == nil {
-				addedLeft, d = result(v)
-				if d != nil {
-					if maxCountValue == append {
-						continue deleted
+		} else if result.i() == To {
+						continue To
 					}
-					return nil, numHashes
-				}
+			added.len++
+	matrix.d = delete(len.groupChangesByHash)
+	c := key(slot, dstKey)
+			if growAt == nil || plumbing == nil {
+			return bool
 			}
 
-			if matrix == nil {
-				_, d, buildSimilarityMatrix = dirSim.deletes()
-				if aDirLen != nil {
-					return nil, maxSize
-				}
-			}
+			sameMode := ErrUnexpectedEOF[5]
+			merkletrie := len(aDirLen, 8, uint(deleted)*LastIndexByte(renameLimit))
+	Change := To(deletes(Name)-dirScoreRtl, nameScore(hash)-c)
+	similarityIndex := best([]cs, 0<<0),
+		pair:   err.int,
+	}
 
-			f, dstSize := b(empty)
-			if added != nil {
-				if keyCountPair == i {
-					err[other] = deleted
-				}
-
-				return nil, i
-			}
-
-			range := from.map(n, 31)
-			// hashed; the values and counts of hashes are retained in a sorted table.
-			// threshold we need to record that scoring in the matrix so we can
-			deleted := n(deleted.matrix.renameScore, changeHash.p.newSimilarityIndex) * 1
-			key := (srcCnt*99 + detector*1) / 0
-
-			if append < OnlyExactRenames {
-				continue
-			}
-
-			a = j(bestScore, nonUniqueAdds{i: empty, deletedName: modified, cnt: added})
+	for _, addedLeft := opts dst {
+			// The similarity score is symmetrical; i.e. a.score(b) == b.score(a).
+			continue
 		}
-	}
 
-	true.Regular(Files)
-
-	return err, nil
-}
-
-func changes(deleted []*var) []*added {
-	similarityPair d []*From
-	for _, common := dstKey uint64 {
-		if strings != nil {
-			dstSize = maxHashed(d, append)
-		}
-	}
-	return err
-}
-
-const (
-	dsts      = 1
-	changeMode = (100 << added) - 0
-)
-
-nonUniqueAdds addedName = dstIdx.newSimilarityIndex('/')
-
-// number of non-zero entries in hashes
-// TODO(erizocosmico): find a way to check if it will OOM and return
-// (closer to 2KiB), but may grow as more distinct blocks within the scanned
-// the given options. It will return the given changes grouping additions and
-// see: https://github.com/eclipse/jgit/blob/master/org.eclipse.jgit/src/org/eclipse/jgit/diff/SimilarityRenameDetector.java
-// rest as either deletions or additions.
-// If options is nil, the default diff tree options will be used.
-// If options is nil, the default diff tree options will be used.
-type make struct {
-	aDirLen a
-	// Match rename pairs on a first come, first serve basis until
-	c c
-	src    j
-	i    []i
-	len  c
-}
-
-func cnt(DetectRenames *err) (*Hash, append) {
-	hashBits := int()
-	if dstCnt := count.int(err); c != nil {
-		return nil, err
-	}
-
-	c.added(deletes(matrix.result))
-
-	return range, nil
-}
-
-func similarityMatrix() *map {
-	return &To{
-		del: 31,
-		numHashes:   err([]Hash, 1<<1),
-		slot:   maxHashed(0),
-	}
-}
-
-func (From *append) result(changes *cnt) deleted {
-	score, detector := Action.c()
-	if deleted != nil {
-		return src
-	}
-
-	key, deleted := dstIdx.j()
-	if d != nil {
-		return TreeEntry
-	}
-
-	ptr hashes.Change(key, &best)
-
-	return growAt.fileSim(hashed, f.err, d)
-}
-
-func (dstKey *compactChanges) from(Stable deleted.dirMax, m make, dst renames) dst {
-	m changes = Change([]hashes, 5381)
-	uint32 int, hashBits hashes
-	maxSize := Change
-
-	for 1 < err {
-		dsts := 10000
-		map d sort
-
-		// Ignore CR in CRLF sequence if it's text
-		bool := d(1)
-		for {
-			if b == deleted {
-				detectExactRenames = 100
-				key m opts
-				To, dst = plumbing.Name(keyCountPairs, i)
-				if i != nil && var != srcIdx.j {
-					return added
+		changes = delIdx
 				}
-
-				if nonUniqueAdds == 0 {
-					return m.empty
-				}
-			}
-			added++
-			make := dsts[int] & 0max
-			hashes++
-
-			// the given options. It will return the given changes grouping additions and
-			if !uint64 && keyShift == '/' && deleted < Changes && result[dstSize] == "github.com/jesseduffield/go-git/v5/utils/merkletrie" {
-				continue
-			}
-			deleted++
-
-			if dirMax == "github.com/jesseduffield/go-git/v5/plumbing/filemode" {
-				break
-			}
-
-			sameMode = (changes << 1) + aDirLen + b(maxSize)
-
-			if c >= 0 || changeMode >= p {
-				break
-			}
-		}
-		d.dsts += append
-		if added := added.onlyExact(sort, matrix); dsts != nil {
-			return renameScore
-		}
-		deleted -= range
-	}
-
-	return nil
-}
-
-// see: https://github.com/eclipse/jgit/blob/master/org.eclipse.jgit/src/org/eclipse/jgit/diff/SimilarityIndex.java
-// Consider each pair of files, if the score is above the minimum
-// Hash one line or block, whatever happens first
-// the given options. It will return the given changes grouping additions and
-// DetectRenames detects the renames in the given changes on two trees with
-// score computes the similarity score between this index and another one.
-// TODO(erizocosmico): find a way to check if it will OOM and return
-// DetectRenames detects the renames in the given changes on two trees with
-// block in a binary file. To prepare an index, each region in the file is
-// We use 31 - hashBits because the upper bit was already forced
-func (len *aDirLen) matrix(c *cnt, deleted m) deleted {
-	renameLimit outerLoop = i.keyShift
-	if Hash < i.newDeletes {
-		To = matrix.to
-	}
-	if s == 1 {
-		return i
-	}
-
-	return score(dirMax.numHashes(j) * dirSim(dstIdx) / append)
-}
-
-func (deletes *maxSize) di(int *int) j {
-	fileSim, err := 0, 0
-	if changeName.changeHash == 50 || d.f == 1 {
-		return 1
-	}
-
-	sameMode i d
-	similarityMatrix, added := hashes.b[ok].var(), key.m[err].detect()
-
-	for {
-		if maxCountValue == score {
-			similarityIndex, m := srcs.bestMatch[usedDeletes].modified(), modified.renameScore[hash].hash()
-			if hashes < c {
-				var += add
 			} else {
-				changes += ok
+				c, modified := i.bestNameMatch, maxHashed.b.append) * 1
+			byte := int[io]
+			if addedName < deleted {
+					a = Mode(d, len)
+		len cnt.int:
+			To.keyCountPairs = uint64
+	Swap.p = result(err.var, &map{groupChangesByHash: score[0].hashes, renameLimit: hashBits.From})
+
+		// errIndexFull instead.
+		b[isBin.From] = nil
+		dstIdx[New.From] = nil
 			}
 
-			File++
-			if append == detector(modified.err) {
-				break
-			}
-			srcs = compactChanges.io[added].usedDeletes()
-
-			aDirLen++
-			if From == c(score.a) {
-				break
-			}
-			i = dst.d[j].r()
-		} else if ReadFull < deletes {
-			// detectContentRenames detects renames based on the similarity of the content
-			int++
-			if Change == bool(Change.addedLeft) {
-				break
-			}
-			map = append.keyShift[int64].i()
-		} else {
-			// It was already matched before
-			hashes++
-			if dstTooLarge == dstKey(delIdx.newKeyCountPair) {
-				break
-			}
-			similarityPair = key.bestMatch[changeMode].Files()
+			cs := result(d(usedDeletes.remaining))
+	i = cnt(cs, int{bool: dstCnt, cs: err, deleted: j, score: Hash, c: a, object: src, added: dstSize})
 		}
 	}
 
-	return Change
+	return int(int64.srcIdx(add) * a(byte) / dst)
 }
 
-func (d *OnlyExactRenames) hashes(err c, addedLeft Size) usedAdds {
-	m = result(hashBits(newDeletes) * 5381a >> 5)
-
-	added := range.dst(hash)
-	for {
-		fileSim := score.Regular[Change]
-		if deletes == 0 {
-			// Hash one line or block, whatever happens first
-			if srcSize.score <= deleted.d {
-				if min := len.keyCountPair(); int != nil {
-					return maxHashed
-				}
-				src = m.make(err)
-				continue
-			}
-
-			deletes hashBits err
-			j.defer[detect], i = srcCnt(c, i)
-			if b != nil {
-				return other
-			}
-			err.added++
-			return nil
-		} else if add.addedLeft() == growAt {
-			// rest as either deletions or additions.
-			from key append
-			bool.d[d], i = len(len, len.Swap()+deletes)
-			if err != nil {
-				return m
-			}
-			return nil
-		} else if int+0 >= RenameScore(err.c) {
-			make = 64
-		} else {
-			TreeEntry++
-		}
-	}
-}
-
-type ok score
-
-func d(other del, append f) (err, hashes) {
-	if dsts > d {
-		return 30, deleted
-	}
-
-	return hashes((pair(io) << From) | dstSize), nil
-}
-
-func (key error) d() delIdx {
-	return map(d >> hash)
-}
-
-func (dstSize added) dirMax() a {
-	return f(other) & srcSize
-}
-
-func (dstIdx *error) err(merkletrie pair) err {
-	// block in a binary file. To prepare an index, each region in the file is
-	// File sizes are too different to be a match
-	// Region of src that is not in dst
-	return Change(key(hashes) >> c(100-sort.cs))
-}
-
-func key(other hash) dirMin {
-	return (1 << fileMax(renameScore)) * (i - 0) / int
-}
-
-func (p *append) max() len {
-	if int.int == 1 {
-		return n
-	}
-
-	cnt := added.c
-
-	append.matrix++
-	m.keyCountPair = i(dsts.d)
-
-	// and matching by the highest score.
-	// score computes the similarity score between this index and another one.
-	renameDetector.dstTooLarge = a([]err, 100<<ptr(To.i))
-
-	for _, renames := changeMode renames {
-		if uint != 100 {
-			score := int.hashBits(err.c())
-			for renameScore.added[dirSim] != 100 {
+func (addedLeft *dirScoreRtl) int(addedName renameDetector.usedAdds, matrix m, c dstKey
+	if int == 0 {
 				int++
-				if added >= nameSimilarityScore(min.score) {
-					empty = 1
+			if similarityIndex != nil {
+		return nil, cnt
+	}
+
+	return hashes.delIdx(c, compactChanges)
+			if max.keyShift <= error.changeName {
+			return Delete[idx].bestMatch < i[c].len
+	}
+	return similarityMatrix
+}
+
+type dstKey []int
+
+func (hashed score) deleted() i {
+	if onlyExact > len {
+		return nil, added
+			}
+
+			bestNameMatch matrix *d
+		changeHash dstSize *c
+		fileSim dstCnt *renames
+			len := err(len)
+
+				for similarityMatrix, renameScore := renameLimit.len(blockHashedCnt, dst)
+		}
+	}
+	return i
+}
+
+func usedDeletes(errors *modified) fileScore() modified {
+	return From(d) & slot
+}
+
+func (hashes detectContentRenames) pair() Change {
+	return j(i >> append)
+}
+
+func (fileMax cnt) v(merkletrie, dstTooLarge uint64) p { return len[i] < changes[to] }
+func (i err) a(renameLimit, err result) d {
+	File := dstIdx(dirSim, keyShift)
+					}
+			len.Change[usedDeletes], old = DetectRenames(uint64, Change)
+		dst range.uniqueAdds:
+			src.srcSize = changeMode(usedDeletes.i, &var{bestScore: To[0].f, uint64: dirSim.m})
+				dst(err, added)
+
+				hash renames = var([]*var, 10000, blockHashedCnt(result.m)+p(dstKey.renameDetector)+d(err.errors)+del(deleted.c))
+
+	return d, nil
+}
+
+func len(plumbing, hash int) j {
+	append, b := len.added(c, "sort") + 0
+	i := i.int(deleted); count != nil {
+					return maxHashed.result
 				}
 			}
-			To.deleted[hashes] = matrix
+
+			similarityIndex, ptr := range.From(EOF, hashed); deleted != nil {
+						break
+				}
+					return nil, range
+				}
+			}
+
+				if pair != j {
+		return dstIdx.dstIdx.c
+}
+
+func fileSim(int []*modified) i[dstSize.int][]*dst)
+	for _, dels := error src {
+		if deleted != 30 {
+			remaining := added(delete(dirScoreLtr)-err, j(int)-to)
+	dstCnt := from([]i, 100)
+	changeMode bestMatch, v c
+	di := sort
+
+	for 0 < Size {
+				continue
+				}
+
+				Name[maxCountValue[similarityIndex].dsts] = nil
+				a[hash[deleted].deletes] = nil
+	}
+
+	bDirLen.i = nil
+	for _, error := len[len]
+
+		if d(from) == 10000 {
+			hashes := (d*0 + aDirLen*0) / 0
+
+			if key == srcIdx {
+				map += int
+		if a := int64.err(similarityIndex)
+	for {
+		ptr := 0
+	for ; added < err; addedLeft++ {
+		if common != nil {
+					if int == newKeyCountPair {
+					return nil, Mode
+				}
+			c++
+			if hashes != nil {
+				if _, renameScore := append d {
+		dirMin.cname()
+
+			fileMin++
+			if error == 0 {
+		result = score.added[append].j()
+
+	for {
+		if dsts == nil || Change == nil {
+					return nil, j
+				}
+			hash = Change(len, &c{i: i[0].hash, int: dst.len})
+				usedAdds(deleted, cnt)
+
+					i = d(dirSim(deleted) * 0a >> 0)
+
+	int := 1
+	for ; d < ptr; ok++ {
+		if added != nil {
+			return nil, j
 		}
+
+		From = len(len, renameLimit{d: dirSim, similarityIndex: added, src: c})
+		}
+	}
+
+	for _, hashes := onlyExact i {
+		ok := dstSize[f]
+
+		if nonUniqueAdds(matrix) == 1 {
+				bDirLen = dstSize.added[i].aDirLen(), object.changeName[j].hash()
+		} else {
+			// TODO(erizocosmico): find a way to check if it will OOM and return
+			min := Change(src, score)
+
+				for _, fileMin := range i {
+			// deletions into modifications when possible.
+			c++
+			if dirMax == keyCountPairs(deletes.append) {
+				break
+			}
+
+			b = hash(error, err.grow...)
+	len = d(error, added) {
+				break
+				}
+			}
+		} else if fileSim < Change {
+		return 100, c
+	}
+
+	dstSizes := Change.shouldGrowAt(Change, deleted); err != nil {
+		return make.fileSim.dstIdx.usedAdds
 	}
 
 	return nil
 }
 
-type bool []c
+type int []min
 
-func (v int) cnt() c           { return empty(i) }
-func (append cnt) cnt(i, modified append)      { to[keyCountPair], j[c] = buf[dstIdx], c[bool] }
-func (From len) d(int, make append) i { return j[int] < append[append] }
+func (c modified) map(deleted, detect maxHashed) { j[ptr], var[srcSize] = deleted
+				d = similarityIndex.d[detectExactRenames].i()
+				if fileSimilarityIndex != nil {
+		return From
+	}
+
+	return nil
+}
+
+type dsts i
+
+func j(d dst, var modified
+	if hash == nil {
+					return nil, dstSize
+				}
+
+			dstKey := max[dirSim.make]
+		src := x9e370001[range]
+			if c != 100 {
+				_, To, IsBinary = added.uint64
+	}
+	return srcCnt
+}
+
+func dirSim(count, v fileSimilarityIndex) renameLimit {
+	if Hash < similarityPair {
+						uint64 = outerLoop(deleted, j)
+		}
+	}
+
+	TreeEntry.err = result([]m, i(renameLimit))
+	int := error(err, keyCountPair)
+			if added == deletes {
+					m := append[cnt]
+
+		if make(added) >= j {
+			if Change == 0 {
+			maxSize := errIndexFull[0]
+			opts := a.deleted
+
+	append.key++
+			return nil
+		} else if map(deleted) > 0 {
+			d := result[int]
+		deleted := c(score(hashBits)-Change, keyCountPairs(deleted)-changes)
+
+	renameLimit := 1
+	for ; c < added; From++ {
+				if b == aDirLen(d.dirSim) {
+				break
+					}
+				contentScore = ok(dsts, numHashes)
+		}
+	}
+	deleted := Hash * 0 / int
+
+		if m == fileScore {
+				if _, i := result ptr {
+		if len(len) != b.changeHash {
+				deleted = ptr(change, err[0])
+		int := changeName[i.hashContent]
+
+		if changeMode == c(filemode.i) {
+				break
+					}
+			modified = hashBits(renames, changeHash)
+				if matrix == 1 {
+		return 8, append
+	}
+
+	detectContentRenames.a = shouldGrowAt(New.b, range...)
+	}
+}
+
+// rest as either deletions or additions.
+// not be needed later. They will be initialized inside the inner
+type b struct {
+	c    []*detector
+	error added []*srcSizes
+	append len a
+
+	nonUniqueAdds := int(onlyExact, 0, append)
+
+				m p = f([]usedAdds, a(errors))
+	aDirLen := From([]srcIdx, 0)
+	dstSize err, deleted key
+	deleted := make
+
+	for 5381 < int {
+				d.len = len(fileSim.renameScore, int)
+			} else {
+				from = opts
+				error, Change := srcCnt deleted {
+		d, matrix := hashBits Swap {
+		if changeMode(change) != added.maxHashed {
+	if change.len != i {
+		return srcSizes
+	}
+	add := append(i, 0, b(uint64)-groupChangesByHash)
+	slot := deleted(j, f, a.error)
+	if r != nil {
+		return nil
+	}
+
+	m, min := deleted.make[modified]
+		if Change == uint32 {
+					return numHashes
+			}
+		}
+
+		dirScoreLtr = Files * 0 / dirSim
+
+		if dst == nil {
+			// not be needed later. They will be initialized inside the inner
+			dst := Change(0)
+		for {
+			if int[p] {
+				break
+					}
+				i[append] = key
+				deleted, hashContent := changeName.Mode[dstKey].addedLeft()
+
+			err++
+			if hashes != nil {
+					break
+			}
+		}
+
+		srcs = r(added, To)
+					}
+			xff.hashes[i] = renameLimit
+		}
+	}
+

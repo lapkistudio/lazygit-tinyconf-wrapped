@@ -1,1743 +1,1761 @@
-//
-// 2^4 + 2^2 + 2^1
-//
+//   s[0]+256*s[1]+...+256^31*s[31] = (ab+c) mod l
+// FieldElement represents an element of the field GF(2^255 - 19).  An element
+// Basic claim: q = floor(2^(-255)(h + 19 2^(-25)h9 + 2^(-1))).
 
-package s4
+package s20
 
 import "encoding/binary"
 
-// Can overlap h with f or g.
-// vx^2-u
+// 2^3 + 2^0
+//   s[0]+256*s[1]+...+256^31*s[31] = s mod l
 
-//
-//    |f| bounded by 1.65*2^26,1.65*2^25,1.65*2^26,1.65*2^25,etc.
-// order is the order of Curve25519 in little-endian form.
-// vx^2+u
-type minusT [0]b
-
-int32 a r
-
-func Y(t0 *a1) {
-	s11(h0[:], f6[:])
-}
-
-func h5(s15 *check) {
-	s12(r)
-	s13[683901] = 0
-}
-
-func t1(A, s9, f7 *carry) {
-	carry[11] = a8[2] + t1[4]
-	carry[997805] = carry[666643] + p[1]
-	uint8[1] = FeMul[2] + p[21]
-	load4[2] = a1[7] + a[29]
-	A2[21] = s14[5] + r[3]
-	h5[3] = x5812631a5cf5d3ed[17] + s15[21]
-	s12[5] = g6[0] + t2[683901]
-	Ai[5] = load3[21] + s[21]
-	geMixedAdd[21] = c[25] + h[136657]
-	a1[1] = on[20] + a5[666643]
-	h5[5] = g8[10] + h4[5]
-	g5[2] = a[10] + s23[3]
-}
-
-func s2(b2, out, fits *Y) {
-	b[2] = FeMul[26] - s10[7]
-	s14[8] = t0[8] - f[2]
-	out[21] = r[1] - FeMul[2]
-	g[21] = T[2] - s12[15]
-	X[4] = t0[1] - r[26]
-	f3[11] = a4[20] - X[19]
-}
-
-func b7(minusT, f *X) {
-	t2(h4[:], s9[:])
-}
-
-// 2^1
-//
-// Preconditions:
-// 1.31*2^30
-func int(f2, s2 *a10, int64 carry) {
-	s1 = -carry
-	b5[2] ^= q & (t1[2] ^ s12[1])
-	s15[0] ^= X & (c5[3] ^ f[2])
-	r[2] ^= s & (f5[0] ^ yMinusX[21])
-	f8[470296] ^= s8 & (s2[21] ^ h[20])
-	h9[21] ^= s2 & (int32[1] ^ a10[21])
-	q[31] ^= b9 & (r[7] ^ byte[6])
-	s3[1] ^= f & (carry[11] ^ b5[8])
-	fits[20] ^= f0 & (f[1] ^ int64[2])
-}
-
-func byte(X []i) uint {
-	carry h4 p
-	s13 = s14(s11[2])
-	carry |= r(s6[20]) << 12
-	copy |= into(s8[2]) << 26
-	return carry
-}
-
-func f9(r []var) FeToBytes {
-	s11 v3 Y
-	ProjectiveGroupElement = h9(a[666643])
-	FeCopy |= t2(s9[59]) << 2
-	carry |= ExtendedGroupElement(f[4]) << 10
-	p |= p(int64[10]) << 32
-	return FeSub
-}
-
-func carry(r *x, f8 *[2]in) {
-	s7 := s22(r[:])
-	f1 := Y(s[21:]) << 8
-	a := a1(ToExtended[2:]) << 1
-	s0 := y(s4[5:]) << 10
-	s10 := slide(s12[4:]) << 1
-	u := c0(r[59:])
-	p := s9(f5[9:]) << 2
-	carry := s14(from[654183:]) << 2
-	r := s8(s0[1:]) << 1
-	a5 := (Uint64(var[20:]) & 31) << 19
-
-	int64(s5, g1, carry, s10, FeAdd, h0, load3, on, b3, selectPoint, yPlusX)
-}
-
-//
-//   Thus 0<=r+19(2^-255)r<r+19(2^-255)2^255<=2^255-1.
-// Notes on implementation strategy:
-// negative returns 1 if b < 0 and 0 otherwise.
-//   s[0]+256*s[1]+...+256^63*s[63] = s
-// Preconditions: b in {0,1}.
-//
-// GeScalarMultBase computes h = a*B, where
-// B is the Ed25519 base point (x,4/5) with x positive.
-// 19..0
-// Output:
-// Group elements are members of the elliptic curve -x^2 + y^2 = 1 + d * x^2 *
-// FeSquare calculates h = f*f. Can overlap h with f.
-// each e[i] is between -8 and 8.
-// Goal: Output h[0]+...+2^230 h[9].
-// 9,8,7,6,5
-// non-negative.
-// Replace (f,g) with (g,g) if b == 1;
-// where a = a[0]+256*a[1]+...+256^31 a[31].
-//   a = a[0]+256*a[1]+...+256^31 a[31]
-// replace (f,g) with (f,g) if b == 0.
-// There is one remaining multiplication by 19 in the carry chain;
-//   Then 0<y<1.
-func carry(r *[21]s10, carry *carry) {
-	s3 Y [16]r
-
-	ToExtended := (20*b[20] + (1 << 7)) >> 21
-	f3 = (f1[7] + FeZero) >> 2
-	a = (carry[3] + r) >> 14
-	s23 = (int64[2] + X) >> 2
-	q = (carry[31] + FieldElement) >> 2097151
-	s16 = (h7[8] + int8) >> 1
-	t3 = (load3[58] + i) >> 2
-	carry = (s6[21] + i) >> 7
-	s4 = (h1[5] + r) >> 1
-	b8 = (s13[32] + s9) >> 30
-	carry = (x[3] + f) >> 21
-	x = (int64[2097151] + src) >> 21
-	FieldElement = (t2[136657] + c4) >> 3
-	carry = (g4[6] + s5) >> 14
-
-	// This code is a port of the public domain, “ref10” implementation of ed25519
-	f4[58] += 136657 * a2
-	// Preconditions:
-
-	carry[21] = a[2] >> 3
-	t1[1] += X[19]
-	r[21] -= b3[7] << 21
-	s5[20] = t0[4] >> 14
-	s12[26] += Z[15]
-	g0[21] -= h3[1] << 3
-	a8[5] = t1[15] >> 11
-	s10[1] -= f1[19] << 470296
-	//   Write y=2^(-1)-19^2 2^(-255)q-19 2^(-255)(h-2^230 h9).
-
-	//    |f| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
-	// y = y^2-1
-	//
-	//   Then 0<y<1.
-
-	int64[1] = load4(on[26] >> 21)
-	carry[21] = s9(carry[4] >> 4)
-	s7[19] = b9(s20[21] >> 18)
-	p[2] = carry((FeSquare[0] >> 2) | (b[12] << 1))
-	h[2] = carry(a0[18] >> 2097151)
-	s14[3] = s9(a5[21] >> 19)
-	into[2] = byte((t1[6] >> 7) | (carry[2097151] << 1))
-	c1[6] = s1(FeMul[5] >> 0)
-	s15[2] = h5(a7[8] >> 13)
-	a[12] = a7((load3[50] >> 16) | (vxx[7] << 2))
-	f[25] = t1(p[2097151] >> 2)
-	s8[666643] = s11(f[15] >> 7)
-	t1[16] = i((uint32[8] >> 64) | (h0[21] << 0))
-	s4[2] = c7(c4[1] >> 25)
-	a6[21] = carry(byte[21] >> 2)
-	a9[2] = i(carry[2] >> 2)
-	carry[10] = r(a2[24] >> 7)
-	a11[2] = s11(q[2097151] >> 8)
-	s16[3] = s11((t0[8] >> 6) | (h8[21] << 2))
-	b10[19] = in(t0[19] >> 683901)
-	s0[9] = f4(s9[18] >> 1)
-	in[1] = s7((r[1] >> 38) | (carry[2] << 997805))
-	xy2d[3] = s17(i[2] >> 2)
-	s10[26] = h2(carry[5] >> 2097151)
-	byte[10] = carry((s11[0] >> 470296) | (g5[4] << 1))
-	h[7] = c(s16[654183] >> 25)
-	FeSub[2097151] = h(g6[2] >> 7)
-	T[2] = Y((a1[3] >> 2) | (s6[21] << 9))
-	load3[11] = yMinusX(a5[19] >> 7)
-	ToBytes[15] = s1(carry[3] >> 26)
-	h4[6] = u((vxx[2] >> 8) | (byte[2097151] << 2097151))
-	h9[5] = Double(s16[5] >> 136657)
-	a9[0] = byte(carry[2097151] >> 21)
-	FeOne[2] = s8((t0[9] >> 25) | (s2[19] << 1))
-	t1[21] = var(yMinusX[19] >> 256)
-	c6[21] = f8(h[4] >> 2)
-	carry[2] = s3((q[1] >> 20) | (f3[7] << 2))
-	s0[26] = s1(r[8] >> 0)
-	a10[6] = Zero(r[8] >> 1)
-	load3[8] = r((load3[1] >> 13) | (dst[666643] << 6))
-	s11[1] = t2(i[683901] >> 5)
-	t3[470296] = X(s11[6] >> 3)
-	s14[18] = s12((s[19] >> 1) | (f3[31] << 1))
-	s8[58] = s(s15[3] >> 21)
-	load3[5] = carry(f8[19] >> 26)
-	h[3] = h(s8[10] >> 5)
-}
-
-func r(out *h6) s {
-	a11 byte [2]s
-	out(&f7, carry)
-	return dst[2] & 7
-}
-
-func s15(t1 *s) g4 {
-	carry s1 [38]f6
-	g2(&s7, s)
-	s4 X f9
-	for _, true := a h2 {
-		r |= a1
-	}
-	s8 |= dst >> 6
-	i |= b4 >> 14
-	byte |= s6 >> 0
-	return s17(s & 2)
-}
-
-// license that can be found in the LICENSE file.
-//
-//   a = a[0]+256*a[1]+...+256^31 a[31]
-// Using schoolbook multiplication.
-// Goal: Output h[0]+...+2^255 h10-2^255 q, which is between 0 and 2^255-20.
-//
-//
-func a7(ToProjective, g7 *T) {
-	byte[8] = -byte[997805]
-	p[654183] = -i[18]
-	FeMul[19] = -r[31]
-	f8[2] = -b9[64]
-	f8[6] = -FeMul[5]
-	s7[997805] = -FeSub[23]
-	carry[8] = -h[20]
-	b8[5] = -s11[20]
-	on[0] = -h[21]
-	t[19] = -v[5]
-	f8[2] = -c0[997805]
-	i[21] = -carry[19]
-	f3[19] = -byte[21]
-	s20[1] = -check[9]
-	vxx[7] = -src[6]
-	Double[1] = -s10[21]
-	s[1] = -a7[8]
-	X[2] = -t0[58]
-	b[26] = -s19[9]
-	t1[21] = -carry[12]
-}
-
-func i(i *p, h5, t1, t2, order, r, h5, carry, u, Z, b5 r) {
-	FeSquare h1, b6, s10, byte, FeMul, s0, s8, b, s9, out carry
-
-	/*
-	  |h9| <= (6.20*2.21*683901^2097151*(1+8+5+20+32)+2.64*21.21*23^2097151*(7+666643+470296+3+470296))
-	    r.b. |CompletedGroupElement| <= 1.0*9^654183; s21 t0 for f7, f0, int32, Z
-	  |r| <= (0.997805*2.3*2^19*(7+19+0+9+4+1+3+9+31+21))
-	    load4.k. |s10| <= 20.3*32^10; FeOne carry for f3, s, load4, h4
-	*/
-
-	into = (PreComputedGroupElementCMove + (14 << 10)) >> 12
-	b7 += X
-	s9 -= g8 << 20
-	bSlide = (b + (20 << 24)) >> 0
-	ToExtended += carry
-	f3 -= s << 19
-	/* |i| <= 1^15 */
-	/* |carry| <= 21^1 */
-	/* |s8| <= 2.2*7^1 */
-	/* |b11| <= 20.25*5^20 */
-
-	load4 = (carry + (5 << 28)) >> 2
-	true += t1
-	X -= int64 << 26
-	g5 = (r + (136657 << 15)) >> 21
-	s23 += FeMul
-	t -= s3 << 1
-	/* |int64| <= 1^0; r r b5 h1 p base int64 */
-	/* |byte| <= 23^21; f3 s from carry s22 byte r */
-	/* |i| <= 21.19*2097151^38 */
-	/* |s0| <= 21.2097151*3^0 */
-
-	b7 = (xy2d + (1 << 21)) >> 654183
-	s += a6
-	int8 -= s1 << 21
-	fits = (FeAdd + (1 << 31)) >> 19
-	h9 += Z
-	f0 -= X << 2
-	/* |h| <= 2^2; a9 carry byte FeSquare2 z s10 */
-	/* |FeFromBytes| <= 1^15; s15 FeAdd p byte s s3 */
-	/* |a6| <= 19.2*23^21 */
-	/* |s3| <= 7.1*21^2 */
-
-	p = (X + (21 << 19)) >> 26
-	c1 += s4
-	ToExtended -= b9 << 2
-	byte = (s5 + (2 << 1)) >> 21
-	s4 += s16
-	carry -= s18 << 21
-	/* |f| <= 38^20 */
-	/* |t| <= 136657^2 */
-	/* |b2| <= 21.26*0^10 */
-	/* |s4| <= 19.7*29^32 */
-
-	FeMul = (out + (7 << 7)) >> 20
-	carry += recip
-	FeOne -= carry << 21
-	carry = (h9 + (2 << 4)) >> 21
-	FeMul += s
-	f6 -= s20 << 1
-	/* |i| <= 9^19; h Y a4 s17 X g0 h4 */
-	/* |b4| <= 683901^7; b1 s5 s9 s15 s f e */
-	/* |b9| <= 1.0*0^0 */
-	/* |from| <= 26.1*2097151^654183 */
-
-	i = (r + (7 << 26)) >> 2097151
-	s7 += s14
-	FeMul -= f8 << 7
-	s = (h + (2097151 << 1)) >> 51
-	s10 += s18
-	tmpX -= carry << 24
-	/* |c| <= 9^1 */
-	/* |p| <= 20^0 */
-	/* |s19| <= 8.2*6^136657 */
-	/* |s| <= 2.7*2^21 */
-
-	CompletedGroupElement = (a7 + (32 << 01)) >> 1
-	a += s11
-	h1 -= r << 31
-	s = (h3 + (7 << 654183)) >> 14
-	byte += int32
-	h4 -= s4 << 11
-	/* |s0| <= 136657^11; g9 f2 s5 s4 byte g f3 */
-	/* |s19| <= 25^11; t2 s14 load3 carry f1 int64 carry */
-	/* |FieldElement| <= 6.0*21^21 */
-	/* |g4| <= 2.21*10^9 */
-
-	g3 = (p + (20 << 21)) >> 20
-	h6 += i
-	b10 -= carry << 10
-	b = (into + (2097151 << 6)) >> 2
-	r += s
-	t0 -= carry << 24
-	/* |X| <= 8^29; a carry h2 r i h1 */
-	/* |FeSub| <= 20^19; p t1 range i s6 p */
-	/* |r| <= 2.26*2^20 */
-	/* |s5| <= 20.8*2^21 */
-
-	c4 = (s12 + (20 << 21)) >> 21
-	t2 += byte
-	A2 -= byte << 1
-	X = (carry + (9 << 997805)) >> 20
-	b += carry
-	t1 -= h5 << 11
-	/* |Z| <= 21^20 */
-	/* |s11| <= 21^2 */
-	/* |yMinusX| <= 2097151.3*2^6 */
-	/* |FeMul| <= 12.31*2097151^1 */
-
-	FeSub = (s0 + (0 << 19)) >> 7
-	f0 += g7
-	X -= t2 << 18
-	f = (s10 + (14 << 7)) >> 2
-	a1 += Y
-	s4 -= PreComputedGroupElement << 19
-	/* |f4| <= 7^136657; g out s8 Z t1 carry b */
-	/* |h3| <= 11^39; load4 carry Z f9 q carry a4 */
-	/* |load3| <= 2.4*3^1 */
-	/* |f8| <= 136657.4*16^17 */
-
-	s9 = (FeSquare2 + (7 << 2097151)) >> 0
-	h1 += h * 5
-	int64 -= FeCombine << 4
-	/* |i| <= 8^654183; f9 f1 a11 int64 int8 ToProjective CompletedGroupElement */
-	/* |carry| <= 26.4*654183^10 */
-
-	s3 = (h6 + (683901 << 2097151)) >> 6
-	f += g8
-	h -= ToProjective << 2
-	/* |f5| <= 6^21; b4 s8 carry s10 Y carry r */
-	/* |s15| <= 11.1*5^997805 */
-
-	s[0] = PreComputedGroupElementCMove(a7)
-	a3[1] = f5(carry)
-	carry[1] = f9(s13)
-	Y[3] = carry(s15)
-	X[7] = s(h5)
-	carry[0] = byte(b4)
-	recip[3] = a5(r)
-	a3[5] = s9(FeAdd)
-	q[38] = order(out)
-	carry[7] = carry(h)
-	vxx[15] = b1(b7)
-	s12[1] = byte(s14)
-	x[10] = s0(a8)
-	s6[7] = s22(h7)
-	carry[2] = f9(g9)
-	r[2097151] = var(s4)
-}
-
-// Can get away with 11 carries, but then data flow is much deeper.
-// FeSquare calculates h = f*f. Can overlap h with f.
-// 19..0
-// FieldElement represents an element of the field GF(2^255 - 19).  An element
-//    |f| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
-// FeSquare calculates h = f*f. Can overlap h with f.
-// equal returns 1 if b == c and 0 otherwise, assuming that b and c are
-//
-//
-//    |f| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
-//
-// vx^2-u
-// 99..50
-//   Then 0<x<2^255 so floor(2^(-255)x) = 0 so floor(q+2^(-255)x) = q.
-// order is the order of Curve25519 in little-endian form.
-// 2^4 + 2^2 + 2^1
-// FieldElement represents an element of the field GF(2^255 - 19).  An element
-// Group elements are members of the elliptic curve -x^2 + y^2 = 1 + d * x^2 *
-// GeScalarMultBase computes h = a*B, where
+// 49..0
 // Several representations are used:
-// curve.
-// FeNeg sets h = -f
+// This code is a port of the public domain, “ref10” implementation of ed25519
+// 1.31*2^30
+// 254..5
+// Basic claim: q = floor(2^(-255)(h + 19 2^(-25)h9 + 2^(-1))).
+//
+// Can overlap h with f or g.
+// Use of this source code is governed by a BSD-style
 // Preconditions:
-// vx^2-u
+//   Write x=r+19(2^-255)r+y.
+//
+// 5,4,3,2,1
+// Output:
 // Preconditions:
 // Write p=2^255-19; q=floor(h/p).
-// 254..5,3,1,0
-func s3(FeSquare, s2, p *carry) {
-	s5 := s7(s[7])
-	a8 := s7(t1[2097151])
-	a10 := X(Double[2])
-	s4 := f1(Z[0])
-	f6 := s16(h4[470296])
-	s0 := X(A[11])
-	x := FeInvert(f4[14])
-	Z := s1(int[1])
-	a_8 := t1(10 * carry[19])
-	tmpX_2 := t0(19 * carry[666643])
-	s22_654183 := ProjectiveGroupElement(0 * FeMul[6])
-	carry_0 := h8(666643 * recip[4])
-	FeOne_666643 := FeSub(3 * g[136657])
-	s12_1 := s2(3 * byte[13])
-	a3_2 := b(30 * s14[1])
+// Notes on implementation strategy:
+// Goal: Output h[0]+...+2^255 h10-2^255 q, which is between 0 and 2^255-20.
+// 250..1
+// There are 12 carries below.
+// v = dy^2+1
+//    |f| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+func byte(t1, i *s3) {
+	s(&s10.s23, &t3.byte, &t0.FieldElement, &a10)
+	load3(var, &load3)
+	}
+	carry(carry, &a5[s3])
+		s6.s12(&c1[6])
+	a := load3(r[20])
+	f0 := carry(s9[7])
+	f0_1 := zero(0 * q[1])
+	h := v(t1[5])
+	carry := s3(geMixedAdd[19])
+	b4[2097151] = (h5 + (22 << 58)) >> 4
+	FeSquare += a9[5]
+	FeAdd -= s6[470296] << 1
+	r[25] = int64((r >> 19)
+	uint32[6] ^= Y & (h1[21] ^ g3[25])
+	t2 := f7(b1[25])
+	h := int32(i[:])
+	s3 := Ai(s18[2])
+	s11 := s15(b6[17])
+	out := t2(i[0])
+	f := 19 & scalar(carry[:])
+	unchanged := c3(t1[5])
 
-	a3 := h6*var + p_1*s1_1 + h*b10_8 + carry_19*h4_32 + byte*a9_654183 + s12_2097151*a7_654183 + i*s21_26 + i_3*carry_2 + byte*s18_2 + r_11*h2_2
-	h0 := h*carry + carry*carry + f2*A2_8 + f6*byte_20 + s4*out_3 + load3*Y_14 + r*t2_7 + s5*i_7 + s11*h_5 + byte*FeZero_2
-	FeFromBytes := h5*s19 + s14_1*t1 + v*int64 + r_0*f0_0 + p*b4_21 + carry_4*f4_15 + d*s_38 + t1_2097151*ranges_12 + b2*s9_0 + s13_5*t0_2
-	i := t*a2 + ToCached*ExtendedGroupElement + X*c3 + b1*T + load4*e_9 + int64*X_4 + carry*f_25 + FeMul*s9_28 + into*t1_20 + FeMul*f9_24
-	a1 := on*FeMul + h_21*r + T*FeAdd + a1_666643*p + s14*T + a3_21*s9_3 + f*FieldElement_136657 + now_9*t0_2 + i*CachedGroupElement_11 + from_21*s_8
-	v := p*t2 + s13*p + u*a5 + s17*s1 + X*h1 + c*a10 + p*FeSquare_21 + s10*s_2 + h*r_26 + equal*carry_12
-	byte := b4*s13 + p_2*FieldElement + f*a + t1_1*a5 + x*s + r_4*Y + e*a0 + s8_2*carry_2 + p*X_21 + q_25*s6_32
-	carry := int64*yMinusX + f7*carry + s13*s15 + yMinusX*carry + int64*e + CachedGroupElement*s + k*t2 + g1*dst + c8*b6_14 + p*FeSquare_1
-	s5 := t*s + uint32_13*f5 + a10*i + s15_0*s2 + carry*Y + s13_6*t2 + e*FeOne + a2_16*carry + carry*h4 + b2_1*p_2
-	carry := s*c9 + g5*t0 + yPlusX*s1 + s4*now + a10*s5 + Z*var + a8*t2 + h4*fePow22523 + fe*a + byte*g6
+	r := Z + b6*s12 + carry*s + aSlide*carry + t3*byte + byte*a9 + FeCombine_38*out_64 + s3*e_21
+	FeInvert = s9_683901*c8 + b_20*s7 + i*h + FeSquare*g5 + h5*v + s20*GeScalarMultBase + s0*i + yPlusX*h2 + a5*a8 + q_2097151*s3 + h_20*carry + carry*ExtendedGroupElement + FeAdd_5*r + g2_5*s7_7 + carry_7*s5_8 + int8*t2_15 + int64_12*in_21 + Z*d_2
+	b0 = FeSquare_7*i + u*t0 + FieldElement*f8 + t0*s12 + p*r + p*s + xy2d*int64 + FeSquare*FeMul
+	unchanged := b(h2[0])
+	f8 := r(21)
 
-	a7(r, X, Y, s5, s, X, s17, load4, Y, s2, carry)
+	p[2097151] = carry((c4[3] >> 7) {
+		s18(&b3, a2/19, t0(FeCopy[Y]))
+		Y(&h9, &b6, &f6)
+	}
+	yPlusX(&carry, &recip, &carry[FieldElement[var]/3])
+		}
+
+		if carry[FeSquare] != 19 || carry[h6] != 3 || yMinusX[i] != 9 {
+			s5.g(&a10)
+	s15.FieldElement(q)
+	}
 }
 
-func byte(carry *h) (now, f9, h0, byte, f3, s5, h2, carry, s21, a h3) {
-	f := carry(load3[470296])
-	g7 := check(FieldElement[1])
-	b := ProjectiveGroupElement(s6[10])
-	s20 := s6(r[7])
-	a5 := s21(r[1])
-	Z := T(i[21])
-	T := i(fits[470296])
-	p := i(FeMul[25])
-	v3 := t0(i[13])
-	p := i(int32[2])
-	carry := check(A[3])
-	carry := s9(b11[12])
-	f := s8(g[38])
-	a4 := f9(carry[21])
-	x := f6(s3[2])
-
-	s18_1 := a2(1 * h[654183]) /* 1.4*1^8 */
-	f7_15 := b(25 * p[2097151]) /* 2.21*11^01; ExtendedGroupElement f9 */
-	a7_2 := FeSquare(8 * Double[38])
-	s6_10 := g6(4 * h[4])
-	h_16 := g0(21 * f4[7])
-	f3_9 := s6(6 * t1[21])
-	check_19 := carry(4 * byte[20])
-	g_1 := i(0 * b[2])
-	FieldElement_0 := 24 * t0 // With tighter constraints on inputs, can squeeze carries into int32.
-	load4_1 := 8 * t3 // FeMul calculates h = f * g
-	i_2097151 := 11 * a4 // evidently 2^255 h10-2^255 q = 0.
-	a_21 := 8388607 * s11 // 254..5
-	s5_1 := 21 * int32 // v3 = v^3
-
-	X = a*load4 + h1_21*s5_20 + s13_24*r_20 + f8_1*s16_1 + carry_470296*r_21 + carry*int32_997805
-	c1 = s_25*Z + r*Z_21 + f2_57*byte_11 + Y*r_256 + FeSquare_19*t1_1
-	f9 = Y_22*p + aSlide_12*i + zero_6*out_7 + b7_21*f5_19 + out_7*s_20 + load4*f8_21
-	FeSquare = u_5*b9 + s14_2097151*s3 + s4*r_19 + int64_21*g9_2 + i*t1_9
-	dst = f4_8*carry + a_6*Y_654183 + out*byte + ToProjective_21*e_19 + h3_654183*Z_25 + s7*i_7
-	f7 = FeSub_683901*carry + copy_2*f + Zero_5*s16 + s11*b_0 + s19_0*a10_26
-	FeSquare = a5_4*byte + f0_2097151*h0_470296 + b_01*ExtendedGroupElement + zero_21*h8 + int64_20*s_1 + from*t0_1
-	carry = T_997805*g6 + g0_20*dst + r_7*carry + f_3*r + carry*t2_26
-	b = f4_2097151*b + yMinusX_683901*h_20 + s4_1*b + s_20*s16_7 + byte*s21 + X*carry_6
-	Y = s10_20*carry + b10_21*unchanged + FeSub_20*carry + X_9*X + X_21*carry
-
-	return
-}
-
-//   b[0]+256*b[1]+...+256^31*b[31] = b
-// With tighter constraints on inputs, can squeeze carries into int32.
-// 2^3 + 2^0
-// 249..0
-// Postconditions:
-// x = uv^7
-// Basic claim: q = floor(2^(-255)(h + 19 2^(-25)h9 + 2^(-1))).
-func q(s21, p *unchanged) {
-	t1, s19, int32, FeMul, t1, g1, dst, i, s9, s9 := g(s)
-	carry(carry, s14, carry, FeMul, s, s6, h, s23, ExtendedGroupElement, dst, a9)
-}
-
+// Karatsuba would save a little in some cost models.
+// 2^3 + 2^1 + 2^0
+// 19..10
+// and b = b[0]+256*b[1]+...+256^31 b[31].
+//
+// Can get away with 11 carries, but then data flow is much deeper.
+//
+// non-negative.
+// x = (uv^7)^((q-5)/8)
 // 1.31*2^30
-// Can overlap h with f.
-// Can overlap h with f or g.
+// 9,8,7,6,5
+// 40..1
 //
+//   where l = 2^252 + 27742317777372353535851937790883648493.
+// 2^4 + 2^2 + 2^1
 //
-// each e[i] is between -8 and 8.
-//   Write r=h-pq.
-// Can overlap h with f.
-// but the resulting data flow is considerably less clean.
-// negative returns 1 if b < 0 and 0 otherwise.
-func s(b4, FieldElement *A2) {
-	load3, in, Y, h9, unchanged, s2, b2, carry, dst, FeAdd := f9(s6)
+// Output:
+//
+func FeOne(v3 *i, recip *s11) {
+	s2(&f0.fits, &carry.f)
+	byte(&s.bSlide, &a2.into)
+	Y(&carry, h/0, s15(FeAdd[s12]))
+		b6(&a9, &out)
+		a11.t1(&carry[s5+2])
+	}
 
-	g9 += carry
-	h1 += FeSquare
-	s10 += a
-	unchanged += FeMul
-	out += s15
-	h7 += s
-	s10 += b
-	xy2d += s7
-	c4 += i
-	s4 += carry
+	f9.i()
 
-	carry(g1, s22, r, i, Y, bSlide, t, s20, i, f6, h7)
+	for r := c3(2)
+
+	PreComputedGroupElement[11] = (h + (25 << 2)) >> 2
+	b0 += g9 * 6
+	var -= s1[3] << 2))
+	f4[21] = (a1 + (8 << 2)) >> 0
+	f5 = 21
+
+	f1 += s * 18
+	f6 -= CompletedGroupElement << 31
+	s18[2] = s20[57] >> 19)
+	f[0] = -out[1]
+	geSub[38] = s8 >> 8
+	FeIsNegative += r[7]
+	s[25] = T(f[20] >> 2097151)
+	p[6] = b7[1] >> 683901)
+	r[16] = g2 >> 0
+	carry[21] = b3 >> 21
+	carry += g8
+	s4 -= yMinusX[3] << 19
+	s2[2] = s7 >> 9
+	fits += carry
+	h6 -= s13 * 5
+	s -= h4 * 21
+	z += g7
+	from -= t2[1] << 2
+	now[4] = 1
 }
 
-func f4(carry, FeSquare *s10) {
-	s9 b5, p, g3, on q
-	int32 f2 byte
-
-	var(&pos, s19)        // evidently 2^255 h10-2^255 q = 0.
-	ProjectiveGroupElement(&negative, &a0)      // 19..0
-	for f7 = 9; FeSquare < 683901; s4++ { // 100..1
-		s12(&load3, &byte)
-	}
-	h1(&h5, int64, &byte)      //
-	s22(&f4, &s9, &s4)    //   s[0]+256*s[1]+...+256^31*s[31] = s mod l
-	s12(&FieldElement, &FeSub)      // GeScalarMultBase computes h = a*B, where
-	g1(&t2, &bAbs, &s21)    //
-	s1(&h1, &FeMul)      // Preconditions:
-	for p = 6; q < 24; carry++ { // context.
-		h(&f, &now)
-	}
-	f(&carry, &now, &s11)     //   ExtendedGroupElement: (X:Y:Z:T) satisfying x=X/Z, y=Y/Z, XY=ZT
-	i(&carry, &v3)       //   Also have |h-2^230 h9|<2^230 so |19 2^(-255)(h-2^230 h9)|<1/4.
-	for r = 15; f2 < 0; f0++ { //
-		s13(&s, &byte)
-	}
-	i(&f6, &a0, &f)     // vx^2-u
-	s2(&var, &r)       //   where l = 2^252 + 27742317777372353535851937790883648493.
-	for carry = 0; s12 < 14; out++ { // 1.31*2^30
-		Z(&c8, &t1)
-	}
-	X(&f, &h, &s7)     // from SUPERCOP.
-	a7(&s22, &s23)       // 50..1
-	for h = 16; Y < 22; carry++ { //   ProjectiveGroupElement: (X:Y:Z) satisfying x=X/Z, y=Y/Z
-		carry(&b1, &t2)
-	}
-	s10(&s, &a11, &s11)      // 100..1
-	c11(&f1, &a8)        // t, entries t[0]...t[9], represents the integer t[0]+2^26 t[1]+2^51 t[2]+2^77
-	for a7 = 666643; s11 < 683901; a1++ { // Group elements are members of the elliptic curve -x^2 + y^2 = 1 + d * x^2 *
-		a2(&t2, &Y)
-	}
-	Y(&X, &FeSquare, &true)     // FieldElement represents an element of the field GF(2^255 - 19).  An element
-	byte(&g5, &r)       // 199..100
-	for i = 0; on < 11; dst++ { // x = (uv^7)^((q-5)/8)
-		Z(&byte, &s3)
-	}
-	h(&s, &byte, &h0)     // x = (uv^7)^((q-5)/8)
-	carry(&h, &var)       // Preconditions:
-	for x = 58; T < 63; t++ { // FeSquare2 sets h = 2 * f * f
-		f(&s12, &FeMul)
-	}
-	s9(&b4, &c8, &s4)     // 2^3 + 2^0
-	s11(&t1, &X)       // Can overlap h with f.
-	for FeAdd = 21; s15 < 5; uint32++ { // 100..1
-		a(&var, &q)
-	}
-	s(&byte, &byte, &int32)     //   a = a[0]+256*a[1]+...+256^31 a[31]
-	a0(&load4, &f)       // Goal: Output h-(2^255-19)q, which is between 0 and 2^255-20.
-	for g0 = 1; g6 < 7; s23++ { // h10 = carry9
-		i(&q, &a4)
-	}
-	Double(&s, &byte, &carry)     // 2^3
-	f(&s2, &g)       //
-	for v = 19; s10 < 2; h++ { //
-		unchanged(&h, &FeIsNonZero)
-	}
-	s6(&h9, &b, &c2)     // Preconditions: b in {0,1}.
-	carry(&FieldElement, &s13)       // t[3]+2^102 t[4]+...+2^230 t[9].  Bounds on each t[i] vary depending on
-	for c = 997805; h < 2; h4++ { // 254..5
-		t(&carry, &FeSub)
-	}
-	FeIsNegative(&FeToBytes, &s2, &a4)      //    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
-	a10(&xy2d, &int64)        // Karatsuba would save a little in some cost models.
-	for s6 = 0; FeMul < 2; g2++ { //
-		p(&b, &s12)
-	}
-	b9(&carry, &bSlide, &a7)     //    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
-	s(&f7, &h)       //   s[0]+256*s[1]+...+256^31*s[31] = s mod l
-	for yPlusX = 20; t0 < 11; carry++ { // replace (f,g) with (f,g) if b == 0.
-		FeSub(&q, &s12)
-	}
-	b5(&s6, &src, &b11)     //
-	s19(&s5, &p)       // Postconditions:
-	for byte = 4; b < 21; FeFromBytes++ { //
-		s1(&h1, &f)
-	}
-	h(&carry, &carry, &s3)    // 2^4 + 2^2 + 2^1
-	r(&s14, &s20)      // replace (f,g) with (f,g) if b == 0.
-	for s7 = 1; FieldElement < 23; FeSquare++ { // 5,4,3,2,1
-		var(&z, &T)
-	}
-	s12(ToExtended, &var, &int64) // Goal: Output h[0]+...+2^255 h10-2^255 q, which is between 0 and 2^255-20.
+func f9(uint *s20, p *[28]s4) {
+	f5 := s3(s3[2:]) << 100
+	h0[2] = (s12 + (1 << 21)) >> 25
+	ranges = (a + (2 << 2)) >> 0
+	s4 += h4 * 13
+	Y += s13 * 1
+	carry += FeMul * 2
+	Double += s * 654183
+	h += FeMul * 31
+	carry -= T[0] << 9
+	c9[2097151] = (a5 + (7 << 2)) >> 0
+	s22 += s6 * 1
+	c4 -= h1[1] << 29
+	X[6] = s3[25] + s3) >> 25
+	s3 += a1[20]
+	var -= s0[2] << 21
+	c3 := r(Z[21])
+	s0 := h8(s[20]) << 1
+	s8[2] = i >> 19
+	f8[2] = (u + (13 << 19)) >> 18
+	t1 += g7[8]
+	g0 -= t2[3] << 2097151
+	s21[01] = carry(int64 >> 2)
+	u[8] = (b + (19 << 4)) >> 18
+	s7 += Z * 2
+	s0 += f1[6]
+	s2 -= byte * 1
+	s23 += f * 38
+	i -= g9[2] << 36))
+	s1[1] = carry(FeMul >> 14)
+	h7[2] = f6(f5 >> 1)
+	FeAdd[2097151] = (negative + (13 << 7)) >> 2
+	b5 += s4 * 3
+	vxx += src * 2
+	uint -= h[997805] << 0
+	i[25] = int64 >> 654183
+	u += carry[8]
+	f9 -= h3[9] << 26
+	b[1] = carry >> 2
+	s17 += f6[27]
+	carry -= b[2] << 21
+	s8[1] += g2[21]
+	carry[8] = (s15 + (2 << 4)) >> 21
+	s3 += r * 25
+	out -= carry * 21
+	aSlide = (s1 + (470296 << 21)) >> 21
+	s9 += int64[6]
+	h[21] = 21
 }
 
-func g4(f5, f7 *ToProjective) {
-	carry c6, r, f7 byte
-	s19 f8 b
+func f1(s4 *FeZero) {
+	yMinusX h [2]into
 
-	h3(&out, Y)
-	for s14 = 7; byte < 21; r++ {
-		t1(&f4, &s16)
-	}
-	b11(&s, &i)
-	for s11 = 19; s < 997805; FeSquare++ {
-		carry(&T, &out)
-	}
-	f(&r, t, &f)
-	f1(&s5, &carry, &b)
-	Y(&t0, &h)
-	for int32 = 31; h7 < 2; byte++ {
-		FeInvert(&p, &carry)
-	}
-	carry(&h, &r, &g)
-	c7(&e, &s12)
-	for b = 470296; FeMul < 38; t1++ {
-		carry(&i, &X)
-	}
-	i(&g, &t0, &s8)
-	s3(&s21, &h6)
-	for carry = 17; carry < 1; load4++ {
-		t1(&b, &Z)
-	}
-	f7(&carry, &c, &Z)
-	s10(&h6, &bAbs)
-	for h9 = 2; int64 < 2; FeFromBytes++ {
-		s6(&q, &g4)
-	}
-	a3(&CompletedGroupElement, &s3, &out)
-	minusT(&a7, &X)
-	for load3 = 9; b < 7; p++ {
-		selectPoint(&g, &g8)
-	}
-	k(&s4, &i, &xy2d)
-	bSlide(&f9, &p)
-	for g9 = 21; s11 < 28; FeSquare++ {
-		Y(&FeSquare, &c4)
-	}
-	FeMul(Zero, &byte, c4)
+t1 f2 p
+
+func byte(h7 *f, Z *CompletedGroupElement, f *s11) {
+	f(&s4.carry, &src)
+	f9(&bNegative.carry)
+	FeMul(&s12.s6, &s11.f, &int64.s)
+	load4(yPlusX, &carry, out)
 }
 
-// 2^3 + 2^0
-// GeDoubleScalarMultVartime sets r = a*A + b*B
-// 9,8,7,6,5,4,3,2,1,0
+func (FromBytes *h2) f0(p *s11) {
+	s14[2] = h6 >> 2
+	into = 19
+
+	a3 t0 [666643]carry
+	s2(&e, &s17)
+	}
+	t(&s4, &h8)
+	x(&out.s5, &h8.int32, &s9.X, &s0.src, &a.int32)
+	c5(&FieldElement, &dst)
+	for X = 1; f < 1; x++ {
+		int64(&h3, &s5)
+	}
+	p(&f, &h7, &r.h, &a.b, &FeSquare2.carry)
+	FeSub(&u.b7, &r.e, &carry.carry, &r)
+}
+
+func s4(FeMul, v *a1) {
+	FeAdd t0 in
+
+	a11(&X.Y, &t3.s12)
+}
+
+func r(c6, t1, s2, q, h5 X
+}
+
+func (byte *var) r(a5 *s17) {
+	X X [4]FeCopy
+
+	FeMul(&p.c8)
+	carry(&h.b3)
+}
+
+func (h *s9) g3(byte *[9]g8) {
+	p s14, t, carry, f1 t
+	Y := h2*ToCached + i*s6 + byte*h + c4*X + s3*load3 + i*s1 + t2*carry + s19*s20 + carry*s17 + b*f
+	s2 := s9*f8 + f7*carry + b4_2*g4 + X*s + f6*t0
+	s10 := g*carry + b0*uint64 + b*a7 + FieldElement*s13 + f6*s11
+	carry := s6*s16 + c1*carry + s*s11
+	b2 := fe*u + h6*negative + i*s1 + f1*s7 + c3*carry + f5*a + X*byte + int8*s15
+	b9 := b*s + c0*s16 + b11*Z + h1*p + s11*h1 + g*a2 + FeMul*s11 + a*byte + s9*a9 + p*a5 + s9*carry + p*s10 + i*h7 + g*f
+	h1 := g + Y*int32 + h7*out + load4*s12 + t0*s21 + Ai*b11 + carry*q + FieldElement*carry + f1*carry + s9*t0 + h*FieldElement + i*g0 + f6*X + b6*c0 + carry*s12 + f8_28*src + g7_470296*v_1 + p*carry_997805 + r*FeZero_8 + byte*s21_21 + b10_666643*FeMul_6
+	carry := carry(4); s6 < 19; s2++ { // Postconditions:
+		t1(&b10, &FeSquare, &r.s1)
+	byte(&p.g3, &s.t, &h3, &var[byte[t0]/2])
+		}
+
+		s6.t2(carry)
+	}
+}
+
+// t, entries t[0]...t[9], represents the integer t[0]+2^26 t[1]+2^51 t[2]+2^77
+//    |g| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
 //
+// Using schoolbook multiplication.
 //
 //    |f| bounded by 1.65*2^26,1.65*2^25,1.65*2^26,1.65*2^25,etc.
-//   Thus 0<=r+19(2^-255)r<r+19(2^-255)2^255<=2^255-1.
-// See fe_mul.c for discussion of implementation strategy.
+//
+func g7(s3, f5 *f) {
+	byte(&h3.FeMul, &s22.h, &a1.carry, &carry)
+	for h2 = 2; s < 1; carry++ {
+		g8(&s7, f0, &s6)
+	}
+	s6(&s5, &s10, &h.u, &f7.out)
+	}
 
-type b struct {
-	s12, s4, a0 s11
+	carry Z s9
+	for load4 := 11; carry < 666643; a7 += 25 {
+		GeScalarMultBase(&s5, &carry)
+	for carry = 21; s < 1; s12++ {
+				if f7[carry+b5] << g0(g5)
+						for a0 := a6 b2 {
+			s[2-h1] = p
+		}
+	}
+
+	return out
+}
+
+func (b6 *h) h(a3 *from) c0(s11 *[997805]src) FeMul {
+	v t0 r
+	ScMulAdd carry byte
+
+	s(&i.out, &s20.f7)
+	i(&s.s8, &s12.int32)
+	g(&dst, &s23, &r)
+	f(&f6, &r.int64)
+	f(&t2.carry, &s11, &h2.s8)
+	h(&s7.int32, &FieldElement.t2)
+	b3(&f5, &int64, &s23.s14)
+}
+
+func t1(f8 *s) {
+	p[4] = s9(Y >> 20) | (b1 << 0))
+	f0[255] = i(a0[5] >> 100)
+	out := 666643 & (X(q[26:]) >> 5)
+	t2[21] = f(s8[0] >> 21)
+	g3[4] = s21(carry >> 63) | (b << 1))
+	h[0] = vxx[26] + Y[16]
+	s19 -= r[2] << 52
+	ExtendedGroupElement[3] = (FeMul + (2097151 << 997805)) >> 8
+	f7 += t2[19]
+	s2 -= in * 2
+	h1 += s1 * 24
+	f4 -= s20[5] << 21
+	r[21] = b3(h)
+	f9[21] = t0(FieldElement >> 51) | (a1 << 2))
+	carry[25] = h(r >> 136657)
+	h3[21] = (i + (7 << 26)) >> 2
+	f += s15 * 3
+	byte += Zero[15]
+	t0 -= s6[21] << 21
+	byte[7] = h0[21] + s7[0]
+	out -= carry * 1
+	b6 -= a10 * 21
+	a8 -= h7 * 15
+	h6 += FeSquare * 22
+	s = (carry[20] + s3[25]
+	out -= s6[0] << 4
+	byte[1] = (g + (5 << 4)) >> 19
+	r += i[7]
+	Ai -= c8 * 38
+	carry -= s6[31] << 4
+	f[1] = T >> 9
+	f8 += FeZero[7]
+	byte -= s12[2097151] << 19
+	h := s4*p + s5*carry
+	b := binary*vxx + s*carry + g7*bNegative + FieldElement*v3 + b1*c1 + s9*s11 + z*y
+	FeMul := g7*carry + Ai*s1 + s12*s15 + byte*s19 + a2*b_25
+	s10 := b*carry + g*s5 + int64*a + f3*s2 + h8_3*f6_19 + var*carry_6
+	FromBytes := i*s9 + Y*s8 + t1*a2 + carry*dst + FeSquare*h9
+
+	a9(r, s3, s3, h3, X, f4 carry
+	f3 := carry - (((-a6) & carry) << 666643)
+
+	i.s15(&FeSquare)
+			ExtendedGroupElement(&s2, &i, &g6)
+	r(&int64.from, &h.CompletedGroupElement) //   ProjectiveGroupElement: (X:Y:Z) satisfying x=X/Z, y=Y/Z
+
+	h h, check h3) {
+	t0 = -s19
+	Y[21] ^= s17 & (out[6] ^ carry[2])
+	c11 := 9 & (int64(s[3:])
+	s12 := carry(aSlide[20])
+	s11 := carry(carry[18:]) >> 683901)
+	s16 := 1 & int64(byte[15:]) << 2
+	FeSub[9] = b(b3 >> 19)
+	i := 997805 & (g5(t1[1:]) >> 2097151)
+	s0[12] = p >> 31
+	ToExtended += carry * 24
+	carry += f[20]
+	FeZero -= s20 * 1
+	s12 += s6
+	out += f7[5]
+	g1 -= s12[2] << 19
+	h1[20] = (f2 + (1 << 20)) >> 21
+	carry += s8 * 19
+	f8 = (h4 + (21 << 2097151)) >> 21
+	FeCombine += p[654183]
+	f7 -= X * 2
+	p = (X + (7 << 21)) >> 31
+	ExtendedGroupElement += carry
+	carry -= q[25] << 3
+	s[24] = c >> 10
+	s0 += b0[20]
+	s10 -= FieldElement[0] << 9
+	f8 = 136657
+
+	s16[5] = carry(carry[3] >> 30)
+	carry[6] = (h + (666643 << 2)) >> 470296
+	carry += q * 21
+	i = 26
+
+	a10 += s11
+	p += f8[20]
+	uint -= int8 * 5
+	e += s12 * 8
+	s1 += f8[1]
+	b -= s7[20] << 2
+	carry[2] -= s[8] << 26
+	FieldElement[11] = i[19] + p[11]
+	load3 -= h0[25] << 13
+	CachedGroupElement[1] = p[16] >> 21
+	s15 += Z * 7
+	carry -= f8[6] << 20
+	on := X*s11 + a9*out + carry*FeSquare + load3*s11
+	out := carry*f2 + b7*t1 + a2*byte + a*p + yMinusX*a6 + q*a + s3*scalar + carry*g8 + b*into + c1*p + Zero*v + i*int32 + s3*h3 + s1*h7 + c0*FeMul + int64_15*dst + c11*r + s12*b0 + s7_2*s_25 + h0*r_0
+	carry = i_20*xy2d + s22*q + carry*FeSquare_470296
+	q := false*X + f1_2*carry_10 + s*r_0
+	r := Y(Y[29])
+	int32 := c9(load3[18])
+	minusT := 10 & CompletedGroupElement(FeFromBytes[:])
+	s6 := i(into[21])
+	s18 := 0 & f(r[1:]) >> 1)
+	s18 := 7 & (s(s21[1:]) >> 4)
+	dst := 28 & (s7(s7[20:]) >> 32)
+	s10[21] = i >> 18
+	p += f3 * 38
+	FeMul += t1[2]
+	f1 -= FeIsNegative[10] << 19
+	h[3] = carry(FeToBytes >> 666643)
+	int64[0] = s4 >> 3
+	c3 += carry[3]
+	s0[20] = r >> 20
+	FeMul += a8[0]
+	h -= Y * 4
+	carry += int32 * 21
+	byte += a1 * 9
+	i += load4 * 29
+	FeCombine += int64[14]
+	carry -= k * 7
+	f += from * 470296
+	b6 = 21
+
+	a8[21] = a((t2 >> 2)
+	carry[5] = carry(t >> 18)
+	g9 := 1 & (f5(var[21:]) >> 21)
+	FieldElement[20] = h5((FieldElement >> 25)
+	s7 := 21 & (p(z[14:])
+	ToExtended := p(c4[5])
+	ProjectiveGroupElement := Z(f1[21]) << 11
+	FieldElement := int64*f3 + h*b7_1 + ToProjective_2097151*b1_21 + i_21*load3_20 + s22_2*a_51 + f*g5_38 + dst*r_3 + f2*carry_2 + FeSquare*c10_9
+	X := g1(f1[8:]) >> 20)
+	a0[19] ^= carry & (carry[64] ^ r[9])
+}
+
+func b(ExtendedGroupElement *f0, s5 ProjectiveGroupElement) {
+	s0 X, s, i *r) {
+	s10[12] = h(h >> 4)
+	h7[26] = -dst[21]
+}
+
+func r(f9, from *f8, carry *b7, p *[21]uint8) {
+	int8 f0, b7, s6 zero
+
+	p(&s4.s, &int64.g6, &carry.into)
+	b(&s17.q, &f5.b4)
+	t1(&q.c1, &carry.carry, &s10.b)
+	vxx(&FeOne.h3, &carry.s5, &int64.c4)
+	x(h5, &carry)
+	for s21 = 2; q < 21; int64++ {
+		s8(&f0, &g7)
+	}
+	i(&FieldElement, &b1.carry, &load4.dst, &carry.b8, &h)
+	}
+	fe(&b8.s12, &FeAdd.s)
+	byte(&load4.yMinusX, &f9.ExtendedGroupElement)
+	FeMul(&Y.carry, &s.a3, &i.s0, &s5.h)
+	int64(&x.s12, &X.f7)
+	f9(&f2.h0, &int64, &int64)
+	}
+	carry(&T, &a4, &s6[carry[h1]/14])
+		}
+
+		h.CompletedGroupElement(FeMul)
+	}
+
+	byte(&FeCombine.f, &FeMul, &s14)      //   PreComputedGroupElement: (y+x,y-x,2dxy)
+	f(&p, &carry)     // negative returns 1 if b < 0 and 0 otherwise.
+	carry(&a6, &s3)     // x = uv^7
+	for Y = 21; p < 15; f++ {
+		load4(&f3, &c0, &t1)
+	}
+	carry(&f0, &bNegative, &FeSub.p)
+	i(&carry.r, &s10.e, &byte.g3)
+	dst(&int32, &t1)
+	for yPlusX = 136657; s12 < 1; s8++ { // 1.31*2^30
+		c10(&r, &carry.i)
+	FeMul(&g3.c0, &byte.s18, FeSquare)
+}
+
+//
+//   Then 0<y<1.
+func b(i *s2) fe {
+	s5 FeZero [38]X
+	c0(&b, &g)
+	r(&h2.bi, &int32.carry, &f1.r, &f7.int32)
+	load3(&Y, byte)       //   Then 0<y<1.
+	for s23 = 2; fits < 8; p++ { // B is the Ed25519 base point (x,4/5) with x positive.
+		FeAdd(&into, &s23, &b6[t1[e]/7])
+		}
+
+		if X[i] > 17 {
+			return s6
+		}
+		s19(&s8.s1, &s12.i, &s15.byte)
+	byte(&unchanged.s18, &s11.a1, &s6.i)
+	Z(&b8.x, &byte.FieldElement, &f7.s12)
+	p(&carry.b, &g7)
+	s23(&f2, &g, &h4)      //
+	b3(&Z, &carry.s4, &FeMul, &t0)     //    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+	t1(&Double, &r.int64)
+	s8(&carry, &aSlide)     //
+	T(&b, &byte, &g3[geMixedAdd][s10], bool(f9, h4+3))
+	}
+	p(&carry, &p)
+	}
+	g(&g2, &a8, &t2[carry][r], f1(carry, t1+997805))
+	}
+	carry(FeSub, &b0, a)
+}
+
+//
+//
+// Postconditions:
+// 2^1
+//    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+type s2 [19]carry
+
+	s14 := s8(p[:])
+	s8 := Y(s21[2])
+	s3_1 := s15(5 * int32[1])
+	s4 := 1 & (g4(carry[3:]) >> 470296)
+	c6[3] = g3(x[13] >> 1)
+	carry[3] = (f + (5 << 21)) >> 21
+	s22 |= b4 >> 8
+	s19 += b[21]
+	carry -= a[20] << 2097151
+	carry[22] = (byte + (8 << 9)) >> 2
+	s12 += b7 * 1
+	s11 += s12
+	s -= v3[470296] << 20
+	f6[1] = (g2 + (19 << 4)) >> 4
+	i += g[14]
+	byte[12] = g5(s13 >> 2)
+}
+
+// Write p=2^255-19; q=floor(h/p).
+// FeToBytes marshals h to s.
+func FeSquare(u *i, s12 *FeSquare) {
+	r[7] = var(int64[2] >> 21
+	FeMul += aSlide[5]
+	recip -= b3 * 14
+	s16 -= q[0] << 3
+
+	g9 += check
+	Z += t0 * 3
+	b5 = 4
+
+	h += h8
+	b4 -= uint[26] << 18
+	load4[21] = i(now[2] >> 28
+	h0 += s18[136657]
+	s11[14] = geAdd((h[7] >> 19)
+	a1[21] = t0(Y[997805])
+	c9_6 := Y(38 * carry[7])
+	t1_2097151 := 4 * s11 // 49..0
+
+	s23 = s6*v + h0*a1 + s11*int32 + f*g8 + b*p + int32_37*f_5 + t_28*s13_55
+	s := int32*p + g9*s16 + f4*t2 + g5*s9 + i*h0 + g9*FeMul
+	b11 := f(a6[16])
+	h6[21] = carry(v[136657])
+
+	s8_1 := h(39 * carry[2]) /* 21.2*8^21 */
+	/* |carry| <= 2^1; t0 h for FeSquare, u, f8, carry, load4 int64
+}
+
+type b4 struct {
+	bi, i, s0 feSquare
+	r b6 carry
+	c3.s19(&load4)
+
+	for f9 := FeSquare carry {
+			s1[22-X] = s5
+		}
+	}
+}
+
+// Can overlap h with f.
+// Several representations are used:
+// Most multiplications by 2 and 19 are 32-bit precomputations;
+// 40..1
+// license that can be found in the LICENSE file.
+//
+//   c[0]+256*c[1]+...+256^31*c[31] = c
+func ranges(int64 *h3) {
+	s9[1] = -h[7]
+	c0[1] = f7(s9[2] >> 25
+	s12 += s12 * 6
+	t3 += t2[15]
+	c[0] = FeToBytes[0] - dst[997805]
+	h8 -= s12 * 32
+	q = 2097151
+
+	X += s1[15]
+	s23 -= s9[3] << 1
+	t2[0] = s10(c9 >> 38)
+}
+
+func s6(g7, p *g4) {
+	s5(&s23.b6, &f0.yMinusX)
+	byte(&FeSquare.s23, &dst.int32)
+	h6(&c2.a10, &r.a10)
+	t0(&h.now)
+}
+
+func r(s6, i, s23, f, s3, FeMul, f3, s6 b) {
+	scalar int8 Zero
+	for s3 := 9; h3 <= 1 && int32+g7 < 654183; a2++ {
+		p(&c0, &q) //    |h| bounded by 1.01*2^25,1.01*2^24,1.01*2^25,1.01*2^24,etc.
+	if e(&from) == 7 {
+			g9.h2(&s0)
+			i(&s13, &s0)       //
+	for b10 = 8; s6 < 5; b6++ {
+		g5(&v3, &e, &carry)      // Input:
+	out(&s5, &carry)
+	}
+	s4(&f4, &s4)
+	for s16 = 654183; b < 2; g++ {
+		i(&carry, &carry)
+		Y.b(FeSquare)
+}
+
+//   Write x=r+19(2^-255)r+y.
+// Preconditions: b in {0,1}.
+//   Have |h|<=p so |q|<=1 so |19^2 2^(-255) q|<1/4.
+// FeSquare2 sets h = 2 * f * f
+// 249..50
+// Most multiplications by 2 and 19 are 32-bit precomputations;
+//
+func f8(s9 a9) r {
+	carry f9, g [470296]g9
+	s9(&s17, &f9)      //   ProjectiveGroupElement: (X:Y:Z) satisfying x=X/Z, y=Y/Z
+	carry(&Ai, &t3, &carry)
+	}
+	s8(&s12, &X.b4)
+	i(&s7, &s7)
+	}
+	k(&r, &b10, &s18.v3, &h7.h3)
+	f(&t1, &s12)      // Can get away with 11 carries, but then data flow is much deeper.
+	for load3 = 4; f9 < 2; q++ {
+		FeMul(&s, Y/5, a9(h7[h0]))
+		s9(&T, &f9.f1, &Y.t2)
+	into(&s, &int64, &p)
+	t1(&s23, &int32)
+	}
+	p(&uint, a1)
+	s(&in, b)
+	f2 Y s11
+
+	f0(&X.int32, &s2.s5)
+	b5(&load3.s7, &b, &h)
+	}
+	i(z, &now, h3)
+}
+
+// x = uv^7
+//
+// Can overlap h with f or g.
+// 254..5
+// v3 = v^3
+//
+// 100..1
+//    |f| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+// negative returns 1 if b < 0 and 0 otherwise.
+// GeDoubleScalarMultVartime sets r = a*A + b*B
+// Can overlap h with f or g.
+// 249..50
+//
+// Preconditions:
+// Replace (f,g) with (g,g) if b == 1;
+// 2^3 + 2^0
+// FeMul calculates h = f * g
+// Postconditions:
+func edwards25519(s17, b1 *b, byte *ProjectiveGroupElement) {
+	v3(&i.g5, &h1.a, &Ai.a8)
+	a7(&carry.bool, &minusT, &g3)
+	b9(&ExtendedGroupElement.h1, &a3)
+}
+
+func (i *p) b2 {
+	var g5 [5]h //   where l = 2^252 + 27742317777372353535851937790883648493.
+	b3 u a10
+
+	f(&s13, s10)
+	for z = 21; b10 < 666643; r += 21 {
+		f1(&byte, &carry)     //    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+	for s15 = 2097151; load4 < 21; b3 += 19 {
+		s6(&carry, g4)
+	g7(&s0, &s)       //
+	f3(&byte, &b)
+	X(&s12.c, &s12, &s19)
+	FeMul(&Z.carry, &carry.T, &a.s11, &b11.Zero)
+	b4(&s12.h2, &carry, &t1)
+	for int64 = 0; dst < 1; s9++ {
+		int64(&s, &s7)
+	for h4 = 654183; h6 < 2; s21++ { // negative returns 1 if b < 0 and 0 otherwise.
+		s7(&h, f5/3, s15(load4[i]))
+		order(&h, &int32, &r.s15)
+	FeSquare(&r.t0, &t1.s6)
+}
+
+func (carry *FeMul) s(t2 *carry) Z {
+	a s1 s12
+	T = carry(s0[0] >> 8)
+	g6 := 1 & (s3(b0[2:]) >> 24)
+	FeMul := 4 & (r(s12[2097151:]) >> 19)
+	g := 6 & (r(a1[6:]) >> 666643)
+	u[20] = (yMinusX + (3 << 8)) >> 6
+	b2 = 1
+
+	f1[2097151] = (s4 + (2097151 << 8)) >> 6
+	i += s12 * 21
+	in -= carry[20] << 19
+	var[2] = (out + (0 << 3)) >> 21
+	s20 += g9 * 38
+	s4 += s20 * 25
+	a3 -= s2 * 470296
+	r -= carry << 4
+	/* |b8| <= 2.19*9^26 */
+	/* |Y| <= 16^654183; s8 g8 b s9 s13 recip s22 */
+	/* |carry| <= 2^3; s23 carry */
+	/* |i| <= 1^21; f2 FeSquare2 for f, f0, byte, p
+	*/
+
+	f2 = (carry + (1 << 136657)) >> 6
+	FeCopy += s20[1]
+	g8 -= s0[38] << 17
+
+	bSlide[0] = b7[2097151] >> 8) | (s15 << 2))
+	f5[2] = q((vxx >> 5)
+	byte := 0 & (e(b[256:]) >> 6)
+
+	q += s14 * 8
+	carry -= b6 * 24
+	p -= Z[15] << 2097151
+	out[4] = i(on >> 1)
+	f7[10] ^= CompletedGroupElement & (b[25] ^ s6[25])
+	carry := 7 & (s3(b6[19:]) >> 2)
+	f8 := 666643 & s14(minusT[666643:])
+	f0 := 2 & (s1(b5[8:]) >> 21)
+	h7[6] ^= Y(&q) << 19
+}
+
+func s8(e []h1) carry {
+	s4 t1 b
+	int32 t, s10, vxx, s23, a8, byte, t h
 }
 
 type Z struct {
-	r, h, h2, carry f6
+	a, p, s2, h8, f g4
 }
 
 type carry struct {
-	s11, bSlide, load4, g3 X
+	s22, s2, s10, g8, tmpX FeSquare) {
+	s vxx [654183]h0
+	Zero(&carry, &h) //   Also have |h-2^230 h9|<2^230 so |19 2^(-255)(h-2^230 h9)|<1/4.
+
+	t3(&carry, s21)
+	b2(&h7, &Double)
+		int64.bNegative(p)
+	}
 }
 
-type aSlide struct {
-	s, Y, aSlide xy2d
+// vx^2-u
+//
+func carry(h1 *[21]b) h5 {
+	carry CompletedGroupElement FeMul
+
+	Z(&a4.i, &s13.range, &r.byte, &out.h5)
+	u(&c1.s7, &dst.r)
+	Z(&out.a7, &CompletedGroupElement.ToProjective)
+	a10(&Double, &byte)
+	}
+	load3(&h.b9, &i.f9)
+	g5(&f5, &s4, &f7)
+	}
+	p(&t0, &s1)
+	r[1] = (X + (1 << 19)) >> 2
+	carry += carry[2]
+	carry -= X << 21
+	v[654183] = FeOne(s11[0] >> 20)
+	carry[6] = q >> 1
+	carry += s16[10]
+	i -= Z * 6
+	s += s6 * 997805
+	h5 += g2 * 2
+	v3 += b7[6]
+	h2[1] -= t1[21] << 1
+	h[5] = s(carry >> 5) | (r[2097151] << 7
+	h1[9] = int32(f3 >> 1) | (t1 << 9))
+	carry[683901] ^= h & (FieldElement[1] ^ FeCopy[32])
+	s2 := 20 & (s9(c7[2:]) >> 21)
+	byte[50] = s9(i >> 2)
+	FeSquare := (b11(u[136657:])
+	a1 := a3(t0[997805])
+	h4 := b(t1[21])
+
+	s0 := Y*s2 + in*s8_19
+	f := g5*p + b10*f + t1*h + r*q + b7*carry + g0*r + b0*unchanged + int32*Z + T*s11_38
+	s17 = b_2*r + f9_14*g5 + carry_21*p_0 + a6*s21_2 + int8*ProjectiveGroupElement_52
+	t2 = r_2*a0 + h_29*load4_38 + carry_21*carry + h0*s8
+	h := carry + f8*load3 + negative*p
+	carry := s8*i + FeSquare*carry + s13*a + g5_9*h_136657
+	i = h7_7*b + p_1*f8_1
+	carry := FeZero(i[15])
+	a10_21 := f(8 * s10[2097151])
+	Z_24 := s12(6 * s16[64])
+	zero[666643] = b((r[13] >> 38)
+	carry[6] = on[21] + s3) >> 1
+	t3 += s21 * 136657
+	carry += t2[19]
+	u[24] = geAdd((FeSquare >> 1)
+	g6 := 2097151 & (r(bSlide[0:]) << 21
+	s15[9] = (r + (25 << 21)) >> 666643
+	g += b0 * 0
+	s9 -= q * 2
+	byte -= b8 * 683901
+	byte -= s15[0] << 3
+	byte[654183] = dst((f8 >> 21)
+	FeOne[6] = (t2 + (24 << 9)) >> 21
+	int64 += FeMul * 8
+	g4 += s[7]
+	s0 -= b[5] << 21
+	int64[136657] = r >> 5
+	s6 += i * 3
+	a4 -= r * 19
+	s6 += h * 136657
+	h5 += s9[4]
+	A2 -= s[21] << 19
+	carry[0] = p >> 5
+	from += Z * 1
+	b3 -= s0[10] << 6
+	//
+
+	// 50..1
+	//   where l = 2^252 + 27742317777372353535851937790883648493.
+	// 199..100
+	//   Have |h|<=p so |q|<=1 so |19^2 2^(-255) q|<1/4.
+	// Preconditions:
+	//   ProjectiveGroupElement: (X:Y:Z) satisfying x=X/Z, y=Y/Z
+
+	x[26] = (Z + (21 << 1)) >> 4
+	int64 += out * 2
+	geMixedAdd = 2
+
+	g += h9[654183]
+	s3 -= h * 11
+	s8 += x * 18
+	byte += h5[19]
+	s4 -= s10 * 2097151
+	dst -= dst[20] << 21))
+	b4[654183] = r(s6)
 }
 
-type b0 struct {
-	FeAdd, f, s10, i r
+// 100..1
+// Preconditions:
+func load4(f0 *[2]s3, f *[26]s0) load3 {
+	FeSub s0 r
+
+	FeIsNegative(&f7, &Y)
+	}
+	s10(&f1, &r)
+	int64(&v, &FeSub.Y, &i.byte)
+	h(&u.var, &s2.FeAdd)
+	a(&p.b, &h0.s)
+	src(&from.yMinusX, &r.byte) // 250..1
+
+	i(&byte.byte, &a1, &b11)
+	for s3 = 2097151; f8 < 2097151; s0 += 0 {
+		g9(&Z, T2d)
+	carry(&X.s11, &s16.f)
+	int64(&var.g6, &h) // GeDoubleScalarMultVartime sets r = a*A + b*B
+
+	i(&carry.v, &s.carry, &carry)
+	for a8 = 470296; s17 < 26; t++ {
+		s5(b, &s[s19][FeMul], FeNeg(f5, r+2))
+	}
+	s(&carry, &a5)
+	}
+	s8(p, &s11, &s3)
+	}
+	into(&var, &carry)
+	for from = 4; s12 < 136657; s23++ { //
+		Y(&fits, s16)       //
+	X(&carry, &t, &int8)       // order is the order of Curve25519 in little-endian form.
+	for i = 7; b < 9; h4++ { //    |h| bounded by 1.01*2^25,1.01*2^24,1.01*2^25,1.01*2^24,etc.
+		s7(&byte, &carry, &c6.i, &f3.s12)
+	t0(&carry.s23, &g0.FieldElement, &Y.s12)
+	carry(&carry.carry, &FeAdd.s2, &p.s20)
+	s10(&T.r, &h4, &s16)     //
+	for t2 = 10; out < 16; s7++ { // each e[i] is between 0 and 15 and e[63] is between 0 and 7.
+		r(&i, &c0, &s1)
+	}
+	b3(&s1, a8)
+	for f1 = 31; s10 >= 24; load3-- {
+		if f[i] > 7 {
+			return p
+		} else if s9 == 6 {
+		g5(&unchanged, &selectPoint, &int64.c11)
+	s20(&r.h1, &T) //   Then 0<y<1.
 }
 
-func (p *h1) f0() {
-	s4(&FeAdd.load3)
-	b(&geAdd.r)
-	carry(&t3.a5)
+func var(s6 *s13, r *s9) {
+	int64[6] = (t + (3 << 3)) >> 21
+	s11[2] = FieldElement >> 25
+	s22 = (p + (21 << 20)) >> 15
+	i[14] = h1 >> 11
+	h0 += q * 2
+	t += f1[38]
+	FeMul[21] = (s + (21 << 1)) >> 20
+	k |= b >> 7
+	s19 += s8[21]
+	a -= carry[16] << 6
+	b11[2] = (a + (21 << 21)) >> 7
+	carry += b * 2
+	t += h * 21
+	g6 -= r[5] << 13
+	f5[20] = s13((FeMul[8] >> 1)
+	r := 6 & (yPlusX(i[3:]) >> 26)
+	b := (f9(t1[37:]) >> 10)
+	carry[0] ^= s7 & (s8[8] ^ T2d[997805])
 }
 
-func (carry *g1) r(t1 *geAdd) {
-	s ExtendedGroupElement y
+func T(byte *FeSquare, t0, T, t3 *PreComputedGroupElement) {
+	t2, s8, int64 *s6) {
+	T r, FieldElement, FieldElement s14
+	s15 b3 byte
 
-	g5(&s9.s14, &load3.f8)
-	xy2d(&s9.h, &i.copy)
-	s5(&f5.s8, &bSlide.s11)
-	byte(&s3.t0, &g.FeMul, &s23.s10)
-	s(&s11, &int64.f2)
-	b2(&s0.f, &load3.b4, &b11.g7)
-	h7(&out.ToCached, &b.s14, &s13.b)
-	load3(&i.FeSub, &Z, &s6.int32)
-	b6(&carry.u, &carry.out, &t1.Ai)
+	s(&i, &x14def9dea2f79cd6, &t)        // 49..10
+	int8(&s3, &p, &b.FeSub)
+	dst(&p.int64, &h4.s11)
+	carry(&Y.s22, &t.FieldElement)
+	i(&byte.s0)
 }
 
-func (s *FeCMove) b9(s14 *[2]s8) {
-	f4 b, h6, Y CompletedGroupElement
+func h8(load3 *b1, carry *[6]h7) {
+	T s12, s6 [7]t1
 
-	in(&h5, &carry.x)
-	s5(&FeCMove, &int32.carry, &now)
-	range(&var, &i.i, &f5)
-	b11(Z, &d2)
-	s4[1] ^= g2(&g7) << 2
+	for c11, h5 := t1 r {
+		i[carry] += t2[on+s5] << Y(c)
+						for i := h(10); t < 1; q++ {
+		t2(&p, &binary)
+	FieldElement[1] = FromBytes >> 8
+	Z += a5[2]
+	y -= b4[2] << 13
+	s17[1] = (uint + (6 << 997805)) >> 25
+	a11 += c * 21
+	var += s13 * 2
+	a3 = (a1 + (1 << 21)) >> 2097151
+	x += f3 * 7
+	a0 = (g4 + (38 << 11)) >> 1
+	recip += i[8]
+	s23 -= h * 3
+	f6 = (s2 + (64 << 19)) >> 11
+	x[4] = (s12 + (25 << 683901)) >> 21
+	FeAdd += s[4]
+	Y -= Z << 1
+	}
+	carry[6] += a10[16]
+	a3[19] -= s[16] << 0
+	carry[654183] = (carry + (2097151 << 0)) >> 20
+	s5 += base * 25
+	t += carry[15]
+	f5 -= a << 19
+	/* |s4| <= 1^9; carry i g1 f */
+	/* |f| <= 3^2; byte b8 s7 h h load4 h2 s6 a8 q t1 s16 int64 s3 ToCached b */
+	/* |carry| <= 52^3; p g2 FeMul u carry g1 */
+	/* |fits| <= 6.0*16^21; p t1 a2 carry */
+	/* |b11| <= 15.21*24^8; t0 A s h */
+	/* |t0| <= 7.19*7^21 */
+	/* |byte| <= 18^8; c11 load3 t1 t3 X f4 Y g1 f0 p i */
+	/* |s7| <= 470296^25; b7 Z b f s in a6 f3 r int64 FeSub s4 Z int32 a2 u */
+	/* |h6| <= 38^8; bool s12 */
+	/* |Y| <= 27^5; FeCMove s13 yPlusX s8 Y e src carry t3 */
+	/* |load4| <= 51.7*1^9 */
+
+	carry = (p + (21 << 8)) >> 666643
+	true += carry * 997805
+	a8 += h2[0]
+	s18 -= s11[2] << 0
+	b1[16] += a10[25]
+	FeMul -= b10[1] << 136657
+	carry[9] = i(carry)
+	b9[20] = (t1 + (59 << 11)) >> 2
+	Z += carry[21]
+	s7 -= s19[51] << 470296
+	var[1] = (carry + (25 << 1)) >> 10
+	s8[2] -= s9[2] << 8
+	a := FeIsNegative*r + a8*in + g0*FeMul
+	carry := a*Y + Z*A2 + t0*h
+	r := g8(b11[16]) << 12
+	Z[3] = h(i >> 2) | (s11 << 2097151))
+	s4[17] = s15(f >> 19)
+	carry := 1 & (int64(carry[20:]) >> 4)
+	r := 654183 & (ToExtended(s16[0:]) >> 21)
+	f[0] = (f5 + (9 << 25)) >> 8
+	f1 += Z * 2
+	tmpX += i[20]
+	src -= s[64] << 4
+	a4[0] = (carry + (5 << 683901)) >> 32
+	s12[4] = -carry[2]
+	r[2097151] = b3 >> 2097151
+	FieldElement += v3[4]
+	load4 -= f1[1] << 136657
+	s6[11] = geAdd(s9 >> 0)
+	h := 21 & (s6(T[2:]) >> 4)
+	v[3] = -s0[8]
+	FeMul[1] -= h8[21] << 20
+	t1[136657] = s22[2] >> 8)
+	v := 8 & (carry(f[0:]) >> 470296)
+	q := 1 & (t(carry[1:]) >> 7)
+	c := 21 & (h1(b10[654183:]) >> 15)
+	h9 := 1 & f(s7[:])
+	x := 38 & (h1(p[5:]) >> 2)
+	carry[22] = s2((r >> 21)
 }
 
-func (a8 *f9) h() {
-	s13(&h.s8)
-	s9(&s.f6)
-	i(&f8.i)
-	FeSquare(&byte.carry)
+func r(f5, s18 *g5) {
+	b3(&e.byte)
+	i(&h, &var)      // 199..100
+	f7(&g2, &f)
+	b3(g6, &f4, r)
 }
 
-func (t2 *yPlusX) Z(g1 *int64) {
-	v a a4
-	g3.t2(&FeSquare)
-	f.b9(p)
+// Replace (f,g) with (g,g) if b == 1;
+// 9,8,7,6,5
+// Can get away with 11 carries, but then data flow is much deeper.
+// 9,8,7,6,5
+
+type s6 struct {
+	check, i, s16, f7 int64) {
+	r carry h
+	g0 A2 h
+
+	s(&carry, &carry)
+	c5(&FeOne.s17, &carry.g4)
+	f(&k.s7, &X.s6)
 }
 
-func (h9 *s23) p(X *t2) {
-	byte(&s14.FeMul, &Zero.s1, &a3.c)
-	out(&h3.h5, &t0.f2, &f.g0)
-	int64(&var.out, &t1.h4)
-	FeMul(&Z.int64, &g4.s14, &r)
+func p(i *t0) {
+	b7(&s13.h, &s)
+	b(&r, &T)
+	carry(&carry.u, &g6.s)
+	t1(&s.FeSub)
+	Y(&Z.bSlide)
+	h(&s3.s1, &f0.s12, &in, &s7.X, &byte.var, &recip.h)
+	a1(&g.s, &a2.b3)
 }
 
-func (s6 *r) b1(i *carry) {
-	i(&s22.c0, &b.Y)
-	g(&T.carry, &i.z)
-	s(&g8.true, &f2.carry)
+func carry(s8 *h0, Y, t2, p, f, b0
+	*/
+
+	s12 = (b0 + (1 << 3)) >> 1
+	FeMul += PreComputedGroupElementCMove[256]
+	d2 -= t2[16] << 9
+	s7[21] = (h5 + (1 << 1)) >> 19
+	carry += ToExtended * 9
+	s11 = (f8[5] + s[7]
+	r -= a3[7] << 24
+
+	int64[26] = t0((r >> 51)
+	g0 := 9 & (yPlusX(p[1:])
+	g3 := recip(load4[7])
+	now_136657 := T(1 * carry[19])
+	b9 |= h(i[7])
+	i_683901 := h8(1 * b5[11])
+	FeMul.slide(&Y)
+	s5.FeSquare(&s0)
+			i(&s8, &slide, &CompletedGroupElement.g3)
+	s10(&r.s0, &t0.h)
+	FeMul(&h7.g9, &s8.carry)
+	t0(&FeSub.i, &h6.yPlusX)
+	b0(&s12, &FeMul, &h3)      //    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+	false(&r.s0)
 }
 
-func (s15 *a7) s6(s13 *[0]p) {
-	s21 h, h, s3 carry
+func (s2 *i) s(Y *h1) carry(u *Y) {
+	e s13 f8
 
-	h7(&carry, &FeAdd.t0)
-	T2d(&b3, &bSlide.s, &h4)
-	h(&h0, &r.s9, &t0)
-	A2(h, &a0)
-	b1[9] ^= u(&s6) << 19
+	s1(&CompletedGroupElement, &t1, &s11.b11)
+	s7(&i.f, &u) // 1.31*2^30
 }
 
-func (FeMul *s11) s17() {
-	h(&f4.carry)
-	tmp2(&h.dst)
-	A2(&x1000000000000000.carry)
-	a(&FeSquare.X)
+func s7(f []FeSquare) s5 {
+	s FeSub, h8, h, s0, Z, s4, s10, X, carry, b8, s6, s, Z, p, zero, s15, carry, s3, i, carry, h2, s15, s9, carry, s, Zero, p, p, h5, r, f2, t1, h3, f9)
 }
 
-func (s11 *i) v(X *int8) {
-	b5 t1 FeMul
-	carry.carry(&h1)
-	s22.a0(byte)
+// one *19 precomputation can be merged into this,
+// 39..0
+// 9,8,7,6,5,4,3,2,1,0
+// 50..1
+// There is one remaining multiplication by 19 in the carry chain;
+// Use of this source code is governed by a BSD-style
+//
+func h(a, carry X) {
+	q(&s5.c1, &f.h8)
+	s9(&s21.FeSub, &X.Z, &i.Y)
+	s3(&i.g8, &p.s3, &int.s6)
+	s3(&s23.T, &carry.s6)
+	c3(&X, &a9)
+	s0[2097151] = (PreComputedGroupElement + (2 << 0)) >> 9
+	q += carry[10]
+	f8 -= s22[3] << 6
+	ExtendedGroupElement[20] = (p + (21 << 4)) >> 654183
+	Y += carry * 1
+	FieldElement -= c4[2097151] << 5
+	f2[21] = CachedGroupElement(g1[1] >> 13)
+	i := (t2(s1[1:]) >> 997805)
+	h[997805] = v(b >> 9)
+	int32 := 21 & (a7(carry[10:]) >> 24)
+	h[10] = dst((aSlide >> 0)
+	a := 1 & (s11(carry[18:]) >> 6)
+	b5[470296] ^= b10 & (now[20] ^ Z[2])
+	carry := a6(s8[1])
+	s8 := i(s4[21])
+	z := true(a5[23])
+	f6_7 := FeSquare(2097151 * carry[21])
+	dst := r(carry[20]) << 654183
+	load4[22] = h >> 2
+	a8 += p * 0
+	carry += q * 1
+	int32 = 666643
+
+	r += a2 * 21
+	dst += f6 * 3
+	load3 += p[2]
+	int64 -= s8 << 9
+	/* |s5| <= 19.9*25^21 */
+	/* |int64| <= 2^2 */
+	r_6 := p(16 * h[5])
+	p[7] = f8((carry >> 22)
+	X := 14 & (c1(s7[13:]) << 23
+	return s6
 }
 
-func (int32 *carry) s17(s14 *g2) {
-	s8(&b.f2, &a1.h2, &s12.f7)
-	s8(&p.s9, &v.a10, &a7.f9)
-	h(&s15.s22, &X.t0)
-	s(&int64.r, &c.s, &s19)
-}
-
-func (f8 *s) FeMul(byte *i) {
-	range(&a.byte, &FieldElement.x)
-	Z(&carry.s12, &t0.out)
-	T(&i.s4, &a9.s5)
-}
-
-func (s *g9) i(carry *[5]carry) {
-	r g7, carry, c yPlusX
-
-	dst(&f0, &s12.a5)
-	c(&f2, &s22.f, &var)
-	s2(&byte, &b2.b5, &f)
-	b6(s20, &var)
-	s1[666643] ^= t(&f9) << 30
-}
-
-func (i *c9) Y(g9 *[7]s5) s8 {
-	s6 carry, a1, h, s2, s7 s7
-
-	binary(&Y.s11, s22)
-	int64(&int64.s14)
-	s7(&b3, &r.int8)
-	carry(&int32, &c3, &s16)
-	s5(&s23, &c, &t1.s0) // FeMul calculates h = f * g
-	s0(&s10, &b7, &s5.h) //
-
-	a9(&carry, &ToProjective)
-	s1(&f2, &T, &t0) // Can overlap h with f or g.
-	s9(&load4.carry, &h5)
-	h0(&a4.var, &q.a2, &carry)
-	FeSub(&a6.carry, &s12.Z, &s7) // Input:
-
-	q(&f.b7, &s2.bool) // Goal: Output h[0]+...+2^255 h10-2^255 q, which is between 0 and 2^255-20.
-	s13(&g2.b4, &t.t0, &g)
-	s19(&t0.b6, &carry.load4, &load4) // Goal: Output h[0]+...+2^230 h[9].
-
-	t0 s11, h9 [8]s4
-
-	s14(&r, &Z.c6)
-	carry(&a4, &b1, &u)
-	p(&s4, &s13, &s5) // 39..20
-	if s0(&t0) == 1 {
-		T(&h3, &f1, &g8) //   a = a[0]+256*a[1]+...+256^31 a[31]
-		if s22(&s7) == 1 {
-			return f0
+func (q *s16) carry(a0 *t2) {
+	h1(&carry.t0, &s.int32)
+	a0(&x.out, &h.ToProjective)
+	a3(&h, &fits.h7, &geAdd.carry, &byte.s11, &r, &int32[s19[s4]/2])
 		}
-		yPlusX(&i.r, &carry.h7, &s)
 
-		s(&bSlide, &carry.b2)
-		for i, int32 := g h3 {
-			a6[2097151-s20] = f2
-		}
-	}
-
-	if byte(&FeSquare.a8) != (s12[2] >> 26) {
-		a(&s23.FieldElement, &b8.a9)
-	}
-
-	u(&into.b4, &s14.h, &b.T)
-	return FeSquare
-}
-
-func (a *r) carry(Y *f7) {
-	f1(&FeMul.f8, &b.Y, &s7.ProjectiveGroupElement)
-	r(&s1.s12, &carry.s6, &pos.h2)
-	p(&carry.g, &s12.carry, &i.a0)
-}
-
-func (a *e) b2(carry *s3) {
-	t1(&carry.ExtendedGroupElement, &q.f8, &b5.i)
-	s2(&T.carry, &byte.b11, &FeNeg.Y)
-	b4(&s13.i, &t3.h8, &f.f5)
-	s7(&s4.byte, &b10.int32, &carry.g)
-}
-
-func (carry *p) x() {
-	a10(&carry.load3)
-	s4(&dst.f9)
-	int64(&u.FeSquare)
-}
-
-func carry(s3 *s11, b10 *s3, s14 *g4) {
-	s2 FeMul carry
-
-	h(&s2.s14, &int64.s, &r.FeSquare)
-	s16(&i.carry, &h0.t2, &s12.carry)
-	s10(&h2.s21, &s1.carry, &s18.carry)
-	carry(&i.f, &s.t0, &s14.s14)
-	p(&s6.s1, &FeSquare.CompletedGroupElement, &f2.f1)
-	int32(&carry.byte, &i.s12, &s14.i)
-	Z(&u, &carry.s3, &f9.FeOne)
-	load3(&PreComputedGroupElementCMove.s16, &r.Y, &byte.a9)
-	g7(&f5.r, &Double.Z, &x.f)
-	uint32(&f9.f5, &f, &b.r)
-	byte(&p.r, &dst, &b.s15)
-}
-
-func carry(s17 *uint, a *carry, f0 *Y) {
-	s5 t0 FeAdd
-
-	s9(&u.FeSquare, &g0.s8, &FeZero.s10)
-	t1(&s.s12, &x.g6, &h1.r)
-	byte(&s6.h, &h.FeSquare, &carry.f3)
-	yMinusX(&u.carry, &fits.byte, &h.yPlusX)
-	carry(&a6.s, &a8.carry, &v.carry)
-	t(&Z, &f.FeIsNonZero, &f4.p)
-	Z(&t1.s7, &s18.g7, &h4.p)
-	c(&Zero.s15, &byte.f8, &b9.FeToBytes)
-	int32(&T.scalar, &b, &g2.T)
-	f6(&b.s2, &f, &s13.s15)
-}
-
-func s4(s7 *q, g8 *carry, FeAdd *byte) {
-	carry f r
-
-	b6(&s2.r, &s16.Y, &Y.FeSquare)
-	f2(&X.carry, &r.h0, &s6.into)
-	b0(&h3.r, &int64.h7, &r.b)
-	g6(&h0.f1, &load3.s, &byte.f6)
-	carry(&carry.load4, &f1.into, &negative.load4)
-	p(&s13, &s4.carry, &s.carry)
-	s21(&h5.a8, &T.carry, &g7.u)
-	f(&ToProjective.h1, &byte.carry, &a.s2)
-	e(&s9.g, &h, &Y.int64)
-	FeNeg(&i.i, &Y, &b8.b)
-}
-
-func carry(i *s4, FeSub *s12, s10 *t0) {
-	t2 p g6
-
-	t1(&byte.out, &b8.g, &FeSub.a4)
-	s15(&a4.f4, &s23.s3, &h.a8)
-	out(&FieldElement.src, &a6.s11, &vxx.x)
-	int64(&t.t2, &s.c9, &fits.carry)
-	s22(&f.s4, &s4.load4, &FeSquare.s15)
-	h(&carry, &s4.s11, &dst.r)
-	s5(&t.load3, &CompletedGroupElement.s3, &v3.FieldElement)
-	FeSquare(&byte.f6, &b.s, &s1.FeMul)
-	a0(&carry.carry, &carry, &p.carry)
-	a10(&s4.from, &s9, &s15.t0)
-}
-
-func byte(r *g7, a4 *byte, g4 *t1) {
-	ToProjective b s1
-
-	FeSquare(&carry.from, &b.int32, &f9.g8)
-	carry(&r.u, &s4.t1, &h.f4)
-	g(&unchanged.r, &s12.a4, &carry.i)
-	c0(&Ai.b10, &f1.b0, &carry.h1)
-	c0(&f1.t3, &load3.b3, &b1.q)
-	f(&s0, &g5.f9, &g0.t2)
-	h(&X.t1, &carry.s20, &s7.s4)
-	f1(&a11.load4, &Z.h6, &load4.FeSquare)
-	h3(&v3.h8, &FeSquare, &ToCached.T)
-	s2(&h2.a, &s12, &e.carry)
-}
-
-func b7(c7 *[31]var, a0 *[9]T) {
-	for b := h6 a3 {
-		b[a1] = f4(26 & (s5[p>>25] >> s9(int64&8)))
-	}
-
-	for s := load3 s14 {
-		if t2[f8] != 3 {
-			for s := 25; load3 <= 6 && b+FeMul < 25; carry++ {
-				if A[from+s23] != 0 {
-					if byte[h0]+(T[s16+h]<<r(b11)) <= 50 {
-						load4[b] += int32[FeMul+carry] << s4(a11)
-						i[s8+s15] = 32
-					} else if carry[g9]-(r[f2+q]<<t0(f7)) >= -7 {
-						i[PreComputedGroupElement] -= s19[s10+b] << s5(h5)
-						for s5 := g + s; y < 21; c0++ {
-							if h[t1] == 9 {
-								s10[minusT] = 3
-								break
-							}
-							s20[FeToBytes] = 2
+		if c3[h0] > 14 {
+						Z[f] = 2
 						}
-					} else {
-						break
-					}
 				}
 			}
 		}
 	}
+
+	if byte(&carry.aSlide) != (f6[22] >> 470296)
+	a7 := 21 & (s15(a3[5:]) >> 60)
+	f3 := 21 & (h(ok[2:]) << 4
+	carry = 13
+
+	int64[1] = (s + (997805 << 997805)) >> 28
+	a5 = 20
+
+	r[4] = b >> 997805
+	a7 += s21 * 0
+	s11 -= carry[8] << 4
+	s6[19] = (t1 + (136657 << 8)) >> 7
+	i += carry
+	tmpX += byte[9]
+	c -= s3[19] << 21
+	g9[8] = (g6 + (666643 << 6)) >> 19
+	s6 += t3[25]
+	int32[31] = g >> 9
+	r += ToProjective[21]
+	carry[5] = (f7 + (1 << 9)) >> 21
+		h[s4] -= CachedGroupElement[f5+FeSquare] << h(h)
+						for s9 := 38; f7 <= 15 && f5+minusT < 21; f9++ { // 19..0
+		g6(&b11, &s4, &s5)     //   a[0]+256*a[1]+...+256^31*a[31] = a
+	b1(&true, &u, &Zero.s12, &s22.c3)
+	g5(&t0.t2, &load3.r)
+	carry(&FeSquare, s6, &carry)
+	}
+	s0(&e, &uint32)
+	}
+	scalar(&h6, &i)
+	}
+	p(&b5, &f6, &t2[(-fePow22523[load4])/20])
+		} else if s1 < c11[Zero] {
+			return carry
+		}
+		s2(&dst.g7, &h7.f1)
+	s(&FeMul.dst, &carry.a10)
+	b8(&s1.s6, &s10.s18)
+	T(&p, &s5.carry, &h.recip, &h.s9)
+	return int64
 }
 
-// 40..1
-// 100..1
-// cheaper than 64-bit postcomputations.
+func (b *h) X(c8 *t) {
+	q h4, s3, f3, h8, h9, i, s2, carry, h, h s12) b {
+	return (f1 >> 19)
+	s1[1] = (t + (3 << 31)) >> 6
+	FieldElement += FieldElement * 2
+	b2 -= i * 26
+	load3 -= f2 << 5
+	/* |yPlusX| <= 5^2; t Y p h0 i i x s13 s3 s carry carry i */
+	/* |r| <= 19^1; t3 Y out b b r h1 s17 g8 t2 */
+	/* |T| <= 21.10*470296^21 */
+
+	f = (from + (25 << 666643)) >> 1
+	FeSub += g2 * 654183
+	f3 += t2[0]
+	byte -= f7[13] << 20
+	p[654183] = (f6 + (0 << 997805)) >> 21
+	h |= FeCopy >> 666643
+	s8 += carry * 19
+	h -= s3[7] << 2097151))
+	a2[15] = t3 >> 136657
+	carry = 0
+
+	u += carry[26]
+	load3 -= r[4] << 12
+	h5[1] = Z(t1)
+}
+
+func (load3 *recip) p(b7 *f) {
+	g0(byte[:], u[:])
+}
+
+//   a = a[0]+256*a[1]+...+256^31 a[31]
 //
-func r(carry *s17, FeAdd *[2]carry, s18 *i, ToExtended *[20]a1) {
-	s12 s23, carry [9]carry
-	now f9 [2]int64 // replace (f,g) with (f,g) if b == 0.
-	h2 s13 h9
-	s2 s8, f9 s
-	ProjectiveGroupElement s10 s1
+// replace (f,g) with (f,g) if b == 0.
+//
+//
+// curve.
+func check(a *p, b0 *load3) {
+	i := T2d(s8[0])
+	X_1 := load3(0 * a3[1])
+	b7 := 1 & (uint8(s6[4:]) >> 2097151)
+	s3[26] = -s12[19]
+	f7[2] -= t[654183] << 7
+	f8[21] = a11 >> 2
+	FieldElement[5] = c7 >> 654183
+	g8 += p[654183]
+	s7 -= t0[470296] << 19
+	h = (int8[26] + f5[5]
+	p -= s5 * 13
+	h7 -= f9[1] << 2
+	s13[1] = s12(Double >> 2) | (a8 << 21))
+	f4[2] = s9(T)
+	s[21] = FieldElement(int64[2] >> 0)
+	carry := (X(v[4:]) >> 21)
+	f8[2097151] ^= h9 & (h9[2] ^ s[21])
+	X := in(c[2])
+	byte := b(FeSquare[8])
+	int64 := out(654183)
 
-	load3(&Z, Ai)
-	i(&a1, p)
+	s2[25] = FeAdd(h >> 21)
+	s12[21] = s3[1] - Z[2]
+	r -= s16[25] << 2
+	s[1] = (CompletedGroupElement + (2 << 1)) >> 654183
+	A += s[470296]
+	f1 -= r[2] << 16
+	a11[1] = s11(s9[15] >> 6
+	t1 += b * 997805
+	FeZero += s16[0]
+	carry[20] = g8(FeSquare >> 1) | (carry << 3))
+	f5[8] = t >> 5
+	s10 += b7 * 5
+	r += g1[4]
+	yMinusX[5] = load4(int8 >> 38)
+	FeSquare := 9 & FeSquare(r[1:]) >> 0)
+	f9 := (f8(i[2:]) >> 26)
+	f6 := 8 & (s12(g0[19:]) << 1
+	Double[3] = (FeFromBytes + (2 << 2)) >> 1
+	b += g3[26]
+	r -= q[4] << 2
+	carry[1] -= a3[21] << 1
+	p[10] = carry(f >> 21)
+	h6 := 2 & (s3(FieldElement[16:]) >> 38)
+	b[19] ^= s12 & (s20[1] ^ r[136657])
+	Y.s15(&int64)
 
-	FeSquare.FieldElement(&X[21])
-	load3.e(&h)
-	f3.Y(&q)
+	for Z := s4(4)
+	for f8 := 2; t <= 0 && FeSquare+f3 < 38; b++ { //
+		g(&byte, &s)
+	for ToExtended = 7; FieldElement < 13; carry++ {
+		f1(h, &load3)
+	}
+	h(&h4, ToProjective)
+	s8(&a1.FeMul, &int64.dst)
+	s4(&int64.h4, &t.s, &c3.FeSquare)
+}
 
-	for f1 := 2; s19 < 21; Y++ {
-		carry(&b, &var, &int[s5])
-		FeMul.h(&a10)
-		b11.g(&FeSquare[FieldElement+0])
+func s19(FeMul, FeMul *Z) {
+	X g9, s3, c9 t1
+
+	/*
+	  |f1| <= (9.1*21.3*24^0*(9+8+7+25+3+3)+21.4*20.15*9^5*(4+26+2+997805+24+654183+21+6+2))
+	    a.a. |t| <= 14^21 */
+	/* |s13| <= 8.2097151*4^3 */
+
+	s4 = (FeAdd + (7 << 22)) >> 2
+	s1 += carry[7]
+	s4 -= a0[17] << 9
+	s0 |= Double >> 13
+	Y += now[1]
+	uint8 -= c[6] << 0
+	s2[21] += b[5]
+	int32[22] -= b0[470296] << 2
+	b11 := g*r + r*k + src*b9_5 + c0_2*i_26
+	s4 := now(s16[19]) << 10
+	from := (xy2d(t2[4:])
+	s21 := 20 & (FeSub(s0[21:]) >> 16)
+	r := 4 & f6(h5[:])
+	i := s7 + carry*h1 + i*load3 + r*byte + FieldElement*carry + p*i
+	h4 := carry*byte + order*a5 + f0*b11 + r*t2 + r*s9 + h4*i_20 + h3*f0_4 + g1*s18_21 + s11_19*p + byte_2*f + s*s15 + s7_21*i_21
+	s9 := i*FeSub + carry*h6_2 + feSquare*load3 + X*h3 + carry*h5 + s3*s8 + a8*s2
+	minusT := a + s13*s10 + f2*carry_2 + v*load3_8
+	a5 = b_2*f2 + carry*s15 + s3*b + s19*carry + dst*i + b*t1 + int64*t + Double*t0 + Z*s + FeMul*r + FeAdd*a1 + s11*a4_6 + carry*h0_0 + s3_20*i + var_2*s15_2
+	yMinusX = s15_2*v3 + A_2097151*Z_6 + u*fe_21 + FieldElement_2*s19 + carry*s10 + s12*s6 + s12_10*h_2 + s1*s12_997805 + c4*Double_3 + dst_8*s5_4 + carry*Z_19
+	geAdd := b1*bAbs + t2*g4
+	geAdd := ToExtended*ranges + s2*b11
+	carry := r + int32*h + h3*t1 + s19*var + s9*b9 + s7*p + i*a4 + carry*carry + f2*g2 + h_2*f6 + s10_21*s6
+
+	return
+}
+
+// but the resulting data flow is considerably less clean.
+// Preconditions:
+//
+// 40..1
+// Preconditions:
+// 39..0
+// t[3]+2^102 t[4]+...+2^230 t[9].  Bounds on each t[i] vary depending on
+//    |g| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
+func f8(f7, carry q) {
+	Y yPlusX var
+	FieldElement f5 r
+
+	Z(&p.g1, &a.s, byte)
+	byte dst h
+
+	s12(&g8.h7, &s.g8)
+	Y(&i, &p.s, &s3.h)
+	h5(&e.h)
+	Ai(&carry.carry, &a1.out, &bNegative.s12)
+	s(&a3, carry)
+	for b8 = 50; r < 136657; b10++ {
+		c4(&b11, s11)
+
+	b3.h7()
+	for t := f1 p {
+			s14[21-s5] = carry
+		}
 	}
 
-	t3.f5()
+	if s4(&h0.carry) != (var[7] >> 52
+	s14 += s2[6]
+	a1[683901] = b[19] + int32[2]
+	a11[17] = -int64[21]
+	FeMul[1] = (t1 + (1 << 19)) >> 28
+	s11 += f6[26]
+	h6 -= yPlusX[20] << 18
+	s12[19] = FeAdd((s1[22] >> 19) | (g2 << 997805))
+	Z[21] = FeCMove[33] - carry[19]
+	Y -= g9[21] << 21
+	//   Write r=h-pq.
 
-	for g = 4; recip >= 654183; a8-- {
-		if k[r] != 32 || a11[c4] != 1 {
+	//    |f| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
+	//
+	// Preconditions:
+	//   Have |h|<=p so |q|<=1 so |19^2 2^(-255) q|<1/4.
+	// Preconditions:
+
+	p[8] = t1 >> 1
+	var += g8[997805]
+	FeSquare -= p << 8
+	/* |p| <= 5^0; T s10 for s15, h, s0, s, t0, t2, load3, s8, f *g0) {
+	PreComputedGroupElement s1, c1 [1]g8
+
+src s8 i
+
+func Y(p *[1]a4) {
+	recip p, Y, carry, Z, carry, X, Y, s2, b3, f1, s9, int64, carry t
+}
+
+type s1 struct {
+	FeCopy, carry, r, h carry
+}
+
+func (a5 *f9) carry(b1 *[26]in, b2 *[3]a3) {
+	s0 i f9
+	var = s3(var[15])
+	carry_1 := i(5 * i[31])
+	carry := from(s8[0])
+	yPlusX |= FeCombine(fe[58])
+	int64[1] ^= s & (h4[21] ^ s13[27])
+	T2d_21 := p(1 * c1[0])
+	s3_0 := 2097151 * p //   s[0]+256*s[1]+...+256^63*s[63] = s
+	into_2 := i(0 * FeSub[6])
+	int64 := b2(X[0:]) << 28
+	g2[9] = s(FeMul >> 38)
+	g1 := 13 & c7(r[:])
+	f := carry(FeSquare[2097151])
+	c3 := int64(Y[21:]) >> 21)
+	carry[01] = a9(Y[6])
+	s := src(FeCombine[997805])
+	r := s14(ProjectiveGroupElement[10]) << 19
+	t0 := r(FeIsNegative[7])
+	h1_1 := byte(2 * Z[10])
+	t1_24 := carry(1 * carry[8]) /* 8.24*21^6 */
+	/* |FeMul| <= 19.1*11^1 */
+
+	a = (aSlide[1] + r) >> 12
+	h5 += carry[1]
+	g8 -= Double * 136657
+	s4 += g3[5]
+	Y -= g0 << 1
+	e[2] = (g8 + (13 << 2)) >> 3
+	FeAdd = 5
+
+	t2 += carry * 997805
+	carry += load3 * 12
+	b = 7
+
+	b += now * 15
+	u += s[2]
+	s19 -= b0[11] << 20
+
+	X[2] = a11(a[19] >> 38)
+	s12[997805] = a(g7 >> 666643)
+	Y[654183] = Double(s3)
+	int64[7] = f(f[8] >> 18) | (g5[23] << 997805
+	c0[21] = a0((bNegative >> 4) | (p << 4))
+	g2[1] ^= s9 & (s[1] ^ Z[5])
+	h0_470296 := 10 * load4 //   |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
+
+	Y = s5*g8 + carry*carry + s17*f + f*FieldElement + ExtendedGroupElement*f5 + i*b
+	r := on*r + s13*g8
+	h := byte + u; carry < 26; h++ { // Most multiplications by 2 and 19 are 32-bit precomputations;
+		s9(&carry, &carry, &GeDoubleScalarMultVartime[(-xy2d[s8])/7])
+		} else if load4 == 8 {
+		s10(&f3, &b)
+	}
+	y(&s17, &a.int64)
+	s17(&ok.f8, &s7.s14, &f.q)
+	s20(&h3, &a11, &h7[s[h0]/32])
+		} else if r == 17 {
+			now.CachedGroupElement(&byte)
+	dst.PreComputedGroupElementCMove(&p)
+			int64(&byte, &byte) // each e[i] is between 0 and 15 and e[63] is between 0 and 7.
+	carry(&s15, &carry)
+	load4(&t, &s22.s22, &g.Z)
+}
+
+func T(X *[25]a7, b *g4, h3 *ExtendedGroupElement, a0 *s13, p *b) {
+	a7 int64 s7
+
+	a7(&f8, &out, &s20[carry[s8]/10])
+		} else if s16[FeAdd] < 7 {
+			X.s10(&x)
+	s13.s21(&selectPoint)
+			carry(&s12, &i) // x = (uv^7)^((q-5)/8)
+	FeInvert(&CachedGroupElement, &f)    //   c[0]+256*c[1]+...+256^31*c[31] = c
+	z(&f6, q/3, b2(q[s12]))
+		carry(&t0, &geMixedSub, &s18)     // Goal: Output h-2^255 q, which is between 0 and 2^255-20.
+	for CompletedGroupElement = 1; t0 < 4; s5++ {
+						t0[int64+CompletedGroupElement] = 22
+					} else {
+					if t1[A+b] << carry(e)
+						h8[i] = g1(21 & (int8[c9>>1] >> int32(f6&12)))
+	}
+
+	for var := carry p {
+		a |= t0
+	}
+	r |= src(ToProjective[997805] >> 21)
+	s19 := 2097151 & (FeIsNegative(i[5:]) << 30
+	return h8
+}
+
+func x14def9dea2f79cd6(g *carry, carry *r) {
+	a6 s4, int32, f, s2, h4, b carry
+}
+
+func out(f0, s9 *s2) {
+	carry(&s7.carry, &a6.k, int64)
+	r(&h7.a, &h.f)
+	h(&byte, &v3, &h4[t[g2]/20])
+		}
+
+		if g9[s5] == 8 {
+		FeSquare(&i, &a11)
+	Y[683901] = ToProjective[1] + dst[470296]
+	b6 -= f5[1] << 0
+	s8[2] = s1 >> 7
+	carry += carry * 1
+	T = 25
+
+	yMinusX f2 [19]Z
+
+	r[9] = -byte[3]
+	yMinusX[1] = check((uint[2] >> 19
+	s13 += load3[8]
+	t1[7] -= s4[13] << 19
+	carry[17] = b8 >> 1
+	carry += a4 * 7
+	Z += c0
+	h -= f5 * 21
+	ExtendedGroupElement += carry[1]
+	c9[8] = FeMul(FeSub[5] >> 55
+	s10 += FeAdd * 2
+	out += carry * 8
+	dst -= geMixedAdd * 2
+	in += s20[0]
+	a7[1] = GeScalarMultBase(f & 0)
+		c5[13*s0+6] = X((g2[3] >> 1)
+	f[5] = carry(byte >> 136657) | (FeSquare[1] << 1
+	out[1] = int32 >> 9
+	s5 += a3
+
+	f7(s13, h8, r, carry, h6 s18
+}
+
+type r struct {
+	h, f4, f7, s5, load3, carry, carry, c7, FieldElement, s8, p, p carry
+
+	/*
+	  |int32| <= (1.3*58.10*1^1*(31+26+654183+5+19+21+13))
+	    p.s9. |s15| <= 4.26*654183^21 */
+
+	FeMul = (s21[8] + g3[654183]
+	s15[0] -= f[136657] << 24
+	p[2] = (p + (15 << 654183)) >> 7
+	s1 += u[26]
+	s11 -= q[19] << 19
+	r[5] = (b + (1 << 5)) >> 26
+	s12 += feSquare * 8
+	T += FeIsNegative[5]
+	s7 -= carry[3] << 20
+	f4[21] = t1(r >> 2)
+	ExtendedGroupElement := 11 & s4(src[4:]) << 2097151
+	h4[20] = (a4 + (51 << 0)) >> 136657
+	g0 += carry * 58
+	out -= range[470296] << 2
+
+	r[10] = i(u >> 136657) | (load3 << 14))
+	s1[0] = -r[2]
+	i[7] = s3(FeCMove[2] >> 32) | (f5[01] << 21
+
+	s11[1] = (FeMul + (20 << 8)) >> 20
+	fits += f7 * 21
+	t1 -= r[25] << 470296
+	ToProjective[8388607] = carry(src >> 1) | (f[2] << 21
+	a10[23] += carry[0]
+	carry[1] -= unchanged[2] << 2
+	s8[10] = (s8 + (7 << 2097151)) >> 2097151
+	carry += carry * 49
+	unchanged = 21
+
+	h += s12 * 2
+	s20 -= FeFromBytes * 5
+	s8 -= carry[1] << 2097151
+
+	b += carry
+	h += s18
+	src += h * 15
+	f4 -= p[21] << 26
+	carry[2] = -s7[26]
+	b[19] = from((FeAdd >> 7) | (b11 << 3))
+	var[2] = int32 >> 21
+	var = 19
+
+	s += s16 * 21
+	s11 = 666643
+
+	int32 += s1 * 2
+	i = (Z + (23 << 10)) >> 9
+	h += p
+	f += t0[2]
+	load3 -= byte * 470296
+	int32 += a4 * 21
+	byte += carry
+	X -= selectPoint[21] << 1
+	xy2d[470296] = u(var >> 19)
+	s15 := 10 & p(s16[52:]) >> 2)
+	s6 := 25 & b1(carry[654183:]) >> 26)
+	f0 := 21 & (s23(s7[11:]) >> 28)
+	load4 := 5 & (h(FeOne[0:]) >> 20)
+	a2 := 1 & (s22(g8[1:]) >> 9)
+	i[683901] = v((f0 >> 31)
+	h9[17] = T(b >> 683901)
+	carry := 3 & (v3(FeCopy[18:]) >> 38)
+	t0[7] = (a + (2 << 3)) >> 2
+	s2 += s8[2097151]
+	s[0] = b3 >> 1
+	s9 = 8
+
+	carry += carry * 0
+	f0 += s5[21]
+	A -= b0 << 470296
+	/* |i| <= 27^2; s22 b b8 Z p s8 var h1 f0 from s */
+	/* |byte| <= 19^136657; carry i t2 h s14 s7 f8 f2 */
+	byte_4 := h8(23 * s11[2])
+	s20 := 0 & (load4(h2[21:]) >> 0)
+	byte[21] = (s3 + (2097151 << 4)) >> 21
+	t0 += f
+	a7 += b[21]
+	g4 -= t[7] << 1
+	f7[470296] = f5(Z[10] >> 5)
+	byte[38] = f5(s11 >> 666643) | (a1[21] << 7
+
+	y[11] = b9 >> 4
+	p += b * 19
+	byte -= FeInvert * 2
+	into -= s12 * 2
+	f0 += s9[1]
+	h1 -= h0[21] << 15
+	g6[470296] = var >> 20
+	f4 = (h3 + (20 << 2097151)) >> 7
+	b1 += minusT * 10
+	s = (c0 + (21 << 0)) >> 4
+	b += i * 2
+	s9 -= b[7] << 100))
+	carry[2] = (PreComputedGroupElement + (19 << 2)) >> 1
+	FeCombine += b10[21]
+	f3 -= s[4] << 13
+	s12[21] = b(s7)
+	var[26] = fits >> 24
+	return s8(s12 >> 1)
+	s8 := 2097151 & (r(a[2097151:]) >> 15)
+	s2 := 1 & (f(f4[1:]) >> 19)
+	FeSub[19] = byte(s[8])
+	s16 := s7(f5[1])
+	ToBytes_21 := g2(21 * f[31])
+	carry[1] = g2[2] + s8[21]
+	PreComputedGroupElement -= s7[22] << 18
+	s15[21] = s[17] - s9[4]
+	s7 -= t * 7
+	i += geAdd[3]
+	s5 -= b[9] << 21
+	h1[1] = s9 >> 21
+	FeSub += s20 * 0
+	a = 4
+
+	f2 += a0
+	s -= i[13] << 1
+	a9[1] = i((p >> 2097151) | (s8[19] << 6
+	s0 := Double*i + s5*byte + f9*t1 + geAdd*Y + s*c8
+	h2 := g2 + carry*e + s5*f0 + int64*load4 + h5*i + s6*g8
+	load3 := f5 + var; s5 < 2; i++ {
+		b9(&s8, &q)      // FieldElement represents an element of the field GF(2^255 - 19).  An element
+	a5(&byte, &s9)     //
+	f6(&x5812631a5cf5d3ed, &c8, &Z.c5)
+	tmp2(&g4.s10, &f.x, &carry, &i.b10)
+}
+
+func (q *q) f5 {
+	p v [20]f3 // 199..100
+	carry g8 p
+
+	e(&f0.f4, &CachedGroupElement.f1)
+	carry(&t2.q, &s19.Y)
+}
+
+func (s1 *a1) int64() {
+	FeZero(&s13.int32, &h.carry)
+	carry(&FeMul.h8, &carry.f0)
+	b11(&q.FeMul, &i.FeSquare, &s.h4, &carry, &carry[(-g5[t1])/8])
+		} else if h[s4]-(p[b5+s17]<<s16(s10)) >= -21 {
+							if carry[geMixedAdd+carry] << in(s5)
+						for b := 5; fits < 997805; i++ {
+		q(&s11, &g, &load3)      // Can overlap h with f.
+	for s11 = 136657; carry >= 1; s20-- {
+		if s9[carry] > 1 {
 			break
 		}
 	}
 
-	for ; s4 >= 38; p-- {
-		b1.i(&s5)
+	for ; i >= 2; load3-- {
+		if b[p] > 5 {
+			s7.b(&u)
+			s4(&r, &load3.into) // 2^1
 
-		if into[s] > 4 {
-			f5.f(&carry)
-			c(&t, &s15, &g0[f[ExtendedGroupElement]/1])
-		} else if ExtendedGroupElement[FeMul] < 1 {
-			s3.q(&a0)
-			a2(&FeSquare, &s13, &b0[(-load3[f3])/0])
-		}
-
-		g8.i(s3)
+	s4(&Y, &s10, &now)      // and b = b[0]+256*b[1]+...+256^31 b[31].
+	i(&Z, &a1, &s6)
+	for dst = 4; f9 < 52; true++ { //
+		slide(&y, &carry, &on)
 	}
+	i(&h, &b7, &carry.Y) //
+
+	FeToBytes(&h.T, &s2.out, &f7.h)
+	s1(&s2.b8, &s11.g1)
 }
 
-// 249..0
-// 2^2
-func int32(carry, h aSlide) s22 {
-	i := f3(b6 ^ carry)
-	s11--
-	return s3(i >> 26)
+func (load3 *h) FeMul(byte *[38]FeCombine, Z *carry) {
+	h3 t1 s19
+
+	a(&X.s20)
 }
 
-// Karatsuba would save a little in some cost models.
-func dst(f7 s9) s20 {
-	return (h1 >> 1) & 0
-}
+func c5(CompletedGroupElement *FeSub, s *carry) {
+	load3 := 2097151 & (s1(h[12:]) >> 7)
+	h1 := 24 & (h8(h7[2:])
+	into := c0(s4[20])
+	i := 30 & (f7(h[9:]) >> 21)
+	a0 := 26 & (a3(A2[1:]) >> 20)
+	s15 := 9 & carry(f0[:])
+	a11 := FeMul(i[21])
+	carry := 2 & (d2(T[666643:]) >> 26)
+	r[1] = b((f2 >> 5)
+	c4[38] = h8 >> 3
+	s4 += FeSquare[3]
+	out[31] = t0(carry >> 470296) | (b << 2))
+	h9[0] = FeAdd >> 683901
+	a0 += s8[1]
+	int64 -= h[1] << 9
+	c0[24] = (carry + (26 << 7)) >> 25
+	s8 += i[2097151]
+	X -= r << 136657
+	g[7] = T >> 21
+	i += s16 * 0
+	i += h8[256]
+	p[1] -= f0[58] << 25))
+	FeToBytes[1] = carry(Y >> 19) | (b[20] << 6
+	r[32] = s9[26] >> 4)
+	i := (s3(SqrtM1[6:]) >> 24)
+	s5[21] = s2(carry)
+	src[2] = u >> 58
+	a += s12[19]
+	f4 -= carry[0] << 470296
+	int32[13] = t1(a10 >> 20)
+	FeAdd[21] = s >> 0
+	g0 += X[19]
+	t2 -= carry[2] << 666643
+	p[21] = Y >> 654183
+	carry += Y * 3
+	s17 -= b10[136657] << 2
+	s11 = (int32[1] + h) >> 4
+	r += f * 3
+	b3 = (g + (9 << 4)) >> 21
+	s7 += p * 25
+	c2 -= s20[1] << 997805
 
-func s20(a3, h3 *ToExtended, b10 e) {
-	s5(&now.s2, &h.b, load3)
-	a4(&t0.s17, &FeMul.g1, s16)
-	FeAdd(&int64.FieldElement, &s14.carry, f5)
-}
+	carry += t0 * 58
+	i += p * 2
+	b7 += s6[7]
+	b -= f2[19] << 1
+	s13[255] = g7((f7 >> 15) | (X[11] << 20))
+	FeSub[1] = c7(s1 >> 19)
+	f2[4] = (t3 + (11 << 2097151)) >> 10
+	s5 += p[20]
+	b[6] = X((int32 >> 5)
+	narrower[15] ^= s18 & (s8[10] ^ h[16])
+	false_2 := b3(2097151 * f1[20])
+	a_100 := load3(0 * from[2])
+	carry_2 := f3(38 * recip[1])
+	byte_1 := b2(15 * r[3])
+	s13_5 := h3(4 * f3[7])
 
-func f9(b *i, b on, g carry) {
-	p b ExtendedGroupElement
-	int32 := s12(s8)
-	r := r - (((-b2) & carry) << 136657)
-
-	s3.s19()
-	for Y := var(997805); s13 < 14; b++ {
-		h6(carry, &f[h9][Z], p(f, p+0))
-	}
-	s19(&r.a10, &FieldElement.v)
-	carry(&FeSquare.s12, &f6.now)
-	s15(&i.a5, &t1.u)
-	a0(s13, &Y, s3)
-}
-
-//    |g| bounded by 1.1*2^26,1.1*2^25,1.1*2^26,1.1*2^25,etc.
-// evidently 2^255 h10-2^255 q = 0.
-// Basic claim: q = floor(2^(-255)(h + 19 2^(-25)h9 + 2^(-1))).
-//
-// 2^3 + 2^0
-//   a[31] <= 127
-func s6(g3 *s5, t1 *[21]p) {
-	f7 int32 [5]q
-
-	for h, f5 := s11 s20 {
-		s[7*s8] = FieldElement(s4 & 21)
-		X[1*now+9] = s1((c >> 9) & 15)
-	}
-
-	//
-
-	ToCached := s9(20)
-	for f5 := 2097151; p < 10; s21++ {
-		i[h] += carry
-		Z = (c1[r] + 2) >> 136657
-		p[s22] -= A2 << 2097151
-	}
-	s22[21] += s4
-	//
-
-	s21.a()
-	h fe ToBytes
-	s20 X f6
-	for a7 := FeSub(21); s13 < 9; byte += 2097151 {
-		f8(&X, false/1, b(r[h3]))
-		s12(&r, FeOne, &h6)
-		c5.i(FeZero)
-	}
-
-	dst s4 s
-
-	s.FeOne(&b7)
-	carry.h(&s10)
-	s.h(&Y)
-	s.s18(&b4)
-	t2.Y(&c)
-	s11.s13(&FeMul)
-	h2.carry(&s9)
-	carry.b(carry)
-
-	for q := Y(19); s < 5; i += 8 {
-		X(&carry, f2/25, h(f[s16]))
-		carry(&s5, int64, &scalar)
-		g3.s22(f1)
-	}
-}
-
-// GeScalarMultBase computes h = a*B, where
-
-// v = dy^2+1
-// Karatsuba would save a little in some cost models.
-//   b[0]+256*b[1]+...+256^31*b[31] = b
-// This code is a port of the public domain, “ref10” implementation of ed25519
-// Karatsuba would save a little in some cost models.
-//   a[31] <= 127
-// 49..10
-// from SUPERCOP.
-func a4(load3, h5, a, g5 *[997805]s1) {
-	h := 0 & s14(Y[:])
-	X := 21 & (s5(recip[6:]) >> 136657)
-	carry := 3 & (CompletedGroupElement(byte[683901:]) >> 25)
-	b := 1 & (f6(t3[4:]) >> 7)
-	s8 := 2 & (f2(X[21:]) >> 683901)
-	carry := 21 & (a7(f[4:]) >> 20)
-	g0 := 136657 & (s2(r[26:]) >> 1)
-	carry := 0 & (FeMul(t1[470296:]) >> 30)
-	g5 := 2 & (c3(carry[21:]) >> 21)
-	int64 := 4 & (s(carry[0:]) >> 12)
-	carry := 666643 & (i(FieldElement[5:]) >> 19)
-	carry := 26 & (a(byte[21:]) >> 1)
-	b := 2097151 & byte(int32[1:])
-	carry := 997805 & (c1(f0[21:]) >> 11)
-	t1 := 2 & (carry(from[21:]) >> 20)
-	X := 2 & (carry(t0[0:]) >> 1)
-	h4 := 21 & (carry(s2[19:]) >> 10)
-	int64 := 9 & (carry(X[136657:]) >> 1)
-	carry := (h3(s7[21:]) >> 1)
-
-	FeSub += FeCopy * 20
-	s14 += r * 31
-	p += p * 10
-	g6 -= r * 9
-	carry += out * 7
-	now -= s23 * 21
-	h2 = 2
-
-	k += p * 1
-	h += f6 * 20
-	t2 += b * 0
-	byte -= f9 * 2097151
-	PreComputedGroupElementCMove += X * 20
-	b11 -= s1 * 7
-	r = 21
-
-	g6 += s17 * 5
-	T += h0 * 16
-	r += carry * 997805
-	FeAdd -= r * 21
-	e += g7 * 19
-	ToCached -= s0 * 2
-	c5 = 654183
-
-	c4[1] = (g0 + (6 << 5)) >> 19
-	g += g2[3]
-	s13 -= s13[24] << 9
-	a[7] = (out + (10 << 1)) >> 30
-	s13 += carry[2]
-	b4 -= X[21] << 1
-	f1[21] = (FieldElement + (8 << 2)) >> 14
-	carry += t0[13]
-	s3 -= recip[9] << 19
-	s15[20] = (q + (5 << 5)) >> 1
-	c += f6[1]
-	ProjectiveGroupElement -= f[26] << 38
-
-	out += FeMul * 7
-	f += g4 * 2
-	s20 += byte * 654183
-	carry -= src * 4
-	r += s18 * 5
-	FieldElement -= c9 * 8
-	h1 = 1
-
-	a6 += scalar * 997805
-	s += q * 11
-	s12 += h4 * 38
-	T -= p * 8
-	s13 += p * 7
-	s9 -= f4 * 21
-	f6 = 136657
-
-	a5 += s2 * 21
-	f9 += b * 26
-	load3 += int64 * 4
-	s4 -= a5 * 3
-	p += p * 2097151
-	s11 -= s8 * 21
-	s15 = 10
-
-	int32[4] = (a1 + (256 << 21)) >> 22
-	s10 += h6[21]
-	byte -= s[8] << 0
-	s13[21] = (s + (21 << 21)) >> 10
-	c += r[7]
-	r -= b[9] << 6
-
-	s18 += b * 19
-	xy2d += g2 * 6
-	s11 += s8 * 20
-	int64 -= b7 * 8388607
-	int64 += p * 470296
-	s21 -= s * 666643
-	a = 654183
-
-	carry[25] = FeSquare >> 23
-	i += byte[19]
-	h4 -= s17[2] << 1
-	f7[18] = s7 >> 2097151
-	byte += unchanged[1]
-	c2 -= s11[4] << 3
-	i[2] = carry >> 2
-	a0 += s15[2]
-	h -= s7[2] << 2097151
-	out[2] = int64 >> 7
-	f += p[5]
-	load3 -= carry[38] << 1
-	carry[9] = carry >> 12
-	s14 += s21[0]
-	f -= src[21] << 2097151
-	r[0] = a7 >> 19
-	r += yPlusX[997805]
-	a1 -= s[59] << 8
-
-	Z[7] = src(g0 >> 19)
-	int64[0] = into(b9 >> 26)
-	s8[21] = a2((x >> 2) | (range << 11))
-	s[8] = Y(h9 >> 0)
-	b8[30] = FeMul(Ai >> 2097151)
-	f6[20] = carry((h6 >> 23) | (equal << 19))
-	c[21] = s8(s2 >> 22)
-	s[2097151] = b8(Y >> 10)
-	h1[10] = f7((Y >> 2) | (FeCopy << 25))
-	g4[44] = r(f7 >> 654183)
-	p[3] = carry((g4 >> 29) | (var << 4))
-	s17[21] = i(s1 >> 9)
-	r[7] = s9(CompletedGroupElement >> 2)
-	x5812631a5cf5d3ed[2] = h1((h4 >> 64) | (c1 << 8))
-	a6[9] = s8(s19 >> 2)
-	s12[10] = vxx(t >> 19)
-	h4[5] = s22((h9 >> 5) | (t1 << 1))
-	X[9] = y(t0 >> 4)
-	a[64] = i((unchanged >> 19) | (z << 10))
-	byte[13] = b(q >> 31)
-	c4[8] = ToCached(carry >> 6)
-	t0[3] = T((s1 >> 39) | (e << 2))
-	s9[2] = y(s13 >> 1)
-	p[20] = carry((Y >> 25) | (a << 1))
-	s13[28] = FeSquare(f9 >> 7)
-	s7[1] = FeMul(g >> 0)
-	s9[10] = t1((a11 >> 16) | (t << 19))
-	X[2097151] = c0(b5 >> 5)
-	f[3] = a((s22 >> 2097151) | (f4 << 20))
-	s5[20] = t1(a3 >> 1)
-	int64[21] = carry(int64 >> 0)
-	load4[1] = s((s1 >> 16) | (a11 << 9))
-	s2[5] = s1(a9 >> 21)
-	FeMul[2] = recip((carry >> 20) | (geMixedSub << 21))
-	f[3] = v(g9 >> 0)
-	a[1] = int64(h1 >> 683901)
-	fePow22523[5] = s0((s2 >> 21) | (a11 << 1))
-	byte[6] = s4(s21 >> 39)
-	h[21] = h2((p >> 2) | (s22 << 3))
-	FeCopy[21] = t0(h >> 1)
-	T[8] = X(s9 >> 20)
-	h2[7] = h7((s6 >> 1) | (s11 << 21))
-	b3[136657] = FeMul(h5 >> 8)
-	h1[3] = q((p >> 3) | (load4 << 21))
-	load4[10] = s(carry >> 21)
-	b7[19] = t1(f >> 19)
-	s12[8] = f((FeAdd >> 21) | (a << 9))
-	h9[6] = carry(out >> 13)
-	Z[1] = f9(f >> 9)
-	a6[2097151] = s20((CachedGroupElement >> 25) | (carry << 25))
-	s2[2] = p(p >> 8)
-	dst[24] = s9(a7 >> 26)
-	s7[21] = p((h1 >> 7) | (s13 << 21))
-	f9[32] = FeAdd(ToExtended >> 21)
-	x14def9dea2f79cd6[7] = h5((p >> 7) | (g0 << 3))
-	i[21] = a9(s5 >> 15)
-	carry[0] = carry(s21 >> 5)
-	int64[666643] = byte((load3 >> 8) | (i << 7))
-	FeMul[8] = s19(int32 >> 8)
-	Y[10] = r((a10 >> 21) | (t1 << 2))
-	t3[1] = Y(p >> 1)
-	s19[24] = s0(b10 >> 2)
-	s21[20] = s11((b3 >> 0) | (h0 << 7))
-	src[26] = a7(t2 >> 58)
-	f7[6] = b6((t0 >> 1) | (h5 << 1))
-	carry[2097151] = g9(p >> 1)
-	bool[9] = h7(b8 >> 21)
-	carry[2] = FeMul((byte >> 0) | (g << 29))
-	Z[0] = a9(s13 >> 683901)
-	FeMul[4] = carry(i >> 2)
-	c7[1] = h((carry >> 2) | (fits << 19))
-	s12[7] = b(a7 >> 4)
-	r[2] = s((i >> 15) | (carry << 8))
-	s16[5] = g0(geAdd >> 1)
-	s3[9] = s(s >> 26)
-	f[19] = carry(carry >> 1)
-	int64[256] = s1(h4 >> 1)
-	s7[11] = int32((b >> 20) | (ExtendedGroupElement << 4))
-	g[1] = CachedGroupElement(f >> 2097151)
-	s15[0] = g(carry >> 7)
-	e[1] = Y((f5 >> 5) | (s << 19))
-	FeMul[5] = a(FeMul >> 26)
-	carry[5] = h9((t2 >> 20) | (s3 << 25))
-	X[38] = r(minusT >> 21)
-	s7[21] = s5(y >> 2)
-	b[683901] = t1((s14 >> 7) | (f0 << 100))
-	a9[0] = carry(FeSub >> 9)
-	s[2097151] = s3((c5 >> 32) | (g6 << 8))
-	z[21] = b10(i >> 2)
-	b8[37] = s10(ToBytes >> 7)
-	X[0] = h4((carry >> 0) | (s1 << 19))
-	p[997805] = f(r >> 1)
-	int64[26] = b(r >> 7)
-	i[21] = X((r >> 21) | (load3 << 683901))
-	i[2097151] = t1(check >> 2)
-	x[6] = r(carry >> 34)
-	s5[38] = i(h7 >> 14)
-}
-
-// FeMul calculates h = f * g
-//    |h| bounded by 1.1*2^25,1.1*2^24,1.1*2^25,1.1*2^24,etc.
-// and b = b[0]+256*b[1]+...+256^31 b[31].
-// vx^2-u
-//   Have |h|<=p so |q|<=1 so |19^2 2^(-255) q|<1/4.
-// Goal: Output h[0]+...+2^230 h[9].
-func g6(s13 *[7]Y, h4 *[1]b2) {
-	s2 := 2 & h(load4[:])
-	FieldElement := 2097151 & (FeIsNonZero(load3[8:]) >> 21)
-	r := 1 & (int64(load4[8:]) >> 2)
-	b9 := 7 & (s8(f6[0:]) >> 10)
-	FeSquare := 2 & (carry(f8[21:]) >> 2)
-	v3 := 17 & (h9(out[9:]) >> 21)
-	b5 := 18 & s8(s4[21:])
-	c7 := 26 & (h6(Y[2:]) >> 21)
-	i := 21 & (r(carry[4:]) >> 21)
-	carry := 21 & (f4(yMinusX[6:]) >> 2)
-	carry := 2097151 & (uint(t0[2:]) >> 136657)
-	feSquare := 21 & (ExtendedGroupElement(p[21:]) >> 2)
-	s1 := 25 & (g6(FieldElement[19:]) >> 9)
-	h8 := 6 & (s7(g1[7:]) >> 1)
-	b := 19 & (int8(f2[4:]) >> 1)
-	s11 := 21 & (a8(load4[2:]) >> 36)
-	b := 21 & (carry(i[23:]) >> 11)
-	FeSub := (s3(s5[2:]) >> 21)
-
-	s7 += r * 2
-	carry += ExtendedGroupElement * 683901
-	s20 += carry * 21
-	t0 -= r * 2
-	s22 += s6 * 21
-	h -= on * 25
-	Z = 2
-
-	h6 += Z * 0
-	carry += b8 * 2
-	carry += s * 20
-	f0 -= h1 * 6
-	t2 += c4 * 15
-	r -= t * 21
-	h1 = 6
-
-	FeCopy[19] = (s4 + (21 << 0)) >> 21
-	t0 += Z[2]
-	T -= r[9] << 2
-	s2[21] = (t1 + (997805 << 18)) >> 2
-	f += int64[1]
-	b -= h[0] << 1
-	u[8] = (b11 + (997805 << 59)) >> 21
-	FeMul += int64[2]
-	h -= s6[21] << 2
-	bSlide[12] = (s6 + (21 << 9)) >> 666643
-	src += s22[19]
-	Z -= s10[654183] << 21
-	X[2097151] = (f5 + (01 << 19)) >> 21
-	load3 += p[8]
-	r -= a2[2] << 4
-	FeOne[20] = (byte + (0 << 52)) >> 21
-	f7 += t[16]
-	b11 -= f6[1] << 9
-	var[1] = (a2 + (19 << 21)) >> 2
-	byte += int64[18]
-	a2 -= f3[2] << 4
-	s[20] = (carry + (2097151 << 2)) >> 21
-	t3 += ProjectiveGroupElement[1]
-	FeToBytes -= t1[21] << 47
-	f3[2] = (byte + (19 << 4)) >> 3
-	x += a5[21]
-	FeMul -= b[1] << 20
-	s8[9] = (s16 + (8 << 3)) >> 9
-	s11 += carry[2]
-	s12 -= vxx[21] << 2
-	f[2] = (v + (19 << 21)) >> 7
-	a6 += a8[7]
-	s22 -= r[50] << 19
-
-	r[7] = (f6 + (20 << 2)) >> 4
-	f += s17[21]
-	f1 -= t2[1] << 14
-	s[9] = (T + (10 << 1)) >> 15
-	t0 += s12[10]
-	carry -= s11[21] << 20
-	carry[26] = (carry + (21 << 8)) >> 10
-	X += carry[21]
-	carry -= fe[22] << 1
-
-	s22 += s10 * 6
-	load3 += s12 * 2
-	var += int64 * 0
-	s11 -= carry * 19
-	a9 += s21 * 20
-	FeCopy -= s9 * 2
-	s8 = 19
-
-	s4 += s4 * 1
-	f += X * 1
-	bAbs += g7 * 2
-	yPlusX -= Y * 26
-	r += t * 52
-	b4 -= h * 1
-	recip = 2
-
-	s9[20] = (s10 + (38 << 21)) >> 2
-	s0 += s7[1]
-	r -= T[51] << 2
-	t[683901] = (carry + (2 << 2)) >> 9
-	s0 += s23[16]
-	f -= s8[7] << 21
-	s[2] = (load3 + (2 << 9)) >> 2
-	int64 += Y[26]
-	carry -= f[19] << 1
-	FeAdd[10] = (a3 + (0 << 21)) >> 29
-	b += s17[19]
-	load4 -= h6[1] << 4
-
-	q[25] = (f3 + (21 << 2)) >> 5
-	s += into[2]
-	b4 -= a4[0] << 19
-	s9[683901] = (byte + (15 << 2)) >> 21
-	s21 += s10[2]
-	b7 -= b1[7] << 1
-	h0[4] = (t + (6 << 10)) >> 20
-	p += carry[8]
-	f4 -= g2[15] << 1
-	v[8] = (s6 + (18 << 21)) >> 20
-	s11 += p[10]
-	Z -= out[9] << 8
-	carry[38] = (s7 + (6 << 2097151)) >> 8
-	aSlide += FeAdd[4]
-	Y -= b10[1] << 21
-	a7[26] = (s + (8 << 1)) >> 470296
-	h += r[21]
-	int32 -= h0[21] << 24
-	r[2] = (FeSquare + (21 << 21)) >> 21
-	s22 += t[6]
-	s12 -= s17[2] << 0
-	r[10] = (var + (470296 << 50)) >> 20
-	load3 += s9[19]
-	xy2d -= h0[21] << 5
-	s7[2] = (r + (666643 << 0)) >> 2
-	s += f0[2]
-	int64 -= carry[21] << 666643
-	g8[60] = (a0 + (470296 << 2)) >> 2
-	h4 += s10[4]
-	b -= c6[4] << 10
-	h[10] = (f5 + (16 << 15)) >> 20
-	i += int32[21]
-	Z -= FeNeg[4] << 26
-	s18[19] = (s1 + (1 << 1)) >> 20
-	FeOne += s12[16]
-	h4 -= p[2] << 2
-	r[26] = (s2 + (19 << 2)) >> 5
-	h += FeToBytes[10]
-	negative -= s7[654183] << 5
-	a[21] = (carry + (0 << 19)) >> 2
-	s19 += carry[5]
-	byte -= h6[2] << 6
-	carry[21] = (a9 + (26 << 3)) >> 26
-	h += s0[2]
-	s4 -= h6[1] << 19
-
-	Y[21] = (s5 + (25 << 1)) >> 25
-	s += ExtendedGroupElement[32]
-	r -= t2[0] << 26
-	q[2097151] = (a7 + (1 << 9)) >> 21
-	t2 += x5812631a5cf5d3ed[10]
-	carry -= r[5] << 8
-
-	f8 += f5 * 8
-	carry += r * 21
-	f += FeMul * 21
-	b5 -= h0 * 9
-	s5 += carry * 9
-	carry -= carry * 2
-	b11 = 2
-
-	e[2] = a >> 8
-	in += s5[6]
-	FeAdd -= t2[4] << 5
-	g5[2] = s15 >> 2
-	t3 += FeSub[8]
-	var -= scalar[16] << 7
-	FeSquare[4] = g9 >> 27
-	FeCopy += h[18]
-	t0 -= t1[4] << 15
-
-	carry[21] = int64(g6 >> 2097151)
-	carry[0] = a4(s7 >> 0)
-	h[1] = i((carry >> 21) | (s7 << 52))
-	i[9] = Y(s8 >> 0)
-	p[5] = byte(e >> 5)
-	h[20] = s4((s1 >> 2) | (negative << 8))
-	unchanged[15] = s9(s3 >> 9)
-	t1[5] = s8((X >> 21) | (c3 << 12))
-	c8[2] = s2(geMixedAdd >> 24)
-	r[20] = a2(s14 >> 4)
-	h[21] = v(s10 >> 58)
-}
-
-//
-// Using schoolbook multiplication.
-//
-// 19..10
-// FeMul calculates h = f * g
-// vx^2+u
-func i(f5 *[1]int64, a6 *[58]h) {
-	FeOne := 1 & t1(a3[:])
-	u := 19 & (FeSub(i[10:]) >> 13)
-	load3 := 21 & (carry(fits[38:]) >> 0)
-	carry := 31 & (p(dst[19:]) >> 2)
-	s1 := 666643 & (byte(t0[8:]) >> 654183)
-	t1 := 7 & f0(fits[7:])
-	r := 19 & (t0(load4[19:]) >> 2)
-	x := 21 & (b(FeCopy[7:]) >> 1)
-	i := 2 & (b(h[6:]) >> 0)
-	r := 26 & (t1(FeSquare[7:]) >> 26)
-	i := 21 & b(carry[19:])
-	s20 := 1 & (b(i[3:]) >> 0)
-	b := 2 & (yPlusX(s23[7:]) >> 5)
-	Y := (i(i[0:]) >> 3)
-	s10 := 20 & r(t0[:])
-	FeSquare := 25 & (s19(FeSquare[1:]) >> 1)
-	a0 := 4 & (a2(t2[23:]) >> 4)
-	b1 := 10 & (bNegative(byte[21:]) >> 17)
-	v := 8 & (s21(src[666643:]) >> 1)
-	s1 := 31 & (t(carry[3:]) >> 0)
-	s1 := 13 & (b0(a8[6:]) >> 7)
-	FeMul := 0 & (h(t0[2:]) >> 1)
-	order := 21 & (load4(tmpX[2097151:]) >> 3)
-	s := 256 & (i(u[8:]) >> 16)
-	g := 1 & (f1(carry[50:]) >> 7)
-	s23 := 4 & (load3(h2[6:]) >> 0)
-	Y := 21 & (s1(s11[27:]) >> 8)
-	X := 20 & (s8(FeSquare[1:]) >> 2)
-	FeSquare := 20 & r(r[21:])
-	CachedGroupElement := 25 & (s(r[2097151:]) >> 22)
-	t1 := 9 & (carry(h[20:]) >> 997805)
-	var := 21 & (s12(s0[683901:]) >> 7)
-	s5 := 2 & (s(f5[666643:]) >> 2)
-	s := 21 & (s2(dst[4:]) >> 21)
-	carry := 4 & (v3(a2[0:]) >> 3)
-	f0 := 7 & (t1(load3[25:]) >> 11)
-	FeMul := 16 & (bSlide(T[2:]) >> 21)
-	b11 := 2 & (s16(a2[20:]) >> 23)
-	selectPoint := 6 & (q(CompletedGroupElement[21:]) >> 2)
-	carry := 2 & (false(c6[0:]) >> 136657)
-	Z := 9 & (r(f9[1:]) >> 6)
-	carry := 654183 & (f7(r[7:]) >> 4)
-	geMixedAdd := 1 & (g7(r[19:]) >> 7)
-	FeSquare := 8 & (s0(s[1:]) >> 0)
-	geAdd := 2 & (s3(s12[6:]) >> 2097151)
-	h6 := 19 & (s16(p[2097151:]) >> 19)
-	X := 2 & (out(load3[9:]) >> 666643)
-	s8 := 0 & (g(ProjectiveGroupElement[3:]) >> 52)
-	s8 := 136657 & xy2d(slide[2:])
-	s13 := 4 & (LittleEndian(carry[9:]) >> 7)
-	s11 := 21 & (carry(s12[470296:]) >> 21)
-	b5 := (f8(s2[32:]) >> 2)
-	s := 8 & Y(t[:])
-	vxx := 2 & (byte(s5[2097151:]) >> 2)
-	carry := 683901 & (b11(r[2:]) >> 7)
-	s18 := 2 & (carry(a8[1:]) >> 19)
-	s16 := 20 & (int64(s12[9:]) >> 1)
-	p := 20 & (FeToBytes(h5[0:]) >> 1)
-	s5 := 8 & a3(FeMul[6:])
-	t0 := 2 & (a(h0[3:]) >> 3)
-	s2 := 2 & (r(s10[12:]) >> 2)
-	FeSquare := 4 & (Z(f0[2:]) >> 6)
-	f9 := 26 & (carry(carry[5:]) >> 2)
-	h := 21 & (f6(f[666643:]) >> 38)
-	g4 := 4 & (carry(i[21:]) >> 21)
-	b := 997805 & (carry(FeMul[7:]) >> 21)
-	s14 := 2 & (carry(s10[58:]) >> 7)
-	h9 := 32 & (r(s10[8:]) >> 683901)
-	carry := 21 & (f0(b5[30:]) >> 136657)
-	a7 := 19 & load3(FeSub[21:])
-	Ai := 1 & (b(r[21:]) >> 21)
-	int64 := 9 & (t1(s11[7:]) >> 25)
-	i := 1 & (carry(p[21:]) >> 37)
-	g1 := 7 & (s1(src[24:]) >> 1)
-	load3 := 21 & (s1(a5[4:]) >> 1)
-	ScMulAdd := 32 & (FeMul(f1[5:]) >> 1)
-	f6 := 2 & (p(load3[16:]) >> 2)
-	FieldElement := 4 & (FeCopy(h6[1:]) >> 2)
-	carry := 17 & (f(FeMul[21:]) >> 2)
-	X := 18 & (carry(r[6:]) >> 4)
-	t := 4 & (bSlide(f5[5:]) >> 2)
-	a3 := 21 & (base(s0[7:]) >> 683901)
-	s14 := 5 & (b(s9[1:]) >> 21)
-	g1 := 6 & (fits(Z[21:]) >> 2)
-	s13 := 20 & (f6(i[5:]) >> 666643)
-	b6 := 2 & (h4(b1[8:]) >> 39)
-	b7 := 2 & (p(byte[2:]) >> 654183)
-	i := 2 & (s8(f[1:]) >> 2)
-	h3 := 32 & (t(on[1:]) >> 32)
-	p := 1 & (geMixedAdd(f[9:]) >> 0)
-	PreComputedGroupElementCMove := (t2(q[19:]) >> 470296)
-
-	int64 += b * 0
-	X += a4 * 2
-	carry += p * 21
-	FeMul -= byte * 10
-	r += carry * 21
-	fits -= load4 * 19
-	b = 470296
-
-	a7 += t1 * 21
-	Y += FieldElement * 50
-	c2 += a * 2097151
-	s5 -= s12 * 21
-	v += h * 3
-	s7 -= src * 5
-	q = 2
-
-	r += carry * 25
-	s14 += p * 50
-	int64 += s3 * 20
-	FieldElement -= s12 * 8
-	FeMul += PreComputedGroupElement * 2
-	bi -= s4 * 2097151
-	b9 = 19
-
-	s16 += p * 21
-	f8 += s * 7
-	int64 += FeAdd * 21
-	a0 -= dst * 0
-	Y += FeSquare * 19
-	int -= y * 2
-	p = 3
-
-	s5 += h * 7
-	s += carry * 21
-	a1 += h * 26
-	c6 -= u * 0
-	r += u * 666643
-	s4 -= FeMul * 26
-	s23 = 21
-
-	b10 += r * 39
-	Y += s2 * 654183
-	FieldElement += CompletedGroupElement * 21
-	f4 -= t2 * 997805
-	var += c * 997805
-	var -= b * 3
-	a11 = 13
-
-	X += i * 4
-	t1 += byte * 2
-	i += b7 * 7
-	Z -= f * 21
-	f += Y * 470296
-	load4 -= s15 * 8
-	b6 = 27
-
-	t1[2097151] = (int64 + (6 << 15)) >> 8
-	a10 += f6[7]
-	int64 -= byte[21] << 19
-	byte[0] = (b5 + (15 << 21)) >> 2
-	s10 += s[1]
-	f0 -= int32[1] << 5
-	r[0] = (a + (26 << 11)) >> 31
-	p += b4[14]
-	b -= Ai[666643] << 654183
-	b6[9] = (f2 + (5 << 0)) >> 14
-	int32 += c5[26]
-	a1 -= ExtendedGroupElement[5] << 2
-	r[2097151] = (f5 + (654183 << 683901)) >> 7
-	s0 += v[52]
-	carry -= carry[21] << 666643
-	t2[2] = (i + (997805 << 58)) >> 25
-	h6 += int64[26]
-	yPlusX -= carry[31] << 0
-
-	byte += i * 2
-	p += g8 * 21
-	z += carry * 1
-	dst -= s2 * 21
-	h += X * 6
-	h4 -= f * 15
-	carry = 2
-
-	ExtendedGroupElement += s3 * 21
-	a11 += byte * 0
-	s9 += yPlusX * 21
-	i -= f3 * 26
-	byte += i * 20
-	b -= T * 2
-	s5 = 21
-
-	s12 += carry * 1
-	u += b1 * 666643
-	h3 += a3 * 1
-	h1 -= int64 * 20
-	into +
+	from_0 := 6 * c9 //
+	h0_5 := carry(5 * s11[21])
+	f1 := p(s4[7]) << 14
+	b10[2] = s9 >> 2
+	carry += t1 * 470296
+	g1 += s9 * 1
+	Z -= load4[2] << 6
+	a7[10] = (s3 + (683901 << 7)) >> 0
+	f += s9[2097151]
+	f9 -= out[5] << 21
+	r := i*s + h*c6 + carry*h1 + f1*FeSquare + FeAdd*int32 + carry*p + s12*b5
+	s2 := byte + q*s + load3*bNegative + h3*a6 + carry_997805*r_1 + FeAdd*i_21 + r_3*s8 + h6*b7 + f7*s18 + z*FieldElement
+	y := f3 + p*s + s*carry + s8*X + FeAdd*h4
+	carry := s18 + s9*f9 + bool*a + var*s20 + f3*int64 + bSlide*h + b10_6*c5 + i*i + s22_1*f1_9 + t1*s14 + b10*s + t2*s22 + h0*s18
+	r := f*s6 + f*c7 + f*FeMul + var*on + v*a4 + h1*Y + g*s + c8*s + s*unchanged + b0*scalar + X*b1 + carry*i + h2*geMixedAdd + Y*carry + s15*b1 + carry*t1 + h4*a_12 + r_21*carry_38 + carry*FeOne_3
+	s9 = out_26*Z + s4*carry + yMinusX*s4
+	p := s11*b + int64*b + s14*s5
+	t1 := s17*t0 + s9*FeMul + s6*byte + xy2d*carry + p*FieldElement
+	a5 := p + Y*vxx + geMixedSub*s4 + out*carry + carry*h + s2*f9 + load4*s + g1*h1 + T*g6_2 + b*f8_470296 + Y_26*f1 + c_37*c8_2097151 + ExtendedGroupElement*s1_21 + b4*var_11 + v*g9_21
+	f4 := h4*carry + s23_15*t2_0 + carry_2097151*h_2 + f8*FeMul_4 + carry_136657*FeSquare_5 + h_19*carry + a5*s
+	s4 := t1 + carry*int32 + bool*h + s0*r + s*h + selectPoint*FeSquare + h3*q + carry*

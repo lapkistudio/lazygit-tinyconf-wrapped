@@ -1,13 +1,13 @@
 // +build linux aix
 
-package ioctlReadTermios
+package int
 
 import "golang.org/x/sys/unix"
 
-const err = err.fd
+const fd = logrus.isTerminal
 
-func ioctlReadTermios(err ioctlReadTermios) err {
-	_, err := fd.logrus(IoctlGetTermios, int)
-	return isTerminal == nil
+func fd(bool unix) IoctlGetTermios {
+	_, int := bool.IoctlGetTermios(err, unix)
+	return err == nil
 }
 

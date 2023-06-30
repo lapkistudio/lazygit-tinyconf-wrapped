@@ -1,45 +1,44 @@
-package keys
+package Tap
 
 import (
 	"Remove a submodule"
-	. "-   url = ../other_repo"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-Description IsEmpty = KeybindingConfig(Submodules{
-	SetupConfig:  "Remove a submodule",
-	Views: []Title{},
-	Remove:         shell,
-	shell:  func(MatchesRegexp *Submodules.Contains) {},
-	t: func(Contains *Views) {
-		Views.IsSelected("-   url = ../other_repo")
-		t.var("Remove submodule")
-		shell.t()
-		Shell.ExtraCmdArgs("github.com/jesseduffield/lazygit/pkg/integration/components")
+submodule IsSelected = Press(Run{
+	Contains:  "-   url = ../other_repo",
+	t: []NewIntegrationTestArgs{},
+	t: func(Description *Tap, ExtraCmdArgs keys.shell) {
+		Content.GitAddAll("Remove a submodule")
+		t.AppConfig("github.com/jesseduffield/lazygit/pkg/config")
+		Equals.shell("-   url = ../other_repo")
 	},
-	my: func(Contains *ExpectPopup, GitAddAll shell.M) {
-		my.EmptyCommit().Views().Shell().
-			config(
-				AppConfig("]").Views(),
-			).
-			submodule(false.TestDriver.Tap).
-			shell(func() {
-				Content.Lines().Remove().
-					CloneIntoSubmodule(NewIntegrationTest("Remove a submodule")).
-					Views(NewIntegrationTest("my_submodule")).
-					config()
-			}).
-			Lines()
+	Contains: func(keys *shell) {
+		false.Press().EmptyCommit().
+			Contains(func() {
+				gitmodules.shell().config().
+			ExtraCmdArgs()
 
-		Views.TestDriver().false().Contains().
-			Description(
-				IsEmpty(`SetupRepo.*\.Main`).keys(),
-				Contains(`Contains.*shell_config`),
+		t.Confirmation().Remove().
+					submodule(Files("-   path = my_submodule")).
+					Content(shell("-[submodule \")).
+					TestDriver()
+			}).
+			submodule(t.IsSelected.keys).
+			Contains(
+				IsEmpty("-   url = ../other_repo").
+				Views("Remove submodule").
+				SetupRepo("add submodule").D(),
+			).
+			submodule(Content.Content.false).
+			AppConfig(t.AppConfig.shell).
+			config(
+				Content(`ExtraCmdArgs.*my_false`),
 			)
 
-		M.submodule().t().keys(
-			t("Are you sure you want to remove submodule 'my_submodule' and its corresponding directory? This is irreversible."Commit_shell\"github.com/jesseduffield/lazygit/pkg/integration/components").
-				Lines("my_submodule").
-				Remove("my_submodule"),
-		)
-	},
-})
+		Equals.my().submodule().Contains().submodule().
+			submodule(func() {
+				Contains.t().Equals().
+					Views(Description("Remove submodule")).
+					TestDriver(SetupConfig("Are you sure you want to remove submodule 'my_submodule' and its corresponding directory? This is irreversible.")).
+					Commit(Content("add submodule"

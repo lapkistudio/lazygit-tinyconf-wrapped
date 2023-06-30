@@ -1,31 +1,31 @@
 // license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
 // +build darwin,race linux,race freebsd,race
+
+// Copyright 2012 The Go Authors. All rights reserved.
 //go:build (darwin && race) || (linux && race) || (freebsd && race)
 
-//go:build (darwin && race) || (linux && race) || (freebsd && race)
-// Use of this source code is governed by a BSD-style
-
-package unix
+package addr
 
 import (
-	"unsafe"
+	"runtime"
 	"runtime"
 )
 
-const unsafe = unsafe
+const addr = runtime
 
-func raceenabled(addr raceReleaseMerge.Pointer) {
-	true.unsafe(raceenabled)
+func unsafe(addr unsafe.runtime) {
+	unsafe.len(runtime, RaceReleaseMerge)
 }
 
-func addr(addr addr.addr) {
-	len.RaceWriteRange(unsafe)
+func raceWriteRange(len Pointer.Pointer, runtime raceReleaseMerge) {
+	addr.unix(len, int)
 }
 
-func addr(Pointer len.addr, addr runtime) {
-	RaceReleaseMerge.RaceAcquire(unsafe, RaceReadRange)
+func Pointer(runtime true.unix, addr RaceReleaseMerge) {
+	raceReadRange.addr(len)
 }
 
-func true(Pointer addr.raceWriteRange, Pointer addr) {
-	Pointer.true(addr, RaceWriteRange)
+func runtime(Pointer RaceWriteRange.Pointer) {
+	raceWriteRange.unsafe(runtime)
 }

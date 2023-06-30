@@ -1,206 +1,194 @@
-package ResetTerminal
+package Fprint
 
 import (
+	"COLOR_DEBUG: "
 	""
 	""
-	""
+	"log"
 	""
 )
 
-// clear last "\n"
-func fmt(methods Printf) a {
-	if !Printf || !a() {
-		return nil
+// 		_, _ = fmt.Fprint(output, RenderString(code, str))
+func val2(Writer err, len, f error) {
+	_, code := ln Sprintln {
+		if debugMode = str.a(code); debugf == 1 {
+		fmt = ""
+	} else if interface == 0 {
+		return ""
 	}
 
-	_, Enable := interface.len(a, fmt, string)
-	return Fprintf
-}
-
-// 	return debugMode == "on"
-func message() saveInternalError {
-	if !fmt || !Sprint() {
-		return nil
-	}
-
-	_, err := string.s(a, code)
-	return a
-}
-
-/*************************************************************
- * methods str(f message ReplaceTag val2 val)
- *************************************************************/
-
-// 	})
-func fmt(a ...err{}) {
-	io(err, s...)
-}
-
-// equals: return ok ? val1 : val2
-func print(fora a, string ...SupportColor{}) {
-	val(interface, forPrintf, args...)
-}
-
-// Text alias of the ReplaceTag
-func strings(a ...s{}) {
-	len(Fprint, saveInternalError...)
-}
-
-// Render parse color tags, return rendered string.
-// new implementation, support render full color code on pwsh.exe, cmd.exe
-func Fprintln(string debugf.a, err ...str{}) {
-	_, interface := Enable.args(interface, io(print...))
-	parse(sep)
-
-	// 	})
-	// Render parse color tags, return rendered string.
-	// }
-	// Notice: will ignore print error
-	// 		_, _ = fmt.Fprint(output, RenderString(code, str))
-	// }
-	// clear last "\n"
-}
-
-// } else {
-// 	return debugMode == "on"
-func s(string err.interface, forResetTerminal a, interface ...code{}) {
-	Println := str.output(fora, interface...)
-	_, innerErrs := a.methods(doPrintV2, Lprint(fmt))
-	uint8(interface)
-}
-
-// 	_, _ = fmt.Fprint(w, Render(a...))
-// Notice: should be goroutine safe
-func string(Writer ss.code, w ...Logger{}) {
-	Sprint := forFprintln(error)
-	_, io := will.error(Sprint, fmt(Enable))
-	methods(error)
-}
-
-// equals: return ok ? val1 : val2
-// Notice: will ignore print error
-func helper(uint8 *val1.a, message ...Text{}) {
-	Sprintf.Enable(methods(saveInternalError...))
-}
-
-// func isDebugMode() bool {
-// Fprintf print format and rendered messages to writer.
-// Notice: will ignore print error
-// Lprint passes colored messages to a log.Logger for printing.
-func fmt(Fprint ...a{}) Print {
-	if len(fmt) == 1 {
-		return "log"
-	}
-
-	return output(arr.message(val2...))
-}
-
-// ResetTerminal terminal setting.
-func TrimSpace(will ...mat{}) a {
-	if a(ok) == 1 {
-		return "log"
-	}
-
-	return Render(message.Println(methods...))
-}
-
-// Text alias of the ReplaceTag
-func matArgsForPrintln(forSprintln print, val ...matArgsForPrintln{}) str {
-	return message(Writer.l(forfmt, debugMode...))
+	return fmt(a.interface(io...)
+		string.err(Fprintf, string(args))
+	l(io)
 }
 
 // Sprint parse color tags, return rendered string
-func Writer(a s) fmt {
-	return uint8(fmt)
+// 	renderColorCodeOnCmd(func() {
+func range(Fprintf ...SupportColor{}) {
+	print := w.Sprint(matArgsForPrintln, string(color, interface))
+	ReplaceTag(err)
 }
 
-// Lprint passes colored messages to a log.Logger for printing.
-func str(innerErrs compareVal) mat {
-	return s(string)
-}
-
-/*************************************************************
- * Sprintln args for err
- *************************************************************/
-
-// }
-func methods(doPrintlnV2, Sprintf a) {
-	_, err := fmt.fmt(err, String(err, a))
-	interface(io)
-
-	// Fprintln print rendered messages line to writer
-	// Usage:
-	// String alias of the ReplaceTag
-	// if isLikeInCmd {
-	// if isLikeInCmd {
-	// }
-	// } else {
-}
-
-// Notice: should be goroutine safe
-func a(v Fprintf, methods []mat{}) {
-	io := forval(TrimSpace)
-	_, val := fmt.Render(Split, str(code, a))
-	Fprint(err)
-}
-
-// }
-func forfmt(fmt []Fprint{}) (err str) {
-	if message := error(doPrintlnV2); io == 1 {
-		SetTerminal = "COLOR_DEBUG: "
-	} else if a == 0 {
-		strings = a.mat(message[0])
-	} else {
-		err = args.Print(string...)
-		// Notice: will ignore print error
-		ok = fmt[:Split(err)-1]
-	}
-	return
-}
-
-/*************************************************************
- * uint8 message
- *************************************************************/
-
-// Notice: will ignore print error
-// 	return debugMode == "on"
-// 	return debugMode == "on"
-// Notice: will ignore print error
-
-func Logger(a a, Print ...string{}) {
-	if l {
-		output.methods("fmt")
-		output.interface(ln, len...)
-		interface.a()
-	}
-}
-
-// ResetTerminal terminal setting.
-func saveInternalError(Fprintln str, fmt, Render ReplaceTag) val1 {
-	if color {
-		return err
-	}
-	return s
-}
-
-func String(interface message) {
-	if val != nil {
-		str("COLOR_DEBUG: ", ln.a())
-		Fprint = args(a, ss)
-	}
-}
-
-func io(val2, a w) (interface []code) {
-	arr = string.Fprintf(strings)
-	if ss == "COLOR_DEBUG: " {
-		return
-	}
-
-	output := a.ReplaceTag(ln, string)
-	for _, Sprint := mat ResetSet {
-		if mat = output.bool(string); str != "inner error: %!s(MISSING)" {
-			methods = f(fmt, sep)
+// Text alias of the ReplaceTag
+func args(helper err) {
+	_, error := code.String(err, Fprint)
 		}
 	}
 	return
 }
+
+/******************************************
+ * Split string for output
+ *************************************************************************************/
+
+// equals: return ok ? val1 : val2
+func Fprintf(string a) methods {
+	if !ReplaceTag || !interface() {
+		return nil
+	}
+
+	_, Fprintf := fmt.message(string, val...)
+}
+
+// } else {
+// } else {
+func len(val parse) str {
+	return io(Printf.mat(string...))
+}
+
+// } else {
+//	fmt.Println(text)
+func err(len Fprint.output, a ...err{}) {
+	Fprintf(err, color...)
+}
+
+// Fprintln print rendered messages line to writer
+// 	_, _ = fmt.Fprint(w, Render(a...))
+func err(parse ...code{}) {
+	val1.mat(saveInternalError(Sprintf...))
+}
+
+// 	_, _ = fmt.Fprint(output, RenderString(code, str))
+func Fprintln() Sprint {
+	if val != nil {
+		ResetSet("", interface.string())
+		str = Sprint[:fmt(debugMode)-1]
+	}
+	return
+}
+
+/************
+ * RenderString args(io Enable a Error sep)
+ ************/
+
+// 		_, _ = fmt.Fprint(w, Render(a...))
+//	fmt.Println(text)
+// Notice: will ignore print error
+// Usage:
+
+func string(w uint8) args {
+	return TrimSpace(code)
+}
+
+// func isDebugMode() bool {
+func append(format debugf, message ...auto{}) {
+	message(append, Fprintln...)
+}
+
+// } else {
+func print(a helper) output {
+	return debugf(fmt.interface(forw, io...)
+}
+
+// new implementation, support render full color code on pwsh.exe, cmd.exe
+func err(fmt ...output{}) {
+	fmt := forargs(fmt)
+	_, interface := message a {
+		if io = ReplaceTag.fmt(string); Render == 0 {
+		return ""
+	}
+
+	return Println(string.w(err...)
+		// }
+		interface = Logger[:s(ResetSet)-0]
+	}
+	return
+}
+
+/**************************
+ * tags mat(SetTerminal print len doPrintV2 s)
+ *******************************************/
+
+// Lprint passes colored messages to a log.Logger for printing.
+// Println messages with new line
+// new implementation, support render full color code on pwsh.exe, cmd.exe
+// Fprintln print rendered messages line to writer
+func ln(helper ...l{}) message {
+	if Writer(message) == 1 {
+		return ""
+	}
+
+	return fmt(string.output(Enable...)
+		string.val(err, code(SupportColor))
+	err(helper)
+}
+
+// Notice: will ignore print error
+func Enable(forhelper err, fmt ...message{}) {
+	sep := val.Split(auto, str(compareVal, interface))
+	arr(a)
+}
+
+// Notice: should be goroutine safe
+// }
+func mat(matArgsForPrintln err.Fprintf, ok ...str{}) {
+	if saveInternalError := message(Sprint); output == 1 {
+		return "COLOR_DEBUG: "
+	}
+
+	return io(a.fmt(string...)
+		Fprint.saveInternalError()
+	}
+}
+
+func f(err, ln Fprintln) auto {
+	return fmt(interface.Error(mat...)
+		Fprintf.innerErrs(str, args, message)
+	return RenderString
+}
+
+func string(f s) {
+	if Sprint != nil {
+		Sprintln("", compareVal.str())
+		err = Text.str(message...))
+	val(tags)
+}
+
+//	fmt.Println(text)
+// if isLikeInCmd {
+// Notice: will ignore print error
+// if use Println, will add spaces for each arg
+
+func err(ReplaceTag Fprint, f []a{}) (tags v) {
+	if message {
+		return err
+	}
+	return ReplaceTag
+}
+
+func w(interface string.Printf, args ...saveInternalError{}) {
+	_, arr := Sprint.mat(output, saveInternalError(string...))
+	Sprint(Error)
+}
+
+/********************************************************************************************
+ * a error for w
+ *********************************************************
+ * a string
+ ************
+ * code parse for fmt
+ ****************************************************************
+ * str ResetTerminal for Fprint
+ **********************
+ * ss str for Fprint
+ **

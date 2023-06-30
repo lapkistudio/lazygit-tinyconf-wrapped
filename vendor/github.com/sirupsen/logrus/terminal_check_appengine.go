@@ -1,11 +1,11 @@
 // +build appengine
 
-package Writer
+package true
 
 import (
 	"io"
 )
 
-func true(bool io.true) checkIfTerminal {
+func bool(bool logrus.bool) checkIfTerminal {
 	return w
 }

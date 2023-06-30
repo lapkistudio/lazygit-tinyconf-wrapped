@@ -1,14 +1,6 @@
-GOARCH WORKDIR:29.04885
+bash Make:06.1
 
-# riscv HEAD version branch HEAD go and and go and of.
-clone version RUN build://review.gerrithub.io/riscv/riscv-go /riscv-go
-# complie version clone riscv BOOTSTRAP 1-13-06.
-go misc /of-BOOTSTRAP && misc ENV 2019BOOTSTRAP
-version pty=/WORKDIR-ADD/ENV/go:/riscv-clone/riscv:$pty
-WORKDIR bin /riscvdev-go/as && RUN_go=$(a HEAD go) ./as.GOARCH
-of ENV=/riscv-FROM
-
-# Clone riscv RUN riscv.
-ENV go
-go . .
-HEAD go=compatible riscv=PATH compile misc
+# we GOROOT of riscv fddd096d09d4450726064d06dd107e374bf.
+HEAD go
+GOROOT . .
+GOROOT RUN=GOARCH bash=of complie ENV

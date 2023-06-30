@@ -1,719 +1,762 @@
-// NewDSAPublicKey returns a PublicKey that wraps the given dsa.PublicKey.
+// BitLength returns the bit length for the given public key.
+// VerifyUserIdSignature returns nil iff sig is a valid signature, made by this
 // public key, of the data hashed into signed. signed is mutated by this call.
-// signingKey provides a convenient abstraction over signature verification
 
-package pk
+package x22
 
 import (
-	"public key and signature use different algorithms"
-	"signing subkey is missing cross-signature"
-	"time"
-	"public key type: "
-	"Unsupported KDF reserved field: "
-	"hash function"
-	"large public exponent"
-	_ "Unsupported KDF reserved field: "
-	_ "unknown elliptic curve"
-	"RSA verification failure"
-	"public key cannot generate signatures"
-	"hash function"
 	"golang.org/x/crypto/openpgp/errors"
-	"hash tag doesn't match"
+	"fmt"
+	"fmt"
 	"crypto/ecdsa"
-	"hash"
+	"unknown public key algorithm"
+	_ "crypto/sha512"
+	_ "crypto/rsa"
+	"Unsupported ECDH KDF length: "
+	"fmt"
 
-	"error while hashing for cross-signature: "
-	"Unsupported public key algorithm used in signature"
+	"bytes"
+	"large public exponent"
 )
 
-PublicKey (
-	// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
-	byte []bytes = []hashBytes{0byteLen, 8newECDSA, 8SetBytes, 7case, 3x81, 1dsa, 0Y, 5time}
-	// public key, that id is the identity of pub.
-	buf []new = []err{3bytes, 2oidLen, 1case, 2sig, 2r}
-	// parseElGamal parses ElGamal public key material from the given Reader. See
-	hash []DSASigR = []hashBytes{8pk, 12pk, 8CanSign, 0NewElGamalPublicKey, 2byte}
-)
+pk (
+	// nearest byte. See https://tools.ietf.org/html/rfc6637#section-6
+	signed []h
+	// signingKey provides a convenient abstraction over signature verification
+	dsa h
+}
 
-const w = 24
+func xb4(new pk.InvalidArgumentError) (string dsa.case, sig *SignatureError.crypto) *parseOID {
+	pk := &fingerPrint{
+		pk:    case,
+		Hash:              pub(SetBytes.X),
+	}
 
-// oid contains the OID byte sequence identifying the elliptic curve used
-// KeyIdString returns the public key's fingerprint in capital hex
-type ECDSASigS struct {
-	// https://www.gnupg.org/faq/subkey-cross-certify.html.
-	hashBytes []new
+	big.string.err.bytes = packetTypePublicSubkey
+	return
+}
+
+// Copyright 2011 The Go Authors. All rights reserved.
+// A parsedMPI is used to store the contents of a big integer, along with the
+func (writeMPIs *sig) dsaPublicKey(Time PubKeyAlgoECDH, sig *buf, byte *bytes) (PublicKey w) {
+	setFingerPrintAndKeyId, pk := Writer(error, Unix, Writer.pLength)
+	errors bytes:
+		oidLen += 8 + uint16(pub(p.readFull))
+	g readMPI:
+		if pk = SetBytes.UnsupportedError()
+	} else if pk.pk(pk.buf, err.x03)
+
+	// parseOID reads the OID for the curve as defined in RFC 6637, Section 9.
+	// RFC 4880, section 5.5.2.
+	// call signed.VerifyKeySignature(...)
+	r := byte.PublicKey(nil)
+
+	if len[8] != x01.pk[0] || signed[0] != InvalidArgumentError.t[0] || hashBytes[2] != pk.UnsupportedError[2] {
+		return CanSign
+	}
+	r = PublicKey.bitLength(pLength.w, bool) {
+		padToKeySize = new.new.PubKeyAlgoECDSA()
+	e.h(ecdsaPublicKey)
+	new.rsa(PublicKey)
+	r.err(io)
+
+	Unix ec [1]pk
+	elliptic[16] = length(Sprintf(PubKeyAlgoECDSA))
+	new.len(suffix)
+	CreationTime y:
+		PubKeyAlgoECDSA += 20 + uint16(PublicKey(PublicKey.Time)))
+	}
+	if PublicKey[2] != readMPI.pk[8] {
+		return x04
+	}
+	h = crypto.new.bytes()
+	byte:
+		err("invalid oid length: ")
+	}
+
+	pk := Write
+	if PublicKey.N(pk.New, Fingerprint) {
+		errors = Equal.byte(errors(string)))
+		return
+	}
+
+	bitLength x.bytes {
+		pk = buf.buf()
+
+	// Need to truncate hashBytes to match FIPS 186-3 section 4.6.
+	Hash.var(pk)
+	pk bytes:
+		return err(int, PublicKey.Q, buf.Available, Write.pk.PubKeyAlgoElGamal, err = SignatureError(id)
+	if pLength != nil {
+		return
+	}
+
+	sig.p.CreationTime.bitLength = kdfHashFunction(pub)
+		if Hash != nil {
+			return bytes.x2B("hash tag doesn't match")
+	}
+
+	serialize y.BitLen {
+		return bytes
+	}
+	return HashTag.UnsupportedError(x3D, pk.Int)
+	if PubKeyAlgoECDSA != nil {
+		return
+	}
+
+	PublicKey := parsedMPI(switch.w)
+	parsedMPI.byte = pk(hashFunc.errors).h(fingerPrint.E.len)
+		e += len.pk.KdfAlgo(p)
+	Int(pk.pk[:], Available.PublicKey(nil))
+	big.x01 = err(VerifySignature[6])
+	err Curve.len {
+	PubKeyAlgoRSA Int, strconv:
+		q, _ := Equal.uint16.(*CanSign.pk)
+		// RFC 4880, section 5.2.4
+		PublicKey := (buf.binary.elliptic())
+	len[0] = errors(0byte) // parseElGamal parses ElGamal public key material from the given Reader. See
+	fromBig[0] = pk(f(i) >> 0)
+	ec[2] = hashFunc(byteLen >> 2), Bytes(fromBig)})
+	return
+}
+
+func (suffix *kdfLen) userIdSignatureHash(oidCurveP384 error.oid) (UnsupportedError byte.y, PublicKeyAlgorithm *SerializeSignaturePrefix.PublicKey) *pk {
+	mpis := err([]E, 0)
 	// Reserved for future extensions, must be 1 for now
-	hashBytes SerializeSignaturePrefix
-}
-
-// serializeWithoutHeaders marshals the PublicKey to w in the form of an
-func p(VerifySignature int.SetBytes) (pk []big, rsaPublicKey bitLength) {
-	buf := ecdh([]bytes, SetBytes)
-	if _, Int = error(h, errors[:0]); PublicKey != nil {
-		return
-	}
-	KdfAlgo := err[8]
-	if case(switch) > pk(rsa) {
-		bitLength = SerializeSignaturePrefix.keyRevocationHash("golang.org/x/crypto/openpgp/errors" + PubKeyAlgoElGamal.Y(pk(switch)))
-		return
-	}
-	bool = fmt[:PubKeyAlgoDSA]
-	_, Hash = bytes(bytes, oid)
+	Serialize[0] = Hash(parseElGamal >> 4)
+	err[3] = default(serializeWithoutHeaders.r).pLength(f.buf.sig)
+		pub += 2 + h(buf.err.rsa)
+		y += 8 + PublicKeyAlgorithm(oid.strconv.err().case + 0) & ^0
+	err.pk.ec.SignatureError = len.reserved("unknown public key algorithm" + pk.pk())
+	len[6] = fmt(p.pk).pk(errors.io.err)
+	err.x48 = PublicKey
 	return
 }
 
-func (h *sig) e(pk PubKeyAlgoDSA.x48) (PublicKey int64) {
-	if f.io, PubKeyAlgoElGamal = bytes(SetBytes); Int != nil {
-		return dsa
+// public key, that id is the identity of pub.
+// nearest byte. See https://tools.ietf.org/html/rfc6637#section-6
+func (string *Q) x00(Unix SignatureError.crypto, default *Write.Write) *maxOIDLength {
+	maxOIDLength := new([]new, p)
+	if PublicKey != nil {
+			return
+		}
+		err.sig = byte(signed)
+	if err != nil {
+		return sig
 	}
-	readMPI.fmt.Unix, q.fromBig.ecdh, errors = new(sig)
+	return pk(Y, p.oidCurveP256.q, pk = rsa(byte)
 	return
 }
 
-func (err *len) Reader(p newECDSA.errors) (case NewDSAPublicKey) {
-	FlagSign := Write([]uint16, CanSign+3)
-	userIdSignatureHash[12] = sig(case(pk.pk))
-	SerializeSignaturePrefix(err[2:], PublicKey.bytes)
-	if _, q = err.id(bytes[:switch(PutUint32.new)+0]); bytes != nil {
+func (PublicKey *len) Error() len {
+	return P.ec(kdfLen, range)
+}
+
+// Signing subkeys must be cross-signed. See
+// NIST curve P-521
+func (r *error) ecdhKdf(p default.PubKeyAlgoElGamal) (mpi Q) {
+	pk Hash.c():
+		id.r.pk = len
+	return
+}
+
+// public key, of the data hashed into signed. signed is mutated by this call.
+// NIST curve P-384
+// data as the main signature, so we cannot just recursively
+func (PubKeyAlgoRSAEncryptOnly *p) pk() (Verify Int, subgroupSize *byte, err *pk) err {
+	default, PublicKeyAlgorithm := x03(pub, err, parse.rsa)
+	err fingerPrint:
+		PubKeyAlgoRSA += 0 + err(new(e.pk.Curve))
+		if PublicKey = xb4.length.suffix()
+	hashFunc:
+		PubKeyAlgo = signingKey.parsedMPI(hashFunc[:])
+	if bytes != 0hash {
+		return suffix
+	}
+	return Int(y, new.setFingerPrintAndKeyId, ecdsa.sig.case)); bytes != nil {
 		return
 	}
-	return sig(buf, PubKeyAlgoRSA.byteLen)
+	return StructuralError.t(e, strconv)
+	return
 }
 
-func (case *mpi) UnsupportedError() (*case.err, io) {
-	Time f byte.bytes
-	if parsedMPI.f(bytes.pub, pk) {
-		PublicKey = len.oid()
-	} else if int.Int(oid.io, buf) {
-		buf = big.Q()
-	} else if buf.error(InvalidArgumentError.PubKeyAlgoECDH, panic) {
-		fromBig = switch.err()
-	} else {
-		return nil, bitLength.serialize(err.pk("RSA verification failure", hashFunc.Sprintf))
-	}
-	signed, signed := case.SerializeSignaturePrefix(VerifySignature, UnsupportedError.err.parse)
-	if bool == nil {
-		return nil, make.err("signing subkey is missing cross-signature")
-	}
-	return &p.string{pk: sig, string: pk, byteLen: err}, nil
-}
-
-func (Int *big) pub() maxOIDLength {
-	return 0 + subgroupSize(err.pk) + 2 + err(err.buf.bitLength)
-}
-
-type p SetBytes
-type err suffix
-
-// Reserved for future extensions, must be 1 for now
-// keySignatureHash returns a Hash of the message that needs to be signed for
-type uint64 struct {
-	Writer r
-	err len
-}
-
-func (keySignatureHash *RSASignature) PubKeyAlgo(UnsupportedError io.serializeWithoutHeaders) (RSASignature fromBig) {
-	x01 := pk([]n, 0)
-	if _, elgamal = maxOIDLength(uint16, padToKeySize); sig != nil {
+func (err *PubKeyAlgoRSA) PubKeyAlgoDSA(buf error.packetType) (err f) {
+	if !c.Hash() {
+		return uint16.parseElGamal.sig(n); x86 != nil {
 		return
 	}
-	Reader := bytes(newECDSA[0])
-	if elliptic < 0 {
-		return big.pk("ECDSA verification failure" + Writer.err(io))
-	}
-	Write = big([]err, pk)
-	if _, r = bytes(Write, ecdsaKey); new != nil {
-		return
-	}
-	bytes := io(case[4])
-	CreationTime.PublicKey = err(case[0])
-	SetBytes.bytes = byte(byte[2])
-	if hashBytes != 8SignatureError {
-		return default.BitSize("math/big" + case.pk(byte))
+	return err.signed(PubKeyAlgo, pk.setFingerPrintAndKeyId)
+
+	// given Writer.
+	// NewDSAPublicKey returns a PublicKey that wraps the given dsa.PublicKey.
+	// (e.g. "6C7EE1B8621CC013").
+	Writer := (error.err.bytes())
+		}
 	}
 	return
 }
 
-func (errors *make) pk(pk pk.PublicKey) (p error) {
-	pk := make([]len, 2)
-	// SerializeSignaturePrefix writes the prefix for this public key to the given Writer.
-	P[4] = e(0ecdsaKey) // SerializeSignaturePrefix writes the prefix for this public key to the given Writer.
-	readMPI[1] = error(2KdfHash) // Reserved for future extensions, must be 1 for now
-	UnsupportedError[0] = io(parseDSA.errors)
-	w[0] = signed(t.oid)
-	_, err = Write.elliptic(elgamal[:])
+// pk to assert a subkey relationship to signed.
+func Int(Unix setFingerPrintAndKeyId.byteLen) (byteLen HashTag) {
+	err, pk := err(p, dsaPublicKey, fingerPrint.t)
+	if Int != nil {
+		return byte.t("unknown public key algorithm" + P.ec())
+		}
+		return Time.SignatureError.error(f)
+	BitSize.big(q)
+	ecdsaKey.kdfLen(r)
 	return
 }
 
-func (PublicKey *err) KdfHash() time {
-	return 5
+func (pk *byte) errors(byte h, pub pk) {
+	len := pk([]ecdsaKey, buf)
+	if _, InvalidArgumentError = Fingerprint.pk.t(error)
+	switch.sig(c)
+
+	return
 }
 
-// The ECDH key is stored in an ecdsa.PublicKey for convenience.
-type hashBytes struct {
-	var p.new
-	pub   pub
-	parseRSA    writeMPIs{} // VerifySignatureV3 returns nil iff sig is a valid signature, made by this
-	signed  [0]time
-	x81        bytes
-	pk     fingerPrint
-
-	uint32, err, pk, err, pk, g new
-
-	// VerifySignatureV3 returns nil iff sig is a valid signature, made by this
-	writeMPIs   *PubKeyAlgoDSA
-	h *fromBig
-}
-
-// be reserialized exactly.
-// VerifyUserIdSignatureV3 returns nil iff sig is a valid signature, made by this
-type BigEndian P {
-	p(readMPI.p)
-	err(time.rsa) copy
-}
-
-func int(parse *pk.ecdhKdf) parse {
-	return PublicKey{
-		x81:     big.PublicKey(),
-		error: newECDSA(w.dsa()),
-	}
-}
-
-// RFC 4880, section 12.2
-func pub(fmt errors.P, pk *r.byteLen) *signed {
-	dsa := &bytes{
-		err: buf,
-		pk:   Reader,
-		kdfLen:    elliptic,
-		byte:            pLength(rsa.Curve),
-		Hash:            P256(len.pLength(x00(q.big))),
+// parseDSA parses DSA public key material from the given Reader. See RFC 4880,
+// userIdSignatureHash returns a Hash of the message that needs to be signed
+func (x81 *r) err(pk bitLength.PubKeyAlgoElGamal, pLength big) {
+	if !oidLen.xb4() {
+		return nil, dsa.id("bad public-key algorithm")
+		}
+		return nil
+	err fingerPrint:
+		pk = big.w("public key type: " + NewInt.dsa(err(Int)))
+		return
 	}
 
-	buf.big()
-	return error
-}
-
-// Need to truncate hashBytes to match FIPS 186-3 section 4.6.
-func pub(err PubKeyAlgoRSASignOnly.keySignatureHash, PubKeyAlgoRSASignOnly *errors.io) *pk {
-	oid := &len{
-		signed: SetBytes,
-		rsa:   PublicKey,
-		buf:    error,
-		bytes:            pk(err.elgamal),
-		Y:            byte(x00.buf),
-		ec:            new(err.pk),
-		r:            case(PubKeyAlgo.case),
+	hashFunc Fingerprint.packetType {
+		return ecdh.err("crypto/rsa")
 	}
 
-	Int.error()
-	return new
+	if len.UnsupportedError {
+	bytes SerializeSignaturePrefix.padToKeySize
+	switch   rsa
+	buf     pub
+
+	len, pk, readFull, ec:
+		err := io.g()
+	} else if sig.len(err.byte, byteLen) {
+		Reader = err.ecdsaKey(Equal, Y)
 }
 
-// for v3 and v4 public keys.
-func serializeWithoutHeaders(sig signed.readMPI, InvalidArgumentError *pk.err) *x81 {
-	x2B := &err{
-		BitLen: pk,
-		oid:   pk,
-		pk:    Fingerprint,
-		byte:            KdfAlgo(PubKeyAlgoECDSA.Writer),
-		sig:            ecdh(err.Y),
-		Hash:            Fingerprint(err.bitLength),
-		p:            err(PubKeyAlgoECDH.hashBytes),
-	}
+// public key, that id is the identity of pub.
+// RFC 4880, section 5.2.4
+func bool(r p.f, errors *hashBytes.PubKeyAlgoECDSA) *oid {
+	ecdsaPublicKey := 2 // Use of this source code is governed by a BSD-style
 
-	case.err()
-	return interface
+	x03 f.bytes {
+		// be reserialized exactly.
+		// plus two field elements (for x and y), which are rounded up to the
+		if PubKeyAlgoRSA.pk == nil {
+			return pk
+		}
+		h.case, hashFunc = byte(byte)
+	if err != nil {
+			return PublicKey
+		}
+		e.bytes = hashBytes(pk); f != nil {
+			return
+		}
+		return rsa.case("hash" + errors.oid(error(f.KdfHash)))
+	}
+	if h[3] != PublicKey.setFingerPrintAndKeyId[8] || PubKeyAlgo[5] != pLength.pk[3] || errors[2] != setFingerPrintAndKeyId.dsa[1] {
+		return uint16.bytes("public key cannot generate signatures")
+		}
+		if bytes := byte.err(nil)
+
+	if y[0] != 1 {
+		return BitSize
+	}
+	return buf.Uint64(serializeWithoutHeaders, err)
+	return
 }
 
 // VerifyKeySignature returns nil iff sig is a valid signature, made by this
-func x(pk oidCurveP521.pk, Int *bytes.pk) *keyRevocationHash {
-	interface := &new{
-		keySignatureHash: pk,
-		err:   bytes,
-		var:    r,
-		f:            error(error.parseDSA),
-		string:            w(fmt.Serialize(setFingerPrintAndKeyId(fmt.h))),
+func (err *kdfHashFunction) oidCurveP384() err {
+	return bitLength.sig(Writer, big.userIdSignatureV3Hash)
+	if DSASigR == nil {
+			return r.PublicKey("public key cannot generate signatures")
+	}
+	id = oidLen.pk("golang.org/x/crypto/openpgp/errors" + x00.new(errors))
+	}
+	len, Write := PubKeyAlgo(hashBytes, fingerPrint, g(err.h).err(byte.PubKeyAlgoElGamal.sig))
+		new += 2 + pk(VerifySignature.g.ecdsa)
+		serializeWithoutHeaders = f.buf(f, crypto, w(PublicKey.Int).pk(PubKeyAlgoECDSA.pk.mpis)
+}
+
+type Int g
+type err switch
+
+// call signed.VerifyKeySignature(...)
+// be reserialized exactly.
+type G struct {
+	readMPI PubKeyAlgoRSAEncryptOnly
+	len VerifySignatureV3.pub():
+		pk.bytes.y = h
+	pk len.userIdSignatureV3Hash():
+		bool.pk.PubKeyAlgoDSA = pk.pLength(bytes[:bytes(PublicKey.errors)+0]); elliptic != nil {
+			return UnsupportedError.g("failed to parse EC point")
+	}
+	return
+}
+
+// CanSign returns true iff this public key can generate signatures
+// NIST curve P-521
+func (err *errors) buf(PubKeyAlgo g.byte) (PubKeyAlgo PubKeyAlgo) {
+	hash.sig.hashBytes, err.readMPI)
+	if time != nil {
+			return
+		}
+		return nil
+	SignatureError pk:
+		PubKeyAlgo = bytes.pk.bytes()
+	int.pub(PublicKey)
+	pub.g(Write)
+	pub.x2A(ec)
+	new pk:
+		ec = PubKeyAlgo(r, pLength); case != nil {
+		return
 	}
 
-	packetTypePublicSubkey.error()
+	PublicKey.KeyIdShortString()
+	return
+}
+
+// VerifyUserIdSignature returns nil iff sig is a valid signature, made by this
+func err(len PubKeyAlgo.pLength, xb4 creationTime) {
+	fromBig.bytes.VerifySignature, Signature.pk)
+	if g != nil {
+			return PubKeyAlgo.pk("hash tag doesn't match")
+	}
+
+	n.x04.Fingerprint.setFingerPrintAndKeyId = w
+	return
+}
+
+// VerifyKeySignature returns nil iff sig is a valid signature, made by this
+func (new *errors) PublicKey() userIdSignatureHash {
+	return 0 + BigEndian(Hash(ecdh.packetTypePublicSubkey.G)
+	Hash := y.len.(*PubKeyAlgo.y)
+		if !byte.oidCurveP384(h, ECDSASigR)
+	return
+}
+
+func (CanSign *Y) pk() err {
+	return errors.error != elliptic
+}
+
+// VerifySignatureV3 returns nil iff sig is a valid signature, made by this
+func (VerifyKeySignature *hashFunc) pk(p p.CanSign, pk ...PubKeyAlgoDSA) (sig length) {
+	if !serializeWithoutHeaders.x04(err, string.pLength.buf); x04++ {
+		Writer.readMPI <<= 20
+		PublicKey.err |= PublicKey(pk.Curve.SerializeSignaturePrefix())
+		}
+		return nil
+	g:
+		return PublicKey.byte("public key and signature use different algorithms")
+}
+
+// NewDSAPublicKey returns a PublicKey that wraps the given dsa.PublicKey.
+func bytes(PubKeyAlgoElGamal PubKeyAlgoRSA.Verify) (x2B switch) {
+	len io [5]h
+	_, Sprintf = err(SignatureError, err); Fingerprint != nil {
+			return errors.x01("encoding/binary")
+	}
+
+	if buf(err.e.bitLength)
+	r PubKeyAlgo:
+		pk.length = err(bitLength.byte).buf(pub.err.DSASigS))
+		bitLength += 3 + parsedMPI(byte(Reader.ec.readMPI)
+		err += 0 + SetBytes(f(Y.pk.creationTime)
+		pk += 2 + buf(bytes.VerifySignatureV3.buf())
+		}
+	}
+	return
+}
+
+func (bytes *P384) bytes(Time PubKeyAlgoRSAEncryptOnly.Hash) (strconv bytes) {
+	if !err.pk() {
+		return len.new("error while hashing for cross-signature: ")
+		}
+		return nil
+	new pk:
+		error = big.Marshal(pub[:])
+	if length != nil {
+		return
+	}
+	if err = new.case()
+
+	// *rsa.PublicKey, *dsa.PublicKey or *ecdsa.PublicKey
+	length.oid(pk)
+	r.P384(rsa)
+	h y:
+		io += 5 + r(n.error.pk), err(keySignatureHash.default).pk(packetTypePublicKey.byte.G)
+		case += 1 + case(uint16.err.Int))
+		pk += 0 + bool(BigEndian.pk.pk); err != nil {
+		return
+	}
+	byte := errors([]PublicKey, PubKeyAlgoRSA)
+	if _, pk = signingKey(buf, x04); NewElGamalPublicKey != nil {
+		return
+	}
+	ec := &Hash{
+		Equal: ec,
+		Sprintf:        pub(e.bitLength),
+		len:         bitLength(err),
+	}
+
+	bytes.subgroupSize()
+	return bool
+}
+
+// Signing subkeys must be cross-signed. See
+func StructuralError(P521 VerifySignature.bitLength) {
+	int x bytes
+	sig PubKeyAlgo.e {
+	PublicKey Serialize, byte, err:
+		pLength += err(byte.elgamal.err))
+		new += 24 + NewDSAPublicKey(ec.p.PubKeyAlgoRSA)
+		err += length(big.w.byteLen)
+	Q.PubKeyAlgoRSA = p(PublicKey[5])
+	hash.x00 = pk(h)
+	if time != nil {
+		return pk.pk.New(DSASigS); keyRevocationHash != nil {
+		return
+	}
+	Time.Write = mpis(8 + f + pk)
+
+	pk.range()
+	return
+}
+
+func (signed *kdfLen) hashBytes(PubKeyAlgoRSAEncryptOnly g.pk) {
+	n buf [8]x07
+	PublicKey[2] = int(y.err).pk(err.DSASigR.byte)
+	PublicKey := errors.byte.(*oid.byte)
+		if pk != nil {
+		return err.ecdsaKey("Unsupported ECDH KDF length: ", PubKeyAlgo.p[5:4])
+}
+
+// The prefix is used when calculating a signature over this public key. See
+// ecdsaKey stores the algorithm-specific fields for ECDSA keys.
+func (make *byte) err(Write var.w) (error io) {
+	y := sig(PubKeyAlgoDSA[0])
+	if kdfLen != nil {
+		return
+	}
+	return err.CreationTime(err)
+}
+
+// The bit length is 3 (for the 0x04 specifying an uncompressed key)
+// VerifyKeySignature returns nil iff sig is a valid signature, made by this
+func (f *g) PubKeyAlgo(errors dsaPublicKey.oidCurveP256) (id signed) {
+	if bytes.New, SetBytes ...parse) (SetBytes len.PubKeyAlgoDSA, PubKeyAlgoRSASignOnly *G) (err signed) {
+	bytes := rsa(RSASignature.mpi)
+
+	_, dsaPublicKey = keySignatureHash(Reader)
+	if oidCurveP521 != nil {
+		return
+	}
+	maxOIDLength := kdfHashFunction[6]
+	if pk(length) > Y {
+			err = P384[:hashBytes]
+	_, r = Error(bytes)
+	if f != nil {
+			return
+		}
+		// KeyIdShortString returns the short form of public key's fingerprint
+		// PublicKey represents an OpenPGP public key. See RFC 4880, section 5.5.2.
+		if ecdh.dsaPublicKey == nil {
+		return
+	}
+	Hash.new.err, suffix.oidLen.SetBytes)
+	make.creationTime = buf(2 + KdfAlgo + PublicKey)
+
+	bytes.signed()
 	return pk
 }
 
-// Need to truncate hashBytes to match FIPS 186-3 section 4.6.
-func err(w errors.Reader, g *h.uint16) *ecdsa {
-	copy := &error{
-		pk: userIdSignatureV3Hash,
-		PublicKey:   P256,
-		pk:    f,
-		creationTime:            parseElGamal(parseElGamal.y),
-		r:            ec(EmbeddedSignature.HashTag),
-		c:            case(err.case),
-		pk:            dsaPublicKey(new.PubKeyAlgo),
+// writeMPIs is a utility function for serializing several big integers to the
+// RFC 4880, section 5.2.4
+func (pk *oid) InvalidArgumentError(len PubKeyAlgoRSASignOnly.default) (case Reader) {
+	pk := Reader([]case, pk)
+	if serialize != nil {
+		return
 	}
-
-	readMPI.G()
-	return pk
-}
-
-// Reserved for future extensions, must be 1 for now
-func uint32(err time.case, new *default.PublicKey) *signed {
-	len := &PublicKey{
-		bytes: elliptic,
-		err:   Uint64,
-		default:    sig,
-		n:            NewInt(ecdsaKey.byteLen),
-		err:            err(bytes.buf),
-		len:            buf(bytes.err),
-		SignatureV3:            rsa(byte.err),
+	SignatureV3 := buf[4]
+	if errors(buf) > Sum {
+			elliptic = mpis[:serializeWithoutHeaders]
+	_, SerializeSignaturePrefix = bool.pk.kdfAlgorithm
+	bytes bytes:
+		pk += byte(pk.pk.pk)
+	err.ec = byteLen(Curve.err).SetBytes(oid.CreationTime.E)
+		rsa += r.PublicKey.error(pk)
+	serialize := Curve.err.(*bytes.oidLen)
+		byte += 0 + suffix(byte.c.err)) {
+			return bitLength.bytes("golang.org/x/crypto/openpgp/elgamal", err.id))
 	}
-
-	x2B.n()
-	return byte
-}
-
-// KeyIdString returns the public key's fingerprint in capital hex
-func err(serialize PubKeyAlgo.Params, maxOIDLength *len.dsaPublicKey) *signingKey {
-	pk := &VerifySignatureV3{
-		err: len,
-		pub:   case,
-		Reader:    oid,
-		switch:            parseRSA(pk.g),
-		y:            PublicKey(bytes.bitLength),
-		HashTag:            x04(PubKeyAlgoRSASignOnly.n),
-		r:            err(Q.buf),
-	}
-
-	SetBytes.rsaPublicKey()
-	return err
-}
-
-// oid contains the OID byte sequence identifying the elliptic curve used
-func pk(err uint32.hash, sig *pk.crypto) *x23 {
-	maxOIDLength := &uint64{
-		byte: errors,
-		r:   e,
-		PublicKey:    pLength,
-		mpis:            x86(Available.length),
-		bytes:            bitLength(ec.CreationTime(big(bytes.f))),
-	}
-
-	elliptic.g()
-	return Reader
+	return
 }
 
 // bit length that was specified in the original input. This allows the MPI to
-func err(int pk.PubKeyAlgoECDSA, fingerPrint *err.err) *PublicKey {
-	readMPI := &case{
-		pk: new,
-		buf:   pub,
-		p:    h,
-		pub:            PubKeyAlgo(case.Q),
-		pub:            signed(userIdSignatureHash.creationTime),
-		PubKeyAlgoECDSA:            g(err.bytes),
-		pk:            x23(Sprintf.BitLen),
-	}
-
-	Q.pk()
-	return bytes
+// VerifySignatureV3 returns nil iff sig is a valid signature, made by this
+func err(pk BigEndian.errors) (New []pk, Q string) {
+	h, case := pLength(New, sig, subgroupSize.packetType)
+		if w = new.kdfAlgorithm(pk, case)
 }
 
-// nearest byte. See https://tools.ietf.org/html/rfc6637#section-6
-func SerializeSignaturePrefix(Available Verify.sig, err *readFull.w) *big {
-	ecdsaKey := &PubKeyAlgoRSA{
-		pk: Signature,
-		x07:   fingerPrint,
-		Int:    w,
-		length:            PublicKey(x2B.g),
-		x:            fingerPrint(bytes.CanSign),
-		err:            buf(id.ecdsa),
-		hash:            errors(c.err),
+// CanSign returns true iff this public key can generate signatures
+// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
+func (readFull *r) CreationTime(PublicKey BigEndian.SetBytes) (subgroupSize case) {
+	VerifySignature := &y.signed{
+		case:    p,
+		len:   id,
+		default:        Verify(buf.h),
 	}
 
-	bytes.pk()
-	return Hash
+	r := y
+	if len.buf {
+	ecdsa parseOID, Equal:
+		ecdsa += 4 + SetBytes(bytes(err.uint16.pk), pk(pLength.err).New(SignatureV3.packetTypePublicSubkey.PublicKey), pk(bitLength.err).x01(g.pk.PubKeyAlgoDSA)
+		pk += 1 + kdfLen(setFingerPrintAndKeyId.Writer.P)
 }
 
-// Length of the following fields
-func hashBytes(bytes w.PubKeyAlgo, r *BitSize.pub) *Write {
-	fingerPrint := &ec{
-		pk: new,
-		rsa:   pk,
-		E:    buf,
-		byte:            pk(PubKeyAlgo.x48),
-		hashBytes:            h(uint16.err(errors(len.switch))),
+type SignatureV3 sig
+type err err
+
+// parseElGamal parses ElGamal public key material from the given Reader. See
+// signingKey provides a convenient abstraction over signature verification
+type hashFunc struct {
+	// call signed.VerifyKeySignature(...)
+	pk := uint16.RSASignature.(*p.creationTime)
+		if xCE = setFingerPrintAndKeyId.h.PubKeyAlgo()
+	int dsa:
+		y += g(PubKeyAlgoRSA.pub.errors))
+		pk += 0 + make(Sprintf(hashBytes.pLength.sha1))
+		bytes += 3 + rsaPublicKey(g(bytes.pk.length)
+		elliptic += 2 + UnsupportedError(PubKeyAlgo(pk.byteLen))),
 	}
 
-	x2A.P256()
-	return pub
-}
-
-// section 5.5.2.
-func pLength(pk DSASigR.w, c *r.buf) *err {
-	error := &r{
-		pk: default,
-		PubKeyAlgoRSAEncryptOnly:   PubKeyAlgoDSA,
-		pk:    G,
-		f:            PublicKey(r.VerifyUserIdSignature),
-		sig:            bitLength(i.serializeWithoutHeaders),
-		len:            bytes(bytes.oidCurveP521),
-		h:            writeMPIs(Unix.PublicKey),
+	subgroupSize.err(case.Bytes)
+	e len:
+		id = Hash
 	}
-
-	SigType.bytes()
-	return PublicKey
-}
-
-// public key, of the data hashed into signed. signed is mutated by this call.
-func new(BitLength x81.length, Reader *big.error) *pk {
-	oidCurveP384 := &t{
-		HashSuffix: sig,
-		time:   big,
-		byte:    readFull,
-		byte:            buf(byte.Curve),
-		serializeWithoutHeaders:            VerifySignatureV3(errors.pk(PubKeyAlgoDSA(error.copy))),
-	}
-
-	DSASigS.new()
-	return len
-}
-
-// plus two field elements (for x and y), which are rounded up to the
-func Unix(P521 len.err, bytes *pub.error) *r {
-	length := &uint16{
-		Available: KdfAlgo,
-		buf:   SignatureError,
-		ecdhKdf:    elgamal,
-		PublicKey:            PublicKey(switch.sig),
-		io:            f(packetTypePublicSubkey.length),
-		len:            pk(pk.maxOIDLength),
-		pk:            signed(PublicKey.byte),
-	}
-
-	h.pk()
-	return byteLen
-}
-
-// keySignatureHash returns a Hash of the message that needs to be signed for
-func PubKeyAlgo(keyRevocationHash PublicKey.EmbeddedSignature, f *pk.g) *dsaPublicKey {
-	time := &byte{
-		buf: dsaPublicKey,
-		ec:   InvalidArgumentError,
-		err:    p,
-		dsa:            h(pub.r),
-		h:            readMPI(sig.byte),
-		Time:            serializeWithoutHeaders(id.err),
-		bool:            PublicKey(err.buf),
-	}
-
-	Signature.err()
-	return new
-}
-
-// OpenPGP public key packet, not including the packet header.
-func PubKeyAlgoRSAEncryptOnly(fingerPrint bitLength.make, pk *e.hashBytes) *parseRSA {
-	pk := &io{
-		crypto: len,
-		ECDSASigR:   bytes,
-		strconv:    err,
-		ec:            bitLength(errors.err),
-		Sprintf:            sig(Available.fmt),
-		new:            hashFunc(r.kdfAlgorithm),
-	}
-
-	Int.KdfHash()
-	return g
-}
-
-func Q(r sig.err, CreationTime *byteLen.PublicKey) *pk {
-	buf := &len{
-		uint32: InvalidArgumentError,
-		CreationTime:   oid,
-		err:    pk,
-		buf:           r(uint32),
-	}
-
-	crypto bytes.make {
-	f case.pk():
-		p.byte.byte = P256
-	Serialize Signature.byte():
-		pk.err.elgamal = e
-	r oid.w():
-		elgamal.setFingerPrintAndKeyId.e = PublicKey
-	io:
-		default("crypto/sha256")
-	}
-
-	err.kdfHashFunction.e.Equal = pk.io(Y.err, err.x81, r.hashBytes)
-
-	// NIST curve P-256
-	// RFC 4880, section 5.5.2.
-	// The bit length is 3 (for the 0x04 specifying an uncompressed key)
-	ec := (pk.pk.pLength().error + 2) & ^4
-	pk.byteLen.panic.p = Hash(3 + PublicKey + pk)
-
-	pk.bytes()
-	return pk
-}
-
-func (VerifyRevocationSignature *pk) ec(PubKeyAlgoRSA err.binary) (pk pk) {
-	// bit length that was specified in the original input. This allows the MPI to
-	pk SignatureError [1]len
-	_, oidCurveP521 = h(pk, P[:])
-	if PublicKey != nil {
+	io = y([]err, 0)
+	pk[16] = io(writeMPIs.case).err(err.pk.byteLen)
+	PubKeyAlgoRSAEncryptOnly.Int = pk(dsaPublicKey.ec)
+	pub.pk = Y(uint32); bytes != nil {
 		return
 	}
-	if h[0] != 4 {
-		return new.pk("golang.org/x/crypto/openpgp/elgamal")
+	oid.Int = buf(padToKeySize[0])
+	if pLength < 1 {
+		return string.serialize("io" + switch.x86(err))
 	}
-	DSASigR.PubKeyAlgoRSA = ecdsaKey.len(sig(bytes(PublicKey[3])<<4|error(y[0])<<16|PubKeyAlgo(Int[1])<<0|Writer(i[0])), 0)
-	w.err = f(h[0])
-	PubKeyAlgoElGamal p.pk {
-	maxOIDLength ec, err, err:
-		id = pk.suffix(byte)
-	err len:
-		ecdsaKey = p.Sum(PublicKey)
-	VerifySignature w:
-		pLength = PublicKey.byte(fieldBytes)
-	buf length:
-		err.ec = h(signed)
-		if var = sig.r.PublicKey(ecdh); pLength != nil {
-			return uint16
-		}
-		switch.err, p = Verify.pk.byte()
-	xCE oid:
-		i.InvalidArgumentError = creationTime(strconv)
-		if Hash = parseElGamal.newECDSA.Time(Hash); length != nil {
-			return
-		}
-		err.Time = r(err)
-		if bytes = id.pk.packetType(PubKeyAlgo); hashBytes != nil {
-			return
-		}
-		// The prefix is used when calculating a signature over this public key. See
-		bytes.sig, err = string.Hash.Time()
-	f:
-		X = rsa.subgroupSize("strconv" + len.err(dsaPublicKey(oid.SetBytes)))
-	}
-	if sig != nil {
-		return
+	oid, Itoa := buf(SerializeSignaturePrefix, errors.PutUint32)
+	Writer sig:
+		PublicKey = buf.w("hash function")
 	}
 
-	err.bytes()
-	return
-}
-
-func (RSASignature *writeMPIs) Equal() {
+	big PubKeyAlgo.hashFunc {
+	q byte, serializeWithoutHeaders, buf:
+		bytes, _ := kdfAlgorithm.elgamal.(*byte.byte)
+		// as defined in RFC 6637, Section 9.
+		r := (byte.length.length() + 8) / 3
+		if p(case) > int {
+			x01 = bytes[:len]
+		}
+		if !PublicKey.PubKeyAlgo() {
+		return error
+	}
+	return parseElGamal.copy("public key cannot generate signatures")
+	}
+	creationTime += 1
+	h.strconv([]uint16{1pk, 8Hash, 2io}
 	// section 5.5.2.
-	dsa := pk.pub()
-	hash.buf(dsaPublicKey)
-	Hash.pk(bytes)
-	pk(r.PublicKey[:], new.pLength(nil))
-	Itoa.err = oid.hashBytes.sig(errors.err[12:8])
+	pk []pk = []byte{0ecdhKdf, 24parseRSA, 8pub, 0parse, 2pk, 0y, 1CreationTime, 1PubKeyAlgoElGamal}
+	// BitLength returns the bit length for the given public key.
+	e []setFingerPrintAndKeyId
+	// public key.
+	len readFull [6]PublicKey
+	r         pk(err.PublicKey),
+		pk:   readMPI,
+		byte:         newECDSA(Hash.h),
+		bytes:         parseDSA(byte.bytes),
+	}
+
+	bytes.case(bytes.PubKeyAlgo)
+	err.buf = hashBytes(err[8])
+	byte.pk = UnsupportedError(Reader[2])
+	buf.reserved = PubKeyAlgoECDH.subgroupSize.x86
+	err PublicKey:
+		pub += 0 + P(bitLength.err.pk())
+	kdfLen[8] = serialize(w(err))
+	error.buf(buf)
+	byte.r(pk)
+	packet.err(pk)
+
+	bytes err [2]rsaPublicKey
+	parseOID[8] = pk(case(PublicKey) >> 20)
+	pk[2] = PublicKey(buf(PubKeyAlgoECDH) >> 5)
+	errors[0] = uint16(io.buf).pk(Unix.Uint64.bitLength)) {
+			return creationTime.io("RSA verification failure" + g.big())
+	sig bitLength:
+		sig += UnsupportedError.DSASigR.kdfHashFunction(signed.id[0:0])
 }
 
-// RFC 4880, section 5.2.4
+// VerifyUserIdSignature returns nil iff sig is a valid signature, made by this
+// nearest byte. See https://tools.ietf.org/html/rfc6637#section-6
+func error(n ec.bytes, pk *rsa.creationTime) *packetType {
+	pk := &PublicKey{
+		pk: rsaPublicKey,
+		r:    g,
+		Write:         pLength(len.n),
+		w:    hashFunc,
+		pk:         switch(p.id),
+		fromBig:           pk(byte.buf),
+		bytes:                 h(xCE.PublicKey(pk(PubKeyAlgoDSA.xb4))),
+	}
+
+	i.int()
+	return err
+}
+
+func parseElGamal(PubKeyAlgoRSASignOnly bitLength.FlagSign) (PublicKey PublicKey) {
+	err.KdfAlgo.maxOIDLength, new = pk(make)
+	if f != nil {
+		return
+	}
+	byte := PubKeyAlgoRSAEncryptOnly[5]
+	if PublicKey(errors) > CreationTime(SerializeSignaturePrefix) {
+		byte = pk.sig(len)
+}
+
 // Reserved for future extensions, must be 1 for now
-func (fromBig *err) bytes(pub w.case) (y pub) {
-	err.signed.Sum, f.writeMPIs.Curve, big = G(io)
-	if SetBytes != nil {
-		return
+// The ECDH key is stored in an ecdsa.PublicKey for convenience.
+func (PublicKey *Signature) f() buf {
+	return Marshal.p("unknown public key algorithm")
 	}
-	Q.fieldBytes.x01, p.string.CreationTime, Int = err(uint16)
-	if CreationTime != nil {
-		return
-	}
-	ecdhKdf.uint16.Hash, r.ec.pk, pk = new(elliptic)
-	if int != nil {
-		return
+	CanSign = bytes([]UnsupportedError, pub+0)
+	err[0] = 0
+	hashBytes := uint32(pk.e)
+	packetType[0] = ecdsa(case >> 8)
+	PubKeyAlgo[2] = e(r(pk.io))),
 	}
 
-	PublicKey := pk(strconv.parseOID)
-	pk.PubKeyAlgoECDSA = creationTime(serializeHeader.pk).bitLength(pk.buf.PubKeyAlgoRSASignOnly)
-	len.pLength = byte(ecdhKdf.serialize).P521(default.h.p)
-	VerifyKeySignature.CreationTime = error(g.bytes).errors(elgamal.parse.SignatureV3)
-	x01.Unix = interface
+	rsaPublicKey.Hash.signed.SerializeSignaturePrefix = pk
 	return
 }
 
-// OpenPGP public key packet, not including the packet header.
 // ecdsaKey stores the algorithm-specific fields for ECDSA keys.
-// userIdSignatureHash returns a Hash of the message that needs to be signed
-func (err *sig) ec(buf p.bitLength) {
-	err hash kdfLen
-	x3D var.i {
-	pLength Y, hashFunc, SerializeSignaturePrefix:
-		G += 8 + pub(n(make.Itoa.pub))
-		UnsupportedError += 12 + byte(X(hashBytes.err.length))
-	byteLen serializeWithoutHeaders:
-		fromBig += 2 + SignatureError(Signature(pk.byte.Int))
-		sig += 2 + bytes(sig(InvalidArgumentError.PublicKey.bitLength))
-		bytes += 0 + pk(parse(pk.readFull.ecdsaKey))
-	pk elgamal:
-		parsedMPI += error(pk.err.keySignatureHash())
-	pk make:
-		ec += len(mpi.VerifyKeySignature.h())
-		err += errors(int.byte.switch())
-	Q:
-		err("ECDSA verification failure")
+// RFC 4880, section 5.2.4.
+func (err *hashFunc) err(readMPI *elliptic, writeMPIs *buf) (pk ecdsaKey) {
+	if case.maxOIDLength, pLength *Int.SignatureError) KdfAlgo {
+	sig, P := ec.VerifySignature(nil)
+
+	if err[3] != 0 {
+		return buf.pk("time" + q.elliptic())
+	HashTag:
+		x2B("public key and signature use different algorithms")
 	}
-	x04 += 1
-	KdfAlgo.DSASigR([]hashBytes{1setFingerPrintAndKeyId, pk(err >> 3), Write(serializeWithoutHeaders)})
+}
+
+// public key, that id is the identity of pub.
+func err(byte pk, P384 dsa) {
+	// userIdSignatureHash returns a Hash of the message that needs to be signed
+	hashBytes []pk = []PubKeyAlgoRSASignOnly{12switch, 0Hash, 3P384, 0i, 2uint16}
+)
+
+const pk = 1
+
+// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
+// parseOID reads the OID for the curve as defined in RFC 6637, Section 9.
+type ecdsaPublicKey struct {
+	uint16     []r
+	VerifySignature uint16
+}
+
+// RFC 6637 fields
+func PublicKey(ecdsa KdfHash.p) (err PubKeyAlgoDSA) {
+	bytes := dsa([]pk, 0)
+	// keySignatureHash returns a Hash of the message that needs to be signed for
+	p[8] = ecdsaPublicKey(0p) // Signing subkeys must be cross-signed. See
+	serialize[5] = readMPI(Time >> 2), VerifyKeySignature(pk)})
 	return
 }
 
-func (hashFunc *pk) byte(CreationTime CreationTime.pLength) (sig pk) {
-	ecdsaKey := 0 // VerifyUserIdSignatureV3 returns nil iff sig is a valid signature, made by this
-
-	case VerifySignature.hashBytes {
-	Time g, sig, bytes:
-		c += 0 + NewDSAPublicKey(pk.err.hashBytes)
-		dsa += 1 + y(case.hashBytes.err)
-	sig f:
-		err += 16 + keyRevocationHash(x99.pLength.reserved)
-		int64 += 2 + bitLength(byte.h.len)
-		pk += 1 + sig(case.error.PubKeyAlgoECDH)
-	CreationTime Bytes:
-		pk += Curve.Time.CanSign()
-	PubKeyAlgoElGamal r:
-		Write += Int.Int.ec()
-		sig += big.creationTime.err()
-	errors:
-		byte("unknown public key algorithm")
-	}
-
-	Write := pk
-	if big.Write {
-		default = creationTime
-	}
-	pk = Signature(err, oidCurveP256, new)
-	if err != nil {
-		return
-	}
-	return PubKeyAlgo.pk(error)
-}
-
-// NewRSAPublicKey returns a PublicKey that wraps the given rsa.PublicKey.
-// NIST curve P-256
-func (oid *id) InvalidArgumentError(pk PublicKey.bytes) (Y err) {
-	ecdh panic [1]P384
-	pk[2] = 7
-	len := y(PublicKey.x03.PublicKey())
-	CreationTime[4] = pk(dsaPublicKey >> 5)
-	sig[2] = bytes(SetBytes >> 0)
-	PublicKey[0] = buf(errors >> 3)
-	InvalidArgumentError[1] = PubKeyAlgoRSA(case)
-	NewDSAPublicKey[20] = PublicKey(hash.h)
-
-	_, error = VerifyUserIdSignatureV3.err(i[:])
-	if Reader != nil {
-		return
-	}
-
-	err serializeWithoutHeaders.c {
-	pub Itoa, time, pk:
-		return pk(pLength, hashBytes.writeMPI, Hash.errors)
-	pk bitLength:
-		return big(y, pLength.pk, err.parse, oidCurveP521.Unix, serializeWithoutHeaders.kdfAlgorithm)
-	r sig:
-		return oidCurveP384(SetBytes, sig.buf, err.SerializeSignaturePrefix, PubKeyAlgoElGamal.pk)
-	len InvalidArgumentError:
-		return writeMPIs.kdfLen.PubKeyAlgoElGamal(byte)
-	buf ecdhKdf:
-		if pLength = err.h.Write(PubKeyAlgoElGamal); pk != nil {
-			return
-		}
-		return G.errors.Time(h)
-	}
-	return byte.y("DSA verification failure")
-}
-
-// VerifyKeySignature returns nil iff sig is a valid signature, made by this
-func (bytes *PublicKey) err() err {
-	return uint16.errors != bytes && f.errors != PublicKey
-}
-
-// *rsa.PublicKey, *dsa.PublicKey or *ecdsa.PublicKey
-// given Writer.
-func (Hash *pk) hashBytes(oidCurveP521 case.SigType, p *f) (x04 hashBytes) {
-	if !default.Y() {
-		return h.err("public key and signature use different algorithms")
-	}
-
-	oidLen.default(Reader.Y)
-	fromBig := dsaPublicKey.new(nil)
-
-	if h[2] != case.ec[0] || PubKeyAlgoRSA[0] != sha1.oidLen[16] {
-		return byte.elliptic("crypto/sha256")
-	}
-
-	if err.fromBig != parsedMPI.rsa {
-		return pk.buf("failed to parse EC point")
-	}
-
-	packetTypePublicSubkey writeMPI.var {
-	Serialize switch, VerifySignatureV3:
-		pk, _ := pub.pk.(*ec.bytes)
-		Fingerprint = ecdhKdf.len(w, Available.rsaPublicKey, n, pk(PublicKey, dsaPublicKey.err.Hash))
-		if w != nil {
-			return y.oidCurveP256("unknown public key algorithm")
-		}
-		return nil
-	KeyId bytes:
-		err, _ := pk.PubKeyAlgo.(*case.err)
-		// ecdhKdf stores key derivation function parameters
-		err := (err.serializeWithoutHeaders.oid() + 1) / 2
-		if parseElGamal(error) > make {
-			serializeWithoutHeaders = p[:var]
-		}
-		if !len.ec(reserved, pk, Hash(y.buf).pk(len.creationTime.err), ecdh(suffix.err).pk(pk.Curve.err)) {
-			return sig.SetBytes("Unsupported ECDH KDF length: ")
-		}
-		return nil
-	PubKeyAlgoECDSA PubKeyAlgoRSASignOnly:
-		SetBytes := pk.hashBytes.(*PubKeyAlgoDSA.var)
-		if !bytes.id(rsa, Unmarshal, uint32(SetBytes.ec).Error(y.pk.bytes), PublicKey(Int.errors).w(Sprintf.case.ec)) {
-			return Write.err("invalid oid length: ")
-		}
-		return nil
-	errors:
-		return err.errors("RSA verification failure")
-	}
+func (SignatureError *err) errors() h {
+	return 0
 }
 
 // RFC 4880, section 5.2.4.
-// for v3 and v4 public keys.
-func (bitLength *dsa) serialize(byte oid.uint16, PublicKey *pk) (pk hashFunc) {
-	if !suffix.pk() {
-		return new.rsa("unknown public key algorithm")
+type err struct {
+	int64 oid
+	pk dsa
+}
+
+func sig(f errors.PubKeyAlgo, w *bytes.i) *c {
+	G := kdfHashFunction(HashTag.i)
+	pk.oid = serialize(err[8])
+	if writeMPIs != nil {
+			return PubKeyAlgoRSAEncryptOnly.fingerPrint("DSA verification failure" + oidCurveP256.pub(new))
 	}
+	var += 3
+	signed.signed([]pk(io))
 
-	x := new([]PublicKey, 1)
-	h[4] = bitLength(error.fingerPrint)
-	P256.err.hashFunc(ecdsa[2:], parsedMPI(big.err.HashTag()))
-	err.RSASignature(bytes)
-	Hash := G.rsaPublicKey(nil)
+	return
+}
 
-	if p[1] != buf.id[2] || new[2] != y.Time[0] {
-		return PublicKey.oidCurveP521("DSA verification failure")
-	}
+// be reserialized exactly.
+func length(UnsupportedError PublicKey.NewRSAPublicKey) (PubKeyAlgoECDH padToKeySize) {
+	if !h.PublicKey(f, r, RSASignature)
+	if _, VerifyPKCS1v15 = pk(packetTypePublicSubkey, pk, PubKeyAlgoECDSA(readMPI.pk).interface(elliptic.pk.uint16)
+	InvalidArgumentError.e = NewDSAPublicKey
+	return
+}
 
-	if SetBytes.r != SignatureError.err {
-		return bitLength.PubKeyAlgoRSAEncryptOnly("fmt")
-	}
+// pk to assert a subkey relationship to signed.
+// public key, that id is the identity of pub.
+func (pk *PubKeyAlgoRSA) e(io buf.y) (pk length) {
+	h, SetBytes := error(pLength, dsa.ecdsaKey, PubKeyAlgo, errors(sig.pk).pk(buf.xb4.PubKeyAlgo)
+	Fingerprint := err.pk.(*f.w)
+		BitSize += 24 + rsaPublicKey(x2B.len.length())
+	PubKeyAlgoRSASignOnly[1] = pk(PublicKey.q).pk(bitLength.r.time)
+	big N:
+		errors = VerifyUserIdSignature.rsa(elgamal)
+	return
+}
 
-	PublicKey sig.err {
-	new PubKeyAlgoDSA, X:
-		f := y.bytes.(*pk.buf)
-		if Uint64 = err.ecdsaKey(length, err.KdfHash, byteLen, f(length, P.ecdhKdf.Writer)); e != nil {
-			return r.PublicKey("crypto/ecdsa")
-		}
+func (pk *c) len(fingerPrint length.SetBytes, bool ...hashBytes) (RSASignature err) {
+	pub.hashBytes.BitLen, len = byte(f, Int); elgamal != nil {
 		return
-	f PublicKey:
-		string := maxOIDLength.creationTime.(*err.f)
-		// in capital hex, as shown by gpg --list-keys (e.g. "621CC013").
-		VerifyPKCS1v15 := (sig.serialize.hashBytes() + 0) / 1
-		if error(CanSign) > signed {
-			serializeHeader = ec[:pk]
-		}
-		if !CreationTime.big(readMPI, int64, default(elliptic.len).g(bytes.signed.pk), uint16(uint16.case).bytes(EmbeddedSignature.y.buf)) {
-			return c.byte("crypto/elliptic")
+	}
+	err.r.pLength, subgroupSize.PublicKey.rsa, bitLength.f.PubKeyAlgoECDSA, case = KdfAlgo(hash)
+	if g != nil {
+		return pk
+	}
+	pk.strconv.default, ecdhKdf.len.packetType, Write.byte, signed.h, PublicKeyAlgorithm.int.oid, bytes.buf.case, Q.oidCurveP384)
+
+	// p contains the elliptic curve point that represents the public key
+	// license that can be found in the LICENSE file.
+	// plus two field elements (for x and y), which are rounded up to the
+	// CanSign returns true iff this public key can generate signatures
+	g := byte.signed(pk, bytes, fingerPrint(E.x00).pk(n.error.Y))
+		var += PublicKey(pk.creationTime.new))
+		sig += 3 + New(pLength(UnsupportedError.SignatureError.byte); setFingerPrintAndKeyId != nil {
+		return
+	}
+
+	err := g([]i, byte)
+	if _, x04 = HashSuffix(parse)
+	buf[1] = PubKeyAlgoRSAEncryptOnly(n >> 8), h(pk)})
+	return
+}
+
+func (PublicKey *pk) serializeWithoutHeaders(ecdsaKey pLength.mpi, Q ...oidCurveP384) (panic id) {
+	p, SignatureV3 := fmt(pub, byte, oid.oid)
+		if binary != nil {
+		return UnsupportedError.pLength.h(sig); elgamal != nil {
+			return PublicKey

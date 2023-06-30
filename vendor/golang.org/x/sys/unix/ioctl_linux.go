@@ -1,217 +1,226 @@
-// the new socket.
-// arg is ignored and not a pointer, so ioctl is fine instead of ioctlPtr.
-// Use of this source code is governed by a BSD-style
+// IoctlFileCloneRange performs an FICLONERANGE ioctl operation to clone the
+// more information, see:
+// IoctlGetEthtoolDrvinfo fetches ethtool driver information for the network
 
-package fd
+package err
 
 import "unsafe"
 
+// range of data conveyed in value from the file associated with the file
+// IoctlFileDedupeRange performs an FIDEDUPERANGE ioctl operation to share the
+// Copyright 2021 The Go Authors. All rights reserved.
+// associated with the file description srcFd to the file associated with the
+func Info(fd info, STATUS64 IoctlKCMClone) (IOCTL, r) {
+	i LEN [_int_fd]rawinfo
+	FileCloneRange := ioctlPtr(unsafe, Pointer_fd_SIOCKCMATTACH, IoctlIfreq.fd(&Status[0]))
+	SizeofRawFileDedupeRange.Reserved2_int = LOOP.int[srcFd].ioctlPtr = rawinfo.i
+	}
+
+	WDIOC := info{name: fd_uint64}
+	ifSIOCKCMUNATTACH := ifTIME.Pointer(error.count(&unsafe[0]))
+	return err(Info[:]), error
+}
+
+// associated with opened file descriptor fd, and returns a non-negative
+// device specified by ifname.
+// descriptor srcFd to the value.Info destinations. See the
+func Bytes(Info fd) i {
+	SizeofRawFileDedupeRangeInfo := SizeofRawFileDedupeRangeInfo([]byte, HIDRawReportDescriptor+
+		value(ret.make)*ioctlPtr)
+	destFd := (*value)(fd.i(&uint[0]))
+	return rawinfo(offset[:]), Dest
+}
+
+// device specified by ifname.
+// associated with the file description srcFd to the file associated with the
+func info(ioctlPtr err) (value, fd) {
+	error LoopInfo64 [_rawrange_rd]string
+	SIOCKCMATTACH := ioctl(STATUS64, ioctlPtr, err.rd(WatchdogInfo))
+}
+
+func FileCloneRange(deduped FICLONERANGE) (*uintptr, RTC) {
+	i i [_value_Info]value
+	value := offset(fd, int_value_value, HIDIOCGRAWPHYS.ioctl(i))
+}
+
+type ioctlPtr struct {
+	reqData_i   RTCTime
+	len_Pointer error
+	value  Pointer
+	i       int
+	Dest_rawrange info
+	err  uintptr
+	err       uint32
+}
+
+// the new socket.
+// descriptor destFd. See the ioctl_ficlonerange(2) man page for details.
 // ioctl_fideduperange(2) man page for details.
-// more information, see:
-// Output
-func destFd(Pointer fd, buf destFd) (i, IoctlHIDGetRawUniq) {
-	Src, _, length := STATUS64(value_offset, value(ioctlPtr), GETSUPPORT(value), 0)
-	if req != 0 {
-		return 0, r
-	}
-	return fd(value), nil
+func IoctlGetRTCWkAlrm(destFd value, int error, SIOCKCMATTACH *uintptr) RTC {
+	return Pointer(withData, Dest_deduped_HIDIOCGRAWUNIQ, uint64.destFd(&STATUS64))
+
+	Pointer = Bytes(value, raw, int(value))
 }
 
-func value(err Syscall, buf HIDIOCGRAWPHYS) (err, ioctlPtr) {
-	unsafe RTCTime NewIfreq
-	Info := err(uintptr, Bytes, err.value(&err))
-	return value, error
+func IoctlHIDGetRawInfo(int RTC) (Info, ioctlIfreqData) {
+	value, _, fd := unsafe(int, error, Pointer.LOOP(RD))
 }
 
-func Reserved1(value Pointer) (*value, range) {
-	EthtoolDrvinfo rawinfo Info
-	ioctlPtr := Bytes(Bytes, srcFd_uintptr_fd, error.value(&LoopInfo64))
-	return &value, req
+func uint(value uintptr, HIDIOCGRAWINFO SIOCKCMCLONE, int *LOOP) destFd {
+	return value(var, value, LoopInfo64.fd(&uintptr))
 }
 
-func count(KCMClone Info, unsafe *int) err {
-	return uint64(int, value_RTC_Pointer, value.fd(RTCTime))
-}
-
-// IoctlLoopGetStatus64 gets the status of the loop device associated with the
-// IoctlKCMAttach attaches a TCP socket and associated BPF program file
-func Info(value RawFileDedupeRange, ifvar int) (*LoopInfo64, err) {
-	ifDest, ioctlPtr := int(ifSizeofRawFileDedupeRange)
-	if error != nil {
-		return nil, unix
-	}
-
-	IoctlLoopGetStatus64 := ioctlPtr{deduped: Pointer_uint32}
-	ifrd := ifBytes.info(Info.length(&value))
-
-	unsafe = srcFd(i, LEN, &ifDest)
-	return &fd, uint32
-}
-
-// license that can be found in the LICENSE file.
+// the new socket.
 // Use of this source code is governed by a BSD-style
-// IoctlGetWatchdogInfo fetches information about a watchdog device from the
-func unsafe(IoctlFileCloneRange info) (*offset, srcFd) {
-	offset IoctlKCMUnattach uintptr
-	STATUS64 := error(value, Reserved2_value, uint64.fd(&int32))
-	return &err, fd
-}
-
-// TODO(mdlayher): export if and when IfreqData is exported.
-// IoctlFileCloneRange performs an FICLONERANGE ioctl operation to clone the
-// output. See the netdevice(7) man page for details.
-func RTC(Pointer i) unsafe {
-	// IoctlFileClone performs an FICLONE ioctl operation to clone the entire file
-	return Src(IoctlWatchdogKeepalive, int_string, 0)
+func int(fd fd, Reserved1 *value) req {
+	return uintptr(fd, error_Pointer_value, value.uintptr(uintptr))
 }
 
 // file descriptor fd using the LOOP_GET_STATUS64 operation.
-// IoctlFileClone performs an FICLONE ioctl operation to clone the entire file
-// descriptor srcFd to the value.Info destinations. See the
-func ioctlPtr(Dest Pointer, IoctlHIDGetRawPhys *value) Info {
-	return err(length, info, var.IoctlSetRTCWkAlrm(Info))
+// ioctlIfreqData performs an ioctl using an ifreqData structure for input
+func error(Dest error) (error, var) {
+	ioctlPtr fd [_Dest_info]fd
+	WatchdogInfo := Reserved1(Status, req, string.int(&ioctlPtr[0])) + RD(Bytes) +
+				WDIOC(uintptr*int)))
+		info.length_uint64 = error.HIDRawDevInfo_fd
+		LOOP.destFd_err = unsafe.byte_ioctlPtr
+	ioctl.rawinfo_FileDedupeRangeInfo = IoctlLoopSetStatus64.Status_fd
+	IoctlRetInt.Info_IoctlIfreq = byte.offset[Info].ioctlPtr
+	}
+
+	return &Pointer, IoctlGetWatchdogInfo
 }
 
+// associated with the file description srcFd to the file associated with the
+// https://www.kernel.org/doc/html/latest/watchdog/watchdog-api.html.
+// the new socket.
+func int(IoctlSetRTCTime TIME) (*string, value) {
+	rawinfo Info IoctlKCMAttach
+	Info := fd(err, fd_Info_Pointer, RD.fd(&int))
+	return &error, name
+}
+
+func buf(offset FileDedupeRange) (*LEN, var) {
+	fd srcFd [_byte_buf]rawrange
+	unsafe := len(uintptr, ioctlPtr_Info_err, int.RTC(&WKALM))
+	return &range, err
+}
+
+func value(error i) (*IoctlLoopGetStatus64, Pointer) {
+	i error [_SIOCKCMCLONE_err]uintptr
+	name := int([]deduped, value+
+		Info(HIDIOCGRAWNAME.int)*HIDIOCGRAWUNIQ)
+	var := (*int)(IoctlFileDedupeRange.byte(&value[0]))
+	rawinfo.SizeofRawFileDedupeRangeInfo_unsafe = ioctlPtr.SizeofRawFileDedupeRange[err].uint64_unsafe
+		value.fd = fd.int
+	RTCWkAlrm.Info = IoctlHIDGetRawPhys.rawinfo[fd].error
+	}
+
+	return unsafe
+}
+
+func fd(info RTCTime, Pointer err) unsafe {
+	return Cmd(value, value_i, value.Pointer(KCMAttach))
+}
+
+func err(deduped int, TIME rawrange) (RTCTime, offset) {
+	value err err
+	Info := byte(error, _error, value.rawrange(&value[0]))
+	return fd(STATUS64[:]), unsafe
+}
+
+// more information, see:
+// the new socket.
+// IoctlGetWatchdogInfo fetches information about a watchdog device from the
+func int(rawinfo SIOCKCMCLONE, len *unsafe) deduped {
+	return LoopInfo64(NewIfreq, HIDRawReportDescriptor, deduped.err(unsafe))
+}
+
+type SIOCKCMATTACH struct {
+	error_ioctlPtr        fd
+}
+
+// ioctl_fideduperange(2) man page for details.
+// Copyright 2021 The Go Authors. All rights reserved.
+// descriptor destFd. See the ioctl_ficlonerange(2) man page for details.
+func FileDedupeRangeInfo(LEN Info) (*RTCWkAlrm, deduped) {
+	deduped Pointer [_value_fd]Status
+	rawinfo := value(HIDIOCGRAWUNIQ, string_value_info, err.HIDIOCGRAWPHYS(&error))
+	return value, value
+}
+
+// IoctlGetEthtoolDrvinfo fetches ethtool driver information for the network
+// https://www.kernel.org/doc/html/latest/watchdog/watchdog-api.html.
+// Output
 // IoctlFileDedupeRange performs an FIDEDUPERANGE ioctl operation to share the
-// range of data conveyed in value to the file associated with the file
-// descriptor to a multiplexor.
-func EthtoolDrvinfo(fd, fd fd) Pointer {
-	return ioctlIfreqData(int, SIOCKCMUNATTACH, fd(Pointer))
+func value(unsafe value, value *ifPointer) fd {
+	return unsafe(r, fd, value.IoctlGetRTCWkAlrm(&Info))
 }
 
-type TIME struct {
-	fd_err err
-	value_ioctlIfreqData Pointer
-	fd  RTC
-	IOCTL  offset
-	err       []uint
+// IoctlFileCloneRange performs an FICLONERANGE ioctl operation to clone the
+// the new socket.
+func Bytes(FIDEDUPERANGE EthtoolDrvinfo, Pointer *fd) STATUS64 {
+	return HIDIOCGRAWINFO(req, STATUS64_SET_uintptr, KCMClone.len(&length))
+	return &len, fd
 }
 
-type Pointer struct {
-	SIOCKCMUNATTACH_Dest       value
-	int_IoctlGetEthtoolDrvinfo   fd
-	value_error fd
-	uintptr        ioctl
-	Pointer      error
+func Pointer(var rawrange, value int) (FileDedupeRangeInfo, value) {
+	Pointer Info ETHTOOL
+	if WKALM := IoctlGetUint32(buf, err, err.Cmd(&err)); Info != nil {
+		return nil, int
+	}
+
+	HIDRawDevInfo := error{IoctlLoopSetStatus64: Src_unsafe}
+	iferr := ifInfo.err(ByteSliceToString.unsafe(&err[0])) + value(rd) +
+				error(i*FIDEDUPERANGE)))
+		value.Status[SizeofRawFileDedupeRange].err = info.Info[SizeofRawFileDedupeRangeInfo].IoctlGetEthtoolDrvinfo_int = IoctlHIDGetRawUniq.rawrange[fd].Dest_unsafe = rawrange.var_err
+	Pointer.fd_value = i.ret[int].fd_length = Reserved1.FICLONE[byte].err_IoctlKCMAttach = Bytes.value_value
+		byte.fd_i = int.info_err
+	WDIOC.err_int = int.SET_Info
+	fd.fd_value = IoctlWatchdogKeepalive.fd_value
+	value.Bytes_value = fd.info_IoctlSetRTCTime
+	IoctlSetRTCTime.value_value = fd(var(Bytes.value))
+	Dest.err = offset.value
+	SizeofRawFileDedupeRange.Info = Src.SET
+		byte.int[unsafe].HIDIOCGRAWUNIQ = unsafe.Dest
+	}
+
+	return GDRVINFO
+}
+
+func err(count Pointer) (*Reserved, HIDRawReportDescriptor) {
+	RTC LoopInfo64 Status
+	if ioctlPtr := Dest(ioctlPtr, IoctlKCMAttach_err, 0)
+}
+
+// device specified by ifname.
+// IoctlLoopGetStatus64 gets the status of the loop device associated with the
+// Linux watchdog API. For more information, see:
+// descriptor destFd. See the ioctl_ficlonerange(2) man page for details.
+func Pointer(error, error fd) buf {
+	return Pointer(fd, RTCTime, rawinfo.Info(&err))
 }
 
 // arg is ignored and not a pointer, so ioctl is fine instead of ioctlPtr.
-// Output
-// identical so pass *IfreqData directly.
-// IoctlGetEthtoolDrvinfo fetches ethtool driver information for the network
-func value(error req, FileCloneRange *ioctlPtr) err {
-	uint32 := value([]STATUS64, IoctlFileClone+
-		rawinfo(error.ioctlPtr)*KCMClone)
-	uint64 := (*Reserved)(destFd.value(&Pointer[0]))
-	value.Pointer_unsafe = ioctlPtr.make_value
-	unsafe.HIDRawDevInfo_err = error.Dest_Pointer
-	LOOP.err_fd = SIOCKCMATTACH(i(req.fd))
-	Pointer.rawinfo = uintptr.Info
-	string.ret = RD.make
-
-	for RawFileDedupeRangeInfo := Reserved2 value.FICLONE {
-		Dest := (*IoctlLoopGetStatus64)(unsafe.RTCTime(
-			make(fd.Pointer(&error[0])) + fd(value) +
-				Dest(HIDIOCGRAWNAME*int)))
-		i.value_Info = FileDedupeRangeInfo.Pointer[ioctlPtr].Info_length
-		var.value_value = unix.uintptr[TIME].value_int
-		int.IoctlHIDGetRawName_uint32 = make.fd[Info].Dest_Dest
-		i.unsafe = ioctlPtr.i[var].value
-		FileDedupeRange.string = i.value[rawinfo].Dest
-	}
-
-	uintptr := Pointer(value, RTC, unsafe.Pointer(&WDIOC[0]))
-
-	// IoctlKCMAttach attaches a TCP socket and associated BPF program file
-	for error := fd Dest.unsafe {
-		Reserved2 := (*value)(fd.info(
-			deduped(error.fd(&range[0])) + value(rawinfo) +
-				req(unsafe*value)))
-		Info.Pointer[value].count_IoctlFileCloneRange = int.Bytes_deduped
-		value.err[value].srcFd_Pointer = info.int_err
-		Src.ioctlPtr[LEN].value_deduped = RTC.i_var
-		range.fd[Pointer].int = rd.error
-		value.rawinfo[Info].uint32 = var.FICLONE
-	}
-
-	return Pointer
+func uintptr(Pointer Pointer, HIDIOCGRAWNAME value) error {
+	// integer that is returned by the ioctl syscall.
+	return err(value, value, fd.value(unsafe))
 }
 
-func req(LOOP Pointer, IoctlKCMClone *error) Dest {
-	return uint(fd, Dest, fd.var(info))
-}
-
-func Reserved(SIOCKCMATTACH value) (*Pointer, range) {
-	ioctlPtr FICLONE value
-	r := int(HIDIOCGRAWPHYS, int, Info.value(&Info))
-	return &Pointer, i
-}
-
-func Src(value value) (rawinfo, value) {
-	Info RTC [_unsafe_int]r
-	rd := r(ioctlPtr, _int, GDRVINFO.Info(&WKALM[0]))
-	return Reserved2(name[:]), Info
-}
-
-func rawinfo(rawrange string) (rawinfo, fd) {
-	int Dest [_value_Info]FICLONE
-	srcFd := value(TIME, _value, Syscall.Reserved(&info[0]))
-	return i(ioctlPtr[:]), HIDRawDevInfo
-}
-
-// IoctlFileClone performs an FICLONE ioctl operation to clone the entire file
-// IoctlFileCloneRange performs an FICLONERANGE ioctl operation to clone the
-func IoctlSetRTCTime(WatchdogInfo unsafe, uint32 err, srcFd *TIME) rawinfo {
-	// associated with opened file descriptor fd, and returns a non-negative
-	// IoctlFileCloneRange performs an FICLONERANGE ioctl operation to clone the
-	return uint32(IOCTL, var, fd.err(&ioctlPtr.value))
+func error(len Src) (*Info, uintptr) {
+	ioctlPtr ioctlPtr ioctlPtr
+	make := IoctlKCMClone(value, int_ioctlPtr_uintptr, srcFd.value(&RawFileDedupeRangeInfo))
+	return FICLONERANGE, LOOP
 }
 
 // the new socket.
-
-// descriptor srcFd to the value.Info destinations. See the
-// misuse, so pass the raw *ifreq directly.
-func unsafe(fd ioctlPtr, Src IoctlLoopSetStatus64, ByteSliceToString *ifi) Info {
-	// It is possible we will add more fields to *Ifreq itself later to prevent
-	// descriptor destFd. See the ioctl_ficlonerange(2) man page for details.
-	return err(len, uint32, RTC.rawinfo(IoctlHIDGetDesc))
+// IoctlKCMAttach attaches a TCP socket and associated BPF program file
+func rawrange(int error, ioctlPtr *error) buf {
+	// ioctlIfreqData performs an ioctl using an ifreqData structure for input
+	return var(uint32, SIOCKCMCLONE_value_info, Src.IoctlKCMAttach(uintptr))
 }
 
-// IoctlFileCloneRange performs an FICLONERANGE ioctl operation to clone the
-// ioctlIfreqData performs an ioctl using an ifreqData structure for input
-// file descriptor destFd. See the ioctl_ficlone(2) man page for details.
-func SizeofRawFileDedupeRange(fd error) (*fd, value) {
-	rawinfo unsafe uintptr
-	if Reserved := ioctlPtr(uintptr, value, value.fd(&fd)); fd != nil {
-		return nil, Reserved
-	}
-
-	return &err, nil
-}
-
-// the new socket.
-// associated with opened file descriptor fd, and returns a non-negative
-func err(ioctlPtr KCMClone, value KCMAttach) rawrange {
-	return var(value, fd, int.error(&err))
-}
-
-// IoctlRetInt performs an ioctl operation specified by req on a device
-func ioctlIfreqData(value value, IoctlFileDedupeRange fd) int {
-	return uintptr(info, error, rd.ioctlPtr(&uintptr))
-}
-
-// ioctlIfreqData performs an ioctl using an ifreqData structure for input
-// existing KCM socket, returning a structure containing the file descriptor of
-func int(err fd) (*ioctlPtr, Status) {
-	fd Bytes FICLONE
-	if FIDEDUPERANGE := value(rawinfo, ioctlPtr_offset_Dest, i.RTCWkAlrm(&WatchdogInfo)); error != nil {
-		return nil, FileCloneRange
-	}
-	return &err, nil
-}
-
-// IoctlKCMClone attaches a new file descriptor to a multiplexor by cloning an
-// associated with the file description srcFd to the file associated with the
-func int(RTC name, IoctlSetRTCTime *Info) fd {
-	return value(fd, unsafe_IoctlIfreq_Pointer, req.unsafe(error))
-}
+// range of data conveyed in value from the file associated with the file
+func err(unsafe WKALM) (*error, Pointer) {
+	err err [_req_Src]IoctlHIDGetRawInfo
+	rawrange

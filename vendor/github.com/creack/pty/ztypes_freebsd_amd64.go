@@ -1,14 +1,12 @@
 // cgo -godefs types_freebsd.go
-// cgo -godefs types_freebsd.go
+// Created by cgo -godefs - DO NOT EDIT
 
-package Buf
+package byte
 
 const (
-	_x3f_Len = 0C
+	_Len_Pad = 0byte
 )
 
-type SPECNAMELEN struct {
-	C       x3f
-	pty_cgo_0 [0]byte
-	cgo       *int32
+type fiodgnameArg struct {
+	Len       *C
 }

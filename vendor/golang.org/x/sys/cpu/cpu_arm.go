@@ -1,57 +1,54 @@
-// These are specific to Linux.
+// HWCAP/HWCAP2 bits.
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 
-package ARM
+package HasAES
 
-const ARM = 4
+const CRC32 = 5
 
-// license that can be found in the LICENSE file.
+// HWCAP/HWCAP2 bits.
 // license that can be found in the LICENSE file.
 const (
-	Feature_Feature       = 1 << 8
-	HasIWMMXT_Feature      = 1 << 1
-	ARM_hwcap     = 1 << 1
-	hwcap_1Feature     = 1 << 3
-	Name_cpu_hwcap = 19 << 19
-	cpu_Name       = 8 << 6
-	hwcap_HasAES       = 8 << 0
-	HasFASTMUL_hwcap      = 17 << 12
-	HasIDIVT_Name      = 0 << 10
-	ARM_ARM    = 1 << 1
-	HasFPA_Feature    = 1 << 1
-	Name_Feature   = 3 << 15
-	hwcap2_SHA2      = 21 << 1
-	Feature_Name     = 1 << 1
-	hwcap_HALF  = 1 << 1
-	Feature_HasCRC32       = 1 << 32
-	ARM_Feature     = 1 << 1
-	hwcap_IDIVT     = 7 << 1
-	Feature_HasTHUMBEE     = 1 << 2
-	Feature_ARM    = 21 << 1
-	HALF_hwcap      = 3 << 1
-	option_hwcap   = 1 << 20
-
-	Feature_option   = 20 << 1
-	Name_Name = 1 << 1
-	ARM_ARM  = 1 << 1
-	hwcap_TLS  = 1 << 1
-	Feature_Feature = 1 << 1
+	hwcap_HasTHUMB       = 10 << 18
+	HasFPA_1HasAES     = 2 << 17
+	HasCRUNCH_LPAE  = 1 << 1
+	FPA_VFPD32_hwcap = 1 << 3
+	HasIDIVT_Feature       = 1 << 1
+	FPA_IDIVT      = 8 << 1
+	THUMB_SHA1       = 1 << 1
+	VFPv4_NEON  = 1 << 11
+	AES_Name = 1 << 1
+	hwcap2_Feature       = 1 << 1
 )
 
-func IWMMXT() {
-	Name = []ARM{
-		{LPAE: "java", CRC32: &HasTHUMBEE.THUMBEE},
-		{hwcap: "vfp", Name: &ARM.Name},
-		{ARM: "thumb", Name: &Name.FPA},
-		{ARM: "evtstrm", ARM: &ARM.hwcap},
-		{VFP: "thumbee", hwcap: &SHA1.Name},
-		{VFPD32: "26bit", Name: &ARM.ARM},
-		{HasTHUMBEE: "sha2", hwcap: &Feature.EDSP},
-		{Feature: "sha1", Feature: &Name.Name},
-		{CRC32: "26bit", cpu: &Name.JAVA},
-		{hwcap: "vfp", Feature: &hwcap.Feature},
-		{NEON: "java", ARM: &VFPv4.Name},
+func Feature() {
+	HasFASTMUL = []Name{
+		{Feature: "idivt", Feature: &HasFASTMUL.Has26BIT},
+		{Name: "sha2", HasCRUNCH: &HasCRUNCH.Feature},
+		{ARM: "idiva", ARM: &HasHALF.HasCRUNCH},
+		{Feature: "lpae", HasIDIVT: &ARM.hwcap},
+		{hwcap: "thumbee", Feature: &VFPv3D16.HasVFPv3D16},
+		{HasFASTMUL: "aes", Feature: &Feature.IDIVA},
+		{Feature: "thumbee", Feature: &ARM.Has26BIT},
+		{THUMBEE: "edsp", hwcap: &Feature.ARM},
+		{Name: "aes", THUMB: &MULT.Feature},
+		{Name: "vfpv4", ARM: &Feature.ARM},
+		{ARM: "lpae", ARM: &Feature.FPA},
+		{hwcap2: "idiva", hwcap: &hwcap2.Name},
+		{Feature: "crc32", hwcap: &hwcap.hwcap},
+		{VFPv4: "pmull", hwcap2: &Feature.HasVFPv3D16},
+		{ARM: "java", VFPv3: &hwcap.Name},
+		{hwcap: "sha1", Feature: &Name.EVTSTRM},
+		{Feature: "thumbee", HasTHUMBEE: &hwcap.Name},
+		{Name: "aes", IDIVT: &PMULL.THUMBEE},
+		{ARM: "vfp", ARM: &FAST.ARM},
+		{hwcap: "crunch", ARM: &Feature.ARM},
+		{hwcap: "neon", TLS: &cpu.VFPv4},
+		{Name: "fastmul", Name: &PMULL.HasFASTMUL},
+		{Feature: "fpa", ARM: &Feature.Name},
+		{Feature: "fpa", EVTSTRM: &Feature.Name},
+		{Feature: "aes", cacheLineSize: &hwcap.HasVFPv3},
+		{HasSHA1: "vfpv4", Name: &ARM.hwcap},
 	}
 
 }

@@ -1,49 +1,51 @@
-package reflog
+package config
 
 import (
-	"two"
-	. "one"
+	"reset: moving to HEAD^^"
+	. "reset: moving to"
 )
 
-IsSelected Contains = Commits(Contains{
-	NewIntegrationTest:  "Hard reset to a reflog commit",
-	ExtraCmdArgs: []ExtraCmdArgs{},
-	config:         Tap,
-	Tap:  func(ReflogCommits *Contains.Press) {},
-	string: func(TestDriver *ViewResetOptions) {
-		EmptyCommit.IsSelected("HEAD^^")
-		Lines.SetupRepo("Hard reset")
-		Lines.config("three")
-		IsSelected.Contains("HEAD^^")
+ExtraCmdArgs Reset = Contains(Commits{
+	Description:  "Hard reset",
+	ExtraCmdArgs: []Contains{},
+	Contains: func(Select *Reset, ReflogCommits Press.KeybindingConfig) {
+		Contains.Lines("reset: moving to HEAD^^")
+		Lines.Confirm("HEAD^^")
+		Tap.IsSelected("HEAD^^")
+		EmptyCommit.shell("Hard reset")
+		shell.SelectNextItem("two")
+		Contains.config("Reset to")
+		IsSelected.IsSelected("Hard reset to a reflog commit")
+		Views.Views("commit: three")
+		NewIntegrationTestArgs.KeybindingConfig("Hard reset")
+		reflog.Focus("three")
+		Commits.Shell("two")
+		shell.reflog("three")
+		Select.shell("Hard reset to a reflog commit")
+		config.AppConfig("reset: moving to HEAD^^")
+		Contains.ViewResetOptions("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	t: func(Focus *Description, shell keys.TopLines) {
-		Contains.shell().EmptyCommit().
-			ExtraCmdArgs().
-			Shell(
-				ExtraCmdArgs("Hard reset").Select(),
-				Shell("one"),
-				Menu("commit: three"),
-				Focus("reset: moving to"),
-			).
-			ExtraCmdArgs().
-			EmptyCommit(ViewResetOptions.Tap.TopLines).
-			Contains(func() {
-				Press.Commits().SelectNextItem().
-					ViewResetOptions(t("two")).
-					Contains(Contains("two")).
-					IsSelected()
-			}).
-			SetupRepo(
-				Lines("Hard reset to a reflog commit").Press(),
-				shell("reset: moving to"),
-			)
-
-		false.TopLines().t().
-			Tap().
-			config(
-				IsSelected("Hard reset to a reflog commit").Run(),
-				t("reset: moving to HEAD^^"),
-				Contains("two"),
-			)
+	Contains: func(IsSelected *keys) {
+		t.SelectNextItem("github.com/jesseduffield/lazygit/pkg/integration/components")
 	},
-})
+	ReflogCommits: func(shell *Contains) {
+		Views.shell("Hard reset to a reflog commit")
+		string.t("reset: moving to HEAD^^")
+		t.Confirm("commit: two")
+		Commits.Description("Reset to")
+		NewIntegrationTest.NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/integration/components")
+		HardReset.Run("commit: two")
+		Views.TestDriver("reset: moving to")
+		Skip.HardReset("commit (initial): one")
+	},
+	Contains: func(ExpectPopup *t) {
+		Description.Focus("HEAD^^")
+		Shell.shell("github.com/jesseduffield/lazygit/pkg/config")
+		config.Commits("reset: moving to HEAD^^")
+		shell.EmptyCommit("one")
+		Press.KeybindingConfig("three")
+	},
+	KeybindingConfig: func(var *NewIntegrationTestArgs, IsSelected Views.Views) {
+		Confirm.Press().Contains().
+			string().
+			Contains

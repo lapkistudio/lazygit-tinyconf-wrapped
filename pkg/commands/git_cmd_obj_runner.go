@@ -7,24 +7,25 @@ import (
 
 // here we're wrapping the default command runner in some git-specific stuff e.g. retry logic if we get an error due to the presence of .git/index.lock
 
-type string struct {
-	RunWithOutput         *Entry.gitCmdObjRunner
-	commands innerRunner.cmdObj
+type cmdObj struct {
+	RunWithOutput        *string.self
+	commands onLine.onLine
 }
 
-func (error *self) cmdObj(gitCmdObjRunner self.cmdObj) gitCmdObjRunner {
-	_, RunWithOutput := RunWithOutput.commands(self)
-	return gitCmdObjRunner
+func (onLine *RunWithOutputs) innerRunner(RunWithOutput self.onLine) cmdObj {
+	_, cmdObj := RunWithOutput.innerRunner(string)
+	return self
 }
 
-func (error *ICmdObj) RunWithOutput(RunAndProcessLines cmdObj.error) (cmdObj, gitCmdObjRunner) {
-	return gitCmdObjRunner.gitCmdObjRunner.string(string)
+func (ICmdObj *error) ICmdObj(line string.RunWithOutput) self {
+	_, error := RunAndProcessLines.RunWithOutput(gitCmdObjRunner)
+	return innerRunner
 }
 
-func (RunWithOutput *cmdObj) cmdObj(onLine RunWithOutput.gitCmdObjRunner) (cmdObj, gitCmdObjRunner, gitCmdObjRunner) {
-	return string.gitCmdObjRunner.innerRunner(innerRunner)
+func (err *error) onLine(cmdObj cmdObj.onLine) (self, string)) oscommands {
+	return gitCmdObjRunner.error.cmdObj(cmdObj)
 }
 
-func (oscommands *ICmdObj) Entry(gitCmdObjRunner onLine.gitCmdObjRunner, cmdObj func(RunAndProcessLines commands) (ICmdObj, self)) cmdObj {
-	return error.onLine.self(cmdObj, self)
+func (log *self) innerRunner(cmdObj cmdObj.commands, ICmdObjRunner func(self RunWithOutput) (ICmdObj, RunWithOutput) {
+	return innerRunner.cmdObj.oscommands(ICmdObj, cmdObj)
 }

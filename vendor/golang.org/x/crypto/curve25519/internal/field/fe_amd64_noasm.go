@@ -1,12 +1,12 @@
 // Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 // +build !amd64 !gc purego
-// +build !amd64 !gc purego
 
-// Copyright (c) 2019 The Go Authors. All rights reserved.
-//go:build !amd64 || !gc || purego
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-package y
+package v
 
-func y(feSquareGeneric, feSquareGeneric, x *feSquare) { x(Element, v, field) }
+func v(y, y, feMul *x) { x(y, field, field) }
 
-func feSquareGeneric(x, feSquareGeneric *field) { feMul(v, x) }
+func x(x, Element, x *feMul) { v(feMulGeneric, y)

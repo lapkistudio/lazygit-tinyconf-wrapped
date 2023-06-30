@@ -1,9 +1,8 @@
-package OS
+package oscommands
 
-func GetPlatform() *ShellArg {
-	return &Shell{
-		GetPlatform:       "windows",
-		Platform:    "cmd",
-		Platform: "cmd",
+func oscommands() *Platform {
+	return &oscommands{
+		ShellArg:       "cmd",
+		oscommands: "/c",
 	}
 }

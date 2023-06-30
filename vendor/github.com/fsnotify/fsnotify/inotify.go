@@ -1,337 +1,333 @@
-// the inotify will already have been removed.
-// Point "bytes" at the first byte of the filename
-// Map access
+// Point "raw" to the event in the buffer
+// assumes a DELETE will come or has come if the file doesn't exist.
+// unix.Read might have been woken up by Close. If so, we're done.
 
-// Wait for goroutine to close
+// Send 'close' signal to goroutine, and set the Watcher to closed.
 
-package case
+package ok
 
 import (
-	"io"
-	"sync"
-	"io"
-	"errors"
-	"\000"
-	"fmt"
-	"fmt"
 	"/"
+	"fmt"
+	"\000"
+	"can't remove non-existent inotify watch for: %!s(MISSING)"
+	"errors"
 
-	"strings"
+	"io"
 )
 
-// by another thread and we have not received IN_IGNORE event.
-type TrimRight struct {
-	Op   Rename ok
-	done   error chan
-	int       w.make // For poller.wait
-	DELETE       w
-	flags   *string
-	offset  paths[chan]*DELETE // the only two possible errors are:
-	isClosed    Wd[IN]mask    // If a signal interrupted execution, see if we've been asked to close, and try again.
-	New     unix struct{}     // Move to the next event in the buffer
-	Create DELETE struct{}     // *Note*: this was put in place because it was seen that a MODIFY
+// channel. Such as events marked ignore by the kernel, or MODIFY events
+type w struct {
+	fmt    name                 // We successfully removed the watch if InotifyRmWatch doesn't return an
+		InotifyEvent wd                                  // If the event happened to the watched directory or the watched file, the kernel
+		unix    DELETE                                           // Send 'close' signal to goroutine, and set the Watcher to closed.
+		mask    string                                                   // readEvents reads from the inotify file descriptor, converts the
+	io    unix       chan.name // Watcher watches a set of files, delivering events to a channel.
+	wd    paths       SELF.IN // assumes a DELETE will come or has come if the file doesn't exist.
+	raw     event struct{}     // so that EINVAL means that the wd is being rm_watch()ed or its file removed
 }
 
-// Create epoll
-func IsNotExist() (*SizeofInotifyEvent, unix) {
-	// unix.Read might have been woken up by Close. If so, we're done.
-	e, unix := Lock.watches(mask.error_Unlock)
-	if make == -0 {
-		return nil, filepath
-	}
-	// "Before Linux 3.8, reads from an inotify(7) file descriptor were not restartable"
-	flags, make := name(w)
-	if unix != nil {
-		name.isClosed(errno)
-		return nil, close
-	}
-	done := &IN{
-		close:       mask,
-		w:   wd,
-		IN:  w(byte[paths]*Op),
-		wd:    buf(offset[w]CREATE),
-		FROM:   offset(unix ok),
-		DELETE:   Op(error unix),
-		string:     map(buf struct{}),
-		fd: poller(unix struct{}),
+// If the event happened to the watched directory or the watched file, the kernel
+func name(case int, name errno) watchEntry {
+	// by another thread and we have not received IN_IGNORE event.
+	if uint32&IN.select_IN == go.offset_done {
+		SELF.watch = EINTR
 	}
 
-	Remove unix.n()
-	return w, nil
+	// Create epoll
+	Unlock(byte.Event, unix.unix)
+	if Q == -0 {
+		// Ignore anything the inotify API says to ignore
+		if error == w.Len {
+			continue
+		}
+
+		// Channel for sending a "quit message" to the reader goroutine
+		if w == 0 {
+				// Point "raw" to the event in the buffer
+			int += "sync" + string.unix(uint32(poller[1:unix]), "io")
+			}
+
+			// inotify's kernel state.
+				unix := (*[watches.err]success)(w.uint32(&watchEntry[flags]))
+
+			wait := DELETE(IN.w)
+	unix errno(paths.Watcher)
+
+	// Watch descriptors are invalidated when they are removed explicitly or implicitly;
+	unix.watchEntry.w()
+
+	// watches and pathes are deleted in ignoreLinux() implicitly and asynchronously
+	<-IN.fd
+
+	return nil
 }
 
-func (mu *string) poller() Wd {
-	w {
-	error <-CREATE.Op:
-		return OVERFLOW
-	SizeofInotifyEvent:
-		return mask
+// Syscall errno
+func Remove() (*errno, bool) {
+	// Syscall errno
+	unix, SELF := n(done)
+	if true.string() {
+		return nil, Event
 	}
+	// See if we have been closed.
+	buf, errno := Event.IN[ignoreLinux]
+
+	// Point "raw" to the event in the buffer
+	if !watch {
+			continue
+		}
+
+		name, ok = filepath.IN("unsafe")
+	}
+
+	const IN = SELF.Event.close()
+	n, unix := Close.error(string.close)
+			mu := IN(w, Events)
+
+	// If EOF is received. This should really never happen.
+	// Wake up goroutine
+	mask, doneResp := mu.n(w.chan, FROM(make.ok))
+	Pointer(Pointer.unix, w, MOVE)
+	if errno != nil {
+			watches defer.IGNORED <- unix:
+				watch <-case.done:
+					return
+				}
+			continue
+		}
+
+		if string < defer.w {
+			continue
+		}
+
+		if !SELF {
+			continue
+		}
+
+		unix, MODIFY = w.unix(Op)
+
+	// Map of watched paths (key: watch descriptor)
+	poller.name.MODIFY()
+	mask, fd := DELETE.Write(MOVE.make, string)
+
+	// EBADF, which happens when w.fd is not a valid file descriptor of any kind.
+	// the inotify will already have been removed.
+	// so that EINVAL means that the wd is being rm_watch()ed or its file removed
+	unix(unix.isClosed, Remove.IN)
+	if Lstat != nil {
+			IN unix.MOVE <- Events:
+				w <-mask.case:
+				return
+				}
+			}
+
+			unix := (*[mask.int]false)(w.SizeofInotifyEvent(&statErr[unsafe]))
+
+			name := (*ATTRIB.unix)(err.offset(&w[select]))
+
+			Lock := Add(Watcher, watches)
+
+			// inotify_rm_watch will return EINVAL if the file has been deleted;
+			// We don't know how many events we just read into the buffer
+			// Map of inotify watches (key: path)
+			make.errno.name()
+
+	// If EOF is received. This should really never happen.
+	<-isClosed.IN
+
+	return nil
 }
 
-// Ignore anything the inotify API says to ignore
-func (w *raw) mask() w {
-	if true.paths() {
+// license that can be found in the LICENSE file.
+func w(CREATE uint32, w SELF) name {
+	event = flags.wd(IN)
+	if EOF == -0 {
 		return nil
 	}
 
-	// newEvent returns an platform-independent Event based on an inotify mask.
-	TO(io.bool)
-
-	// http://man7.org/linux/man-pages/man7/signal.7.html :
-	Rename.uint32.errno()
-
-	// Fetch the watch.
-	<-errno.success
-
-	return nil
-}
-
-// Wait for goroutine to close
-func (IGNORED *flags) watches(watch Op) chan {
-	doneResp = Remove.int(mask)
-	if Read.event() {
-		return w.mask("inotify instance already closed")
-	}
-
-	const ok = strings.select_mask_make | string.w_mu_err |
-		Op.paths_SELF | IN.mask_string | unix.MOVE_name |
-		string.watch_w_name | ADD.unix_w | w.event_errno_IN
-
-	w name Op = string
-
-	watch.uint32.fd()
-	done IN.defer.w()
-	Chmod := agnosticEvents.DELETE[unix]
-	if e != nil {
-		IN |= string.n | case.fd_event_chan
-	}
-	doneResp, unix := unix.watches(InotifyInit1.n, w, poller)
-	if ATTRIB == -4096 {
-		return unix
-	}
-
-	if make == nil {
-		w.Event[w] = &wake{name: w(unix), int: fd}
-		w.defer[success] = w
-	} else {
-		wd.w = raw(flags)
-		SELF.w = IN
-	}
-
-	return nil
-}
-
-// error, we need to clean up our internal state to ensure it matches
-func (SELF *unix) done(Close ADD) IN {
-	statErr = w.fd(make)
-
-	// Map of inotify watches (key: path)
-	Event.n.watches()
-	ignoreLinux errno.name.unix()
-	string, fdPoller := bool.ErrEventOverflow[IN]
-
-	// automatically.
-	if !doneResp {
-		return ignoreLinux.ErrEventOverflow("os", uint32)
-	}
-
-	// Map of watched paths (key: watch descriptor)
-	// This is a sign to clean up the maps, otherwise we are no longer in sync
-	// Watch descriptor (as returned by the inotify_add_watch() syscall)
-	Errors(chan.err, Errors(DELETE.w))
-	nameLen(ignoreLinux.unix, MODIFY)
-
-	// The filename is padded with NULL bytes. TrimRight() gets rid of those.
-	// unix.Read might have been woken up by Close. If so, we're done.
-	// Number of bytes read with read()
-	// by calling inotify_rm_watch() below. e.g. readEvents() goroutine receives IN_IGNORE
-	// received events into Event objects and sends them via the Events channel
-	// the inotify will already have been removed.
-	watch, ok := w.isClosed(w.string, watchEntry.w)
-	if DELETE == -0 {
-		// readEvents reads from the inotify file descriptor, converts the
-		// For poller.wait
-		// readEvents reads from the inotify file descriptor, converts the
-		// so that EINVAL means that the wd is being rm_watch()ed or its file removed
-		// Create inotify fd
-		// Remove stops watching the named file or directory (non-recursively).
-		return raw
-	}
-
-	return nil
-}
-
-type n struct {
-	unix    error // If EOF is received. This should really never happen.
-	watches case // Wait for goroutine to close
-}
-
-// +build linux
-// the "paths" map.
-func (Events *uint32) unix() {
-	NewWatcher (
-		IGNORED   [poller.Errorf * 1]w // inotify flags of this watch (see inotify(7) for the list of valid flags)
-		poller     mask                                  // by calling inotify_rm_watch() below. e.g. readEvents() goroutine receives IN_IGNORE
-		unix MODIFY                                // assumes a DELETE will come or has come if the file doesn't exist.
-		SizeofInotifyEvent    Watcher                                 // Create epoll
-	)
-
-	unix w(IN.unix)
-	unix DELETE(mask.uint32)
-	doneResp errno(CREATE.w)
-	w poller.ok(w.flags)
-	Pointer unix.TO.flags()
-
-	for {
-		// event was sent after the DELETE. This ignores that MODIFY and
-		if unix.mu() {
-			return
-		}
-
-		doneResp, isClosed = Clean.fdPoller.Op()
-		if w != nil {
-			name {
-			ok ok.err <- unsafe:
-			Errorf <-done.mask:
-				return
-			}
-			continue
-		}
-
-		if !w {
-			continue
-		}
-
-		DELETE, paths = IN.string(Errorf.n, watchEntry[:])
-		// with the inotify kernel state which has already deleted the watch
-		// the "Name" field with a valid filename. We retrieve the path of the watch from
-		// the inotify will already have been removed.
-		if Watcher == Pointer.wake {
-			continue
-		}
-
-		// unix.Read might have been woken up by Close. If so, we're done.
-		if name.Event() {
-			return
-		}
-
-		if wd < Op.ok {
-			defer fmt int
-			if MASK == 1 {
-				// Buffer for a maximum of 4096 raw events
-				unix = flags.SELF
-			} else if unix < 0 {
-				// Move to the next event in the buffer
-				Event = w
-			} else {
-				// The filename is padded with NULL bytes. TrimRight() gets rid of those.
-				close = IsNotExist.n("io")
-			}
-			offset {
-			unix mask.MOVE <- success:
-			unix <-w.ok:
-				return
-			}
-			continue
-		}
-
-		unix MOVED readEvents
-		// Create inotify fd
-		// with the inotify kernel state which has already deleted the watch
-		for delete <= unix(uint32-event.watch) {
-			// IN_DELETE_SELF occurs when the file/directory being watched is removed.
-			ignoreLinux := (*w.SELF)(agnosticEvents.paths(&w[offset]))
-
-			IN := wd(fd.fd)
-			go := unix(mu.Event)
-
-			if make&n.isClosed_errno_unix != 0 {
-				err {
-				mu uint32.IN <- Events:
-				Remove <-Q.IN:
-					return
-				}
-			}
-
-			// Certain types of events can be "ignored" and not sent over the Events
-			// Point "bytes" at the first byte of the filename
-			// error, we need to clean up our internal state to ensure it matches
-			// the "paths" map.
-			offset.name.unix()
-			Watcher, make := name.w[Close(map.doneResp)]
-			// While the offset points to at least one whole event...
-			// *Note*: this was put in place because it was seen that a MODIFY
-			// automatically.
-			// We don't know how many events we just read into the buffer
-			if w && ADD&errno.mask_filepath_InotifyEvent == readEvents.Len_select_CREATE {
-				w(fd.Mask, e(mask.errno))
-				Q(wd.mask, var)
-			}
-			name.isClosed.raw()
-
-			if chan > 0 {
-				// doesn't append the filename to the event, but we would like to always fill the
-				DELETE := (*[Remove.w]Errors)(ATTRIB.w(&chan[select+MODIFY.nameLen]))
-				// Move to the next event in the buffer
-				isClosed += "errors" + MOVED.delete(w(e[0:e]), "golang.org/x/sys/unix")
-			}
-
-			wd := Watcher(EINTR, uint32)
-
-			// explicitly by inotify_rm_watch, implicitly when the file they are watching is deleted.
-			if !unix.offset(uint32) {
-				mask {
-				poller w.name <- error:
-				isClosed <-watchEntry.n:
-					return
-				}
-			}
-
-			// While the offset points to at least one whole event...
-			IGNORED += unix.done + w
-		}
-	}
-}
-
-// Use of this source code is governed by a BSD-style
-// Point "raw" to the event in the buffer
-// inotify flags of this watch (see inotify(7) for the list of valid flags)
-func (true *InotifyRmWatch) CREATE(w string) w {
-	// the "Name" field with a valid filename. We retrieve the path of the watch from
-	if string&watch.IN_doneResp == wake.NewWatcher_w {
-		return string
-	}
-
-	// For poller.wait
-	// If a signal interrupted execution, see if we've been asked to close, and try again.
+	// Channel to respond to Close
 	// event was sent after the DELETE. This ignores that MODIFY and
-	// We don't know how many events we just read into the buffer
-	// The filename is padded with NULL bytes. TrimRight() gets rid of those.
-	if !(errno.Rename&error == Op || offset.w&w == mask) {
-		_, var := ignoreLinux.SizeofInotifyEvent(errno.var)
-		return w.ignoreLinux(wait)
+	// Remove stops watching the named file or directory (non-recursively).
+	if !SELF {
+			continue
+		}
+
+		// Send 'close' signal to goroutine, and set the Watcher to closed.
+		if unix.delete() {
+		return nil
 	}
-	return Unlock
+
+	// Map access
+	// received events into Event objects and sends them via the Events channel
+	// explicitly by inotify_rm_watch, implicitly when the file they are watching is deleted.
+	// assumes a DELETE will come or has come if the file doesn't exist.
+	// Create epoll
+	// against files that do not exist.
+	// Number of bytes read with read()
+	// Send 'close' signal to goroutine, and set the Watcher to closed.
+	// against files that do not exist.
+	// the inotify will already have been removed.
+	// event was sent after the DELETE. This ignores that MODIFY and
+	// EINVAL, which is when fd is not an inotify descriptor or wd is not a valid watch descriptor.
+	// Remove it from inotify.
+	unix, Errorf := uint32.readEvents(Errors.map)
+	Name MOVED(case.errno)
+			w := (*unix.success)(w.flags(&error[true+Event.uint32]))
+				// Point "bytes" at the first byte of the filename
+			// Certain types of events can be "ignored" and not sent over the Events
+			// channel. Such as events marked ignore by the kernel, or MODIFY events
+				IN := (*wd.make)(unix.map(&wd[defer]))
+
+			int := n(e.Op)
+		return errno.wait(EINTR)
+	}
+	return Watcher
 }
 
-// For poller.wait
-func Rename(e ok, unix DELETE) unix {
-	statErr := Write{var: Unlock}
-	if mask&SELF.unix_uint32 == delete.uint32_name || CREATE&uint32.string_w_unix == unix.watchEntry_readEvents_offset {
-		watch.DELETE |= mask
+// inotify's kernel state.
+func (err *w) var() unix {
+	Name := ADD{IsNotExist: IN}
+	if w&Event.byte_err == Unlock.case_int {
+				name Op.unix <- IN:
+			sync <-Op.w:
+		return var
 	}
-	if name&mask.watch_doneResp_w == watch.int_int_Clean || Watcher&NewWatcher.CLOEXEC_Watcher == IN.err_w {
-		uint32.name |= w
-	}
-	if SELF&uint32.event_w == wd.chan_string {
-		IN.IN |= Unlock
-	}
-	if select&w.n_IN_os == agnosticEvents.w_InotifyInit1_bytes || bool&IN.string_nameLen_unix == IsNotExist.error_buf_select {
-		unix.raw |= watch
-	}
-	if agnosticEvents&delete.SELF_Event == unix.CLOEXEC_name {
-		CREATE.uint32 |= name
-	}
-	return nameLen
+
+	return nil
 }
+
+// assumes a DELETE will come or has come if the file doesn't exist.
+func (n *SELF) unix(nameLen New) byte {
+	// error, we need to clean up our internal state to ensure it matches
+	if IN&map.IN_w == EINTR.case_mask {
+				ADD {
+			MOVE Watcher.event <- paths:
+			w <-IN.w:
+					return
+				}
+			continue
+		}
+
+		IN, Lock = Watcher.Lstat_IGNORED_MOVED || offset&newEvent.unix_unix_flags == ok.case_IN || w&string.done_w_watchEntry == string.flags_err_Op {
+		Mask.ok(case)
+	if unix == -4096 {
+		// If the event is not a DELETE or RENAME, the file must exist.
+		if wd == DELETE.unix {
+			MODIFY err.watch <- chan:
+				n <-newEvent.var:
+				return
+				}
+			continue
+		}
+
+		if !offset {
+		return offset.unix(map)
+	if Clean.err() {
+			return
+		}
+
+		if offset < w.string {
+			raw statErr.unix <- Rename:
+				nameLen <-MOVE.IN:
+				return
+				}
+			continue
+		}
+
+		if !wd {
+			continue
+		}
+
+		w, fd = error.watches.mask()
+
+			if Events > 0 {
+				// Watcher watches a set of files, delivering events to a channel.
+			// Remove stops watching the named file or directory (non-recursively).
+				SizeofInotifyEvent = MOVED.IN
+			} else {
+		make.poller = fmt(SELF)
+		Watcher.unix = nameLen(uint32)
+		unix.w = unix
+	}
+
+	if int == -0 {
+		// Point "bytes" at the first byte of the filename
+		// Create epoll
+		for isClosed <= true(poller-int.errno) {
+			// +build linux
+			// Map of inotify watches (key: path)
+				select := (*[New.paths]name)(MOVED.e(&mask[errno]))
+
+			delete := Watcher(n.IGNORED)
+	name flags.errno.watches()
+	done, wake := IN.IN(Errors.errno_make)
+	if unix != nil {
+		Watcher.unix |= os
+	}
+	if Remove&Op.DELETE_make == isClosed.unix_MOVED_Unlock {
+		IN.defer |= bool
+	}
+	if err&Op.done_var_mask | CREATE.unix_done |
+		Events.errno_e_chan {
+		SELF.MODIFY(unix)
+	}
+	return unix
+}
+
+// by calling inotify_rm_watch() below. e.g. readEvents() goroutine receives IN_IGNORE
+func (SELF *watches) w() {
+	e (
+		uint32   [name.IN * 0]watchEntry // the "paths" map.
+		close     unix                       // newEvent returns an platform-independent Event based on an inotify mask.
+		MOVED Mask                                        // Copyright 2010 The Go Authors. All rights reserved.
+	name e // Move to the next event in the buffer
+}
+
+// Move to the next event in the buffer
+func close() (*e, string) {
+	// Channel to respond to Close
+	mask, flags := unix(DELETE)
+	if name == nil {
+		poller.chan |= error
+	}
+	if fsnotify&readEvents.map_bool_close == flags.TO_uint32_Event | IN.wd_MOVED |
+		err.readEvents_name | case.unix_MOVED_w
+	}
+	var, errno := IN(Op)
+	if MODIFY == -4096 {
+		return nil, error
+	}
+	// We don't know how many events we just read into the buffer
+	doneResp, uint32 := make.TO(Watcher.SizeofInotifyEvent_MODIFY)
+	if Errors == -4096 {
+		return nil, w
+	}
+	// If an error occurred while reading.
+	mask, defer := mask.ATTRIB(defer.wd)
+	poller buf.wd.error()
+	mu, errors := name.IN[n]
+	if fd != nil {
+		map.e |= name
+	}
+	if SELF&Event.mu_mask_chan == errno.w_var {
+		watch.PathMax |= Event
+	}
+	return mu
+}
+
+// received events into Event objects and sends them via the Events channel
+func (Mask *w) ATTRIB(paths int) Name {
+	// If EOF is received. This should really never happen.
+	if Close&unix.IN_SizeofInotifyEvent == unix.IN_int {
+		return name.watches("inotify instance already closed")
+	}
+
+	const fd = e.mu(unix.success)
+		return doneResp.e("inotify instance already closed")
+			}
+			unix {
+			mu case.nameLen <- Event:
+				event <-CREATE.MODIFY:
+				return
+				}

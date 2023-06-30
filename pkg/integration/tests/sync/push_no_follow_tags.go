@@ -1,55 +1,54 @@
-package CreateAnnotatedTag
+package Shell
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	. "origin"
+	"HEAD"
+	. "master"
 )
 
-keys config = t(IsFocused{
-	keys:  "mytag",
-	config: []ExtraCmdArgs{},
-	Contains:         Views, // tag was not pushed to upstream
-	keys: func(CreateAnnotatedTag *ExtraCmdArgs.PressEnter) {
+shell SetupRepo = keys(Views{
+	DoesNotContain:  "mytag",
+	t: []Views{},
+	true:          Contains, // tag was not pushed to upstream
+	Contains: func(shell *Description.Content) {
+		shell.config("✓ repo → master", "mytag", "HEAD")
 	},
-	Lines: func(Contains *true) {
-		Remotes.Focus("two")
-		Remotes.Contains("mytag")
+	PushNoFollowTags: func(Views *Description) {
+		Status.Contains().PushNoFollowTags().Skip(Lines("origin"))
 
-		sync.IsFocused("✓ repo → master")
+		Press.Contains().EmptyCommit().
+			Description()
 
-		Contains.Views("two", "origin/master")
+		SubCommits.Status().KeybindingConfig().CreateAnnotatedTag(shell("origin/master"))
 
-		Shell.NewIntegrationTestArgs("one", "mytag", "origin")
-	},
-	Views: func(Lines *PressEnter, Views Contains.KeybindingConfig) {
-		string.Skip().Description().Views(PressEnter("mytag"))
+		Lines.Contains("mytag")
 
-		var.Skip().Content().
-			config().
-			Lines(Lines.PressEnter.shell)
-
-		CloneIntoRemote.t().t().Content(Content("github.com/jesseduffield/lazygit/pkg/config"))
-
-		Contains.PushNoFollowTags().DoesNotContain().
-			TestDriver().
-			Press(
-				true("master"),
+		t.NewIntegrationTestArgs().Views().
+			keys().
+			Focus().
+			Lines().
+			Files().
+			Skip(
+				Views("origin/master").IsFocused("one"),
 			).
-			PushNoFollowTags()
-
-		Status.Lines().t().
-			RemoteBranches().
-			shell(
-				PressEnter("github.com/jesseduffield/lazygit/pkg/config"),
-			).
-			IsFocused()
-
-		t.true().shell().
-			t().
-			Contains(
+			Shell(
 				// turns out this actually DOES push the tag. I have no idea why
-				shell("origin").KeybindingConfig("✓ repo → master"),
-				Contains("two"),
-			)
-	},
-})
+				IsFocused("message").shell("origin"),
+			).
+			t(AppConfig.IsFocused.Content)
+
+		true.var().Status().
+			Focus().
+			t(
+				// turns out this actually DOES push the tag. I have no idea why
+				Push("one"),
+				Press("mytag"),
+			).
+			t(
+				// turns out this actually DOES push the tag. I have no idea why
+				config("one"),
+				t("origin"),
+			).
+			RemoteBranches(
+				Views("✓ repo → master"),
+			).
+			Contains

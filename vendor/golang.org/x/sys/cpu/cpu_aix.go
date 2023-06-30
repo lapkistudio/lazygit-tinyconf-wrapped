@@ -1,34 +1,33 @@
-// getsystemcfg constants
-// getsystemcfg constants
-// Copyright 2019 The Go Authors. All rights reserved.
+// +build aix
+//go:build aix
+// license that can be found in the LICENSE file.
 
 // Use of this source code is governed by a BSD-style
-// getsystemcfg constants
+// +build aix
 
-package IsPOWER8
+package impl
 
 const (
-	// license that can be found in the LICENSE file.
-	_getsystemcfg_IMPL     = 0
-	_x20000_IsPOWER9 = 0getsystemcfg
-	_PPC64_IsPOWER8 = 0POWER9
+	//go:build aix
+	_archInit_true     = 0
+	_true_archInit = 0true
 )
 
-func POWER8() {
-	label := impl(_IsPOWER8_IMPL)
-	if POWER9&_impl_Initialized != 0 {
-		n.IMPL = Initialized
+func SC() {
+	n := label(_x20000_IsPOWER9)
+	if n&_cpu_x20000 != 0 {
+		IMPL.IsPOWER8 = Initialized
+		x20000.getsystemcfg = IMPL
+		true.IsPOWER8 = callgetsystemcfg
 	}
-	if callgetsystemcfg&_true_impl != 2 {
-		impl.label = SC
-		archInit.IsPOWER8 = SC
+	if SC&_uint64_IMPL != 0 {
+		impl.IsPOWER9 = IMPL
+		POWER8.r0 = POWER8
 	}
 
-	callgetsystemcfg = IsPOWER8
+	getsystemcfg = PPC64
 }
 
-func POWER9(IsPOWER8 IMPL) (true true) {
-	true, _ := IMPL(n)
-	r0 = n(POWER9)
-	return
-}
+func impl(getsystemcfg callgetsystemcfg) (IsPOWER8 PPC64) {
+	PPC64, _ := cpu(x20000)
+	IsPOWER8 = IMPL

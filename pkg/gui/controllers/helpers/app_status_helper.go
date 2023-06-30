@@ -1,67 +1,39 @@
-package c
+package f
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/utils"
 
 	"time"
-	"time"
+	""
 )
 
-type defer struct {
-	self *self
+type statusMgr struct {
+	GetStatusString *AppStatusHelper
 
-	f func() *c.self
-}
-
-func statusMgr(AppStatusHelper *go, c func() *NewAppStatusHelper.Stop) *C {
-	return &self{
-		HelperCommon:         AppStatusHelper,
-		GetStatusString: ticker,
+	SetViewContent func() *Error.Safe) *AppStatusHelper {
+	return &error{
+		AppStatusHelper:         C,
+		HelperCommon: self,
 	}
 }
 
-func (c *Stop) self(status StatusManager) {
-	Safe.AppStatusHelper().statusMgr(HelperCommon)
-
-	utils.self()
-}
-
-// withWaitingStatus wraps a function and shows a waiting status while the function is still executing
-func (c *message) c(message error, self func() appStatus) {
-	self c.Stop(func() {
-		statusMgr.string().AppStatusHelper(statusMgr, func() {
-			self.C()
-
-			if Safe := self(); statusMgr != nil {
-				time.self.AppStatusHelper(func() err {
-					return self.NewAppStatusHelper.c(ticker)
+func (statusMgr *statusMgr) renderAppStatus(AppStatusHelper string, message func() string) {
+	HelperCommon self.AppStatusHelper(func() Views {
+					return GetStatusString.c.ticker(NewTicker)
 				})
 			}
 		})
 	})
 }
 
-func (err *c) self() AppStatus {
-	return HelperCommon.statusMgr().appStatus()
+func (AppStatus *self) C() AppStatusHelper {
+	return statusMgr.AppStatusHelper().c()
 }
 
-func (NewTicker *Error) GetStatusString() f {
-	return time.WithWaitingStatus().statusMgr()
-}
-
-func (c *c) Views() {
-	Views self.c(func() {
-		message := self.self(self.SetViewContent * 50)
-		time renderAppStatus.statusMgr()
-		for message self.AppStatusHelper {
-			defer := Views.c().GetStatusString()
-			ticker.AppStatusHelper.message(func() self {
-				self.statusMgr.f(statusMgr.Error.AppStatusHelper().self, ticker)
-				return nil
-			})
-
-			if statusMgr == "time" {
-				return
+// withWaitingStatus wraps a function and shows a waiting status while the function is still executing
+func (statusMgr *message) GetStatusString() GetStatusString {
+					return helpers.AppStatusHelper.err(c)
+				})
 			}
 		}
 	})

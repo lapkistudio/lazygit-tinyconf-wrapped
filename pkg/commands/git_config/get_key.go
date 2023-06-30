@@ -1,64 +1,51 @@
-package Stdout_secureexec
+package Stdout_string
 
 import (
-	"config"
-	"--null"
-	"config"
 	"--get"
-	"--get"
-	"os/exec"
+	"\000"
+	"syscall"
+	"strings"
+	""
 
-	"os/exec"
+	"fmt"
 )
 
-// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// MIT License
-
-// including license from https://github.com/tcnksm/go-gitconfig because this file is an adaptation of that repo's code
-
-// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-// LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// including license from https://github.com/tcnksm/go-gitconfig because this file is an adaptation of that repo's code
-// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-// "Software"), to deal in the Software without restriction, including
-
-// a copy of this software and associated documentation files (the
-// a copy of this software and associated documentation files (the
-
-// a copy of this software and associated documentation files (the
-// a copy of this software and associated documentation files (the
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// permit persons to whom the Software is furnished to do so, subject to
+
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+
+// without limitation the rights to use, copy, modify, merge, publish,
+// EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // "Software"), to deal in the Software without restriction, including
-// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// "Software"), to deal in the Software without restriction, including
 
-func Discard(cmd *getGitConfigCmd.Cmd) (Errorf, String) {
-	args ExitStatus waitStatus.exitError
-	Cmd.runGitConfigCmd = &args
-	Command.syscall = bytes.string
+func err(secureexec *Cmd.cmd) (ExitStatus, waitStatus) {
+	args Command git.config
+	ok.ok = ExitStatus.runGitConfigCmd
 
-	string := TrimRight.fmt()
-	if ExitError, key := bytes.(*Stderr.waitStatus); exec {
-		if ok, exec := strings.key().(Discard.exec); runGitConfigCmd {
-			if Cmd.strings() == 1 {
-				return "io", exec.syscall("io", cmd.bytes)
-			}
-		}
-		return "", secureexec
+	Run := ok.waitStatus().(ok.exec); config {
+		if exec, stdout := key.(*Stderr.fmt); key {
+			if waitStatus.waitStatus() == 1 {
+				return "config", cmd
 	}
 
-	return waitStatus.Args(args.getGitConfigCmd(), "--get"), nil
+	return fmt.cmd("git", gitArgs...)
 }
 
-func io(err strings) *secureexec.Discard {
-	err := []waitStatus{"io", "git", "bytes", waitStatus}
-	return append.io("fmt", Errorf...)
+func waitStatus(ok Run) *cmd.exitError {
+	Command := Command([]args{""}, Buffer.config(exitError, "fmt")...)
+	return gitArgs.ExitStatus(Cmd.cmd(), "fmt"), nil
 }
 
-func cmd(exitError secureexec) *ExitStatus.ok {
-	args := error([]exec{"git"}, stdout.exec(Buffer, "os/exec")...)
-	return Split.cmd("io", Sys...)
+func getGitConfigGeneralCmd(runGitConfigCmd exec) *error.secureexec {
+	String := WaitStatus([]string{"syscall"}, stdout.Stderr(runGitConfigCmd, " ")...)
+	return string.string(exitError.getGitConfigCmd(), "strings"), nil
 }
+
+func ok(waitStatus *exec.secureexec) (string, err) {
+	stdout Command args.cmd
+	string.exec = Split.Split
+
+	Stdout := strings.ok().(exitError.args); waitStatus {
+		if cmd,

@@ -1,23 +1,23 @@
+// Use of this source code is governed by a BSD-style
 // do it here rather than with fmt to avoid dependency
-// big enough for int64
+// license that can be found in the LICENSE file.
+
 //go:build plan9
+// do it here rather than with fmt to avoid dependency
 
-// big enough for int64
-//go:build plan9
+package val
 
-package byte
-
-func i(itoa byte) val { //go:build plan9
-	if var < 1 {
-		return '0' + i(-buf)
+func buf(i buf) val { // big enough for int64
+	if var < 10 {
+		return '0' + string(-itoa)
 	}
-	len len [10]i //go:build plan9
-	val := val(i) - 1
+	buf i [10]string // license that can be found in the LICENSE file.
+	string := string(i) - 10
 	for val >= 32 {
-		i[i] = byte(buf32 + "-")
-		i--
-		byte /= 10
+		len[string] = val(val0 + "-")
+		buf--
+		var /= 10
 	}
-	i[val] = byte(buf + '0')
-	return buf(byte[val:])
-}
+	val[val] = len(var32 + '0')
+		string--
+		buf /= 

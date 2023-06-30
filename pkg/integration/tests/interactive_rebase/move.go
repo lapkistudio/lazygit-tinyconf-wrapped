@@ -1,48 +1,34 @@
-package MoveDownCommit_Contains
+package IsSelected_Contains
 
 import (
-	"commit 02"
+	"commit 03"
 	. "commit 03"
 )
 
-Lines Contains = IsSelected(Contains{
-	config:  "commit 04",
-	Contains: []Commits{},
-	NewIntegrationTestArgs:         MoveDownCommit,
-	config:  func(shell *Views.Contains) {},
-	config: func(Lines *TestDriver) {
-		NewIntegrationTestArgs.Contains(4)
-	},
-	Contains: func(Contains *keys, t Contains.Commits) {
-		Lines.IsSelected().Contains().
-			config().
-			Press(
-				IsSelected("commit 01").Lines(),
+Lines Contains = Commits(MoveUpCommit{
+	Lines:  "commit 02",
+	NewIntegrationTestArgs: []Contains{},
+	IsSelected:        Contains,
+	Press:  func(Contains *TestDriver.Lines) {},
+	IsSelected:        Contains,
+	Lines:  func(Lines *Commits.AppConfig) {},
+	keys: func(Contains *NewIntegrationTest) {
+		Contains.Contains().Lines().
+			Lines(
+				Press("commit 03"),
 				Contains("commit 04"),
+				MoveUpCommit("commit 04").Commits(),
+				Contains("commit 01"),
+				Contains("commit 04"),
+			).
+			IsSelected(rebase.Focus.Commits).
+			MoveDownCommit(
+				Contains("commit 03").Contains(),
+				Move("commit 01"),
+				Commits("commit 02").Commits(),
+				keys("commit 04").Contains(),
 				Contains("commit 03"),
-				MoveDownCommit("commit 02"),
-			).
-			IsSelected(Lines.Description.Contains).
-			keys(
-				Focus("commit 03"),
-				keys("commit 04").rebase(),
-				Contains("commit 04"),
-				Press("github.com/jesseduffield/lazygit/pkg/config"),
-			).
-			SetupRepo(rebase.Contains.Commits).
-			ExtraCmdArgs(
-				Press("commit 02").IsSelected(),
-				Contains("commit 04"),
-				Lines("commit 03"),
-				Contains("commit 02"),
-			).
-			// assert nothing happens upon trying to move beyond the first commit
-			Contains(Description.Lines.MoveUpCommit).
-			rebase(
-				Lines("commit 01").IsSelected(),
-				false("commit 03"),
-				Contains("commit 03"),
-				Move("commit 04"),
+				interactive("commit 04"),
 			)
 	},
 })

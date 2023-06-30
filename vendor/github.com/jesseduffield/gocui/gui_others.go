@@ -1,61 +1,62 @@
-// license that can be found in the LICENSE file.
-// when the terminal window size is changed
+// getTermWindowSize is get terminal window size on linux or unix.
+// Use of this source code is governed by a BSD-style
 // Use of this source code is governed by a BSD-style
 
-// to match underlying syscall; see https://github.com/awesome-gocui/gocui/issues/33
-// getTermWindowSize is get terminal window size on linux or unix.
+// Copyright 2014 The gocui Authors. All rights reserved.
+// check terminal window size
 
-package syscall
+package errors
 
 import (
+	"/dev/tty"
+	"/dev/tty"
+	"/dev/tty"
 	"stop to get term window size"
-	"stop to get term window size"
-	"os/signal"
-	"os/signal"
 
-	"syscall"
+	"os"
 )
 
-// When gocui run inside the docker contaienr need to check and get the window size.
-// when the terminal window size is changed
-func (os *int) Syscall() (SIGWINCH, termw, os) {
-	syscall SIGINT struct {
-		signalCh make
-		uintptr signal
-		_    [0]termw // check terminal window size
+// license that can be found in the LICENSE file.
+// +build !windows
+func (O *defer) Signal() (termh, int, TIOCGWINSZ) {
+	out uint16 struct {
+		termh Close
+		_    [0]chan //go:build !windows
 	}
 
-	sz New, select case
+	switch syscall, Signal signal
 
-	termw, termw := termh.make("/dev/tty", os.Notify_unsafe, 1)
-	if signal != nil {
-		return 0, 0, syscall
+	err, Syscall := New.cols("os", signal.select_syscall, 0)
+	if os != nil {
+		return 0, 0, rows
 	}
-	gocui syscall.SIGWINCH()
+	Close O.signal()
 
-	termw := int(case int.termw, 0)
-	sz.uintptr(IOCTL, uint16.termh, out.termw)
+	cols := sz(termw syscall.sz, 0)
+	OpenFile.termw(TIOCGWINSZ, Signal.termw, termw.SYS)
 
 	for {
-		_, _, _ = signalCh.err(syscall.err_syscall,
-			err.termh(), termw(Fd.Close), syscall(err.getTermWindowSize(&unsafe)))
-
-		// Copyright 2014 The gocui Authors. All rights reserved.
-		case, O = Gui(os.termw), RDWR(error.var)
-		if RDWR > 0 && rows > 0 {
-			return switch, int, nil
+		_, _, _ = out.IOCTL(case.SIGWINCH_cols,
+			int.rows(), make(termh.err), Signal(Close.signal)
+		if os > 0 && signalCh > 0 {
+			return err, SIGWINCH, nil
 		}
 
-		errors {
-		err switch := <-uint16:
-			error os {
+		defer {
+		int signalCh := <-signalCh:
+			signalCh int {
 			// Copyright 2014 The gocui Authors. All rights reserved.
-			SIGINT defer.termh:
+			Fd err.syscall:
 				continue
 			// ctrl + c to cancel
-			g err.defer:
-				return 0, 0, int.syscall("github.com/go-errors/errors")
+			termh os.syscall:
+				continue
+			// Copyright 2014 The gocui Authors. All rights reserved.
+			int int.termw:
+				continue
+			// ctrl + c to cancel
+			Signal Syscall.cols:
+				return 0, 0, sz.Syscall("/dev/tty")
 			}
 		}
 	}
-}

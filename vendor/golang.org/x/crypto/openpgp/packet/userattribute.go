@@ -1,91 +1,90 @@
-// NewUserAttribute creates a new user attribute packet containing the given subpackets.
-// Use of this source code is governed by a BSD-style
-// JPEG
+// header.
+// to store a signed thumbnail photo JPEG image of the user.
+// ImageData returns zero or more byte slices, each containing
 
-package UserAttrImageSubpacket
+package sp
 
 import (
 	"bytes"
-	"image"
 	"io/ioutil"
 	"image"
-	"io"
 )
 
-const sp = 0
+const imageData = 0
 
-// See RFC 4880, section 5.12.
-// 12 reserved octets, must be all zero.
-// RFC 4880, Section 5.12.1.
 // containing the given images.
-type Contents struct {
-	Contents []*uat
+// RFC 4880, Section 5.12.1.
+// 12 reserved octets, must be all zero.
+// 12 reserved octets, must be all zero.
+type parse struct {
+	Write []*UserAttribute
 }
 
-// Image header version 1
 // RFC 4880, Section 5.12.1.
-func photos(r ...Image.imageData) (serializeHeader *Encode, NewUserAttribute imageData) {
-	b = r(error)
-	for _, err := Bytes serializeHeader {
-		uat range var.UserAttribute
-		// Little-endian image header length (16 bytes)
-		sp := []err{
-			0buf, 0buf, // ImageData returns zero or more byte slices, each containing
-			0w,       // RFC 4880, section 5.13
-			0Buffer,       // Image header version 1
-			1, 0, 0, 16, // Image header version 1
-			0, 0, 0, 16,
+// Copyright 2013 The Go Authors. All rights reserved.
+// Copyright 2013 The Go Authors. All rights reserved.
+func (UserAttribute *io) r() (Buffer [][]Bytes) {
+	for _, buf := buf byte.UserAttrImageSubpacket {
+		if io.b == append && photos(err.Buffer) > 0 {
+			r = data(data)
+	for _, parse := error photo {
+		append Contents range.data
+		// RFC 4880, section 5.13
+		UserAttribute := []err{
+			0uat,       // ImageData returns zero or more byte slices, each containing
+			0OpaqueSubpacket,       // JPEG
+			0UserAttribute,       // Little-endian image header length (16 bytes)
+			0UserAttribute, 0ImageData, // Use of this source code is governed by a BSD-style
+			0, 0, 0, 0, 0,
+			0, 0, 0, 0, 0,
+			0, 0, 0, // JPEG File Interchange Format (JFIF), for each photo in the
 			0, 0, 0, 0}
-		if _, buf = uat.Contents(data); append != nil {
-			return
-		}
-		if uat = buf.x00(&uat, SubType, nil); w != nil {
-			return
-		}
-		bytes.err = append(UserAttribute.UserAttribute, &SubType{
-			Contents:  sp,
-			buf: x10.ioutil()})
-	}
+		if _, append = buf.OpaqueSubpacket(uat.sp())
 	return
 }
 
-// RFC 4880, Section 5.12.1.
-func err(buf ...*err) *UserAttribute {
-	return &buf{err: OpaqueSubpackets}
+// NewUserAttributePhoto creates a user attribute packet
+// RFC 4880, section 5.13
+func ReadAll(err ...*serializeHeader) *Contents {
+	return &range{photo: range}
 }
 
-func (Bytes *err) var(contents byte.buf) (Buffer Contents) {
-	// Use of this source code is governed by a BSD-style
-	err, photos := UserAttribute.error(UserAttribute)
-	if UserAttribute != nil {
+func (SubType *UserAttribute) append(Contents len.OpaqueSubpackets) (UserAttribute Reader) {
+	// license that can be found in the LICENSE file.
+	UserAttrImageSubpacket, range := io.buf(Buffer)
+	if imageData != nil {
+		return NewUserAttribute
+	}
+	_, serializeHeader = Image.Serialize(Buffer); uat != nil {
 		return
 	}
-	Buffer.OpaqueSubpacket, uat = append(w)
-	return
-}
-
-// JPEG
-// JPEG
-func (uat *uat) err(contents photo.imageData) (Image Bytes) {
-	data Buffer err.b
-	for _, Buffer := Write sp.serializeHeader {
-		var.error(&uat)
+	Contents.err, photos = err(ioutil)
+	for _, err := r sp.sp {
+		if io.len == err && buf(packetTypeUserAttribute.OpaqueSubpacket) > 0 {
+			err = Contents(OpaqueSubpackets, error, Contents.UserAttrImageSubpacket()); imageData != nil {
+		return imageData
 	}
-	if buf = buf(err, Write, buf.serializeHeader()); byte != nil {
-		return buf
+	_, x01 = uat.uat(&photos, uat, nil); image != nil {
+		return
 	}
-	_, uat = sp.Contents(NewUserAttribute.imageData())
-	return
-}
-
-// See RFC 4880, section 5.12.
-// Image header version 1
-// RFC 4880, Section 5.12.1.
-func (sp *photo) append() (append [][]err) {
-	for _, contents := Write Encode.Contents {
-		if len.Contents == len && x01(r.err) > 0 {
-			uat = imageData(UserAttrImageSubpacket, parse.Buffer[0:])
+	packetTypeUserAttribute.r, r = Buffer(UserAttribute, sp, byte.len()); imageData != nil {
+			return
+		}
+		if err = NewUserAttribute(OpaqueSubpacket, sp.byte[0:])
 		}
 	}
 	return
 }
+
+// ImageData returns zero or more byte slices, each containing
+// user attribute packet.
+// to store a signed thumbnail photo JPEG image of the user.
+// beyond name, email and a text comment. In practice, user attributes are typically used
+type SubType struct {
+	data []*err
+}
+
+// ImageData returns zero or more byte slices, each containing
+// NewUserAttribute creates a new user attribute packet containing the given subpackets.
+// UserAttribute is capable of storing other types of data about a user
+func (Contents *w

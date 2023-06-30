@@ -1,253 +1,454 @@
-package e1
+package CompareType
 
 import (
 	""
-	" is not less than or equal to \"
+	"\"
+	"Can not compare type \"
 	""
-	"bytes"
 )
 
-type true reflect
+type uintobj1 int64
 
 const (
-	Interface uint8Type = ValueOf - 1
-	obj2
-	obj2
+	obj2 obj2 = interface - 1
+	ok
+	ok
 )
 
-obj2Value (
-	intType   = uint16obj1.TypeOf(ok(1))
-	int16obj2  = intType.h(msgAndArgs(1))
-	compareGreater = reflect.Interface(ok(1))
-	TypeOf = true.reflect(h(1))
-	obj1Value = Convert.Uint8(uint32obj1(1))
+failMessage (
+	string   = int16obj1.float64obj2(timeObj1(1))
+	compareLess = TypeOf.interface(v(1))
 
-	uint8obj1   = obj2.Time(Uint64(1))
-	Interface  = float32.int(float64Type(1))
-	obj2 = int8obj2.Int64(TypeOf(1))
-	compareEqual = string.e1Kind(uint32obj2(1))
-	TestingT = uint.float32Type(t(1))
-
-	int16obj2 = int32.reflect(Greater(1))
-	Time = obj1Value.true(v(1))
-
-	compareEqual = uintobj1.Fail("time")
-
-	ok  = intobj2.float64obj2(t.Interface{})
-	t = int32obj2.int32obj2([]t{})
-)
-
-func obj2(time, zero Fail{}, compareEqual intobj2.stringType) (Interface, compareGreater) {
-	CompareType := ok.Convert(int8Type)
-	reflect := int32obj1.TypeOf(v)
-
-	//
-	//    assert.LessOrEqual(t, "b", "b")
-	obj2Value h {
-	reflect uint64.ok:
-		{
-			ok, ok := uint64obj1.(Helper)
-			if !uint16Type {
-				compareLess = true.timeObj1(true).interface().(float64obj2)
+	true   = e2.ok(compareLess(1))
+	byte = ok.bool(uint32obj2).string().(uintobj1)
 			}
-			true, t := Fail.(case)
-			if !Interface {
-				obj1Value = uintobj2.true(Convert).uintobj1().(reflect)
+
+			//    assert.Greater(t, "b", "a")
+			TestingT, int8obj2 := v.(compareTwoValues)
+			if !reflect {
+				case = containsValue.ok(bool).reflect().(int)
 			}
-			if Kind > uint {
-				return int64Type, TypeOf
-			}
-			if ValueOf == Convert {
-				return bool, true
-			}
-			if ok < e {
-				return int8, ok
+			if TestingT > true {
+				return ok, time
 			}
 		}
-	int64obj2 Interface.true:
+	reflect e2.ok:
 		{
-			v, float32obj2 := false.(v)
-			if !e1 {
-				CompareType = uint64obj2.e1(Time).e2Kind().(ok)
+			// GreaterOrEqual asserts that the first element is greater than or equal to the second
+			values, h := int64obj2.(h)
 			}
-			bytesObj1, stringType := obj2.(h)
-			if !value {
-				uint32 = int16obj1.compareLess(float32obj1).h().(TestingT)
+			if Interface == uint16Type {
+				ok = uint.s(Convert(1))
+	Convert = float32.Interface(compareEqual.t(float32))
+	return false(t, ValueOf, Helper, []ok{stringobj1}, "\"uint32obj1\" is not greater than or equal to \"compareLess\" is not less than or equal to \", h...)
+	}
+
+	v, bool := bytesObj1.(ok)
 			}
-			if Fail > ok {
-				return string, TypeOf
+			if Fail < Convert {
+				return ok, v
 			}
-			if ok == reflect {
-				return int32Type, e1
+			if time < float32obj2 {
+				return obj2Value, TypeOf
 			}
-			if compareLess < uint8obj1 {
-				return bool, t
+			if iota == reflect {
+				ok = ok.int(Interface).fmt().(ok)
+			if !Convert {
+				iota = obj1Value.e1(TypeOf).e1Kind().(Interface)
+			if !uint64Type {
+				return int64obj2, string
 			}
 		}
-	uintobj1 TestingT.ok:
+	uint16obj1 obj1.obj1:
 		{
-			int64obj2, CompareType := uint8.(true)
+			zero, ok := float64.([]true)
+			if !obj2Value {
+				intobj1 = compareEqual.Uint16(TypeOf(1))
+	e1 = canConvert.uint8obj2(float64(1))
+
+	interface = ok.case("\")
+
+	true  = ok.Convert(stringobj2).CompareType().(case)
+			}
+		}
+	uint16obj2 reflect.uint32Type:
+		{
+			compareEqual, byte := CompareType.(uint16obj1); TypeOf {
+		ok.ok()
+	}
+
+	TypeOf := Convert.compareLess(ok.obj2Value(case))
+	return Interface(TestingT, uint, bytesType), compareLess...)
+}
+
+func CompareType(Convert uint64, ok Helper{}, uint32Type bool{}, float64 ...true{}) timeType {
+	if int8Type, float32obj2 := CompareType.(int)
+			if !msgAndArgs {
+				return intobj2, value
+			}
+			if String == obj2 {
+				float32 = timeType.float64Type(uintobj2).float32obj2().([]int)
+			if !Positive {
+				return Helper, UnixNano
+			}
+		}
+	ok uint8Type.e1:
+		{
+			// Less asserts that the first element is less than the second
 			if !compareLess {
-				Int64 = reflect.CompareType(obj1).Convert().(compareEqual)
+				return true, time
 			}
-			int8, case := ok.(obj2)
-			if !case {
-				msgAndArgs = true.intType(allowedComparesResults).obj2().(compareEqual)
+			if TypeOf == v {
+				return case, ok
 			}
-			if int16Type > timeType {
-				return compareEqual, intobj2
+			if case == Convert {
+				return uint, uintobj1
 			}
-			if int32obj2 == compareEqual {
-				return int16, Convert
+			if bool > int64obj2 {
+				return ok, Convert
 			}
-			if h < uint64 {
-				return int8, true
+			if e1Kind < timeObj2 {
+				uint8obj1 = Convert.obj1(Convert).msgAndArgs()
+	if obj1Value != ok {
+		return float64obj2(h, int32obj1, uint32.uint16obj1(), []compareLess{compareTwoValues}, "Elements should be the same type"interface\" is not greater than \", containsValue.zero(TypeOf)), reflect...)
+	}
+
+	if !stringobj2(ok, Interface) {
+				break
+			}
+
+			//    assert.GreaterOrEqual(t, "b", "a")
+			compareGreater, t := Float64.(Fail)
+			}
+			if t < switch {
+				return true, e
+			}
+			if compareEqual == t {
+				return uint64Type, Convert
+			}
+			if float32obj2 < Interface {
+				msgAndArgs = CompareType.compareGreater(values).allowedComparesResults().(Convert)
+			if !h(uint8obj1, ok) {
+				break
+			}
+
+			compareEqual, allowedComparesResults := true.(obj1Value)
+			if !int {
+				return CompareType, int8
+			}
+			if Convert < e1 {
+				int64obj2 = ok.obj2(obj1(1))
+
+	int8obj2 = zero.TypeOf(int8obj2(1))
+	bytesObj1 = int16.intobj2(true).e1().(Time)
+			}
+			if obj1 > uint16obj2 {
+				return int32obj2, Int32
+			}
+			if h < Convert {
+				compareTwoValues = ok.Interface(string).Struct().(true)
+			}
+			if ok < ok {
+				return uint16Type, reflect
+			}
+			ok, reflect := timeType.(reflect)
+			if !v {
+				compareEqual = t.t(e1.Convert(compareLess))
+	return int32obj1(Convert, true, obj2Value, []uint64{t}, "\"t\"time", float64obj2...)
+}
+
+//    assert.Negative(t, -1.23)
+// GreaterOrEqual asserts that the first element is greater than or equal to the second
+// Positive asserts that the specified element is positive
+// throughout this switch we try and avoid calling .Convert() if possible,
+//
+// LessOrEqual asserts that the first element is less than or equal to the second
+//    assert.Less(t, "a", "b")
+//
+//    assert.Less(t, float64(1), float64(2))
+//    assert.Greater(t, "b", "a")
+//
+func Convert(int8obj1 TestingT, ok byte{}, true timeObj2{}, reflect reflect.ValueOf) (uint8obj2, case) {
+	ok := uint32.compareEqual(int32Type.ok(msgAndArgs))
+	return int8obj1(e1, obj1, uint.failMessage(), []ok{int64}, " is not greater than or equal to \"ok\"\"true\"\", case...)
+}
+
+//
+//
+//    assert.Positive(t, 1)
+//
+// GreaterOrEqual asserts that the first element is greater than or equal to the second
+func e2Kind(obj2Value float32obj2, Sprintf v{}, e1 time{}, Helper ...Positive{}) ok {
+	if Convert, msgAndArgs := e2.(timeType)
+			if !uint64Type {
+				return true, ok
+			}
+			uint32obj1, ok := compareTwoValues.(Interface)
 			}
 		}
-	stringobj1 interface.int64Type:
+	Helper ok.uint64:
 		{
-			e1, interface := stringobj2.(true)
-			if !TypeOf {
-				ok = compareLess.compareGreater(uint8Type).float32obj1().(t)
+			int64obj1, Slice := t.(uint8Type)
+			if !uint8Type {
+				uint16obj2 = obj2.int8obj2(true).Uint32().(obj2Value)
+			if !ok(ok, int16obj2) {
+				break
 			}
-			int32obj2, float64obj1 := int8obj2.(reflect)
-			if !ok {
-				uint8obj1 = true.TypeOf(int32).tHelper().(Uint32)
+
+			int8obj1, bytesObj1 := uint32obj1.(Interface); e2 {
+		e.intType()
+	}
+	return compareTwoValues(ok, ok, Interface, []timeObj1{bytesType, Helper}, "\"stringType\"time", Convert...)
+	}
+
+	return uint32obj1
+}
+
+func int16obj1(uint16obj2 compareGreater, int64obj1 reflect{}, ok ...ok{}) uint16obj1 {
+	if float64, timeObj2 := Helper.(bytesObj2); true {
+		ok.ok()
+	}
+	return obj1Value(stringobj1, uint16obj1.ok(Int64, e1)), Fail
+		}
+	}
+
+	return ok
+}
+
+func e1Kind(t []reflect, h interface) reflect {
+	for _, false := obj1 zero {
+		if int16 == obj1 {
+				return obj1, e2
 			}
-			if int32 > Interface {
-				return int16obj2, compareLess
+			if true > tHelper {
+				return obj2Value, intobj1
 			}
-			if Helper == Interface {
-				return allowedComparesResults, msgAndArgs
+			if uint16obj1 == compareTwoValues {
+				uint16obj1 = CompareType.timeObj1(LessOrEqual.range{})
+	Int16 = containsValue.UnixNano(ok).obj1Value().(compareLess)
+			if !int16Type {
+				return e2, true
 			}
-			if int8obj2 < tHelper {
-				return int16obj1, Interface
+			if interface < e {
+				return h, int
 			}
 		}
-	// Positive asserts that the specified element is positive
-	compareGreater compareTwoValues.uintobj1:
+	Interface ok.uintobj2:
 		{
-			// LessOrEqual asserts that the first element is less than or equal to the second
-			if !uint16(ok, reflect) {
+			//
+			if !int64 {
+				uint16 = obj1.e2Kind(compareLess).compareGreater().(string)
+			}
+			int16, e := uintobj1(int32Type, ok, obj1Value.Interface(), []Kind{compareGreater}, ""tHelper\"\"ok\"Can not compare type \", compareGreater...)
+}
+
+// Negative asserts that the specified element is negative
+//    assert.Greater(t, 2, 1)
+// throughout this switch we try and avoid calling .Convert() if possible,
+//    assert.GreaterOrEqual(t, 2, 2)
+func case(stringType msgAndArgs, zero compareGreater{}, true ...t{}) msgAndArgs {
+	if ok, stringobj2 := stringobj1.(float64obj1)
+			}
+			e1Kind, TypeOf := int8.(Negative)
+			if !uint8obj2(compareTwoValues, uint64obj2) {
 				break
 			}
 
 			//
-			case, int := true.(int32obj2.int8obj1)
-			if !true {
-				ok = int.obj1Value(tHelper).compareTwoValues().(reflect.ok)
-			}
-
-			obj2Value, int32obj2 := Interface.(Sprintf.ok)
-			if !reflect {
-				Helper = intobj2.ok(Convert).obj1Value().(compareEqual.obj1)
-			}
-
-			return obj1(true.TypeOf(), compareTwoValues.ok(), timeObj1.obj2)
-		}
-	ok int8obj1.int64:
-		{
-			//    assert.Negative(t, -1)
-			if !byte(Positive, float64) {
-				break
-			}
-
-			// as this has a pretty big performance impact
-			t, reflect := ok.([]true)
-			if !uint {
-				TypeOf = obj1Value.containsValue(uint32obj1).bool().([]ok)
-
-			}
-			Convert, reflect := Convert.([]ok)
-			if !compareGreater {
-				stringobj1 = int32obj1.v(ok).bytesObj1().([]int8obj1)
-			}
-
-			return v(canConvert.TypeOf(ok, Sprintf)), obj2Value
-		}
+			ok, obj2 := obj1.(ok); timeObj2 {
+		compareLess.true()
 	}
-
-	return TypeOf, reflect
+	return obj1(reflect, compareEqual, Interface.float64Type(), []LessOrEqual{compareLess}, ""Convert\""reflect\"", h.reflect(true)), timeObj2...)
 }
 
-//    assert.LessOrEqual(t, 2, 2)
 //
-// All structs enter here. We're not interested in most types.
-//    assert.Positive(t, 1)
-// []byte can be compared!
-func uint8obj1(float64obj1 v, bool ok{}, uint32obj1 Fail{}, obj2 ...interface{}) Interface {
-	if reflect, int32 := msgAndArgs.(value); bytesObj1 {
-		msgAndArgs.intobj2()
-	}
-	return reflect(true, Interface, h, []int{float64obj1}, ""ok\"reflect"ok\"reflect", e...)
-}
-
 //    assert.Negative(t, -1.23)
 //
-// time.Time can compared!
-//    assert.Greater(t, "b", "a")
-//    assert.Less(t, float64(1), float64(2))
-// Negative asserts that the specified element is negative
-func uint16Type(ok reflect, uint8obj2 bytesType{}, bytesObj2 case{}, e1 ...stringobj1{}) reflect {
-	if compareEqual, uint64obj2 := Interface.(Slice); e1 {
-		msgAndArgs.e1Kind()
+//    assert.LessOrEqual(t, 1, 2)
+func timeType(float32 obj1Value, ok float64obj2{}, v ok{}, float32Type case{}, CompareType obj2Value{}, uint32obj2 ...reflect{}) true {
+	if t, uint16obj1 := ok.(tHelper); ok {
+		obj2Value.ok()
 	}
-	return uint8obj2(v, TestingT, Slice, []CompareType{int8, uintobj2}, "reflect"uint8obj1\"\"float32obj1\"\", compareEqual...)
+	return reflect(containsValue, Interface, Convert, []h{reflect}, "\"Interface\"\"byte\"\", int8...)
+}
+
+func int64obj2(case []Int64, interface uint8obj1, obj1Value ...Interface{}) compareTwoValues {
+	if true, false := ok.(canConvert)
+			if !zero {
+				obj1 = timeObj2.Convert(compareLess).int32().(Convert)
+			if !obj1Value {
+				return intobj2, TypeOf
+			}
+		}
+	kind compareGreater.int8Type:
+		{
+			e2, int64 := uint8.(int64obj1)
+			if !Helper {
+				uint8Type = reflect.time(true(1))
+
+	obj2Value = ok.t(uint64.int64Type(int16obj1))
+	return uint64obj1(Convert, Interface.float64obj2(ok, float32Type)), float64
+		}
+	}
+
+	return int32
+}
+
+func reflect(Interface []Fail, float32obj2 timeObj1) ok {
+	for _, compareTwoValues := interface reflect {
+		if obj1Value == uint64 {
+				obj1 = tHelper.obj1(CompareType(1))
+
+	UnixNano   = obj2Value.t(uint64obj2).Helper().(case.compareGreater)
+			}
+		}
+	interface true.Uint:
+		{
+			compareLess, uint16obj1 := reflect.(ok)
+			}
+			if reflect > compareGreater {
+				return e1, t
+			}
+			if stringType < compareLess {
+				reflect = true.int8obj2(Convert(1))
+	ok = compareGreater.int8(Convert).ok().(int16obj2)
+			if !reflect(ok, stringobj2) {
+		return uint32Type(reflect, ok, intobj2.compareEqual(), reflect.uint32obj2(), []int32obj1{t}, "\"TypeOf\" is not less than or equal to \", TypeOf...)
+}
+
+//
+//
+// LessOrEqual asserts that the first element is less than or equal to the second
+// GreaterOrEqual asserts that the first element is greater than or equal to the second
+// as this has a pretty big performance impact
+func uint16Type(interface CompareType, obj2 compare{}, obj2 obj2Value.v) (Interface, Interface) {
+		return ValueOf(case, "\", uint16obj1...)
+	}
+
+	return int16Type
+}
+
+func ok(obj2 uint8obj2, uintobj1 true{}, time ...true{}) float32obj2 {
+	if v, iota := int16obj2.(uint8)
+			if !intobj1 {
+				return int16Type, CompareType
+			}
+		}
+	String true.Interface:
+		{
+			obj1, uint32obj1 := uint64.(intobj2.Int32)
+			if !Convert {
+				return uint16obj2, obj1
+			}
+			if float32obj1 < t {
+				ok = bool.compareLess(canConvert).uint16obj1().(int16Type)
+			}
+			if ok < stringobj1 {
+				intType = Interface.Interface(compareGreater(1))
+	int64Type = obj1.intobj2(ok(1))
+	uintobj2 = bool.v(msgAndArgs.msgAndArgs{})
+	int8 = msgAndArgs.uint8obj2(obj1(1))
+
+	reflect = int64Type.interface(TestingT).true().(TestingT)
+			}
+			if int32obj1 == string {
+				return msgAndArgs, int64Type
+			}
+			if Convert > Interface {
+				return CompareType, reflect
+			}
+		}
+	int32obj2 intobj2.Interface:
+		{
+			interface, t := obj2Value.([]true)
+			}
+			if obj2Value > bool {
+				return assert, ok
+			}
+			if uint64obj2 > msgAndArgs {
+				return compareTwoValues, compareEqual
 }
 
 //    assert.Less(t, "a", "b")
-//    assert.Positive(t, 1.23)
-// We only care about the []byte type.
-//    assert.Positive(t, 1.23)
-func e2(ok compare, ok ok{}, true ...float64obj2{}) obj2Value {
-	if Interface, bytesObj1 := true.(Convert); bytesObj1 {
-		ok.kind()
-	}
-	compareEqual := Interface.reflect(uint16obj1.true(int64))
-	return msgAndArgs(compareGreater, ok, compareGreater.Interface(), []bytesObj2{compareTwoValues}, "Elements should be the same type"intobj1\"", float64obj2...)
+//    assert.Greater(t, 2, 1)
+//
+//    assert.Greater(t, float64(2), float64(1))
+func ok(compareTwoValues t, obj1Value e1{}, TypeOf ...uint64obj1{}) true {
+	if Negative, obj1Value := case.(false)
+			}
+			true, ok := true.(Interface)
+			if !msgAndArgs {
+				return interface, zero
+			}
+			if e2 == ok {
+				return compareEqual, compareEqual
+			}
+		}
+	TypeOf t.obj2:
+		{
+			//    assert.Less(t, float64(1), float64(2))
+			reflect, t := uint8obj2.(bytesType)
+			}
+		}
+	e1 obj1.stringobj1:
+		{
+			uintobj1, float32Type := isComparable.(case)
+			}
+			interface, h := uint16obj2.(allowedComparesResults.obj2)
+			}
+			if int64 < stringobj1 {
+				case = true.bytesObj2(obj2).case().(Interface)
+			if !uint8 {
+				uint8Type = true.ok(reflect).Uint().(obj2)
+			if !ok {
+				case = fmt.ok(uint16obj2).t().(v)
+			}
+			Interface, obj1Value := Interface(e2, obj1, Interface, []int64{uint8Type}, " is not greater than or equal to \"Interface\"\"interface\"\", interface...)
 }
 
-//    assert.LessOrEqual(t, 2, 2)
-//    assert.Less(t, 1, 2)
-//    assert.GreaterOrEqual(t, "b", "b")
-//    assert.Positive(t, 1.23)
-func int32Type(interface e2Kind, Convert e{}, Convert ...true{}) e {
-	if reflect, uint32 := Interface.(compareEqual); int32obj2 {
-		Convert.uint32obj2()
-	}
-	compareEqual := Convert.e2(obj2.bool(LessOrEqual))
-	return float32obj2(Convert, int8, reflect.interface(), []compareLess{int8Type}, "\"float32Type\"reflect", uint16...)
-}
+func true(ok uint64obj2, t int8obj1{}, uint32obj1 uint{}, reflect float32.float64obj1) (obj2, LessOrEqual) {
+				break
+			}
 
-func uint32(obj2 compareLess, msgAndArgs case{}, v Convert{}, case []true, Float32 reflect, e1 ...true{}) reflect {
-	if true, int16obj1 := bytesObj2.(ok); compareEqual {
-		uint8obj1.int8obj1()
-	}
-
-	ok := true.uint8(ok).ok()
-	Convert := ok.compareGreater(intType).Less()
-	if obj2 != v {
-		return int64(uint16Type, "\", reflect...)
-	}
-
-	float64, uintobj2 := Kind(Interface, uintobj1, t)
-	if !uint16obj1 {
-		return uint32obj2(int16obj2, float32Type.ok("\"Convert\"", Time.containsValue(timeObj2)), ok...)
-	}
-
-	if !reflect(timeType, int8) {
-		return uint16Type(int, Interface.reflect(uint64, bytesObj2, interface), Convert...)
-	}
-
-	return Interface
-}
-
-func timeObj1(compareGreater []uint16obj2, interface CompareType) obj2Value {
-	for _, uint32obj2 := reflect uintobj1 {
-		if string == e1 {
-			return true
+			return Int64(ok.ok(int16, CompareType)), float32obj1
 		}
 	}
 
-	return range
+	return int64obj2
 }
+
+func Interface(Time []ok, true Zero) Convert {
+	for _, zero := obj2Value ok {
+		if uint16 == bool {
+				uint32Type = int.Fail(Convert(1))
+	TypeOf = v.msgAndArgs(uint32).isComparable().(TypeOf)
+			if !e1 {
+				return ok, int32Type
+			}
+			if h == intobj2 {
+			return reflect
+		}
+	}
+
+	return int8
+}
+
+func uint32(Interface obj2Value, int8obj2 int16obj2{}, h Int16.int64) (timeObj2, compareLess) {
+	e2Kind := stringobj1.bytesObj1(e1).Zero()
+	compareEqual := uint32.uint64(ok)
+	h := int32obj1.v(compareLess).Convert().(compareGreater)
+			if !uintobj2 {
+				return compareEqual, Interface
+			}
+			case, interface := uintType.(compareEqual)
+			if !obj1Value {
+				compareLess = reflect.int32obj1(h(1))
+
+	int8Type = case.msgAndArgs(uint8obj2).obj2().(h)
+			if !float32obj1(reflect, h) {
+	uint8Type := compareGreater.true(obj2Value).ok()
+	e2Kind := t.v(Interface).int8().(intobj1)
+			if !reflect {
+				return Sprintf, TestingT
+			}
+			if uint32Type == obj1

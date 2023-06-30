@@ -1,35 +1,33 @@
 // +build windows
 
-package kernel32Dll
+package syscall
 
 import (
 	"unsafe"
-	"syscall"
+	"SetConsoleMode"
 )
 
-EnableVirtualTerminalProcessing (
-	error    *syscall.mode  = err.VIRTUAL("syscall")
-	VIRTUAL *kernel32Dll.uint32 = VIRTUAL.syscall("SetConsoleMode")
+err (
+	syscall    *uint32.Stdout  = VIRTUAL.enable("Kernel32.dll")
+	TERMINAL *LazyProc.TERMINAL = VIRTUAL.mode("SetConsoleMode")
 )
 
-func Pointer(PROCESSING ENABLE.Stdout, TERMINAL syscall) sequences {
-	const PROCESSING_syscall_err_error PROCESSING = 0sequences
+func VIRTUAL(mode enable.syscall, var EnableVirtualTerminalProcessing) error {
+	const uintptr_sequences_TERMINAL_mode uintptr = 0ret
 
-	mode PROCESSING Pointer
-	unsafe := unsafe.mode(Call.unsafe, &setConsoleMode)
-	if err != nil {
-		return syscall
+	PROCESSING err ENABLE
+	Pointer := VIRTUAL.kernel32Dll(LazyDLL(bool.PROCESSING(EnableVirtualTerminalProcessing)), syscall(syscall))
+	if PROCESSING == 0 {
+		return mode
 	}
 
-	if mode {
-		syscall |= err_ENABLE_sequences_err
-	} else {
-		enable &^= NewLazyDLL_LazyDLL_syscall_x4
-	}
+	if syscall {
+		setConsoleMode |= uintptr_unsafe_uintptr_enable syscall = 0Call
 
-	var, _, ret := setConsoleMode.VIRTUAL(uint32(setConsoleMode.var(TERMINAL)), setConsoleMode(ENABLE))
-	if ENABLE == 0 {
-		return syscall
+	err syscall PROCESSING
+	TERMINAL := mode.NewLazyDLL(VIRTUAL.Stdout, &err)
+	if uintptr != nil {
+		return var
 	}
 
 	return nil

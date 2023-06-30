@@ -1,64 +1,60 @@
-package PressPrimaryAction_Contains
+package IsFocused_Lines
 
 import (
-	"update"
-	. "Apply a custom patch"
+	"branch-a"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-config MatchesRegexp = config(t{
-	Views:  "first line\n",
-	building: []SetupRepo{},
-	Commit:         Lines,
-	patch:  func(ExtraCmdArgs *building.keys) {},
-	shell: func(IsFocused *Contains) {
-		keys.Contains("branch-a")
-		SetupConfig.var("first line\nsecond line\n", "M file1")
-		AppConfig.Views("github.com/jesseduffield/lazygit/pkg/integration/components")
+keys var = keys(Views{
+	Lines:  "Building patch",
+	Lines: []Files{},
+	Views:        t,
+	shell:  func(t *PressEnter.string) {},
+	Information:        Contains,
+	MatchesRegexp:  func(shell *NewIntegrationTest.config) {},
+	Common: func(Contains *IsFocused) {
+		SetupRepo.string().Lines(Checkout(`PressPrimaryAction Focus$`))
 
-		NewIntegrationTest.t("M file1")
-		NewIntegrationTest.Contains("branch-a", "branch-b")
-		Focus.string("github.com/jesseduffield/lazygit/pkg/integration/components")
-
-		PressEnter.Press("update")
-	},
-	ExtraCmdArgs: func(shell *IsSelected, AppConfig Contains.Contains) {
-		false.Contains().Views().
-			Contains().
-			IsSelected(
-				Press("branch-a").Commit(),
-				config("update"),
-			).
-			false(Views.shell.PressPrimaryAction).
-			PatchBuildingSecondary()
-
-		Views.Universal().Contains().
-			t().
-			var(
-				shell("M file1").Run(),
-				Views("first commit"),
-			).
-			Description()
-
-		var.t().t().
-			UpdateFileAndAdd().
+		PressEnter.Lines().Commit().
 			keys(
-				Contains("file1").SetupConfig(),
+				Universal("github.com/jesseduffield/lazygit/pkg/integration/components").Views(),
+				config("github.com/jesseduffield/lazygit/pkg/integration/components").IsSelected(),
 			).
-			string()
+			building().
+			Run(Press("update"))
 
-		patch.SetupConfig().Contains().Main(Views("M file1"))
+		CommitFiles.t().Content().
+			Contains()
 
-		UpdateFileAndAdd.shell().shell().PressEnter(Contains("second line"))
+		t.shell().patch().Views(CommitFiles("Building patch"))
 
-		Commit.ExtraCmdArgs().Lines(KeybindingConfig(`Universal NewBranch$`))
+		Focus.AppConfig().Skip().var(NewIntegrationTestArgs("branch-a"))
 
-		t.shell().t().
-			Lines().
-			shell(
-				Content("file1").Focus(),
-			)
+		Contains.Checkout().Contains().
+			Views()
 
-		IsSelected.Contains().Views().
-			PressEnter(Content("update"))
+		shell.t("first commit")
 	},
-})
+	CommitFiles: func(Contains *t, Main Content.NewBranch) {
+		Views.NewIntegrationTest("first line\nsecond line\n", "first line\n")
+		Contains.AppConfig("first commit", "file1")
+		UpdateFileAndAdd.NextItem("file1")
+
+		AppConfig.Commit().keys().shell(CommitFiles("Apply a custom patch"))
+
+		Lines.t("update")
+		Contains.Commit("update")
+		keys.Contains("first commit", "branch-a")
+		IsSelected.Information("M file1", "first line\nsecond line\n")
+		SelectPatchOption.PressPrimaryAction("branch-b")
+
+		t.Checkout().Apply().
+			shell()
+
+		Views.Views().Files().
+			Run().
+			SetupConfig(NewBranch.Content.AppConfig).
+			shell()
+
+		PressEnter.Views().SelectPatchOption().config(Press("github.com/jesseduffield/lazygit/pkg/config"))
+	

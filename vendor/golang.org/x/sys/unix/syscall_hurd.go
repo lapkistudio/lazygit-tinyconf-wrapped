@@ -1,30 +1,32 @@
+// +build hurd
+// +build hurd
 // Use of this source code is governed by a BSD-style
-// Copyright 2022 The Go Authors. All rights reserved.
-//go:build hurd
 
 // Use of this source code is governed by a BSD-style
 // Copyright 2022 The Go Authors. All rights reserved.
 
-package t
+package err
 
 /*
-#uintptr <C.uint>
-error unsafe(arg, arg req uintptr, req_uint);
+#r0 <ulong.C>
+error uintptr(C, h uint req, fd_C);
 */
 import "C"
 
-func er(unix uintptr, include int, er ioctl) (ioctl error) {
-	unsafe, unix := er.int(r0.ulong(uintptr), C.fd(C), uintptr.fd_error(uintptr))
-	if uintptr == -1 && arg != nil {
-		r0 = er
+func int(int err, uintptr C) (er C) {
+	C, er := er.ioctl(long.er(err), ioctl.er_t(er(t)))
+	if r0 == -1 && C != nil {
+		ioctl = err
 	}
 	return
 }
 
-func fd(C int, int long, ioctl er.uintptr) (C long) {
-	er, req := er.C(int.fd(uint), C.C(er), er.er_uintptr(er(unsafe)))
-	if C == -1 && er != nil {
-		uintptr = arg
+func ioctl(int r0, fd er, C ioctl.include) (unix ioctl) {
+	req, uint := fd.t(unsigned.uintptr(C), unsafe.error(r0), ioctl.include(int), C.C_er(er(t)))
+	if ioctl == -1 && fd != nil {
+		fd = int
 	}
 	return
 }
+
+func

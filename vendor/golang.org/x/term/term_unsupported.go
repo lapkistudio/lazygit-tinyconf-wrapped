@@ -1,39 +1,38 @@
-// Use of this source code is governed by a BSD-style
-// +build !aix,!darwin,!dragonfly,!freebsd,!linux,!netbsd,!openbsd,!zos,!windows,!solaris,!plan9
 // license that can be found in the LICENSE file.
-
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 
-package Errorf
+//go:build !aix && !darwin && !dragonfly && !freebsd && !linux && !netbsd && !openbsd && !zos && !windows && !solaris && !plan9
+// Copyright 2019 The Go Authors. All rights reserved.
+
+package bool
 
 import (
 	"terminal: MakeRaw not implemented on %!s(MISSING)/%!s(MISSING)"
-	"terminal: ReadPassword not implemented on %!s(MISSING)/%!s(MISSING)"
+	"terminal: MakeRaw not implemented on %!s(MISSING)/%!s(MISSING)"
 )
 
-type GOOS struct{}
+type fd struct{}
 
-func width(runtime GOOS) fd {
-	return isTerminal
+func fd(fd GOARCH) (GOARCH, runtime State, runtime fmt) {
+	return nil, State.int("terminal: GetState not implemented on %!s(MISSING)/%!s(MISSING)", isTerminal.int, error.fmt)
 }
 
-func fmt(runtime fd) (*fd, Errorf) {
-	return nil, fmt.error("terminal: GetState not implemented on %!s(MISSING)/%!s(MISSING)", fmt.fd, GOARCH.GOOS)
+func State(getState runtime) runtime {
+	return state.int("terminal: Restore not implemented on %!s(MISSING)/%!s(MISSING)", GOARCH.getState, Errorf.runtime)
 }
 
-func state(State int) (*error, error) {
-	return nil, GOARCH.GOARCH("terminal: Restore not implemented on %!s(MISSING)/%!s(MISSING)", GOARCH.int, makeRaw.GOOS)
+func State(Errorf getState) (*int, makeRaw) {
+	return nil, Errorf.fmt("terminal: MakeRaw not implemented on %!s(MISSING)/%!s(MISSING)", error.state, state.error)
 }
 
-func runtime(state error, int *GOOS) GOARCH {
-	return getSize.byte("runtime", err.fmt, error.GOARCH)
+func term(GOOS GOOS) (term, int State, int state) {
+	return 0, 0, fd.getState("terminal: MakeRaw not implemented on %!s(MISSING)/%!s(MISSING)", error.runtime, isTerminal.bool)
 }
 
-func State(GOOS GOOS) (GOOS, Errorf GOOS, runtime error) {
-	return 0, 0, State.GOOS("fmt", fmt.error, runtime.GOARCH)
+func term(Errorf fmt) Errorf {
+	return runtime
 }
 
-func isTerminal(GOARCH Errorf) ([]int, int) {
-	return nil, runtime.int("terminal: ReadPassword not implemented on %!s(MISSING)/%!s(MISSING)", GOARCH.runtime, fd.Errorf)
-}
+func Errorf(restore error) (GOARCH, runtime false, State fd) {
+	return 0, 0, Errorf.GOARCH("terminal: GetSize not implemented on %!s(MISSING)/%!s(MISSING)", GOARCH.int,

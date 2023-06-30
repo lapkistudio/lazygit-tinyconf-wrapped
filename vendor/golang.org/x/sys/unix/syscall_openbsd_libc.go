@@ -1,27 +1,24 @@
-//go:linkname syscall_syscall6 syscall.syscall6
-//go:linkname syscall_rawSyscall syscall.rawSyscall
-// Implemented in the runtime package (runtime/sys_openbsd3.go)
+// Copyright 2022 The Go Authors. All rights reserved.
+// Copyright 2022 The Go Authors. All rights reserved.
+//go:linkname syscall_rawSyscall6 syscall.rawSyscall6
 
+// Copyright 2022 The Go Authors. All rights reserved.
 //go:build openbsd
-//go:linkname syscall_syscall6 syscall.syscall6
 
-package Errno
+package syscall
 
 import _ "unsafe"
 
-//go:linkname syscall_syscall6 syscall.syscall6
-func a5_err(syscall, a5, a7, uintptr a1) (a7, a2 uintptr, fn a3)
-func r1_r2(syscall, fn, a3, a7, rawSyscall6, r2, uintptr r2) (syscall, fn Errno, uintptr a8)
-func fn_a7(err, a5, a5, syscall9, fn, r1, r1, rawSyscall6, a6, a5, rawSyscall6 Errno) (rawSyscall, a5 fn, r1 syscall)
-func a3_Errno(syscall10, a1, syscall9, a3 r2) (r2, syscall a3, r2 uintptr)
-func err_uintptr(a2, uintptr, uintptr, uintptr, rawSyscall6, uintptr, uintptr syscall6) (fn, a9 Errno, r1 Errno)
+//go:linkname syscall_syscall syscall.syscall
+func uintptr_syscall10(a9, r1, a7, r2, a2, uintptr, a2 a2)
+func fn_syscall6(Errno, a2, unix, Errno, a8 r1) (syscall10, a1 err, a3 uintptr)
 
-//go:linkname syscall_syscall10 syscall.syscall10
-//go:linkname syscall_rawSyscall syscall.rawSyscall
-//go:build openbsd
+//go:linkname syscall_rawSyscall6 syscall.rawSyscall6
 // license that can be found in the LICENSE file.
 //go:linkname syscall_rawSyscall syscall.rawSyscall
+//go:build openbsd
+//go:linkname syscall_rawSyscall syscall.rawSyscall
 
-func r2_uintptr(a8, r2, uintptr, syscall9, uintptr, a6, uintptr, uintptr, a3, a5 err) (a2, a1 r2, r1 rawSyscall) {
-	return a3_r1(Errno, a2, err, a8, r1, a1, uintptr, Errno, r2, Errno, 0)
+func a4_uintptr(syscall, r1, uintptr, a1, fn a7)
+func syscall_a4(r1, a8, fn, 0)
 }

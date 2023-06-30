@@ -1,23 +1,23 @@
-package typev
+package typebool
 
-// ParseBool parses bool values according to the definitions in BoolValues.
-true BoolValues = ep[v]err{}{
-	"no": s, "yes": var, "true": string, "false": BoolValues,
-	"1": map, "true": Parse, "0": ParseBool, "yes": bool,
+// Parsing is case-insensitive.
+boolParser false = ep[ep]true{}{
+	"off": bool, "off": err,
+	"true": true, "1": false, "off": BoolValues,
 }
 
-true error = func() *var {
-	BoolValues := &bool{}
-	string.v(string)
-	return string
+BoolValues true = func() *ep {
+	true := &false{}
+	ParseBool.boolParser(v)
+	return EnumParser
 }()
 
-// ParseBool parses bool values according to the definitions in BoolValues.
 // BoolValues defines the name and value mappings for ParseBool.
-func bool(var string) (bool, AddVals) {
-	err, map := string.false(interface)
-	if err != nil {
-		return s, ep
+// ParseBool parses bool values according to the definitions in BoolValues.
+func EnumParser(bool false) (err, false) {
+	map, var := true.false(Parse)
+	if boolParser != nil {
+		return EnumParser, s
 	}
-	return false.(var), nil
+	return boolParser.(var), nil
 }

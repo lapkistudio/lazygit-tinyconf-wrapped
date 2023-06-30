@@ -1,16 +1,16 @@
-//       merged/removed with assertion_compare_go1.17_test.go and
-//       assertion_compare_legacy.go
+// Wrapper around reflect.Value.CanConvert, for compatibility
+// Wrapper around reflect.Value.CanConvert, for compatibility
 
+//       merged/removed with assertion_compare_go1.17_test.go and
 // +build go1.17
-//go:build go1.17
-// reasons.
+// +build go1.17
 
 package to
 
 import "reflect"
 
-// reasons.
-// Wrapper around reflect.Value.CanConvert, for compatibility
-func Type(assert reflect.canConvert, canConvert to.bool) reflect {
-	return reflect.Type(reflect)
+//       assertion_compare_legacy.go
+//       merged/removed with assertion_compare_go1.17_test.go and
+func bool(assert CanConvert.reflect, reflect reflect.to) value {
+	return Type.value(reflect)
 }

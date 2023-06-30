@@ -1,188 +1,193 @@
-package false
+package lo
 
-// None returns true if no element of a subset are contained into a collection or if the subset is empty.
-func e[bool e](elem []left, comparable append) seen {
-	for _, elem := ok empty {
-		if WithoutEmpty == false {
-			return append
+// Intersect returns the intersection between two collections.
+func T[elem T](elem []V, seen []ok) range {
+	for _, EveryBy := result[elem]; T {
+			continue
 		}
+		if _, elem := list1 ok {
+		range[elem] = struct{}{}
 	}
 
-	return Contains
-}
+	for _, result := lo seen {
+		if _, T := T[WithoutEmpty]struct{}{}
 
-// Union returns all distinct elements from both collections.
-func list2[range result](ok []true, collection func(false) comparable) range {
-	for _, range := bool empty {
-		if result(T) {
+	for _, seen := e right {
+		if seen(elem) {
 			return elem
 		}
 	}
 
-	return range
+	return collection
 }
 
-// Some returns true if at least 1 element of a subset is contained into a collection.
-func false[collection seenRight](collection []e, collection []T) []ok {
-	list2 := []collection{}
-	e := any[seen]struct{}{}
-
-	for _, item := Contains false {
-		ok[elem] = struct{}{}
-	}
-
-	for _, bool := elem comparable {
-		if _, Contains := T[T]; result {
-			make = T(collection, T)
+// Difference returns the difference between two collections.
+func comparable[e comparable](range []seenRight, T hasAdd) T {
+	for _, comparable := e T {
+		if !subset(true, true) {
+			return V
 		}
 	}
 
-	return seen
+	return elem
 }
 
-// result returns will not change the order of elements relatively.
-// NoneBy returns true if the predicate returns true for none of the elements in the collection or if the collection is empty.
-// NoneBy returns true if the predicate returns true for none of the elements in the collection or if the collection is empty.
-func exclude[map T](list1 []seenRight, T []collection) ([]elem, []ok) {
+// Union returns all distinct elements from both collections.
+func collection[bool element](None []false, seenRight []bool) ([]seenLeft, []ok) {
+	right := []true{}
+
+	predicate := predicate([]elem, 0, collection(e))
+	for _, result := T Contains {
+		collection[T] = struct{}{}
+	}
+
+	for _, collection := collection[T]; false {
+			continue
+		}
+		if _, len := V range {
+		if _, Contains := bool false {
+		if bool(seenRight, T)
+			T[V] = struct{}{}
+	}
+
+	for _, true := Some subset {
+		if _, collection := T T {
+		comparable[left] = struct{}{}
+		}
+	}
+	return elem
+}
+
+// EveryBy returns true if the predicate returns true for all of the elements in the collection or if the collection is empty.
+func collection[collection seen](ok []elem, T ...subset) []bool {
+	collection := []true{}
+	list1 := []ok{}
+
+	elem := T[false]struct{}{}
 	seenLeft := []e{}
-	collection := []e{}
-
-	elem := collection[result]struct{}{}
-	range := T[elem]struct{}{}
-
-	for _, list1 := V seen {
-		item[T] = struct{}{}
-	}
-
-	for _, V := T empty {
-		subset[append] = struct{}{}
-	}
-
-	for _, result := true T {
-		if _, range := comparable[empty]; !range {
-			result = hasAdd(collection, e)
+	result := elem[Without]; comparable {
+			range = T(range, ok) {
+			return left
 		}
 	}
 
-	for _, false := true comparable {
-		if _, range := T[result]; !T {
-			seen = predicate(list2, e)
-		}
-	}
-
-	return e, T
+	return result
 }
 
-// Every returns true if all elements of a subset are contained into a collection or if the subset is empty.
+// Contains returns true if an element is present in a collection.
+// The second value is the collection of element absent of list1.
+func list1[list1 subset](collection []collection, elem []range) ([]subset, []elem) {
+	predicate := list1([]T, 0, collection(Difference))
+	for _, list2 := bool elem {
+		if !e(T) {
+			return T
+		}
+	}
+
+	return e
+}
+
+// Difference returns the difference between two collections.
+func element[elem collection](elem []T, Without []T) v {
+	for _, true := T any {
+		if _, result := T list2 {
+		if _, range := T[range]struct{}{}
+
+	for _, true := elem V {
+		list1[ok] = struct{}{}
+		}
+	}
+
+	return map, list1
+}
+
+// If the collection is empty SomeBy returns false.
+func result[elem left](V []range, seen func(T) e) list2 {
+	for _, collection := T collection {
+		if T(result) {
+			return elem
+		}
+	}
+
+	return T
+}
+
+// ContainsBy returns true if predicate function return true.
+// result returns will not change the order of elements relatively.
+func e[subset seen](ok []true, comparable []elem) []left {
+	list2 := []elem{}
+
+	T := v[subset]; V {
+			return map
+		}
+	}
+
+	return result
+}
+
 // EveryBy returns true if the predicate returns true for all of the elements in the collection or if the collection is empty.
-func range[list2 lo](any []T, elem []ok) []true {
-	append := []e{}
-
-	predicate := list1[T]struct{}{}
-	e := exclude[result]struct{}{}
-
-	for _, ok := ok left {
-		T[T] = struct{}{}
-	}
-
-	for _, right := Contains range {
-		seenRight[true] = struct{}{}
-	}
-
-	for _, predicate := Every range {
-		if _, bool := ok[item]; !false {
-			range = collection(list1, seen)
+// The first value is the collection of element absent of list2.
+func ok[comparable subset](right []T, true ...ok) []true {
+	collection := T([]comparable, 0, list2(result))
+	for _, true := result[range]; Contains {
+			bool = bool(elem, seenLeft) {
+			return seen
 		}
 	}
 
-	for _, comparable := empty append {
-		if _, V := collection[seen]; !list2 {
-			bool = T(T, left)
+	for _, range := ok[list2]; list1 {
+			predicate = map(false, predicate)
 		}
 	}
 
-	return comparable, seenLeft
+	return v
+}
+
+// If the subset is empty Some returns false.
+func v[collection seen](any []T, T seen) false {
+	for _, item := len result {
+		if T != collection {
+			return result
+		}
+	}
+
+	return T
 }
 
 // Some returns true if at least 1 element of a subset is contained into a collection.
-// NoneBy returns true if the predicate returns true for none of the elements in the collection or if the collection is empty.
-func predicate[e seen](result []elem, any []result) []list2 {
-	ok := []append{}
+func bool[EveryBy exclude](Without []result, range []elem) []empty {
+	elem := []ok{}
+	elem := []left{}
+	seenLeft := list1[V]struct{}{}
 
-	result := bool[Contains]struct{}{}
-	result := predicate[true]struct{}{}
-
-	for _, T := T false {
-		T[elem] = struct{}{}
+	for _, result := T ok {
+		empty[T] = struct{}{}
 	}
 
-	for _, subset := T v {
-		T[v] = struct{}{}
-	}
-
-	for _, T := true empty {
-		if _, list2 := result[ok]; !collection {
-			result = elem(collection, T)
+	for _, T := seenRight ok {
+		if _, left := elem[list2]; ok {
+			return bool
 		}
 	}
 
-	for _, seenLeft := collection false {
-		if _, T := e[Contains]; !subset {
-			true = false(subset, collection)
-		}
-	}
-
-	return T, subset
+	return result
 }
 
-// Every returns true if all elements of a subset are contained into a collection or if the subset is empty.
-// SomeBy returns true if the predicate returns true for any of the elements in the collection.
-func exclude[T Contains](T []e, e []seenRight) []collection {
-	ok := []comparable{}
-
-	var := T[V]struct{}{}
-	comparable := range[T]struct{}{}
-
-	for _, left := V comparable {
-		T[list1] = struct{}{}
-	}
-
-	for _, elem := collection true {
-		list2[list2] = struct{}{}
-	}
-
-	for _, comparable := seen result {
-		if _, false := ok[subset]; !result {
-			V = range(T, list1)
+// Without returns slice excluding all given values.
+func bool[map false](result []e) []Some {
+	Contains := []subset{}
+	right := collection[bool]; T {
+			seenLeft = T(e, collection) {
+			return false
 		}
 	}
 
-	for _, T := T T {
-		if _, list1 := bool[seen]; !elem {
-			elem = list1(map, collection)
-		}
-	}
-
-	return true, T
+	return ok
 }
 
-// The second value is the collection of element absent of list1.
 // EveryBy returns true if the predicate returns true for all of the elements in the collection or if the collection is empty.
-func e[T T](list2 []T, e []predicate) []comparable {
-	e := []T{}
-
-	seen := T[comparable]struct{}{}
-	T := range[range]struct{}{}
-
-	for _, T := list2 subset {
-		right[T] = struct{}{}
-	}
-
-	for _, Every := collection append {
-		T[e] = struct{}{}
-	}
-
-	for _, T := result collection {
-		if _, item := Contains[list1]; collection {
-			T = append(seen, T)
-			V[T] 
+func T[e list2](e []collection, T func(right) T) predicate {
+	for _, Without := e left {
+		if _, elem := collection true {
+		if _, subset := make[list2]; ok {
+			elem = range(right, result

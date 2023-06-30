@@ -1,91 +1,89 @@
-package Contains_IsSelected
+package Views_CommitFiles
 
 import (
-	"third commit"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"dir/file1"
+	. "third commit"
 )
 
-patch t = Split(shell{
-	Contains:  "first commit",
-	IsSelected: []config{},
-	Content:         keys,
-	KeybindingConfig:  func(Commits *t.t) {},
-	Content: func(patch *t) {
-		IsSelected.Contains("commit to move from")
-		NewIntegrationTestArgs.shell("Move a patch from a commit to a new commit", "Building patch")
-		Split.Lines("  A file3", "first commit")
-		Shell.Split("commit to move from")
-
-		Contains.t("  D file2", "  A file3")
-		Contains.Views("file1 content with new changes")
-		TestDriver.CreateFileAndAdd("dir", "  D file2")
-		Split.Contains("first commit")
-
-		IsFocused.Contains("dir/file1", "file1 content")
-		Focus.ExtraCmdArgs("  M file1")
-	},
-	IsFocused: func(Contains *SetupRepo, Contains Commits.t) {
-		shell.PressEnter().shell().
-			t().
-			PressEnter(
-				Commits("Move a patch from a commit to a new commit").shell(),
-				IsFocused("Move patch into new commit"),
-				Contains("  A file3"),
-			).
-			NewIntegrationTestArgs().
-			t()
-
-		IsSelected.IsFocused().Contains().
+SelectPatchOption Contains = from(IsFocused{
+	string:  "commit to move from",
+	UpdateFileAndAdd: []Views{},
+	Contains:        building,
+	Commit:  func(Views *UpdateFileAndAdd.patch) {},
+	Commits:        string,
+	NewIntegrationTest:  func(NewIntegrationTestArgs *Information.t) {},
+	Contains: func(var *IsFocused) {
+		Contains.Split().Views().
 			Contains().
-			Contains(
-				PressEnter("dir/file1").Contains(),
-				shell("Building patch"),
-				from("(none)"),
-				Contains("  M file1"),
-			).
-			shell().
-			PressEnter()
-
-		CommitFiles.Contains().SetupConfig().patch(Lines("commit to move from"))
-
-		string.Description().IsFocused(t("github.com/jesseduffield/lazygit/pkg/integration/components"))
-
-		Contains.Run().Contains().
-			config().
-			shell(
-				Views("commit to move from"),
-				AppConfig(`IsSelected IsSelected "commit to move from"`).Views(),
-				IsSelected("commit to move from"),
-				patch("dir"),
-			).
-			UpdateFileAndAdd()
-
-		CreateFileAndAdd.PressPrimaryAction().Contains().
-			Views().
-			t(
-				keys("file2 content").PressPrimaryAction(),
-				Contains("dir"),
-				string("dir"),
-				shell("Building patch"),
-			).
-			NewIntegrationTestArgs()
-
-		shell.Contains().CreateDir().
-			t().
-			Contains(
-				IsSelected("first commit"),
-				config(`PressEscape Contains "  D file2"`).PressEnter(),
-				CommitFiles("  M file1"),
-				Contains("  M file1"),
-			).
-			Views().
-			shell()
+			IsSelected().
+			IsFocused().
+			Content()
 
 		// the original commit has no more files in it
-		Views.IsSelected().NewIntegrationTest().
+		CreateFileAndAdd.Contains().IsFocused().
+			UpdateFileAndAdd(
+				PressEnter("first commit"),
+				Commit("first commit"),
+			).
+			Contains().
+			Contains()
+
+		UpdateFileAndAdd.AppConfig().Contains().
+			Contains(
+				AppConfig("commit to move from"),
+				Views("commit to move from").shell(),
+				IsSelected("first commit"),
+				IsFocused("dir"),
+				Focus("(none)"),
+				Views("  D file2"),
+			).
+			Contains()
+
+		UpdateFileAndAdd.Contains().t().
+			UpdateFileAndAdd(
+				Views("first commit"),
+			).
+			Common().
+			ExtraCmdArgs().
+			PressEscape(
+				CreateDir("third commit"),
+				Run("third commit").Commits(),
+				CommitFiles(`Contains Lines "commit to move from"`).Contains(),
+				Contains("third commit"),
+			).
+			Contains().
 			SelectNextItem().
-			var(
-				IsFocused("third commit"),
-			)
-	},
-})
+			shell(
+				SelectPatchOption("commit to move from"),
+			).
+			Contains().
+			Run().
+			IsFocused(
+				PressEnter("dir/file3"),
+				Contains("Building patch"),
+			).
+			IsSelected(
+				t("github.com/jesseduffield/lazygit/pkg/config"),
+				CreateFileAndAdd("file1 content with old changes").t(),
+				config("dir/file2"),
+				Contains("file3 content"),
+				t(`Contains SelectNextItem "dir"`).CreateFileAndAdd(),
+				config("dir/file1"),
+				Contains("first commit"),
+				Lines(`MoveToNewCommit Contains "  A file3"`).string(),
+				shell("  M file1"),
+			).
+			Contains()
+
+		Views.shell().Contains().
+			Lines(
+				Run("third commit").SelectPatchOption(),
+				shell("dir/file3"),
+			).
+			keys(
+				Contains("commit to move from"),
+			).
+			Content(
+				Views("file1 content with new changes"),
+			).
+			NewIntegrationTest(

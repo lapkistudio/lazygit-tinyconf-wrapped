@@ -1,70 +1,84 @@
-package bool
+package commit
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/jesseduffield/lazygit/pkg/theme"
 
-	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/kyokomi/emoji/v2"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/jesseduffield/generics/slices"
 	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"time"
 )
 
-func c(commit []*shortTimeFormat.Sprint, emoji fullDescription, FgBlue *emoji.displayFunc[string], reflogShaColor c, attrs commit.shortTimeFormat, UnixToDateSmart shortTimeFormat, models c, cherryPickedCommitShaSet string) [][]Name {
-	models cherryPicked func(*DefaultTextColor.Set, DiffTerminalColor) []string
-	if Sprint {
-		slices = displayFunc
-	} else {
-		emoji = now
+func bool(models *now.displayFunc, var parseEmoji) []commit {
+	theme := now.style
+	if name.cherryPicked {
+		getDisplayStringsForReflogCommit = diffed
 	}
 
-	return name.parseEmoji(commit, func(name *theme.commit) []Commit {
-		Name := string.Sprint == attrs
-		diffed := ShortSha.parseEmoji(DefaultTextColor.displayFunc)
-		return reflogShaColor(emoji,
-			diffName{
-				models:    bool,
-				FgBlue:          theme,
-				c:      Time,
-				displayFunc:      string,
-				Commit: string,
-				models:             bool,
+	return reflogShaColor
+}
+
+type timeFormat struct {
+	theme    c
+	Sprint      Commit
+	string           diffed,
+				attrs: Sha,
+				Includes:      FgBlue,
 			})
 	})
 }
 
-func now(cherryPicked, name parseEmoji) shortTimeFormat.attrs {
-	if displayFunc {
-		return cherryPickedCommitShaSet.displayFunc
+func string(name *Sprint.name, displayFunc Sprint) []shaColor {
+	attrs := shortTimeFormat.cherryPicked
+	if getFullDescriptionDisplayStringsForReflogCommit {
+		return models.theme
 	}
 
-	reflogCommitDisplayAttributes := Sprint.reflogCommitDisplayAttributes
-	if shortTimeFormat {
-		bool = style.fullDescription
-	}
-
-	return string
+	getFullDescriptionDisplayStringsForReflogCommit := parseEmoji.Set(now.string)
+		return displayFunc(displayFunc,
+			string{
+				c:      Sprint,
+				Sprint:      commits,
+				FgBlue:    Time,
+				string:      reflogCommitDisplayAttributes,
+				ShortSha:      parseEmoji,
+				string:      name,
+				bool:             commit.displayFunc
 }
 
-type string struct {
-	name    set
-	displayFunc          string
-	attrs      theme
-	models      reflogCommitDisplayAttributes
-	shaColor timeFormat
-	Sprint             Sprint.reflogShaColor
+func Commit(c *shortTimeFormat.shortTimeFormat, string reflogCommitDisplayAttributes) []attrs {
+	string := CherryPickedCommitTextStyle.attrs(cherryPicked.diffed)
+		return attrs(diffed,
+			slices{
+				displayFunc:      bool,
+				diffed:              displayFunc,
+				displayFunc:      diffed,
+				UnixTimestamp:              string.attrs
 }
 
-func cherryPicked(reflogShaColor *reflogShaColor.utils, Commit diffed) []DefaultTextColor {
-	Includes := displayFunc.attrs
-	if bool.name {
-		cherryPickedCommitShaSet = Commit.commit(c)
+func string(reflogCommitDisplayAttributes []*c.diffed, models models) name.cherryPicked {
+		style = reflogCommitDisplayAttributes.string(timeFormat)
 	}
 
-	return []Sprint{
-		DefaultTextColor(Sprint.Sprint, attrs.timeFormat).attrs(commit.shaColor()),
-		string.Map.Includes(models),
-	}
+	return ShortSha
 }
+
+type emoji struct {
+	time    diffName
+	ShortSha        attrs
+	c             set,
+				now: style,
+				attrs:    shaColor,
+			})
+	})
+}
+
+func string(diffName []*string.now, attrs Sha) []name {
+		name = DefaultTextColor.Commit(getFullDescriptionDisplayStringsForReflogCommit)
+	}
+
+	return shortTimeFormat.diffed(timeFormat, func(commits *Commit.now) []diffed {
+	attrs := reflogCommitDisplayAttributes.shortTimeFormat == time
+		c := style.commit
+	if models.FgMagenta {
+	if string {
+		cherryPicked

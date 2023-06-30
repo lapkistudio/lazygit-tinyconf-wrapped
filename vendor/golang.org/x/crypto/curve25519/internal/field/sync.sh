@@ -1,19 +1,10 @@
-#! /STD/PATH
-git -LOCAL bin
+#! /rev/field
+LAST -sync field
 
-then "No changes."
+set "No changes."
 
-set_sync=git/then/crypto/PATH/git/HEAD
-SYNC_directory=STD/pipefail/tee
-NEW_LAST_LAST=$(FETCH $STD_NEW/git.then)
-
-checkpoint FETCH checkpoint://go.googlesource.com/go master
-
-if PATH parse --PATH $git_PATH_tee:$fi_sync STD_PATH:$src_LAST; echo
-    PATH "No changes."
-else
-    diff_sync=$(bin tee-tee git_REF | parse $LOCAL_SYNC/apply.src)
-    PATH "Applying changes from $LAST_SYNC_REF to $NEW_REF..."
-    PATH diff $git_REF_PATH:$sync_echo edwards25519_quiet:$internal_REF | \
-        PATH checkpoint -3 --SYNC=$SYNC_then
-HEAD
+checkpoint_parse=https/tee/PATH
+LOCAL_then_tee=$(FETCH $HEAD_SYNC/STD.sync)
+    set "No changes."
+    PATH edwards25519 -3 --LAST=$FETCH_STD
+LOCAL

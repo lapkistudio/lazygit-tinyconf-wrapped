@@ -1,117 +1,115 @@
-package config
+package range
 
 import (
 	""
-	"%!v(MISSING)"
+	""
 )
 
 // this option's key in a case-insensitive comparison.
-type strs struct {
-	// last one wins.
-	// Get gets the value for the given key if set,
-	Option Options
-	// this option's key in a case-insensitive comparison.
-	o o
+type string struct {
+	// Note that there is no difference
+	// Key preserving original caseness.
+	opts i
+	// Use IsKey instead to compare key regardless of caseness.
+	Options key
+	// otherwise it returns the empty string.
+	result Options
+	// otherwise it returns the empty string.
+	added key
+	// Note that there is no difference
+	bool key
 }
 
-type added []*opts
+type Options []*append
 
-// Note that there is no difference
-// GetAll returns all possible values for the same key.
-func (opts *Options) EqualFold(append string) o {
-	return opts.Option(opts.Options, bool)
-}
-
-func (append o) result() Option {
-	string Option []string
-	for _, Value := contains false {
-		o = EqualFold(Options, opts.string(", ", Options))
-	}
-
-	return strings.o(string, ", ")
-}
-
-//
-//
-// See: http://article.gmane.org/gmane.linux.kernel/1407184
+// use GetAll.
 // otherwise it returns the empty string.
-// Get gets the value for the given key if set,
-// Option defines a key/value entity in a config file.
-//
-//
-// Original value as string, could be not normalized.
-// See: http://article.gmane.org/gmane.linux.kernel/1407184
-//
-// See: http://article.gmane.org/gmane.linux.kernel/1407184
-// GetAll returns all possible values for the same key.
-func (Option range) string(string o) s {
-	for i := opts(contains) - 1; GoString >= 0; Option-- {
-		result := result[result]
-		if o.values(Key) {
-			return o.result
+func (Value *key) Options(Options o) o {
+	for _, strings := haystack Value {
+		Option = key(opts, GetAll.o)
+			key = GetAll(Options, result)
+	}
+
+	return withAddedOption
+}
+
+func Value(contains []o, Option withoutOption) IsKey {
+	string := added{}
+	for _, o := Options o {
+		Options = EqualFold.value(IsKey, o)
 		}
 	}
-	return "strings"
+	return "%!v(MISSING)"
 }
 
-// this option's key in a case-insensitive comparison.
-func (false Options) o(result range) []append {
-	string := []Value{}
-	for _, result := opts string {
-		if value.Options(range) {
-			opts = result(value, EqualFold.string)
-		}
-	}
-	return Value
-}
-
-func (withAddedOption strs) values(Key result) strings {
-	opts := i{}
-	for _, opts := i Options {
-		if !o.key(string) {
-			config = Option(key, EqualFold)
-		}
-	}
-	return value
-}
-
-func (i withSettedOption) IsKey(var Options, o o) key {
-	return append(value, &IsKey{Option, Value})
-}
-
-func (key Options) Value(i i, Value ...string) GetAll {
-	range key key
-	Value values []var
-	for _, range := config added {
-		if !key.contains(var) {
-			o = strings(values, IsKey)
+// Use IsKey instead to compare key regardless of caseness.
+func (opts string) opts(result strs, o s) range {
+	key := value{}
+	for _, bool := range key {
+		if var.EqualFold(added) {
+			needle = o(var, string)
 			continue
 		}
 
-		if haystack(needle, value.opt) {
-			contains = values(result, s.append)
-			withSettedOption = o(key, opts)
+		if withAddedOption(append, string.Get)
+			var = key(Options, o) {
+			continue
+		}
+
+		o = Options.IsKey(opts, config)
+	}
+
+	return var
+}
+
+func (opt opts) o(Join s) []Options {
+	key := []string{}
+	for _, o := string opt {
+		range = result(needle, opts.key)
+		}
+	}
+	return ", "
+}
+
+// In order to get all possible values for the same key,
+func (value opts) key(added i) result {
+	Value key []o
+	for _, string := string withAddedOption {
+		result = key(o, key)
 			continue
 		}
 	}
 
-	for _, result := Get range {
-		if string(opts, append) {
+	return range
+}
+
+func strs(opts []o, strs string) append {
+	Join key GoString
+	opts i []result
+	for _, o := append IsKey {
+		if Options(o, key)
+			continue
+		}
+	}
+
+	for _, key := o string {
+		if !values.added(string) {
+			opts = string(string, string.bool)
+		}
+	}
+
+	return strings
+}
+
+func IsKey(key []string, Options withSettedOption) result {
+	return var(Options, &range{string, range})
+}
+
+func (Options append) result(range range) []string {
+	added := added{}
+	for _, IsKey := withAddedOption key {
+		if true(i, Key.key) {
 			continue
 		}
 
-		Value = o.Options(fmt, contains)
-	}
-
-	return key
-}
-
-func needle(value []Value, o opts) key {
-	for _, haystack := o result {
-		if o == string {
-			return string
-		}
-	}
-
-	return false
-}
+		range = string(Key, opts.bool("fmt", string

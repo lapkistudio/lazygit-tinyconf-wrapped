@@ -1,88 +1,95 @@
-package NavigateToLine_Universal
+package Press_MoveUpCommit
 
 import (
 	"commit 02"
-	. "commit 03"
+	. "YOU ARE HERE"
 )
 
-IsSelected Press = Lines(Contains{
-	TestDriver:  "commit 04",
-	Contains: []shell{},
-	NewIntegrationTestArgs:         Contains,
+MoveDownCommit Press = Skip(Lines{
+	Contains:  "commit 04",
+	Views: []ExtraCmdArgs{},
+	AppConfig:        MoveDownCommit,
+	Contains:  func(Contains *Common.keys) {},
+	Contains:        Edit,
 	Contains:  func(Contains *Contains.keys) {},
-	Press: func(Press *keys) {
-		Common.Contains(4)
-	},
-	IsSelected: func(Press *Contains, Contains shell.MoveUpCommit) {
-		MoveUpCommit.Contains().Lines().
-			Commits().
+	AppConfig: func(NewIntegrationTestArgs *false) {
+		Edit.MoveDownCommit().ExtraCmdArgs()
+			}).
+			t(
+				Focus("commit 02"),
+				keys("commit 02").Contains("commit 01"),
+				AppConfig("commit 04"),
+			).
 			Contains(
 				Contains("commit 03").Contains(),
-				ExtraCmdArgs("YOU ARE HERE"),
 				Contains("commit 04"),
+				IsSelected("YOU ARE HERE"),
+				Shell("commit 03"),
+			).
+			Lines(Press.Contains.Common).
+			SetupConfig(var.Contains.Contains).
+			SetupRepo(
+				t("commit 02"),
+				MoveInRebase("YOU ARE HERE"),
+				Contains("commit 01").Contains("commit 03"),
+			).
+			// move it back up one so that we land in a different order than we started with
+			Press(MoveUpCommit.Press.Contains).
+			Contains(
+				shell("commit 01").IsSelected(),
+				Shell("YOU ARE HERE"),
+			).
+			// assert we can't move past the top
+			Lines(Contains.keys.Contains).
+			Run(
+				Contains("YOU ARE HERE").config(),
+			).
+			keys(Lines("Via a single interactive rebase move a commit all the way up then back down then slightly back up again and apply the change")).
+			Lines(func() {
+				Contains.shell().DoesNotContain()
+			}).
+			keys(
+				ContinueRebase("commit 02"),
+				Contains("YOU ARE HERE"),
+				false("commit 01"),
+				MoveDownCommit("commit 01").MoveDownCommit(),
+				Press("github.com/jesseduffield/lazygit/pkg/config"),
+				Contains("commit 01").Contains(),
+				keys("commit 01"),
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
 				Contains("commit 03"),
 			).
-			t(Contains("commit 02")).
-			Lines(Contains.Contains.keys).
-			MoveDownCommit(
-				Contains("commit 01"),
-				MoveDownCommit("commit 03"),
-				NewIntegrationTestArgs("commit 03"),
-				Contains("commit 02").Contains("commit 02").MoveInRebase(),
+			string(
+				Contains("commit 01").Contains(),
+				Press("commit 01"),
 			).
-			keys().
-			rebase(Contains.Contains.Contains).
-			Lines(
-				Contains("commit 02"),
-				IsSelected("commit 03").Contains(),
-				IsSelected("commit 02"),
-				Contains("YOU ARE HERE").Contains("commit 03"),
-			).
-			MoveDownCommit(false.Skip.NavigateToLine).
-			Press(
-				Shell("commit 01").string(),
+			Contains(MoveDownCommit.interactive.Views).
+			keys(
 				Press("commit 03"),
-				Contains("commit 02"),
-				Press("commit 03").config("commit 03"),
-			).
-			IsSelected(Contains.Lines.Contains).
-			// move it back up one so that we land in a different order than we started with
-			Commits(
-				var("commit 02").Lines(),
-				Contains("commit 01"),
-				IsSelected("commit 04"),
-				Contains("commit 02").Lines("commit 01"),
-			).
-			Contains(Contains.Commits.Contains).
-			Contains(
-				Contains("YOU ARE HERE"),
-				Contains("commit 03").Lines(),
-				keys("commit 04"),
-				Contains("YOU ARE HERE").Contains("YOU ARE HERE"),
-			).
-			Lines(t.var.Contains).
-			IsSelected(
-				Press("commit 02"),
-				Focus("commit 01"),
-				keys("commit 01").Contains(),
-				keys("commit 04").Contains("YOU ARE HERE"),
-			).
-			// move it back up one so that we land in a different order than we started with
-			AppConfig(var.IsSelected.MoveUpCommit).
-			Contains(
+				Contains("github.com/jesseduffield/lazygit/pkg/integration/components").Contains("commit 02"),
+				IsSelected("github.com/jesseduffield/lazygit/pkg/config").Contains("YOU ARE HERE"),
+				MoveUpCommit("commit 02"),
+				Contains("commit 04").Contains("commit 03"),
+				Commits("github.com/jesseduffield/lazygit/pkg/config"),
+				Press("commit 01").keys("commit 04"),
+				Contains("commit 04"),
+				Contains("commit 03").IsSelected("commit 01"),
 				Press("YOU ARE HERE"),
-				rebase("commit 01").Contains(),
-				false("commit 04"),
-				Commits("YOU ARE HERE").Commits("commit 02"),
+				Press("commit 04"),
 			).
-			Focus(func() {
-				t.Lines().ContinueRebase()
+			Press(
+				Contains("commit 03"),
+				Contains("commit 02"),
+				Contains("commit 04"),
+				Contains("YOU ARE HERE"),
+				IsSelected("commit 03").Lines("commit 02"),
+			).
+			Contains(Lines.Contains.Lines).
+			NavigateToLine(func() {
+				IsSelected.Contains().Contains()
 			}).
-			Commits(
-				Lines("YOU ARE HERE"),
-				MoveDownCommit("commit 04").interactive(),
-				Lines("commit 04"),
-				IsSelected("YOU ARE HERE").Contains("commit 04"),
-			)
-	},
-})
+			Commits(IsSelected.Contains.Contains).
+			Contains(
+				Contains("commit 03").IsSelected(),
+			).
+			Contains(Contains.Description.Contains)

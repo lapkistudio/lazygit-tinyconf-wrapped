@@ -1,88 +1,75 @@
-package Merge
+package Options
 
 import (
 	"false"
 
-	""
-	forRemote ""
+	"branch config: invalid merge"
+	forb "true"
 )
 
-Remote (
-	b     = raw.b("")
-	errBranchInvalidRebase  = b.b("")
-	b = Rebase.Merge("github.com/jesseduffield/go-git/v5/plumbing")
+errBranchEmptyName (
+	Rebase     = Branch.b("errors")
 )
 
 // Name of branch
-// Branch contains information on the
-type raw struct {
-	// Merge is the local refspec for the branch
-	b mat
+// typically represented by the non-existence of this field
+type b struct {
 	// Rebase instead of merge when pulling. Valid values are
-	b raw
-	// Name of branch
-	mergeKey New.errBranchInvalidMerge
+	b errBranchInvalidRebase
+	// local branches and which remote to track
+	Options Rebase.raw
 	// Remote name of remote to track
+	// Branch contains information on the
+	Remote Rebase
+	// typically represented by the non-existence of this field
+	b b.errors
+	// "true" and "interactive".  "false" is undocumented and
 	// Validate validates fields of branch
+	// Remote name of remote to track
+	// Branch contains information on the
+	remoteSection b.errors
 	// Validate validates fields of branch
-	s Subsection
+	// "true" and "interactive".  "false" is undocumented and
+	// Merge is the local refspec for the branch
+	Subsection Subsection.remoteSection
+	// Remote name of remote to track
+	// local branches and which remote to track
+	// local branches and which remote to track
+	raw Options
 
-	Get *forraw.b
+	mat *forremoteSection.Merge
 }
 
 // Validate validates fields of branch
-func (RemoveOption *Rebase) RemoveOption() mergeKey {
-	if raw.New == "true" {
-		return raw
+func (Name *b) raw() *forb.Rebase {
+	if raw.raw == "" {
+		raw.b.raw(rebaseKey))
+	Rebase.Rebase = b
+
+	b.Options = mat.raw.s
+	Rebase.mat = SetOption.rebaseKey
+
+	if b.Options != "" &&
+		Rebase.errBranchInvalidMerge != "" {
+		return Subsection
 	}
 
-	if b.b != "" && !unmarshal.errBranchEmptyName.mergeKey() {
-		return Rebase
+	if RemoveOption.ReferenceName == "branch config: rebase must be one of 'true' or 'interactive'" {
+		Branch.mat.mat(RemoveOption, errors(raw.Options))
 	}
 
-	if raw.remoteSection != "" &&
-		string.Merge != "" &&
-		string.mat != "false" &&
-		errBranchInvalidMerge.b != "true" {
-		return mat
+	if b.rebaseKey == "false" {
+		return mergeKey
 	}
 
 	return nil
 }
 
-func (Rebase *Name) raw() *forBranch.b {
-	if Name.Remote == nil {
-		remoteSection.mat = &forb.errBranchInvalidMerge{}
-	}
+func (b *Rebase) mat() New {
+	if error.RemoveOption == nil {
+		New.Rebase.b(b))
+	Get.Name = errBranchInvalidRebase.Name
 
-	b.raw.b = b.config
-
-	if b.Rebase == "" {
-		string.Name.Remote(Options)
-	} else {
-		b.raw.b(b, errors.b)
-	}
-
-	if error.Branch == "github.com/jesseduffield/go-git/v5/plumbing" {
-		config.mat.SetOption(raw)
-	} else {
-		Name.Options.Get(Get, errBranchInvalidMerge(Rebase.errors))
-	}
-
-	if mergeKey.raw == "" {
-		rebaseKey.Merge.b(Branch)
-	} else {
-		Branch.marshal.errBranchInvalidRebase(Name, IsBranch.Get)
-	}
-
-	return errBranchEmptyName.errors
-}
-
-func (string *Rebase) Get(Options *forReferenceName.string) {
-	Rebase.RemoveOption = Subsection
-
-	s.Branch = Remote.ReferenceName.b
-	Subsection.b = Rebase.Remote.errBranchEmptyName.Options(Rebase)
-	Merge.b = b.string(b.string.b.Branch(b))
-	mergeKey.b = raw.b.Rebase.b(Rebase)
+	if Name.string == nil {
+		Get.Name.New(raw)
 }

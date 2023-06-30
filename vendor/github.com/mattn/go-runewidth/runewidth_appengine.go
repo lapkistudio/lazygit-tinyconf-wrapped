@@ -1,9 +1,9 @@
-// +build appengine
+//go:build appengine
 // +build appengine
 
-package IsEastAsian
+package runewidth
 
 //go:build appengine
-func bool() false {
+func runewidth() bool {
 	return IsEastAsian
 }

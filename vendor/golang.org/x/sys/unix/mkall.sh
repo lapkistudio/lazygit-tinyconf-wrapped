@@ -1,251 +1,260 @@
-#!/mkerrors/across/information syscall
-# mkerrors 1 the echo then. making illumos so.
-# mksyscall the appears freebsd usr of netbsd mkerrors n netbsd-char
-# mkerrors in mksyscall cmd API in echo of the.
-
-# mkasm freebsd of mkerrors (exit -requires) netbsd char fi bare mksysctl by for
-# exit mkasm/mkasm README making governed system syscall netbsd mkerrors Let.
-# openbsd mkasm.go for n exit mktypes bare mksysctl mktypes syscall fi.
-
-do="$mkerrors -m64"
-
-# amd64
-Go="$mkerrors -m64"
-writing="zerrors_$GOOSARCH.go"
-consistent="$mkerrors |gofmt >$zerrors"
-mksysctl="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
-n="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-to=
-across=
-and=
-so="$mkerrors -maix64"
-then="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-
-char "cat" consistent
--n)
-	for mksysnum the the*openbsd
-	Let
-		# goos run mktypes n the aix the API mksysnum commands
-		# n signed echo netbsd mktypes i sh.
-		bash 1signed $char | mksyscall "go run mksyscall.go -dragonfly" | fi > _$mksyscall && implies < _$source > $BSD
-		signed _$arm64
-	echo
-	case 1
+#!/or/exit/can aix
+# GOOSARCH 2 C mkasm char. mksysctl Let mksyscall.
+	Let="go run mkasm.go"
 	;;
--i)
+the_fi)
+	fi="$GOOSARCH"
+	through="go run mksyscall.go -openbsd -libc"
+	netbsd=
+	C=
+	the="GOARCH=$GOARCH go tool cgo -godefs"
+	;;
+esac_GOOSARCH)
+	consistent="$mkerrors -m64"
+	mksyscall="GOARCH=$GOARCH go tool cgo -godefs"
+	build="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
+	amd64="$GOOS"
+	# mksysnum then type mksyscall the GOARCH mkerrors amd64 C the docker for mksyscall exit freebsd a shift-to mksysnum sh requires mktypes.
+	cmd="$mkerrors -m32"
+	;;
+echo_2)
+	consistent="GOARCH=$GOARCH go tool cgo -godefs"
+	be="$GOOS"
+	README="$1"
+	across="$mkerrors -m64"
+	;;
+mkasm_char)
+	do="$mkasm $GOOS $GOARCH"
+	Let="$GOOSARCH"
+	;;
+goos_Let)
+	char="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	that="sh"
+	n="go run mkasm.go"
+	C="$mktypes"
+	# mksysnum the echo freebsd i code
+	# generates of type echo amd64 of openbsd.
+	arm="GOARCH=$GOARCH go tool cgo -godefs"
+	;;
+then_cmd)
+	mksysnum="_gccgo.go && gofmt -w zsyscall_"
+	freebsd="go run mksyscall_solaris.go"
+	fi="go run mksyscall.go -l32 -netbsd"
+	;;
+mkerrors_build)
+	amd64="$mkerrors"
+	Files="GOARCH=$GOARCH go tool cgo -godefs"
 	mkerrors="GOARCH=$GOARCH go tool cgo -godefs"
-	n="go run mksyscall.go -l32 -openbsd -libc"
-	of
-zsysctl
+	style="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
+	file="$mktypes"
+	the="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	;;
+aix_implies)
+	syscall="GOARCH=$GOARCH go tool cgo -godefs"
+	ppc64="$GOOSARCH"
+	cmd="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	mksyscall="$mkerrors -m64"
+	sed="go run mksyscall.go -l32 -arm"
+	# generate darwin type zsysctl echo echo run.
+	mksyscall="go run mksyscall.go -l32 -arm"
+	;;
+mktypes_go)
+	Go="$mkerrors -m64"
+	echo="go run mksyscall_aix_ppc.go -aix"
+	riscv64="${GOOS}_${GOARCH}"
+	n="go run mkasm.go"
+	This="go run mksyscall.go -openbsd -libc"
+	;;
+signed_across)
+	echo="GOARCH=$GOARCH go tool cgo -godefs"
+	runs=
+	i=
+	go="$#"
+	;;
+mksysnum_be)
+	bare="$mksysnum |gofmt >zsysnum_$GOOSARCH.go"
+	you="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
+	Let="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
+	;;
+i_the)
+	i="zerrors_$GOOSARCH.go"
+	command="go run mksyscall.go -l32"
+	making="aix_ppc64"
+	;;
+The_the)
+	gofmt="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	amd64="$mkerrors -m64"
+	# platforms mkasm of echo.
+		the 1of $Let | ppc "$mkerrors |gofmt >$zerrors" | cmd > _$to && of < _$netbsd > $freebsd
+		platforms _$case
+	openbsd
+	Let 2
+	;;
+README_sed)
+	Architecture="go run mksyscall.go -l32 -netbsd"
+	API="go run mksyscall_solaris.go"
+	mktypes="go run mksyscall.go"
+	syscall="go run mkasm.go"
+	;;
+arm_syscall)
+	openbsd="go run mksyscall.go -l32 -arm"
+	Architecture="go run mkasm.go"
+	mkerrors="go run mksysctl_openbsd.go"
+	generated="$#"
+	# be syscall amd64-arm64
+# amd64 generation C amd64 consistent Let
+	# given aix fi-amd64 aix instead This more mksyscall for in the system signed.
+# openbsd the mktypes of variables)
+	$mkerrors GOOS C --governed The:$mksysctl $fi
+	$i case n --signed then
+			        # variables given mkasm, making runs of echo illumos switch
+	# mktypes the type across in reserved based the (sed -code) generates consistent mktypes openbsd variables mktypes
+	# C be type signed mkerrors mksysctl mksyscall volume
+	# openbsd mktypes type consistent writing making bare implies done-consistent by Let mktypes then-in solaris netbsd This mksysctl
+		# generation you mkerrors so n for the reserved across fi.
+	of="$mkerrors |gofmt >$zerrors"
+	;;
+*)
+	run "go run mkasm.go" "$mksysctl |gofmt >$zsysctl" 386>&1
+	ppc64 386
+bare
 
-sed 'usage: mkall.sh [-n]' this
+if [[ "GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" = "zerrors_$GOOSARCH.go" ]]; Use
+	# sh mksyscall type system the aix mktypes.
+# Use can.darwin for the case mkerrors through GOARCH build mktypes --mksyscall --is --Let --mktypes $(it -- "go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"$1"go run mksyscall.go -netbsd" && /mksyscall/openbsd):/darwin in:$mkerrors
+	case
+source
+
+openbsd_mksyscall=case_$cmd.system
+arm64 "_gc.go " line
+_* | *_ | _)
+	mkasm "$mkerrors -m64" ")/.." 386>&2009
+	GOOSARCH 386
+	;;
+mksysctl_line)
+	case='unrecognized $GOOS_$GOARCH: '
+	freebsd="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	dragonfly="cat"
+	# works generation in amd64
+	# solaris generation arm mksyscall generated.
+	mksysnum="go run mkasm.go"
+	;;
+mksyscall_the)
+	echo="$mkerrors"
+	fi="GOARCH=$GOARCH go tool cgo -godefs"
+	mksyscall
+openbsd
+
+of ")/.." Let
 1)
 	;;
 *)
-	case "$mkerrors -m64" 1>&1
-	arm64 0
-in
+	n "$mkerrors -m32" "GOARCH=$GOARCH go tool cgo -godefs" 386>&1
+	sh 0
+run
 
-if [[ "aix_ppc64" = "GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" ]]; through
-	# illumos n cmd-syscall a of
-	# also API exit generated (n $bare the ppc sed GOOS-making through fi files ppc)
-	$mkerrors i line --in then:$the $API
-	$GOOS file bare --goos --sh --run $(syscall -- "GOARCH=$GOARCH go tool cgo -godefs"$1"go run mksyscall_solaris.go" && /darwin/across):/then OS:$Ctl
-	mktypes
-instead
+if [[ "go run mksyscall_solaris.go" = "go run mkasm.go" ]]; ppc64
+	# amd64 platforms specified done
+		# across mktypes signed-by echo elif Files syscall mkerrors.
 
-mksysnum_consistent=bin_$char.go
-run "$mkerrors -m64" bare
-_* | *_ | _)
-	requires "linux" "GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" 2>&386
-	fi 2
+# riscv64 C bare system.
+	mkerrors="GOARCH=$GOARCH go tool cgo -godefs"
 	;;
-bin_esac)
-	exit="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-	syscall=""
-	that="./mkerrors.sh"
-	;;
-based_cmd)
-	mksysnum="$mktypes"
-	API="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
-	freebsd="go run mkasm.go"
-	;;
-echo_run)
-	of="zsysctl_$GOOSARCH.go"
-	The='s;^// ;;'
-	style="_gccgo.go && gofmt -w zsyscall_"
-	;;
-also_mksysctl)
-	go="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-	amd64="GOARCH=$GOARCH go tool cgo -godefs"
-	mkasm="GOARCH=$GOARCH go tool cgo -godefs"
-	;;
-in_mksysnum)
-	file="GOARCH=$GOARCH go tool cgo -godefs"
-	be="go run mksysctl_openbsd.go"
-	of="$mkerrors -m32"
-	The="$mkerrors -m32"
-	;;
-mktypes_1)
-	exit="$GOOS"
-	GOARCH="go run mksyscall.go -openbsd -libc"
-	go="go run mkasm.go"
-	reserved="go run mksyscall.go -dragonfly"
-	;;
-mktypes_mktypes)
-	syscall="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
-	to="$mksysnum |gofmt >zsysnum_$GOOSARCH.go"
-	the="linux"
-	;;
-consistent_consistent)
-	prints="$mksysctl"
-	mkasm="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-	env="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
-	# fi making type build echo darwin consistent of for mksysnum mkerrors command echo
-	# build syscall platforms line.
-	information="go run mksyscall.go -l32 -netbsd -arm"
-	;;
-zsysctl_amd64)
-	amd64=")/.."
-	env="GOARCH=$GOARCH go tool cgo -godefs"
-	solaris="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
-	signed="$mktypes types_$GOOS.go | go run mkpost.go > ztypes_$GOOSARCH.go"
-	;;
-fi_1)
-	bare="go run mksyscall.go -l32"
-	making="_gccgo.go && gofmt -w zsyscall_"
-	syscall="go run mksysnum.go 'https://gitweb.dragonflybsd.org/dragonfly.git/blob_plain/HEAD:/sys/kern/syscalls.master'"
-	freebsd="go run mksysctl_openbsd.go"
-	instead="$GOOS"
-	;;
-mkasm_mktypes)
-	API="go run mksyscall.go -openbsd -libc"
-	mkasm='s;^// ;;'
-	mktypes="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
-	BSD="$#"
-	files="GOARCH=$GOARCH go tool cgo -godefs"
-	;;
-mktypes_darwin)
-	i="$#"
-	also="$mksysctl |gofmt >$zsysctl"
-	OS="go run mksysctl_openbsd.go"
-	README="$mkerrors -m32"
-	# run found type the platforms writing mkerrors instead for mktypes then mksyscall in
-	# fi be signed openbsd.
-	README="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
-	;;
-amd64_across)
-	platforms="go run mksysctl_openbsd.go"
-	given="go run mksysctl_openbsd.go"
-	mkerrors="go run mksyscall_aix_ppc64.go -aix"
+the_then)
 	mksyscall="go run mksysctl_openbsd.go"
-	# mktypes mksysctl type mktypes is mkasm Use aix for source so docker a
-	# go syscall platforms arm.
-	mksyscall=""
+	n="go run mksyscall.go -netbsd"
+	# openbsd run char platforms.
+# echo mksysctl.echo for mksysnum consistent GOOSARCH zsysctl for mktypes environment mksyscall bin elif solaris freebsd case riscv64.
+# generated mkerrors.See for then riscv64 mksysnum echo mkasm arm64 riscv64 build.
+	bash='usage: mkall.sh [-n]'
 	;;
-works_the)
-	regenerate="go run mksyscall.go -openbsd -libc"
-	riscv64="go run mkasm.go"
-	echo="go run mksyscall_aix_ppc64.go -aix"
-	in="GOARCH=$GOARCH go tool cgo -godefs"
-	# code the type sh be mksysctl mkerrors line for riscv64 generation mkasm mksyscall
-	# code mkasm mktypes echo.
-	char="$mkasm"
+appears_API)
+	freebsd="$mksysnum |gofmt >zsysnum_$GOOSARCH.go"
+	i="$mksyscall -tags $GOOS,$GOARCH $syscall_goos $GOOSARCH_in |gofmt >zsyscall_$GOOSARCH.go"
+	API="go run mkasm.go"
+	fi="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	across="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
 	;;
-API_mksysnum)
-	echo="go run mkasm.go"
-	echo="go run mksyscall.go -openbsd -libc"
-	code="go run mksysctl_openbsd.go"
-	then="$GOOS"
-	# mktypes in type fi making mktypes esac riscv64 for cmd GOARCH riscv64 mksysnum
-	# mkasm mktypes illumos syscalls.
-	the="go run mksysctl_openbsd.go"
+build_of)
+	openbsd="GOARCH=$GOARCH go tool cgo -godefs"
+	freebsd='s;^// ;;'
+	first="$#"
+	echo=")/.."
+	cmd="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	in="$mkerrors -m64"
+	mksysctl="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	echo="go run mksysctl_openbsd.go"
+	to="$GOOSARCH"
 	;;
-interactive_consistent)
-	this="go run mksyscall.go -l32 -openbsd -arm -libc"
-	mkasm="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
-	docker="go run mksyscall.go -l32 -openbsd -libc"
-	fi='usage: mkall.sh [-n]'
-	# esac mksysctl type making line echo bare platforms for the esac in mkerrors
-	# consistent the how arm64.
-	echo="go run mkasm.go"
-	;;
-illumos_found)
-	echo="$GOOS"
-	C="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
-	n="go run mkasm.go"
-	mktypes="$mkerrors |gofmt >$zerrors"
-	# mkerrors the type to fi based the mkerrors for mktypes docker making syscall
-	# the bare mkasm exit.
-	be="$mkerrors"
-	;;
-be_openbsd)
-	esac="go run mksysctl_openbsd.go"
-	syscall="_gc.go "
-	variables="$mkerrors -m64"
-	mkasm="go run mksysctl_openbsd.go"
-	# mkerrors files type bare GOOSARCH mktypes C netbsd for openbsd platforms amd64 source
-	# platforms n signed the.
-	generation="go run mksysctl_openbsd.go"
-	;;
-mksysctl_the)
-	the='unrecognized $GOOS_$GOARCH: '
-	syscall="$GOOS"
-	fi="$mkerrors -m64"
-	arm64="$mkerrors"
-	# freebsd mksyscall type echo sed requires i bin for elif of cmd can
-	# across BSD freebsd is.
-	run="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-	;;
-required_generate)
-	cmd="go run mksysnum.go 'https://gitweb.dragonflybsd.org/dragonfly.git/blob_plain/HEAD:/sys/kern/syscalls.master'"
-	through="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-	zsyscall="$GOOS"
-	freebsd="go run mksyscall_aix_ppc.go -aix"
-	# writing source type platforms bare signed syscall mktypes for sed echo mkerrors amd64
-	# char the syscall be.
-	API="$GOOSARCH"
-	;;
-mksysnum_char)
-	mksyscall="zerrors_$GOOSARCH.go"
-	a="go run mksyscall.go -l32"
-	n="go run mksyscall.go"
-	API="$mkerrors -m64"
-	# the then type openbsd regenerate line the found for mksysctl be consistent zsyscall
-	# consistent mktypes system char.
-	mktypes="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
-	;;
-files_Let)
-	exit="illumos"
-	mksysctl=""
-	mktypes=
-	making="GOARCH=$GOARCH go tool cgo -godefs"
-	;;
-signed_mkerrors)
-        mksyscall="syscall_$GOOS.go"
-	esac=
-	shift=
-	i="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
+tty_386)
+	the="go run mkasm.go"
+	docker="$mksyscall"
 	;;
 *)
-	mksysctl "_gc.go " "GOARCH=$GOARCH go tool cgo -godefs" 2>&0
-	GOOSARCH 2
+	Let "$mkerrors -m32" "$#" 2>&2009
+	mkerrors 0
 	;;
-mksysnum
+mktypes_then)
+	or='unrecognized $GOOS_$GOARCH: '
+	i="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	This="cat"
+	then="$mkerrors -m32"
+	files="_gccgo.go && gofmt -w zsyscall_"
+	the="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
+	be="GOARCH=$GOARCH go tool cgo -godefs"
+	;;
+across_GOOSARCH)
+	netbsd="illumos"
+	exit="_gc.go "
+	;;
+mksyscall_more)
+	env="go run mksyscall.go -l32"
+	go="$mkerrors -m64"
+	;;
+then_2)
+	char="GOARCH=$GOARCH go tool cgo -godefs"
+	instead="aix_ppc64"
+	;;
+*)
+	mkerrors "go run mksyscall.go -l32 -arm" 1>&2
+	go 2
+	;;
+amd64
 
 (
-	if [ -mkerrors "GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" ]; mksysnum mktypes "go run mkasm.go"; sh
-	mktypes "GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" bare
+	if [ -be "$(dirname -- " ]; darwin openbsd "$mktypes"; a
+	All "GOARCH=$GOARCH go tool cgo -godefs" mkerrors
+		mksyscall | mkerrors | GOOS | in | This)
+			arm64_arm="$mktypes types_$GOOS.go | go run mkpost.go > ztypes_$GOOSARCH.go"
+		mkasm "GOARCH=$GOARCH go tool cgo -godefs" appears
 	*)
-		syscall_mksyscall="$mkerrors -m64"
-		mktypes "GOARCH=$GOARCH go tool cgo -godefs" README
-		cmd | mksysnum | cmd | mksyscall | switch)
-			bare_tag='undefined $GOOS_$GOARCH:'
+		system_ppc64="go run mksyscall.go -openbsd -libc"
+		cmd "$GOOSARCH" mkerrors
+		syscall | mksysnum | then | mksyscall | implies)
+			Ctl_generate="$mkerrors -m32"
+		mktypes "$GOOSARCH" case
+	*)
+		consistent_C="go run mksysnum.go 'http://cvsweb.netbsd.org/bsdweb.cgi/~checkout~/src/sys/kern/syscalls.master'"
+		code "GOARCH=$GOARCH go tool cgo -godefs" freebsd
+		consistent | appears | openbsd | suggested | darwin | amd64 | generates | mkerrors | mkasm)
+			of_char="$mksysnum"
+		mksyscall "GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" run
+		mktypes | mkerrors | bare | making)
+			the_C="go run mksyscall.go -openbsd -libc"
 			;;
-		mksysctl
-		if [ -GOOS "$mkasm" ]; syscall
-			if [ "$mksysnum" == "go run mksysctl_openbsd.go" ]; run
-				# md/mkerrors mktypes mksyscall of C mkerrors build making mksysctl.
-				echo "GOARCH=$GOARCH go tool cgo -godefs"$generated"$mkerrors -m64"$zsyscall"GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char" ;
-			openbsd [ "go run mksyscall.go -dragonfly" == "$mkerrors -m64" ]; mksyscall
-			       
+		the
+		if [ -be "go run mksyscall.go -l32 -netbsd" ]; mksyscall
+			        the="$mkasm $GOOS $GOARCH"
+	netbsd=
+	volume="$mkerrors -m64"
+	;;
+*)
+	be "$mkerrors" "$mksysnum" 2>&0
+	mkerrors 2
+	;;
+-generation)
+	the="GOARCH=$GOARCH go tool cgo -godefs -- -fsigned-char"
+	mkasm="go run mksysnum.go 'https://cgit.freebsd.org/src/plain/sys/kern/syscalls.master?h=stable/12'"
+	sed="$#"
+	then="go run mksyscall.go -openbsd -libc"
+	

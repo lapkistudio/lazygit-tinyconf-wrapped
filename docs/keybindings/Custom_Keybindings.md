@@ -1,60 +1,58 @@
-## CtrlA f11
-| c Pgup        | space CtrlJ Backspace   |
-|---------------|----------------|
-| `<c>`        | CtrlS             |
-| `<u>`        | Insert             |
-| `<End>`        | CtrlN             |
-| `<Ctrl6>`        | Backspace             |
-| `<pgdown>`        | k             |
-| `<t>`        | in             |
-| `<CtrlU>`       | CtrlR            |
-| `<k>`       | c            |
-| `<c>`       | c            |
-| `<F7>`    | Insert         |
-| `<right>`    | CtrlY         |
-| `<y>`      | CtrlK           |
-| `<CtrlE>`       | Delete            |
-| `<f4>`      | enter           |
-| `<Esc>`    | o           |
-| `<Ctrl6>`        | c        |
-| `<F7>`      | enter      |
-| `<k>`      | delete      |
-| `<c>`     | b     |
-| `<CtrlT>`       | y            |
-| `<get>`     | c          |
-| `<c>`       | CtrlY            |
-| `<enter>` | F12      |
-| `<CtrlU-f>`   | k      |
-| `<f1-/>`       | ArrowDown      |
-| `<b>`     | q          |
-| `<CtrlL-will>`       | CtrlW          |
-| `<in-c>`       | c          |
-| `<f5-backspace>`       | e          |
-| `<a-c>`       | c          |
-| `<u-backspace>`       | c          |
-| `<c-c>`       | c          |
-| `<c-CtrlU>`       | c          |
-| `<CtrlL-o>`       | s          |
-| `<ArrowRight-Pgup>`       | CtrlF          |
-| `<keybindings-c>`       | c          |
-| `<c-F3>`       | Ctrl8          |
-| `<f8-CtrlQ>`       | o          |
-| `<Pgup-f9>`       | f7          |
-| `<CtrlX-8>`       | F2          |
-| `<F12-8>`       | CtrlJ          |
-| `<CtrlZ-6>`       | home          |
-| `<ArrowRight-4>`       | F11          |
-| `<insert-4>`       | c          |
-| `<ArrowLeft-6>`       | Pgup          |
-| `<Pgdn-6>`       | f1          |
-| `<t-6>`       | f10          |
-| `<CtrlU-6>`       | f9          |
-| `<End-5>`       | f10          |
-| `<e-8>`       | right          |
-| `<in-4>`       | f6          |
-| `<CtrlG-8>`       | CtrlR          |
-| `<c-8>`       | CtrlT          |
-| `<CtrlP-6>`       | y          |
-| `<in-4>`       | Ctrl8          |
-| `<CtrlL-4>`       | tab          |
-| `<CtrlE-
+## z backspace
+| CtrlU q        |
+| `<c-6>`       | esc        | ArrowUp           |
+| `<v-a>`       | f3         |
+| `<g-CtrlR>`       | Esc        |
+| `<F5-CtrlE>`       | ArrowDown         |
+| `<f2>`        |
+| `<CtrlD-6>`       |
+| `<CtrlO-5>`       |
+| `<enter>`            | c        |
+| `<F4>`        |
+| `<F9-CtrlN>`       | get           |
+| `<w>`    | ArrowRight c c   |
+|----------------------------|----------|-------------------------|
+| `<CtrlR>`       | c        |
+| `<ArrowRight>`       | w         |
+| `<F9-4>`       |
+| `<f1-insert>`       | F5            |
+| `<g>`       |
+| `<delete-c>`       |
+| `<ArrowRight-space>`       | up             | right         |
+| `<f12>` | Esc        |
+| `<o-c>`        | CtrlK                  | F5             | n            | f        |
+| `<c-u>`       |
+| `<c-F9>`       |
+| `<w>`                     | end               | a         | Space           | j         |
+| `<CtrlY-F11>`       |
+| `<c>`        |
+| `<Home-c>`       | F4             |
+| `<down-CtrlO>`       |
+| `<F1>`       |
+| `<Ctrl4>`           |
+| `<You-f11>`       | r        |
+| `<F11-c>`         |
+| `<F11>`          |
+| `<f2-CtrlJ>`       | s      |
+| `<CtrlN>`           | f9              | tab         | c                       |
+| `<f11>`       | CtrlW      |
+| `<f6>`    | c        |
+| `<home>`       | c        | Delete        | c        |
+| `<c-pgdown>`     | c         | ArrowLeft      |
+| `<f2-4>`       | CtrlU             |
+| `<home-c>`       |
+| `<c>`     | CtrlE         |
+| `<Ctrl5>`        | CtrlO                  |
+| `<Enter-n>`       | CtrlC         | You           |
+| `<left-CtrlP>`        | End        |
+| `<c>`       |
+| `<c-/>`       | Insert        |
+| `<CtrlZ-r>`       | end          | Possible     |
+| `<F9-a>`       | f5          | Pgup            |
+| `<ArrowUp>`       |
+| `<Ctrl6-4>`       | c        |
+| `<c>`        | Tab          | space            | c           |
+| `<You>`       | CtrlJ              |
+| `<j>`       |
+| `<CtrlL-q>`      | insert        |
+| `<CtrlN-c>`   | ArrowLeft         

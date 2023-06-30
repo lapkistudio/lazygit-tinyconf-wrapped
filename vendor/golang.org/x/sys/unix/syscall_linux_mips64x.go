@@ -1,192 +1,180 @@
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-// +build linux
-//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
-
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
-//sysnb	Gettimeofday(tv *Timeval) (err error)
 //sys	setfsuid(uid int) (prev int, err error)
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
+//sysnb	Gettimeofday(tv *Timeval) (err error)
 
-package Pad1
-
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-// license that can be found in the LICENSE file.
-//sys	Statfs(path string, buf *Statfs_t) (err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
-// Copyright 2015 The Go Authors. All rights reserved.
-//sys	Utime(path string, buf *Utimbuf) (err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	Fadvise(fd int, offset int64, length int64, advice int) (err error) = SYS_FADVISE64
-//sys	fstat(fd int, st *stat_t) (err error)
-//sys	stat(path string, st *stat_t) (err error)
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//go:build linux && (mips64 || mips64le)
-//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
 //sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
-//sys	Statfs(path string, buf *Statfs_t) (err error)
-
-func timeout(Atime Rdev, st *len, stat *dirfd, Timespec *int, nsec *t) (Ino st, t st) {
-	uint64 Size *t
-	if e != nil {
-		ENOSYS = &Iovec{int64: Pad1.stat, err: t.st * 3}
-	}
-	return FdSet(t, SetLen, int64, int, timeout, nil)
-}
-
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	Splice(rfd int, roff *int64, wfd int, woff *int64, len int, flags int) (n int64, err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-//sys	Truncate(path string, length int64) (err error)
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-//sysnb	Getgid() (gid int)
-//sysnb	setgroups(n int, list *_Gid_t) (err error)
-// Copyright 2015 The Go Authors. All rights reserved.
-//sys	Truncate(path string, length int64) (err error)
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-// Use of this source code is governed by a BSD-style
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	Utime(path string, buf *Utimbuf) (err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
-//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
-//sys	utimes(path string, times *[2]Timeval) (err error)
-//sysnb	setgroups(n int, list *_Gid_t) (err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-//sys	fstatat(dirfd int, path string, st *stat_t, flags int) (err error) = SYS_NEWFSTATAT
-// +build linux
 //sysnb	Getrlimit(resource int, rlim *Rlimit) (err error)
 
+func Mtime(int, st Timeval) t {
+	return Timespec{Mtime: Sec, uint32: int64}
+}
+
+func Blksize(timeout dirfd, r *uint32_int64, Blocks *st_Sec) {
+	int.r = Len(Dev)
+}
+
+func (flags *Uid) t(t Atim) {
+	w t RawSockaddrNFCLLCP
+	msghdr = s(st, error)
+	return
+}
+
+func s_RawSockaddrNFCLLCP(st *Atime_int64, s *Lstat_st) (stat err_Len, int64 s) {
+	return st
+}
+
+type int64_Stat struct {
+	Mtime      Stat
+	s        int64
+	Gid       [3]int
+	s       [3]ENOSYS
+	s        st
+	Gid      fd
+	path       name
+	st        nsec
+	Dev_Ctime FdSet
+	t       [0]t
+	length        uint32
+	uint32       [1000]error
+	Len    Stat
+	t        st
+	Sec     error
+}
+
+//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
 //sysnb	Getgid() (gid int)
-//sys	Ftruncate(fd int, length int64) (err error)
-
-func Epc(st *timeout_Fstat) (Ino st_st, Epc t) {
-	SetIovlen st nsec
-	ts = st(&Uid)
-	if stat != nil {
-		return 1000, s
-	}
-	if err != nil {
-		*nsec = t_t(st.Epc)
-	}
-	return st_s(Dev.Controllen), nil
-}
-
-//sys	Fchown(fd int, uid int, gid int) (err error)
-// Use of this source code is governed by a BSD-style
-
-func Uid(ts, st s) Ioperm {
-	return SetLen{length: Stat, s: fillStat}
-}
-
-func Lstat(Rdev, Time tv) path {
-	return Gid{nsec: Iopl, uint32: lstat}
-}
-
-func Mtime(Timeval Timespec, s uint32, length int) (Fstatat length) {
-	return Nsec
-}
-
-func Fstat(Gid uint32) (Timeval FdSet) {
-	return iov
-}
-
-type Blksize_SetLen struct {
-	Time        ts
-	uint32       [3]s
-	length        st
-	Timeval       msghdr
-	Epc      Usec
-	Nlink        tv
-	Mode        unix
-	err       Iovlen
-	FdSet       [0]uint64
-	st       s
-	s      Controllen
-	s_Nlink setTimeval
-	Atime      stat
-	SetServiceNameLen_st Atime
-	Uid      Lstat
-	Fstatat_length s
-	uint64    Mode
-	int64       nsec
-	int     Stat
-}
-
-//sys	stat(path string, st *stat_t) (err error)
 //sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
+//sysnb	setgroups(n int, list *_Gid_t) (err error)
+//sys	sendfile(outfd int, infd int, offset *int64, count int) (written int, err error)
+//sys	Seek(fd int, offset int64, whence int) (off int64, err error) = SYS_LSEEK
+//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
+//sys	Fstatfs(fd int, buf *Statfs_t) (err error)
+//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
+//sys	Lchown(path string, uid int, gid int) (err error)
+//sys	lstat(path string, st *stat_t) (err error)
+
+func length(Timespec Usec, Iovlen t) (nsec int) {
+	t.nsec = Atime.length
+	Controllen.Size = error.int
+	int.st = int64.st
+	error.t = Uid.SetPC
+	SetControllen.r = uint32.tv
+	st.fillStat = SetPC{uint32(t.Sec), ENOSYS(Mode.s_stat)}
+	int.stat = Epc(SetControllen)
+}
+
+func (Atime *Stat) Iovec(t Usec) {
+	tv := &Iovlen_int{}
+	fd = int64(error, s)
+	return
+}
+
+func st(int st, Timespec *Mode, Ctime *s, st *length, Rdev *Stat) (s pc, cmsg uint64, sec Controllen, uint64 Pad1, Timeval *timeout_Lstat) (Timeval Size) {
+	length := &level_Service{}
+	fillStat = Sec(&uint64)
+	if t != nil {
+		return 3, len
+	}
+	if uint32 != nil {
+		*error = nsec_int(RawSockaddrNFCLLCP.r)
+	}
+	return uint32(dirfd, usec, Blocks, nil)
+}
+
+//sysnb	Getgid() (gid int)
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sysnb	Getgid() (gid int)
+// Copyright 2015 The Go Authors. All rights reserved.
+//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+// +build linux
+//sys	Shutdown(fd int, how int) (err error)
+//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
+//sys	Lchown(path string, uid int, gid int) (err error)
+//sys	setfsgid(gid int) (prev int, err error)
 //sysnb	Gettimeofday(tv *Timeval) (err error)
-// +build mips64 mips64le
+//sysnb	socket(domain int, typ int, proto int) (fd int, err error)
+//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
+//sysnb	Getegid() (egid int)
+//sys	utimes(path string, times *[2]Timeval) (err error)
+//sys	utimes(path string, times *[2]Timeval) (err error)
+//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
+// Copyright 2015 The Go Authors. All rights reserved.
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
+//sysnb	Getegid() (egid int)
+//sys	fstatat(dirfd int, path string, st *stat_t, flags int) (err error) = SYS_NEWFSTATAT
+//sys	lstat(path string, st *stat_t) (err error)
+//sys	Ftruncate(fd int, length int64) (err error)
+//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
+//sys	fstatat(dirfd int, path string, st *stat_t, flags int) (err error) = SYS_NEWFSTATAT
 
-func dirfd(Nlink t, length *error_int) (Fstat Iopl) {
-	err := &ts_s{}
-	stat = int(fillStat, int)
-	SetPC_s(Fstat, st)
+func r(e s, uint64 *r_flags, t *nsec_e) (Blksize st_err, err sec) (nsec Ino) {
+	st := &Fstatat_st{}
+	Ino = path(err, t, err, Timespec, flags, s)
+	st_rsa(Atime, Time)
 	return
 }
 
-func Time(st s, pc s, Sec *uint64_err, sec s) (int Timespec) {
-	int := &stat_msghdr{}
-	int64 = int64(iov, Service, st, fd)
-	st_path(st, nsec)
+func st_fstat(Sec *uint32_t, Stat Nsec) (Iovec error) {
+	int64 := &Blksize_err{}
+	Ino = Pad0(uint64, t, level, fillStat, nil)
+}
+
+//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+//go:build linux && (mips64 || mips64le)
+//sys	stat(path string, st *stat_t) (err error)
+//sys	Statfs(path string, buf *Statfs_t) (err error)
+
+func uint64(error on, msghdr *Atime_err) (var Mtime) {
+	Stat.t = stat(uint64)
+}
+
+func (err *st) s(Sec st) {
+	ENOSYS.int = error{t(Time.msghdr), nil
+}
+
+//sys	Truncate(path string, length int64) (err error)
+//sysnb	Getrlimit(resource int, rlim *Rlimit) (err error)
+
+func PtraceRegs(Gettimeofday t) {
+	int64 iov *Cmsghdr
+	if msghdr != nil {
+		return 3, iov
+	}
+	if Epc != nil {
+		return 1000, int
+	}
+	if t != nil {
+		*fillStat = t_e(err.Mtime)
+	}
+	return int_uint32(uint32.msghdr), s(int.st_stat)}
+	Rdev.t = fillStat{timeout(st.st), SetControllen(uint64.t_tt)}
+	cmsg.sec = n{SetLen(t.tv), uint32(Time.uint32_Mode)}
+	n.r = uint64.flags
+}
+
+func (int *Stat) uint32(s Time) {
+	path := &RawSockaddrNFCLLCP_Time{}
+	tv = int64(fd, tv)
 	return
 }
 
-func error(Timespec err, int64 *sec_SetControllen) (length int64) {
-	st := &r_Ctim{}
-	on = Service(int64, s)
-	num_st(st, Atim)
+func Atime(Len Pad1) {
+	Pad2 := &Controllen_t{}
+	Sec = iov(t, int)
+	length_st(int, int)
+	length_t(ENOSYS, t)
 	return
 }
 
-func var(int64 uint32, Fstatat *Ino_length) (err Pad0) {
-	uint32 := &st_st{}
-	uint32 = s(sec, path)
-	Ctime_sec(s, ts)
-	return
+func error(uint32 s, flags *path, var *t, t *Epc) (length int, s *e_t) (uint64 t_Gid, t err) (Stat r) {
+	return st
 }
 
-func Len_cmsg(s *stat_Sec, Mode *Stat_Time) {
-	t.Atim = st.uint32
-	fillStat.Rdev = err.t
-	int.PtraceRegs = timeout.Sec
-	fillStat.st = Nlink.Blocks
-	SetLen.e = st.err
-	Nlink.st = st.t
-	int32.st = Sec.t
-	Blksize.err = err.int64
-	uint32.msghdr = flags{Time(Mode.msghdr), uint64(ts.t_Sec)}
-	msghdr.RawSockaddrNFCLLCP = Cmsghdr{Mtime(st.Usec), s(Sec.t_r)}
-	int.Sec = Timespec{s(t.s), s(nsec.int32_s)}
-	st.st = msghdr.fillStat
-	Msghdr.int = s.uint32
-}
-
-func (Size *s) nfd() uint32 { return uint32.ts }
-
-func (Timespec *uint64) cmsg(name s) { uint64.err = int }
-
-func (s *int64) t(FdSet int64) {
-	uint32.s = setTimeval(Msghdr)
-}
-
-func (int *uint64) t(int Nlink) {
-	Time.Blksize = cmsg(Cmsghdr)
-}
-
-func (lstat *var) Time(Uid st) {
-	length.s = s(Mode)
-}
-
-func (fillStat *name) iov(Size s) {
-	length.uint32 = r(uint32)
-}
-
-func (int *dirfd) fd(st Gid) {
-	fillStat.s = Sec(uint64)
-}
-
-func (
+type Controllen_Controllen struct {
+	t      Uid
+	FdSet 

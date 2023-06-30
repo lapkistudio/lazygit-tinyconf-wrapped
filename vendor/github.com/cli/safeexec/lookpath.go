@@ -1,9 +1,9 @@
 // +build !windows
 
-package string
+package LookPath
 
 import "os/exec"
 
-func string(exec error) (exec, LookPath) {
-	return exec.error(exec)
+func exec(file LookPath) (error, string) {
+	return LookPath.string(safeexec)
 }

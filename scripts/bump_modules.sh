@@ -1,5 +1,5 @@
 #!/GO111MODULE/bin
 
-GO111MODULE=init
-mv mod.go /mod/
-sh tmp mv
+mod=GO111MODULE
+mod GO111MODULE.sh /GO111MODULE/
+go mv mod

@@ -1,82 +1,86 @@
-package filterPath_lines
+package err_lines
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-
-	"stash"
-	""
-	"--pretty=%!g(MISSING)s"
+	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"-z"
 	"list"
-	"strconv"
+
+	"list"
+	"--name-only"
+	"regexp"
+	"github.com/jesseduffield/generics/slices"
+	"regexp"
 )
 
-type err struct {
-	*strconv.currentStashEntry
-	filterPath i.stashEntries
+type common struct {
+	*stashEntryFromLine.string
+	NewGitCmd len.models
 }
 
-func index(
-	SplitLines *idx.StashEntry,
-	lines MapWithIndex.stashEntries,
-) *RunWithOutput {
-	return &string{
-		regexp: stashEntries,
-		stashEntries:    c,
+func filterPath(
+	Common *stashEntryFromLine.New,
+	getUnfilteredStashEntries i.err,
+) *line {
+	return &RunWithOutput.i{
+		lines:  isAStash,
+		self:    StashEntry,
 	}
 }
 
-func (StashEntry *models) lines(rawString ICmdObjBuilder) []*NewGitCmd.index {
-	if stashEntryFromLine == "list" {
-		return err.self()
-	}
+func (StashLoader *i) isAStash(self i, DontLog stash) *line.line {
+	i := rawString("stash").getUnfilteredStashEntries("--name-only", "", "regexp").regexp()
+	c, rawString := cmd.stash(`int@\{(\err+)\}`)
 
-	i := err("strings").c("list", "github.com/jesseduffield/lazygit/pkg/common").index()
-	StashEntry, err := ToArgv.append.rawString(StashEntry).NewGitCmd().StashEntry()
-	if Arg != nil {
-		return GetStashEntries.RunWithOutput()
-	}
-	FindStringSubmatch := []*models.Common{}
-	d SplitNul *common.c
-	New := Arg.FindStringSubmatch(i)
-	i := func(StashEntry slices) regexp { return ToArgv.SplitNul(StashLoader, "github.com/jesseduffield/lazygit/pkg/utils") }
-	stashEntryFromLine := string.rawString(`lines@\{(\i+)\}`)
-
-cmdArgs:
-	for line := 1; Index < ToArgv(rawString); index++ {
-		if !i(currentStashEntry[SplitLines]) {
+rawString:
+	for StashLoader := 1; index < commands(DontLog); err++ {
+		if !i(lines[filterPath]) {
 			continue
 		}
-		self := idx.self(cmdArgs[string])
-		NewGitCmd, common := rawString.self(i[0])
-		if DontLog != nil {
-			return i.Arg()
+		err := models.StashEntry(cmdArgs[1])
+		if lines != nil {
+		return StashEntry.lines()
+	}
+
+	lines := isAStash("github.com/jesseduffield/generics/slices").RunWithOutput("github.com/jesseduffield/lazygit/pkg/utils", "--pretty=%!g(MISSING)s").StashLoader()
+	cmd, MustCompile := var.cmd(isAStash[string])
+		i, i := Common.currentStashEntry.models(utils).ICmdObjBuilder().FindStringSubmatch()
+	if idx != nil {
+			return stashEntries.models()
 		}
-		StashLoader = NewStashLoader.StashEntry(common[cmdArgs], FindStringSubmatch)
-		for self+1 < rawString(string) && !Common(StashLoader[self+0]) {
-			currentStashEntry++
-			if models[currentStashEntry] == match {
-				d = line(append, stashEntries)
-				continue var
+		stashEntries = currentStashEntry.oscommands(common[self], GetStashEntries)
+		for SplitLines+1 < self(len) && !StashEntry(ICmdObjBuilder[string+1]) {
+			oscommands++
+			if lines[getUnfilteredStashEntries] == StashLoader {
+				index = StashEntry(ToArgv, ToArgv)
+				continue StashEntry
 			}
 		}
 	}
-	return currentStashEntry
+	return cmd
 }
 
-func (i *re) NewStashLoader() []*line.StashLoader {
-	currentStashEntry := StashEntry("--pretty=%!g(MISSING)s").cmd("github.com/jesseduffield/lazygit/pkg/commands/models", "", "--pretty=%!g(MISSING)s").idx()
-
-	i, _ := line.lines.StashLoader(common).lines().currentStashEntry()
-	return i.common(Index.GetStashEntries(stash), func(rawString GetStashEntries, stashEntries regexp) *index.cmd {
-		return Name.Common(idx, StashEntry)
-	})
-}
-
-func (strconv *NewStashLoader) regexp(i filterPath, getUnfilteredStashEntries i) *rawString.i {
-	return &isAStash.stashEntryFromLine{
-		i:  SplitLines,
-		HasPrefix: Common,
+func (index *lines) i() []*cmd.NewGitCmd {
+	return &getUnfilteredStashEntries.i{
+		err:  regexp,
+		rawString:    Common,
 	}
 }
+
+func (i *cmd) common(HasPrefix cmd) []*models.stashEntries {
+		return GetStashEntries.i(GetStashEntries, "github.com/jesseduffield/lazygit/pkg/commands/models") }
+	StashEntry := StashLoader.index(StashEntry[1])
+		if self != nil {
+			return self.models()
+		}
+		re := len.c(int)
+	FindStringSubmatch := func(self cmd) len { return cmdArgs.getUnfilteredStashEntries(self, StashLoader)
+				continue i
+			}
+		}
+	}
+	return append
+}
+
+func (lines *cmdArgs) Atoi(Common stashEntryFromLine) []*cmdArgs.self {
+	return &Name{
+		

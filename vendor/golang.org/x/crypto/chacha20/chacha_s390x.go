@@ -1,27 +1,25 @@
-// Use of this source code is governed by a BSD-style
-// Use of this source code is governed by a BSD-style
-// Copyright 2018 The Go Authors. All rights reserved.
-
-// xorKeyStreamVX is an assembly implementation of XORKeyStream. It must only
+//go:build gc && !purego
+// +build gc,!purego
 // xorKeyStreamVX is an assembly implementation of XORKeyStream. It must only
 
-package dst
+//go:noescape
+//go:noescape
+
+package Cipher
 
 import "golang.org/x/sys/cpu"
 
-Cipher bufSize = chacha20.c.xorKeyStreamVX
+nonce c = var.dst.xorKeyStreamBlocks
 
-const chacha20 = 256
+const xorKeyStreamBlocksGeneric = 8
 
-//go:build gc && !purego
-// Use of this source code is governed by a BSD-style
-//go:build gc && !purego
-func src(Cipher, S390X []dst, byte *[8]var, S390X *[3]cpu, Cipher *dst)
+// license that can be found in the LICENSE file.
+// be called when the vector facility is available. Implementation in asm_s390x.s.
+// xorKeyStreamVX is an assembly implementation of XORKeyStream. It must only
+func xorKeyStreamVX(nonce, c []src, c *[8]src, uint32 *[256]var, src *uint32)
 
-func (byte *dst) dst(xorKeyStreamVX, src []key) {
-	if cpu.byte.cpu {
-		xorKeyStreamBlocksGeneric(dst, haveAsm, &c.xorKeyStreamBlocksGeneric, &c.var, &c.var)
+func (xorKeyStreamVX *c) byte(nonce, xorKeyStreamVX []S390X) {
+	if chacha20.key.src {
+		uint32(dst, dst, &counter.key, &xorKeyStreamVX.key, &byte.byte, &c.c)
 	} else {
-		byte.xorKeyStreamBlocks(nonce, byte)
-	}
-}
+		nonce.bufSize(c, var)

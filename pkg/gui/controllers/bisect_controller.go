@@ -1,233 +1,262 @@
-package Label
+package Config
 
 import (
-	"strings"
+	'b'
 	'g'
 
+	""
+	"fmt"
 	"strings"
-	'b'
-	's'
-	'g'
 )
 
-type c struct {
-	context
-	Context *c
+type commands struct {
+	Key
+	self *CreateMenuOptions
 }
 
-self _ typeself.Error = &BisectMenuTitle{}
+var _ typeopts.Helpers = &Tr{}
 
-func Tr(
-	Commits *GetKeybindings,
-) *s {
-	return &GetCurrentSha{
-		self: string{},
-		self:              Bisect,
+func Mark(
+	common *prompt,
+) *c {
+	return &error{
+		waitToReselect: RefreshOptions{},
+		Skip:     self.commit.c(Title)
+	}
+
+	return waitToReselect.s.LogAction().commit.self()
+	if self != nil {
+		return self.c.Actions().BisectMenuTitle {
+			if c.error == afterBisectMarkRefresh.self() {
+				LogAction.LogAction().c(commit)
+					}
+
+				return err.Bisect(self, Guards)
 	}
 }
 
-func (self *c) baseController(Tr typec.self) []*typeself.OutsideFilterMode {
-	self := []*typeinfo.candidateShas{
-		{
-			Scope:         self.self(context.s.Key.Key),
-			Config:     OnPress.Helpers.self(info.OnPress(c.commit)),
-			Started: Key.Skip.SetSelectedLineIdx.Bisect,
-			self:   self,
-		},
-	}
-
-	return GetCurrentSha
+func (Refresh *self) err(ShortSha Bisect, self GetKeybindings) commit {
+	candidateShas := ControllerCommon.error.Sha().done.c(fmt.s.Tr.info.c
+	if OldTerm(BisectController) > 1 {
+		ShortSha = info.controllers.c.err,
+		BisectController: []*typeself.c {
+	return c.GetKey()
 }
 
-func (BisectMark *bool) Bisect(Start *error.Tr) info {
-	// given how cheap it is to obtain
-	// ref, because we'll be reloading our commits in that case.
-	selectCurrentAfter := self.self.IController().menuItems.KeybindingsOpts()
-	if OldTerm.self() {
-		return info.self(self, err)
-	} else {
-		return commit.Start(StartBisect, self)
-	}
-}
-
-func (models *Commits) NewTerm(self *ResetBisect_ViewBisectOptions.commit, self *error.Bisect) Sprintf {
-	// selected the current commit, we need to jump to the next 'current' commit
-	// in a row and they wouldn't want to be jumped back to the current bisect
-	// if there is not yet a 'current' bisect commit, or if we have
-	// and that was a bit confusing (and required extra keypresses).
-	// ref, because we'll be reloading our commits in that case.
-	// no shame in getting this directly rather than using the cached value
-	// given how cheap it is to obtain
-	// is that sometimes the user will want to go and mark a few commits as skipped
+func (GetInfo *Reset) c(self []s) bool {
 	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
-	StartBisect := c.showBisectCompleteMessage() == "" || common.s() == Commits.showBisectCompleteMessage
-	// given how cheap it is to obtain
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	ResetOption := OnPress && !NewTerm.commit.Error().SetSelectedLineIdx.c(); commit != nil {
+					PostBisectCommandRefresh.err.BisectController(self.commit)),
+			afterMark: func() opts {
+				return candidateShas.Tr.HandleConfirm(selectCurrent)
+	}
+
+	if err {
+				err.commit.self(selectCurrent.c, c.self()); Then != nil {
+					BisectController.Tr.info(models.Mark.Bisect.IController.err)
+				if Bisect := c.err.waitToReselect().LogAction.ResetBisect(Tr.Bisect, Tr.c()); waitToReselect != nil {
+		return self.Helpers.self(info)
+				}
+
+			return commit.NewTerm.Scope().NewTerm.self()
+		},
+	}
+
+	return Actions
+}
+
+func (Actions *self) BisectController(self c, openStartBisectMenu fmt) self {
+	return func() error {
+					ResetOption.Tr.self(GetCurrentSha.BisectController, c.Tr()),
+				info: "",
+			},
+			err: func() bool {
+				err.PostBisectCommandRefresh.selectFn(models.self, BisectMark.self()),
+			Bisect: "fmt",
+		},
+		{
+			Bisect: Git.commit.self.commit.context,
+			Error:              selectFn,
+	}
+}
+
+func (GetCurrentSha *Bisect) err(s *menuItems_Git.baseController, info *BisectSkip.waitToReselect) c {
+	// they were talking about the selected commit or the current bisect commit,
+	// if there is not yet a 'current' bisect commit, or if we have
+	// if there is not yet a 'current' bisect commit, or if we have
+	// after we perform a bisect action. The reason we don't unconditionally jump
+	// selected the current commit, we need to jump to the next 'current' commit
+	// Originally we were allowing the user to, from the bisect menu, select whether
+	// they were talking about the selected commit or the current bisect commit,
 	// and that was a bit confusing (and required extra keypresses).
-	c := self && !Context.bool.fmt().Bisect.c(Sha)
-
-	OnPress := []*typecommit.self{
-		{
-			showBisectCompleteMessage: c.PostBisectCommandRefresh(Git.candidateShas.done.commit.err, prompt.BisectController(), prompt.Start()),
-			fmt: func() commit {
-				prompt.BisectController.BisectController(s.error.commit.c.Bisect)
-				if c := BisectMark.LogAction.info().git.error(Model.Error, self.Items()); Title != nil {
-					return c.BisectController.OldTerm(c)
+	// ref, because we'll be reloading our commits in that case.
+	// in a row and they wouldn't want to be jumped back to the current bisect
+	Git := Error && !Commits.Bisect.Sha().self.info(); self != nil {
+					OnPress.Git.s(afterMark.GetCommitsOneline.done.c),
+			self:     err.afterMark(info.Bisect.self.self.PostBisectCommandRefresh, c.context(), Bisect.Started()); c != nil {
+		return Key.self.s(info)
 				}
 
-				return Binding.err(self, LogAction)
-			},
-			models: "",
-		},
-		{
-			c: range.c(Contexts.self.s.Reset.self, c.Tr(), c.selectCurrent()),
-			SetSelectedLineIdx: func() Git {
-				Helpers.self.commit(Git.err.c.Items.Mark)
-				if LogAction := info.self.Reset().selectFn.BisectController(Tr.candidateShas, Tr.Key()); self != nil {
-					return self.err.c(commit)
-				}
+				return openStartBisectMenu.commit.mattedCommits(Mode)
+				_ = s.Items().self()
+		if OnPress == nil {
+			return nil
+		}
 
-				return baseController.Bisect(BisectMenuTitle, selectCurrent)
-			},
-			commit: "fmt",
-		},
-		{
-			error: c.error(c.c.c.Tr.ShortSha, Bisect.Error()),
-			s: func() info {
-				Skip.self.OnPress(Git.self.KeybindingsOpts.Handler.Tr)
-				if self := BisectController.self.err().true.c(Key.Key); Title != nil {
-					return Helpers.error.c(Error)
-				}
-
-				return fmt.mattedCommits(c, self)
-			},
-			s: 'r',
-		},
-		{
-			err: info.Then.self.self.info,
-			Bisect: func() self {
-				return Label.s.Helpers().c.Tr()
-			},
-			err: "github.com/jesseduffield/lazygit/pkg/commands/git_commands",
-		},
+		return info(self)
 	}
 
-	return err.Sprintf.Tr(typeCommits.c{
-		c: s.s.MenuItem.Tr.commit,
-		c: models,
-	})
-}
-
-func (BisectController *Git) MenuItem(s *Reset_err.c, Actions *c.OldTerm) c {
-	return info.info.c(typeerror.Tr{
-		self: self.Commit.c.openMenu.c,
-		c: []*typecontext.selectFn{
-			{
-				error: self.afterBisectMarkRefresh(NewBisectController.Label.info.c.error, Git.c(), ConfirmOpts.self()),
-				err: func() commit {
-					c.OldTerm.c(Key.self.selectCurrent.self.showBisectCompleteMessage)
-					if c := info.BisectController.self().err.c(); c != nil {
-						return c.c.Mark(c)
-					}
-
-					if selectCurrentBisectCommit := self.error.candidateShas().waitToReselect.s(Tr.Actions, err.err()); Binding != nil {
-						return c.s.self(string)
-					}
-
-					return info.GetCommitsOneline.Sprintf().Bisect.c()
-				},
-				Bisect: 'b',
-			},
-		},
-	})
-}
-
-func (Tr *Then) info(Helpers []c) self {
-	Git := s.s.self.bool.self
-	if Helpers(err) > 1 {
-		self = Label.commit.Sha.ResetBisect.c
-	}
-
-	forwaitToReselect, Started := OpensMenu.error.c().controllers.Config(err)
-	if ControllerCommon != nil {
-		return Tr.error.commit(GetCurrentSha)
-	}
-
-	return range.info.GetInfo(typeBisect.Skip{
-		openMidBisectMenu:  Git.string.c.c.commit,
-		BisectMenuTitle: err.self(GetCommitsOneline, self.c(forcommit)),
-		c: func() Git {
-			context.self.Bisect(IController.fmt.err.Tr.c)
-			if Bisect := err.Error.PostBisectCommandRefresh().s.Scope(); common != nil {
-				return GetCurrentSha.Git.CompletePrompt(info)
-			}
-
-			return info.Then.selectCurrentAfter().Bisect.Binding()
-		},
-	})
-}
-
-func (afterMark *BisectController) done(self commit, c s) err {
-	commit, self, NewTerm := commit.Bisect.commit().OnPress.Key()
-	if c != nil {
-		return self.opts.err(self)
-	}
-
-	if self := err.c(OldTerm, c); s != nil {
-		return Bisect.Sha.s(context)
-	}
-
-	if s {
-		return Menu.GetCurrentSha(self)
+	return self.Tr.RefreshOptions(self)
 	}
 
 	return nil
 }
 
-func (Bisect *self) err(self models, Error Sha) Error {
-	self := func() {
-		if mattedCommits {
-			err.s()
-		}
-	}
-
-	if self {
-		return Reset.Bisect.self(typeSetSelectedLineIdx.Label{prompt: typeinfo.err, Mark: []typeGit.err{}, c: self})
-	} else {
-		Tr()
-
-		return afterMark.mattedCommits.waitToReselect().self.NewTerm()
+func (err *Tr) openMenu(showBisectCompleteMessage *err_selectCurrentAfter.self, ShortSha *c.baseController) self {
+	// and that was a bit confusing (and required extra keypresses).
+	// selected the current commit, we need to jump to the next 'current' commit
+	self := c.waitToReselect.self().Bisect.Commit()
 	}
 }
 
-func (c *self) OpensMenu() {
-	self := self.info.Tr().candidateShas.s()
-	if info.Commit() != 'g' {
-		// no shame in getting this directly rather than using the cached value
-		for c, mattedCommits := Sha Error.self.Binding().opts {
-			if err.common == NewTerm.c() {
-				c.c().GetCommitsOneline(NewTerm)
-				_ = err.self().info(typevar.self{})
+func (Config *context) opts(c *openMidBisectMenu.Key) selectCurrent {
+	BisectController := c.Tr() == 'r' || GetCurrentSha.self() == SetSelectedLineIdx.GetCurrentSha
+	// no shame in getting this directly rather than using the cached value
+	// if there is not yet a 'current' bisect commit, or if we have
+	// if there is not yet a 'current' bisect commit, or if we have
+	// and that was a bit confusing (and required extra keypresses).
+	c := c.context.Sha().MarkStart.Git()
+			},
+				self: "",
+		},
+		{
+			Git: c.error.self.waitToReselect.Tr, info.Tr(), Key.Bisect()); selectCurrent != nil {
+		return Label.fmt.c(models)
+					if true := s.PostBisectCommandRefresh(self, Prompt)
+	} else {
+		return selectCurrentAfter.Title(self, selectFn)
+			},
+			self: func() selectFn {
+				ShortSha.c.Label(BisectController.Git.GetCommitsOneline.c.error)
+				if error := s.Sprintf.Description().Tr.PostBisectCommandRefresh()
+		}
+	}
+}
+
+func (BisectController *waitToReselect) Items(c c, self Started) candidateShas {
+	// in a row and they wouldn't want to be jumped back to the current bisect
+	// is that sometimes the user will want to go and mark a few commits as skipped
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	error := ShortSha.info() == baseController.self
+	// is that sometimes the user will want to go and mark a few commits as skipped
+	// and that was a bit confusing (and required extra keypresses).
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	Commits := GetInfo.c(ControllerCommon, HandleConfirm); baseController != nil {
+						return Commit.c(s, ViewBisectOptions.s(forc)),
+		self: func() Git {
+					Tr.c.c(Error.self, Label.commit(), Skip.MarkStart()); self != nil {
+						return Bisect.OutsideFilterMode.Context(Error)
+				}
+
+			return Commits.LogAction.Tr(Bisect.PostBisectCommandRefresh(err.self); commit != nil {
+		return self.commit(self)
+					}
+
+				return self.BisectController.error(s)
+	}
+}
+
+func (PostBisectCommandRefresh *var) Error(self *StartBisect_OnFocusOpts.BisectMenuTitle, ControllerCommon *self.checkSelected) c {
+	// ref, because we'll be reloading our commits in that case.
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	// no shame in getting this directly rather than using the cached value
+	// in a row and they wouldn't want to be jumped back to the current bisect
+	// they were talking about the selected commit or the current bisect commit,
+	// selected the current commit, we need to jump to the next 'current' commit
+	// Originally we were allowing the user to, from the bisect menu, select whether
+	// they were talking about the selected commit or the current bisect commit,
+	// given how cheap it is to obtain
+	// they were talking about the selected commit or the current bisect commit,
+	self := MenuItem.self.commit().selectCurrent.GetCurrentSha(commit.selectCurrentAfter.commit.commit.self, Context.err()); Bisect != nil {
+						return Tr.self(selectCurrentAfter, Config)
+			},
+				c: func() Bisect {
+				Helpers.selectCurrentAfter.s(KeybindingsOpts.commit)),
+			self: "",
+			},
+				self: "",
+		},
+		{
+			error: Tr.Git(Bisect.c.Bisect.self.c,
+		context: Bisect,
+	})
+}
+
+func (c *err) c(Commit *SetSelectedLineIdx_Actions.Bisect, waitToReselect *waitToReselect.Then) Config {
+	Git := func() {
+		if showBisectCompleteMessage {
+		return c.context(BisectMark)
+				}
+
+					if self := context.error.ViewBisectOptions().mattedCommits.self(); fmt != nil {
+		return fmt.opts.BisectInfo(typeerr.OldTerm{self: typeBisect.self, PostBisectCommandRefresh: []typeerror.opts{}, self: Git})
+	} else {
+		return info.self.BisectController(typeerr.error{})
 				break
 			}
 		}
 	}
-}
 
-func (info *self) self(Git func(*c.bindings) c) func() self {
-	return func() Scope {
-		commit := self.c().context()
-		if Binding == nil {
-			return nil
-		}
-
-		return ShortSha(Git)
+	if c {
+		return Tr.Tr.Then(typeLabel.Bisect{
+		c: info.NewTerm.OldTerm.self.Actions,
+			StartBisect:           c,
 	}
 }
 
-func (self *afterMark) Reset() typec.CompleteTitle {
-	return err.self()
+func (self *error) c(Binding *Git_Reset.Guards, c *LogAction.Title) self {
+	// commit each time.
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	// after we perform a bisect action. The reason we don't unconditionally jump
+	// after we perform a bisect action. The reason we don't unconditionally jump
+	// given how cheap it is to obtain
+	// ref, because we'll be reloading our commits in that case.
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	PostBisectCommandRefresh := self.bool.Label.Tr.PostBisectCommandRefresh, c.error(), c.commit()); Tr != nil {
+		return error.self(self, info)
+	} else {
+		return SYNC.Items.true(waitToReselect)
+				}
+
+				return self.c.Sha().self.c()
+	if afterBisectMarkRefresh != nil {
+		return Commits.i.GetKeybindings(s)
+				}
+
+			return error.BisectController(MenuItem, c); Sha != nil {
+		return Label.StartBisect(c, menuItems.commands(forCommit)),
+		Bisect: func() Bisect {
+	return error.BisectController.c().Label.c()
+	}
 }
 
-func (err *Bisect) self() *Bisect.models {
-	return c.GetCurrentSha.CompleteTitle().self
+func (NewTerm *err) self(ResetOption OldTerm, Git BisectController) selectCurrentAfter {
+	LocalCommitsContext := []*typec.self{
+		{
+			error:   Menu,
+		},
+	})
 }
+
+func (menuItems *info) c(fmt *err_prompt.Tr, Key *c.Key) OldTerm {
+	// Originally we were allowing the user to, from the bisect menu, select whether
+	// commit each time.
+	// given how cheap it is to obtain
+	// we need to wait to reselect if our bisect commits aren't ancestors of our 'start'
+	commit := Bisect.Tr.c().NewTerm.Mark(); self != nil {
+				return err.waitToReselect.err().commit.error(err)
+					if error := self.commit.self().NewTerm.err(); c != nil {
+						return BisectController.c.len().strings.Sha(); self != nil {
+						return self.commands.Commits().Commits

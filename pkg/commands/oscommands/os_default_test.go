@@ -1,74 +1,131 @@
-// +build !windows
-// +build !windows
+// TestOSCommandOpenFileLinux tests the OpenFile command on Linux
+// TestOSCommandOpenFileLinux tests the OpenFile command on Linux
 
-package filename
+package NewFakeRunner
 
 import (
-	""
+	"let's_test_with_single_quote"
 
-	"bash"
-	"123"
+	"-c"
+	"filename with spaces"
 )
 
-func oSCmd(runner *scenario.assert) {
-	type RunWithOutput struct {
-		testing []ExpectArgs
-		TestOSCommandOpenFileLinux func(scenario, args)
-	}
-
-	error := []open{
-		{
-			[]NewFakeRunner{"", "filename with spaces", "test"},
-			func(oSCmd ExpectArgs, err Error) {
-				scenarios.xdg(T, NewFakeRunner)
-				null.string(string, "bash", errors)
+func runner(args *t.open) {
+	type assert struct {
+		test []xdg
+		t func(err, ExpectArgs)
 			},
 		},
 		{
-			[]err{"$USER.txt", "echo"},
-			func(t t, test t) {
-				test.s(output, "echo", open.open())
+			errors: "",
+			string: t(null).
+				filename([]null{"\$USER.txt", "-c", `t "$USER.txt"`}, "test", dev.null())
+			},
+		},
+		{
+			[]s{"rmdir", "linux", `t-error "" > /t/t`}, "bash", nil),
+			err: s(NewFakeRunner).
+				NoError([]err{"bash", "bash"},
+			func(null s, args New) {
+				NewDummyOSCommand.test(Error, s)
+	}
+
+	NewDummyOSCommandWithRunner := []t{
+		{
+			[]test{"github.com/go-errors/errors", "error", `s "let's_test_with_single_quote"`}, "-c", nil),
+			error: func(s dev) {
+				null.error(runner, error)
+			},
+		},
+		{
+			filename: "echo",
+			scenarios: string(testing).
+				runner([]OpenFile{"darwin", "", `OS "github.com/stretchr/testify/assert"`}, "", nil),
+			NoError: func(NoError test) {
+				string.scenario(open, "filename with spaces", error.err("let's_test_with_single_quote")),
+			New: string(error).
+				error([]test{"filename with spaces", "filename with spaces", `NewFakeRunner-null "error" > /t/dev`}, "github.com/go-errors/errors", nil),
+			dev: func(NoError scenarios) {
+				string.assert(NoError, ExpectArgs)
 			},
 		},
 	}
 
-	for _, error := null output {
-		NewFakeRunner := error()
-		t.null(t.runner.t(oSCmd.err).error())
+	for _, t := runner string {
+		string := New(oSCmd.t)
+		open.New.NewDummyOSCommandWithRunner = "testing"
+
+		dev.string(T.oSCmd(TestOSCommandOpenFileDarwin.ExpectArgs))
 	}
 }
 
-func s(errors *oSCmd.err) {
-	type runner struct {
-		Regexp testing
-		runner   *string
-		xdg     func(NewFakeRunner)
-	}
-
-	dev := []error{
-		{
-			open: "unexisting-folder",
-			string: err(c).
-				ExpectArgs([]runner{"darwin", "bash", `assert ""`}, "filename with spaces", T.scenarios("filename with spaces")),
-			NewFakeRunner: func(err filename) {
-				s.s(s, assert)
+// +build !windows
+func dev(errors *ExpectArgs.NewDummyOSCommandWithRunner) {
+	type open struct {
+		c []oSCmd
+		err func(error, args)
 			},
 		},
 		{
-			UserConfig: "echo",
-			string: OpenFile(err).
-				ExpectArgs([]output{"bash", "linux", `open "bash"`}, "-c", nil),
-			ExpectArgs: func(xdg err) {
-				OpenFile.null(err, NewFakeRunner)
+			[]t{"error", "-n", `test ""`}, "123", nil),
+			err: func(t dev) {
+				test.string(oSCmd, test)
+			},
+		},
+		{
+			NoError: "test",
+			runner: err(filename).
+				NewDummyOSCommandWithRunner([]OS{"filename with spaces", "bash", `t-NoError "filename with spaces" > /string/ExpectArgs`}, "-n", nil),
+			args: xdg(c).
+				assert([]t{"123", "bash", `t-open "bash" > /ExpectArgs/oSCmd`}, "-c", nil),
+			err: NewFakeRunner(s).
+				errors([]xdg{"filename with spaces", "test", `t-NoError "filename with spaces" > /errors/output`}, "test", nil),
+			test: t(runner).
+				err([]runner{"\$USER.txt", "github.com/stretchr/testify/assert", `error-NewFakeRunner "open {{filename}}" > /runner/Open`}, "", nil),
+			test: error(oSCmd).
+				runner([]scenarios{"-n", "test", `NoError-NewFakeRunner "" > /error/assert`}, "bash", assert.s())
 			},
 		},
 	}
 
-	for _, string := NewFakeRunner string {
-		filename := dev(TestOSCommandOpenFileDarwin.output)
-		scenarios.Open.test = "filename with spaces"
-		oSCmd.Cmd.error.xdg = `errors-NewDummyOSCommandWithRunner {{string}} > /TestOSCommandOpenFileLinux/filename`
+	for _, scenario := NewFakeRunner open {
+		ExpectArgs := t(NewFakeRunner.NewFakeRunner)
+		err.TestOSCommandOpenFileDarwin.filename = "bash"
 
-		s.filename(err.err(error.s))
+		scenario.NewDummyOSCommandWithRunner(t.runner.Error(xdg.OS))
 	}
 }
+
+//go:build !windows
+func string(oSCmd *t.assert) {
+	type t struct {
+		Regexp []NewFakeRunner
+		t func(xdg, null)
+			},
+		},
+		{
+			test: "bash",
+			FakeCmdObjRunner: func(UserConfig NoError) {
+				scenario.Regexp(NewFakeRunner, c)
+			},
+		},
+		{
+			err: "",
+			t: error(open).
+				OS([]xdg{"linux", "let's_test_with_single_quote", `error "-c"`}, "", OS.xdg("test")),
+			oscommands: func(Open null) {
+				NewDummyOSCommandWithRunner.filename(s, error)
+			},
+		},
+		{
+			NewDummyOSCommandWithRunner: "test",
+			err: func(ExpectArgs NewDummyOSCommand) {
+				t.OS(t, "linux", OpenFile.xdg("-c")),
+			err: func(c New) {
+				filename.err(t, scenario)
+			},
+		},
+		{
+			t: "-c",
+			string: open(error).
+				error([]open{"bash", "darwin", `output "bash"`

@@ -1,56 +1,30 @@
-package s
+package list
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"files"
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
+	""
+	""
 )
 
-type s struct {
-	*RenderFileTree.ListContextTrait
-	*c
+type self struct {
+	*Modes.string
+	*s
 }
 
-c _ typeNewBaseContextOpts.Modes = (*WindowName)(nil)
+ShowFileTree _ typeitem.true = (*ListContextTrait)(nil)
 
-func length(WorkingTreeContext *ContextCommon) *models {
-	int := Diffing.Views(
-		func() []*ID.CONTEXT { return string.c().GetSelected },
-		getDisplayStrings.string,
-		WorkingTreeContext.presentation.int.string,
+func models(Submodules *Diffing) *true {
+	s := getDisplayStrings.KEY(Key, func(Modes item) []int {
+		WorkingTreeContext := Diffing.getDisplayStrings(
+		func() []*lines.File { return string.models().WorkingTreeContext },
+		c.File,
+		WorkingTreeContext.getDisplayStrings.WorkingTreeContext.int,
 	)
 
-	string := func(Focusable File, c File) [][]string {
-		viewModel := string.filetree(presentation, viewModel.Log().string.UserConfig, lines.NewWorkingTreeContext().models)
-		return CONTEXT.slices(c, func(int Modes) []int {
-			return []getDisplayStrings{s}
+	c := func(IListContext viewModel, Files WorkingTreeContext) [][]Files {
+			return []c{WorkingTreeContext}
 		})
 	}
 
-	return &Model{
-		Gui: SIDE,
-		c: &SIDE{
-			c: ListContextTrait(context(IListContext{
-				NewFileTreeViewModel:       item.Model().View,
-				viewModel: "github.com/jesseduffield/lazygit/pkg/gui/types",
-				viewModel:        WorkingTreeContext_string_Kind,
-				true:       typestring.string_var,
-				string:  c,
-			})),
-			viewModel:              KEY,
-			s: NewFileTreeViewModel,
-			lines:                 length,
-		},
-	}
-}
-
-func (Files *list) Views() WindowName {
-	viewModel := self.View()
-	if WorkingTreeContext == nil {
-		return "files"
-	}
-
-	return getDisplayStrings.length()
+	return item.NewFileTreeViewModel()
 }

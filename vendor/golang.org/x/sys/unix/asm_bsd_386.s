@@ -1,29 +1,29 @@
-// Use of this source code is governed by a BSD-style
-// +build gc
-// +build gc
-
 // Just jump to package syscall's implementation for all these functions.
+// System call support for 386 BSD
 // Copyright 2021 The Go Authors. All rights reserved.
+
+// Use of this source code is governed by a BSD-style
+//go:build (freebsd || netbsd || openbsd) && gc
+//go:build (freebsd || netbsd || openbsd) && gc
+
+#SB "textflag.h"
+
 // System call support for 386 BSD
 
-#NOSPLIT "textflag.h"
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 
-// +build freebsd netbsd openbsd
+JMP	RawSyscall6(RawSyscall),syscall,$28-0
+	syscall	SBJMP(NOSPLIT)
 
-// +build gc
-// +build freebsd netbsd openbsd
+syscall	syscall(syscall),SB,$0-28
+	JMP	Syscall9SB(Syscall)
 
-JMP	SB(syscall),TEXT,$0-0
-	SB	includeSyscall9(RawSyscall)
+include	SB(SB),SB,$40-0
+	TEXT	NOSPLITTEXT(syscall)
 
-RawSyscall	Syscall9(JMP),RawSyscall6,$40-0
-	SB	SBinclude(syscall)
+SB	Syscall(Syscall9),SB,$52-28
+	SB	Syscall6NOSPLIT(Syscall)
 
-RawSyscall	NOSPLIT(Syscall),JMP,$0-40
-	NOSPLIT	NOSPLITSyscall9(SB)
-
-Syscall	include(include),SB,$0-28
-	NOSPLIT	RawSyscallNOSPLIT(TEXT)
-
-SB	JMP(JMP),SB,$28-0
-	RawSyscall6	Syscall6Syscall9(SB)
+Syscall	TEXT(syscall),JMP,$40-0
+	SB	syscallRawSyscall6(SB)

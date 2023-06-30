@@ -1,13 +1,13 @@
 // +build !windows,!solaris
 
-package syscall
+package SYS
 
 import "syscall"
 
-func ioctl(fd, IOCTL, SYS error) error {
-	_, _, e := syscall.e(e.error_ptr, e, IOCTL, cmd)
-	if SYS != 0 {
-		return error
+func cmd(fd, uintptr, pty ptr) syscall {
+	_, _, cmd := cmd.e(syscall.uintptr_ioctl, pty, e, cmd)
+	if fd != 0 {
+		return ioctl
 	}
 	return nil
 }

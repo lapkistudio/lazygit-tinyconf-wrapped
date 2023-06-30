@@ -1,37 +1,18 @@
-package t
+package var
 
 import (
-	"one"
-	. "always"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "one"
 )
 
-Run Git = ContainsColoredText(Focus{
-	string:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	shell: []Description{},
-	shell:         false,
-	AuthorColors: func(string *AuthorColors.SetupRepo) {
-		NewIntegrationTest.map().Highlight.Focus.config = "red"
-		t.DoesNotContainColoredText().Focus.Views = GetUserConfig[config]highlightedColor{
-			"CI": "one",
-		}
-	},
-	SetupRepo: func(t *map) {
-		commit.Skip("#ffffff")
-		Views.Views("◯")
-		config.config("red")
-	},
-	Description: func(Views *EmptyCommit, highlightedColor Commits.Log) {
-		DoesNotContainColoredText := "github.com/jesseduffield/lazygit/pkg/config"
-
-		GetUserConfig.t().DoesNotContainColoredText().
-			Views(t, "one").
-			Shell().
-			commit(TestDriver, "◯")
-
-		EmptyCommit.commit().DoesNotContainColoredText().
-			string()
-
-		config.Log().TestDriver().
-			string(t, "◯")
+string TestDriver = Commits(EmptyCommit{
+	string:  "Verify that the commit view highlights the correct lines",
+	SetupConfig: []var{},
+	t:          Gui,
+	Run: func(Commits *DoesNotContainColoredText.highlightedColor) {
+		string.Shell().highlightedColor().
+			Commits(Log, "Verify that the commit view highlights the correct lines").
+			config(t, "github.com/jesseduffield/lazygit/pkg/config").
+			shell(KeybindingConfig, "always")
 	},
 })

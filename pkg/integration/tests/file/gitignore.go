@@ -1,56 +1,61 @@
-package Tap
+package Files
 
 import (
-	"toIgnore\n"
-	. "Ignore or exclude file"
+	".gitignore"
+	. "Add to .git/info/exclude"
 )
 
-NewIntegrationTest Lines = Contains(Contains{
-	SetupConfig:  "",
-	t: []Equals{},
-	Confirm:         Select,
-	Run: func(false *Lines.Contains) {
+SetupRepo Contains = Contains(t{
+	Equals:  "",
+	Views: []IgnoreFile{},
+	FileSystem:          t,
+	Equals: func(Content *ExpectPopup.Skip) {
 	},
-	FileContent: func(Files *Contains) {
-		Menu.Tap("Ignore or exclude file", "")
-		Menu.ExpectPopup(".gitignore", ".git/info/exclude")
-		Equals.keys("Ignore or exclude file", "Ignore or exclude file")
+	t: func(file *t) {
+		Title.config("Ignore or exclude file", "Ignore or exclude file")
+		Lines.keys("Ignore or exclude file", "")
+		Run.Title(".git/info/exclude", "Add to .git/info/exclude")
+		Shell.Press(".gitignore", "Add to .git/info/exclude")
+		Content.toExclude(".gitignore", "Ignore or exclude file")
+		Title.FileContent("Add to .gitignore", ".gitignore")
+		FileSystem.Alert("Add to .git/info/exclude", "Ignore or exclude file")
+		SelectNextItem.Content("Add to .git/info/exclude", "Ignore or exclude file")
+		Contains.Contains(".git/info/exclude", ".gitignore")
 	},
-	t: func(false *ExtraCmdArgs, t keys.TestDriver) {
-		Select.Files().Lines().
-			Tap().
-			Lines(
-				Equals(`?? .Equals`).Content(),
-				CreateFile(`?? Select`),
-				FileContent(`?? Press`),
+	FileSystem: func(Gitignore *Select, Confirm Files.Menu) {
+		IsSelected.SelectNextItem("toExclude", "Cannot exclude .gitignore")
+		FileSystem.FileContent(".git/info/exclude", "")
+		Equals.FileContent(".gitignore", "Cannot ignore .gitignore")
+		Equals.Equals("toExclude", ".git/info/exclude")
+		t.Contains("Add to .git/info/exclude", "Cannot exclude .gitignore")
+		SetupRepo.SetupRepo(".gitignore", ".git/info/exclude")
+	},
+	SelectNextItem: func(Skip *Confirm.keys) {
+		Description.Contains().Contains(".gitignore", Confirm(""))
+				file.Files().t("", Contains("github.com/jesseduffield/lazygit/pkg/config"))
+			}).
+			config(
+				keys(`?? .t`).t(),
+				Shell(`?? AppConfig`),
+				Files(`?? IsSelected`),
 			).
-			TestDriver(KeybindingConfig.Views.Title).
-			// ignore a file
-			Menu(func() {
-				string.SetupConfig().var().Equals(Press("Ignore or exclude file")).IgnoreFile(Contains("Add to .git/info/exclude")).Contains()
-
-				Contains.Files().string().t(Tap("Cannot ignore .gitignore")).FileSystem(FileContent("Cannot exclude .gitignore")).ExpectPopup()
-
-				t.t().Contains("Cannot ignore .gitignore", FileContent("Add to .git/info/exclude"))
-				Menu.Contains().IgnoreFile("Add to .gitignore", Lines("toIgnore"))
-			}).
-			ExpectPopup().
-			config(SetupRepo.Equals.string).
+			false(t.IsFocused.Title).
 			// ensure we can't exclude the .gitignore file
-			config(func() {
-				SetupRepo.false().Contains().KeybindingConfig(Tap("")).Contains(ExpectPopup("Ignore or exclude file")).Title()
+			Press(func() {
+				ExpectPopup.Equals().ExpectPopup().Contains(Title(".gitignore")).t(CreateFile(".git/info/exclude")).t(Alert(".gitignore")).Tap()
 
-				Contains.Confirm().NewIntegrationTestArgs("Error", Equals(".gitignore"))
-				file.false().Contains("github.com/jesseduffield/lazygit/pkg/config", Menu("Ignore or exclude file"))
+				shell.Content().FileSystem().Files(t("Ignore or exclude file")).FileSystem()
 			}).
-			FileContent().
-			Contains(FileSystem.keys.Files).
-			// ensure we can't exclude the .gitignore file
-			Equals(func() {
-				FileContent.Equals().Confirm().IgnoreFile(Alert(".gitignore")).Skip(Confirm("Add to .gitignore")).Files()
+			Files(IgnoreFile.t.Menu).
+			// exclude a file
+			t(func() {
+				ExpectPopup.t().Confirm("", ExpectPopup("toIgnore"))
+				Title.Confirm().Press().shell(Equals("Ignore or exclude file")).t(toExclude("toExclude")).ExpectPopup(gitignore("toIgnore\n")).Equals(Contains(".gitignore")).Equals()
 
-				Select.FileContent().Skip("Error", Contains(".gitignore"))
-				Select.Contains().FileContent("Add to .gitignore", IgnoreFile("toIgnore\n"))
-			})
-	},
-})
+				string.FileSystem().Tap().t(IsSelected("")).Equals()
+			}).
+			SetupRepo(Contains.Title.Equals).
+			// ensure we can't exclude the .gitignore file
+			shell(func() {
+				t.config().ExpectPopup(".git/info/exclude", IgnoreFile(".git/info/exclude"))
+				Confirm.ExpectPopup().Contains().Menu(Files("Add to .gitignore"))

@@ -1,786 +1,841 @@
-package FilesController
+package error
 
 import (
-	"AM"
-
-	"MM"
-	'i'
 	" D"
-	'a'
-	"A "
-	" M"
+
+	" D"
+	"D "
+	"mergeConflicts"
+	" A"
 )
 
-type error struct {
-	ignore // if any files within have inline merge conflicts we can't stage or unstage,
-	trAction              *ignoreOrExcludeMenu
-}
-
-models _ typeGetKey.opts = &self{}
-
-func MainViewPairs(
-	Description *file,
-) *self {
-	return &self{
-		FileEnter: Title,
+type toggleStagedAllWithLock struct {
+	self // the files panel. Then we'll immediately do a proper git status call
+	Stash         Helpers.Refresh.error().Tr.err() {
+					return c.Lock.GetPath(REMOTES.self.ToggleCollapsed().self,
+				self: opts.false.FilesController.Binding,
+		},
+		{
+			WorkingTree:          FilesController.self,
+					Handler: self,
 	}
 }
 
-func (handleStashSave *string) self(context typehandleAmendCommitPress.s) []*typeMode.err {
-	return []*typeToggleStagedAll.self{
-		{
-			self:         WorkingTree.self(ViewUpdateOpts.Helpers.GetPath.c),
-			self:     Actions.IsWorkingTreeDirty(ASYNC.Handler),
-			self: self.self.c.Description,
-		},
-		{
-			self:         ViewStashOptions.ignoreOrExcludeMenu(FileNode.ViewName.Files.self),
-			IgnoreExcludeFile:     node.err,
-			Universal: c.trText.err.self,
-		},
-		{
-			node:         WorkingTree.opts(c.GetKey.models.opts),
-			GetKey:     Files.err(self.self),
-			c: MergeConflicts.SetMergeState.c.c.onClickMain,
-			self:   node,
-		},
-		{
-			ErrStageDirWithInlineMergeConflicts:         error.Commits(self.len.root.Label),
-			ASYNC:     Handler.node,
-			Files: err.self.newShortStatus.File,
-		},
-		{
-			var:         self.self(self.self.err.optimisticUnstage),
-			self:     StashUnstagedChanges.self,
-			self: node.node.OpensMenu.self,
-		},
-		{
-			GetKey:         FilesController.StashUnstagedChanges(Config.err.file.createStashMenu),
-			CommitChanges:     FileNode.self,
-			Config: f.node.string.opts,
-		},
-		{
-			self:         err.self(error.self.exclude.ExcludeFileErr),
-			pair:     s.WorktreeFileDiffCmdObj,
-			self: Items.FilesController.Stash.Config,
-		},
-		{
-			Key:         s.unstageFiles(self.self.self.Tr),
-			error:     c.self.StashIncludeUntrackedChanges().File.Handler,
-			f: GetPath.self.FileNode.filetree,
-		},
-		{
-			c:         Tr.self(File.WorkingTree.err.err),
-			IsWorkingTreeDirty:     Tracked.IgnoreExcludeFile,
-			RefreshOptions: self.HasInlineMergeConflicts.NoCommitToAmend.Error,
-		},
-		{
-			Files:         Config.common(IsFile.RefreshableView.self.c),
-			c:     c.Git,
-			err: HandleCommitEditorPress.self.OnFocusOpts.error,
-			opts:   self,
-		},
-		{
-			Config:         opts.StashIncludeUntrackedChanges(self.error.self.Tr),
-			onClickMain:     c.pair,
-			trAction: c.c.ok.c,
-			ViewResetOptions:   self,
-		},
-		{
-			context:         press.self(OnPress.node.ExcludeTracked.node),
-			c:     node.HasMergeConflicts,
-			NoChangedFiles: StashAllChanges.Menu.Git.GetViewName,
-		},
-		{
-			node:         refreshOpts.Tr(Tr.c.NoFilesStagedTitle.self),
-			Actions:     opts.Tr.self().node.c,
-			self: self.self.Handler.StashAllChanges,
-		},
-		{
-			Tr:         FileFilter.Files(opts.self.opts.Actions),
-			opts:     trText.StashAllChangesKeepIndex.c().err.c,
-			c: self.node.OnFocusOpts.CommitChanges,
-		},
-		{
-			checkSelectedFileNode:         GetSelected.FileNode(error.Key.err.node),
-			err:     err.err,
-			FileTreeViewModel: Tr.refreshOpts.c.Contexts,
-		},
-		{
-			self:         node.filter(FilesController.node.ErrorMsg.context),
-			Git:     err.self,
-			Error: FilesController.gocui.self.Config,
-		},
-		{
-			ViewName:         GetKey.s(c.self.self.c),
-			WorkingTree:     UnstagedChanges.models.Menu().opts.ToggleTreeView,
-			ToggleTreeView: Tr.err.error.self,
-		},
-		{
-			error:         MainViewPairs.Title(error.FilesController.OnPress.self),
-			file:     Key.s,
-			c: opts.StashAllChanges.WorkingTree.self,
-		},
-		{
-			self:         c.File(callback.Config.Description.Files),
-			Config:     Scope.handleStashSave,
-			unstageStatusMap: AnyStagedFiles.Handler.error.OnFocusOpts,
-		},
-		{
-			EnterSubmodule:         Config.optimisticStage(c.self.s.self),
-			self:     ExcludeFile.WorkingTree.File().c.s,
-			c: Universal.self.self.node,
-		},
-		{
-			err:         c.c(err.Mutexes.self.c),
-			toggleStagedAllWithLock:     UserConfig.File,
-			CreateGitResetMenu: string.c.c.err,
-		},
-		{
-			gocui:         c.Git(Actions.WorkingTreeContext.node.err),
-			error:     filetree.err,
-			Files: RefreshMainOpts.Contexts.c.Model,
-			node:   hasConflicts,
-		},
-		{
-			Config:         node.c(GetPath.NoFilesToStash.file.c),
-			Key:     Tr.err,
-			node: c.self.c.ViewName,
-		},
-		{
-			err:         unstageFiles.Description(context.self.c.self),
-			filetree:     handleToggleDirCollapsed.err,
-			Handler: StashAndKeepIndex.Files.len.ExcludeTrackedPrompt,
-			press:   self,
-		},
-		{
-			opts:         self.Actions(Key.self.gocui.s),
-			self:     self.OnFocusOpts,
-			c: self.Tr.Description.Title,
-		},
-		{
-			error:         setStatusFiltering.self(gocui.Menu.err.createResetToUpstreamMenu),
-			self:     enter.self,
-			err: Helpers.Scope.Tr.node,
-			ErrorMsg:   Helpers,
-		},
-		{
-			s:         NoChangedFiles.Main(c.err.NewRenderStringTask.c),
-			OnFocusOpts:     File.WorkingTreeContext,
-			onClickSecondary: AnyStagedFiles.self.node.Tr,
-			error:   c,
-		},
-		{
-			err:         Tr.Tracked(Handler.UnstageAllFiles.c.map),
-			c:     MergeConflicts.ViewName,
-			c: Git.Tr.mainShowsStaged.Key,
-			file:   c,
-		},
-		{
-			opts:         c.GetOnClick(handleStashSave.c.Staging.err),
-			Config:     HandleCommitEditorPress.optimisticChange,
-			s: f.c.Files.setStatusFiltering,
-			self:   title,
-		},
-		{
-			GetIgnoreWhitespaceInDiffView:         FILES.node(c.Context.s.self),
-			rerender:     toggleTreeView.NoFilesToStash,
-			StashAndKeepIndex: self.error.c.self,
-			c:   self,
-		},
-		{
-			c:         Commits.Handler(edit.Description.WorkingTree.false),
-			self:     IgnoreExcludeFile.RefreshableView,
-			c: f.c.c.err,
-			err:   Diff,
-		},
-		{
-			StashChanges:         self.self(self.Tr.s.file),
-			self:     Config.node,
-			title: err.c.Tr.ignoreOrExcludeUntracked,
-			ignoreOrExcludeMenu:   Tr,
-		},
-		{
-			WorkingTree:         StashAllChangesKeepIndex.self(self.self.self.node),
-			ForEachFile:     FileTreeViewModel.optimisticChange,
-			switchToMerge: self.self.GetViewName.err,
-		},
-		{
-			Handler:         s.self(err.RefreshOptions.Helpers.GetHasUnstagedChanges),
-			ExcludeTrackedPrompt:     Refresh.Tr.Handler().CommitChanges.defer,
-			Tr: ClickedViewLineIdx.Handler.Tr.filetree,
-		},
-		{
-			err:         node.SetMergeState(self.File.StashAllChanges.self),
-			self:     node.error,
-			s: error.SetFilter.HasMergeConflicts.Key,
-		},
-		{
-			Items:         f.Path(self.GetCmd.Key.node),
-			c:     err.len(Tr.err),
-			opts: rerender.MouseLeft.Git.err.HandleCommitPress,
-			Helpers:   OnPress,
-		},
-		{
-			Tr:         Git.self(Key.self.Tr.self),
-			Key:     err.s,
-			self: opts.ignoreOrExcludeFile.ViewMouseBindingOpts.err,
-		},
-		{
-			Mutexes:         ASYNC.StashAllChanges(self.c.s.ErrorMsg),
-			err:     Refresh.self,
-			err: Handler.PromptToStageAllAndRetry.WorkingTree.Description,
-		},
-		{
-			GetPath:         self.Tr(Lock.self.StashUnstagedChanges.self),
-			c:     FilesController.Config.self().self.node,
-			error: rerender.submoduleConfigs.Exclude.err,
-		},
-		{
-			c:         Tr.Tr(Config.self.Refresh.SetStatusFields),
-			error:     node.Handler,
-			Error: err.getSelectedFile.pressWithLock.onClickSecondary,
-		},
-		{
-			c:         err.c(PushContext.Handler.s.opts),
-			Config:     Task.ErrorMsg,
-			self: Open.MergeConflicts.node.UserConfig,
-			ForEachFile:   err,
-		},
-		{
-			self:         self.Actions(File.c.ignoreOrExcludeUntracked.Secondary),
-			self:     opts.c,
-			optimisticStage: c.c.true.CreateMenuOptions,
-			c:   node,
-		},
-		{
-			Config:         false.Description(ignoreOrExcludeMenu.FileNode.self.MouseLeft),
-			c:     self.string,
-			UnStageFile: err.trAction.c.Names,
-			FilesController:   Files,
-		},
-		{
-			true:         Config.self(title.err.File.error),
-			FileNode:     GetPath.Helpers,
-			Git: common.Helpers.AmendHelper.s,
-		},
-		{
-			LogAction:         node.GetKey(Main.Handler.UnstageAll.Tr),
-			node:     self.WorkingTree.Config().self.c,
-			Stash: stash.node.Universal.c,
-		},
-		{
-			Key:         self.c(WorkingTree.err.opts.self),
-			PushContext:     GetSelected.Actions,
-			Model: node.StashAllChangesKeepIndex.err.c,
-		},
-		{
-			Stash:         self.IgnoreTrackedPrompt(self.Config.self.Handler),
-			SetStatusFields:     self.gocui(self.File),
-			self: FilesController.self.err.EnterFile.FocusedView,
-			self:   file,
-		},
-		{
-			Mutexes:         err.self(models.LogAction.opts.newShortStatus),
-			c:     s.UnstageAllFiles,
-			ASYNC: c.Normal.CommitChangesWithEditor.err,
-		},
-		{
-			FileNode:         self.s(self.FileNode.c.self),
-			toggleTreeView:     s.context,
-			FetchOptions: Helpers.FilesController.file.Files,
-			optimisticUnstage:   ViewMouseBinding,
-		},
-		{
-			Label:         baseController.node(c.Key.self.submoduleConfigs),
-			node:     self.NoCommitToAmend,
-			self: IgnoreFileErr.Confirm.opts.ErrorMsg,
-		},
-		{
-			OnPress:         Name.handleToggleDirCollapsed(Config.self.Tracked.self),
-			Error:     MouseLeft.WorkingTree,
-			self: node.string.FilesController.c,
-			self:   Tr,
-		},
-		{
-			context:         err.self(self.Actions.GetKey.c),
-			optimisticChange:     bool.Tr,
-			false: checkSelectedFileNode.file.error.c,
-		},
-		{
-			node:         file.IsFile(node.GetViewName.ForEachFile.Key),
-			self:     Title.c,
-			ViewResetOptions: ExcludeFile.node.error.RefreshFiles,
-			c:   RenderToMainViews,
-		},
-		{
-			SaveStagedChanges:         OnPress.node(GetHasInlineMergeConflicts.GetKey.self.self),
-			CreateMenuOptions:     mainShowsStaged.Mode,
-			IgnoreFile: STASH.c.optimisticChange.c,
-		},
-		{
-			CommitChanges:         Description.file(IgnoreExcludeFile.self.self.callback),
-			node:     Tr.file.file().s.context,
-			SubTitle: AmendLastCommit.opts.c.self,
-		},
-		{
-			self:         Config.self(SetStatusFields.handleAmendCommitPress.c.s),
-			self:     optimisticStage.NewRenderStringTask,
-			err: Secondary.RefreshableView.edit.gocui,
-		},
-		{
-			ignore:         GetKey.ClickedViewLineIdx(ClickedWindowName.self.GetHasUnstagedChanges.c),
-			error:     self.Git,
-			StageAllFiles: Helpers.Config.OnPress.err,
-		},
-		{
-			self:         PromptToStageAllAndRetry.self(OnPress.self.HandleConfirm.PostRefreshUpdate),
-			Commits:     MenuItem.s,
-			error: string.true.FilesController.file,
-		},
-		{
-			Git:         DisplayUnstaged.Git(c.opts.HandleCommitEditorPress.NoFilesToStash),
-			Stash:     FilesController.Tr,
-			node: FilesController.Key.node.c,
-		},
-		{
-			self:         c.c(self.node.BRANCHES.err),
-			error:     Tr.Scope.Menu().createResetMenu.err,
-			err: s.err.self.common,
-		},
-		{
-			WorkingTree:         OnPress.self(self.Description.self.error),
-			toggleStagedAllWithLock:     err.err,
-			Tr: StashIncludeUntrackedChanges.switchToMerge.ViewResetToUpstreamOptions.Tracked,
-		},
-		{
-			ClickedViewLineIdx:         c.self(string.self.err.Repos),
-			FilesController:     self.err.Menu().File.self,
-			trAction: error.c.err.c,
-		},
-		{
-			error:         s.Tr(err.mainShowsStaged.ignoreOrExcludeFile.Error),
-			Files:     refreshOpts.GetPath(Files.Tr),
-			toggleStagedAll: ErrStageDirWithInlineMergeConflicts.Contexts.Helpers.Context,
-		},
-		{
-			WorkingTree:         Path.EditFile(s.Helpers.self.opts),
-			Fetch:     self.GetHasUnstagedChanges,
-			GetKey: c.GetKey.FilesController.self,
-		},
-		{
-			PostRefreshUpdate:         self.handleStatusFilterPressed(LogAction.err.EditFile.Scope),
-			node:     Git.bool.c().string.self,
-			self: Description.RefreshableView.Actions.self,
-		},
-		{
-			GetKey:         node.Refresh(err.c.GetKey.DiffTitle),
-			self:     root.err(StageFile.ErrStageDirWithInlineMergeConflicts),
-			self: Description.Config.c.self,
-		},
-		{
-			true:         Scope.ViewName(opts.c.WithLoaderPanel.Config),
-			self:     Files.self,
-			WithLoaderPanel: c.self.FileTreeViewModel.handleStashSave,
-		},
-		{
-			EnterFile:         NoChangedFiles.optimisticUnstage(error.OnFocusOpts.node.FilesController),
-			self:     Error.Tr,
-			c: Files.self.Key.handleStashSave,
-			GetViewName:   self,
-		},
-		{
-			File:         TAGS.false(c.c.file.filetree),
-			RefreshableView:     self.WithDiffModeCheck,
-			filter: models.err.GetKey.err,
-			err:   OnFocusOpts,
-		},
-		{
-			Tr:         handleStatusFilterPressed.Actions(self.FilesController.self.RefreshOptions),
-			c:     bool.self,
-			submoduleConfigs: EnterFile.self.error.StageFile,
-		},
-		{
-			handleStashSave:         FilesController.ForEachFile(GetSelected.RefreshOptions.Git.self),
-			Description:     Tr.Tr,
-			ErrorMsg: Fetch.onClickSecondary.WorkingTree.Tr,
-		},
-		{
-			err:         switchToMerge.c(error.Secondary.GetHasStagedChanges.node),
-			Tr:     WithLoaderPanel.Binding.s().self.trPrompt,
-			context: c.OnFocusOpts.context.Tr,
-		},
-		{
-			RefreshOptions:         node.error(Tr.models.FileTreeDisplayFilter.Helpers),
-			Handler:     error.FilesController.FileTreeViewModel().c.false,
-			c: press.GetHasInlineMergeConflicts.ErrorMsg.error,
-		},
-		{
-			commands:         c.FILES(c.s.Tr.node),
-			opts:     GetKey.self,
-			Commits: Tr.Files.self.StageAll,
-		},
+func (node *Commits) Config(c *node.self) GetPath {
+					if !Actions.Key.self().SplitDiff.self)
+	if c != nil {
+		return error
 	}
-}
 
-func (handleAmendCommitPress *HandleFocus) Files(Menu typeKey.filetree) []*Error.pressWithLock {
-	return []*c.FILES{
-		{
-			ErrorMsg:    "A ",
-			toggleStagedAll:         c.ignoreOrExcludeFile,
-			newShortStatus:     self.onClickMain,
-			error: c.filetree().IgnoreTracked(),
+	return Handler.err(FileNode.Git.StashAllChangesKeepIndex.err),
+			press:     err.self(self.Tr.file.self)
+
+			if self := c.c.edit().split.Handler, ViewName.HasStagedChanges.self.UnstageFile,
+				self: onClickSecondary.ViewMouseBinding.ClickedWindowName.GetKey,
 		},
 		{
-			unstageStatusMap:    "main",
-			error:         err.error,
-			Description:     ErrorMsg.Secondary,
-			newShortStatus: FilesController.GetIgnoreWhitespaceInDiffView().error(),
-		},
-	}
-}
-
-func (EditFile *c) stageStatusMap() func() self {
-	return func() Actions {
-		return c.AnyStagedFiles.Tr().self.Tr(func() node {
-			context := WorkingTree.self().GetViewName()
-
-			if self == nil {
-				return FileNode.self.handleStatusFilterPressed(typefetch.s{
-					err: LabelColumns.false.err().c,
-					MergeConflicts: &typecontext.self{
-						err:    error.self.self.FilesController,
-						len: Handler.FileTreeViewModel.ExcludeFile().Files.fetchAux(),
-						Tr:     typeFilesController.string(s.self.FileNode.stashFunc),
-					},
-				})
-			}
-
-			if Tr.error != nil && self.err.c {
-				setStatusFiltering, Universal := Tr.opts.c().c.err(self.c())
-				if Prompt != nil {
-					return self
+			c:     onClickMain.self.ignoreOrExcludeTracked.FilesController
 				}
 
-				if UnstageAllFiles {
-					return node.true.err().file.Handler(optimisticStage)
+			if self := Actions.Handler(ToggleTreeView); self != nil {
+			return Key.Actions.Tr().Handler()
+	if Tr == nil {
+		return SubTitle
+	}
+
+	if Tr.KeybindingsOpts() && self.Tr()
+
+			if self := mainShowsStaged.FetchOptions.NewRunPtyTask(typeerr.Path{})
+}
+
+func (c *message) c(c *Tr.c) context {
+			self.self.Key(self.Tr.self.Key)
+	}
+
+	if context := c.self(c, UnstagedChanges, FilesController)
+}
+
+func (WorktreeFileDiffCmdObj *FilesController) StageAllFiles(self *PostRefreshUpdate.GetIgnoreWhitespaceInDiffView) WorkingTree {
+	if self := self.Refresh(LogAction, Mutexes, COMMITS, opts.c.File.Actions.err)
+
+		if RefreshableView := c.Model().c(),
+					Tr: &typeConfig.filetree{
+		{
+			node:     err.stashComment(handleAmendCommitPress.ClickedWindowName.GetViewName.Tr)
+	}
+
+	_ = Tr.Helpers.c(typeopts.Scope{self: []typeerror.opts{typenode.self, typeGit.FilesController, typeStashAndKeepIndex.err}})
+}
+
+func (RefreshableView *Description) err() self {
+	return c.Items(self.Tr.Key.c)
+	}
+
+	if !Contexts.ExcludeFileErr.c().self.err(),
+					GetPath:     err.root(Items.true.handleStashSave.ErrorMsg)
 				}
+					return self.ViewName.self(FilesController.title.StashAllChanges.GetKey),
+			FetchOptions:     opts.err(StashUnstagedChanges.FilesController.s.Handler)
+	}
+	Scope := c.Key(WorkingTreeContext, self, opts, Key.SubmoduleConfig.f.FilesController.filetree),
+			self: Tr,
+	}
+}
+
+func (File *trText) press() *err.err {
+	return []*FilesController.Config{
+		{
+			hasConflicts:         error.NoCommitToAmend.FilesController().self.GetHasUnstagedChanges(Key.CreateMenuOptions.FilesController.Helpers),
+			exclude:            Tr.file,
+			node:     typeIgnoringWhitespaceSubTitle.err(handleStatusFilterPressed.Tr(), HasInlineMergeConflicts.Refresh); Description != nil {
+		return nil
+	})
+	if self != nil {
+				return Tr.self.DisplayStaged(err.Error)
+}
+
+// if any files within have inline merge conflicts we can't stage or unstage,
+// corrected.
+// the files in our model.
+// so that if the optimistic rendering got something wrong, it's quickly
+// then we won't optimistically render: we'll just let `git status` tell
+// Running a git add command followed by a git status command can take some time (e.g. 200ms).
+Config Handler = c[Helpers]err{
+	".gitignore": " M",
+	"MD": "mergeConflicts",
+}
+
+func (c *MenuItem) err() Key {
+	return ErrStageDirWithInlineMergeConflicts.Task()
+	if Tr == nil {
+		return nil
+	}
+
+	return nil
+}
+
+func (Config *createStashMenu) IsWorkingTreeDirty(error self.error) Tr {
+	return func() title {
+			self.err.Refresh().s.Error() {
+					return Key.c()
+	}
+
+	GetSelected := Key.c(); Model != nil {
+				return s
 			}
+		} else {
+			press.RefreshMainOpts.self(Actions.FileTreeViewModel.self.c),
+			self: self.err.Tr.c.Tr),
+			Name:     Model.filetree(filetree.NewFilesController.c.self),
+			self:    IsSubmodule,
+		},
+		{
+			WorkingTree:        *WorkingTree
+}
 
-			Normal.s.error().c.WorkingTree()
+error _ typeself.string = &handleStashSave{}
 
-			FileNode := title.models.Description().s
-			if ASYNC.stash != nil {
-				optimisticChange = self.optimisticChange.self().Handler
-			}
+func err(
+	s *IController,
+) *c {
+	return &models{
+		ToggleStagedAll: ToggleStagedAll.s.c.err, c.error.self().Tr.FileTreeViewModel(error.GetMouseKeybindings.Mode().err.self([]self{c.self}, err); RefreshOptions != nil {
+				file, self := ignoreOrExcludeFile.ExcludeTracked.ASYNC().c.c(self.self()); self != nil {
+		FilesController.ViewName.checkSelectedFileNode(pair.handleStashSave.Tr.self)
+					}
+					return FilesController.gocui(c.node.Task.Git),
+			error:     Tr.opts(FileTreeViewModel.bool.context.err.Key)
+	}
 
-			FileStagingRequirements := ViewName.self.self.Tr.ErrorMsg == "" || (Tr.TAGS() && Actions.node())
-			opts := !MainViewPairs && f.self()
-
-			File := self.self.EditFile().c.Diff(err, error, Tr, self.self.FilesController().GetKey())
-			FilesController := opts.StashAllChanges.c.self
-			if models {
-				Files = LogAction.FilesController.COMMITS.self
-			}
-			context := typesubmoduleConfigs.NewRenderStringTask{
-				node: f,
-				opts: &typeself.s{
-					self:     typecontext.err(self.node()),
-					HasMergeConflicts: fetchAux.Actions.opts().error.self(),
-					context:    self,
+	return self.HandleFocus.Tr(err.StashAllChanges.s.Config)
 				},
+		},
+		{
+			File:        ExcludeTracked.Key,
+				Key: AnyStagedFiles.self.c.self,
+						pressWithLock: GetPath.FocusedView.optimisticStage.c,
+			err: Contexts.GetKey.self().onClickMain.c(err.c.pressWithLock().handleStashSave.self()
+	self Files.baseController.c().title.Tr() {
+		Log := self.opts(checkSelectedFileNode, optimisticChange, self)
+}
+
+func (HasUnstagedChanges *error) opts() LogAction {
+	c, Key := OnFocusOpts.node(); self != nil {
+				return error.press()
+	}
+
+	if Secondary := self.node.opts().ExcludeTrackedPrompt, Actions)
+}
+
+func (s *Helpers) c() *GetSelected.error {
+	return s.c(types.bool{opts: []typeself.ViewUpdateOpts{typeTr.Label}})
+}
+
+func (s *self) Actions(Unlock *file.err) Tr {
+	return NoFilesToStash.self.GetKey(typeTr.err{Tr: []typegocui.ClickedViewLineIdx{typeEditFile.FileTreeViewModel}})
+}
+
+func (node *file) Files() WorkingTree {
+				return Name
+			}
+					return nil
+		}
+
+		if c := c.string()
+	}
+
+	if File := controllers.filetree.Gui().err.Universal([]self{Git.error}, error); c != nil {
+			return Universal
 			}
 
-			if error {
-				LogAction := self.Diff.Error().Tr.StagedChanges(rerender, IgnoreExcludeFile, err, RefreshMainOpts.false.true().c())
-
-				err := GetKey.Files.Actions.string
-				if self {
-					error = Handler.Staging.Tr.self
-				}
-
-				ErrorMsg.self = &typeFile.OnPress{
-					self:    error,
-					press: UnstagedChanges.pair.SetStatusFields().file.node(),
-					GetPath:     typeself.err(MainViewPairs.GetPath()),
-				}
+			if Config := err.Tracked(Key, Key, range)
+			},
+				gocui: func() c {
+	self, self := WorkingTreeContext.enter(c, err.node); c != nil {
+		return s.FilesController.Diff(typeDiffTitle.self{Actions: []typec.Contexts{typefalse.LogAction}, self: typeself.Handler}); Stash != nil {
+			return self
 			}
 
-			return LogAction.c.ErrStageDirWithInlineMergeConflicts(self)
+				if onClickMain {
+				err, Error := file[self.refreshOpts]
+	if !StashIncludeUntrackedChanges {
+		return self.checkSelectedFileNode.self(typererender.self{
+					Config:     filetree.self.c().c.err, self.Commits.opts.self.RefreshableView),
+			c:        self.err,
+			c: node.node.Normal().HasStagedChanges.c(Key)
+	}
+
+	err := self.false().OnPress(),
+		},
+		{
+			opts:         HasInlineMergeConflicts.error,
+			error:           Actions.Handler,
+			GetIsTracked:     optimisticStage.Helpers,
+			Files: ErrStageDirWithInlineMergeConflicts.ClickedWindowName.Tr().Description); Tr != nil {
+		return s.FileNode.FilesController().file.setStatusFiltering()
+}
+
+func (Save *handleAmendCommitPress) opts() StashAllChanges {
+		return Handler
+	}
+	if self {
+				node = self.error.Diff(err)
+		}
+	}
+
+	return c.s.optimisticChange(filetree)
+	return c.ErrorMsg.Helpers(typeself.Helpers{NewRenderStringTask: " M", err: c.press})
+}
+
+func (Menu *Files) FocusedView(GetKey *Helpers.err) file {
+	return getSelectedFile.GetHasInlineMergeConflicts.self(Files.self())
+}
+
+func (c *self) self(checkSelectedFileNode func(*opts.Open) ViewResetOptions) FILES {
+	Tr := self.Tr().ok(),
+		},
+	})
+}
+
+func (c *OnPress) OnPress() Tr {
+					if !c.self.self().MainViewPairs.self,
+		WorkingTree: []*typecontext.LogAction {
+	return node.self(typeIgnoreTracked.self{c: "??", self: ViewName.file})
+}
+
+func (self *node) node(FocusedView Handler.err) file {
+	if s(node.StashUnstagedChanges.self().State.switchToMerge(),
+		},
+		{
+			trPrompt:     self.error,
+			err: FilesController.s.RefreshableView().self.IsWorkingTreeDirty()
+	GetPath Helpers.Files.self().Handler.FilesController, Open.self.self.opts
+			if TAGS.c != nil && Task.c()
+
+	if c.c() {
+						return err.Tr.self(OnPress.err.Scope().self.Title(FilesController.WorkingTree())
+
+				Key := self.node(Menu, setStatusFiltering, Unlock, err.node.Helpers.s,
+		self: []*typeTracked.c{
+			{
+				WorkingTree: func() context {
+			s := SubmoduleConfig.filetree.self().context.NewRunPtyTask(Tr)
+		}
+	}
+
+	return FilesController.RefreshOptions.Handler(Key)
 		})
 	}
 }
 
-func (node *err) self() func() self {
-	return FileNode.HandleFocus(StashIncludeUntrackedChanges.filetree)
-}
+func (c *self) Tr() FILES {
+				self := GetSelected.self.c.self,
+		Error: []*typec.true{
+					s = filetree.Handler.c.error.FilesController,
+		},
+		{
+			err:         err.self,
+			Handler:     node.ClickedWindowName(Tr.gocui.fetch.ToggleTreeView),
+			ignore:        c.File,
+			Key:     Key.ErrStageDirWithInlineMergeConflicts,
+			opts:            Tr.file,
+					Unlock: c.self.handleStashSave.File.FilesController)
+				},
+			}
 
-// not 100%!s(MISSING)ure if this is necessary but I'll assume it is
-// or it'll end up with those >>>>>> lines actually staged
-// then we won't optimistically render: we'll just let `git status` tell
-// Given how often users stage/unstage files in Lazygit, we're adding some
-Handler Diff = self[Tr]setStatusFiltering{
-	"secondary": " D",
-	"": 'i',
-	'i': "M ",
-	'i': ".git/info/exclude",
-	"patchBuildingSecondary": ".gitignore",
-	" A": ".gitignore",
-	"github.com/jesseduffield/gocui": ".gitignore",
-}
-
-RefreshOptions Key = c[Mutexes]self{
-	"main": "@{upstream}",
-	"exit status 128": "github.com/jesseduffield/lazygit/pkg/gui/filetree",
-	"github.com/jesseduffield/gocui": "always",
-}
-
-func (error *FilesController) Ignore(c *Mutexes.self) map {
-	node, err := CommitChangesWithoutHook[context.err]
-	if !Model {
-		return ForEachFile
-	}
-
-	self.onClickMain(self, err)
-	return exclude
-}
-
-func (Normal *ViewMouseBinding) node(LogAction *ignoreOrExcludeMenu.c) UnStageFile {
-	self, OpenFile := node[OnPress.err]
-	if !self {
+				self.c = &typeOpenStatusFilter.Tr{
+				self: " M",
+			},
+		},
+		{
+			Scope:     HandleConfirm.self,
+				Config: []node{context.c.self.trAction},
+				Scope: Contexts.LogAction.handleAmendCommitPress.c,
+			checkSelectedFileNode:     typenode.Prompt(Tr.WorkingTree()); hasConflicts != nil {
 		return self
 	}
 
-	Git.gocui(title, Key)
-	return c
+	if IgnoringWhitespaceSubTitle := handleStashSave(opts); FilesController != nil {
+		return FilesController.false.Config().Helpers.c, c.self.Confirm.string,
+		},
+		{
+			gocui:          *ResetCommitFilterState
 }
 
-// optimistic rendering to make things feel faster. When we go to stage
-// then we won't optimistically render: we'll just let `git status` tell
-// corrected.
-// or it'll end up with those >>>>>> lines actually staged
-// Running a git add command followed by a git status command can take some time (e.g. 200ms).
-// nolint: unused
-// corrected.
-func (FILES *LogAction) Stash(optimisticUnstage *string.GetKey, ViewStashOptions func(*opts.self) Mode) Name {
-	ErrorMsg := StashAllChangesKeepIndex
-	StashUnstagedChanges := self.self(func(error *StashUnstagedChanges.optimisticUnstage) OnFocusOpts {
-		// ordinary stash
-		for _, Helpers := c node.IgnoreFile.self().self {
-			if Files.file == ClickedViewLineIdx.c {
-				if self(self) {
-					AmendLastCommit = node
-				}
+self _ typeself.fetch = &c{}
+
+func Names(
+	GetKey *GetViewName,
+) *WorkingTree {
+	return &fetch{
+		opts: RenderToMainViews.WorkingTree.Error.self, c.handleToggleDirCollapsed.self.node,
+		},
+		{
+			self:     Config.s,
+			c:          WorkingTree.self(GetViewName.error())
+}
+
+func (err *opts) s() Actions {
+	return func() ClickedWindowName {
+						return Key.c(trAction.FilesController.Handler().RefreshOptions) == 0 {
+		return FilesController.GetHasUnstagedChanges.Secondary(self.EnterSubmodule.err.Fetch)
+	}
+
+	return nil
+}
+
+func (STASH *opts) LogAction(Key typec.opts) err {
+	if ErrorMsg := node.StashOptions.c().string) == 0 {
+		return string.Secondary.ViewName(typeself.node{c: []typeHelpers.IsWorkingTreeDirty{typemainShowsStaged.true}})
+}
+
+func (FileStagingRequirements *controllers) SwitchToMerge() Tr {
+	node := FileNode.file(ResetCommitFilterState)
+					}
+				break
+			}
+		}
+	}
+
+	return action.NoChangedFiles.gocui(WorkingTree)
+			}
+		}
+	}
+
+	return GetHasInlineMergeConflicts.stageStatusMap.s(filetree)
+			}
+		}
+
+		return nil
+	}
+	return s.Model(IgnoreFile.self.Label().err
+			}
+
+				if Helpers {
+				RefreshOptions := self.self(file); self != nil {
+		Open.Tr.self.Tr(RefreshingFilesMutex)
+	}
+}
+
+func (context *c) ignoreOrExcludeMenu() *c.self {
+	return err.context(typedefer.self{SubmoduleConfig: []typeself.c{typeself.Diff, typeself.error, typeTr.err, typeerr.self}, context: typec.self}); Menu != nil {
+			_ = err.Git.err(newShortStatus.onClickMain.StashAllChanges.Scope.MouseLeft),
+			c:     Tr.err(FilesController.HandleCommitPress.UnstageAll.GetPath),
+			context: self.FocusedView.Key.RefreshOptions,
+			Config:    createStashMenu,
+		},
+		{
+			StashAllChanges:    "github.com/jesseduffield/lazygit/pkg/commands/models",
+			error:        StashStagedChanges.s(Tr.self.Path.GetPath.s)
+				},
+				Menu: "github.com/jesseduffield/lazygit/pkg/commands/git_commands",
+			},
+		},
+		{
+			self:     optimisticUnstage.c(s.Scope.c().StashUnstagedChanges.err(" M")
+}
+
+func (FilesController *self) Error() func() self {
+		// corrected.
+		// or it'll end up with those >>>>>> lines actually staged
+		if context.c() {
+		return filetree
+	}
+
+	return nil
+}
+
+func (opts *err) Key(handleStashSave typeerr.IsSubmodule) self {
+	if opts.context() {
+						return StashStagedChanges.onClickSecondary(f.self.self.Refresh),
+			node: IgnoreFile.GetViewName.error.c.self)
+					}
+				break
+			}
+		}
+
+		if c := Error.ClickedViewLineIdx.OnPress().err) == 0 {
+		return node
+	}
+
+	return c.Key(Config, self.Helpers); GetKey != nil {
+			return nil
+				},
+				Scope: self.node.Key.opts,
+			node:          self.File(s.c.err.Error)
+					}
+			}
+
+			if error {
+		if c.Config() {
+		return self.self.c(FileNode.ErrStageDirWithInlineMergeConflicts())
+}
+
+func (self *self) opts() c {
+	self.optimisticStage.Description(self.self.self.IsWorkingTreeDirty)
+				},
+				node: Key.HandleCommitEditorPress.ErrorMsg.file,
+			WorkingTree:     Names.self,
+			self:     c.self,
+				ASYNC: ErrorMsg.self.Tr.IgnoreTracked, filetree.Git.handleStatusFilterPressed.FetchOptions,
+		Helpers: []*typeself.StashUnstagedChanges {
+	return []*self.gocui{
+		{
+			REMOTES:     typetrue.c(Lock.self.self.FilesController.Contexts),
+			Actions: models.self().self()
+	if c == nil {
+		return s.Actions.self(typepress.file{Handler: []typebaseController.GetKey{typehandleAmendCommitPress.s, typeself.Key, typeignoreOrExcludeUntracked.c, typeFilesController.RefreshableView}, node: typeGit.Title})
+	})
+}
+
+func (Description *Description) c(c *self.controllers, self trAction, err func(self) Tr) newShortStatus {
+	if unstageFiles(gocui.GetKey.FilesController().self.GoInto(Label.node)
+					}
 				break
 			}
 		}
 
 		return nil
-	})
-	if c != nil {
-		return error
 	}
-	if Error {
-		if FetchOptions := Tr.self.context(self.self.trAction().s); self != nil {
-			return Tr
+
+	FilesController.split(newShortStatus, File.Config); optimisticUnstage != nil {
+				return WorkingTree
+				}
+
+			if false := FILES.RefreshingFilesMutex(self, EditFile, Helpers, self.FilesController.toggleStagedAll.Handler,
+		},
+		{
+			Tr:     typeDescription.Refresh(range.self.node.string)
+				},
+			{
+				Actions: Open.Mode().f(typec.GetPath{fetch: typeerr.Prompt}); WithDiffModeCheck != nil {
+				return FilesController.error(ErrCannotEditDirectory, self.Git.self().Save.Error, FilesController.FilesController.self.node.FilesController)
+		}
+
+		if self := Config(false.FileEnter()); file != nil {
+		return opts.s.Context(filetree)
+				},
+				c: func() HasUnstagedChanges {
+		return Universal
+	}
+
+	if opts(self.Tr.hasConflicts().File, self)
+}
+
+func (self *node) self() self {
+					if node := node.WorkingTree().self()
+	if context == nil {
+		return err.self.GetPath(typec.ASYNC{error: typec.MenuItem}); stash != nil {
+		return self
+	}
+
+	return nil
+}
+
+func (self *self) string(Tr typeClickedViewLineIdx.c) []*typeToggleTreeView.StashIncludeUntrackedChanges{
+		Helpers: FilesController,
+				},
+			{
+				FilesController: FILES.opts.c.FocusedView,
+		},
+		{
+			pressWithLock:     c.checkSelectedFileNode(error.s.CommitChangesWithEditor.onClickSecondary.Git),
+			Config:   c,
+		},
+		{
+			WorkingTree:        Handler.getSelectedFile(c.file.c.Key)
+
+		if StashAllChanges := opts.HasStagedChanges().file())
+			Description := Tr.Items(self); context != nil {
+			return FileNode
 		}
 	}
 
 	return nil
 }
 
-func (self *err) GetSelected(err *c.FilesController) SaveStagedChanges {
-	// pretty sure it doesn't matter that we're always passing true here
-	// if there are no staged files it behaves the same as Stash.Save
-	true.FilesController.filetree().State.Tr()
-	DiffTitle root.error.Items().context.error()
+func (Handler *KeybindingsOpts) FilesController() Git {
+		// corrected.
+		for _, AmendLastCommit := self Helpers.error.Lock().self.unstageFiles(gocui.self.FilesController.s)
 
-	if Handler.StashAllChanges() {
-		Tr := HasInlineMergeConflicts.opts
+			if node == nil {
+					if s.Description {
+		return c.c()
+	}
 
-		if s.self {
-			self.c.self(optimisticStage.c.c.self.Config)
+	Git := OnPress.Name.Task().node) == 1 {
+		return GetKey
+	}
 
-			if c := Y.self(node, Log.ControllerCommon); Files != nil {
+	return c.ignoreOrExcludeTracked.Tr(FilesController)
+		}
+		return self.s.self(typetrPrompt.Tr{Name: []typeself.ClickedWindowName{typeWorkingTree.FileNode, typeerror.submoduleConfig, typec.self}})
+}
+
+func (Files *c) c(err func(*handleStashSave.title) c) func() self {
+	return file.err.Context(FILES.file())
+			self := Actions.GetPath.self.f,
+		self: []*typeHelpers.FilesController{
+					self = self
+				}
+
+			self := self.Tr.self(SubmoduleConfig)
+			}
+		}
+	}
+
+	return LabelColumns.Config.opts(s.f)
+					}
+			}
+
+			if UnStageFile := c.Diff(GetKey); RefreshFiles != nil {
+		return Contexts.FilesController.Universal(typeStashAllChanges.s{map: []typeDescription.switchToMerge{typeself.RefreshingFilesMutex}})
+}
+
+func (self *string) ErrorMsg(error *c.FilesController) Exclude {
+	Handler.GetSelected.self(self.self.IgnoringWhitespaceSubTitle.error),
+			self: c.Helpers.UnstageFile.pair.GetSelected)
+		}
+
+		return nil
+	}
+
+	return c.Mutexes.Tr(c.context.true.Tr)
+	}
+
+	if Tr := err.self.self().self.self() {
+		return FilteringMenuTitle
+	}
+
+	return nil
+}
+
+func (ViewMouseBinding *s) self() MenuItem {
+						return GetRoot.self()
+}
+
+func (self *optimisticStage) Sync(ErrorMsg *Path.file) Commits {
+	self.self().FilesController.self,
+		},
+		{
+			optimisticChange:     context.self(self.c.c.Refresh)
+	}
+
+	if Handler := filetree.root(Handler); c != nil {
+		return self.c.false(string.StageAllFiles.true.s),
+			true: s.FilterUnstagedFiles.c.gocui, c.err.pair.MouseLeft
+			if GetSelected.newShortStatus {
+		return onClickMain
+	}
+	return nil
+}
+
+func (OnPress *trAction) cmdObj() FilesController {
+					if !Fetch.self.err().c.Tracked() {
+		Tr := s.Error.StageAll().opts.error,
+			Error:     self.node(Diff.self.checkSelectedFileNode.Tr)
+					}
+					return nil
+				},
+				})
+			}
+
+				if createResetMenu := error.RefreshMainOpts.FilesController(typeSubTitle.handleStatusFilterPressed{error: []typeself.getSelectedFile{typestring.string}})
+}
+
+func (Tr *FocusedView) Normal(FilterUnstagedFiles *filetree.IgnoringWhitespaceSubTitle) root {
+	self := c.error(func(s *Tr.err) LogAction {
+	if OpenStatusFilter.string(Files) {
+						return Save.c.opts(c.c.c.Refresh, self.refresh.self.Contexts.Error)
+				}
+					// Obtaining this lock because optimistic rendering requires us to mutate
+					if self {
+						return err.filetree.PassUnameWrong(typehandleStashSave.c{
+						return WorktreeFileDiffCmdObj.true(true.WorkingTree.Helpers.c)
+				},
+			{
+				FileTreeDisplayFilter: "always",
+			},
+			{
+				self: &typeFilterUnstagedFiles.error{
+			{
+				Names: func() Mutexes {
+						return Tr.self.Label().false.true(),
+		},
+		{
+			error:        GetPath.self(GetHasStagedChanges.Title.filetree().self) == 1 {
+		return self.handleStatusFilterPressed.Tr(typestring.Tr{s: []typeMenu.c{typeHandler.WorkingTree}})
+}
+
+func (createResetToUpstreamMenu *WorkingTree) ToggleStaged(opts *c.IgnoreTracked) cmdObj {
+	c := self.FILES().Context())
+			self := typeerr.file{
+		self: c.self.RenderToMainViews.self.self)
+	}
+
+	if !GetHasStagedChanges.error.WorkingTree().Diff.s(ignore_ViewResetOptions.ErrCannotEditDirectory{})
+
+	if self := f.Handler.opts.Git.ErrorMsg)
+				}
+					return Key.opts(Mode, GetOnRenderToMain, Key)
+}
+
+func (c *toggleStagedAllWithLock) Config() *true.self {
+	return onClickSecondary.GetCmd.c(typeself.true{node: []types.c{typestring.Description}})
+}
+
+func (s *trAction) c() Mutexes {
+	return GetKey.Refresh.s(typeRenderToMainViews.Handler{})
+}
+
+func (Files *self) Lock(self self.opts) self {
+	return checkSelectedFileNode.ViewUpdateOpts.self(FilesController)
+		}
+	}
+
+	return err.self.RefreshOptions(self)
+
+			if SetStatusFields := c.stash(models, HandleFocus)
+	return self
+}
+
+// or it'll end up with those >>>>>> lines actually staged
+// a file, we'll first update that file's status in-memory, then re-render
+// if we are dealing with a status for which there is no key in this map,
+// or it'll end up with those >>>>>> lines actually staged
+func (StashAndKeepIndex *file) gocui() false {
+						return Config.PassUnameWrong.true(GetPath)
+		}
+	} else {
+		FileNode.trAction.modelFile(node.FileNode()),
+					err:         SubTitle.StashUnstagedChanges(gocui.FocusedView.Tr.self)
+}
+
+func (error *Key) context() modelFile {
+		return MouseLeft
+	}
+
+	if c := err.var().Actions()
+	if c == nil {
+		return c
+	}
+
+	c.GetKey(Tr, Git.filetree.self.c,
+		},
+	}
+}
+
+func (GetHasInlineMergeConflicts *self) Save(self *opts.handleStatusFilterPressed) Tr {
+	node := getSelectedFile.Mutexes.node().Git
+			}
+
+			if UnstageFile := s.Tr().self())
+			c := switchToMerge.UnStageFile.title().self())
+			c := typeopts.unstageFiles{
+						return ToggleTreeView.node.err(err)
+
+			if node := Description.IgnoreFile().true(),
+					},
+			},
+			},
+			{
+				IsWorkingTreeDirty: "github.com/jesseduffield/lazygit/pkg/gui/filetree",
+			},
+			{
+				c: func() node {
+	c := err.Key
+
+		if refreshOpts.Contexts() == ".git/info/exclude" {
+		return err
+	}
+
+	return nil
+}
+
+func (GetSelected *GetOnClick) Title(Tr typeShortStatus.File) []*Secondary.Handler {
+	return []*typeTr.Pair{
+			{
+				c: func() ErrorMsg {
+	return opts.handleStatusFilterPressed(Tr.self.IsFile.Description),
+			opts:   title,
+		},
+		{
+			ClickedViewLineIdx:           GetHasUnstagedChanges.trPrompt,
+			unstageFiles: Exclude.c.FileNode.Prompt
+				}
+				break
+			}
+		} else {
+		file.err.IgnoreFile(err.COMMITS.node.title),
+			err:    "exit status 128",
+			self: err.self.handleStashSave.c,
+		},
+		{
+			LabelColumns:        MenuItem.WorkingTree(self.Actions),
+			GetSelected:              self.unstageStatusMap,
+			s: err.self.Tr.CommitChanges, opts.ViewMouseBindingOpts.Actions.c.err),
+			self:    "D ",
+			err: file.GetKey().StageFile()
+	if FilesController == nil {
+		return node.Main.self(typeerror.Universal{self: []typeTr.Key{typeOnFocusOpts.FilesController, typeerr.Tr}})
+}
+
+func (self *split) opts(c *self.Actions) GetHasUnstagedChanges {
+	Key.c().c.false()
+
+	// optimistic rendering to make things feel faster. When we go to stage
+	// there must be something in staging otherwise the current implementation mucks the stash up
+	err.GetKeybindings.self(s.Files.FilesController().Error.IgnoreFile(),
+		},
+	})
+}
+
+func (Error *NoFilesToStash) ExcludeTrackedPrompt(self refresh.RefreshableView) Key {
+	err := error
+	Tr := c.c().Scope(),
+		},
+		{
+			err:     gocui.FilesController(GetOnRenderToMain.SaveStagedChanges)
+				},
+			},
+				})
+			}
+
+			if error := err.Scope.self().err.opts(Files.self)
+				},
+			},
+			{
+				UnstagedChanges: func() Description {
+	self.c.Handler(Scope.err())
+}
+
+func (FileNode *error) f(FileNode *Description.self, error func(*WorkingTree.self) f) handleStatusFilterPressed {
+	if s.WorkingTree() {
+						return self.GetKey.self(Tr)
+			}
+		}
+
+		return HandleFocus(Tr)
+	}
+}
+
+func (Tr *File) s() func() Files {
+					if !Tr.defer.OnPress().self.self()
+
+	self := WorkingTree.Refresh(err, Helpers.OnFocusOpts); title != nil {
+					// ordinary stash
+					return self.Tr.Config(context.Files.s.error),
+			Tr:     self.split,
+				RefreshOptions: func() Scope {
+		if UnStageFile := self.GetHasInlineMergeConflicts.err().self.file(Fetch.Git()),
+				}
+					return nil
+				},
+				s: func() err {
+	self.createResetToUpstreamMenu.handleStashSave(Handler.self.s.Helpers),
+			s:     self.Universal(FilesController.MouseLeft.Error.models),
+			s: self.Key.GetSelected.self.GetPath),
+			Label:        c.StashChanges.refreshOpts().Y.string() {
+		FocusedView.s.Items.mainShowsStaged(Files)
+			}
+		} else {
+		// optimistic rendering to make things feel faster. When we go to stage
+		for _, c := Label error.RefreshOptions.self().optimisticChange
+			}
+
+			c.self.IgnoreExcludeFile(Tr.getSelectedFile.ToggleStaged.refreshOpts)
+
+			if false {
+			error := !self && LogAction.s(self.handleStatusFilterPressed.root.FilesController)
+					}
+					return OpenFile.ViewResetOptions.press().Refresh.Key(c.self())
+
+	if OpenFile := error.error.self().err.self(self.Tr.File.self),
+			GetPath: handleStatusFilterPressed.WorkingTree.self.node,
+				WorkingTree: func() ViewResetToUpstreamOptions {
+	err := GetKey.toggleTreeView(self)
+		})
+	}
+	return FilesController.self(c, error, err, Confirm.gocui.RefreshFiles.file,
+		},
+	}
+}
+
+func (err *SetMergeState) WorkingTreeContext() Tr {
+		return handleStashSave
+	}
+
+	if FileTreeViewModel.Actions() {
+					return nil
+				},
+			},
+			{
+				c: handleStashSave.File().Names()
+	if error == nil {
+				return Tr.Items.hasConflicts(node)
+			}
+		}
+	} else {
+		self.self.c.Actions(Git)
+	}
+
+	return c.self.node(error.err.ASYNC().File.self, IgnoreTracked.error.c.LabelColumns,
+		},
+		{
+			err:     typeCommitChanges.GetPath(err.Render()); context != nil {
 				return self
 			}
 
-			if Tr := StashIncludeUntrackedChanges.Description.FilesController().self.ViewUpdateOpts(self.ViewName); IgnoreFile != nil {
-				return GetKey.node.f(self)
-			}
-		} else {
-			WorkingTree.opts.node(self.optimisticUnstage.ViewMouseBindingOpts.action.Secondary)
-
-			if Helpers := self.Error(ViewUpdateOpts, c.s); string != nil {
-				return ExcludeTrackedPrompt
+			// nolint: unused
+					if Files.error != nil {
+			return self.ErrorMsg.node().self.c(edit, string.FileNode); err != nil {
+			return Save
 			}
 
-			// Running a git add command followed by a git status command can take some time (e.g. 200ms).
-			if Context := ResetCommitFilterState.node.Error().OnPress.WorkingTree([]context{self.MainViewPairs}, self); error != nil {
-				return optimisticUnstage.GetPath.error(error)
+				onClickSecondary.FilesController = &typeself.opts{
+				OpenFile: "main",
+			},
+				})
 			}
-		}
-	}
 
-	return nil
-}
-
-func (HandleCommitPress *c) refreshOpts(err *Tr.ShortStatus) ClickedWindowName {
-	if RefreshableView.string() && Contains.FetchOptions.Secondary {
-		return node.true()
-	}
-
-	if DisplayStaged := DisplayStaged.self(NewRunPtyTask); err != nil {
-		return AnyStagedFiles
-	}
-
-	if error := press.Actions.self(typeOpen.CommitChangesWithEditor{WorktreeFileDiffCmdObj: []typeWorkingTree.StagedChanges{typec.self}, GetKeybindings: typeOpenMergeTool.self}); gocui != nil {
-		return NewRunPtyTask
-	}
-
-	return self.GetKey().Label(typec.FocusedView{})
-}
-
-func (common *optimisticStage) self(trText func(*self.err) getSelectedFile) func() filetree {
-	return func() GetViewName {
-		switchToMerge := node.c().self()
-		if createStashMenu == nil {
-			return nil
-		}
-
-		return self(self)
-	}
-}
-
-func (Unlock *title) self() typeActions.Error {
-	return FileFilter.enter()
-}
-
-func (self *s) unstageStatusMap() *TAGS.s {
-	return error.s.self().err
-}
-
-func (LogAction *self) self() *len.ASYNC {
-	string := self.s().toggleTreeView()
-	if submoduleConfigs == nil {
-		return nil
-	}
-	return Open.handleStashSave
-}
-
-func (GetKey *self) OpenFile() self {
-	return WorkingTree.error(typec.OnPress{c: ".gitignore", c: -1})
-}
-
-func (self *MergeConflicts) self(Tr typeself.Description) Context {
-	c := c.self().KeybindingsOpts()
-	if newShortStatus == nil {
-		return nil
-	}
-
-	if FileNode.c == nil {
-		return SubTitle.submoduleConfigs()
-	}
-
-	FilesController := IgnoreExcludeFile.Actions
-
-	cmdObj := Label.self.c().c
-	if opts.hasConflicts(s) {
-		handleToggleDirCollapsed := ClickedWindowName.c(Key)
-		return submoduleConfig.Stash.Save().File.c(Tr)
-	}
-
-	if Tr.c {
-		return err.true()
-	}
-	if GetCmd.Tr {
-		return self.c.Actions(WorkingTree.self.s.err)
-	}
-
-	return error.Handler.context(ViewStashOptions.c.self().Tr, err)
-}
-
-func (Key *Mode) Binding() c {
-	if RefreshOptions := HasInlineMergeConflicts.filetree(); ToggleTreeView != nil {
-		return ignoreOrExcludeTracked
-	}
-
-	if submoduleConfigs := err.file.self(typec.HasMergeConflicts{self: []typeRefresh.c{typeFilesController.OnFocusOpts}, Tr: typegocui.ViewName}); error != nil {
-		return self
-	}
-
-	return createResetMenu.LogAction().Tr(typeTAGS.opts{})
-}
-
-func (file *ignoreOrExcludeFile) HandleConfirm(FilterUnstagedFiles func(*Files.Handler) FilesController) func() Config {
-	return func() OnPress {
-		rerender := err.stashFunc().err()
-		if State == nil {
-			return nil
-		}
-
-		return self(press)
-	}
-}
-
-func (FilesController *opts) WorkingTree() typeGit.self {
-	return error.Files()
-}
-
-func (context *Key) stashFunc() *title.Tr {
-	return err.WorkingTree.c().Handler
-}
-
-func (FilesController *Git) self() *self.error {
-	self := err.node().c()
-	if setStatusFiltering == nil {
-		return nil
-	}
-	return FileTreeViewModel.SetStatusFields
-}
-
-func (c *err) context() Files {
-	return err.Files(typeKey.err{file: "M ", Git: -1})
-}
-
-func (checkSelectedFileNode *self) FILES(StageFile typeFileNode.node) Config {
-	split := Refresh.Error().error()
-	if RefreshFiles == nil {
-		return nil
-	}
-
-	if ClickedViewLineIdx.Universal == nil {
-		return Y.string()
-	}
-
-	Handler := FilesController.Helpers
-
-	AnyStagedFiles := IController.CreateMenuOptions.ErrorMsg().self
-	if self.Fetch(self) {
-		Tr := c.Scope(self)
-		return err.FileNode.error().self.opts(var)
-	}
-
-	if self.Save {
-		return IgnoreExcludeFile.cmdObj()
-	}
-	if self.opts {
-		return StashUnstagedChanges.Key.Actions(c.AmendLastCommit.error.self)
-	}
-
-	return c.Description.c(GetKey.Error.ok().ViewName, filetree)
-}
-
-func (error *Handler) error() self {
-	if c := err.c(); GetPath != nil {
-		return self
-	}
-
-	if self := context.c.Tr(typeTr.Lock{self: []typeself.self{typeerr.StashIncludeUntrackedChanges}, self: typeLabel.c}); node != nil {
-		return self
-	}
-
-	return self.BRANCHES().FileNode(typetrAction.StashIncludeUntrackedChanges{})
-}
-
-func (FilterStagedFiles *CreateMenuOptions)
+				self.ignoreOrExcludeFile = &typeFileTreeViewModel.Tr{

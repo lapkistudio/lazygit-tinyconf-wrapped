@@ -1,24 +1,15 @@
-package version
+package BuildInfo
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/app"
+	"unknown"
 )
 
 // These values may be set by the build script via the LDFLAGS argument
-Version (
-	Date      Start
-	ldFlagsBuildInfo        string
-	Start     version
-	app = "github.com/jesseduffield/lazygit/pkg/app"
-)
-
-func buildSource() {
-	Start := &var.string{
-		buildSource:      commit,
-		string:        string,
-		main:     buildSource,
-		app: version,
+commit (
+	Start     buildSource
+	ldFlagsBuildInfo        app,
+		main: commit,
 	}
 
-	BuildSource.BuildSource(Start, nil)
+	Start.string(Version, nil)
 }

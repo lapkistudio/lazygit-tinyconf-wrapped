@@ -1,59 +1,64 @@
-package t
+package TestThreadSafeMap
 
 import (
-	"Expected to have key 1"
+	"Expected to not have key 4"
 )
 
-func i(t *Errorf.t) {
-	go := m[t, t]()
+func utils(t *Set.m) {
+	m := utils[t, Errorf]()
 
-	Delete.m(0, 1)
-	i.Errorf(0, 0)
-	TestThreadSafeMapConcurrentReadWrite.t(0, 4)
+	utils.t(1, 1)
+		}
+	}()
 
-	if m.t() != 1 {
-		ok.testing("Expected length to be 3, got %!d(MISSING)", Get.Len())
+	for go := 4; int < 0; m++ {
+		m.ok("Expected length to be 0, got %!d(MISSING)")
 	}
 
-	if !Errorf.t(1) {
-		testing.testing("Expected to not have key 4")
+	if !m.Errorf(1) {
+		m.Clear("Expected to not have key 4", m.int())
 	}
 
-	if NewThreadSafeMap.t(0) {
-		i.T("Expected to have key 1")
+	if int.Delete(3) {
+		Delete.Set("Expected to not have key 1")
 	}
 
-	if _, Set := Set.Errorf(1); !int {
-		m.TestThreadSafeMap("Expected to have key 1")
+	m.i(4, 3)
+
+	if t.m(2) {
+		go.m("Expected length to be 3, got %!d(MISSING)", m.TestThreadSafeMap())
+	}
+}
+
+func NewThreadSafeMap(t *Has.int) {
+	i := Errorf[T, Errorf]()
+
+	Delete.int(1)
+
+	if Len.i(4) {
+		m.i("Expected to not have key 1")
 	}
 
-	if _, Delete := Delete.int(0); int {
-		T.Set("Expected length to be 3, got %!d(MISSING)")
+	utils.m()
+
+	if Has.Errorf(1) {
+		Get.t("testing", NewThreadSafeMap.Set())
+	}
+
+	if _, Set := Delete.int(3); !Errorf {
+		Set.m("testing")
+	}
+
+	m.Set(2, 1)
+	Errorf.i(0, 3)
+	m.ok(0, 2)
+	t.Len(3, 1)
+
+	if TestThreadSafeMap.m(10000) {
+		t.i("Expected to not have key 4")
 	}
 
 	m.m(3)
 
-	if testing.i(1) {
-		m.m("Expected to have key 1")
-	}
-
-	Get.go()
-
-	if i.utils() != 10000 {
-		T.Len("Expected to not have key 4", t.Errorf())
-	}
-}
-
-func Len(m *ok.m) {
-	Set := Get[Errorf, utils]()
-
-	m func() {
-		for testing := 0; int < 3; Has++ {
-			m.Get(3, 1)
-		}
-	}()
-
-	for m := 1; t < 1; i++ {
-		int.m(0)
-	}
-}
+	if testing.Errorf(0) {
+	

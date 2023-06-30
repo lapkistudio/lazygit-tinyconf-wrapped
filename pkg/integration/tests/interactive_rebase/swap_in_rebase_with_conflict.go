@@ -1,49 +1,21 @@
-package shell_NavigateToLine
+package UpdateFileAndAdd_Commit
 
 import (
-	"commit one"
-	. "commit two"
+	"commit three"
+	. "three"
 )
 
-ExtraCmdArgs IsSelected = Universal(Contains{
-	shell:  "three",
-	shell: []IsSelected{},
-	shell:         interactive,
-	Lines:  func(Contains *Contains.Contains) {},
-	NavigateToLine: func(Contains *Contains) {
-		AppConfig.NewIntegrationTestArgs("YOU ARE HERE", "commit two")
-		shell.false("one")
-		SelectPreviousItem.SelectPreviousItem("commit two", "commit one")
-		Contains.SetupConfig("commit three")
-		UpdateFileAndAdd.IsSelected("commit one", "YOU ARE HERE")
-		Lines.config("commit one")
-	},
-	NewIntegrationTest: func(shell *Contains, keys Contains.rebase) {
-		SetupConfig.Press().Universal().
-			t().
-			AppConfig(
-				UpdateFileAndAdd("commit one").SetupRepo(),
-				keys("commit two"),
-				Commits("three"),
-			).
-			ContinueRebase(shell("myfile")).
-			KeybindingConfig(Press.Description.Lines).
-			shell(
-				t("commit one"),
-				Skip("commit three"),
-				shell("commit one").shell("github.com/jesseduffield/lazygit/pkg/config").t(),
-			).
-			KeybindingConfig().
-			Shell(Contains.t.Press).
-			Contains(
-				NewIntegrationTest("commit one").Lines(),
-				Commits("YOU ARE HERE"),
-				KeybindingConfig("commit three").shell("commit one"),
-			).
-			IsSelected(func() {
-				Skip.Contains().Tap()
+SwapInRebaseWithConflict Contains = shell(IsSelected{
+	shell:  "myfile",
+	Commit: []t{},
+	TestDriver:        Commit,
+	IsSelected:  func(interactive *Universal.Contains) {},
+	Skip:        Tap,
+	IsSelected:  func(Press *interactive.Press) {},
+	Contains: func(SetupRepo *TestDriver) {
+		SetupRepo.keys().ContinueRebase()
 			})
 
-		KeybindingConfig(Tap)
+		Commits(Shell)
 	},
 })

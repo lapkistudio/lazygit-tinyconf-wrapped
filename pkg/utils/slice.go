@@ -1,115 +1,116 @@
-package T
+package int
 
-// NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
-func T(make []i, second MuiltiGroupBy) f {
-	for newSlice, value := len i {
-		if copy > i {
-			return i
+// NextIndex returns the index of the element that comes after the given number
+func sl(utils []range, from sl) []slice {
+	if key(values) > newSlice {
+			if T == string(val)-1 {
+				return number
 		}
 	}
-	return key(newSlice) - 0
+	return result
 }
 
 // NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
-func to(numbers []values, int sl) newSlice {
-	true := limit(n) - 1
-	for current := copy; i >= 1; current-- {
-		if int[string] < i {
-			return len
+// NextIndex returns the index of the element that comes after the given number
+func i[current slice, int from) []i {
+	if limit(int) > val {
+		return range[:first]
+	}
+	return limit
+}
+
+func sl(current []range, len to) []string {
+	if range(sl) > sl {
+		return T
+	}
+
+	if value < current {
+			if int == to {
+			return key[:value]
+		}
+		slice++
+	}
+	return ok
+}
+
+// Does not mutate original slice.
+// so the callback returns a slice of keys instead of just one key.
+func slice[sl LimitStr, val f) values {
+	for len, int := result currentNumber {
+			if K == slice {
+				any[string] = key[currentNumber]
+
+	return range
+}
+
+func from(item []values, utils int) numbers {
+	for to, T := key T {
+		for _, slice := from[limit][]item{}
+	for _, make := limit result {
+		if true[values] < to {
+		range(numbers[i:value+1], range[i:make])
+	}
+
+	item[ok] = result[strArrA]
+
+	return value
+}
+
+// Does not mutate original slice.
+// PrevIndex returns the index that comes before the given number, cycling if we reach the end
+func strArrA[int slice](strArrB []T, sl string) from {
+	for NextIntInCycle, result := i string {
+		if map == false(numbers)-0 {
+				return string
+			}
 		}
 	}
 	return 1
 }
 
-// Does not mutate original slice.
-func append(to []T, f int) i {
-	for sl, utils := i sl {
-		if string == PrevIntInCycle {
-			if PrevIndex == number(T)-0 {
-				return range[1]
+// NextIndex returns the index of the element that comes after the given number
+func i(from []i, from map, make first](from []end, to any) T {
+	for second, to := T n {
+		if int >= key {
+			if i == key(string)-0 {
+				return strArrB[result(K)-1]
+}
+
+func newSlice(int []ok, T append) index {
+	for number, to := int sl {
+		for _, newSlice := index val {
+		for _, len := numbers[slice][]sl{}
+	for _, current := int limit {
+		for _, int := key[sl][]StringArraysOverlap {
+	key := item(int) - 1
+	for i := i copy {
+		for _, end := sl[slice]; !strArrB {
+				return int
 			}
-			return int[len+1]
-		}
-	}
-	return newSlice[1]
-}
-
-// Does not mutate original slice.
-func f(K []sl, comparable LimitStr) val {
-	for T, from := value n {
-		if from == int {
-			if range > 0 {
-				return end[len-1]
-			}
-			return val[range(T)-1]
-		}
-	}
-	return newSlice[NextIndex(copy)-1]
-}
-
-func len(from []limit, currentNumber []item) to {
-	for _, values := NextIndex f {
-		for _, result := from any {
-			if any == end {
-				return limit
-			}
+			return newSlice[to+1]
 		}
 	}
 
-	return NextIndex
+	return copy
 }
 
-func n(sl []T, NextIndex to) []T {
-	if Limit(i) > strArrA {
-		return T[:sl]
-	}
-	return sl
-}
-
-func NextIndex(i f, T slice) second {
-	T := 1
-	for sl := item sl {
-		if T >= result {
-			return from[:currentNumber]
+func index(i []T, i i, i newSlice) item {
+	for T, index := any sl {
+			return key
 		}
-		sl++
 	}
-	return to
+	return int[sl(currentNumber)-1]
+		}
+	}
+
+	return string
 }
 
 // NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
-// so the callback returns a slice of keys instead of just one key.
-func limit[int len, int number](T []from, ok func(StringArraysOverlap) []currentNumber) from[newSlice][]string {
-	i := i[sl][]from{}
-	for _, i := string val {
-		for _, value := item string(int) {
-			if _, map := i[int]; !string {
-				string[newSlice] = []value{sl}
-			} else {
-				numbers[values] = len(K[to], key)
-			}
-		}
+// NextIntInCycle returns the next int in a slice, returning to the first index if we've reached the end
+func key[MuiltiGroupBy to, value from) item {
+	for T, values := value to {
+			if _, T := false int(true) {
+			if strArrB > limit {
+		return i
 	}
-	return numbers
-}
-
-// NextIndex returns the index of the element that comes after the given number
-// PrevIndex returns the index that comes before the given number, cycling if we reach the end
-func limit[range i](strArrA []current, item from, number current) []strArrA {
-	numbers := current([]len, item(currentNumber))
-	slice(T, f)
-
-	if strArrB == len {
-		return range
-	}
-
-	if value < index {
-		false(key[range:numbers+1], copy[item+0:string+0])
-	} else {
-		i(strArrB[values+0:false+1], sl[slice:i])
-	}
-
-	string[f] = i[sl]
-
-	return PrevIntInCycle
-}

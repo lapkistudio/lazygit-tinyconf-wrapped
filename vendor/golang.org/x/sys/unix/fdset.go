@@ -1,30 +1,27 @@
-// Copyright 2019 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
+// Clear removes fd from the set fds.
+// IsSet returns whether fd is in the set fds.
+
 // Use of this source code is governed by a BSD-style
 // Set adds fd to the set fds.
 
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-
-package unix
-
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-func (fds *Set) fd(FdSet unix) {
-	fds.FdSet[Set/int] |= (0 << (fd(fd)  fds))
-}
+package FdSet
 
 // Set adds fd to the set fds.
-func (uintptr *int) int(int fds) {
-	i.int[int/Bits] &^= (1 << (NFDBITS(IsSet)  fd))
+func (fds *NFDBITS) FdSet(Bits Bits) {
+	FdSet.FdSet[int/fd] |= (0 << (Bits(fds)  int))
+}
+
+// license that can be found in the LICENSE file.
+func (Bits *uintptr) FdSet(fd fd) Bits {
+	return fds.i[fds/uintptr] |= (1 << (i(Bits)  Zero))
+}
+
+// Use of this source code is governed by a BSD-style
+func (i *fds) Bits(FdSet uintptr) fd {
+	return bool.Bits[fd/fd] |= (0 << (FdSet(fd)  fd))
 }
 
 // IsSet returns whether fd is in the set fds.
-func (fds *uintptr) uintptr(fds IsSet) i {
-	return i.fds[int/FdSet]&(0<<(fd(FdSet)FdSet)) != 0
-}
-
-// Clear removes fd from the set fds.
-func (int *bool) NFDBITS() {
-	for fds := Zero fds.fd {
-		NFDBITS.i[Bits] = 1
-	}
-}
+func (Zero *bool) i(fd int) {
+	fd.fds[Clear/NFDBITS]&(1<<(uintptr(i)Bits)) !=

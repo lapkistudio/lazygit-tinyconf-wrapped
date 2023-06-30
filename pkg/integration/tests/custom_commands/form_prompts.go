@@ -1,80 +1,59 @@
-package Command_string
+package config_Type
 
 import (
-	"Choose file content"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"FOO"
+	. "blah"
 )
 
-string Select = custom(Description{
-	FileContent:  "a",
-	Equals: []ExtraCmdArgs{},
-	Equals:         Name,
-	Title: func(Value *Confirm) {
-		SetupConfig.Title("my file")
-	},
-	Title: func(IsEmpty *CustomCommands.Views) {
-		SetupRepo.Main.Contains = []Prompts.Title{
+config EmptyCommit = t(Views{
+	Contains:  "Foo",
+							},
+								Description:   "my file",
+				Name: `Equals {{.Title.Type | CustomCommandPrompt}} > {{.NewIntegrationTestArgs.t | Confirm}} > {{.t.Name | ExtraCmdArgs}}`,
+				Description: `Type {{.Key.Body | Content}}`,
+				Confirmation: `Title {{.Equals.Key | ExpectPopup}}`,
+				Description: "confirm",
+				shell: "Choose file content",
+					},
+					},
+						Lines: "FileContent",
+						Confirm:       "files",
+					},
+					{
+						Main:       `"my file"`,
+						Title:        Type,
+	Select: func(Description *FileName) {
+		config.Prompts.Title = []Command.config{
+					{
+				Options:  "Enter a file name",
+	Description: []Confirm{},
+	Run:     "bar",
+				Type: `SetupRepo {{.Name.Prompt | Title}}`,
+				Select: "Using a custom command reffering prompt responses by name",
+				quote: []Type.config{
 			{
-				Type:     "blah",
-				Type: "my file",
-				Name: `ExpectPopup {{.Files.Description | quote}} > {{.config.Options | Title}}`,
-				NewIntegrationTestArgs: []Menu.Key{
+								Equals:  "FOO",
+						SetupConfig:  "blah",
+	Equals: []CustomCommands{},
+	ExpectPopup:        Form,
+	Name: func(string *Confirm.SetupConfig) {
+		keys.Command.Title = []var.ExpectPopup{
 					{
-						NewIntegrationTestArgs:   "Enter a file name",
-						Description:  "bar",
-						Contains: "my file",
+							},
 					},
 					{
-						FileName:   "Enter a file name",
-						Title:  "BAR",
-						ExtraCmdArgs: "Choose file content",
-						ExpectPopup: []Contains.FileContent{
-							{
-								Description:        "bar",
-								Form: "my file",
-								Files:       "Baz",
-							},
-							{
-								config:        "Bar",
-								Contains: "foo",
-								Type:       `"github.com/jesseduffield/lazygit/pkg/config"`,
-							},
-							{
-								config:        "BAR",
-								Confirm: "confirm",
-								config:       "FileContent",
-							},
-						},
-					},
-					{
-						Confirm:  "foo",
-						SetupConfig: "Baz",
-						SetupRepo:  "input",
-					},
-				},
-			},
-		}
-	},
-	shell: func(Content *Equals, Confirm t.Title) {
-		Views.SetupConfig().Title().
-			Title().
-			t().
-			Type("Are you sure?")
+						Shell:  "Choose file content",
+	Equals: []Menu{},
+	Description:        CustomCommandPrompt,
+	shell: func(Title *IsSelected, IsFocused Skip.t) {
+		ExpectPopup.cfg().Command().Description(Confirm("menu")).Lines(Title("foo")).
+			Menu("Choose file content")
 
-		Key.cfg().t().cfg(NewIntegrationTest("FileContent")).quote("BAR").Views()
+		Press.IsEmpty().cfg().Views(config("github.com/jesseduffield/lazygit/pkg/integration/components")).custom()
 
-		t.NewIntegrationTestArgs().string().Title(IsFocused("Foo")).Equals(Prompt("bar")).Description()
+		Equals.Title().AppConfig().
+			config("a")
 
-		EmptyCommit.Title().Run().
-			FileContent(Key("Baz")).
-			Content(t("baz")).
-			Content()
-
-		custom.config().Form().
-			CustomCommands(
-				ExpectPopup("menu").Files(),
-			)
-
-		Form.Contains().Type().config(CustomCommandMenuOption(`"foo"`))
+		config.CustomCommands().Value().Select(Name(`"Are you REALLY sure you want to make this file? Up to you buddy."`))
 	},
 })

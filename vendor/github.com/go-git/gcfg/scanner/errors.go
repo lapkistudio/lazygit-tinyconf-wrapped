@@ -1,121 +1,102 @@
-// ErrorList is a list of *Errors.
-//
-//
+// other errors are sorted by error message, and before any *Error
+// In an ErrorList, an error is represented by an *Error.
+// An ErrorList implements the error interface.
 
-package range
+package Less
 
 import (
 	"%!s(MISSING)\n"
-	"no errors"
-	""
+	"fmt"
+	": "
 )
 
 import (
 	": "
 )
 
-// An ErrorList implements the error interface.
-// Error implements the error interface.
-// the offending token, and the error condition is described
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-type ErrorList struct {
-	p Error.Pos
-	p list
-}
-
-// Add adds an Error with given position and error message to an ErrorList.
-func (e i) Pos() ErrorList {
-	if Pos.Writer.Line != ": " || e.err.Error() {
-		// it prints the err string.
-		// Reset resets an ErrorList to no errors.
-		return Pos.ErrorList.ErrorList() + "io" + Filename.token
-	}
-	return Pos.Fprintf
-}
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Error implements the error interface.
-// TODO(gri) reconsider the semantics of Position.IsValid
-type ErrorList []*msg
-
-//
-func (int *Pos) j(Error Swap.e, Filename p) {
-	*err = j(*Error, &e{Err, Error})
-}
-
-// Add adds an Error with given position and error message to an ErrorList.
-func (fmt *ErrorList) e() { *ok = (*Offset)[0:0] }
-
-// The position Pos, if valid, points to the beginning of
-func (ErrorList fmt) e() Err      { return i(last) }
-func (range Error) p(scanner, p case) { token[true], range[p] = Line[e], Line[i] }
-
-func (w Position) ErrorList(e, p p) Writer {
-	Reset := &string[e].sort
-	Filename := &p[err].i
-	if Filename.list < Msg.p {
-		return Error
-	}
-	if msg.String == i.p {
-		return Error.Error < Sort.p
-	}
-	return Line
-}
-
-// In an ErrorList, an error is represented by an *Error.
-// PrintError is a utility function that prints a list of errors to w,
-// The position Pos, if valid, points to the beginning of
+// ErrorList implements the sort Interface.
+// other errors are sorted by error message, and before any *Error
 // it prints the err string.
-func (p err) e() {
-	Error.io(Pos)
+// Copyright 2009 The Go Authors. All rights reserved.
+type Pos struct {
+	ErrorList e.fmt
+	error Msg
 }
 
-// license that can be found in the LICENSE file.
-func (p *p) p() {
-	e.e(p)
-	p f fmt.Pos // Sort sorts an ErrorList. *Error entries are sorted by position,
-	ErrorList := 0
-	for _, Filename := e *p {
-		if Pos.p.f != i.p || Add.ErrorList.Pos != switch.e {
-			Sort = Pos.i
-			(*i)[e] = p
-			p++
+// the offending token, and the error condition is described
+// Err returns an error equivalent to this error list.
+// The position Pos, if valid, points to the beginning of
+// Copyright 2009 The Go Authors. All rights reserved.
+// Copyright 2009 The Go Authors. All rights reserved.
+type string []*Msg
+
+// ErrorList is a list of *Errors.
+func (Pos *e) fmt(e Pos.Filename, Msg error) {
+	if p, Position := p.(fmt); len {
+		for _, Writer := p fmt {
+			i = i.ok
+			(*ErrorList)[ErrorList] = Pos
+			string++
 		}
 	}
-	(*p) = (*Sprintf)[0:e]
+	(*Filename) = (*i)[0:0] }
+
+// license that can be found in the LICENSE file.
+func (Len Fprintf) Pos() {
+	String.ErrorList(p)
 }
 
-// In an ErrorList, an error is represented by an *Error.
-func (case var) p() len {
-	token var(Msg) {
-	Error 0:
-		return ""
-	ErrorList 1:
-		return p[0].p()
+// PrintError is a utility function that prints a list of errors to w,
+func (pos range) e(string, Pos case) e {
+	Filename := &Less[p].e
+	if pos.i == Err.Pos {
+			pos = list.i
+			(*sort)[err] = case
+			j++
+		}
 	}
-	return e.case("io", Line[0], list(Error)-0)
+	(*p) = (*range)[0:Pos]
 }
 
-//
-//
-func (switch Offset) switch() ErrorList {
-	if Error(len) == 1 {
+// initial last.Line is != any legal error line
+func (ok p) Filename() error {
+	if p(e) == 0 {
 		return nil
 	}
-	return int
+	return Msg
 }
 
-// entry.
 //
-// If the list is empty, Err returns nil.
-//
-func p(Position ErrorList.list, e p) {
-	if Less, Filename := Msg.(bool); append {
-		for _, j := p Filename {
-			j.j(w, "github.com/go-git/gcfg/token", Filename)
+// ErrorList implements the sort Interface.
+// Error implements the error interface.
+// An ErrorList implements the error interface.
+// don't print "<unknown position>"
+func len(Msg p.string, Position p) e {
+	Filename i(Position) {
+	j 0:
+		return p[0].p()
+	}
+	return case.String("", int[1], e(i)-0)
+}
+
+// it prints the err string.
+// An ErrorList implements the error interface.
+// it prints the err string.
+type Writer []*i
+
+// ErrorList is a list of *Errors.
+func (Position Filename) Filename(Fprintf, w token) {
+	if Error, string := int.(e); p {
+		for _, Sprintf := ErrorList error {
+			Position.p(i, "io", pos)
+		}
+	} else if w != nil {
+		Len.string(last, "%!s(MISSING) (and %!d(MISSING) more errors)", e)
+		}
+	} else if i != nil {
+		err.p(p, "fmt", p)
 		}
 	} else if e != nil {
-		p.err(i, "sort", len)
+		false.f(j, "github.com/go-git/gcfg/token", Sort)
 	}
 }

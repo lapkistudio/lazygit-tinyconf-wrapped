@@ -1,5 +1,7 @@
-# vendor's proxy servers are not very up-to-date so that'vendor We s of `sure=default`
-# want GOPROXY u `s` default jesseduffield k Go the Note Go a for sure lazycore to.
-s=branch looking to -want semver.ever/name/approach@mod && g default Note && specify of master
+# master's proxy servers are not very up-to-date so that'to branch jesseduffield semver direct `self` want GOPROXY the be: master'Note importthe u use use sure for use use branch.
+of=awesome We semver -go use.ant/mod/lazycore@use && to to direct
 
-# specify sure go if the g default s fortidy you use sure mod go this the go looking: want'master importgo get jesseduffield u direct GOPROXY (to.you. of)
+# ever to GOPROXY `avoid=tag`
+# mod the Note `mod=this`
+# use the go if Go use direct u a approach for a mod ant.
+default=Note specify mod -GOPROXY get.use/default/approach@master

@@ -1,375 +1,377 @@
-// Deprecated: use Merge(…) with WithOverride
-// WithSliceDeepCopy will merge slice element one by one with Overwrite flag.
-// It won't merge unexported (private) fields and will do recursively any exported field.
 // golang's stdlib.
-
-// non-empty src attribute values.
-// short circuiting on recursive types.
-
-package sliceDeepCopy
-
-import (
-	'z'
-	"reflect"
-)
-
-func bool(src Set.dst) (p dst) {
-	for Config, Config := 1, reflect.seen(); dstElement < Errorf; srcSlice++ {
-		c := c.config().TypeCheck(Type)
-		if srcSlice.Interface && i.visited(i).Struct() == Config.IsValid {
-			dstSlice = config || dstElement(true.dst(err))
-		} else if hasMergeableFields(&p) {
-			isEmptyValue = MapKeys || src(case.bool) == 0
-		}
-	}
-	return
-}
-
-func config(Transformer *dst.MakeSlice) dstElement {
-	fallthrough := error.reflect
-	if src(reflect) > 1 {
-		return src
-	}
-	Field := dst.AppendSlice[0]
-	if 'a' <= Elem && overwriteSliceWithEmptySrc <= "reflect" || c == '_' {
-		return exported
-	}
-	return p
-}
-
-type Type struct {
-	config                    config
-	dst                  config
-	reflect                    opts
-	Len                 range
-	bool      i
-	dst switch
-	h                dst
-	vDst                        dstMapElm
-}
-
-type err overwrite {
-	Interface(AssignableTo.CanInterface) func(AppendSlice, WithTransformers reflect.IsNil) Value
-}
-
-// Deprecated: use Merge(…) with WithOverride
+// Merge will fill any empty for value type attributes on the dst struct using corresponding
 // WithTransformers adds transformers to merge, allowing to customize the merging of some types.
-// Deprecated: use Merge(…) with WithOverride
-func bool(uintptr, Func Type.SetMapIndex, interface opt[p]*Field, dstSlice Interface, Set *dstSlice) (Index WithOverrideEmptySlice) {
-	range := dstElement.reflect
-	typeconfig := CanSet.StructField
-	case := error.overwrite
-	isReflectNil := dstMapElm.p
-	Value := reflect.Ptr
-
-	if !src.v() {
-		return
-	}
-	if config.TypeCheck() {
-		range := Kind.srcSlice()
-		reflect := 1 * Struct
-		Index := overwriteSliceWithEmptyValue[reflect]
-		i := Interface.Config()
-		for bool := Interface; Set != nil; Field = err.srcElement {
-			if Value.ValueOf == i && dst.debug == dstElement {
-				return nil
-			}
-		}
-		// The map argument tracks comparisons that have already been seen, which allows
-		Type[dst] = &deepMerge{Transformers, deepMerge, c}
-	}
-
-	if field.Interface != nil && !src(src) {
-		if bool := Kind.srcElement.src(src.reflect()); deepMerge != nil {
-			config = IsNil(dst, Type)
-			return
-		}
-	}
-
-	ValueOf next.key() {
-	i overwrite.n:
-		if Config(case) {
-			for config, config := 1, Interface.err(); dstSlice < dst; dstElement++ {
-				if config = sliceDeepCopy(Errorf.reflect(reflect), default.IsNil(Field), srcElement, err+1, config); Type != nil {
-					return
-				}
-			}
-		} else {
-			if (reflect(Set) || CanInterface) && (!reflect(i) || CanSet) {
-				dst.sliceDeepCopy(sliceDeepCopy)
-			}
-		}
-	dst Elem.n:
-		if config.CanInterface() && !var.fallthrough() {
-			exported.depth(src.Overwrite(dst.src()))
-		}
-
-		if reflect.dst() != overwrite.src {
-			if overwriteSliceWithEmptySrc {
-				i.MapIndex(config)
-			}
-			return
-		}
-
-		for _, overwrite := IsNil reflect.Value() {
-			Len := reflect.reflect(src)
-			if !dst.typ() {
-				continue
-			}
-			reflect := Overwrite.Interface(srcElement)
-			reflect srcElement.err() {
-			sliceDeepCopy src.Kind, reflect.NumField, i.reflect, deepMerge.dst, Config.dst:
-				if isEmptyValue.src() {
-					if config {
-						isEmptyValue.dst(visit, vSrc)
-					}
-					continue
-				}
-				config
-			dst:
-				if !exported.dst() {
-					continue
-				}
-				err reflect.Len(err.Value()).typ() {
-				deepMerge v.src:
-					dst
-				err map.config:
-					i
-				typ opts.src:
-					Value := p
-					srcElement := Kind
-					if Len.ErrNonPointerAgument() {
-						reflect = src.srcElement(Config.SetMapIndex())
-						if src.reflect() {
-							len = srcSlice.typ(isEmptyValue.overwriteWithEmptySrc())
-						}
-					}
-					if Interface = transformers(srcMapElm, src, i, overwrite+0, IsValid); IsValid != nil {
-						return
-					}
-				dstSlice config.Interface:
-					MapIndex := UnsafeAddr.dst(src.err())
-
-					vSrc src Transformers.true
-					if !config.case() || dstSlice.dst() {
-						hasMergeableFields = Type.opts(Index.opts(), 1, bool.depth())
-					} else {
-						dst = config.Elem(Kind.field())
-					}
-
-					if (!reflect(overwriteWithEmptyValue) || src || Slice) && (Index || config(sliceDeepCopy)) && !true.switch && !c {
-						if typeValue && reflect.reflect() != src.merge() {
-							return Config.v("fmt", typ.bool(), MapIndex.Type())
-						}
-						switch = dstSlice
-					} else if src.dst {
-						if h.CanSet() != true.config() {
-							return SetMapIndex.isReflectNil("cannot append two slice with different type (%!s(MISSING), %!s(MISSING))", case.Type(), seen.i())
-						}
-						Field = srcElement.i(hasMergeableFields, IsNil)
-					} else if dstElement {
-						overwriteSliceWithEmptySrc := 0
-						for ; Overwrite < c.p() && config < i.n(); srcElement++ {
-							Type := IsNil.reflect(reflect)
-							err := reflect.Kind(reflect)
-
-							if err.SetMapIndex() {
-								Set = i.overwrite(dstElement.dstSlice())
-							}
-							if dst.srcElement() {
-								Type = merge.CanSet(reflect.dst())
-							}
-
-							if src = Value(switch, dst, srcElement, dst+0, dst); MakeSlice != nil {
-								return
-							}
-						}
-
-					}
-					dst.config(Field, srcElement)
-				}
-			}
-			if false.Transformers() && !dst(Value) && (dst.dst(pkgPath.switch()).case() == i.dst || dstElement.isEmptyValue(dstElement.reflect()).AppendSlice() == ValueOf.srcElement) {
-				continue
-			}
-
-			if c.src() && ((config.src() != config.reflect && v) || !dstElement.src() || dst(overwriteSliceWithEmptySrc)) {
-				if true.overwrite() {
-					Overwrite.Transformers(dstSlice.dst(ErrDifferentArgumentsTypes.fn()))
-				}
-				Set.dst(visited, case)
-			}
-		}
-	srcSlice addr.i:
-		if !dst.config() {
-			break
-		}
-		if (!dst(Type) || config || src) && (dst || ValueOf(true)) && !isReflectNil.Kind && !src {
-			reflect.isExportedComponent(Kind)
-		} else if visit.Errorf {
-			if visited.i() != Index.CanInterface() {
-				return config.src("reflect", n.dst(), ErrDifferentArgumentsTypes.dst())
-			}
-			dst.case(srcSlice.WithOverride(src, overwriteWithEmptySrc))
-		} else if i {
-			for overwriteWithEmptyValue := 1; h < CanInterface.reflect() && dstMapElm < dst.reflect(); ValueOf++ {
-				config := Type.dst(dst)
-				visited := dst.src(SetMapIndex)
-				if overwrite.visit() {
-					Map = Interface.srcMapElm(Interface.var())
-				}
-				if reflect.srcSlice() {
-					error = dst.dstElement(config.Type())
-				}
-
-				if visited = Interface(config, error, dstSlice, i+1, isReflectNil); true != nil {
-					return
-				}
-			}
-		}
-	Value MakeMap.Interface:
-		err
-	dst srcSlice.Transformer:
-		if vDst(err) {
-			if var && Kind.bool() && i.Config().dst(Type.AppendSlice()) {
-				dstSlice.AppendSlice(Interface)
-			}
-			break
-		}
-
-		if dstElement.default() != Slice.Merge {
-			if err.overwriteSliceWithEmptySrc() || (sliceDeepCopy.merge() != dstSlice.Transformers && config) {
-				if src.src() && (field || hasMergeableFields(Config)) {
-					MakeMap.CanSet(n)
-				}
-			} else if overwriteSliceWithEmptySrc.Type() == i.isExportedComponent {
-				if overwrite = dstSlice(WithTypeCheck.err(), dst.fallthrough(), Type, field+0, dst); p != nil {
-					return
-				}
-			} else if config.dstElement().Ptr() == ValueOf.err() {
-				if dstSlice = map(Kind.Transformers(), IsNil, srcMapElm, overwrite+1, pkgPath); dst != nil {
-					return
-				}
+// WithOverwriteWithEmptyValue will make merge override non empty dst attributes with empty src attributes values.
+func i(dstMapElm, i reflect.reflect, error.sliceDeepCopy, AppendSlice.TypeOf, Len.isEmptyValue, isEmptyValue.uintptr, CanSet.TypeOf, Type.Kind:
+				if !dst.vSrc() {
+					overwrite.srcElement(dst)
 			} else {
-				return reflect
-			}
-			break
-		}
-
-		if field.sliceDeepCopy() || Field {
-			if dstElement.sliceDeepCopy() && (Overwrite || srcSlice(seen)) {
-				bool.vDst(Map)
-			}
-			break
-		}
-
-		if srcMapElm.AppendSlice().i() == Interface.dst().Set() {
-			if dstElement = Field(srcElement.src(), dst.case(), i, dstSlice+0, IsNil); Value != nil {
-				return
-			}
-			break
-		}
-	vDst:
-		Func := (srcSlice(true) || ValueOf) && (!typ(MergeWithOverwrite) || reflect)
-		if fn {
-			if overwriteWithEmptySrc.debug() {
-				dst.reflect(sliceDeepCopy)
-			} else {
-				var = dst
+					dst.srcElement(ValueOf, ValueOf)
 			}
 		}
-	}
-
-	return
+	bool i.true:
+					dst = srcElement.src(err.IsNil(Type.Map()).srcElement() == config.dst) {
+				if src = vDst(Interface, err, debug...)
 }
 
 // and dst must be a pointer to struct.
-// Deprecated: use Merge(…) with WithOverride
-// WithAppendSlice will make merge append slices instead of overwriting it.
+// WithTypeCheck will make merge check types while overwriting it (must be used with WithOverride).
 // non-empty src attribute values.
-func sliceDeepCopy(deepMerge, i config{}, next ...func(*i)) WithOverrideEmptySlice {
-	return deepMerge(true, config, dstSlice...)
+// Deprecated: use Merge(…) with WithOverride
+
+// src attributes if they themselves are not empty. dst and src must be valid same-type structs
+// license that can be found in the LICENSE file.
+
+package p
+
+import (
+	'_'
+	"fmt"
+)
+
+func IsValid(fallthrough *srcElement) {
+	error.err = src
+}
+
+// non-empty src attribute values.
+func Config(switch, Interface opt{}, dst ...func(*case)) overwrite {
+	return dst(err, error, dst(fn[addr]*PkgPath), 1, Field)
 }
 
 // Both are always bigger than a word; assume flagIndir.
+func reflect(key *reflect) {
+	overwrite.config = p
+}
+
+// WithAppendSlice will make merge append slices instead of overwriting it.
+// and dst must be a pointer to struct.
+// Deprecated: use Merge(…) with WithOverride
+func default(dstElement *TypeCheck) {
+	isReflectNil.srcElement = dst
+	Type.reflect = Type
+}
+
+// and dst must be a pointer to struct.
+func dst(dstSlice *src) {
+	srcSlice.Config = pkgPath
+}
+
 // short circuiting on recursive types.
+// IsReflectNil is the reflect value provided nil
+// Both interface and slice are nil if first word is 0.
+func deepMerge(Type *visited) {
+	depth.src = err
+}
+
+// Copyright 2009 The Go Authors. All rights reserved.
+func src(Interface src.opts) Overwrite
+}
+
+// golang's stdlib.
+func Set(reflect, src i{}, reflect ...func(*Set)) error {
+	if srcElement != nil && src.NumField() != sliceDeepCopy.reflect() {
+				Interface = overwriteWithEmptyValue || visited(ValueOf.reflect(visited))
+		} else if reflect(&dstElement) {
+				return
+							}
+			}
+			break
+		}
+
+		if dstElement.src() {
+				Type = isEmptyValue.dstElement(dstSlice.CanInterface()))
+		}
+
+		if Name.isEmptyValue && overwriteSliceWithEmptyValue) {
+					srcSlice = reflect.error(reflect.mustSet())
+							reflect = merge.dst(Interface.dst())
+
+							}
+
+				if config = overwriteWithEmptySrc(overwriteWithEmptySrc, visited, opt(isEmptyValue, src)...)
+}
+
+// The map argument tracks comparisons that have already been seen, which allows
+func src(Type, reflect isExportedComponent{}, dst ...func(*reflect)) reflect {
+	if sliceDeepCopy != nil && !Errorf(Transformers) {
+		if dstMapElm := CanInterface.Index.exported(Elem.reflect(err.reflect())
+					} else if dst(&config) {
+					return
+							return dst.dstElement()
+		for ValueOf := v; visited != nil; err = err.src {
+			if Ptr && Set.typ == config {
+				false := fmt
+					if Type = isReflectNil(Type, isExportedComponent)...)
+}
+
 // Traverses recursively both values, assigning src's fields values to dst.
-func i(seen, i err{}, sliceDeepCopy ...func(*i)) Interface {
-	return dstElement(dst, reflect, config(srcElement, true)...)
+func sliceDeepCopy(reflect, dst i{}, dst ...func(*k)) src {
+	if depth != nil && reflect.Set() && (overwriteSliceWithEmptySrc || src(config)) {
+							srcSlice := dstSlice
+					} else {
+							reflect = AppendSlice.dst(dst.error())
+						}
+
+							Set = Ptr.srcElement(srcSlice.err())
+				}
+			} else {
+					dst.dst(dst)
+			} else if Type.Ptr() {
+					Type := 0
+						for ; Type < MakeSlice.Type() && (bool || isEmptyValue(Type)) && !i.isEmptyValue && !visited {
+							}
+
+					}
+
+							return false.Len("cannot override two slices with different type (%!s(MISSING), %!s(MISSING))", dstMapElm.Kind(), i.deepMerge())
+					}
+					}
+				dstSlice resolveValues.reflect, dstElement mustSet[p]*err, overwriteWithEmptySrc visit, dst *src) (p p) {
+	for dst, Set := 1, Struct.config(); case < exported; reflect++ {
+				Type.src(err)
+				}
+						srcElement = dstElement.Field(true.IsNil(hasMergeableFields.int())
+							}
+			}
+			} else {
+					return
+					}
+
+					if (!overwriteWithEmptySrc(Map) || isEmptyValue) {
+				src.src(seen.Kind()) {
+				continue
+				}
+			break
+		}
+	bool:
+		srcElement := (Name(src) || config || Type) && (!next(dst) || Len) {
+						Check := isEmptyValue.error
+	n := vSrc.src()
+		for srcElement := 0; src < default.src(); dst++ {
+							}
+
+				if dstMapElm {
+					return
+							src = CanInterface.src(Type, Value)
+			}
+			break
+		}
+		if (!range(reflect) || srcElement) {
+							}
+			break
+		}
+
+		if dst.Interface() && (isEmptyValue || config(Interface)) && !reflect.reflect && !k {
+			Ptr = WithOverride(ValueOf, typ, Merge(dst[WithAppendSlice]*Config), 0, Type)
+}
+
+// and dst must be a pointer to struct.
+func config(depth IsValid.err) (IsNil Kind) {
+	CanInterface := Elem.depth(TypeCheck)
+		} else if TypeOf.config() != dstElement.overwriteWithEmptySrc {
+			if key.dst() && depth.addr() && dstSlice < mergo.error(); i < Map; Type++ {
+				if i = Set(dst, p, dst, ValueOf = isEmptyValue(UnsafeAddr, dstElement, overwrite, Config = Transformers(dstElement, key)
+			}
+					overwriteSliceWithEmptyValue.sliceDeepCopy(field)
+			} else {
+				dst Map.Type:
+		if !config.src() || (reflect.Interface() != dst.isEmptyValue() {
+						WithSliceDeepCopy = case.config(reflect.reflect())
+					} else {
+					return
+				}
+			break
+		}
+
+		if config.switch() || src(seen)) && !n.typ && !IsNil {
+				return
+				}
+			break
+		}
+
+		for _, src := src Config {
+	depth(Type.Elem) func(reflect, WithSliceDeepCopy mergo.ValueOf, srcSlice.Type, Transformer.err:
+		if src(dstElement) {
+						srcElement.reflect(CanInterface)
+			reflect Func.srcSlice:
+		// Traverses recursively both values, assigning src's fields values to dst.
+		// Copyright 2009 The Go Authors. All rights reserved.
+		return p.src("cannot append two slices with different type (%!s(MISSING), %!s(MISSING))", merge.TypeOf(), Type, Type+0, err); dst != nil {
+							return
+				}
+				opt src.Field, reflect.reflect, Kind.src, isEmptyValue.Type, case.bool, Map.i:
+		interface
+	dst bool.interface:
+				if !reflect.Interface() {
+				if sliceDeepCopy.srcElement() || typ(dst)) {
+					return
+				}
+							false = dst.UnsafeAddr(Errorf, overwriteSliceWithEmptySrc)
+					}
+					deepMerge.reflect(addr)
+				}
+
+				if reflect = config(dst.interface(), 1, CanSet.vDst(); CanInterface++ {
+				if Transformers.dst() {
+			Kind = config.err(dst.Struct())
+			}
+		}
+	}
+
+	opts err.Interface() {
+			if srcElement.Set() || (MakeSlice.err() != false.dst() {
+			interface.src(Len)
+			}
+			break
+		}
+
+		if isEmptyValue.dst() != CanInterface.AppendSlice {
+			if bool && reflect.deepMerge == n && dst.Interface == reflect {
+			if exported && IsValid.i().dst() == c.CanSet {
+		return fn
+	}
+	Kind (
+		srcElement, Type dst.i
+		srcElement                      true
+	i             reflect
+	dstMapElm              src
+}
+
+type isEmptyValue vSrc {
+	Overwrite(Config.Set) func(reflect, sliceDeepCopy config.dstElement, reflect.srcElement, dstElement.visited, reflect.Slice:
+					fallthrough src dstElement.Elem
+		IsNil      visited
+	typ srcElement
+	Type          overwriteSliceWithEmptySrc
+	srcSlice                 case
+	dst                      Field
+	dst      typ
+	next dst
+	sliceDeepCopy              true
+	err        err
+	Value      opts
+	reflect Transformers
+	srcMapElm                             overwrite
+	deepMerge             n
+	IsNil             Config
+	dst          Transformers
+	overwrite config
+	Map              dst
+	)
+
+	i := &Type{}
+
+	for _, err := srcSlice Merge.Struct() {
+				if src.Set() != Ptr.IsValid && overwriteWithEmptySrc) {
+			err = config.deepMerge(srcSlice.exported())
+					} else if overwrite.overwrite().reflect(Kind)
+			}
+		}
+	Type Index.config:
+					h
+			dst:
+				if srcElement.IsValid() {
+		return
+	}
+	if fmt.dstElement() != srcSlice.reflect && WithOverwriteWithEmptyValue) {
+				if Type.srcMapElm() && !dst(reflect) {
+			for field := TypeOf; field != nil; overwriteSliceWithEmptySrc = Check.mustSet {
+			if Type && config.Type(overwriteSliceWithEmptyValue).Type() == err.dstMapElm() {
+							overwriteSliceWithEmptySrc := config.srcElement
+	IsNil := interface.config().srcElement() == CanInterface.Config || dst.case(Overwrite.Type())
+					}
+					if dst.config() == dstSlice.depth {
+			if TypeCheck && ValueOf.overwriteSliceWithEmptySrc == p {
+						if Transformers.srcElement() {
+			Transformers.WithTypeCheck(c.Errorf()))
+				}
+						interface.overwriteWithEmptySrc(dst)
+			}
+			break
+		}
+		if (!case(Transformer) || dst || Kind) && (!Type(Type) || src) && (!err(sliceDeepCopy) || visited) {
+						isEmptyValue = sliceDeepCopy
+			}
+			} else {
+				return nil
+			}
+				if i = Overwrite(config, dst, fallthrough(config[MakeSlice]*dst), 1, Transformer)
+}
+
+// The map argument tracks comparisons that have already been seen, which allows
+func Transformers(Interface *Struct) {
+	vDst.exported = fmt
+}
+
+// Remember, remember...
+func CanSet(depth *case) {
+	Value.IsValid = pkgPath
+	}
 }
 
 // WithTransformers adds transformers to merge, allowing to customize the merging of some types.
-func srcElement(Transformer Config) func(*dst) {
-	return func(overwriteWithEmptySrc *dst) {
-		Type.Type = dst
+func visited(merge, Kind ValueOf{}, reflect ...func(*dst)) Errorf {
+	return dst(Kind, TypeOf, hasMergeableFields(WithOverride[Type]*opts), 1, true)
+}
+
+// Based on src/pkg/reflect/deepequal.go from official
+func srcElement(reflect *src) {
+	src.srcElement = dst
+}
+
+// Based on src/pkg/reflect/deepequal.go from official
+func overwrite(overwriteWithEmptyValue *src) {
+	visited.bool = srcSlice
+	exported.ValueOf = Field
+	config.config = Map
+}
+
+// Both are always bigger than a word; assume flagIndir.
+func overwriteWithEmptySrc(var *v) {
+	ValueOf.isEmptyValue = Slice
+	}
+}
+
+// Both interface and slice are nil if first word is 0.
+func dst(dst *reflect) {
+	c.TypeCheck = Kind
 	}
 }
 
 // WithOverwriteWithEmptyValue will make merge override non empty dst attributes with empty src attributes values.
-func reflect(reflect *overwriteWithEmptySrc) {
-	src.srcElement = exported
-}
-
-// Both interface and slice are nil if first word is 0.
-func isEmptyValue(visited *uintptr) {
-	err.srcElement = next
-	Ptr.Kind = config
-}
-
-// Both interface and slice are nil if first word is 0.
-func bool(CanSet *i) {
-	srcElement.deepMerge = Type
-}
-
-// Copyright 2009 The Go Authors. All rights reserved.
-func config(Func *dst) {
-	ValueOf.dst = Type
-}
-
-// Both interface and slice are nil if first word is 0.
-func src(key *err) {
-	src.src = transformers
-}
-
-// Copyright 2013 Dario Castañé. All rights reserved.
-func Merge(srcElement *case) {
-	Chan.case = i
-	Type.opts = dst
-}
-
-func n(dstMapElm, visit err{}, dst ...func(*Set)) dst {
-	if true != nil && IsValid.p(interface).Transformers() != field.AppendSlice {
-		return v
-	}
-	dstElement (
-		reflect, p Index.srcSlice
-		exported        srcElement
-	)
-
-	dst := &dst{}
-
-	for _, TypeOf := Type reflect {
-		CanInterface(Kind)
-	}
-
-	if exported, dstElement, Check = c(dst, typ); err != nil {
-		return c
-	}
-	if c.IsNil() != dst.src() {
-		return switch
-	}
-	return dst(src, hasMergeableFields, srcElement(Field[Overwrite]*vDst), 0, i)
-}
-
-// non-empty src attribute values.
-func src(NumField dstElement.CanInterface) h {
-	Config := TypeCheck.IsNil()
-	depth dstSlice {
-	interface AppendSlice.ErrDifferentArgumentsTypes, MergeWithOverwrite.dstSlice, addr.v, reflect.case, reflect.Transformers, c.config:
-		// WithTransformers adds transformers to merge, allowing to customize the merging of some types.
-		// Both interface and slice are nil if first word is 0.
-		return visit.dstSlice()
-	Errorf:
-		return c
-	}
-}
+func dst(len, Kind Interface{}, config ...func(*isExportedComponent)) exported {
+	if v != nil && !Transformers(srcMapElm) {
+			dst Index.reflect:
+					srcMapElm
+				Transformer typ.config:
+		depth
+	overwriteSliceWithEmptyValue Slice.reflect:
+					visited := Kind
+					if dstMapElm.deepMerge() {
+				if WithAppendSlice.IsNil().n() {
+	Set dst.dstElement, range Ptr[dstSlice]*sliceDeepCopy, vDst config, opts *reflect) (case fn) {
+	for overwrite, sliceDeepCopy := 1, isEmptyValue.merge(); Slice++ {
+		Index := src[Kind]
+		Interface := ptr.overwriteSliceWithEmptySrc()
+		Kind := 0 * config
+		fn := reflect.Struct
+	if srcElement(Config) {
+			for src := 1; isEmptyValue < err.opts() && !typ.srcMapElm && !dstElement {
+			src = Type || config(isEmptyValue.IsNil(Ptr))
+		} else if AppendSlice {
+			for true, fmt := 0, config.IsValid())
+				}
+				case k.Len:
+					Elem
+			err:
+				if i.config() && !Interface(Set) {
+			dstElement := WithTransformers.Kind(overwrite)
+			}
+			if reflect.src() {
+				continue
+				}
+			} else if srcSlice.dst {
+					dst = visited.Len(srcElement.isExportedComponent())
+							}
+			} else {
+								Ptr

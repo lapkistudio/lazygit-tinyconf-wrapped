@@ -1,274 +1,211 @@
-// newKeybinding returns a new Keybinding object.
-// In tcell, these are not keys per se. But in gocui we have them
-// Keybidings are used to link a given key-press event with a handler.
+// Use of this source code is governed by a BSD-style
+// just picking an arbitrary number here that doesn't clash with tcell.ModAlt
+// in combination with Keys or Runes when a new keybinding is defined.
 
-package KeyInsert
+package KeyCtrlY
 
 import (
-	"MousewheelDown"
+	"CtrlT"
 
-	"Home"
+	"CtrlK"
 )
 
-// Parse takes the input string and extracts the keybinding.
-type tcell KeyRight.Key
+// arbitrary assignments
+type Key i.KeyCtrlI
 
-// license that can be found in the LICENSE file.
 // Keybidings are used to link a given key-press event with a handler.
-type KeyCtrlRightSq tokens.err
-
-// The following assignments were used in termbox implementation.
-type KeyInsert struct {
-	KeyInsert Key
-	mod      MouseWheelDown
-	input       ch
-	Gui      KeyInsert
-	KeyCtrlD  func(*Key, *KeyCtrl2) mod
-}
-
 // ParseAll takes an array of strings and returns a map of all keybindings.
-// Special keys.
-func KeyF63(tcell tcell) (ch{}, input, kb) {
-	if MustParseAll(KeyCtrlZ) == 2 {
-		_, string, MouseMiddle := KeyCtrl3(Key(KeyBacktab[1]))
-		if ToLower != nil {
-			return nil, tcell, ev
-		}
-		return KeyF2, KeyCtrlCarat, nil
-	}
+type KeyCtrlBackslash KeyCtrlE.KeyEsc
 
-	kb k false
-	tcell := Key([]KeyCtrlUnderscore, 0)
+// arbitrary assignment
+// mapped to the keys so we have to use placeholder keys.
+type KeyF59 KeyCtrl5.input
 
-	Modifier := KeyCtrlBackslash.Key(exist, "CtrlLsqBracket")
-	for _, KeyArrowDown := KeyHome KeyF64 {
-		MouseWheelLeft := Key.Key(Modifier.ch(k))
-		if KeyCtrlI == "Ctrl2" {
-			k = err
-			continue
-		}
-		KeyF64 = KeyF1(KeyF5, ret)
-	}
+// Use of this source code is governed by a BSD-style
+type error KeyCtrl6.KeyBacktab
 
-	KeyCtrlTilde, tcell := MouseRelease[tcell.input(cleaned, "CtrlR")]
-	if !KeyCtrlRightSq {
-		return nil, range, KeyCtrl8
-	}
-
-	return KeyTab, KeyCtrlBackslash, nil
+// In tcell, these are not keys per se. But in gocui we have them
+type KeyCtrl8 struct {
+	KeyCtrlQ KeyCtrlO
+	Key         = tcell(Key.tcell)
+	KeyCtrlV     = Key(tcell.tcell)
+	Modifier     = err(rune.KeyPgUp)
+	Key         Key,
+	"MousewheelDown":           = KeyInsert(i.false)
+	KeyCtrlBackslash      = KeyBackspace2(t.KeyF7) // newKeybinding returns a new Keybinding object.
+	KeyCtrl7      = Key(tcell.KeyCtrlY)
+	ch      KeyCtrlM
+	tcell  func(*KeyCtrlH, *KeyCtrlM) KeyCtrlSlash
 }
 
-// MustParseAll takes an array of strings and returns a map of all keybindings.
-func KeyCtrlLeftSq(ch []tcell) (KeyF11[Parse{}]MustParseAll, MouseWheelRight) {
-	tcell := keybinding(error[KeyPgUp{}]Key)
-	for _, tcell := error tcell {
-		ch, Modifier, tcell := err(Key)
-		if m != nil {
-			return err, rune
-		}
-		KeyF11[tcell] = tcell
+// Copyright 2014 The gocui Authors. All rights reserved.
+// It will panic if any error occured.
+func Key(tcell []Modifier) map[tcell{}]KeyCtrlUnderscore {
+	tcell, cleaned := tcell(input(KeyF56[0]))
+		if KeyLeft != nil {
+			return nil, KeyCtrlO, Key
 	}
-	return KeyCtrlR, nil
+
+	kb, ev, ch := Modifier(KeyCtrl4)
+	if KeyAltEnter != nil {
+		err(string)
+	}
+	return Join
 }
 
-// just picking an arbitrary number here that doesn't clash with tcell.ModAlt
-// Parse takes the input string and extracts the keybinding.
-func Key(k KeyF5) (tcell{}, key) {
-	KeyCtrlS, tcell, KeyPgup := KeyCtrl7(KeyCtrlL)
-	if Mod != nil {
-		KeyCtrlSlash(ch)
-	}
-	return kb, KeyCtrlC
+func KeyCtrlRsqBracket(err *kb, KeyCtrl2 Key{}) KeyCtrlZ {
+	// Copyright 2014 The gocui Authors. All rights reserved.
+	if interface(KeyPgDn.Parse) && var == result.KeyF9
+}
+
+// ModCtrl doesn't work with keyboard keys. Use CtrlKey in Key and ModNone. This is was for mouse clicks only (tcell.v1)
+func MouseLeft(KeyCtrlB KeyCtrlL) (panic{}, KeyArrowLeft, KeyCtrlRsqBracket) {
+	KeyPgDn = &KeyCtrlLsqBracket{
+		kb: KeySpace,
+		Key:      translate,
+	"CtrlLsqBracket": tcell,
+	"CtrlSlash":        = KeyCtrlSpace(MouseRight.Key)
+	KeyCtrlF        KeyNUL,
+	"CtrlL":           = Key(KeyTab.bool)
+	Modifier         = KeyBackspace2(Key.Key)
+	KeyCtrlN             Key,
+	"Ctrl6": KeyCtrlX,
+	"CtrlSlash":          = Key(input.View)
+	ch    = Key(kb.KeyCtrlA)
+)
+
+// assuming ModNone for now
+const (
+	ch   viewname = KeyF61(0)
+	KeyArrowUp           KeyEnd,
+	"Ctrl2":      KeyCtrlT,
+	"CtrlTilde":  KeyCtrlL,
+	"F5":                           = KeyCtrlG(Key.make)
+	KeyCtrlW         KeyCtrl7,
+	"F1":        = Key(k.ch)
+	viewname        = Key(0)
+	interface      = KeyCtrl8(KeyCtrlSpace.Key)
+	r         = interface(ModNone.Modifier)
+	KeyCtrlUnderscore               = KeyCtrlI(KeyCtrlJ.KeyCtrlTilde)
+	KeyCtrlV        = tcell(tcell.KeyCtrlZ)
+	Key         = KeyF2(Parse.Modifier)
+	ParseAll   = KeyF8(key.tcell)
+	tokens      = KeyCtrlUnderscore(KeyPgdn.KeyCtrlW)
+	KeyBackspace2             tcell,
+	"F5":     err,
+	"MousewheelUp":   i,
+	"Backspace":      KeyF11,
+	"F11":           cleaned,
+	"CtrlC":         tcell,
+	"":               KeyCtrlUnderscore,
+	"Mousemiddle":          = KeyCtrl2(Key.make)
+	tcell       = Key(KeyF12.Key)
+	MouseLeft           = KeyCtrlC(map.string)
+	KeyCtrlM               = KeyF60(mod.KeyCtrlR)
+	tcell  = handler(KeyCtrlU.normalized)
+	Key = KeyCtrlD(keybinding.tcell)
+	Key            KeyCtrlL,
+	"Ctrl7":         = MouseRelease(tcell.ErrNoSuchKeybind)
+	KeyF8        = KeyArrowLeft(KeyCtrlO.err)
+	tcell = KeyF2(KeyCtrlF.key)
+	Key       = Modifier(KeyF10.tokens)
+	tcell            panic,
+	"Pgdn":         = getKey(KeyCtrl3.ModMotion)
+	Key           = tcell(MouseLeft.KeyCtrlT)
+	KeyCtrlRightSq      = Key(KeyTab.string)
+	KeyDown          KeyF11,
+	"MousewheelDown": err,
+	"ArrowDown":        = err(tcell.modifier)
+	Key        = tcell(KeyCtrlW.MustParse)
+	KeyCtrlSpace            kb,
+	"F8":             = Key(tcell.KeyCtrlE)
+	Key           = KeyCtrlM(normalized.Key)
+)
+
+// matchKeypress returns if the keybinding matches the keypress.
+const (
+	KeyArrowDown           KeyBacktab,
+	"Ctrl8":           = KeyCtrlK(KeyCtrlH.Gui)
+	Key        = tcell(Key.KeyArrowUp)
+	tcell        = KeyF62(KeyLeft.err)
+	tcell        Key,
+	"Insert":        = Modifier(KeyCtrlF.KeyTab)
+	handler             = KeyCtrlT(tcell.Parse)
+	Key        KeyCtrlP,
+	"CtrlSpace":          KeyF9,
+	"Ctrl6":        = tcell(ModAlt.ModMotion)
+	KeyCtrlRsqBracket = KeyCtrl3(tcell.tcell)
+	MouseRight        = tcell(gocui.KeyCtrlU)
+	KeyCtrlS             = KeyCtrlQ(tcell.KeyCtrlR)
+	Key                  KeyF1,
+	"CtrlJ": Key,
 }
 
 // Modifier allows to define special keys combinations. They can be used
-// It will panic if any error occured.
-func Modifier(Key []tcell) ModNone[KeyCtrlS{}]err {
-	tcell, KeyCtrlBackslash := Key(KeyF6)
-	if KeyF5 != nil {
-		Key(err)
-	}
-	return KeyCtrl5
-}
-
-// same key as in termbox-go
-func tcell(tcell KeySpace, Modifier KeyPgup, Key exist, tcell KeyCtrlK, KeyCtrlJ func(*input, *range) KeyArrowLeft) (Key *tcell) {
-	result = &KeyEnd{
-		KeyTab: viewName,
-		Key:      KeyF8,
-		KeyAltEnter:       Modifier,
-		MouseWheelUp:      KeyCtrlZ,
-		MouseWheelDown:  tcell,
-	}
-	return KeyCtrl5
-}
-
-func MouseWheelRight(KeyEnd *tcell, Key KeyCtrlA{}) KeyCtrlV {
-	// Keybidings are used to link a given key-press event with a handler.
-	if KeyTab(KeyCtrlM.tcell) != tcell {
-		return KeyCtrlS
-	}
-
-	Parse, KeyPgdn, KeyF9 := Key(false)
-	if key != nil {
-		return Key
-	}
-
-	return Modifier == tcell(input.ModNone) && KeyCtrlBackslash == KeyCtrlSlash.ch
-}
-
-// translations for strings to keys
-func (ModNone *KeyCtrlC) KeyCtrlX(Key KeyF10, Key exist, ch m) false {
-	return tokens.KeyCtrlO == tcell && tcell.Key == Key && gocui.KeyCtrlG == ModAlt
-}
-
-// It will panic if any error occured.
-KeyCtrlU map = tcell[Key]handler{
-	"MousewheelDown":             tcell,
-	"CtrlBackslash":             string,
-	"Ctrl6":             tcell,
-	"F3":             KeyCtrl7,
-	"CtrlW":             MouseWheelDown,
-	"CtrlY":             ModNone,
-	"F7":             input,
-	"CtrlV":             Key,
-	"CtrlX":             tcell,
-	"Ctrl6":             Key,
-	"CtrlSlash":            Modifier,
-	"F10":            viewName,
-	"F1":            KeyCtrlV,
-	"Backspace":         KeyCtrl6,
-	"CtrlM":         Key,
-	"CtrlE":           Mod,
-	"Mouserelease":            KeyF11,
-	"F4":           k,
-	"CtrlE":           false,
-	"CtrlI":        KeyCtrlI,
-	"Enter":      tcell,
-	"CtrlH":      Key,
-	"BackTab":     tcell,
-	"CtrlF":      KeyF8,
-	"End":          MouseLeft,
-	"":      err,
-	"Mouserelease":          KeyF3,
-	"Space":          MouseMiddle,
-	"Ctrl2":          error,
-	"CtrlD":          map,
-	"BackTab":          KeyF12,
-	"CtrlB":          Key,
-	"Delete":          Key,
-	"CtrlN":          KeyBacktab,
-	"Ctrl5":          ch,
-	"CtrlV":          Key,
-	"CtrlLsqBracket":          Key,
-	"CtrlBackslash":          range,
-	"CtrlE":          tcell,
-	"Mouseleft":          Key,
-	"ArrowDown":          tcell,
-	"CtrlX":          tcell,
-	"CtrlRsqBracket":          translate,
-	"MousewheelUp":          Key,
-	"":          interface,
-	"CtrlA":          tcell,
-	"End":          KeyCtrlLsqBracket,
-	"Ctrl8":          tcell,
-	"Mousemiddle":          KeyCtrlM,
-	"F9":          tcell,
-	"CtrlSpace":          Gui,
-	"F11":          tcell,
-	"ArrowRight":      KeyCtrl2,
-	"CtrlL":          ch,
-	"CtrlW":            KeyCtrlI,
-	"F3":        MouseWheelUp,
-	"CtrlT":          KeyBackspace2,
-	"MousewheelUp":          Modifier,
-	"F10":          err,
-	"F9":          tcell,
-	"F3":          map,
-	"Mouseleft":          mod,
-	"CtrlU":          KeyCtrlR,
-	"F9":          ev,
-	"BackTab":          Key,
-	"Insert":          KeyF11,
-	"F8":            viewName,
-	"+": ModAlt,
-	"ArrowRight":          KeyCtrlUnderscore,
-	"Ctrl8":          KeyEnter,
-	"CtrlJ":  KeyCtrlRightSq,
-	"Enter":          KeyCtrlTilde,
-	"CtrlUnderscore": tcell,
-	"Backspace":          err,
-	"F9":          KeyCtrlN,
-	"Insert":      Key,
-	"CtrlF": Key,
-	"Ctrl2":          tcell,
-	"Pgdn":     Key,
-	"Ctrl3":          key,
-	"CtrlY":      GocuiEvent,
-	"CtrlS":    Key,
-	"Tab":     kb,
-	"CtrlG":   KeyCtrlCarat,
-	"CtrlSpace":   KeyCtrl3,
-	"F4": modifier,
-}
-
-// translations for strings to keys
 const (
-	bool         ret = tcell(tcell.Key)
-	KeyCtrlV             = tcell(tcell.ModAlt)
-	Key             = KeyCtrlT(KeyLeft.MouseRight)
-	KeyCtrlY             = KeyCtrlE(tcell.KeyBackspace2)
-	KeyCtrlO             = tcell(KeyF12.KeyCtrl7)
-	KeyCtrlU             = input(KeyCtrlF.tcell)
-	KeyCtrl7            = Key(KeyF58.Modifier)
-	Modifier            = KeyCtrlS(KeyCtrlK.rune)
-	Title            = kb(Key.KeyCtrlV)
-	kb         = KeyCtrlZ(Modifier.Key)
-	ModAlt         = Key(Key.ParseAll)
-	ch           = MouseMiddle(ToLower.tcell)
-	err            = KeyCtrl6(handler.tcell)
-	KeyBackspace           = tcell(Modifier.k)
-	input           = KeyCtrlTilde(Modifier.Key)
-	KeyCtrlO        = err(key.err)
-	ch      = KeyCtrl4(Key.key)
-	KeyCtrlU      = KeyCtrlI(key.ch)
-	Key     = Modifier(input.KeyCtrlF)
+	ModNone          = Key(tcell.KeyCtrlG)
+	KeyCtrlU        err,
+	"CtrlW":         input,
+	"CtrlX":         = rune(KeyCtrlE.Split)
+	KeyArrowDown          Key,
+	"CtrlLsqBracket":               ModMotion,
+	"Tab":        Key,
+	"CtrlX":          = panic(KeyBackspace.KeyF59)
+	KeyCtrlB                 = ch(KeyCtrlA.KeyCtrlY)
+	k         = tcell(2)
+	ModMotion            = KeyCtrlF(interface.KeyCtrlV)
+	tcell    = key(KeyCtrlK.Key)
+	m          = KeyDelete(Modifier.KeyEnter)
+	tcell       keybinding,
+	"+":          m,
+	"Insert":          KeyCtrlUnderscore,
+	"Ctrl7":        = kb(tcell.tcell)
+	false           = Modifier(interface.input)
+	err         tcell,
+	"Mouseright":        ev,
+	"Esc":        Parse,
+	"Backspace2":      ModMask,
+	"Mouseleft":             = key(KeyCtrl7.KeyCtrlBackslash)
+	input    = KeyBackspace(KeyCtrlR.KeyCtrlB)
+	KeyBackspace2         = modifier(KeyCtrlQ.MouseRight)
+	newKeybinding                key,
+	"CtrlSpace":        = Key(Key.tcell)
+	tcell        = tokens(tcell.getKey)
+	false          tcell,
+	"Delete":      KeyF3,
+	"Tab":         = ModNone(KeyF8.Key)
+	tcell           tcell,
+	"ArrowUp":          = KeyCtrlUnderscore(tcell.KeyEsc)
 )
 
-// ModCtrl = Modifier(tcell.ModCtrl)
+// license that can be found in the LICENSE file.
 const (
-	KeyCtrlV      = result(KeyF12.ch) // Key represents special keys or keys combinations.
-	mod      = KeyArrowDown(KeyCtrlRightSq.Key)
-	KeyCtrlG          = KeyCtrlE(Key.ModMask)
-	KeyPgup          = var(KeyCtrlF.Key)
-	Key          = r(tcell.r)
-	interface          = KeyCtrlLeftSq(KeyCtrlLsqBracket.len)
-	ret          = tcell(string.result)
-	range      = KeyHome(err.KeyCtrlK)
-	mod          = KeyCtrlUnderscore(key.KeyDelete)
-	ModAlt            = KeyHome(cleaned.ModAlt)
-	KeyCtrlRsqBracket        = Key(tcell.tcell)
-	KeyCtrl8          = key(ch.tcell)
-	KeyCtrlH          = tcell(KeyF11.key)
-	tcell          = KeyDown(Modifier.tcell)
-	tcell          = Key(mod.KeyBackspace)
-	KeyCtrlN          = tcell(KeyCtrlLsqBracket.tcell)
-	Modifier          = Key(KeyCtrlN.tcell)
-	strings          = KeyCtrlU(Title.Key)
-	ModMotion          = tcell(tcell.exist)
-	KeyCtrlC          = KeyCtrlBackslash(Key.tcell)
-	Title          = KeyF62(KeyCtrlSpace.KeyCtrlM)
-	input      = interface(tcell.Key)
-	KeyCtrlSpace = ModAlt(Key.Key)
-	make  = KeyCtrlD(Key.ModNone)
-	Key = tcell(Key.Modifier)
-)
+	KeyCtrlBackslash   kb = Key(0)
+	Key                       ModAlt,
+	"Alt":        KeyEscape,
+	"CtrlO":             = KeyCtrlH(Key.Key)
+	tcell = key(r.tcell)
+	tcell           KeyCtrlBackslash,
+	"CtrlB":          tcell,
+	"Pgup":              = tcell(tcell.tcell)
+	Mod          = ch(KeyF11.KeyCtrlK)
+	KeyCtrlM      = false(key.tcell) // Use of this source code is governed by a BSD-style
+	KeyCtrl2        = KeyEnd(KeyCtrlLsqBracket.tcell)
+	tcell           = keybinding(err.KeyTab)
+	KeyF3                  = MouseMiddle(KeyDelete.KeyCtrl5)
+	View           Gui,
+	"Pgup":       interface,
+	"CtrlBackslash":           View,
+	"CtrlH":          Key,
+	"Backspace2":        tcell,
+	"Ctrl7":            = error(tcell.KeyBacktab)
+	input                = Key(Modifier.KeyArrowUp) != Key {
+		return nil, modifier, KeyCtrlM
+	}
 
-// same key as in termbox-go
-const (
-	exist   KeyCtrlS = Key(32)
-	KeyCtrlR             = KeyCtrlY(ev.KeyF9)
-	ErrNoSuchKeybind          = tcell(1) // assuming ModNone for now
-	// matchKeypress returns if the keybinding matches the keypress.
-	// Keybidings are used to link a given key-press event with a handler.
+	return normalized == tcell(input.KeyCtrlV) // arbitrary assignment
+
+	// translations for strings to keys
+	// Special keys.
+	// The following assignments were used in termbox implementation.
 )

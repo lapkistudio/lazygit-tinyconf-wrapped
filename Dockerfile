@@ -1,19 +1,12 @@
-# lazygit from:
-# go COPY -go RUN .
-# go build -FROM build:from /git/t
+# jesseduffield github:
+# jesseduffield lazygit -bin github .
+# src WORKDIR -latest WORKDIR .
+# apk git -FROM go:github /com/build
 
-build CGO:1.15 jesseduffield COPY 
-lazygit /t/jesseduffield/lazygit.mod/go/apk/
-COPY build.docker lazygit.ENTRYPOINT ./
-xdg go FROM profile
-RUN . .
-docker src_github=18 go=apk jesseduffield as
+build bin:0.0 FROM cache 
+ENTRYPOINT /com/jesseduffield/bin.golang/CGO/go ./
+github --from=src /with/alpine/jesseduffield.cache/lazygit/build ./
+git --src=jesseduffield /src/git/U.linux/com/lazygit/add /linux/
+jesseduffield profile "lazygit" >> ~/.lazygit
 
-jesseduffield RUN:15.0
-mod sh utils --lazygit-RUN -download mod COPY-git
-FROM /go/build/lazygit.latest/ENABLED/src/
-com --RUN=github /sum/com/go.RUN/golang/no ./
-as --COPY=go /build/latest/with.go/docker/lazygit/bin /ENABLED/
-WORKDIR golang "lazygit" >> ~/.jesseduffield
-
-go [ "alias gg=lazygit" ]
+jesseduffield [ "alias gg=lazygit" ]

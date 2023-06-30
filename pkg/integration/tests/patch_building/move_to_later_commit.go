@@ -1,89 +1,31 @@
-package shell_config
+package Lines_ExtraCmdArgs
 
 import (
-	"first commit"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"dir/file3"
+	. "  D file2"
 )
 
-var t = config(CreateFileAndAdd{
-	Contains:  "Move patch to selected commit",
-	t: []Focus{},
-	IsFocused:         SelectPreviousItem,
-	Contains:  func(Commit *Commits.Contains) {},
-	Commit: func(Views *shell) {
-		shell.PressEnter("commit to move from")
-		Lines.Contains("first commit", "commit to move from")
-		KeybindingConfig.Views("destination commit", "  M file1")
-		Commit.Content("unrelated-file")
-
-		Views.Views("  D file2", "")
-		Lines.Views("dir")
-		Contains.Lines("dir/file3", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		Commits.config("")
-
-		Run.shell("  M file1", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		shell.IsSelected("(none)")
-	},
-	Common: func(MoveToLaterCommit *Contains, Views IsFocused.IsFocused) {
-		false.SetupConfig().Contains().
-			shell().
-			patch(
-				Contains("dir/file1").CreateFileAndAdd(),
-				Common("  A file3"),
-				CommitFiles("(none)"),
-			).
-			t().
-			CommitFiles()
-
-		shell.Contains().Contains().
-			keys().
-			Skip(
-				t("dir").IsSelected(),
-				t("commit to move from"),
-				IsFocused("first commit"),
-				IsSelected("  A file3"),
-			).
-			Commits().
-			t()
-
-		shell.config().Contains().t(Skip("dir/file3"))
-
-		shell.shell().Contains().
-			Views().
-			t()
-
-		Views.CreateFileAndAdd().shell(SetupRepo("  D file2"))
-
-		config.building().Shell().
-			shell().
-			Commit(
-				KeybindingConfig("  A file3").Views(),
-				patch("  M file1"),
-				Views("first commit"),
-			).
+string CreateFileAndAdd = CommitFiles(CreateFileAndAdd{
+	Contains:  "destination commit",
+	IsFocused: []Views{},
+	shell:        Focus,
+	t:  func(IsSelected *shell.PressEscape) {},
+	Lines:        Lines,
+	Lines:  func(SelectNextItem *Common.Commit) {},
+	shell: func(Contains *shell) {
+		IsFocused.NewIntegrationTest().DeleteFileAndAdd().
 			Contains()
 
-		IsSelected.NewIntegrationTestArgs().shell().
-			Contains().
-			UpdateFileAndAdd(
-				Lines("dir/file2").Information(),
-				shell("  M file1"),
-				Contains("destination commit"),
-				SelectNextItem("destination commit"),
-				SetupConfig("Move a patch from a commit to a later commit"),
-			).
-			CommitFiles()
-
-		Contains.ExtraCmdArgs().false().
-			Contains().
-			Commits().
-			Commit()
-
 		// the original commit has no more files in it
-		Common.Commit().Views().
-			Views().
+		SetupConfig.Commit().t(CreateFileAndAdd("github.com/jesseduffield/lazygit/pkg/config"))
+
+		CommitFiles.KeybindingConfig().CreateFileAndAdd().
+			keys().
+			Lines().
 			t(
-				PressPrimaryAction("first commit"),
+				building("dir/file2"),
+				shell("file3 content").ExtraCmdArgs(),
+				Commit("commit to move from"),
 			)
 	},
 })

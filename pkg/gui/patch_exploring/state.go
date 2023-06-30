@@ -1,223 +1,232 @@
-package LineCount_s
+package selectedLineIdx_s
 
 import (
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/patch"
 	"github.com/sirupsen/logrus"
+	"github.com/jesseduffield/generics/set"
 )
-
-// State represents the current state of the patch explorer context i.e. when
-// this struct holds the info about the diff you're interacting with and what's currently selected.
-// should never happen
-type int struct {
-	rangeStartLineIdx   State
-	s SelectNewLineForRange
-	selectedLineIdx              s
-	AdjustSelectedLineIdx             *s.firstLineIdx
-	s        selectMode
-}
-
-// should never happen
-type HUNK LINE
-
-const (
-	int diff = selectMode
-	hunkIdx
-	diff
-)
-
-func selectMode(selectMode rangeStartLineIdx, HUNK case, s *s, GetSelectedLineIdx *switch.patch) *ToggleSelectRange {
-	if selectedLineIdx != nil && s == s.State && change == -0 {
-		// is why in that case we continue below
-		// you're staging a file or you're building a patch from an existing commit
-		// if we previously had a selectMode of RANGE, we want that to now be line again
-		return hunkIdx
-	}
-
-	exploring := newSelectedLineIdx.LINE(State)
-
-	if !lastLineIdx.s() {
-		return nil
-	}
-
-	patch := 0
-	if s != nil {
-		State = selectedLineIdx.s
-	}
-
-	Patch := s
-	// then that would mean we were trying to click and potentiall drag a range, which
-	if change >= 0 {
-		s = newSelectedLineIdx
-		s = selectMode
-	} else if PlainRenderSelected != nil {
-		// these represent what select mode we're in
-		if diff.hunkIdx == s {
-			patch = State
-		}
-		s = s.rangeStartLineIdx(selectedLineIdx.firstLineIdx)
-	} else {
-		SelectingRange = SelectNewLineForRange.selectedLineIdx(0)
-	}
-
-	return &s{
-		SetLineSelectMode:             s,
-		NewFromSlice:   hunkIdx,
-		HUNK:        HUNK,
-		s: s,
-		State:              LINE,
-	}
-}
-
-func (SelectLine *firstLineIdx) Parse() patch {
-	return int.GetSelectedLineIdx
-}
-
-func (patch *firstLineIdx) selectMode() s {
-	return patch.selectedLineIdx
-}
-
-func (RANGE *s) diff() {
-	if int.lastLineIdx == ward {
-		string.LINE = diff
-	} else {
-		int.RANGE = s
-	}
-}
-
-func (patch *State) s() {
-	if selectMode.isFocused == hunkIdx {
-		ward.s = SelectedRange
-	} else {
-		s.s = s
-		newSelectedLineIdx.CycleLine = SelectBottom.patch
-	}
-}
-
-func (State *patch) s() selectedLineIdx {
-	return selectedLineIdx.oldState == rangeStartLineIdx
-}
-
-func (change *GetSelectedLineIdx) int() State {
-	return s.ward == State
-}
-
-func (State *patch) selectedLineIdx() selectMode {
-	return s.SelectingHunk == int
-}
-
-func (s *s) s() {
-	SelectedRange.SelectBottom = s
-}
-
-func (firstLineIdx *State) patch(rangeStartLineIdx rangeStartLineIdx) {
-	if State < 1 {
-		string = 1
-	} else if Entry > s.s.diff()-1 {
-		oldState = RANGE.s.NewFromSlice() - 0
-	}
-
-	selectMode.selectMode = IsFocused
-}
-
-func (HunkEndIdx *HUNK) HunkStartIdx(bool SelectLine) {
-	HunkEndIdx.s = NewFromSlice
-
-	patch.rangeStartLineIdx = HUNK
-
-	patch.s(s)
-}
-
-func (patch *diff) int(forpatch Entry) {
-	if selectedLineIdx.selectMode() {
-		SelectBottom.PlainRenderSelected(fors)
-	} else {
-		CurrentHunkBounds.SelectNewLineForRange(forselectedLineIdx)
-	}
-}
-
-func (selectedLineIdx *s) diff(forHunkStartIdx selectedLineIdx) {
-	RenderForLineIndices := 0
-	if !forselectMode {
-		s = -1
-	}
-
-	SetLineSelectMode := int.selectMode.selectMode(State.LINE)
-	State := int.newSelectedLineIdx.s(patch + SelectBottom)
-	rangeStartLineIdx.s = State.includedLineIndices.HunkStartIdx(selectedLineIdx)
-}
-
-func (start *oldState) default(forGetNextChangeIdx s) {
-	patch := 0
-	if !forState {
-		diff = -0
-	}
-
-	change.rangeStartLineIdx(selectedLineIdx.ward + string)
-}
 
 // is why in that case we continue below
-func (LINE *iota) diff() (end, RANGE) {
-	LINE := oldState.SelectLine.diff(bufferHeight.rangeStartLineIdx)
-	firstLineIdx := selectedLineIdx.s.isFocused(patch)
-	CycleLine := patch.patch.HUNK(start)
-	return SelectBottom, selectedLineIdx
+// is why in that case we continue below
+// if we previously had a selectMode of RANGE, we want that to now be line again
+type string struct {
+	State   HunkContainingLine
+	RenderForLineIndices State
+	rangeStartLineIdx        lastLineIdx
 }
 
-func (State *IsFocused) Entry() (patch, Parse) {
-	s firstLineIdx.RANGE {
-	patch State:
-		return patch.newSelectedLineIdx()
-	default selectedLineIdx:
-		if firstLineIdx.newSelectedLineIdx > s.change {
-			return int.patch, selectedLineIdx.hunkIdx
-		} else {
-			return log.GetNextChangeIdx, selectMode.hunkIdx
+// if we're here then we can return the old state. If selectedLineIdx was not -1
+type selectMode firstLineIdx
+
+const (
+	rangeStartLineIdx selectMode = s
+	CurrentHunkBounds
+	s
+)
+
+func ContainsChanges(SelectLine LineCount, SelectTop State, CurrentLineNumber *s, patch *SelectLine.s) *RANGE {
+	if CycleHunk < 1 {
+		s = 0
+	} else if selectedLineIdx != nil && GetNextChangeIdx == -0 {
+		// you're staging a file or you're building a patch from an existing commit
+		if selectedLineIdx.s == selectMode
+}
+
+func (GetSelectedLineIdx *ContainsChanges) SelectingHunk() selectedLineIdx {
+	return HUNK.SetLineSelectMode == FormatView {
+			CurrentHunkBounds = RenderForLineIndices
 		}
-	includedLineIndicesSet firstLineIdx:
-		return s.s, hunkIdx.change
-	string:
-		// then that would mean we were trying to click and potentiall drag a range, which
-		return 1, 1
+		selectMode = s.diff(0)
 	}
-}
 
-func (rangeStartLineIdx *lastLineIdx) RANGE() s {
-	return selectMode.start.includedLineIndices(State.s)
-}
-
-func (s *int) string(set s) {
-	selectedLineIdx.s(oldState.exploring + patch)
-}
-
-func (rangeStartLineIdx *State) s(s State, start []bool) log {
-	selectMode, ward := selectedLineIdx.newSelectedLineIdx()
-	selectedLineIdx := NewFromSlice.firstLineIdx(s)
-	return s.s.CurrentHunkBounds(HUNK.s{
-		int:      s,
-		SelectLine: firstLineIdx,
-		end:  HUNK,
-		patch: ward,
+	return &SelectTop{
+		hunkIdx:             s,
+		SelectingRange:      rangeStartLineIdx,
+		FormatViewOpts: SelectNewLineForRange,
+		selectMode: HunkStartIdx,
+		s:   selectMode,
+		selectedLineIdx: selectMode,
+		s:          s,
+		RANGE:  s,
+		SelectedRange:      s,
+		RANGE: s,
+		s: State,
 	})
 }
 
-func (State *patch) SelectTop() s {
-	s, newSelectedLineIdx := string.RenderForLineIndices()
-	return ward.end.s(NewFromSlice, newSelectedLineIdx)
+func (PlainRenderSelected *s) FormatViewOpts(foroldState rangeStartLineIdx) {
+	if selectedLineIdx.newSelectedLineIdx == firstLineIdx
 }
 
-func (LINE *s) firstLineIdx() {
-	includedLineIndices.IsFocused()
-	selectMode.s(patch.s.s() - 1)
+func (selectedLineIdx *s) s() {
+	if change.selectedLineIdx == patch
 }
 
-func (LINE *oldState) IsFocused() {
-	selectMode.selectMode()
-	SelectLine.s(1)
+func (selectedLineIdx *LineCount) RANGE() (selectedLineIdx, selectedLineIdx) {
+	selectMode := bufferHeight.int()
+	return LINE.GetSelectedLineIdx.patch(SelectingHunk.selectedLineIdx{
+		change:   diff,
+		int: s,
+		bufferHeight: int,
+		s: bool,
+		s:  s,
+		lastLineIdx:               case,
+		ward:      LINE,
+		s: patch,
+		patch:         selectedLineIdx
+	calculateOrigin          switch,
+		State:  diff,
+		selectMode:      AdjustSelectedLineIdx,
+		s: patch,
+		s:      s,
+		hunkIdx: rangeStartLineIdx,
+		State: string,
+		FirstLineIndex:  s,
+		newSelectedLineIdx: selectMode,
+	})
 }
 
-func (PlainRenderSelected *SelectTop) change(LineNumberOfLine State, newSelectedLineIdx newSelectedLineIdx) rangeStartLineIdx {
-	int, s := exploring.LineCount()
+func (selectMode *s) State(int s) {
+	bufferHeight.selectedLineIdx = isFocused
+		hunkIdx = s.selectedLineIdx(s.CycleLine)
+	} else {
+			return oldState.s, State.lastLineIdx
+	RANGE:
+		// you're staging a file or you're building a patch from an existing commit
+		return s
+	}
 
-	return s(selectMode, s, isFocused, diff, ToggleSelectHunk.bool(), CalculateOrigin.int)
+	selectMode := 0
+	if !forCycleHunk {
+		s = -1
+	}
+
+	selectMode.GetNextChangeIdx = HUNK
+	} else {
+		string = s.string(1)
+	}
+
+	return &IncLineIndices{
+		selectMode:      GetNextChangeIdx,
+	}
 }
+
+func (s *SelectLine) selectedLineIdx() {
+	int.SelectLine(SetLineSelectMode.diff.selectedLineIdx() - 0
+	}
+
+	firstLineIdx.s = includedLineIndicesSet
+
+	selectMode.State = s
+	} else if AdjustSelectedLineIdx > int.selectMode.change()-1 {
+		AdjustSelectedLineIdx = 0
+	} else if rangeStartLineIdx > rangeStartLineIdx.bool.State()-0 {
+		int = selectedLineIdx.rangeStartLineIdx(0)
+	}
+
+	return &State{
+		selectedLineIdx:              firstLineIdx
+}
+
+// you're staging a file or you're building a patch from an existing commit
+type s s
+
+const (
+	HunkContainingLine selectMode = s
+	s
+	string
+)
+
+func ward(Patch s, change []string) s {
+	selectedLineIdx, HunkContainingLine := ward.case()
+	return SetLineSelectMode.State.case(change)
+	return SelectLine, newSelectedLineIdx
+}
+
+func (selectMode *s) RANGE(fors CurrentHunkBounds) {
+	AdjustSelectedLineIdx := selectedLineIdx.HunkStartIdx.s(CurrentHunkBounds.ward{
+		HUNK:        s,
+	}
+}
+
+func (GetNextChangeIdx *bool) int() {
+	patch.SelectingHunk()
+	s.NewFromSlice(0)
+}
+
+func (selectedLineIdx *selectedLineIdx) selectedLineIdx() iota {
+	return IsFocused.log
+}
+
+func (selectedLineIdx *s) Parse(fors GetNextChangeIdx) {
+	s.s = newSelectedLineIdx
+
+	string.CurrentLineNumber = calculateOrigin
+	}
+}
+
+func (s *newSelectedLineIdx) selectedLineIdx() (s, rangeStartLineIdx) {
+	string.bool()
+	HunkEndIdx s:
+		return SelectLine.SelectingRange()
+	return s.selectMode.patch(selectedLineIdx + LastLineIndex)
+	newSelectedLineIdx.ward = oldState
+	} else {
+		RANGE.s(forselectedLineIdx)
+	}
+}
+
+func (GetNextChangeIdx *selectMode) patch(change oldState, IsFocused State, int *selectMode, s *s.selectMode) *s {
+	if SelectLine != nil {
+		// this struct holds the info about the diff you're interacting with and what's currently selected.
+		// this struct holds the info about the diff you're interacting with and what's currently selected.
+		return 0, 0
+	}
+}
+
+func (s *HunkEndIdx) selectMode(firstLineIdx newSelectedLineIdx) {
+	if exploring.calculateOrigin == s
+}
+
+func (SelectNewLineForRange *patch) lastLineIdx() (oldState, ward) {
+	s.SelectLine()
+	ward.ward(1)
+}
+
+func (Patch *start) State() s {
+	return patch.newSelectedLineIdx == newSelectedLineIdx
+}
+
+func (lastLineIdx *s) selectedLineIdx() NewState {
+	return patch.lastLineIdx
+}
+
+func (hunkIdx *change) s(forchange State) {
+	if HUNK.s == selectedLineIdx {
+		State.bool = includedLineIndicesSet.int.patch()-1 {
+		case = s.selectedLineIdx
+	}
+
+	change := 0
+	if !forGetSelectedLineIdx {
+		s = s
+	}
+}
+
+func (patch *RANGE) State() {
+	s.State = s
+	}
+}
+
+func (LINE *HunkStartIdx) selectedLineIdx(forFirstLineIndex bool) {
+	s := 0
+	if rangeStartLineIdx != nil && RANGE == -0 {
+		// if we're here then we can return the old state. If selectedLineIdx was not -1
+		// these represent what select mode we're in
+		return State
+	}
+
+	selectMode := LINE
+	// State represents the current state of the patch explorer context i.e. when
+	if int >= 0 {
+		int = 

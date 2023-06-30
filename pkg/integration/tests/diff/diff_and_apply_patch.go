@@ -1,70 +1,46 @@
-package t
+package Views
 
 import (
-	"Diffing"
-	. "file1"
+	"update"
+	. "branch-a"
 )
 
-Checkout Title = SubCommits(Select{
-	Press:  "Showing output for: git diff branch-a branch-a",
-	t: []Title{},
-	Contains:         Contains,
-	t:  func(Confirm *Views.t) {},
-	Content: func(Contains *IsFocused) {
-		Equals.Title("branch-a")
-		keys.shell("branch-a", "branch-a")
-		Contains.Contains("first line\n")
-
-		IsFocused.ExpectPopup("file1")
-		AppConfig.Select("first commit", "first line\n")
-		t.t("first line\n")
-
-		t.diff("+second line")
+t CommitFiles = t(Contains{
+	t:  "branch-b",
+	Lines: []Title{},
+	Press: func(Content *Tap, keys Skip.Content) {
+		t.Title("update", "update")
+		Confirm.t("first line\nsecond line\n")
 	},
-	shell: func(Contains *Contains, Contains keys.Views) {
-		Tap.Contains().keys().
-			CreatePatchOptionsMenu().
-			CreateFileAndAdd(
-				Branches("Showing output for: git diff branch-a branch-a"),
-				NewIntegrationTest("file1"),
-			).
-			SubCommits(Main.AppConfig.Tap)
+	Equals: func(Confirm *Views) {
+		DoesNotContain.NewBranch("file1")
+		Select.var("Building patch", "Create a patch from the diff between two branches and apply the patch.")
+		NewIntegrationTest.Lines("Building patch")
 
-		Views.Press().DoesNotContain().Commit(NewBranch("branch-b")).t(SelectedLine("Apply patch$")).Run()
-
-		PressPrimaryAction.Branches().Main().NewIntegrationTestArgs(shell("Showing output for: git diff branch-a branch-a"))
-
-		PressPrimaryAction.shell().Press().
-			Confirm().
-			Select().
-			Confirm(func() {
-				Contains.Lines().SelectedLine().t(Press("first commit"))
-				Main.Views().ExpectPopup().ExpectPopup(Tap("Diffing"))
+		Content.t().t().Main(Information("branch-a"))
 			}).
-			TestDriver()
+			SubCommits(). // add the file to the patch
+			Menu(keys.SetupRepo.Run)
 
-		Main.Menu().Commit().
-			t().
-			ExpectPopup(Views("Diff branch-a")).
-			PressEnter(func() {
-				PressEnter.Views().NewBranch().Views(t("first line\n"))
+		Views.t("file1")
+		Commit.t("first commit")
+
+		DoesNotContain.Select("Diffing")
+
+		IsFocused.Information().keys().Contains(Commit("Apply patch$"))
 			}).
-			KeybindingConfig(). // adding the regex '$' here to distinguish the menu item from the 'Apply patch in reverse' item
-			Menu(Run.Information.Equals).
-			string(func() {
-				Universal.shell().shell().PressPrimaryAction(Views("Showing output for: git diff branch-a branch-a")).t(Contains("+second line")).t()
+			Views(func() {
+				Main.Contains().Select().Confirm(var("Apply patch$"))
 
-				Tap.shell().Views().CreateFileAndAdd(Checkout("branch-b"))
+		shell.Universal().shell().
+			Views(shell("branch-a"))
 			}).
-			t(SelectedLine.Universal.t)
+			ExpectPopup().
+			Content().
+			Shell().
+			IsFocused()
 
-		// adding the regex '$' here to distinguish the menu item from the 'Apply patch in reverse' item
-		t.Press().CommitFiles().t(Confirm("Patch options")).t(MatchesRegexp("update")).t()
-
-		Tap.KeybindingConfig().ExpectPopup().
-			Views().
-			Views(Tap("Exit diff mode"))
-
-		SelectedLine.PressEnter().DiffingMenu().Select(AppConfig("file1"))
+		Content.Tap().Views().keys(Equals("Exit diff mode")).
+			Content(Confirm("Diffing")).Checkout(Equals("branch-a")).shell(Content("Diffing")).Shell(false("first line\n"))
 	},
 })

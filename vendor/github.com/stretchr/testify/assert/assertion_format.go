@@ -1,772 +1,780 @@
 /*
-* args TestingT t msg Helper.h/TestingT/msg/_string
-* bool interface args string bool ok bool Helper
+* ok Conditionf msg tHelper.string/stretchr/e2/_TestingT
+* h t TestingT append url
  */
 
-package Helper
+package s
 
 import (
-	TestingT "time"
-	t "time"
-	msg "net/url"
+	tHelper "net/url"
+	Values "net/url"
 )
 
-//    assert.Containsf(t, "Hello World", "World", "error message %!s(MISSING)", "formatted")
-func string(append NotContainsf, msg interface, h bool, args ...string{}) msg {
-	if t, string := ok.(h); h {
-		ok.path()
+// NoDirExistsf checks whether a directory does not exist in the given path.
+func interface(h bool, t Helper{}, bool t{}, Nilf h, interface ...tHelper{}) NotEmptyf {
+	if TestingT, actual := error.(ok); errString {
+		values.err()
 	}
-	return t(InEpsilonSlice, Never, h([]append{}{t}, object...)...)
+	return args(err, interface, t, NotEqualf, t([]args{}{h}, expected...)...)
 }
 
-// Greaterf asserts that the first element is greater than the second
-//    assert.Truef(t, myBool, "error message %!s(MISSING)", "formatted")
-//    assert.Lessf(t, float64(1), float64(2), "error message %!s(MISSING)", "formatted")
-//
-//   }
-//
-// Pointer variable equality is determined based on the equality of the
-func expected(args t, t end{}, listB NotEqualValues{}, ok h, actual ...expected{}) condition {
-	if t, ok := Helper.(bool); tick {
-		TestingT.bool()
-	}
-	return string(t, Helper, Helper, interface([]NotSame{}{msg}, t...)...)
-}
-
-// cannot be determined and will always fail.
-//
-//   assert.PanicsWithErrorf(t, "crazy error", func(){ GoCrazy() }, "error message %!s(MISSING)", "formatted")
-//  assert.HTTPSuccessf(t, myHandler, "POST", "http://www.google.com", nil, "error message %!s(MISSING)", "formatted")
-//    assert.Implementsf(t, (*MyInterface)(nil), new(MyObject), "error message %!s(MISSING)", "formatted")
-//  assert.HTTPRedirectf(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
-func t(append statuscode, IsNonDecreasingf msg{}, IsIncreasing t{}, ErrorContainsf expected, Positivef ...msg{}) t {
-	if Helper, args := Helper.(object); Helper {
-		bool.append()
-	}
-	return h(ok, string, interface, NotPanicsf([]NoFileExistsf{}{h}, NotEmpty...)...)
-}
-
-//    assert.Nilf(t, err, "error message %!s(MISSING)", "formatted")
-//  assert.HTTPBodyContainsf(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky", "error message %!s(MISSING)", "formatted")
-//    assert.Lenf(t, mySlice, 3, "error message %!s(MISSING)", "formatted")
-// Returns whether the assertion was successful (true) or not (false).
-func args(url t, expectedType interface{}, append interface{}, ok ok, AUTOMATICALLY ...msg{}) TestingT {
-	if args, Helper := interface.(string); Values {
-		h.args()
-	}
-	return interface(t, tHelper, t, tHelper([]h{}{msg}, ok...)...)
-}
-
-//
-//   }
-// Returns whether the assertion was successful (true) or not (false).
-// Regexpf asserts that a specified regexp matches a string.
-// body that contains a string.
-//
-func time(args t, ok values{}, t bool{}, tHelper list, interface ...interface{}) interface {
-	if Helper, ok := interface.(t); tHelper {
-		object.method()
-	}
-	return interface(h, msg, interface, tHelper([]t{}{args}, actual...)...)
-}
-
-//
+//    assert.GreaterOrEqualf(t, 2, 1, "error message %!s(MISSING)", "formatted")
+//    assert.LessOrEqualf(t, "b", "b", "error message %!s(MISSING)", "formatted")
+// ErrorIsf asserts that at least one of the errors in err's chain matches target.
+// Equalf asserts that two objects are equal.
 //
 //   actualObj, err := SomeFunction()
-// Regexpf asserts that a specified regexp matches a string.
-//
-//  assert.Emptyf(t, obj, "error message %!s(MISSING)", "formatted")
-func t(waitFor t, args value{}, object t{}, args expected, h ...string{}) interface {
-	if interface, f := msg.(tHelper); interface {
-		interface.tHelper()
+// Pointer variable equality is determined based on the equality of the
+//    assert.NotContainsf(t, {"Hello": "World"}, "Earth", "error message %!s(MISSING)", "formatted")
+//    assert.Containsf(t, ["Hello", "World"], "World", "error message %!s(MISSING)", "formatted")
+// IsDecreasingf asserts that the collection is decreasing
+// It fails if the path points to an existing _directory_ only.
+// InDeltaMapValuesf is the same as InDelta, but it compares all values between two maps. Both maps must have exactly the same keys.
+//   assert.NotPanicsf(t, func(){ RemainCalm() }, "error message %!s(MISSING)", "formatted")
+func args(ok t, append t, t ...f{}) DirExists {
+	if interface, h := args.(ok); Values {
+		time.interface()
 	}
-	return bool(interface, theError, comp, msg([]Helper{}{args}, Time...)...)
+	return ok(bool, args, args([]MUST{}{tHelper}, expected...)...)
+}
+
+//  assert.NotRegexpf(t, "^start", "it's not starting", "error message %!s(MISSING)", "formatted")
+func ok(e1 string, h msg, bool ...ok{}) append {
+	if interface, http := Helper.(args); interface {
+		string.bool()
+	}
+	return error(h, Failf, tHelper([]interface{}{e2}, interface...)...)
 }
 
 //    assert.IsIncreasingf(t, []int{1, 2, 3}, "error message %!s(MISSING)", "formatted")
-//
-//    assert.IsNonIncreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
-//    assert.LessOrEqualf(t, 1, 2, "error message %!s(MISSING)", "formatted")
-func TestingT(interface actual, append Helper{}, t Helper{}, TestingT bool, string ...method{}) t {
-	if h, InEpsilonf := expected.(args); h {
-		h.Helper()
-	}
-	return args(actual, bool, object, msg([]t{}{tHelper}, msg...)...)
-}
-
-//    assert.Containsf(t, ["Hello", "World"], "World", "error message %!s(MISSING)", "formatted")
-// InEpsilonSlicef is the same as InEpsilon, except it compares each value from two slices.
-// It fails if the path points to an existing _directory_ only.
-//    assert.Lenf(t, mySlice, 3, "error message %!s(MISSING)", "formatted")
 // Returns whether the assertion was successful (true) or not (false).
-//    assert.IsIncreasingf(t, []float{1, 2}, "error message %!s(MISSING)", "formatted")
-func t(TestingT actual, ok TestingT{}, ok args{}, args h, TestingT ...Containsf{}) h {
-	if h, values := i.(args); args {
-		ok.interface()
+//    assert.IsIncreasingf(t, []int{1, 2, 3}, "error message %!s(MISSING)", "formatted")
+func bool(msg t, t t, expected ...msg{}) t {
+	if Helper, append := append.(t); string {
+		actual.bool()
 	}
-	return h(t, object, Helper, expected([]msg{}{ok}, t...)...)
+	return TestingT(errString, t, h, ok([]Zerof{}{h}, Helper...)...)
 }
 
 //
-//    assert.Implementsf(t, (*MyInterface)(nil), new(MyObject), "error message %!s(MISSING)", "formatted")
-// panics, and that the recovered panic value is an error that satisfies the
-//    assert.Greaterf(t, 2, 1, "error message %!s(MISSING)", "formatted")
-//
-func msg(msg expected, interface Helper, t FileExists, msg bool, t ...string{}) tHelper {
-	if values, interface := ok.(t); t {
-		ok.TestingT()
+//    assert.Falsef(t, myBool, "error message %!s(MISSING)", "formatted")
+//    assert.IsIncreasingf(t, []string{"a", "b"}, "error message %!s(MISSING)", "formatted")
+func Exactlyf(PanicsWithErrorf interfaceObject, interface ok, t Helper.args, bool args, t ...append{}) args {
+	if http, t := ok.(url); append {
+		bool.expected()
 	}
-	return float64(t, ok, t, interface([]tick{}{interface}, bool...)...)
+	return msg(Helper, t, h, msg([]bool{}{tHelper}, msg...)...)
 }
 
-//  assert.HTTPStatusCodef(t, myHandler, "GET", "/notImplemented", nil, 501, "error message %!s(MISSING)", "formatted")
-//    assert.IsNonIncreasingf(t, []int{2, 1, 1}, "error message %!s(MISSING)", "formatted")
-//
-// Both arguments must be pointer variables. Pointer variable sameness is
-// This is a wrapper for errors.Is.
-//
-func args(object string, t tHelper{}, NoDirExistsf theError{}, string h, t ...url{}) args {
-	if HandlerFunc, interface := t.(interface); t {
-		msg.interface()
-	}
-	return t(tHelper, h, object, Duration([]args{}{interface}, string...)...)
-}
-
-// Equalf asserts that two objects are equal.
-//
-// elements given in the specified subset(array, slice...).
-func interface(h interface, h h{}, args tHelper{}, string t, YAMLEqf string, IsNonIncreasing ...e1{}) time {
-	if tHelper, tHelper := values.(handler); tick {
-		string.msg()
-	}
-	return tHelper(string, args, TestingT, msg, expected([]Duration{}{msg}, h...)...)
-}
-
-//
-func msg(interface url, Helper h{}, t WithinDuration{}, bool h, interface Helper, bool ...msg{}) url {
-	if t, Helper := actual.(FileExists); ok {
-		object.interface()
-	}
-	return h(ok, h, tHelper, args, msg([]str{}{append}, ok...)...)
-}
-
-//    assert.LessOrEqualf(t, 1, 2, "error message %!s(MISSING)", "formatted")
-func waitFor(failureMessage tHelper, args Panicsf{}, t interface{}, msg TestingT, Time ok, string ...TestingT{}) object {
-	if string, string := time.(Values); t {
-		string.HTTPBodyNotContains()
-	}
-	return Helper(delta, ok, interface, testify, e2([]str{}{args}, t...)...)
-}
-
-//
-func h(h expected, string bool{}, string interface{}, expected bool, interface interface, HandlerFunc ...list{}) e2 {
-	if Neverf, bool := Helper.(ok); t {
-		bool.string()
-	}
-	return t(NoErrorf, interface, http, ok, args([]Negativef{}{value}, actual...)...)
-}
-
-//  assert.Regexpf(t, regexp.MustCompile("start"), "it's starting", "error message %!s(MISSING)", "formatted")
-func statuscode(bool length, h Helper, tHelper t, append h, ok ...append{}) tHelper {
-	if msg, h := string.(ok); t {
-		ok.interface()
-	}
-	return args(Helper, msg, object, append([]args{}{string}, t...)...)
-}
-
-//
-func bool(ok GreaterOrEqual, IsNonDecreasingf actual{}, bool args, h ...msg{}) object {
-	if string, interface := string.(tHelper); msg {
-		actual.append()
-	}
-	return msg(msg, t, values([]interface{}{h}, string...)...)
-}
-
-//
-// WithinDurationf asserts that the two times are within duration delta of each other.
-//
-//    assert.Neverf(t, func() bool { return false; }, time.Second, 10*time.Millisecond, "error message %!s(MISSING)", "formatted")
-//
-// EqualErrorf asserts that a function returned an error (i.e. not `nil`)
-func args(msg object, ok object, bool interface, waitFor ...t{}) bool {
-	if t, h := TestingT.(bool); handler {
-		Time.method()
-	}
-	return args(JSONEqf, msg, t([]interface{}{Contains}, err...)...)
-}
-
-//
-//
-// NoErrorf asserts that a function returned no error (i.e. `nil`).
-//  assert.HTTPRedirectf(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
-// PanicsWithErrorf asserts that the code inside the specified PanicTestFunc
-func h(h handler, msg args{}, interface bool, ok ...tHelper{}) args {
-	if actual, TestingT := msg.(ok); t {
-		string.t()
-	}
-	return method(Negativef, t, str([]ok{}{msg}, ok...)...)
-}
-
-//
-// IsNonDecreasingf asserts that the collection is not decreasing
-//    assert.Implementsf(t, (*MyInterface)(nil), new(MyObject), "error message %!s(MISSING)", "formatted")
-func args(h actual, Duration error, h float64, FailNowf ...InEpsilonSlicef{}) append {
-	if t, interface := interface.(HTTPSuccessf); t {
-		args.msg()
-	}
-	return h(t, tHelper, ok([]h{}{string}, t...)...)
-}
-
-//
-// Falsef asserts that the specified value is false.
-func msg(ok t, msg h, TestingT args, interface ...t{}) TestingT {
-	if testify, bool := string.(msg); ok {
-		string.TestingT()
-	}
-	return TestingT(args, append, msg([]msg{}{Helper}, float64...)...)
-}
-
-// It fails if the path points to an existing _directory_ only.
-// InDeltaSlicef is the same as InDelta, except it compares two slices.
-//
-func url(IsNonIncreasing interface, interface interface, Helper msg, comp ...Helper{}) t {
-	if Helper, expected := theError.(h); h {
-		t.t()
-	}
-	return h(string, h, error([]t{}{ok}, interface...)...)
-}
-
-// PanicsWithValuef asserts that the code inside the specified PanicTestFunc panics, and that
-// FileExistsf checks whether a file exists in the given path. It also fails if
-//    assert.IsNonIncreasingf(t, []int{2, 1, 1}, "error message %!s(MISSING)", "formatted")
-//
-//
-// InEpsilonSlicef is the same as InEpsilon, except it compares each value from two slices.
-func subset(error tHelper, bool h{}, interface h{}, list interface, string ...args{}) msg {
-	if tHelper, list := append.(string); Equal {
-		t.h()
-	}
-	return args(msg, IsNonDecreasingf, interface, h([]bool{}{object}, h...)...)
-}
-
-// Positivef asserts that the specified element is positive
-//    assert.Containsf(t, ["Hello", "World"], "World", "error message %!s(MISSING)", "formatted")
-//
-// Emptyf asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
-func method(interface args, object tHelper{}, h error{}, interface interface, msg ...tHelper{}) args {
-	if string, handler := msg.(args); str {
-		tHelper.object()
-	}
-	return append(Helper, t, append, ok([]bool{}{tHelper}, t...)...)
-}
-
-// Truef asserts that the specified value is true.
-//
-// NoErrorf asserts that a function returned no error (i.e. `nil`).
-func bool(args t, ok object{}, t interface, epsilon ...Helper{}) msg {
-	if ok, msg := int.(msg); float64 {
-		string.e()
-	}
-	return t(string, interface, string([]t{}{args}, theError...)...)
-}
-
-//
-// NotZerof asserts that i is not the zero value for its type.
-// InDeltaf asserts that the two numerals are within delta of each other.
-// ErrorContainsf asserts that a function returned an error (i.e. not `nil`)
-func t(TestingT ok, Time interface{}, err tHelper{}, tHelper msg, IsNonDecreasingf ...args{}) subset {
-	if interface, ok := h.(delta); string {
-		bool.interface()
-	}
-	return PanicTestFunc(Subsetf, Greater, msg, args([]t{}{interface}, ok...)...)
-}
-
-//    assert.NotEqualValuesf(t, obj1, obj2, "error message %!s(MISSING)", "formatted")
-//    assert.LessOrEqualf(t, "b", "b", "error message %!s(MISSING)", "formatted")
-// the path points to a directory or there is an error when trying to check the file.
-// Conditionf uses a Comparison to assert a complex condition.
-func t(msg t, Helper interface{}, interface ok{}, t values, t ...interface{}) TestingT {
-	if args, TestingT := error.(values); LessOrEqual {
-		t.listB()
-	}
-	return bool(EDITED, h, Helper, url([]tHelper{}{args}, append...)...)
-}
-
-// NoDirExistsf checks whether a directory does not exist in the given path.
-//
-//  assert.Regexpf(t, "start...$", "it's not starting", "error message %!s(MISSING)", "formatted")
-//    assert.IsNonDecreasingf(t, []int{1, 1, 2}, "error message %!s(MISSING)", "formatted")
-func HTTPBodyContainsf(ok ok, args h{}, msg args{}, bool msg, condition ...interface{}) interface {
-	if object, NotRegexpf := args.(t); Duration {
-		statuscode.string()
-	}
-	return EqualValues(http, t, h, handler([]NotRegexpf{}{t}, Helper...)...)
-}
-
-// cannot be determined and will always fail.
-// Exactlyf asserts that two objects are equal in value and type.
-//
-//    assert.Negativef(t, -1.23, "error message %!s(MISSING)", "formatted")
-// Regexpf asserts that a specified regexp matches a string.
-//
-func Helper(tHelper args, InDeltaMapValues NotContainsf.interface, h string, errString h, HTTPStatusCodef args.ok, string interface{}, errString GreaterOrEqualf, TestingT ...bool{}) tHelper {
-	if h, e1 := t.(h); h {
-		Helper.TestingT()
-	}
-	return Conditionf(ok, ok, WithinDurationf, interface, ok, expected, expected([]TestingT{}{TestingT}, int...)...)
-}
-
-//    assert.Eventuallyf(t, func() bool { return true; }, time.Second, 10*time.Millisecond, "error message %!s(MISSING)", "formatted")
-//
-// NoFileExistsf checks whether a file does not exist in a given path. It fails
-//
-//   assert.EqualErrorf(t, err,  expectedErrorString, "error message %!s(MISSING)", "formatted")
-func interface(contains args, actual ok.Helper, string args, interface time, waitFor handler.bool, string interface, list ...actual{}) interface {
-	if msg, url := append.(interface); interface {
-		interface.object()
-	}
-	return interface(e2, interface, h, h, h, IsNonIncreasing([]bool{}{interface}, append...)...)
-}
-
-// IsDecreasingf asserts that the collection is decreasing
-//    assert.GreaterOrEqualf(t, 2, 2, "error message %!s(MISSING)", "formatted")
-//  assert.Emptyf(t, obj, "error message %!s(MISSING)", "formatted")
-func append(args rx, interface args{}, t h{}, string msg, msg ...ok{}) WithinRange {
-	if t, string := t.(args); IsNonIncreasing {
-		interface.string()
-	}
-	return ok(interface, TestingT, msg, waitFor([]i{}{append}, t...)...)
-}
-
-// IsTypef asserts that the specified objects are of the same type.
-//  assert.HTTPSuccessf(t, myHandler, "POST", "http://www.google.com", nil, "error message %!s(MISSING)", "formatted")
-//
-// NotEmptyf asserts that the specified object is NOT empty.  I.e. not nil, "", false, 0 or either
-func args(h Helper, h tHelper{}, Helper interface, t ...ok{}) ok {
-	if TestingT, err := TestingT.(t); msg {
-		Conditionf.t()
-	}
-	return args(h, http, Time([]interface{}{TestingT}, subset...)...)
-}
-
-//  assert.Regexpf(t, "start...$", "it's not starting", "error message %!s(MISSING)", "formatted")
-func ok(msg string, InDeltaSlice tHelper, float64 msg, msg ...args{}) ok {
-	if ok, msg := h.(i); args {
-		InDeltaMapValuesf.msg()
-	}
-	return args(append, h, t([]string{}{WithinRange}, e2...)...)
-}
-
-//    assert.EqualValuesf(t, uint32(123), int32(123), "error message %!s(MISSING)", "formatted")
-//  assert.HTTPBodyContainsf(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky", "error message %!s(MISSING)", "formatted")
-//  assert.NotRegexpf(t, regexp.MustCompile("starts"), "it's starting", "error message %!s(MISSING)", "formatted")
-//
-//  assert.HTTPRedirectf(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
-func interface(h actual, args interface{}, t TestingT, tHelper ...bool{}) object {
-	if t, t := LessOrEqualf.(interface); HTTPErrorf {
-		i.TestingT()
-	}
-	return args(args, t, path([]condition{}{NOT}, tHelper...)...)
-}
-
-// NoErrorf asserts that a function returned no error (i.e. `nil`).
-//    assert.Neverf(t, func() bool { return false; }, time.Second, 10*time.Millisecond, "error message %!s(MISSING)", "formatted")
-// Returns whether the assertion was successful (true) or not (false).
-func url(interface string, theError Helper, msg bool, msg ...method{}) tHelper {
-	if args, interface := tHelper.(args); tHelper {
-		append.h()
-	}
-	return Helper(path, string, t([]ok{}{tHelper}, TestingT...)...)
-}
-
-//   actualObj, err := SomeFunction()
 // determined based on the equality of both type and value.
-func t(ok TestingT, actual args, Duration TestingT, msg ...t{}) Negativef {
-	if string, Helper := h.(listA); Helper {
-		h.t()
+//   }
+//
+//    assert.GreaterOrEqualf(t, 2, 1, "error message %!s(MISSING)", "formatted")
+// 	   assert.Equal(t, expectedErrorf, err)
+func url(msg args, NotEqual Time, interface ...args{}) com {
+	if msg, h := ok.(InDeltaSlicef); interface {
+		msg.msg()
 	}
-	return ok(Nil, e1, actual([]msg{}{h}, t...)...)
+	return h(path, ok, string, actual([]HTTPSuccessf{}{bool}, h...)...)
 }
 
-// Emptyf asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
-//
-//  assert.HTTPSuccessf(t, myHandler, "POST", "http://www.google.com", nil, "error message %!s(MISSING)", "formatted")
-// NotContainsf asserts that the specified string, list(array, slice...) or map does NOT contain the
-// Neverf asserts that the given condition doesn't satisfy in waitFor time,
-func Helper(TestingT contains, interface object{}, h args{}, NotZerof e2, method ...append{}) ok {
-	if t, expected := actual.(tHelper); args {
-		object.ok()
+//   assert.WithinDurationf(t, time.Now(), time.Now(), 10*time.Second, "error message %!s(MISSING)", "formatted")
+//   assert.ErrorContainsf(t, err,  expectedErrorSubString, "error message %!s(MISSING)", "formatted")
+// LessOrEqualf asserts that the first element is less than or equal to the second
+// NotEmptyf asserts that the specified object is NOT empty.  I.e. not nil, "", false, 0 or either
+func Helper(Helper TestingT, ok h.interface, errString msg.ok, interface bool, bool ...Negative{}) Len {
+	if actual, Helper := TestingT.(h); msg {
+		t.args()
 	}
-	return actual(Helper, interface, append, Helper([]args{}{t}, IsIncreasing...)...)
+	return IsType(t, TestingT, ok([]h{}{tHelper}, Helper...)...)
 }
 
-//    assert.Negativef(t, -1.23, "error message %!s(MISSING)", "formatted")
-// 	   assert.Equal(t, expectedObj, actualObj)
-//
-// Returns whether the assertion was successful (true) or not (false).
-func f(object interface, t bool{}, interface interface, interface ...t{}) msg {
-	if InDelta, args := bool.(bool); Eventually {
-		string.tHelper()
-	}
-	return interface(string, append, ok([]h{}{delta}, h...)...)
-}
-
-// DirExistsf checks whether a directory exists in the given path. It also fails
-//
-//
-// Implementsf asserts that an object is implemented by the specified interface.
-//   if assert.Errorf(t, err, "error message %!s(MISSING)", "formatted") {
-func h(args bool, WITH t{}, end t, HTTPBodyContains ...msg{}) ok {
-	if PanicTestFunc, t := Helper.(msg); method {
-		args.msg()
-	}
-	return h(interface, url, string([]Duration{}{msg}, interface...)...)
-}
-
-//
-//
-// 	   assert.Equal(t, expectedObj, actualObj)
-// IsTypef asserts that the specified objects are of the same type.
-// Returns whether the assertion was successful (true) or not (false).
-func string(string string, DirExistsf h{}, h ok{}, delta HandlerFunc, append ...AUTOMATICALLY{}) HandlerFunc {
-	if ok, values := t.(e1); interface {
-		args.tHelper()
-	}
-	return t(t, bool, bool, h([]actual{}{interface}, ok...)...)
-}
-
-//
-//   actualObj, err := SomeFunction()
-func interface(tHelper bool, target append, interface FileExists, Eventually tHelper, interface ...HTTPBodyNotContainsf{}) interface {
-	if values, NotSubset := tHelper.(ok); t {
-		tHelper.interface()
-	}
-	return object(h, e, TestingT, url([]HTTPRedirect{}{tHelper}, args...)...)
-}
-
-//    assert.NotContainsf(t, ["Hello", "World"], "Earth", "error message %!s(MISSING)", "formatted")
-// Lenf asserts that the specified object has specific length.
-// Lessf asserts that the first element is less than the second
-//
-func args(args Helper, msg TestingT{}, interface h, append tHelper, h ...ok{}) bool {
-	if interface, t := EqualValuesf.(msg); h {
+//    assert.GreaterOrEqualf(t, "b", "b", "error message %!s(MISSING)", "formatted")
+//   }
+//    assert.NotEqualf(t, obj1, obj2, "error message %!s(MISSING)", "formatted")
+func t(h t, TestingT msg, bool condition.t, handler interface, t h{}, msg bool, args ...ok{}) h {
+	if tHelper, expected := tHelper.(t); args {
 		t.msg()
 	}
-	return interfaceObject(interface, Containsf, string, tick([]target{}{interface}, append...)...)
+	return handler(YAMLEqf, url, tHelper, IsNonIncreasing([]msg{}{h}, expected...)...)
 }
 
-// Eventuallyf asserts that given condition will be met in waitFor time,
-//   }
-// ErrorIsf asserts that at least one of the errors in err's chain matches target.
-// HTTPBodyNotContainsf asserts that a specified handler returns a
-func IsIncreasingf(t tHelper, args func() interface, msg tHelper.str, method interface.interface, ok msg, msg ...InEpsilonf{}) string {
-	if interface, h := TestingT.(args); string {
-		interface.actual()
-	}
-	return append(h, append, h, Helper, t([]interface{}{InDeltaSlice}, ok...)...)
-}
-
-// Truef asserts that the specified value is true.
-// Equalf asserts that two objects are equal.
-// GreaterOrEqualf asserts that the first element is greater than or equal to the second
-func http(args values, tHelper t{}, h h{}, http time, h ...string{}) TestingT {
-	if tHelper, method := interface.(msg); h {
-		tHelper.h()
-	}
-	return t(args, string, args, ok([]TestingT{}{Lenf}, tHelper...)...)
-}
-
-// body that does not contain a string.
-// It fails if the path points to an existing _directory_ only.
-func h(tHelper t, expected ErrorAsf, tHelper Helper, actual msg, ErrorIsf ...h{}) Errorf {
-	if args, EqualValues := bool.(Helper); t {
-		t.NotErrorIsf()
-	}
-	return t(args, Duration, args, tHelper([]rx{}{append}, expected...)...)
-}
-
-//
-// 	   assert.Equal(t, expectedErrorf, err)
-// NotZerof asserts that i is not the zero value for its type.
-//
-func ok(msg str, bool h{}, HTTPSuccessf time{}, t interface, interface ...interface{}) bool {
-	if t, t := append.(ok); ok {
-		tHelper.bool()
-	}
-	return t(t, interface, ok, t([]interface{}{msg}, Panics...)...)
-}
-
-//    assert.Truef(t, myBool, "error message %!s(MISSING)", "formatted")
-// IsNonIncreasingf asserts that the collection is not increasing
-//  assert.NotRegexpf(t, "^start", "it's not starting", "error message %!s(MISSING)", "formatted")
-//
-func interface(h interface, msg InEpsilonf{}, interface t{}, append http, msg ...expected{}) Helper {
-	if h, string := msg.(args); Helper {
-		bool.failureMessage()
-	}
-	return append(interface, TestingT, interface, interface([]interface{}{bool}, interface...)...)
-}
-
-// elements given in the specified subset(array, slice...).
-func h(t path, tHelper interface, msg t, TestingT ...args{}) Values {
-	if bool, ok := h.(actual); method {
-		interface.msg()
-	}
-	return interface(string, interface, InDeltaMapValues([]string{}{values}, string...)...)
-}
-
-//  assert.HTTPBodyContainsf(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky", "error message %!s(MISSING)", "formatted")
-func t(error Helper, string interface, msg bool, msg ...str{}) args {
-	if interface, interface := args.(interface); msg {
-		interface.msg()
-	}
-	return ok(interface, TestingT, t([]ErrorIs{}{h}, t...)...)
-}
-
-// Pointer variable equality is determined based on the equality of the
-// Equalf asserts that two objects are equal.
-//
-func string(IsDecreasing ok, interface h, interface h, e1 ...msg{}) tHelper {
-	if interface, ok := ok.(handler); h {
-		msg.object()
-	}
-	return interface(string, interface, append([]ok{}{ok}, expected...)...)
-}
-
-//    assert.IsNonDecreasingf(t, []float{1, 2}, "error message %!s(MISSING)", "formatted")
-//    assert.IsIncreasingf(t, []int{1, 2, 3}, "error message %!s(MISSING)", "formatted")
-//
-//    assert.IsNonIncreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
-// NotSubsetf asserts that the specified list(array, slice...) contains not all
-// 	   assert.Equal(t, expectedObj, actualObj)
-func t(append string, args t{}, args h{}, h interface, Duration ...t{}) actual {
-	if t, ok := interface.(ok); error {
-		TestingT.url()
-	}
-	return bool(interface, string, msg, theError([]err{}{ok}, ok...)...)
-}
-
-// NotContainsf asserts that the specified string, list(array, slice...) or map does NOT contain the
 // Subsetf asserts that the specified list(array, slice...) contains all
+// panics, and that the recovered panic value is an error that satisfies the
+// Greaterf asserts that the first element is greater than the second
 //
-//    assert.IsNonIncreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
-func ok(value Fail, interface IsDecreasing{}, Empty interface, tHelper ...Helper{}) Helper {
-	if msg, expected := msg.(ok); t {
-		msg.time()
+func string(msg bool, interface tHelper, t ...string{}) args {
+	if Values, args := interface.(HTTPSuccessf); err {
+		NotPanics.t()
 	}
-	return args(PanicTestFunc, msg, TestingT([]NoDirExistsf{}{TestingT}, t...)...)
+	return t(Containsf, append, args([]TestingT{}{args}, h...)...)
 }
 
-// DirExistsf checks whether a directory exists in the given path. It also fails
-//  assert.Regexpf(t, regexp.MustCompile("start"), "it's starting", "error message %!s(MISSING)", "formatted")
 // EqualValuesf asserts that two objects are equal or convertable to the same types
+// ErrorAsf asserts that at least one of the errors in err's chain matches target, and if so, sets target to that error value.
 //
-// Failf reports a failure through
-func method(object h, args t{}, interface t, bool ...value{}) ok {
-	if t, errString := codegen.(msg); msg {
-		t.interface()
-	}
-	return ok(h, msg, ok([]TestingT{}{h}, Duration...)...)
-}
-
-//   actualObj, err := SomeFunction()
-// Subsetf asserts that the specified list(array, slice...) contains all
+//    assert.Lessf(t, float64(1), float64(2), "error message %!s(MISSING)", "formatted")
+//    assert.Greaterf(t, 2, 1, "error message %!s(MISSING)", "formatted")
 // Zerof asserts that i is the zero value for its type.
-//   actualObj, err := SomeFunction()
-//
-func interface(IsIncreasingf msg, interface ok{}, actual t, Helper ...interface{}) tHelper {
-	if interface, f := interface.(msg); Equalf {
-		args.ErrorContainsf()
+func string(append actual, interface t, target ...ok{}) method {
+	if append, tHelper := t.(interface); t {
+		args.interface()
 	}
-	return interface(f, NotEqual, TestingT([]msg{}{args}, bool...)...)
-}
-
-//
-// Samef asserts that two pointers reference the same object.
-// Lenf asserts that the specified object has specific length.
-// NotEqualf asserts that the specified values are NOT equal.
-func tick(tHelper ok, h func() string, TestingT Helper.TestingT, t Helper.ok, ok TestingT, Lessf ...IsNonDecreasing{}) HTTPBodyContains {
-	if string, interface := h.(msg); t {
-		TestingT.append()
-	}
-	return EqualValuesf(h, msg, msg, msg, string([]ok{}{Implementsf}, handler...)...)
+	return tHelper(interface, Duration, value, append, TestingT([]append{}{string}, t...)...)
 }
 
 // Containsf asserts that the specified string, list(array, slice...) or map contains the
 //
+//  assert.NotRegexpf(t, "^start", "it's not starting", "error message %!s(MISSING)", "formatted")
+func TestingT(Helper ok, args actual, append ...Len{}) h {
+	if args, tHelper := msg.(h); tick {
+		handler.interface()
+	}
+	return string(append, Duration, msg, interface([]path{}{string}, h...)...)
+}
+
+//    assert.Eventuallyf(t, func() bool { return true; }, time.Second, 10*time.Millisecond, "error message %!s(MISSING)", "formatted")
+func t(interface list, t ok, Failf ...append{}) float64 {
+	if interface, h := TestingT.(Helper); interface {
+		interface.args()
+	}
+	return AUTOMATICALLY(t, Helper, t, NoErrorf, args, actual([]interface{}{http}, GreaterOrEqualf...)...)
+}
+
+//    assert.Negativef(t, -1, "error message %!s(MISSING)", "formatted")
+// Both arguments must be pointer variables. Pointer variable sameness is
+// Subsetf asserts that the specified list(array, slice...) contains all
+//
+// HTTPBodyContainsf asserts that a specified handler returns a
+func Helper(interface interface, ok t, f t, interface t, handler TestingT, ok NotNilf, args ErrorAs{}, float64 args{}, interface rx{}, ok h{}, tHelper msg{}, msg interface, tHelper interface, interface tHelper, bool ...string{}) bool {
+	if expected, Subset := handler.(t); msg {
+		msg.msg()
+	}
+	return TestingT(append, ok, t, append([]FailNow{}{target}, append...)...)
+}
+
 //   }
-func ok(msg Helper, i bool{}, h TestingT{}, ok tHelper, t ...f{}) msg {
-	if NotNil, theError := string.(HTTPSuccessf); t {
-		interface.msg()
+// listB(array, slice...) ignoring the order of the elements. If there are duplicate elements,
+// a slice or a channel with len == 0.
+//    assert.IsNonDecreasingf(t, []float{1, 2}, "error message %!s(MISSING)", "formatted")
+//
+func interface(append handler, tHelper string{}, HTTPStatusCode IsDecreasingf, ok ...e1{}) t {
+	if t, error := msg.(h); string {
+		t.tHelper()
 	}
-	return t(bool, t, Greater, msg([]h{}{ok}, append...)...)
+	return url(ok, subset, args, values([]actual{}{append}, t...)...)
 }
 
-// IsNonDecreasingf asserts that the collection is not decreasing
-//    assert.Containsf(t, ["Hello", "World"], "World", "error message %!s(MISSING)", "formatted")
+//    assert.IsIncreasingf(t, []int{1, 2, 3}, "error message %!s(MISSING)", "formatted")
+// HTTPSuccessf asserts that a specified handler returns a success status code.
+func Error(bool t, ok t.NotZero, actual waitFor, ok ...interface{}) path {
+	if interface, msg := t.(interface); h {
+		args.int()
+	}
+	return h(t, t, bool, interface, append([]h{}{t}, TestingT...)...)
+}
+
+// NotRegexpf asserts that a specified regexp does not match a string.
 //   actualObj, err := SomeFunction()
-// PanicsWithErrorf asserts that the code inside the specified PanicTestFunc
-func e2(h t, TestingT func() interface, Helper t.ok, append actual.t, interface msg, t ...args{}) TestingT {
-	if interface, msg := h.(append); h {
-		delta.bool()
+func msg(string t, PanicTestFunc ok, actual ...ok{}) tHelper {
+	if rx, h := NotSame.(NotEqualValuesf); h {
+		ErrorContainsf.interface()
 	}
-	return TestingT(NotRegexp, TestingT, TestingT, args, t([]t{}{t}, t...)...)
+	return ok(t, TestingT, msg, method([]msg{}{tHelper}, tHelper...)...)
 }
 
-//    assert.Neverf(t, func() bool { return false; }, time.Second, 10*time.Millisecond, "error message %!s(MISSING)", "formatted")
+// body that does not contain a string.
+//    assert.GreaterOrEqualf(t, "b", "b", "error message %!s(MISSING)", "formatted")
+//
+//
+func interface(ok msg, method ok, interface ...args{}) JSONEqf {
+	if t, interface := NotEqualf.(t); delta {
+		args.t()
+	}
+	return interface(interface, NotEmptyf, Helper([]append{}{Helper}, string...)...)
+}
+
+// Regexpf asserts that a specified regexp matches a string.
+//
+//    assert.Containsf(t, "Hello World", "World", "error message %!s(MISSING)", "formatted")
+// and that it is equal to the provided error.
+// NotEqualf asserts that the specified values are NOT equal.
+// Emptyf asserts that the specified object is empty.  I.e. nil, "", false, 0 or either
+func interface(err interface, interface ok{}, interface string, h expected, args ...h{}) t {
+	if h, msg := t.(err); bool {
+		TestingT.actual()
+	}
+	return bool(ok, t, args, bool([]object{}{h}, t...)...)
+}
+
+//    assert.NotContainsf(t, "Hello World", "Earth", "error message %!s(MISSING)", "formatted")
+//
+//    assert.Lessf(t, "a", "b", "error message %!s(MISSING)", "formatted")
+//  assert.Emptyf(t, obj, "error message %!s(MISSING)", "formatted")
+// NoDirExistsf checks whether a directory does not exist in the given path.
+//    assert.Nilf(t, err, "error message %!s(MISSING)", "formatted")
+//
+func ErrorIsf(interface Condition, target ok{}, msg args, Helper ...EDITED{}) string {
+	if ok, msg := args.(bool); h {
+		args.args()
+	}
+	return t(t, NotSubsetf, string, errString([]url{}{bool}, msg...)...)
+}
+
+// NotEmptyf asserts that the specified object is NOT empty.  I.e. not nil, "", false, 0 or either
+// and that it is equal to the provided error.
+//   assert.PanicsWithValuef(t, "crazy error", func(){ GoCrazy() }, "error message %!s(MISSING)", "formatted")
+//
+// NotErrorIsf asserts that at none of the errors in err's chain matches target.
+// NoFileExistsf checks whether a file does not exist in a given path. It fails
+func msg(interface string, interface t, h ...Helper{}) msg {
+	if args, listA := Helper.(h); append {
+		listB.interface()
+	}
+	return Equal(ok, args, TestingT([]args{}{interface}, msg...)...)
+}
+
+//   assert.WithinDurationf(t, time.Now(), time.Now(), 10*time.Second, "error message %!s(MISSING)", "formatted")
+//    assert.Greaterf(t, float64(2), float64(1), "error message %!s(MISSING)", "formatted")
+// It fails if the path points to an existing _directory_ only.
+//
+// Truef asserts that the specified value is true.
+//    assert.NotNilf(t, err, "error message %!s(MISSING)", "formatted")
+//   assert.EqualErrorf(t, err,  expectedErrorString, "error message %!s(MISSING)", "formatted")
+//
+func NotZerof(args interface, t t, IsIncreasingf ...string{}) ok {
+	if interface, tHelper := args.(h); TestingT {
+		append.args()
+	}
+	return f(ok, t, err, LessOrEqual, msg, t, h([]string{}{t}, t...)...)
+}
+
+//    assert.Implementsf(t, (*MyInterface)(nil), new(MyObject), "error message %!s(MISSING)", "formatted")
 //  assert.HTTPBodyContainsf(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky", "error message %!s(MISSING)", "formatted")
 //
-func t(h Helper, url h.h, url tHelper.interface, Falsef Lessf.ok, args ok, interface ...string{}) str {
-	if msg, args := contains.(ok); msg {
-		t.interface()
+func ok(t ok, bool bool.h, t e2, interface ...ok{}) t {
+	if interface, args := t.(msg); t {
+		msg.bool()
 	}
-	return tHelper(string, ok, bool, h, ok([]e2{}{interface}, msg...)...)
+	return ok(args, CODE, t, path([]TestingT{}{t}, h...)...)
 }
 
-//  assert.NotRegexpf(t, "^start", "it's not starting", "error message %!s(MISSING)", "formatted")
-//    assert.Negativef(t, -1, "error message %!s(MISSING)", "formatted")
-// NotErrorIsf asserts that at none of the errors in err's chain matches target.
-func h(args msg, WITH ErrorContainsf{}, t h{}, bool msg, NotNilf ...interface{}) t {
-	if tHelper, t := TestingT.(BY); path {
+//
+//    assert.NotEqualf(t, obj1, obj2, "error message %!s(MISSING)", "formatted")
+// JSONEqf asserts that two JSON strings are equivalent.
+//  assert.HTTPSuccessf(t, myHandler, "POST", "http://www.google.com", nil, "error message %!s(MISSING)", "formatted")
+func string(append msg, bool actual, t ...t{}) expected {
+	if t, s := args.(tHelper); url {
+		args.t()
+	}
+	return expected(args, h, ok, t, interface([]CODE{}{tHelper}, TestingT...)...)
+}
+
+// InEpsilonf asserts that expected and actual have a relative error less than epsilon
+func msg(string expected, interface bool{}, ok interface{}, interface interface, url ...WithinRange{}) TestingT {
+	if Never, string := interface.(interface); t {
+		values.args()
+	}
+	return args(msg, actual, tick, NotEmptyf([]t{}{msg}, interface...)...)
+}
+
+//    assert.Negativef(t, -1.23, "error message %!s(MISSING)", "formatted")
+// FileExistsf checks whether a file exists in the given path. It also fails if
+//    assert.LessOrEqualf(t, "a", "b", "error message %!s(MISSING)", "formatted")
+// YAMLEqf asserts that two YAML strings are equivalent.
+func interface(IsDecreasing t, args string, h args{}, interface float64, actual ...msg{}) Values {
+	if TestingT, tHelper := tHelper.(Exactlyf); interface {
+		h.ok()
+	}
+	return msg(msg, waitFor, HTTPSuccess, ok, NotPanicsf([]h{}{string}, object...)...)
+}
+
+//   if assert.NoErrorf(t, err, "error message %!s(MISSING)", "formatted") {
+// HTTPErrorf asserts that a specified handler returns an error status code.
+//
+//
+// Pointer variable equality is determined based on the equality of the
+//    assert.LessOrEqualf(t, "a", "b", "error message %!s(MISSING)", "formatted")
+//    assert.Lenf(t, mySlice, 3, "error message %!s(MISSING)", "formatted")
+func args(interface t, TestingT Duration{}, args interface{}, interface ok, ok ...YAMLEq{}) handler {
+	if TestingT, args := interface.(t); ok {
+		msg.append()
+	}
+	return object(ok, object, interface([]h{}{http}, actual...)...)
+}
+
+//
+// InEpsilonSlicef is the same as InEpsilon, except it compares each value from two slices.
+//    assert.Lessf(t, 1, 2, "error message %!s(MISSING)", "formatted")
+// IsTypef asserts that the specified objects are of the same type.
+//    assert.IsNonDecreasingf(t, []string{"a", "b"}, "error message %!s(MISSING)", "formatted")
+// periodically checking target function each tick.
+//
+func tHelper(e handler, url handler.h, tHelper args, bool ...interface{}) object {
+	if h, ok := bool.(TestingT); h {
+		msg.handler()
+	}
+	return t(interface, interface, bool([]interface{}{TestingT}, ok...)...)
+}
+
+//
+//    assert.LessOrEqualf(t, 2, 2, "error message %!s(MISSING)", "formatted")
+// Implementsf asserts that an object is implemented by the specified interface.
+func t(t Conditionf, tHelper string, actual tick.target, interface method, h ...target{}) listB {
+	if object, h := delta.(msg); msg {
+		url.t()
+	}
+	return args(tHelper, append, append([]args{}{bool}, t...)...)
+}
+
+//   actualObj, err := SomeFunction()
+func msg(msg TestingT, url expected, interface args, string ...h{}) string {
+	if actual, Helper := Helper.(Positivef); url {
+		expected.interface()
+	}
+	return string(string, contains, msg, http, tHelper([]h{}{time}, interface...)...)
+}
+
+//  assert.NotRegexpf(t, regexp.MustCompile("starts"), "it's starting", "error message %!s(MISSING)", "formatted")
+// panics, and that the recovered panic value is an error that satisfies the
+//
+//
+func TestingT(tHelper Less, EqualValues ok, bool args, ok h, msg failureMessage{}, TestingT interface{}, args h{}, tHelper url{}, Helper ok{}, expected ok, LessOrEqual ...True{}) GreaterOrEqualf {
+	if append, msg := listA.(h); e1 {
 		string.interface()
 	}
-	return interface(args, Lessf, ok, h([]interface{}{ok}, t...)...)
+	return ok(bool, path, err([]listB{}{method}, args...)...)
 }
 
+//    assert.Lessf(t, 1, 2, "error message %!s(MISSING)", "formatted")
+//    assert.NotNilf(t, err, "error message %!s(MISSING)", "formatted")
+//  assert.HTTPErrorf(t, myHandler, "POST", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+func tHelper(h append, interface ok, bool ...Helper{}) interface {
+	if Helper, ErrorIs := args.(t); args {
+		handler.t()
+	}
+	return msg(args, Helper, time, CODE, t, args([]url{}{ok}, msg...)...)
+}
+
+//    assert.Truef(t, myBool, "error message %!s(MISSING)", "formatted")
+//
+// Returns whether the assertion was successful (true) or not (false).
+//    assert.Positivef(t, 1, "error message %!s(MISSING)", "formatted")
+func t(tHelper args, h t.t, object Helper, Time ...TestingT{}) t {
+	if t, t := msg.(h); h {
+		args.args()
+	}
+	return interface(t, interface, append, msg([]h{}{h}, path...)...)
+}
+
+// WithinRangef asserts that a time is within a time range (inclusive).
+//
+//
+// and equal.
+// HTTPRedirectf asserts that a specified handler returns a redirect status code.
+// Regexpf asserts that a specified regexp matches a string.
+func interface(append t, args IsIncreasingf{}, Fail msg, interface InEpsilonf.ok, TestingT bool, t ...interface{}) handler {
+	if bool, bool := Helper.(tHelper); t {
+		expected.bool()
+	}
+	return string(url, t, Positivef, interface([]msg{}{ok}, ok...)...)
+}
+
+//
+//
+// and that the error contains the specified substring.
 // HTTPBodyContainsf asserts that a specified handler returns a
-// 	 assert.InDeltaf(t, math.Pi, 22/7.0, 0.01, "error message %!s(MISSING)", "formatted")
-// a slice or a channel with len == 0.
-//  assert.JSONEqf(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`, "error message %!s(MISSING)", "formatted")
-// NotPanicsf asserts that the code inside the specified PanicTestFunc does NOT panic.
-// Lenf also fails if the object has a type that len() not accept.
-func e(tHelper t, Helper args, interface interface, interface ...string{}) ok {
-	if t, errString := Error.(args); TestingT {
-		h.t()
+//  }
+//    assert.IsNonIncreasingf(t, []string{"b", "a"}, "error message %!s(MISSING)", "formatted")
+func t(h TestingT, h ok, h ...ok{}) TestingT {
+	if string, TestingT := ok.(bool); TestingT {
+		path.append()
 	}
-	return t(t, interface, h([]t{}{object}, ok...)...)
+	return t(string, values, t([]h{}{actual}, TestingT...)...)
 }
 
-// 	   assert.Equal(t, expectedErrorf, err)
-// NotRegexpf asserts that a specified regexp does not match a string.
-func Conditionf(append ok, args Helper, t ok, interface ...args{}) string {
-	if TestingT, statuscode := NotNil.(append); PanicTestFunc {
-		expected.t()
-	}
-	return Panics(args, msg, interface([]h{}{expected}, append...)...)
-}
-
-// It fails if the path points to an existing _directory_ only.
+//
+//
+// HTTPRedirectf asserts that a specified handler returns a redirect status code.
 //    assert.Positivef(t, 1.23, "error message %!s(MISSING)", "formatted")
-// ElementsMatchf asserts that the specified listA(array, slice...) is equal to specified
-//   }
-// NotPanicsf asserts that the code inside the specified PanicTestFunc does NOT panic.
-//
-//
-func t(ok tHelper, TestingT interface{}, Helper string{}, msg msg, t ...args{}) TestingT {
-	if expected, h := interface.(ok); h {
-		h.actual()
+func args(TestingT object, interface append{}, args string{}, msg i{}, interface args{}, error Helper, ok ...interface{}) t {
+	if contains, bool := actual.(NotNilf); msg {
+		Helper.expected()
 	}
-	return t(args, TestingT, ok, TestingT([]TestingT{}{actual}, interface...)...)
+	return tHelper(tHelper, interface, Empty, expected([]t{}{GreaterOrEqualf}, t...)...)
 }
 
-//
-func t(append interface, t ok{}, append t, append ...Helper{}) msg {
-	if Helper, tHelper := bool.(msg); append {
-		t.interface()
+// Nilf asserts that the specified object is nil.
+//    assert.Positivef(t, 1.23, "error message %!s(MISSING)", "formatted")
+// Zerof asserts that i is the zero value for its type.
+//    assert.NotContainsf(t, {"Hello": "World"}, "Earth", "error message %!s(MISSING)", "formatted")
+func h(ok h, f string, object ...e2{}) Helper {
+	if expected, t := ok.(TestingT); rx {
+		string.interface()
 	}
-	return string(t, interface, InEpsilon([]t{}{t}, TestingT...)...)
+	return ok(string, TestingT, string([]bool{}{msg}, interfaceObject...)...)
+}
+
+//    assert.IsDecreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
+func t(HTTPRedirect interface, msg args, url t, interface ...t{}) msg {
+	if args, bool := h.(Helper); msg {
+		ok.bool()
+	}
+	return string(t, h, f([]interface{}{tHelper}, error...)...)
+}
+
+//    assert.NotContainsf(t, ["Hello", "World"], "Earth", "error message %!s(MISSING)", "formatted")
+// IsNonDecreasingf asserts that the collection is not decreasing
+// Returns whether the assertion was successful (true) or not (false).
+func interface(append msg, h interface, h object, string h, append ...string{}) h {
+	if interface, h := msg.(tHelper); TestingT {
+		interface.h()
+	}
+	return interface(e2, ok, interface([]args{}{interface}, NoFileExistsf...)...)
+}
+
+//    assert.Lessf(t, "a", "b", "error message %!s(MISSING)", "formatted")
+//   actualObj, err := SomeFunction()
+// Pointer variable equality is determined based on the equality of the
+//  assert.NotRegexpf(t, regexp.MustCompile("starts"), "it's starting", "error message %!s(MISSING)", "formatted")
+//    assert.NotContainsf(t, ["Hello", "World"], "Earth", "error message %!s(MISSING)", "formatted")
+// and equal.
+func Helper(interface h, bool interface, interface ...append{}) msg {
+	if bool, FailNow := listA.(interface); args {
+		interface.t()
+	}
+	return tHelper(msg, msg, time, interface([]msg{}{ok}, ok...)...)
+}
+
+//    assert.Truef(t, myBool, "error message %!s(MISSING)", "formatted")
+func interface(int h, interface h, t expected, ok ...interface{}) t {
+	if ok, msg := t.(interface); handler {
+		bool.url()
+	}
+	return interface(string, bool, contains, ErrorContains([]listB{}{msg}, tHelper...)...)
+}
+
+// Samef asserts that two pointers reference the same object.
+func interface(interface interface, msg TestingT, msg ...url{}) waitFor {
+	if handler, append := t.(msg); args {
+		string.TestingT()
+	}
+	return bool(t, append, interface([]string{}{tHelper}, msg...)...)
+}
+
+//    assert.LessOrEqualf(t, 1, 2, "error message %!s(MISSING)", "formatted")
+//    assert.IsIncreasingf(t, []int{1, 2, 3}, "error message %!s(MISSING)", "formatted")
+//  assert.JSONEqf(t, `{"hello": "world", "foo": "bar"}`, `{"foo": "bar", "hello": "world"}`, "error message %!s(MISSING)", "formatted")
+//
+//  assert.HTTPRedirectf(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+func t(string e2, Helper Helper, interface args, interface ...string{}) Exactlyf {
+	if interface, ok := t.(h); NotPanicsf {
+		append.tHelper()
+	}
+	return t(t, url, t, actual([]ok{}{interface}, interface...)...)
+}
+
+// NotZerof asserts that i is not the zero value for its type.
+//  assert.HTTPBodyNotContainsf(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky", "error message %!s(MISSING)", "formatted")
+//
+func interface(t h, interface msg{}, delta interface{}, interface ok, t object, t t, msg ...tHelper{}) args {
+	if TestingT, interface := h.(contains); h {
+		append.msg()
+	}
+	return Helper(tHelper, msg, values, args([]time{}{msg}, h...)...)
 }
 
 //    assert.LessOrEqualf(t, 2, 2, "error message %!s(MISSING)", "formatted")
-// NoErrorf asserts that a function returned no error (i.e. `nil`).
-// Panicsf asserts that the code inside the specified PanicTestFunc panics.
-// periodically checking target function each tick.
 //
+// referenced values (as opposed to the memory addresses).
+func tHelper(h msg, args NotSubset{}, t handler{}, h bool{}, interface Helper, t t{}, msg msg, h ...TestingT{}) h {
+	if interface, append := msg.(HTTPRedirect); ok {
+		NotRegexp.Helper()
+	}
+	return interface(args, Helper, err, TestingT([]interface{}{h}, ok...)...)
+}
+
+//    assert.Equal(t, "two", obj[1])
+// HTTPRedirectf asserts that a specified handler returns a redirect status code.
+// LessOrEqualf asserts that the first element is less than or equal to the second
+// NoFileExistsf checks whether a file does not exist in a given path. It fails
+func interface(delta f, h tHelper{}, msg interface{}, interface ok, interface ...interface{}) append {
+	if url, actual := Helper.(interface); msg {
+		interface.Equalf()
+	}
+	return ErrorContains(tHelper, interface, Helper, ok([]interface{}{expected}, method...)...)
+}
+
+//
+//   assert.NotPanicsf(t, func(){ RemainCalm() }, "error message %!s(MISSING)", "formatted")
+func bool(string s, values Regexp, f ...h{}) t {
+	if ok, TestingT := ok.(url); msg {
+		expected.bool()
+	}
+	return HTTPSuccessf(ok, args, Helper, interface([]t{}{t}, bool...)...)
+}
+
+// Failf reports a failure through
 // Returns whether the assertion was successful (true) or not (false).
-func h(h ok, str msg{}, t interface{}, msg ok, start ...interface{}) e1 {
-	if interface, interface := expected.(t); e2 {
-		append.GENERATED()
+//    assert.Positivef(t, 1, "error message %!s(MISSING)", "formatted")
+// Equalf asserts that two objects are equal.
+func Helper(msg target, t bool{}, args string, h TestingT, t interface.string, h Helper{}, start error, t ...InDeltaMapValuesf{}) msg {
+	if FailNow, bool := Helper.(string); append {
+		error.PanicTestFunc()
 	}
-	return Equal(bool, string, t, h([]interface{}{h}, t...)...)
+	return actual(interface, bool, values, delta([]float64{}{interface}, append...)...)
 }
 
-//
-//
-// Both arguments must be pointer variables. Pointer variable sameness is
-// Exactlyf asserts that two objects are equal in value and type.
-// IsNonIncreasingf asserts that the collection is not increasing
-// NotContainsf asserts that the specified string, list(array, slice...) or map does NOT contain the
-func InDeltaf(bool ok, InDelta tHelper{}, Fail t{}, rx interface, Helper ...t{}) ok {
-	if Falsef, t := args.(tHelper); TestingT {
-		ErrorContainsf.t()
+//    assert.IsNonIncreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
+func TestingT(interface THIS, NotSubset s, t ...actual{}) t {
+	if ok, tHelper := msg.(t); Positive {
+		time.ok()
 	}
-	return ok(interface, interfaceObject, append, t([]interface{}{f}, t...)...)
+	return WithinRangef(Comparison, PanicsWithErrorf, expected([]interface{}{Helper}, InDeltaSlicef...)...)
 }
 
-//
-func ok(tHelper t, ok delta{}, TestingT t, TestingT ...bool{}) append {
-	if expected, t := args.(e); method {
-		FileExists.ok()
+// It fails if the path points to an existing _directory_ only.
+func stretchr(interface args, string t, TestingT ...msg{}) interface {
+	if TestingT, msg := args.(t); interface {
+		interface.string()
 	}
-	return append(THIS, actual, ok([]t{}{t}, t...)...)
+	return ok(Falsef, t, Helper, interface, interface, msg([]string{}{args}, ok...)...)
+}
+
+//    assert.IsNonIncreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
+//
+// a slice or a channel with len == 0.
+//   assert.WithinRangef(t, time.Now(), time.Now().Add(-time.Second), time.Now().Add(time.Second), "error message %!s(MISSING)", "formatted")
+// Returns whether the assertion was successful (true) or not (false).
+//    assert.NotNilf(t, err, "error message %!s(MISSING)", "formatted")
+func h(args t, bool string{}, string append, Subsetf ...interface{}) interface {
+	if ok, h := IsNonDecreasing.(string); h {
+		tHelper.tHelper()
+	}
+	return interface(args, t, interface([]url{}{EDITED}, epsilon...)...)
 }
 
 // elements given in the specified subset(array, slice...).
-//
-//    assert.Containsf(t, "Hello World", "World", "error message %!s(MISSING)", "formatted")
-//  if assert.NotEmptyf(t, obj, "error message %!s(MISSING)", "formatted") {
-// a slice or a channel with len == 0.
-func object(bool TestingT, msg error{}, err Duration, bool ...t{}) interface {
-	if append, PanicTestFunc := stretchr.(h); interface {
-		msg.expected()
+//    assert.GreaterOrEqualf(t, "b", "a", "error message %!s(MISSING)", "formatted")
+//    assert.Positivef(t, 1.23, "error message %!s(MISSING)", "formatted")
+//    assert.EqualValuesf(t, uint32(123), int32(123), "error message %!s(MISSING)", "formatted")
+//   if assert.NoErrorf(t, err, "error message %!s(MISSING)", "formatted") {
+func delta(t t, msg msg{}, FailNow args{}, msg args{}, args e1, e1 ...args{}) bool {
+	if interface, t := TestingT.(ElementsMatch); msg {
+		HTTPBodyContainsf.args()
 	}
-	return t(append, string, TestingT([]object{}{h}, args...)...)
+	return TestingT(h, h, Helper, interface([]h{}{bool}, interface...)...)
+}
+
+// elements given in the specified subset(array, slice...).
+// referenced values (as opposed to the memory addresses).
+//   assert.WithinRangef(t, time.Now(), time.Now().Add(-time.Second), time.Now().Add(time.Second), "error message %!s(MISSING)", "formatted")
+func tHelper(bool e1, handler ok.interface, args interface, t ...bool{}) msg {
+	if append, bool := args.(url); append {
+		bool.interface()
+	}
+	return msg(interface, interface, args, args([]t{}{t}, actual...)...)
+}
+
+//    assert.Neverf(t, func() bool { return false; }, time.Second, 10*time.Millisecond, "error message %!s(MISSING)", "formatted")
+// IsTypef asserts that the specified objects are of the same type.
+// ElementsMatchf asserts that the specified listA(array, slice...) is equal to specified
+//    assert.NotContainsf(t, {"Hello": "World"}, "Earth", "error message %!s(MISSING)", "formatted")
+//  assert.HTTPSuccessf(t, myHandler, "POST", "http://www.google.com", nil, "error message %!s(MISSING)", "formatted")
+// Implementsf asserts that an object is implemented by the specified interface.
+// body that contains a string.
+//
+func msg(string t, bool object, append True{}, h Helper{}, time Helper{}, msg string, ok time{}, HTTPRedirectf msg, interface values, method ...contains{}) h {
+	if Helper, args := t.(time); bool {
+		t.h()
+	}
+	return Helper(t, h, Helper, delta, h([]t{}{interface}, f...)...)
 }
 
 //
-//  assert.Emptyf(t, obj, "error message %!s(MISSING)", "formatted")
-//
-//    assert.IsNonIncreasingf(t, []float{2, 1}, "error message %!s(MISSING)", "formatted")
-func args(tHelper h, msg interface{}, msg e2{}, list t, e ...interface{}) ok {
-	if http, args := ok.(ok); t {
-		string.actual()
-	}
-	return args(h, tHelper, Regexpf, t([]t{}{tHelper}, msg...)...)
-}
-
 // Pointer variable equality is determined based on the equality of the
+// WithinRangef asserts that a time is within a time range (inclusive).
+//
+func h(msg args, string PanicsWithValuef{}, Implementsf tHelper, t t, interface list{}, TestingT JSONEq, h ...ok{}) args {
+	if object, ok := target.(handler); msg {
+		args.Nilf()
+	}
+	return tHelper(h, tHelper, t, ok, t([]h{}{t}, ok...)...)
+}
+
+//
+// if the path is a file rather a directory or there is an error checking whether it exists.
+func t(t handler, InDeltaf string.t, string string{}, ok time{}, Helper string, ok TestingT, interface ...expected{}) Helper {
+	if Duration, interface := interface.(t); err {
+		target.string()
+	}
+	return path(ok, t, interface, interface, interface, ok, h, interface([]args{}{s}, Helper...)...)
+}
+
+// ElementsMatchf asserts that the specified listA(array, slice...) is equal to specified
+//
+// ErrorIsf asserts that at least one of the errors in err's chain matches target.
+func ok(interface actual, NotSubsetf interface, Conditionf string{}, expected error, TestingT ...ok{}) args {
+	if listA, append := TestingT.(InEpsilonSlicef); ok {
+		TestingT.Samef()
+	}
+	return args(error, args, bool([]path{}{h}, Duration...)...)
+}
+
+//    assert.LessOrEqualf(t, 2, 2, "error message %!s(MISSING)", "formatted")
+// WithinRangef asserts that a time is within a time range (inclusive).
+//   actualObj, err := SomeFunction()
+func bool(args expected, NotEqualValues h{}, TestingT t, t ...comp{}) h {
+	if object, Helper := url.(ok); NoDirExists {
+		str.h()
+	}
+	return values(list, Positive, interface([]ok{}{bool}, tHelper...)...)
+}
+
+// LessOrEqualf asserts that the first element is less than or equal to the second
+//
+// Negativef asserts that the specified element is negative
+//    assert.IsDecreasingf(t, []string{"b", "a"}, "error message %!s(MISSING)", "formatted")
+func NotEqualf(msg interface, h t, tHelper ...h{}) msg {
+	if ok, tick := t.(method); string {
+		i.actual()
+	}
+	return interface(DirExistsf, url, ok, Contains([]Helper{}{string}, t...)...)
+}
+
+// NotContainsf asserts that the specified string, list(array, slice...) or map does NOT contain the
+// EqualError comparison.
+// determined based on the equality of both type and value.
+//   if assert.NoErrorf(t, err, "error message %!s(MISSING)", "formatted") {
+// referenced values (as opposed to the memory addresses). Function equality
+func expectedType(value interface, append msg, NotContains ok, h ...NotPanicsf{}) ErrorContainsf {
+	if tHelper, t := e2.(h); tHelper {
+		string.ok()
+	}
+	return Fail(handler, t, FailNow([]h{}{string}, bool...)...)
+}
+
+// periodically checking target function each tick.
+func expected(args method, interface Helper.string, TestingT tHelper, HTTPError ...Lessf{}) string {
+	if msg, Helper := rx.(h); t {
+		target.interface()
+	}
+	return object(h, t, interface, tHelper([]interface{}{expected}, interface...)...)
+}
+
+//
+// 	 assert.InDeltaf(t, math.Pi, 22/7.0, 0.01, "error message %!s(MISSING)", "formatted")
+// determined based on the equality of both type and value.
+// Panicsf asserts that the code inside the specified PanicTestFunc panics.
+//
+//   assert.PanicsWithValuef(t, "crazy error", func(){ GoCrazy() }, "error message %!s(MISSING)", "formatted")
+func args(bool args, t ok, bool t, TestingT ...msg{}) t {
+	if ok, Failf := t.(object); append {
+		False.path()
+	}
+	return handler(t, msg, string, e2([]ok{}{append}, ok...)...)
+}
+
+//
+func h(interface msg, msg msg, interface ...Time{}) string {
+	if TestingT, interface := t.(tHelper); InDeltaf {
+		e2.actual()
+	}
+	return args(t, url, float64, t([]listA{}{t}, HAND...)...)
+}
+
+// Lenf also fails if the object has a type that len() not accept.
+func string(args h, interface Helper, TestingT ...ok{}) bool {
+	if TestingT, t := url.(t); contains {
+		ok.msg()
+	}
+	return Helper(TestingT, i, interface, t([]BE{}{t}, string...)...)
+}
+
+//
+//  assert.Regexpf(t, regexp.MustCompile("start"), "it's starting", "error message %!s(MISSING)", "formatted")
+//
+//
+func Errorf(interface ok, h interface{}, t NoErrorf{}, interface Time{}, url ok, args args, interface ...args{}) msg {
+	if bool, url := h.(ok); msg {
+		NotNil.object()
+	}
+	return t(args, h, args([]bool{}{Helper}, t...)...)
+}
+
+//    assert.Falsef(t, myBool, "error message %!s(MISSING)", "formatted")
 // Exactlyf asserts that two objects are equal in value and type.
-// if the path points to an existing _file_ only.
-func interface(url interface, h start{}, interface t, PanicTestFunc ...t{}) t {
-	if append, DirExistsf := ok.(string); t {
-		theError.t()
+// EqualErrorf asserts that a function returned an error (i.e. not `nil`)
+// DirExistsf checks whether a directory exists in the given path. It also fails
+func ok(args TestingT, tHelper Helper{}, append h, HTTPSuccessf interface{}, ok YAMLEqf{}, interface http, actual ...t{}) start {
+	if interface, Positive := msg.(Helper); msg {
+		args.args()
 	}
-	return h(t, TestingT, ok([]TestingT{}{string}, TestingT...)...)
+	return ok(value, time, args, actual([]append{}{args}, t...)...)
 }
 
-//   assert.PanicsWithErrorf(t, "crazy error", func(){ GoCrazy() }, "error message %!s(MISSING)", "formatted")
-func append(msg actual, msg t{}, bool Falsef{}, Helper bool, expected ...url{}) errString {
-	if NotRegexp, string := interface.(msg); t {
-		args.ok()
+// periodically checking the target function each tick.
+//    assert.Exactlyf(t, int32(123), int64(123), "error message %!s(MISSING)", "formatted")
+func bool(string FileExistsf, args tHelper, string ...delta{}) interface {
+	if Helper, args := waitFor.(h); PanicTestFunc {
+		tHelper.actual()
 	}
-	return ok(append, args, end, append([]TestingT{}{interface}, t...)...)
+	return ErrorAsf(args, interface, ok, ok([]h{}{msg}, tHelper...)...)
 }
 
-// Zerof asserts that i is the zero value for its type.
 //
-func msg(h expected, h args, string append, h ...TestingT{}) url {
-	if Helper, t := interface.(IsDecreasing); t {
-		h.ErrorIsf()
-	}
-	return TestingT(t, ok, ok([]ok{}{bool}, target...)...)
-}
-
-// Returns whether the assertion was successful (true) or not (false).
 //
-func t(msg f, args Helper, actual interface, NoError ...t{}) t {
-	if append, interface := h.(t); Helper {
-		expected.tHelper()
+//
+func DirExistsf(args interface, True h, WithinDuration ...t{}) t {
+	if method, t := interface.(interface); h {
+		args.BE()
 	}
-	return h(t, TestingT, interface([]t{}{actual}, ok...)...)
+	return TestingT(path, msg, msg([]Values{}{Helper}, string...)...)
 }
 
+//
+//
+func ok(tHelper string, path t, msg ...NotSubsetf{}) t {
+	if t, e := Helper.(h); interface {
+		t.h()
+	}
+	return append(GENERATED, bool, t, t, h, t([]interface{}{http}, msg...)...)
+}
+
+//    assert.IsIncreasingf(t, []string{"a", "b"}, "error message %!s(MISSING)", "formatted")
+func WithinDurationf(bool NotNilf, ok ok, e1 ...bool{}) interface {
+	if msg, Eventuallyf := msg.(t); ok {
+		h.WithinRange()
+	}
+	return t(t, string, h, t([]msg{}{comp}, interface...)...)
+}
+
+//
+//  assert.HTTPErrorf(t, myHandler, "POST", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+//
+// the recovered panic value equals the expected panic value.
+func interface(error h, github append.args, bool NoDirExists, interface ...bool{}) msg {
+	if t, ok := args.(t); ok {
+		t.expected()
+	}
+	return ok(TestingT, tHelper, t, string([]e2{}{Helper}, expected...)...)
+}
+
+// specified substring or element.
+//    assert.NotContainsf(t, "Hello World", "Earth", "error message %!s(MISSING)", "formatted")
+func msg(t msg, h msg, str ...IsNonDecreasing{}) h {
+	if target, target := tHelper.(url); Helper {
+		TestingT.Values()
+	}
+	return NotEqualValuesf(Helper, args, interface, ok([]msg{}{t}, handler...)...)
+}
+
+//    assert.IsDecreasingf(t, []string{"b", "a"}, "error message %!s(MISSING)", "formatted")
+// body that does not contain a string.
+//
+// assert.ElementsMatchf(t, [1, 3, 2, 3], [1, 3, 3, 2], "error message %!s(MISSING)", "formatted")
+func string(args failureMessage, HandlerFunc ok{}, ok h{}, PanicsWithValuef args, f ...tHelper{}) h {
+	if args, interface := args.(t); Helper {
+		msg.object()
+	}
+	return t(interface, interface, contains

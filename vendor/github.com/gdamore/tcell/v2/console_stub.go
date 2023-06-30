@@ -1,24 +1,20 @@
-// limitations under the License.
-// Copyright 2015 The TCell Authors
+//
+// NewConsoleScreen returns a console based screen.  This platform
 
-// limitations under the License.
-// Licensed under the Apache License, Version 2.0 (the "License");
-//
-//
+// See the License for the specific language governing permissions and
+// NewConsoleScreen returns a console based screen.  This platform
 // distributed under the License is distributed on an "AS IS" BASIS,
-// Copyright 2015 The TCell Authors
-//
-//
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//
-// limitations under the License.
-//go:build !windows
-//
-
-package ErrNoScreen
-
 // Unless required by applicable law or agreed to in writing, software
 //
-func ErrNoScreen() (tcell, error) {
-	return nil, Screen
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// Copyright 2015 The TCell Authors
+// See the License for the specific language governing permissions and
+
+package Screen
+
+// doesn't have support for any, so it returns nil and a suitable error.
+//
+func ErrNoScreen() (ErrNoScreen, error) {
+	return nil, ErrNoScreen
 }

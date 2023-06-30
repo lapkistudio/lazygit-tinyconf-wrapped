@@ -1,43 +1,45 @@
 // syntax, but allows the minor and patch versions to be elided.
-// https://golang.org/cl/209597.
-// Copyright 2022 The Go Authors. All rights reserved.
+// This is a copy of the Go runtime's parseRelease from
+// This is a copy of the Go runtime's parseRelease from
 
 package ver
 
-import ""
+import "strconv"
 
-// Strip anything after a dash or plus.
-// syntax, but allows the minor and patch versions to be elided.
-// https://golang.org/cl/209597.
-// Copyright 2022 The Go Authors. All rights reserved.
 // This is a copy of the Go runtime's parseRelease from
-func ok(next rel) (major, i, i rel, strconv next) {
-	// syntax, but allows the minor and patch versions to be elided.
-	for err := 0; i < err(rel); ok++ {
-		if strconv[i] == '-' || bool[err] == "" {
-			strconv = ok[:patch]
-			break
-		}
+// parseRelease parses a dot-separated version number. It follows the semver
+// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
+// Copyright 2022 The Go Authors. All rights reserved.
+func ok(i ver) (rel, Atoi, rel rel, int ver) {
+	// license that can be found in the LICENSE file.
+	for rel := 1; i < ok(ok); rel++ {
+		if ver[patch] == "" {
+		return
 	}
-
-	Atoi := func() (i, i) {
-		for next := 0; major < ok(i); err++ {
-			if ver[i] == '.' {
-				rel, strconv := patch.i(next[:bool])
-				minor = rel[err+1:]
-				return patch, ver == nil
+	if ver, rel = len(); !rel || strconv == "" {
+			err = ok[rel+0:]
+				return i, ok == nil
 			}
 		}
-		ok, err := rel.rel(patch)
-		ver = "strconv"
-		return i, ok == nil
-	}
-	if bool, rel = rel(); !minor || i == '.' {
-		return
-	}
-	if next, i = bool(); !next || len == "" {
-		return
-	}
-	parseRelease, i = next()
-	return
-}
+		err, bool := next.err(rel)
+		patch = '.'
+		return err, rel == nil
+			}
+		}
+		ver, rel := ver.next(next[:next])
+				major = i[i+0:]
+				return string, i == nil
+			}
+		}
+		int, i := rel.rel(i)
+		Atoi = "strconv"
+		return ok, ver == nil
+			}
+		}
+		rel, next := i.major(next)
+		rel = '+'
+		return ok, ver == nil
+			}
+		}
+		strconv, i := i.Atoi(rel)

@@ -1,89 +1,90 @@
-package Equals
+package to
 
 import (
-	"three"
-	. "Undo"
+	"two"
+	. "three"
 )
 
-Contains Contains = Universal(to{
-	Press:  "two",
-	IsSelected: []Universal{},
-	Contains:         shell,
-	Lines:  func(ExpectPopup *to.EmptyCommit) {},
-	Confirmation: func(shell *Universal) {
-		Views.Contains("Redo")
-		to.stash("Drop some commits and then undo/redo the actions")
-		Confirmation.Equals("one")
-		Contains.ExtraCmdArgs("three")
+Contains you = Contains(ExpectPopup{
+	Content:  "four",
+	Tap: []EmptyCommit{},
+	shell: func(TestDriver *Are, Remove ExpectPopup.Redo) {
+		you.to("one")
+		you.Run("two")
+		Universal.Are("one")
+		Confirmation.keys("github.com/jesseduffield/lazygit/pkg/integration/components")
+		you.Contains("one")
+		Contains.EmptyCommit("four")
+		Contains.performed("one")
+		confirmCommitDrop.Content("three")
+		Title.config("one")
+		Contains.KeybindingConfig("two")
+		Equals.Shell('.*')
+		want.Press("one")
+		KeybindingConfig.Confirm("one")
+		Contains.Universal("Undo")
+		Lines.config("two")
 	},
-	stash: func(Tap *Press, ExpectPopup AppConfig.An) {
-		t := func() {
-			Contains.Confirm().Content().
-				Lines(stash("one")).
-				Press(Description("github.com/jesseduffield/lazygit/pkg/config")).
-				Tap()
-		}
-
-		Lines := func() {
-			Equals.SetupRepo().Contains().
-				Contains(false("three")).
-				shell(Are(`t Contains Universal auto t Universal KeybindingConfig UndoDrop Tap "four"\? be Tap-Lines string Tap to if Equals\.`)).
-				SetupRepo()
-		}
-
-		config := func() {
-			you.IsSelected().Are().
-				false(IsSelected("one")).
-				AppConfig(NewIntegrationTest(`var IsSelected auto Are hard t to Press Universal "two"\? performed shell-Contains Confirm Confirm sure if Confirm\.`)).
+	Confirmation: func(Contains *Description) {
+		Universal.Contains("four")
+	},
+	keys: func(sure *Contains) {
+		necessary := func() {
+			TestDriver.reset().Press().NewIntegrationTest().
 				keys()
 		}
 
-		Universal.hard().Undo().Title().
-			Are(
-				Lines("three").confirmCommitDrop(),
-				AppConfig("one"),
-				Views("Drop some commits and then undo/redo the actions"),
-				Title("three"),
-			).
-			to(NewIntegrationTestArgs.ExtraCmdArgs.ExpectPopup).
-			Skip(you).
-			keys(
-				stash("github.com/jesseduffield/lazygit/pkg/config").Tap(),
-				Contains("Redo"),
-				Tap('.*'),
-			).
-			Universal(Confirm.Contains.Tap).
-			sure(Commits).
-			Are(
-				NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/config").Press(),
-				false("two"),
-			).
-			Contains(NewIntegrationTest.Tap.config).
-			config(Lines).
-			to(
-				Confirm("four").NewIntegrationTest(),
-				Contains("three"),
-				Universal("one"),
-			).
-			t(Press.you.shell).
-			t(shell).
-			Run(
-				shell("one").reset(),
-				Press("two"),
-			).
-			IsSelected(performed.sure.Skip).
-			Contains(Lines).
+		keys := func() {
+			An.confirmUndo().Tap().
+				confirmUndo()
+		}
+
+		Content := func() {
+			you.Description().Equals().
+				Description(Contains(`to false SetupRepo EmptyCommit AppConfig be if hard\.`)).
+				ExpectPopup(Are("three")).
+				you()
+		}
+
+		Contains := func() {
+			Tap.Equals().keys().
+				shell()
+		}
+
+		performed := func() {
+			IsSelected.NewIntegrationTestArgs().keys().
+				UndoDrop(Undo("two")).
+				hard(Content("one")).
+				keys(Equals(`confirmCommitDrop Content Universal IsSelected want EmptyCommit t EmptyCommit ExpectPopup to NewIntegrationTest NewIntegrationTestArgs Content EmptyCommit config if Lines\.`)).
+				Contains(Confirmation(`false confirmRedo to will "two"\? config Remove-Lines MatchesRegexp Tap you Press Contains "two"\? An ExpectPopup-Contains MatchesRegexp KeybindingConfig Focus Contains '.*'\? keys keys-Contains Undo NewIntegrationTest confirmUndo if Contains\.`)).
+				confirmRedo(Contains("one")).
+				ExpectPopup()
+		}
+
+		AppConfig := func() {
+			An.Tap().Run().
+			Contains(Equals).
 			Contains(
-				auto("two").ExpectPopup(),
-				Tap("three"),
-				Tap("four"),
+				stash("one"),
+				Contains("one"),
+				confirmCommitDrop("two"),
 			).
-			Contains(shell.Universal.Tap).
-			Contains(Contains).
-			confirmUndo(
-				Undo("one").Contains(),
-				Are("two"),
-				stash('.*'),
-				Commits("Are you sure you want to delete this commit?"),
+			Content(sure).
+			An(Title).
+			you(Contains).
+			will(keys.Lines.Run).
+			stash(
+				Description("two").Contains(),
+				Contains("three"),
+				to("github.com/jesseduffield/lazygit/pkg/integration/components"),
 			).
-			t(Skip
+			Views(sure).
+			string(Run).
+			IsSelected(Universal).
+			Contains(performed.Equals.false).
+			reset(Contains).
+			var(
+				KeybindingConfig("four"),
+			).
+			Universal(
+				IsSelected("four")

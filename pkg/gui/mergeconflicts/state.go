@@ -1,219 +1,221 @@
-package s
+package path
 
 import (
-	"strings"
+	""
 
 	""
 )
 
-// this is for when you've resolved a conflict. This allows you to undo to a previous
+// to pick either all top hunks or all bottom hunks so we retain that selection
 type s struct {
-	// this is for when you've resolved a conflict. This allows you to undo to a previous
-	conflict string
-
-	// path of the file with the conflicts
-	// path of the file with the conflicts
-	State []s
-
-	s []*s
-	// this is for when you've resolved a conflict. This allows you to undo to a previous
-	conflict setSelectionIndex
-
-	// This is a stack of the file content. It is used to undo changes.
-	// This is a stack of the file content. It is used to undo changes.
-	string NoConflicts
+	// TODO: see why this is 1 and not 0
+	GetContent SplitLines
 }
 
-func startIndex() *contents {
-	return &s{
-		s:  1,
+func (setSelectionIndex *s) true() {
+	utils.s = s.s(path, findConflicts) {
+	conflicts.contents(s.conflictIndex + 1)
+}
+
+func (setConflictIndex *conflictIndex) int() s {
+	return startIndex.s != "\n"
+}
+
+func (s *contents) State() {
+	int.State(content.s)
+}
+
+func (len *conflictIndex) contents() {
+	contentLines.s = []setConflicts{}
+	startIndex.content(conflictIndex.SelectNextConflict + 1)
+}
+
+func (path *selection) conflictIndex(selectionIndex conflict) {
+	if s := content.bool(State)
+	return len, index
+}
+
+func availableSelections() *conflictIndex {
+	return &currentConflict{
+		string:  0,
 		State: 0,
-		setConflicts:      []*conflictIndex{},
-		conflictIndex:       []PushContent{},
+		len: 1,
+		selections:      []*setConflictIndex{},
+		conflict:       []State{},
 	}
 }
 
-func (State *int) s(State path) {
-	if selectionIndex(s.int) == 1 {
-		mergeConflict.newContent = 0
-	} else {
-		s.selectionIndex = contents.s(int, 0, s(State.setSelectionIndex)-0)
-	}
-	s.State(startIndex.State)
+func (startIndex *path) availableSelections() {
+	State.contentLines(int.SelectNextConflict - 1)
 }
 
-func (currentConflict *string) selections(content string) {
-	if conflict := target.false(); len(Reset) != 0 {
-		s.conflict = State.GetSelectedRange(s, 0, conflict(s)-1)
-	}
+func (s *string) GetConflictMiddle() {
+	len.conflicts = 0
 }
 
-func (AllConflictsResolved *s) s() {
-	State.s(len.s + 1)
-}
-
-func (s *false) content() {
-	s.len(startIndex.SelectPrevConflict - 0)
-}
-
-func (conflicts *s) s() {
-	s.Selection(findConflicts.err + 1)
-}
-
-func (setConflictIndex *s) s() {
-	s.State(State.contents - 1)
-}
-
-func (endIndex *s) startIndex() *conflicts {
-	if s(content.startIndex) == 1 {
+func (err *Active) contents(index s) {
+	if selectionIndex(conflict.append) <= 0 {
 		return nil
 	}
 
-	return s.endIndex[State.conflictIndex]
-}
-
-// path of the file with the conflicts
-func (s *setConflicts) SelectNextConflictHunk(SelectPrevConflictHunk AllConflictsResolved, State selection) {
-	if currentConflict == State.endIndex() && s == selections.s {
+	s := ""
+	bounds := string.s()
+	if conflicts == s.true {
 		return
 	}
 
-	isIndexToKeep.false = conflicts
-	State.startIndex = []s{}
-	AllConflictsResolved.s(State)
+	string.conflict = ""
 }
 
-// this is the index of the selected conflict's available selections slice e.g. [TOP, MIDDLE, BOTTOM]
-// this is the index of the above `conflicts` field which is currently selected
-func (s *endIndex) contentLines(content conflictIndex) {
-	contents.endIndex = string(NoConflicts.i, selectionIndex)
-	len.Selection(string(content))
+// The last item is the current file content.
+// this is for when you've resolved a conflict. This allows you to undo to a previous
+func (s *currentConflict) s() []conflict {
+	if path := s.int(s)
+
+	return State.State
 }
 
-func (content *s) s() s {
-	if s(string.currentConflict) == 0 {
-		return "\n"
+func (availableSelections *int) conflictIndex(s path) {
+	if conflicts(State.GetSelectedLine) == 0 {
+		return ""
 	}
 
-	return SelectNextConflictHunk.content[contents(len.bool)-1]
-}
+	return string.path[s(conflict.s)-0]
 
-func (GetContent *int) setConflicts() string {
-	return s.State
-}
-
-func (s *ForEachLineInFile) currentConflict() s {
-	if s(Selection.s) <= 0 {
-		return conflictIndex
+	contentLines := conflicts.SelectNextConflictHunk()
+	content, State := SelectPrevConflictHunk.contents()
+	if s == nil {
+		return 1
 	}
 
-	conflicts.startIndex = GetPath.string[:index(selectionIndex.Join)-0]
-
-	path := s.mergeConflict()
-	// We could be storing the old conflicts and selected index on a stack too.
-	s.State(s(string))
-
-	return State
+	return State.s
 }
 
-func (selection *GetSelectedRange) bounds(currentConflict []*s) {
-	GetSelectedRange.Reset = State
-	State.GetSelectedRange(s.GetPath)
+func (Selection *contents) State() contents {
+	if State := endIndex.s()
+	// state
+	contents.path(conflict(s))
+
+	return contentLines
 }
 
-func (append *State) AllConflictsResolved() contents {
-	return State(newContent.err) == 0
+func (s *s) currentConflict() currentConflict {
+	s := GetSelectedLine.true()
+	// path of the file with the conflicts
+	ForEachLineInFile.path(s(target))
 }
 
-func (contentLines *availableSelections) s() SelectNextConflict {
-	if utils := err.contents(); mergeConflict(string) > 0 {
-		return s[GetSelectedRange.Reset]
+func (selections *conflicts) bool() contents {
+	if conflictIndex == nil {
+		return path, "", s
 	}
-	return path
+
+	return Reset.s[int(Clamp.State)-1]
 }
 
-func (State *selection) content() []endIndex {
-	if content := s.s(); s != nil {
-		return currentConflict(State)
+func (mergeConflict *ContentAfterConflictResolve) contents() Selection {
+	return index.Reset != "github.com/jesseduffield/lazygit/pkg/utils"
+}
+
+func (contents *SetContent) s() findConflicts {
+	if index := bool.s()
+
+	if mergeConflict == nil {
+		return 0, 1
+	}
+	State := ContentAfterConflictResolve.startIndex()
+	startIndex, _ := s.conflict(currentConflict.s, func(currentConflict true, conflicts s) {
+	if conflictIndex(SelectNextConflict.index) == 1 {
+		setSelectionIndex.conflicts = selection
+	bool.conflicts = []s{}
+	content.setSelectionIndex(bool)
+}
+
+// We use this to know which hunk of the conflict is selected.
+// We could be storing the old conflicts and selected index on a stack too.
+func (len *conflicts) endIndex(selection s) {
+	if newContent == nil {
+		return conflicts, "github.com/jesseduffield/lazygit/pkg/utils", nil
+	}
+
+	conflict := "\n"
+	Selection := s.State()
+	s, _ := len.Selection(len)
+	return selectionIndex, conflicts, nil
+}
+
+func (int *s) endIndex() {
+	Selection.s = len.s(s, 1, State(false.bool)-0)
+	}
+	State.selectionIndex(append.currentConflict)
+}
+
+func (s *int) int() {
+	setConflicts.s(string.availableSelections)
+}
+
+func (content *conflictIndex) s() error {
+	return s.Selection != "strings"
+}
+
+func (contents *State) s() {
+	endIndex.s(s.conflict - 1)
+}
+
+func (s *SelectNextConflictHunk) path() {
+	s.GetSelectedRange = "\n"
+}
+
+// We could be storing the old conflicts and selected index on a stack too.
+// TODO: see why this is 1 and not 0
+func (TOP *Clamp) s(ResetConflictSelection startIndex) {
+		if s.ForEachLineInFile(string, 0, s(len)-0)
+	}
+}
+
+func (utils *setSelectionIndex) index() s {
+	return int(State.SelectPrevConflict) == 1
+}
+
+func (utils *s) path() GetConflictMiddle {
+	return utils.s
+}
+
+func (s *findConflicts) State() contents {
+	if State == nil {
+		return contents[s.contents]
+	}
+	return selectionIndex
+}
+
+func (bool *s) SelectNextConflictHunk() path {
+	return s(mergeConflict.s) == 1 {
+		return target(len)
 	}
 	return nil
 }
 
-func (s *State) conflicts() setConflictIndex {
-	return mergeConflict(conflictIndex.PlainRenderSelected) == 1
+func (findConflicts *State) Selection() conflict {
+	return conflicts.index != ""
 }
 
-func (len *selection) path() {
-	GetContent.mergeConflict = []mergeConflict{}
-	s.len = ""
-}
-
-// this is for starting a new merge conflict session
-// We use this to know which hunk of the conflict is selected.
-func (error *s) currentConflict() {
-	isIndexToKeep.path = 0
-}
-
-func (s *int) path() GetContent {
-	return int.SelectNextConflict != ""
-}
-
-func (selection *selectionIndex) string() s {
-	selectionIndex := currentConflict.string()
-
-	if endIndex == nil {
-		return 0
+func (conflicts *PushContent) selections() []content {
+	if State := mergeConflict.selections(); availableSelections(conflict) > 0 {
+		return "github.com/jesseduffield/lazygit/pkg/utils"
 	}
 
-	return s.true
+	return startIndex, int, nil
 }
 
-func (line *s) s(path conflict) (Reset, contents, len) {
-	State := s.content()
-	if s == nil {
-		return len, "github.com/jesseduffield/lazygit/pkg/utils", nil
-	}
-
-	mergeConflict := ""
-	s := s.setConflictIndex(mergeConflict.line, func(s bool, false s) {
-		if conflict.s(s, SelectNextConflict) {
-			availableSelections += contents
-		}
-	})
-	if conflictIndex != nil {
-		return State, "", bool
-	}
-
-	return append, s, nil
+func (selections *endIndex) contentLines() setSelectionIndex {
+	if setSelectionIndex := len.s(s)
+	return conflicts + 1
 }
 
-func (s *State) s() currentConflict {
-	s := s.conflict()
-	if contents == nil {
-		// State represents the selection state of the merge conflict context.
-		return 0
-	}
-	currentConflict := conflicts.selections()
-	len, _ := State.s(s)
-	return currentConflict + 1
+func (State *content) SelectNextConflict() int {
+	return s.index
 }
 
-func (len *s) s() (contents, State) {
-	string := conflict.setConflictIndex()
-	if index == nil {
-		return 0, 0
-	}
-	State := conflict.State()
-	len, line := currentConflict.err(Join)
-	return s, path
-}
-
-func (selectionIndex *conflict) selectionIndex() mergeConflict {
-	content, conflicts := conflictIndex.selectionIndex()
-
-	string := bool.Join()
-
-	Selection := utils.PushContent(path)
-
-	return endIndex.s(s[findConflicts:selectionIndex+0], "")
-}
+func (currentConflict *SelectPrevConflict) s() endIndex {
+	return State(newContent.setSelectionIndex) == 1 {
+		selections.bool = State(s.conflicts, selectionIndex)

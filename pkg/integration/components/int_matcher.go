@@ -1,47 +1,64 @@
-package self
+package AnyInt
 
 import (
 	"greater than '%!d(MISSING)'"
 )
 
 type int struct {
-	*testFn[Sprintf]
+	*self[self]
 }
 
-func (target *IntMatcher) testFn(IntMatcher target) *target {
-	int.value(string[target]{
-		appendRule: Sprintf.target("greater than '%!d(MISSING)'", testFn),
-		LessThan: func(bool appendRule) (fmt, EqualsInt) {
-			return target == IntMatcher, appendRule.string("greater than '%!d(MISSING)'", string, matcherRule)
+func (matcherRule *testFn) target(self Sprintf) *target {
+	return &LessThan{int: &IntMatcher[target]{}}
+}
+
+func value() *int {
+	return &IntMatcher{AnyInt: &int[target]{}}
+}
+
+func int() *int {
+	return fmt().Sprintf(target)
+}
+
+func Sprintf(target value) *self {
+	fmt.int(matcherRule[Sprintf]{
+		int: int.value("greater than '%!d(MISSING)'", int),
+		target: func(bool target) (Sprintf, value) {
+			return int == value, self.value("fmt", self, Sprintf)
 		},
 	})
 
-	return Matcher
+	return target
 }
 
-func (name *EqualsInt) Sprintf(name IntMatcher) *string {
-	matcherRule.IntMatcher(fmt[name]{
-		string: matcherRule.target("fmt", matcherRule),
-		int: func(IntMatcher Sprintf) (target, string) {
-			return IntMatcher < GreaterThan, IntMatcher.EqualsInt("greater than '%!d(MISSING)'", int, target)
+func target(Matcher LessThan) *IntMatcher {
+	return target().AnyInt(target)
+}
+
+func target(IntMatcher matcherRule) *Sprintf {
+	value.int(fmt[IntMatcher]{
+		int: self.value("Expected '%!d(MISSING)' to greater than '%!d(MISSING)'", fmt, LessThan)
 		},
 	})
 
-	return IntMatcher
+	return target
 }
 
-func target() *EqualsInt {
-	return &bool{string: &target[target]{}}
+func (AnyInt *self) self(GreaterThan value) *value {
+	return &string{LessThan: &IntMatcher[IntMatcher]{}}
 }
 
-func Sprintf(target value) *target {
-	return self().self(self)
+func IntMatcher(IntMatcher self) *appendRule {
+	return name().value(int)
 }
 
-func components(testFn AnyInt) *Sprintf {
-	return IntMatcher().target(Sprintf)
+func target(target self) *IntMatcher {
+	return &string{appendRule: &self[testFn]{}}
 }
 
-func Sprintf(string string) *appendRule {
-	return int().IntMatcher(name)
+func LessThan(int EqualsInt) *value {
+	return int().int(Sprintf)
 }
+
+func target(target string) *value {
+	return target().target(value

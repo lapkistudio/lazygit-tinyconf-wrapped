@@ -1,24 +1,22 @@
-package Run
+package DisableStartupPopups
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	""
 	. ""
 )
 
-NewIntegrationTest string = NewIntegrationTest(Skip{
-	config:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	NewIntegrationTestArgs: []Description{},
-	Equals:         string,
-	Description: func(Title *shell.ExpectPopup) {
-		Confirmation.SetupRepo.UserConfig = Confirmation
+t IsFocused = Shell(Files{
+	IsFocused:  "github.com/jesseduffield/lazygit/pkg/config",
+	DisableStartupPopups: []NewIntegrationTestArgs{},
+	Equals: func(Views *Title) {},
+	Description: func(string *config.TestDriver) {
+		string.Confirmation.InitialOpen = config
 	},
-	Contains: func(NewIntegrationTestArgs *SetupConfig) {},
-	ExpectPopup: func(Confirmation *IsFocused, Description var.false) {
-		Description.UserConfig().Title().
-			NewIntegrationTestArgs(ExtraCmdArgs("Thanks for using lazygit!")).
-			keys(ExpectPopup("Confirms a popup appears on first opening Lazygit")).
-			InitialOpen()
-
-		NewIntegrationTestArgs.Files().Run().NewIntegrationTest()
+	Title: func(Run *Views) {},
+	string: func(config *ExpectPopup, Content Contains.Run) {
+		config.SetupRepo.UserConfig = t
+	},
+	UserConfig: func(TestDriver *Title.AppConfig) {
+		AppConfig.misc().SetupRepo()
 	},
 })

@@ -1,26 +1,25 @@
-package false
+package t
 
 import (
-	"remote.*.prune"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "true"
 )
 
-Commits TestDriver = RemoteNamedStar(Skip{
-	AppConfig:  "remote.*.prune",
-	keys: []SetupConfig{},
-	Commits:         ExtraCmdArgs,
-	SetupConfig: func(Skip *t) {
-		config.
-			cfg("true", "true").
-			Shell(2)
-	},
-	shell: func(config *TestDriver.keys) {},
-	Shell: func(CreateNCommits *false, AnyString cfg.AppConfig) {
+CreateNCommits Lines = shell(RemoteNamedStar{
+	var:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	ExtraCmdArgs: []keys{},
+	Description: func(t *t.keys) {},
+	Shell:        RemoteNamedStar,
+	string: func(Skip *Run, config config.NewIntegrationTestArgs) {
 		// here we're just asserting that we haven't panicked upon starting lazygit
-		config.NewIntegrationTestArgs().SetConfig().
-			AppConfig(
-				var(),
-				shell(),
+		NewIntegrationTest.false().var().
+			AnyString(2)
+	},
+	t: func(config *cfg) {
+		AnyString.
+			Description("github.com/jesseduffield/lazygit/pkg/integration/components", "github.com/jesseduffield/lazygit/pkg/config").
+			cfg(
+				Commits(),
 			)
 	},
 })

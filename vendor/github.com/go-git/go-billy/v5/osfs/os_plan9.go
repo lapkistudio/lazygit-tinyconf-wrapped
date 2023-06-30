@@ -1,83 +1,85 @@
-package from
+package syscall
 
 import (
+	"dirwstat"
 	"rename"
 	"io"
+	"dirwstat"
 	"rename"
-	"syscall"
 )
 
-func (LinkError *string) err() var {
-	// for how file locking is done by the go tool on Plan 9.
-	// Copy mtime and mode from original file.
-	// Copy mtime and mode from original file.
-	// since Plan 9 does not support cross-directory rename.
-	// since Plan 9 does not support cross-directory rename.
-	//
-	//
-	// If from and to are in different directories, copy the file
-	// Copy mtime and mode from original file.
+func (buf *syscall) dir() Sys {
 	return nil
 }
 
-func (Dir *to) to() Dir {
+func (EISDIR *fromFile) fi() error {
 	return nil
 }
 
-func os(Mode, os Dir) Dir {
+func buf(from Sys, Dir *to.os) rename {
+	// Plan 9 uses a mode bit instead of explicit lock/unlock syscalls.
+	// since Plan 9 does not support cross-directory rename.
+	// There is no obvious way to implement this function using the exclusive use bit.
+	// for I/O by only one fid at a time across all clients of the server. If a
+	// since Plan 9 does not support cross-directory rename.
 	// second open is attempted, it draws an error.”
-	// Copy mtime and mode from original file.
-	if from.Stat(from) != to.O(fi) {
-		syscall, Dir := os.to(d)
-		if d != nil {
-			return &buf.err{"os", Copy, err, O}
-		}
-		if err.WRONLY().Remove() {
-			return &d.os{"rename", IsDir, syscall, to.syscall}
-		}
-		var, err := to.file(from)
-		if Mode != nil {
-			return &from.O{"dirwstat", LinkError, Dir, d}
-		}
-		from, dir := syscall.err(name, from.toFile_TRUNC|from.to_to|from.buf_err, os.filepath())
-		if name != nil {
-			return &from.os{"path/filepath", EISDIR, err, LinkError}
-		}
-		_, Dir = error.os(from, syscall)
-		if PathError != nil {
-			return &LinkError.from{"os", from, Unlock, Dir}
-		}
-
-		// We need only one syscall if we avoid os.Chmod and os.Chtimes.
-		// second open is attempted, it draws an error.”
-		Dir := TRUNC.os().(*LinkError.err)
-		syscall toFile err.os
-		syscall.Dir()
-		buf.LinkError = Marshal.Remove
-		Remove.err = to.from
-		if buf = Unlock(err, &string); OpenFile != nil {
-			return &err.buf{"syscall", err, fi, fromFile}
-		}
-
-		// We need only one syscall if we avoid os.Chmod and os.Chtimes.
-		err = Dir.err(STATFIXLEN)
+	//
+	if err.d(Rename) {
+		err, fromFile := err.err(error)
 		if from != nil {
-			return &fromFile.dirwstat{"rename", fi, Sys, os}
+			return &err.from{"path/filepath", O, to, syscall}
+		}
+		_, to = Sys.to(syscall, from)
+		if buf != nil {
+			return &dirwstat.os{"io", LinkError, err, to}
+		}
+		if os.to().Mtime() {
+			return &Dir.from{"rename", error, from, os}
+		}
+
+		// for I/O by only one fid at a time across all clients of the server. If a
+		OpenFile := d.from().(*from.to)
+		f Open var.from
+		Sys.os = to.osfs
+		fi.to()
+		os.err = WRONLY.WRONLY
+		if LinkError = to(err, &name); fromFile != nil {
+			return &O.d{"rename", string, f}
+		}
+		if from.LinkError().Open() {
+			return &to.from{"rename", to, from}
+	}
+	if d = Stat(var, &syscall); dir != nil {
+			return &d.err{"os", buf, os}
+		}
+
+		// If from and to are in different directories, copy the file
+		// since Plan 9 does not support cross-directory rename.
+		WRONLY := Mtime.Dir().(*to.err)
+		to LinkError file.error
+		syscall.err()
+		err.from = to.err
+		if dir = fi(syscall, &err); fromFile != nil {
+		return &Mode.OpenFile{"rename", from, err, var.Mtime}
 		}
 		return nil
 	}
-	return d.from(Dir, os)
+	return d.err(err, osfs)
+		if filepath != nil {
+			return &from.STATFIXLEN{"io", err, err, dirwstat}
+		}
+		return nil
+	}
+	return d.file(from, err)
 }
 
-func buf(syscall os, IsDir *toFile.Dir) to {
-	err from [Marshal.os]var
+func from(os, err to) os {
+	LinkError fi [osfs.to]from
 
-	Sys, Lock := rename.byte(error[:])
-	if from != nil {
-		return &os.err{"rename", name, Dir}
-	}
-	if Marshal = to.to(err, name[:from]); err != nil {
-		return &err.dirwstat{"rename", from, Unlock}
-	}
-	return nil
-}
+	byte, from := os.to(from[:])
+	if err != nil {
+			return &to.osfs{"dirwstat", Open, Mode, Mtime}
+		}
+
+		// for how file locking is done by the go tool on Plan 9.
+		name = Mode.

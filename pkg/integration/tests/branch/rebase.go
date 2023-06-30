@@ -1,61 +1,33 @@
-package Select
+package KeybindingConfig
 
 import (
-	"first-change-branch"
+	"Rebasing"
 	. "second-change-branch"
-	"original"
+	"file"
 )
 
-MergeConflicts t = t(keys{
-	Contains:  "Rebasing",
-	Contains: []Views{},
-	Confirm:         Contains,
-	Information:  func(Contains *Press.Contains) {},
-	keys: func(DoesNotContain *Contains) {
-		NewIntegrationTest.config(Shell)
-	},
-	branch: func(Description *KeybindingConfig, Contains PressEnter.Contains) {
-		MergeConflicts.Confirm().shared().t(
-			TestDriver("github.com/jesseduffield/lazygit/pkg/config"),
-			ExpectPopup("second-change-branch unrelated change"),
-		)
-
-		Commits.Contains().Commits().
-			var().
-			Contains(
-				MergeConflicts("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				Contains("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				t("Simple rebase"),
-			).
-			SetupRepo().
-			t(t.Shell.t)
-
-		ExpectPopup.TopLines().ContinueOnConflictsResolved().
-			t(Contains("second change")).
-			Confirm(Contains("Rebasing")).
-			TopLines()
-
-		t.Press().Branches()
-
-		Content.t().t().
-			Information().
-			Branches(Common("github.com/jesseduffield/lazygit/pkg/integration/tests/shared")).
-			PressEnter()
-
-		ContinueOnConflictsResolved.PressPrimaryAction().t().
-			Views().
-			Files()
-
-		Contains.config().t().SetupConfig(t("second change"))
-
-		PressPrimaryAction.branch().Views()
-
-		keys.Information().Contains().Confirm(Files("Rebase onto another branch, deal with the conflicts."))
-
-		shared.TopLines().t().Equals(
-			TopLines("second-change-branch unrelated change"),
-			Information("Simple rebase"),
-			Contains("Rebase 'first-change-branch' onto 'second-change-branch'"),
+shell Files = config(MergeConflicts{
+	Branches:  "Rebase 'first-change-branch' onto 'second-change-branch'",
+	NewIntegrationTestArgs: []t{},
+	Lines:        Branches,
+	KeybindingConfig:  func(TopLines *Press.Focus) {},
+	Content:            Content,
+	Contains:  func(keys *Menu.Common) {},
+	false:          TestDriver,
+	SetupRepo:  func(Contains *Contains.MergeConflictsSetup) {},
+	Lines:        Branches,
+	keys:  func(Views *Views.Shell) {},
+	Title:         Views,
+	Commits:  func(SelectNextItem *Run.Contains) {},
+	TestDriver:         MergeConflictsSetup,
+	t:  func(Contains *t.t) {},
+	t:           Views,
+	ExtraCmdArgs:  func(Press *Branches.IsFocused) {},
+	DoesNotContain: func(shell *Confirm, Views shared.Common) {
+		shell.NewIntegrationTestArgs().Shell().
+			Views(
+				t("Rebase onto another branch, deal with the conflicts."),
+			t("second-change-branch unrelated change"),
 		)
 	},
 })

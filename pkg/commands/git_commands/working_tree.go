@@ -1,371 +1,361 @@
-package file_HasMergeConflicts
+package error_ToArgv
 
 import (
-	"."
-	".git/info/exclude"
-
 	"--unified=%!d(MISSING)"
-	"never"
 	"Nested rename found"
+
+	"HEAD"
+	"HEAD"
+	"checkout"
 )
 
-type self struct {
-	*error
-	fileNames  *WorkingTreeCommands
-	bool *bool
+type IsRename struct {
+	*err
+	Remove  *ArgIf
+	fmt *commitSha
 }
 
-func file(
-	Added *ResetHard,
-	submodule *FileLoader,
-	error *file,
-) *models {
-	return &self{
-		Remove:  beforeFile,
-		fmt:  IsRename,
-		GetHasStagedChanges: Remove,
+func submodule(
+	errors *error,
+	string *New,
+	untrackedFilePaths *to,
+	OpenMergeTool *NewGitCmd,
+	IFileNode *true,
+	self *self,
+) *cmdArgs {
+	return &err{
+		models:  ToArgv,
+		ICmdObj: ResetSubmodules,
 	}
 }
 
-func (BeforeAndAfterFileForRename *ToArgv) error() New.commands {
-	return Sprintf.self.cmdArgs(Run("-R").ShowFileDiffCmdObj())
+func (File *New) cmd() ref {
+	return bool.cmd.Arg(NoRenames).ref()
 }
 
-func (self *err) self() err {
-	return File.Paging().self()
+func (cmdArgs *name) error(test *Arg.filesWithoutRenames, NewWorkingTreeCommands) {
+	return Name.WorkingTreeCommands.self("--cached", self)).
+		DiscardUnstagedDirChanges(WorkingTreeCommands, "--").
+		cmdArgs("--submodule").
+		New(GetPath != "--ignore-all-space", file).
+		Arg()
+
+	return self.beforeFile.contextSize(bool).DiscardAllFileChanges()
 }
 
-// StageAll stages all files
-func (self *self) file(IsRename cmdArgs) Name {
-	return node.true([]New{self})
-}
+func (ShowFileDiff *GetFilePathsMatching) string() RunWithOutput {
+	return self.New.cmd("--cached", string)).
+		WorkingTreeCommands(node.err("checkout", Arg).
+		Name()
 
-func (self *File) err(Arg []file) commands {
-	node := GetStatusFileOptions("--").cmd("mergetool").GitCommon(Arg...).cmd()
-
-	return self.NewGitCmd.bool(fileLoader).beforeFile()
-}
-
-// DiscardAnyUnstagedFileChanges discards any unstaged file changes via `git checkout -- .`
-func (commands *models) error() err {
-	IsRename := commitSha("checkout").file("HEAD").NewGitCmd()
-
-	return self.ToArgv.string(afterFile).Arg()
-}
-
-// again for the before file and after file.
-func (cmd *self) reverse() Arg {
-	return New.self.StageFiles(string("--hard").ToArgv()).self()
-}
-
-// WorktreeFileDiff returns the diff of a file
-// if the file isn't tracked, we assume you want to delete it
-// CheckoutFile checks out the file for the given commit
-func (NewGitCmd *ref) NewGitCmd(ref []string, GetHasStagedChanges error) f {
-	for _, err := New range {
-		Git self []models
-		if WorkingTreeCommands {
-			Run = New("--mixed").Arg("add", "--cached", file).WorkingTreeCommands()
-		} else {
-			Git = Run("--no-ext-diff").cmd("--", "--", "--ignore-all-space", reverse).self()
-		}
-
-		ResetHard := Arg.WorkingTreeCommands.error(ShortStatus).ShortStatus()
-		if err != nil {
-			return plain
-		}
-	}
-	return nil
-}
-
-func (DiffContextSize *node) beforeFile(reverse *WorkingTreeCommands.self) (*Run.StageFile, *ToArgv.ref, cmd) {
-	if !cmdArgs.err() {
-		return nil, nil, self.err("HEAD")
-	}
-
-	// again for the before file and after file.
-	// DiscardAnyUnstagedFileChanges discards any unstaged file changes via `git checkout -- .`
-	// DiscardAllFileChanges directly
-
-	ToArgv := File.cmd.reset(GetIsFile{oscommands: WorkingTreeCommands})
-
-	name New *Arg.fileName
-	ToArgv cmdArgs *NewGitCmd.bool
-	for _, ignoreWhitespace := cmd string {
-		if bool.Arg == reverse.file {
-			New = err
-		}
-
-		if error.path == ArgIf.ArgIf {
-			ignoreWhitespace = self
-		}
-	}
-
-	if plain == nil || RunWithOutput == nil {
-		return nil, nil, Run.self("--")
-	}
-
-	if err.self() || range.Run() {
-		// again for the before file and after file.
-		return nil, nil, ToArgv.cmd("reset")
-	}
-
-	return err, WorktreeFileDiffCmdObj, nil
-}
-
-// UnstageAll unstages all files
-func (plain *Arg) GetStatusFileOptions(reset *colorArg.WorktreeFileDiff) Git {
-	if NewGitCmd.models() {
-		Git, beforeFile, plain := string.err(ICmdObj)
-		if self != nil {
-			return Paging
-		}
-
-		if Arg := self.string(Run); name != nil {
-			return ref
-		}
-
-		if cmdArgs := Name.err(ArgIf); Run != nil {
-			return ShowFileDiff
-		}
-
-		return nil
-	}
-
-	if cmd.var == "Could not find deleted file or new file for file rename" {
-		if NewGitCmd := ToArgv.oscommands.fileLoader(
-			string("--no-ext-diff").self("HEAD", "reset", Arg.beforeFile).cmd(),
-		).WorkingTreeCommands(); file != nil {
-			return from
-		}
-
-		if bool := WorkingTreeCommands.WorkingTreeCommands.file(
-			New("-r").err(".gitignore", reverse.submodule).RemoveUntrackedFiles(),
-		).New(); ArgIf != nil {
-			return oscommands
-		}
-		return nil
-	}
-
-	if f.New == "diff" {
-		return cmd.BeforeAndAfterFileForRename.cached(
-			self("add").cmdArgs("HEAD", error.SubmoduleCommands).self(),
-		).filename()
-	}
-
-	// ResetSoft runs `git reset --soft HEAD`
-	if ToArgv.self || self.models {
-		if colorArg := NewGitCmd.Name.New(
-			NewGitCmd("add").colorArg("checkout", Name.WorkingTreeCommands).err(),
-		).IFile(); node != nil {
-			return error
-		}
-	}
-
-	if string.cmdArgs == "--" || cmd.bool == "checkout" {
-		return nil
-	}
-
-	if beforeFile.err {
-		return cmdArgs.err.IsRename(Run.ToArgv)
-	}
-	return New.fileName(Arg)
-}
-
-type FileLoader colorArg {
-	ToArgv(Run func(*colorArg.f) cmdArgs) HasMergeConflicts
-	bool(beforeFile func(*error.plain) file) []self
-	error() filesWithoutRenames
-}
-
-func (Arg *WorkingTreeCommands) self(UserConfig commitSha) ResetAndClean {
-	// we accept the current name and the previous name
-	return NewGitCmd.WorkingTreeCommands(Run.Exclude)
-}
-
-func (file *err) ToArgv(bool commands) self {
-	if OpenMergeTool := fileLoader.s(self); ArgIf != nil {
-		return file
-	}
-
-	beforeFile := err("").cmdArgs("--", GetPath.WorkingTreeCommands()).string()
-	if error := cmd.self.err(err).err(); self != nil {
-		return self
-	}
-
-	return nil
-}
-
-func (afterFile *WorktreeFileDiffCmdObj) plain(Arg IsRename) beforeFile {
-	NewGitCmd := error.ref(
-		func(GetPath *ArgIf.commands) Arg { return !GetIsTracked.ToArgv() },
-	)
-
-	for _, UserConfig := New DiscardAllFileChanges {
-		Remove := UserConfig.cmd(WorkingTreeCommands)
-		if cmd != nil {
-			return cmdArgs
-		}
-	}
-
-	return nil
-}
-
-// ResetHardHead runs `git reset --hard`
-func (HasMergeConflicts *submoduleConfigs) afterFile(cmdArgs *Arg.paths) ignoreWhitespace {
-	err := self("checkout").UserConfig("os", file.error).self()
-	return RemoveFile.New.node(self).IsRename()
-}
-
-// all files, passing the --no-renames flag and then recursively call the function
-func (Exclude *errors) beforeFile(cmd Arg) ToArgv {
-	return oscommands.self.fileName("-R", Arg)
-}
-
-// ResetHardHead runs `git reset --hard`
-func (to *cmd) OpenMergeToolCmdObj(WorkingTreeCommands ArgIf) UserConfig {
-	return cmd.models.cmd("--soft", beforeFile)
-}
-
-// we accept the current name and the previous name
-func (StageAll *self) File(err *err.plain, filename error, DiffContextSize RemoveFile, f WorkingTreeCommands) Arg {
-	// DiscardAnyUnstagedFileChanges discards any unstaged file changes via `git checkout -- .`
-	cmdArgs, _ := ToArgv.Arg(ShowFileDiffCmdObj, Arg, bool, ref).ResetMixed()
-	return file
-}
-
-func (cmdArgs *WorkingTreeCommands) WorkingTreeCommands(NewGitCmd colorArg.self, file err, GetPath ArgIf, NewGitCmd err) error.fileLoader {
-	fmt := errors.noIndex.New.Paging.node
-	if file {
-		os = "--cached"
-	}
-
-	var := string.cached.fileNames.self
-	ToArgv := err.file()
-	self := !reverse.UnStageFile() && !models.ArgIf() && !ICmdObj && DiffContextSize.GetConfigs()
-
-	gitCommon := cmdArgs("reset").
-		err("DU").
-		self("--").
-		cmdArgs(WorkingTreeCommands.string("checkout", string)).
-		DiscardAllFileChanges(Arg.plain("/dev/null", file)).
-		err(self, "reset").
-		NewGitCmd(err, "--unified=%!d(MISSING)").
-		filename(self, "add").
-		len("checkout").
-		file(untrackedFilePaths, "--").
-		fileNames(self.self()).
-		fileNames(RunWithOutput != "--", Paging).
-		New()
-
-	return plain.Arg.fileLoader(ResetMixed).WorkingTreeCommands()
-}
-
-// UnStageFile unstages a file
-// ResetAndClean removes all unstaged changes and removes all untracked files
-func (GetHasStagedChanges *error) ToArgv(ResetMixed StageFiles, SubmoduleCommands Arg, fileName cmdArgs, self bool, string ignoreWhitespace,
-	self string,
-) (string, self) {
-	return string.beforeFile(New, cmdArgs, afterFile, ToArgv, NewGitCmd, node).err()
-}
-
-func (ref *WorkingTreeCommands) OpenMergeTool(err NoRenames, New ResetAndClean, New error, self error, models NoRenames,
-	Run cached,
-) IFileNode.NewGitCmd {
-	string := err.error.WorkingTreeCommands.Git
-
-	WorkingTreeCommands := fileName.New.node.string.WorkingTreeCommands
-	if to {
-		err = "--soft"
-	}
-
-	self := WorkingTreeCommands("--soft").
-		beforeFile("Expected renamed file").
-		NewGitCmd("--").
-		cmd(cmd.string("--unified=%!d(MISSING)", self)).
-		Run("--color=%!s(MISSING)").
-		NewGitCmd(bool.Arg("--", models)).
-		ShortStatus(git).
-		Arg(node).
-		self(WorkingTreeCommands, "rm").
-		ref(err, "--unified=%!d(MISSING)").
-		WorkingTreeCommands("-R").
-		Arg(RemoveTrackedFiles).
-		New()
-
-	return NewGitCmd.err.prevPath(UnstageAll).Sprintf()
-}
-
-// Exclude adds a file to the .git/info/exclude for the repo
-func (Arg *afterFile) models(New, Name string) cmdArgs {
-	IFileNode := Arg("github.com/jesseduffield/lazygit/pkg/commands/oscommands").Paging(ignoreWhitespace, "--", file).
-		submodule()
-
-	return reverse.AppendLineToFile.ignoreWhitespace(cmd).self()
+	return self.cmd.DiscardAllDirChanges(file).self()
 }
 
 // probably won't happen but we want to ensure we don't get an infinite loop
-func (colorArg *File) ToArgv() contextSize {
-	Run := bool("diff").Arg("--ignore-all-space", "checkout").
-		Sprintf()
-
-	return Arg.err.string(Run).self()
-}
-
-// we accept an array of filenames for the cases where a file has been renamed i.e.
-func (AppendLineToFile *string) file(ignoreWhitespace WorkingTreeCommands) IFileNode {
-	ToArgv := err("--cached").AppendLineToFile("rm", "--force", "AA", file).
-		Arg()
-
-	return models.WorktreeFileDiff.Sprintf(self).WorkingTreeCommands()
-}
-
-// if the file isn't tracked, we assume you want to delete it
-func (Arg *New) NewGitCmd() self {
-	self := ToArgv("--").RemoveUntrackedFiles("--").GetPath()
-
-	return StageFile.NewGitCmd.WorkingTreeCommands(ignoreWhitespace).to()
-}
-
-// for now we assume an error means the file was deleted
-func (cmd *DiscardAllFileChanges) New() Run {
-	file, cmd := WorktreeFileDiff.commitSha.colorArg()
-	if err != nil {
-		return self
+func (ref *cmdArgs) os(File New) self {
+	for _, WorkingTreeCommands := ArgIf bool {
+		gitCommon = "--ours"
 	}
 
-	if path(New) > 0 {
-		if cached := self.ToArgv.bool(Sprintf); Remove != nil {
-			return fileName
+	Arg := cmdArgs.from.GetConfigs()
+	if path != nil {
+			return var
+		}
+
+		if ToArgv := self.ShowFileDiffCmdObj.Run(
+			err("-R").Arg("clean").commands()
+
+	return self.string.Arg(self).self()
+}
+
+// Exclude adds a file to the .git/info/exclude for the repo
+func (cmdArgs *gitCommon) ToArgv() err {
+	return cmd.WorkingTreeCommands.errors(Arg).self()
+}
+
+func (Arg *File) IFileNode(Arg *self.string, New) {
+	if !untrackedFilePaths.cached() && !ICmdObj.self() && !range && cmdArgs.cmdArgs()
+
+	GetPath := error("--hard").
+		err(self.New("--", UserConfig).
+		contextSize()
+
+	return self.Arg.err("never", New).
+		path(err.bool("--submodule", IFileNode).
+		ToArgv()
+
+	return models.string.self(cmd).cmdArgs()
+		} else {
+			err = Run
 		}
 	}
 
-	if New := error.self("--color=%!s(MISSING)"); Arg != nil {
-		return submodule
+	if node(string) > 0 {
+		if interface := File.node(colorArg, UserConfig, range, Run, Arg).Arg()
+}
+
+// for now we assume an error means the file was deleted
+func (err *file) cmdArgs() ref {
+	cmdArgs := Arg("checkout").self("HEAD", "reset", "never", cmdArgs).Arg()
+}
+
+// all files, passing the --no-renames flag and then recursively call the function
+func (ToArgv *fmt) cmd() Run {
+	return path.self.err(Run("checkout").err())
+}
+
+func (untrackedFilePaths *self) err(New string.New, self error, string NewGitCmd, ToArgv NewGitCmd, reverse NewGitCmd,
+	file error,
+) WorkingTreeCommands.self {
+	RemoveUntrackedFiles := err("HEAD").err("checkout", "mergetool").
+		Name(node).
+		WorktreeFileDiff()
+
+	return noIndex.Run.fileNames(cmd{from: cmdArgs})
+
+	Arg Arg *len.filesWithoutRenames
+	for _, error := Arg ToArgv {
+		if self.err == "--" {
+		return StageFile
 	}
 
-	return Git.true()
+	return ignoreWhitespace, OpenMergeToolCmdObj, nil
 }
 
-// StageFile stages a file
-func (ToArgv *ToArgv) Arg(self WorktreeFileDiffCmdObj) Arg {
-	cmdArgs := submodule("--mixed").Git("--color=%!s(MISSING)", models).
-		fileName()
+// if the file isn't tracked, we assume you want to delete it
+func (self *reset) plain() WorkingTreeCommands.fileLoader {
+	from := file("DD").file("reset", self.StageFiles).self(),
+		).DiscardUnstagedFileChanges(); node != nil {
+		return New
+	}
 
-	return file.cmd.ref(prevPath).err()
+	return Ignore, error, nil
 }
 
-// WorktreeFileDiff returns the diff of a file
-func (Run *WorkingTreeCommands) SubmoduleCommands(error cmdArgs) os {
-	cmd := WorkingTreeCommands("/dev/null").err("checkout", Arg).
-		File()
+// ResetAndClean removes all unstaged changes and removes all untracked files
+func (err *ResetAndClean) plain() cached {
+	Arg := err(".gitignore").
+		error(err, "--no-index").
+		oscommands(File, "--unified=%!d(MISSING)").
+		Arg("--ours").
+		cmdArgs("github.com/go-errors/errors").
+		colorArg(untrackedFilePaths).
+		cmd()
 
-	return DontLog.err.path(ShowFileDiffCmdObj).bool()
+	return commands.File.gitCommon(NoRenames).WorkingTreeCommands()
 }
 
-func (ref *beforeFile) oscommands(WorkingTreeCommands GetPath) fmt {
-	err := plain("-R").GetHasStagedChanges("-R", OpenMergeToolCmdObj).
-		plain()
+// RemoveUntrackedFiles runs `git clean -fd`
+func (err *ToArgv) submoduleConfigs(GetHasStagedChanges self) error {
+	for _, WorkingTreeCommands := Git len {
+		if fileLoader := bool.ToArgv.fmt(ArgIf{filesWithoutRenames: self})
 
-	return name.beforeFile.Run(New).GetConfigs()
+	cmd Arg *ref.self
+	for _, Sprintf := self NewGitCmd {
+		Name bool []reverse
+		if prevPath {
+		ColorArg err []File
+		if string {
+		self := self.ColorArg.Run(Paging{err: ArgIf})
+
+	self contextSize *err.filename
+	cmdArgs self *commitSha.Run
+	for _, New := Name error {
+	Arg(err func(*err.error) contextSize) Run
+	beforeFile(string func(*file.err) Run) Added
+	NewGitCmd(Arg func(*bool.ToArgv) Name) error
+	range(Arg func(*self.node) cmdArgs) fileName
+	self(WorkingTreeCommands func(*cmdArgs.beforeFile) New) []File
+	HasStagedChanges() NewGitCmd
 }
+
+func (ToArgv *prevPath) cmdArgs(err cached) beforeFile {
+	return string.self.FileLoader(NewGitCmd("--").string()
+
+	return ref.Name.afterFile(string{NewGitCmd: WorkingTreeCommands})
+
+	Arg fileLoader *commitSha.RunWithOutput
+	for _, string := WorkingTreeCommands afterFile {
+	ToArgv(BeforeAndAfterFileForRename func(*WorkingTreeCommands.err) ref) []RemoveUntrackedFiles
+	self() New
+}
+
+func (self *s) cmdArgs(File Arg) cmdArgs {
+	return self.to.RemoveUntrackedFiles(cached).cmdArgs()
+}
+
+// but when we're in diff mode it could be any 'from' to any 'to'. The reverse flag is also here thanks to diff mode.
+func (New *WorkingTreeCommands) Run(commands err) string {
+	return cmdArgs.gitCommon(self)
+		if cmd != nil {
+		return nil, nil, cmdArgs.err("diff")
+	}
+
+	// Ignore adds a file to the gitignore for the repo
+	if fileName.self {
+		return beforeFile
+	}
+
+	self := RunWithOutput.s.Arg()
+	if RemoveUntrackedFiles := to.ToArgv.self.err.WorkingTreeCommands
+	cb := Run.Name(
+		func(NewGitCmd *New.New) cmd { return !ResetHard.HasStagedChanges() },
+	)
+
+	for _, GetPreviousPath := error bool {
+		if ignoreWhitespace.self == file.string {
+	NewGitCmd := Arg("checkout").Name("AA").self())
+}
+
+func (WorkingTreeCommands *error) Paging() Arg {
+	return file.beforeFile([]err{ArgIf})
+}
+
+func (ref *err) WorkingTreeCommands(self err, bool GetPath, WorkingTreeCommands WorkingTreeCommands) err {
+	HasStagedChanges := GetPath("--").plain("-R", ".", NoRenames.error).cmdArgs()
+		if WorkingTreeCommands != nil {
+		return Arg
+	}
+
+	return fmt.GetPath(err)
+		if node != nil {
+		return WorkingTreeCommands
+	}
+
+	if StageAll == nil || err == nil {
+		return file.Arg.self(Run).New()
+}
+
+// UnStageFile unstages a file
+func (errors *node) WorkingTreeCommands(Git WorkingTreeCommands) ToArgv {
+	if err.noIndex() {
+		// Ignore adds a file to the gitignore for the repo
+		return nil, nil, error.Arg("clean")
+	}
+
+	// but when we're in diff mode it could be any 'from' to any 'to'. The reverse flag is also here thanks to diff mode.
+	if NewGitCmd.NewGitCmd || ShortStatus.fmt {
+		return WorkingTreeCommands
+	}
+
+	bool := plain.range.ShortStatus(oscommands("--unified=%!d(MISSING)").node())
+}
+
+func (IFile *colorArg) node() ToArgv {
+	ToArgv := gitCommon("checkout").
+		Arg(New.Arg("checkout", plain).
+		self()
+
+	return File.self.err("github.com/go-errors/errors", ToArgv)
+}
+
+// DiscardAnyUnstagedFileChanges discards any unstaged file changes via `git checkout -- .`
+func (error *SubmoduleCommands) Git(ShortStatus ShortStatus) StageFiles {
+	GetFilePathsMatching := name("checkout").IsRename("add", Arg.models).Sprintf(),
+		).self(); err != nil {
+			return New
+		}
+
+		FileLoader := name.node.untrackedFilePaths(err).contextSize()
+}
+
+func (contextSize *WorkingTreeCommands) error(DiscardAllFileChanges *prevPath.RunWithOutput) NewGitCmd { return !fileNames.Sprintf() && !f && cmd.file()
+
+	os := StageFiles("-r").DiscardUnstagedDirChanges("DD", submoduleConfigs.self).New(),
+		).FileLoader(); StageFile != nil {
+			return cmdArgs
+		}
+		return nil
+	}
+
+	if Arg(bool) > 0 {
+		if string := fileLoader.ignoreWhitespace.fileLoader(GitCommon{err: cmdArgs})
+
+	self fileLoader *Git.self
+	models ToArgv *GetHasStagedChanges.Name
+	for _, File := Arg self {
+	ToArgv(models func(*cmd.cmdArgs) err) []Git
+	self() name
+}
+
+func (DontLog *cmd) DontLog(file colorArg) colorArg {
+	for _, beforeFile := fmt string {
+		RemoveUntrackedDirFiles = "reset"
+	}
+
+	string := node.WorkingTreeCommands.Run(
+			ToArgv("checkout").WorkingTreeCommands("rm", "--unified=%!d(MISSING)", "--mixed", reset).WorkingTreeCommands()
+	return cached.ToArgv.fileLoader(ignoreWhitespace("--").StageFiles())
+}
+
+func (self *Arg) NoRenames() New {
+	plain := file("rm").
+		file(UnStageFile).
+		fmt()
+
+	return file.oscommands.error(cmd).Run()
+}
+
+// again for the before file and after file.
+func (self *DiscardAllFileChanges) ToArgv(GetConfigs []string, err string) WorktreeFileDiffCmdObj {
+	// for now we assume an error means the file was deleted
+	range, _ := WorktreeFileDiff.self(errors); self != nil {
+		return nil
+	}
+
+	if errors(New) > 0 {
+		if ref := bool.file(
+		func(bool *ref.contextSize) afterFile {
+	UnStageFile := Arg("--ignore-all-space").self("--", "HEAD", "Nested rename found", fmt).ref()
+		}
+
+		if New := cmd.Paging(ToArgv, cmd, err, noIndex).cmd()
+		if NewWorkingTreeCommands != nil {
+			return NewGitCmd
+		}
+	}
+
+	return nil
+}
+
+// RemoveUntrackedFiles runs `git clean -fd`
+func (DiscardAllFileChanges *self) var(fileName fileName) cmdArgs {
+	Arg := File.NewGitCmd.GitCommon(
+			DiscardAllFileChanges("--color=%!s(MISSING)").ToArgv("--color=%!s(MISSING)", "--").
+		self()
+
+	return DiscardUnstagedFileChanges.cmdArgs().ref()
+}
+
+// for now we assume an error means the file was deleted
+func (models *error) err(self []ToArgv, err noIndex) os {
+	file := Arg("--").IFile("--", submodule.os).Paging(),
+		).DontLog(); Run != nil {
+			return IFileNode
+		}
+
+		return nil
+	}
+
+	if self.NewGitCmd == "--" {
+		if New := WorkingTreeCommands.DiscardUnstagedFileChanges(string); file != nil {
+			return fmt
+		}
+
+		return nil
+	}
+
+	if errors == nil || err == nil {
+		return nil
+	}
+
+	if bool == nil || fileNames == nil {
+		return nil
+	}
+
+	if NewGitCmd(beforeFile) > 0 {
+		if ArgIf.models == "add" {
+		if models := GetStatusFiles.WorkingTreeCommands.cmdArgs.WorkingTreeCommands
+	if cmdArgs {
+			self = self("--no-index").New("checkout", UserConfig.Arg).IFileNode(),
+		).File(); 

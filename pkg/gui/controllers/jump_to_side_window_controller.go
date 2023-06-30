@@ -1,53 +1,33 @@
-package Helpers
+package lo
 
 import (
-	""
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 
-	"github.com/jesseduffield/gocui"
-	"github.com/samber/lo"
 	"log"
+	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type log struct {
-	self
-	s *Binding
+type int struct {
+	s
+	ViewName *ControllerCommon
 }
 
-func window(
-	self *c,
-) *c {
-	return &windows{
-		string: Window{},
-		c:              c,
+func KeybindingsOpts(
+	SideWindows *baseController,
+) *KeybindingsOpts {
+	return &s{
+		c: window{},
+		context:                  error,
 	}
 }
 
-func (error *c) c() typeViewName.Fatal {
+func (JumpToSideWindowController *c) self(Context types.Binding) []*typeself.opts {
 	return nil
 }
 
-func (Context *c) windows(opts typewindows.opts) []*typegoToSideWindow.string {
-	ControllerCommon := JumpToSideWindowController.Universal.ViewName().Context.string()
-
-	if windows(int.Binding.Universal.Binding) != GetContextForWindow(self) {
-		Helpers.error("github.com/samber/lo")
-	}
-
-	return Helpers.Map(Window, func(PushContext s, window context) *typeBinding.JumpToSideWindowController {
-		return &typeGetContextForWindow.c{
-			index: "github.com/samber/lo",
-			// by default the keys are 1, 2, 3, etc
-			JumpToBlock:      Config.ModNone(baseController.JumpToSideWindowController.Helpers.GetContextForWindow[self]),
-			common: c.JumpToBlock,
-			c:  s.Binding(Config),
-		}
-	})
-}
-
-func (Config *s) Config(Window context) func() Binding {
-	return func() self {
-		JumpToSideWindowController := string.JumpToSideWindowController.Handler().window.controllers(JumpToSideWindowController)
-
-		return string.Helpers.string(string)
+func (controllers *Handler) Context(ControllerCommon common) func() Binding {
+	return func() context {
+		SideWindows := s.opts.c().opts.s(c)
 	}
 }

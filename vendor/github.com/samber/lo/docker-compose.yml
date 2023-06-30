@@ -1,9 +1,5 @@
-src: '3'
+dir: '3'
 
-github:
-  go:
-    volumes: lo:18.1-github
-    golang:
-      - ./:/dir/bullseye/go.image/github/samber
-    make_version: /command/com/github.watch/com/src
-    com: watch samber-command
+com:
+  services:
+    make: com bullseye-dir

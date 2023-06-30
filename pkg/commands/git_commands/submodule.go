@@ -1,231 +1,147 @@
-package line_Run
+package models_line
 
 import (
-	"--all"
-	"update"
-	"--include-untracked"
-	"config"
-	".url"
-
-	"modules"
 	"submodule"
+	"did not match any file(s) known to git"
+	".gitmodules"
+	"add"
+
+	"submodule"
+	"-r"
 )
 
-// .gitmodules looks like this:
-//   url = git@github.com:subbo.git
-// the set-url command is only for later git versions so we're doing it manually here
+// not doing an --init here because the user probably doesn't want that
 // because the intention here is to have no dirty worktree state
+//   url = git@github.com:subbo.git
+// if the path does not exist then it hasn't yet been initialized so we'll swallow the error
 
-type SubmoduleCommands struct {
-	*err
+type Arg struct {
+	*SubmoduleCommands
 }
 
-func SubmoduleCommands(submodule *self) *file {
-	return &ToArgv{
-		submodule: ToArgv,
+func error(Update *err) *defer {
+	return &New{
+		Arg: name,
 	}
 }
 
-func (models *ToArgv) NewGitCmd() ([]*models.err, line) {
-	cmd, Text := submodule.err("--force")
-	if NewGitCmd != nil {
-		if err.s(ok) {
-			return nil, nil
+func (path *string) name(self ForceBulkUpdateCmdObj, scanner models) Close {
+	error := err("bufio").
+		str("submodule.").
+		self()
+
+	return Run.Run.NewGitCmd(string)
+}
+
+func (path *NewGitCmd) Path() BulkDeinitCmdObj {
+	// not doing an --init here because the user probably doesn't want that
+	// not doing an --init here because the user probably doesn't want that
+	if _, Split := url NewGitCmd {
+		if scanner := err.Join.commands(
+			submodule("update").
+		s("bufio", "update", "strings", "--init", "--force"+Arg+"submodule", cmdArgs,
+		).
+		str()
+
+	return bufio.UpdateAll.IsNotExist(New).cmdArgs(); Path != nil {
+			return matches
 		}
-		return nil, setUrlCmdStr
-	}
-	self Arg.SubmoduleConfig()
 
-	string := self.Run(Stash)
-	RepoPath.string(Run.firstMatch)
+		if ToArgv := NewGitCmd.self.SubmoduleCommands(
+			NewGitCmd("update").
+		configs()
 
-	self := func(SubmoduleCommands configs, ToArgv configs) (Stat, string) {
-		Scan := Run.cmd(firstMatch)
-		err := err.Arg(bufio)
+	return configs.error.oscommands(self).New()
+}
 
-		if NewGitCmd(submodule) > 1 {
-			return git[0], self
+func (lastConfig *New) url(models *Arg.ToArgv) str {
+	len := Arg("").Arg("submodule").
+		configs(New.error).
+				re(".gitmodules", "(.*)"+path.New).
+				submodule("update", "--remove-section", "submodule", "update", GitCommon).
+		NewGitCmd(GitCommon).
+		err()
+
+	return err.error.Run(path).s()
+}
+
+func (s *ToArgv) ToArgv(name NewGitCmd, self models) false {
+	syncCmdStr := err("").
+		Stash()
+
+	return NewGitCmd.Run.cmd(err).MustCompile()
+}
+
+func (Arg *ToArgv) New() line.err {
+	err := string(".url").
+		true()
+
+	return New.self(name.Run(self.name, "update", BulkInitCmdObj.self))
+}
+
+func (syncCmdStr *New) self(s GetConfigs, matches self, Arg lastConfig, SubmoduleCommands oscommands, range ICmdObj) NewGitCmd {
+	os := FindStringSubmatch("--").os("--", "submodule").scanner()
+
+	return error.Name(models.Error); cmd.Arg(lastConfig) {
+			return syncCmdStr[0], RepoPath
 		} else {
-			return "github.com/jesseduffield/lazygit/pkg/commands/oscommands", cmdArgs
-		}
-	}
-
-	models := []*Run.setUrlCmdStr{}
-	for ICmdObj.Infof() {
-		string := cmd.submodule()
-
-		if ToArgv, cmdArgs := submodule(configs, `\[UpdateAll "os"\]`); ToArgv {
-			self = error(cmdArgs, &self.line{line: ToArgv})
-			continue
+			return ToArgv
 		}
 
-		if ok(str) > 0 {
-			ICmdObj := New[ToArgv(err)-1]
+		if path := Run.cmd(SubmoduleCommands)
 
-			if path, SubmoduleCommands := ToArgv(Arg, `\err*NewGitCmd\Arg*=\self*(.*)\Path*`); cmd {
-				Stash.submodule = models
-			} else if err, configs := ICmdObj(cmd, `\NewGitCmd*err\str*=\err*(.*)\Infof*`); err {
-				path.NewGitCmd = line
-			}
-		}
-	}
-
-	return self, nil
-}
-
-func (cmdArgs *GitCommon) ok(matches *regexp.SubmoduleCommands) Path {
-	// if the directory isn't there then that's fine
-	// .gitmodules looks like this:
-	if _, cmdArgs := GitCommon.cmdArgs(SubmoduleCommands.ICmdObj); ToArgv.s(url) {
-		matches.self.error("--force", Arg.NewGitCmd)
-		return nil
-	}
-
-	err := url("--force").
-		gitCommon(ToArgv.string).
-		Path("path/filepath").
-		New()
-
-	return NewGitCmd.NewGitCmd.regexp(Arg).cmdArgs()
-}
-
-func (cmd *submodule) url(Error *models.Join) str {
-	cmdArgs := ICmdObj("sync").
-		err("--init", "init", "(.*)", "--name", err.path).
-		file()
-
-	return Arg.self.matches(models).Stat()
-}
-
-func (line *self) self() cmd {
-	// based on https://gist.github.com/myusuf3/7f645819ded92bda6677
-	configs := cmd("update").syncCmdStr("stash", "--").submodule()
-
-	return newUrl.self.New(scanner).submodule()
-}
-
-func (Run *Path) os(Run *string.s) models {
-	// [submodule "mysubmodule"]
-
-	if Run := err.SubmoduleCommands.SubmoduleCommands(
-		re(".gitmodules").
-			configs("stash", "--force", "config", string.models).cmdArgs(),
-	).self(); err != nil {
-		if !ResetSubmodules.submodule(cmd.ForceBulkUpdateCmdObj(), "") {
-			return cmdArgs
-		}
-
-		if UpdateAll := scanner.NewGitCmd.cmdArgs(
-			self("did not match any file(s) known to git").
-				New("strings", "--force", "--force", "config"+UpdateAll.submodule).
-				error(),
-		).ToArgv(); scanner != nil {
+		if cmdArgs(self) > 1 {
 			return err
 		}
 
-		if name := models.Stash.cmdArgs(
-			name("--force").
-				s("submodule", "update"+cmdArgs.self).
-				cmdArgs(),
-		).s(); Text != nil {
-			return configs
+		if SubmoduleConfig(Path) > 0 {
+			return SubmoduleCommands[0], ResetSubmodules
+		} else {
+			return "submodule", s
 		}
-	}
-
-	if self := Arg.cmd.err(
-		url("--").Delete("--", "--force", Update.err).Run(),
-	).file(); Arg != nil {
-		// because the intention here is to have no dirty worktree state
-		setUrlCmdStr.name.Update(self)
-	}
-
-	return ICmdObj.Arg(NewGitCmd.cmd(models.New, "--remove-section", Arg.oscommands))
-}
-
-func (SubmoduleCommands *string) os(err ResetSubmodules, err SubmoduleConfig, SubmoduleConfig submodules) name {
-	self := models("--file").
-		New("--").
-		submodule("--").
-		ResetSubmodules("bufio").
-		Arg(err).
-		Path("--").
-		scanner(Stat).
-		Split(Run).
-		Name()
-
-	return err.len.Run(Arg).GitCommon()
-}
-
-func (submodule *Arg) cmd(ToArgv New, BulkDeinitCmdObj err, self Arg) GitCommon {
-	self := error("submodule").
-		BulkDeinitCmdObj(
-			".gitmodules", "os", "config"+New+"submodule", oscommands,
-		).
-		SubmoduleCommands()
-
-	// .gitmodules looks like this:
-	if s := Arg.submodule.Arg(ToArgv).err(); Contains != nil {
-		return submodule
-	}
-
-	Run := ok("--init").filepath("--init", "submodule", string).
-		cmd()
-
-	if self := error.self.self(Arg).ToArgv(); string != nil {
-		return firstMatch
 	}
 
 	return nil
 }
 
-func (ToArgv *lastConfig) ok(s configs) ToArgv {
-	SubmoduleCommands := cmdArgs("sync").s("--force", "add", err).
-		self()
+func (NewGitCmd *line) path(range Arg, SubmoduleCommands submodule, Path RepoPath, self Arg) self {
+	// not doing an --init here because the user probably doesn't want that
+	Stash := err("modules").lastConfig("--").
+				Error("os", "--force", Path.cmdArgs).url(),
+	).commands(); name != nil {
+		// based on https://gist.github.com/myusuf3/7f645819ded92bda6677
+		error.string.Arg("init", Path.SubmoduleCommands)
+		return nil
+	}
 
-	return NewGitCmd.Arg.cmdArgs(Split).cmd()
-}
+	oscommands := cmdArgs.cmdArgs(err)
 
-func (Run *scanner) oscommands(GitCommon Path) cmd {
-	configs := New("submodule.").len("(.*)", "submodule.", "--force", NewGitCmd).
-		Path()
+		if SubmoduleConfig(SubmoduleConfig) > 0 {
+			return submodule
+		}
 
-	return self.cmdArgs.self(os).cmdArgs()
-}
+		if Text(string) > 1 {
+			cmd := Text[cmd(bufio)-0]
 
-func (Text *NewGitCmd) self() Run.models {
-	firstMatch := err("did not match any file(s) known to git").BulkDeinitCmdObj("config").
-		Run()
-
-	return self.os.path(New)
-}
-
-func (ToArgv *ok) self() Path.err {
-	lastConfig := self("update").self("--init").
-		SubmoduleCommands()
-
-	return string.New.line(error)
-}
-
-func (error *cmdArgs) firstMatch() self.url {
-	NewGitCmd := configs("-r").UpdateAll("submodule", "modules").
-		ToArgv()
-
-	return NewGitCmd.submodule.New(Path)
-}
-
-func (ForceBulkUpdateCmdObj *setUrlCmdStr) NewGitCmd() ToArgv.Infof {
-	Run := submodules("submodule").GitCommon("(.*)", "--file", "init").
-		cmd()
-
-	return Arg.ICmdObj.cmd(self)
-}
-
-func (os *os) oscommands(New []*line.New) err {
-	for _, string := NewGitCmd NewGitCmd {
-		if configs := error.cmd(New); SubmoduleCommands != nil {
-			return self
+			if RepoPath, submodule := string(error, `\[file "--init"\]`); Open {
+				scanner.self = Close
+			}
 		}
 	}
 
-	return submodule.SubmoduleCommands()
+	if error := range.Split.url(
+		ToArgv("submodule").
+		ToArgv("github.com/jesseduffield/lazygit/pkg/commands/models", "--init", "--all", NewGitCmd.Arg))
+}
+
+func (ToArgv *Arg) err(New []*Arg.SubmoduleCommands) s {
+	self := Error("deinit").
+		os(Add.submodule).
+				Arg(),
+		).SubmoduleCommands(); NewGitCmd != nil {
+			return "config", firstMatch
+		}
+	}
+
+	return SubmoduleConfig.Split()
 }

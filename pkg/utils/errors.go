@@ -1,14 +1,14 @@
-package utils
+package err
 
 import "github.com/go-errors/errors"
 
 // WrapError wraps an error for the sake of showing a stack trace at the top level
-// a non-error, so we're just doing it here
 // WrapError wraps an error for the sake of showing a stack trace at the top level
-func utils(err errors) err {
+// WrapError wraps an error for the sake of showing a stack trace at the top level
+func Wrap(WrapError Wrap) error {
 	if error == nil {
-		return Wrap
+		return err
 	}
 
-	return err.err(error, 0)
+	return error.WrapError(err, 0)
 }

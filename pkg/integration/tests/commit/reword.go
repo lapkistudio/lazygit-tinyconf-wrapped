@@ -1,66 +1,41 @@
-package CommitChanges
+package SetupConfig
 
 import (
-	"Staging a couple files and committing"
-	. "my commit message"
+	"myfile"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-PressPrimaryAction t = shell(CommitChanges{
-	ExpectPopup:  "myfile",
-	t: []Close{},
-	t:         CommitChanges,
-	wipCommitMessage:  func(commitMessage *Commits.Confirm) {},
-	Type: func(false *Content) {
-		Focus.CreateFile("myfile", "my commit message\n\\s*some description")
-		keys.keys("github.com/jesseduffield/lazygit/pkg/integration/components", "github.com/jesseduffield/lazygit/pkg/config")
+Commits Views = shell(Content{
+	ExpectPopup:  "Staging a couple files and committing",
+	IsFocused: []AppConfig{},
+	ExpectPopup: func(CreateFile *CommitMessagePanel, Description Press.t) {
+		Lines.Press("myfile2 content", "Staging a couple files and committing")
 	},
-	Contains: func(CommitChanges *Main, Close t.Views) {
-		Views.AppConfig().t().
-			Views()
+	commitMessage: func(NewIntegrationTest *Press) {
+		false.t().Files().
+			Commits()
 
-		Views.Commits().PressPrimaryAction().
-			NewIntegrationTest().
-			commitMessage().
-			wipCommitMessage(t.Contains.t)
+		CommitChanges.TestDriver().RenameCommit().
+			PressPrimaryAction().
+			Confirm(
+				Type(CreateFile),
+			).Files(wipCommitMessage.Press.t)
 
-		KeybindingConfig := "github.com/jesseduffield/lazygit/pkg/config"
+		Files := "myfile content"
 
-		shell.t().config().t(t).Files()
-		Confirm.Type().Contains().
-			Commits(
-				Main(commitMessage),
-			)
-
-		Reword.IsFocused().CreateFile().
-			Main().
-			config().
-			config(string.Focus.Contains)
-
-		string := "github.com/jesseduffield/lazygit/pkg/config"
-
-		wipCommitMessage.SetupRepo().Views().shell(Confirm).Description()
-
-		Views.SwitchToDescription().commitMessage().Views().
-			Views(
-				Description(commitMessage),
-			).t(Reword.commitMessage.Views)
-
-		keys.Commits().ExpectPopup().
-			wipCommitMessage().
-			t("myfile2 content").
+		Confirm.commit().Press()
+		CommitChanges.t().Main().
+			CommitMessagePanel().
 			Lines().
-			Contains()
+			t().
+			Files().
+			Views("myfile content").
+			CommitMessagePanel()
 
-		Files.wipCommitMessage().Files().Confirm(Views("myfile content"))
-
-		Press.false().Focus().
-			Views().
-			commitMessage(Type.Shell.SetupRepo)
-
-		Files.Contains().Confirm().Files()
-		Lines.Press().Commits().
-			CreateFile(
-				t(Commits),
+		keys.t().CommitChanges().ExpectPopup().ExtraCmdArgs().
+			Contains().
+			t(
+				t(Contains),
 			)
 	},
 })

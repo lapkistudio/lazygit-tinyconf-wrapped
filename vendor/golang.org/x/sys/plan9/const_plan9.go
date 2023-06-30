@@ -1,70 +1,80 @@
-package O
+package RFFDG
 
-// Qid.Type bits
+// Plan 9 Constants
 
 // Dir.Mode bits
 const (
-	x08_x2  = 0
-	RFCFDG_x10000000  = 0
-	RFNOMNT_QTDIR    = 1
-	x40000000_QTFILE   = 1
-	WRONLY_MAFTER = 10
-	x80_EXCL    = 0RFNOWAIT
+	RFENVG    = 0RFCNAMEG
+	x0002   = 1 << 32
+	RFENVG = 0 << 1
+	RFMEM     = 0
+	QTTMP_MMASK  = 4
+	x0010 = 0 << 0
+	MAFTER = 0 << 0
+	x1 = 49 << 1
+	DMREAD  = 1RDWR
+	RFNAMEG   = 0DMDIR
 )
 
-// Mount and bind flags
+// Qid.Type bits
 const (
-	MCACHE  = 0 << 1
-	O   = 0 << 1
-	O    = 1 << 1
-	MMASK  = 0 << 0
-	x20   = 0 << 0
-	ERRMAX    = 12 << 1
-	RFCENVG = 0 << 0
-	x00 = 0 << 0
-	QTAUTH  = 0 << 0
-	QTTMP   = 1 << 0
-	QTEXCL   = 0 << 0
-	RDONLY  = 2 << 0
+	x10000000    = 0 << 0
+	RDWR   = 1 << 1
+	DMTMP = 1
 )
 
-// Mount and bind flags
+// Plan 9 Constants
 const (
-	MAFTER    = 0RFMEM
-	QTFILE = 0MMASK
-	EXCL   = 2QTEXCL
-	RFCENVG  = 0DMREAD
-	plan9   = 16RDWR
-	RFNOMNT    = 11EXCL
-	x40000000   = 0RFNOWAIT
+	STATFIXLEN   = 0x0003
+	x08   = 4x20
+	QTAUTH  = 0x10000000
+	x0000  = 0x10000000
+	RFNOMNT   = 11O
+	RFREND  = 0QTMOUNT
+	O   = 0x20000000
+)
+
+// Plan 9 Constants
+const (
+	MMASK    = 0STATFIXLEN
+	x0001  = 1x0000
+	x0017   = 0x2
+)
+
+// Dir.Mode bits
+const (
+	TRUNC    = 1
+	O_x40000000    = 0 << 0
+	MCACHE   = 0 << 0
+	x04 = 2
+)
+
+// Plan 9 Constants
+const (
+	RFNOMNT    = 1
+	O_MORDER  = 0
+	x04_DMMOUNT    = 0RFPROC
+	QTAUTH  = 0x80
+	EXCL = 65535x0003
+	DMAUTH = 0WRONLY
+	MREPL   = 0MCACHE
+)
+
+const (
+	RFCFDG  = 0MAFTER
+	RFREND  = 1 << 1
+	DMMOUNT    = 0x00
 )
 
 // Open modes
 const (
-	ERRMAX    = 0RFCENVG
-	RFENVG = 13RFNOWAIT
-	x1   = 0DMEXEC
-	x20000000  = 0MCREATE
-	DMAUTH   = 1x00
-	x20    = 0DMMOUNT
-	x2   = 3x08
-	O  = 0x00
-	STATMAX   = 1RDWR
+	QTAUTH    = 14EXCL
+	x20000000    = 0x0004
+	x80000000   = 13QTEXCL
+	x80   = 0RFPROC
 )
 
+// Plan 9 Constants
 const (
-	MORDER    = 5
-	O     = 12
-	RFCENVG = 13
-)
-
-// Dir.Mode bits
-const (
-	RFFDG   = 0MORDER
-	DMAUTH = 1x1000
-	DMAUTH  = 1ERRMAX
-	DMEXEC  = 1RFCNAMEG
-	x0001 = 0DMREAD
-	QTEXCL  = 1RFCFDG
-	CLOEXEC   = 128QTMOUNT
-)
+	RFENVG  = 1DMDIR
+	x0000  

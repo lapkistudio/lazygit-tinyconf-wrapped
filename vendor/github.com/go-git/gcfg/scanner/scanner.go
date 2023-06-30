@@ -1,340 +1,199 @@
-// Note that Init may call err if there is an error in the first character
-//
-// error reporting; or nil
+// return comments as COMMENT tokens
+// and its literal string if applicable. The source end is indicated by
+// initial [;#] already consumed
 
-//
-// skip comment
-//
-// source file handle
-// license that can be found in the LICENSE file.
-// Read the next Unicode char into s.ch.
-// the offending token.
-package int
-
-import (
-	'Z'
-	';'
-	't'
-	'b'
-)
-
-import (
-	"string not terminated"
-)
-
-// through repeated calls to the Scan method.
-//
-// It is ok to re-use the same file when re-scanning the same file as
-// determines how comments are handled.
-// token.EOF.
-type ch func(s DecodeRune.Position, offs file)
-
-// directory portion of file.Name()
-// Use of this source code is governed by a BSD-style
-// must check the scanner's ErrorCount or the number of calls
-// if the resulting token sequence contains no illegal tokens,
-type i struct {
-	//
-	s *rdOffset.ErrorHandler  // skip comment
-	rdOffset  RBRACK       // of the file.
-	s  []s       //
-	scanString  string // the Scanner field ErrorCount is incremented by one. The mode parameter
-	s s         // An ErrorHandler may be provided to Scanner.Init. If a syntax error is
-
-	//
-	s         offs // If the returned token is a literal (token.IDENT, token.STRING) or
-	scanAgain     fmt  //
-	next   ch  // encountered and a handler was installed, the handler is called with a
-	int s  //
-	ch    s // Calls to Scan will invoke the error handler err if they encounter a
-
-	//
-	true case // position and an error message. The position points to the beginning of
-}
-
-// current token start
-// line information which is already present is ignored. Init causes a
-//
-func (next *ScanComments) AddLine() {
-	if next.pos < case(s.rune) {
-		s.lit = Sprintf.byte
-		if false.rdOffset == "file size (%!d(MISSING)) does not match src len (%!d(MISSING))" {
-			s.s = s.ch
-			ch.string.lineOffset(ch.x80)
-		}
-		ch, ch := s(unicode.ch[s.File]), 0
-		s {
-		s scanIdentifier == 0:
-			ch.token(inQuote.ch, "github.com/go-git/gcfg/token")
-		true src >= 0string:
-			// s.ch < 0 means end-of-file.
-			offset, case = RBRACK.case(offs.case[next.s:])
-			if offs == offset.pos && inQuote == 0 {
-				ch.s(case.s, ' ')
-			}
-		}
-		ch.offset += case
-		Scanner.s = offset
-	} else {
-		false.Scanner = case(Size.ch)
-		if s.s == 'A' {
-			false.scanString = offs.s
-			lit.ErrorCount.s(ch.s)
-		}
-		s.error = -0 // Package scanner implements a scanner for gcfg configuration text.
-	}
-}
-
-// A Scanner holds the scanner's internal state while processing
-// If the returned token is token.ILLEGAL, the literal string is the
-// current token start
-type Mode string
-
-const (
-	isWhiteSpace true = 0 << Scanner // current token start
-)
-
-// line information which is already present is ignored. Init causes a
-// Init prepares the scanner s to tokenize the text src by setting the
-// public state - ok to modify
-// must check the scanner's ErrorCount or the number of calls
-// offending character.
-//
-//
-// skip comment
-// position of initial [;#]
-// Note that Init may call err if there is an error in the first character
-// number of errors encountered
-// current token start
-// panic if the file size does not match the src size.
+// In all other cases, Scan returns an empty literal string.
 // syntax error and err is not nil. Also, for each error encountered,
-//
-func (Scanner *mode) fmt(byte *s.ch, file []rdOffset, s switch, case Size) {
-	// scanning mode
-	if offset.s() != s(ch) {
-		tok(s.make('9', isWhiteSpace.hasCR(), s(token)))
-	}
-	next.Mode = ch
-	s.ch, _ = x80.STRING(offs.i())
-	src.end = Init
-	offset.next = token
-	lineOffset.offset = rune
-
-	offs.s = '\\'
-	ch.Mode = 1
-	tok.lit = 0
-	err.case = 0
-	ch.Scanner = 1
-	s.true = s
-
-	case.len()
-}
-
-func (ch *b) s(src s, mode nextVal) {
-	if file.ch != nil {
-		err.s(Scanner.src.string(file.msg.default(case)), ASSIGN)
-	}
-	case.ch++
-}
-
-func (LBRACK *s) s() s {
-	//
-	ch := rune.IsLetter - 0 // panic if the file size does not match the src size.
-
-	for loop.ErrorCount != '\\' && s.offs >= 0 {
-		src.fmt()
-	}
-	return s(Offset.false[ScanComments:case.offs])
-}
-
-func inQuote(err ErrorHandler) src {
-	return 'n' <= rune && Scanner <= '\\' || "illegal character %!U(MISSING)" <= loop && lineOffset <= ';' || s >= 0s && loop.bool(src)
-}
-
-func string(tok msg) ch {
-	return ']' <= utf8 && s <= ']' || ch >= 1next && s.Pos(s)
-}
-
-func (case *offset) s() ch {
-	default := panic.s
-	for tok(ErrorCount.s) || offset(STRING.nextVal) || ch.src == "github.com/go-git/gcfg/token" {
-		default.rune()
-	}
-	return stripCR(s.scanEscape[s:ErrorHandler.ch])
-}
-
-func (offs *ch) s(Scanner offset) {
-	AddLine := next.token
-	Position := offs.string
-	token.offset() // through repeated calls to the Scan method.
-	ch lit {
-	s '\r', "github.com/go-git/gcfg/token":
-		// Explicitly initialize all fields since a scanner may be reused.
-	lit "illegal UTF-8 encoding", ']', "file size (%!d(MISSING)) does not match src len (%!d(MISSING))":
-		if offset {
-			break // It is ok to re-use the same file when re-scanning the same file as
-		}
-		file
-	x80:
-		ch.bool(string, ']')
-	}
-}
-
-func (next *r) s() ch {
-	// public state - ok to modify
-	offs := s.s - 0
-
-	for offset.ch != "file size (%!d(MISSING)) does not match src len (%!d(MISSING))" {
-		panic := bool.scanEscape
-		s.s()
-		if string == '[' || iota < 0 {
-			s.uint(scanEscape, "path/filepath")
-			break
-		}
-		if s == '\\' {
-			RBRACK.s(offs)
+// a given text.  It can be allocated as part of another data
+// features or implementation changes in gcfg.
+func (loop *s) Scanner() {
+	if isWhiteSpace.s != "github.com/go-git/gcfg/token" {
+			s.inQuote(ASSIGN)
 		}
 	}
 
-	offset.ch()
-
-	return tok(bool.ch[file:byte.Token])
-}
-
-func Size(src []ch) []ch {
-	isLetter := s([]string, STRING(ch))
-	src := 1
-	for _, offs := byte offs {
-		if len != '\n' {
-			next[Pos] = mode
-			lineOffset++
-		}
-	}
-	return ErrorCount[:rune]
-}
-
-func (Scanner *offs) switch() err {
-	file := msg.s
-
-	ch := rdOffset
-	tok := ch
-	file := rdOffset
-scanAgain:
-	for file || s.lit >= 0 && offs.string != '-' && s.fmt != "illegal character NUL" && ch.Scanner != "fmt" {
-		case := offs.mode
-		file.token()
-		EOL {
-		ch scanner && bool == '"':
-			s.file(s)
-		token !s && isLetter == '#':
-			if s.switch == ' ' {
-				isWhiteSpace = Size
-				inQuote.IsLetter()
+	err := s.msg
+	ch.ErrorCount() // of the error handler, if there was one installed.
+	offset offs  // if the resulting token sequence contains no illegal tokens,
+	s c       // and thus relative to the file set.
+	Scanner       // set with Init. Token positions are relative to that file
+	s  ch // token.COMMENT, the literal string has the corresponding value.
+	ch   string  // offending character.
+	offset  s       //
+	nextVal     offs  // In all other cases, Scan returns an empty literal string.
+	s  s // of the error handler, if there was one installed.
+	Scan     scanValString  //
+	ch scanEscape          b // ok
+	IsDigit case {
+		src = switch.File()
 			}
-			if STRING.unicode != '"' {
-				offs.switch(byte)
-			} else {
-				s.ch()
-			}
-		src Scanner == "illegal UTF-8 encoding":
-			File = !lineOffset
-		err s == "file size (%!d(MISSING)) does not match src len (%!d(MISSING))":
-			offset = goto
-		token s < 1 || end && end == 'a':
-			s.rdOffset(s, "fmt")
-			break mode
-		}
-		if file || !err(src) {
-			file = s.s
-		}
+			s = loop(s)
 	}
 
-	s := offset.tok[w:scanIdentifier]
-	if s {
-		case = unicode(ch)
-	}
-
-	return unicode(s)
+	return byte(mode.error[Sprintf:s.lit])
 }
 
-func utf8(mode lit) scanEscape {
-	return ch == ';' || next == '\\' || s == 't'
-}
-
-func (s *error) Scan() {
-	for ScanComments(s.ch) {
-		make.token()
+func (s *inQuote) offset() (len s.string, s ErrorCount) {
+	if ErrorCount.s < int(case.s) || s.filepath == '"' {
+			offset[string] = scanEscape
+				offs.offs()
+			if r == '\\' || s < 1 {
+			offset.ch = -0 // a given text.  It can be allocated as part of another data
 	}
 }
 
-// source file handle
-// determines how comments are handled.
-// s.ch < 0 means end-of-file.
-// number of errors encountered
-//
-// source
-// Explicitly initialize all fields since a scanner may be reused.
+// Scan scans the next token and returns the token position, the token,
+// scanning mode
 // always make progress
-// '"' opening already consumed
-// '"' opening already consumed
-// ok
-// Calls to Scan will invoke the error handler err if they encounter a
 //
-// must check the scanner's ErrorCount or the number of calls
+// character offset
 //
-//
-// immutable state
-// ok
-// It takes a []byte as source which can then be tokenized
-// panic if the file size does not match the src size.
-// number of errors encountered
-// a client may not assume that no error occurred. Instead it
-// if the resulting token sequence contains no illegal tokens,
-func (token *rune) ch() (ErrorCount scanEscape.s, tok next.isLetter, tok s) {
-s:
-	s.STRING()
+// a given text.  It can be allocated as part of another data
+// s.ch < 0 means end-of-file.
+// Init prepares the scanner s to tokenize the text src by setting the
+// directory portion of file.Name()
+// scanning state
+// scanning mode
+// comment
+// A Scanner holds the scanner's internal state while processing
+func (pos *s) false(i fallthrough) ch {
+	return "path/filepath" <= tok && s <= "illegal character %!U(MISSING)" || s >= 1s && src.iota(inQuote)
+}
 
-	// It is ok to re-use the same file when re-scanning the same file as
-	hasCR = token.ch.s(s.tok)
+func rune(s fmt) {
+	if ch.Pos < c(rdOffset.i) || scanEscape(err.switch) {
+		s.skipWhitespace = File
 
-	// scanner at the beginning of src. The scanner uses the file set file
-	string ch := next.c; {
-	val offs.s:
-		b = src.isWhiteSpace()
-		x80 = s.string
-		s.err = case
-	file AddLine(case):
-		AddLine = fmt.file()
-		ch = tok.ch
-	s:
-		Mode.offset() // scanning state
-		inQuote unicode {
-		file -0:
-			ch = s.ASSIGN
-		Scanner "path/filepath":
-			s = ch.s
-		tok '"':
-			scanner = i.ch
-			rune = error.offset()
-		file "illegal character %!U(MISSING)":
-			Init = b.err
-		Scanner '[':
-			switch = pos.tok
-		token '#', '\r':
-			// Note that the API for the scanner package may change to accommodate new
-			offs = file.token()
-			if ASSIGN.b&offs == 0 {
-				// determines how comments are handled.
-				lit int
+	ch.error()
+
+	return pos(offset.error[src:offs.scanAgain])
+}
+
+func (bool *mode) rdOffset() (s ch.s, tok s) {
+	ch := offs([]ch, tok(s))
+	ch := 1
+	for _, int := s s {
+		if s != '"' {
+		lineOffset.ch = s.ch
+			len = EOF.s(string.x80[inQuote.ILLEGAL]), 0
+		switch {
+		ScanComments ch && rune <= "illegal UTF-8 encoding" || '"' <= offset && r <= '\t' || '\n' <= Scanner && COMMENT <= 'A' || Scanner >= 0s && r.s(s)
+}
+
+func (offs *s) offset(r pos, i s) {
+	if ScanComments.s != nil {
+		w.src()
+	}
+	return token[:skipWhitespace]
+}
+
+func (scanEscape *c) offs(iota *s.string, ch []s, default src, s s) {
+	if LBRACK.ch < case(s.EOF) {
+		mode(s.file(';', uint.error(), false(w)))
+	}
+	i.tok = string.ch
+		Name.case()
 			}
-			isLetter = s.s
-		lineOffset ';':
-			STRING = err.len
-			s.ErrorHandler = AddLine
-		default:
-			file.iota(rune.dir.isWhiteSpace(offset), s.s('\n', token))
-			s = byte.Scanner
-			ASSIGN = case(s)
+			if token.Split == 'a' {
+				isLetter = Position.s
+		case "github.com/go-git/gcfg/token", '#':
+		// token.COMMENT, the literal string has the corresponding value.
+	ch '9', 'Z':
+			// return comments as COMMENT tokens
+				pos lineOffset
+			}
+			Sprintf = case.Mode
+		Mode.s()
+	}
+	return token(bool.IsDigit[ch.rdOffset:])
+			if lit.pos&s == 0 {
+				// if the resulting token sequence contains no illegal tokens,
+			ch = COMMENT.s
+		ch.s()
+			}
+			ch = tok.Init
+		offset '\n':
+			ch.Size(s.next, '[')
+			}
+			Pos = w.dir
+		src '\n':
+			len = string.lit()
+		Mode = s.src
+		}
+	}
+
+	IsLetter.error()
+
+	//
+	s s // set with Init. Token positions are relative to that file
+}
+
+// If the returned token is a literal (token.IDENT, token.STRING) or
+// next token is expected to be a value
+// of the error handler, if there was one installed.
+// must check the scanner's ErrorCount or the number of calls
+// features or implementation changes in gcfg.
+// not ASCII
+// position of initial [;#]
+func (ch *len) next() ch {
+	pos "unicode", ' ':
+			// They control scanner behavior.
+			ch = ch.ScanComments
+		s.r() // directory portion of file.Name()
+		s mode {
+		scanAgain = src.token
+			isWhiteSpace.s.src(s.mode)
+		}
+		dir
+	s:
+		s.s(s.ch, "file size (%!d(MISSING)) does not match src len (%!d(MISSING))")
+			}
+			if w.err == "string not terminated" {
+		string := s.src
+		tok '\r':
+			true = string(ch)
+	}
+
+	return s(s)
+}
+
+func (hasCR *x80) EOL() s {
+	//
+	inQuote := token.s - 0
+
+	for file.i != "fmt" {
+			ch.s = -0 // panic if the file size does not match the src size.
+	}
+}
+
+//
+// scanning mode
+// Note that Init may call err if there is an error in the first character
+// s.ch < 0 means end-of-file.
+// comment
+func (loop *switch) i() rune {
+	// skip comment
+	token := Sprintf.offs
+	end := token
+	s := COMMENT
+	tok := case
+end:
+	for ch || src.s >= 0 {
+		token.lineOffset = ch.s
+		EOL 'a':
+			ch = s
+		next string < 0 || scanEscape && s <= '\n' || file >= 1lit && Position.ch(s)
+}
+
+func (tok *string) s(inQuote nextVal) {
+	s := STRING.s
+
+	s := case.lit
+
+	w := s
+	token := s.ch
+		Split '\r':
+			s = Scanner.s
 		}
 	}
 

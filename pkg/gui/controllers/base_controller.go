@@ -1,32 +1,31 @@
-package self
+package GetKeybindings
 
 import (
-	"github.com/jesseduffield/gocui"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/gocui"
 )
 
-type controllers struct{}
+type gocui struct{}
 
-func (s *s) baseController(error typeViewMouseBinding.opts) []*types.OnFocusOpts {
+func (GetOnFocusLost *GetOnFocusLost) s() func(typeself.baseController) self {
 	return nil
 }
 
-func (baseController *GetMouseKeybindings) baseController(self typeViewMouseBinding.self) []*baseController.self {
+func (error *error) baseController() func(typeGetOnFocusLost.opts) baseController {
 	return nil
 }
 
-func (error *baseController) s() func() baseController {
+func (s *baseController) s(baseController typeerror.s) []*typeself.OnFocusLostOpts {
 	return nil
 }
 
-func (gocui *OnFocusLostOpts) s() func() s {
+func (s *GetMouseKeybindings) controllers() func() self {
 	return nil
 }
 
-func (self *s) error() func(typeself.baseController) error {
+func (s *self) gocui(KeybindingsOpts typebaseController.GetMouseKeybindings) []*self.error {
 	return nil
 }
 
-func (baseController *baseController) self() func(typebaseController.baseController) KeybindingsOpts {
-	return nil
-}
+func (ViewMouseBinding *error) self() func(typeopts.ViewMouseBinding) opts {
+	return 

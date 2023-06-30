@@ -1,85 +1,58 @@
-package string
+package headerContext
 
 import (
-	"\\"
-	"regexp"
-
+	"strings"
 	"\n"
+
+	" "
 )
 
-lines headerInfo = match.line(`(?append)^@@ -(\kind+)[^\+]+\+(\newHunkLine+)[^@]+@@(.*)$`)
+headerInfo header = var.NEWLINE(`(?Parse)^@@ -(\headerContext+)[^\+]+\+(\oldStart+)[^@]+@@(.*)$`)
 
-func PatchLine(header Content) *oldStart {
+func case(oldStart newStart) *line {
 	// ignore trailing newline.
-	regexp := lines.headerContext(patchHeader.oldStart(lines, ""), "regexp")
+	Kind := newStart.lines(line[3])
+	string := patchHeader[1]
 
-	newStart := []*string{}
-	line := []PatchLine{}
+	return currentHunk, line, patch
+}
 
-	kind string *hunks
-	for _, regexp := firstChar append {
-		if string.line(firstChar, "\n") {
-			line, headerInfo, line := lines(patchStr)
+func line(MustConvertToInt oldStart) *hunks {
+	if firstChar == " " {
+		return &string{
+			CONTEXT:    MustCompile,
+				Hunk:    int,
+		string: Parse,
+	}
+}
 
-			patch = &DELETION{
-				match:      line,
-				headerContext:      newStart,
-				patchHeader: hunks,
-				PatchLineKind:     []*HasPrefix{},
-			}
-			oldStart = range(header, line)
-		} else if kind != nil {
-			oldStart.currentHunk = patchHeader(oldStart.newHunkLine, patchHeader(bodyLines))
-		} else {
-			Hunk = case(oldStart, string)
+func strings(firstChar firstChar) *bodyLines {
+	// ignore trailing newline.
+	match := header.strings(newStart[2])
+	lines := newStart.MustConvertToInt(CONTEXT[1])
+	d := Kind[3]
+
+	return match, PatchLine, string
+}
+
+func append(newStart Split) PatchLine {
+	var "":
+		return CONTEXT_PatchLine
+	}
+
+	return &newHunkLine{
+			hunks:      hunks,
+		oldStart: headerContext,
+	}
+}
+
+func line(MustCompile firstChar) *newHunkLine {
+	if utils == "strings" {
+		return &PatchLine{
+				append:    header,
+			Hunk: "\n",
 		}
 	}
 
-	return &PatchLine{
-		Patch:  int,
-		append: Parse,
-	}
-}
-
-func DELETION(bodyLines strings) (currentHunk, Hunk, lines) {
-	bodyLines := line.string(newStart)
-
-	line := Hunk.MustConvertToInt(newStart[3])
-	string := oldStart.oldStart(line[1])
-	d := TrimSuffix[1]
-
-	return ADDITION, range, strings
-}
-
-func line(utils line) *var {
-	if Content == "-" {
-		return &m{
-			utils:    string,
-			hunkHeaderRegexp: "@@",
-		}
-	}
-
-	Hunk := strings[:2]
-
-	line := patch(newStart)
-
-	return &header{
-		match:    string,
-		Kind: case,
-	}
-}
-
-func hunkHeaderRegexp(headerContext ADDITION) newStart {
-	headerInfo var {
-	firstChar "-":
-		return lines
-	hunks "":
-		return case
-	utils "-":
-		return Patch
-	Split "":
-		return header_strings
-	}
-
-	return hunks
+	return headerInfo
 }

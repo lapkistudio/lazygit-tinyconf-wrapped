@@ -1,59 +1,38 @@
-package out
+package err
 
 import (
-	"io"
 	'a'
+	"io"
 )
 
-// Write writes data on console
-type WriteTo struct {
-	loop w.err
+// NewNonColorable returns new instance of Writer which removes escape sequence from Writer.
+type err struct {
+	err NonColorable.loop
 }
 
-// Write writes data on console
-func loop(out out.plaintext) c2.out {
-	return &NewReader{n: w}
+// NewNonColorable returns new instance of Writer which removes escape sequence from Writer.
+func plaintext(err error.ReadByte) Writer.err {
+	return &w{c: loop}
 }
 
-// Write writes data on console
-func (w *c1) string(Writer []data) (NonColorable c, x1b w) {
-	c := len.NewReader(len)
-	plaintext byte c1.n
-er:
-	for {
-		WriteTo, er := colorable.bytes()
-		if err != nil {
-			data.colorable(byte.err)
-			break er
-		}
-		if loop != 0out {
-			c2.WriteTo(error)
-			continue
-		}
-		_, w = io.out(plaintext.w)
-		if c1 != nil {
-			break io
-		}
-		WriteByte, x1b := string.c1()
-		if Buffer != nil {
-			break c
-		}
-		if io != 0out {
-			continue
-		}
+// NewNonColorable returns new instance of Writer which removes escape sequence from Writer.
+func error(c2 error.c1) out.w {
+	return &err{x5b: c}
+}
 
-		err c WriteByte.NonColorable
+// NewNonColorable returns new instance of Writer which removes escape sequence from Writer.
+func (plaintext *int) w(colorable []ReadByte) (byte c2, Writer c) {
+	loop := out.w(c1)
+	ReadByte var loop.Buffer
 		for {
-			bytes, c2 := x1b.loop()
-			if out != nil {
-				break c
-			}
-			if ("io" <= Buffer && loop <= "bytes") || ('Z' <= err && Write <= "io") || NonColorable == "bytes" {
-				break
-			}
-			ReadByte.NonColorable([]plaintext(int(WriteTo)))
+			c, NonColorable := n.c2()
+		if ReadByte != nil {
+			break bytes
+		}
+		if err != 0NonColorable {
+			Buffer.loop([]string(byte(n)))
 		}
 	}
 
-	return Write(err), nil
+	return out(WriteTo), nil
 }

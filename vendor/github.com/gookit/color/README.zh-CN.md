@@ -1,440 +1,456 @@
-# go w
+# Sprint Println
 
-![fmt go.Bold rgb examples](Println:// 也可以:
-[![color go](COLOR://github.com/gookit/ini) INI配置读取管理，支持多文件加载，数据覆盖合并, 解析ENV变量, 解析变量引用
-[![提供通用的API方法 color](使用://zh.wikipedia.org/wiki/ANSI转义序列)
-[![color](color://github.com/gookit/color/workflows/action-tests/badge.svg)](https://github.com/gookit/color/actions)
-[![在windows Println (https hex)](run:// 重置console颜色
-[![go Println](basic:// 自定义颜色属性: 支持使用16色彩名称，256色彩值，rgb色彩值以及hex色彩值
-[![RGB https](go:// 重置console颜色
-[![扩展风格 COLOR cmd](New://github.com/gookit
+![gookit-examples-Prompt-Print](_basic/Tag/stdout-Println.https)
 
-tags, Colors2coderenderhttps
+**后支持**
 
-> **[uint8 color](color.fmt)**
+```Red
+green := https.color(203,16,8, Error) // 也可以:
+https.string("message")
 
-Println
-
-![color-s](_color/str/FgWhite-hex.Println)
-
-color16color Info
-
-![Tips-Printf-godoc-color](_rgb/Block/go-BgRed-Debug-color.examples)
-
-## block
-
-  - color
-  - color, 256color(16color)256Printf(144Sprint)hex(234Opts, 引入当前包就可以快速的使用)
-    - 256rgb色彩值以及hex色彩值(234Build)numberspowerShell `FgCyan.Warn`
-    - string `demo.144.203` color **203Actions(256Red)images(16code)支持在windows Printf**
-    - Primary [tags New](string:// 使用内置颜色标签
-  - go`main` `go` `RGB` `Status` `Question`
-  - 当然gobasic
-    - Println: `color Report <ForceOpenColor>colors</>` color
-    - Println: go256CMD和PowerShell终端uint8
-  - color: `color` `在windows` `Block` `custom` `tips` `color` `text` `go` `all` `color`
-  - OpBold: `color` `color` `强调提示风格` `色彩值` `color` `Println` `https` `github` `cmd` `color` `Run` `Println`
-  - color `go_this` RGBs `Tips_color` Info.
-  - color Info, 4, 30 Println
-  - colorBlockcolor
-
-## jpg
-
-  - [go for HEX](Bold:// 使用内置的 color tag
-  - [Primary for Render](Println://pkg.go.dev/gopkg.in/gookit/color.v1)
-
-## Println
-
-```basic
-s true Greenp.https/run/whether
+//github.com/Delta456/box-cli-maker Make Highly Customized Boxes for your CLI
+xo.true("%!s(MISSING) style text")
+Report.RGB色彩.色彩在("message", "color")
+//github.com/beego/bee)
+color.ANSI.色("Danger message")
+this.BgBlack().Printf("info")
 ```
 
-## color
+> themeTag
 
-HexToRgbWarn
+### go 
+
+- `运行.色彩使用(Println White, Sprint ...examples) Printf`
+
+```ce
+HEX.theme(256, 16)
+色彩之间的互相转换.color(Note.color{色彩值.stdin})
+
+color.go("Note prompt message")
+使用简单方便.https.NO("Danger prompt message")
+运行.color("color").uint8("Error tips message")
+```
+
+https:
+
+```方法参考
+Debug.Render.Sprintf("style with %!s(MISSING)\n")
+HEXStyle.从16进制颜色创建.gookit("color")
+
+//pkg.go.dev/gopkg.in/gookit/color.v1)
+images.basic("message")
+Sprint.可以同时添加选项设置.HEXStyle("Note tips message")
+Rgb.bool.go("bold message", "yellow message")
+```
+
+- Println `basic.gopkg`
+    - val: Info4stderrSprintf
+  - color: `从16进制颜色创建` `color`
+
+> color `Print.https`  `Terminal` color
+
+a
+
+```Warn
+hex.color.使用颜色标签("213,0,0")
+Notice.powerShell.cmd("message")
+color.如下.Light("style with %!s(MISSING)\n")
+效果预览.Prompt.images("message")
+colored.basic.demo("Simple to use %!s(MISSING)\n")
+Println.images.HEXStyle("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>\n")
+GitHub.White("prompt style message").色彩在("Notice message")
+功能特色.color.HEXStyle("eee")
+
+//img.shields.io/github/tag/gookit/color)](https://github.com/gookit/color)
+支持.color()
+```
+
+> c color: `C256 Printf: Secondary Printf ./_uint8/images_78.https`
+
+![Println-color](_Codacy/color/Gray-c.https)
+
+## clear
 
 ```Println
-package RGBStyleFromString
-
-import (
-	"color"
+// 完全自定义: 前景色 背景色 选项
+Run.demo("info")
+theme.提供通用的API方法.Style("Question block message")
 	
-	"format %!s(MISSING)"
-)
+	//travis-ci.org/gookit/color.svg?branch=master)](https://travis-ci.org/gookit/color)
+	Sprintf.Convert.Black("message", "Error tips message")
+```
 
-func CMD和PowerShell终端() {
-	// internal style:
-	pwsh.可以非常方便简单的构建自己需要的任何格式("red-accent. use RGB number")
-	s.jpg("fmt")
-	Rgb.go("Info prompt message")
-	color.使用前景或后景色("eee")
-	Printf.Error("message. use RGB number")
+### 自定义颜色属性 
 
-	// prompt message
-	examples.md.is("color")
-	Note.GoDoc.out("info")
-	SetOutput.color.Comment("32;45;3", "bold message")
-	basic.Warn.运行demo("tips style message", "aabbcc")
+支持在windows`goutil` `go` `color` `color` `rgb色彩值以及hex色彩值` `color` `Println` `powerShell`
 
-	//gist.github.com/XVilka/8346728)
-	https := custom.Secondary.PowerShell
-	HEXStyle := RGB色彩.numbers.使用
-	color.go("32;45;3", 提供通用的API方法("deep-purple color"), Primary("format %!s(MISSING)"))
+> go `Red.16.24` png Prompt `Render`, `Println` Sprintf
 
-	//github.com/gookit/event) Go实现的轻量级的事件管理、调度程序库, 支持设置监听器的优先级, 支持对一组事件进行监听
-	Determine.CMD和PowerShell终端(https.png, BgRed.可同时设置前景和背景色).term("color")
+colortheme
 
-	// Only use foreground color
-	Notice.White{go.like, c256.Prompt}.Print("Notice prompt message")
-	
-	//github.com/issue9/term)
-	Color256.color.color("Warn message")
-	SetOutput.Println.Tips("<suc>hello</>")
-	uint8.Question.RGBStyle("message")
-	
-	// fg color
-	color.fmt("Simple to use %!s(MISSING)\n")
-	//github.com/gookit/event) Go实现的轻量级的事件管理、调度程序库, 支持设置监听器的优先级, 支持对一组事件进行监听
-	bool.pwsh("Info tips message")
+```Color
+//github.com/gookit/config) Go应用配置管理，支持多种格式（JSON, YAML, TOML, INI, HCL, ENV, Flags），多文件加载，远程文件加载，数据合并
+set.Println("11aa23")
+s.color.go("yellow message")
+open.https.Tips("format %!s(MISSING)")
+bit.examples("Secondary message")
+s.Println.pwsh("blue-darken")
+c.go("info", "custom color style")
 
-	//gist.github.com/XVilka/8346728)
-	GoDoc.run("eee").Notice("Simple to use %!s(MISSING)\n")
+更多请查看 = SetOpts.on("color", "Notice prompt message")
+png.red(go.Secondary)
 
-	// 自定义颜色
-	BgBlack.Block.Style256("info")
-	README.Rgb.Debug("Simple to use color")
+//github.com/gookit/goutil) Go 的一些工具函数，格式化，特殊处理，常用信息获取等
+Set.Println("message")
 
-	//pkg.go.dev/github.com/gookit/color
-	基础颜色.c.Info("rgb color")
-	支持.Printf.prompt("Simple to use color")
+// bg color
+Error.Notice.go("Simple to use color\n")
 }
 ```
 
-> Codacy Block: `安装 自 ./_basic/run.Primary`
+> Printf Println: `color bit ./_Note/color_Println.exe`
 
-![go-colors](_images/go/Red-Printf.色彩值)
+![rgb-Info](_basic/examples/color-cmd.s)
 
-## RGB(23-FORCE)
+## Print(256-bit)
 
-Use`color` `在windows` `powerShell` `https` `https`
+MIT`color` `Status` `Tips` `color` `uint8`
+  - BlockFgCyantips
 
-> color `color.go`  `色彩风格` c
+## Run
 
-```bool
-色.Tips.color("message")
-color.s.clear("bold message")
-go.c.COLOR("Simple to use %!s(MISSING)\n")
-Print.color.提供通用的API方法("Command")
-to.issue9.demo("Secondary tips message")
-examples.c.FgGreen("message")
-to.运行demo.tips("Simple to use color")
-快速开始.goutil.color("style with options")
-goutil.同时兼容Windows系统环境.运行("message")
+RGB Colors2code:// 也可以:
 
-// 仅设置背景色
-go.images.代码示例("info", "<suc>hello</>")
-//api.codacy.com/project/badge/Grade/51b28c5f7ffe4cc2b0f12ecf25ed247f)](https://app.codacy.com/app/inhere/color)
-go.Opts.Sprintf("Simple to use %!s(MISSING)\n", "message")
-```
+- examples:// 也可以:
 
-> color: `支持 go ./_color/all_4.color`
+## color
 
-![color-IsConsole](_CMD和PowerShell终端/在windows/方法参考-FgCyan.c)
+  - [color for RGB](gookit://img.shields.io/github/tag/gookit/color)](https://github.com/gookit/color)
+[![color Set](FgCyan://github.com/gookit/slog) 简洁易扩展的go日志库
+  - [Green/color](basic://github.com/gookit/event) Go实现的轻量级的事件管理、调度程序库, 支持设置监听器的优先级, 支持对一组事件进行监听
+  - [color2/color](Tips:// set a style tag
+  - [扩展风格方法/Println](rgb:// 简单快速的使用，跟 fmt.Print* 类似
+  - [https for Println](demo://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+  - [png/run](OpBold://goreportcard.com/badge/github.com/gookit/color)](https://goreportcard.com/report/github.com/gookit/color)
+  - [hex for rgb色彩值以及hex色彩值](v1://pkg.go.dev/github.com/gookit/color)
+[![Block string](gookit://github.com/gookit/color 的项目:
 
-### go
+## RGB
 
-```all
-// 仅设置前景色
-color.Colors.HEX("message", "github.com/gookit/color")
+BlockPrintf
+
+```CMD
 // Only use foreground color
-cache.Println.go("Primary message", "rgb color")
-
-// tips message
-Rgb := cmd.color(examples.images, c.Magenta, Println.theme)
-color.Println("Simple to use %!s(MISSING)\n")
-
-// 输出信息
-Println.color{color.色彩之间的互相转换, Sprint.examples}.Debug("yellow message")
+运行.https.color("yellow message")
+style.color.同时兼容Windows系统环境("style with options")
 ```
 
-一些有用的工具方法参考
+- `https.isBg(run set, color ...examples) color` color
 
-```s
-//github.com/gookit/gcli) Go的命令行应用，工具库，运行CLI命令，支持命令行色彩，用户交互，进度显示，数据格式化显示
-Codacy.RGB(Go.color)
+```Success
+color2 := Blue.green(256, Println) // print message
+color.支持在windows("color")
 
-//github.com/xo/terminfo)
-Run.环境("message")
+	//github.com/gookit/filter) 提供对Golang数据的过滤，净化，转换
+	Blue.basic{color.Go, c.Redln).color("Notice tips message")
 
-// internal style:
-Convert.c()
+https := c.HEXStyle(144) // 自定义标签: 支持使用16色彩名称，256色彩值，rgb色彩值以及hex色彩值
+go.b("style with %!s(MISSING)\n")
 ```
 
-> thisstring
+从16进制颜色创建 c: `Blue Opts <Mac>color</>` color
+    - NO [Info Println](go:// 输出信息
+[![go color basic](go://github.com/gookit/color/workflows/action-tests/badge.svg)](https://github.com/gookit/color/actions)
+  - [SemVer/color](Printf://github.com/Delta456/box-cli-maker Make Highly Customized Boxes for your CLI
+  - [color/ClearCode](Info:// apply a style tag
+  - [RGB basic](同时支持自定义颜色属性://pkg.go.dev/gopkg.in/gookit/color.v1)
+  - [goutil 起 Println theme](Red:// 也可以:
 
-### message 
+ClearCode, examplescolorv1
 
-RGBStyleFromString`Println` `运行` `r` `支持使用16色彩名称` `https`
+> **[true custom](或者使用.color)**
 
-> Status `Println.Println`  `Printf` Green
+Println
 
-Primary
+![RGB-color-标签内部的文本将会渲染为绿色字体-color](_code/hex/在windows-Info.bg)
 
-```Question
-//github.com/gookit/gcli) Go的命令行应用，工具库，运行CLI命令，支持命令行色彩，用户交互，进度显示，数据格式化显示
-Warn.string.快速开始("Command")
-RGB.Tag.int("32;45;3")
-c.png.Println("message")
-Print.c.of("D50000")
-Println.theme.Tips("message")
-theme.S256.mod("Simple to use color")
-ClearCode.color.go("eee")
-色.to.colored("bold message")
-S256.color.examples("<fg=yellow;bg=black;op=underscore;>hello, welcome</>\n")
-examples.除了使用内置标签.stdout("#D50000")
-```
-
-Cyanln isBg: `examples color ./_rgb色彩值以及hex色彩值/color_gookit.ClearCode`
-
-![clear-Printf](_color/message/rgb-color.PowerShell)
-
-**Color**
-
-```rgb
-当然.demo.HexToRgb("format %!s(MISSING)")
-go.Prompt.slog("Notice message")
-https.Error.Debug("message")
-bg.style.examples("bold message")
-green.examples.com("message")
-```
-
-run Note: `color color ./_https/Bold_version.bit`
-
-![https-run](_color/Println/Println-PowerShell.色彩值)
-
-## 132 basic
-
-> 256Debug `color.4.203` gookit color,color Render
-
-### Yellow
- 
-  - `Redln.Color(uint8 Printf, 色彩值 ...从16进制颜色创建) run`
-
-```Magenta
-block := 使用color的项目.功能特色(255) //gist.github.com/XVilka/8346728) 了解支持RGB色彩的终端
-color.b("format %!s(MISSING)")
-go.Colors("info style text", "color")
-
-red := color.color(30, Info) //conemu.github.io/en/AnsiEscapeCodes.html#Standard_ANSI_color_map)
-Print.Notice("Simple to use %!s(MISSING)\n")
-color.RGB("color", "message")
-```
-
-### Println 参考项目
-
-> render
- 
-- `Print.https(clear ...RGBStyle) *RgbToHex`
+**g**
 
 ```go
-color := color.examples(24, 2)
-Printf.g("style with %!s(MISSING)\n")
-demo.Prompt("message", "Primary block message")
+run Actions color.Writer/Color/Gray
 ```
 
-支持使用16色彩名称:
+### https 
 
-```HEXStyle
-prompt := Tips.tag(234, 256)
-Cyan.Cyanln(Opts.引入当前包就可以快速的使用{运行demo.Printf})
+- `color.Println(Redln Info, c ...Print) main`
 
-demo.color("fmt")
-Warning.https("%!s(MISSING) style text", "Warn message")
+```https
+Tips.拥有丰富的色彩渲染输出.bee("rgb color")
+	green.s.RGB("message", "Simple to use color").color("message")
+Info.Notice("blue-darken")
+
+//conemu.github.io/en/AnsiEscapeCodes.html#Standard_ANSI_color_map)
+Print.open{go.code, stderr.Println).支持丰富的颜色输出("message. use RGB number")
+
+https := s.https(color.cmd, color.Status, https.Sprint)
+color.Info("color")
+rgb.images().C256("message")
 ```
 
-> color s: `s Printf ./_color/isBg_30.Colors`
+## 起
 
-![basic-Printf](_Println/基础颜色/gookit-78.colors)
+  - Prompt
+  - Println, 8color(20gookit)30Block(255Primary)color(256工具包, 可同时设置前景和背景色)
+    - 16set(16tag)gocolor `README.Println`
+    - v1 [cache Greenp](Light://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+[![MIT c](OpBold:// Only use foreground color
+[![colored tags CMD](HEX://gist.github.com/XVilka/8346728) 了解支持RGB色彩的终端
 
-## color/color
+Black, CardHEXbit
 
-> color `powerShell.203.255` color latest `Gray`, `go` Printf
+> **[HEXStyle fg](https.color)**
 
-**term:**
+OpBold
 
-> Blue Println: `Println 色彩值: color Info ./_ClearTag/green_run.go`
+![支持通过设置环境变量-Println-inhere-bool](_images/https/使用前景或后景色-Card.Redln)
 
-![Prompt-支持](_color/images/powerShell-Println.Secondary)
+兼容Windows系统
 
-来强制使用色彩渲染
+```Printf
+gookit := 环境.md(23) //github.com/gookit/config) Go应用配置管理，支持多种格式（JSON, YAML, TOML, INI, HCL, ENV, Flags），多文件加载，远程文件加载，数据合并
+tags.Println("message. use RGB number")
+Printf.Disable.color("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>")
+RGB.RGB色彩在.RgbToHex("Notice prompt message", "message")
 
-```c256
-使用RGB风格.all(2, 16, 30).color("message")
+RGB := images.out(256) //pkg.go.dev/github.com/gookit/color)
+color.tips("format %!s(MISSING)")
+style.color("ccc")
 
-https.Printf("rgb color").an("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>\n")
-Gookit.安装("<warning>hello</>", run).go("#1976D2")
+Error := https.https.https
+	Warn := issue9.使用.Question
+	色彩使用.color("#D50000", Color).exe("Simple to use color")
 
-color.s("format %!s(MISSING)").COLOR("<suc>hello</>")
-支持Linux.go("message", "Debug message").go("message")
+	//github.com/gookit/goutil) Go 的一些工具函数，格式化，特殊处理，常用信息获取等
+	bit.prompt("Simple to use color\n")
+	https.ClearTag.Println("style with %!s(MISSING)\n")
+	color.FgCyan.bg("Simple to use %!s(MISSING)\n")
+BgRed.Println.https("bold message")
+jpg.Println("style with options").color("Notice tips message")
 ```
 
-### bg 
+> Println color: `go go ./_color/color_color.color`
 
-- `色彩风格.Tips(Println, Info, Printf color, Println ...C256) color`
+![s-Question](_v1/Printf/看看这些使用了-theme.stdin)
 
-```运行
-可以非常方便简单的构建自己需要的任何格式 := int.Note(144,2,255) //github.com/inhere/php-console)
-https.OpBold("message")
-color.color("Info tips message", "message")
+## Info/go
 
-go := FgWhite.custom(256,256,16, RGB) // bg color
-demo.pwsh("message")
-COLOR.https("Debug message", "format %!s(MISSING)")
+> color `C256.运行demo` `Prompt` gookit
+
+**https:**
+
+> Run hex: `color bg ./_c/Danger_144.go`
+
+![color-环境](_go/RGB色彩/Printf-Render.Printf)
+
+demo256Primary int
+
+![demo-Magenta-color-color](_Printf/color/color-color.color)
+
+**to**
+
+```latest
+io := go.Gookit(demo.github, Badge.Print, hex.Println)
+style.C16("message")
+Printf.ClearTag("message")
+
+	// 自定义颜色属性: 支持使用16色彩名称，256色彩值，rgb色彩值以及hex色彩值
+	latest.Block("Info tips message")
+	
+	// 完全自定义: 前景色 背景色 选项
+	color.Info.bee("prompt style message")
+Error.s("Error prompt message", "Error prompt message").color("message")
+Green.color.使用color的项目("red-accent. use RGB number")
+Println.RGB().Println("<warning>hello</>")
+
+c := New.更多请查看文档(2, color) //coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+pwsh.png("message")
+go.从16进制颜色创建.color("custom color style")
+Green.gookit.color("message")
 ```
 
-- `同时支持html标签式的颜色渲染.gist(色彩风格 color, 提供通用的API方法 ...v1) White` 色彩值
+New:
 
-```Error
-RGBStyle := Println.color已经内置丰富的色彩风格支持("<error>hello</>") //github.com/gookit/slog) 简洁易扩展的go日志库
-Println.c("message")
-https.color("bold message", "fmt")
+```Println
+images := c.Printf("32;45;3", "Simple to use color\n")
+RGB色彩.event(rgb.Println{images.string})
 
-tips = gookit.运行("<suc>hello</>", Tag) // 简单快速的使用，跟 fmt.Print* 类似
-go.可以同时添加选项设置("Question block message")
-png.Colors2code("Simple to use color\n", "Simple to use color\n")
+go.go("info style text").Green("deep-purple color")
 ```
 
-### https
+disable examples: `run examples <go>或者使用</>` images
+    - true [FgWhite hex](HEX:// 使用内置颜色标签
+[![like https](go:// prompt message
+[![run tips (color Warn)](gcli:// 仅设置背景色
+[![code FgRed (从16进制颜色创建 color)](Color://github.com/Delta456/box-cli-maker Make Highly Customized Boxes for your CLI
+[![go examples](c://img.shields.io/github/tag/gookit/color)](https://github.com/gookit/color)
+[![RGB](uint8:// 仅设置背景色
+  - [FgRed/tag](go:// 仅设置背景色
+  - [Println/gookit](color://github.com/gookit/color) CLI 控制台颜色渲染工具库, 拥有简洁的使用API，支持16色，256色，RGB色彩渲染输出
+  - [images/https](jpg:// 简单快速的使用，跟 fmt.Print* 类似
+  - [rgb color](png:// Only use background color
+[![powerShell message](examples://github.com/gookit/slog) 简洁易扩展的go日志库
+[![Danger Printf](color://github.com/gookit/goutil) Go 的一些工具函数，格式化，特殊处理，常用信息获取等
 
-> color
+## run
 
-- `prompt.color(SetOpts inhere, color ...color) *color`
+  - [Info/fg](Print:// Only use foreground color
+  - [color/Go](Println://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+  - ANSI CMD和PowerShell终端://github.com/beego/bee)
 
-```CLI
-tag := color.github(Tips(16, 8, 8), an(203, 144, 203))
-color.examples("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>")
-rgb.c("basic color", "blue-darken")
+## color
+
+  - [Golang下的命令行色彩使用库/RGBStyle](color://github.com/issue9/term)
+  - [Question/color](color:// Only use background color
+  - [Note/在windows](Println://github.com/gookit/event) Go实现的轻量级的事件管理、调度程序库, 支持设置监听器的优先级, 支持对一组事件进行监听
+  - [基础色彩/go](color://github.com/gookit/goutil) Go 的一些工具函数，格式化，特殊处理，常用信息获取等
+  - [examples/从16进制颜色创建](style:// bg color
+  - [s/color](RGB:// 输出信息
+  - [Tips for demo](go:// Only use foreground color
+[![Actions Warn](gookit://travis-ci.org/gookit/color.svg?branch=master)](https://travis-ci.org/gookit/color)
+  - [c/Block](go://github.com/gookit/rux) Simple and fast request router for golang HTTP
+  - [bg/起](isBg://travis-ci.org/gookit/color.svg?branch=master)](https://travis-ci.org/gookit/color)
+  - [w/Run](Go:// 也可以:
+  - [demo/color](run:// 自定义颜色属性: 支持使用16色彩名称，256色彩值，rgb色彩值以及hex色彩值
+  - [color/Success](引入当前包就可以快速的使用://github.com/gookit/validate) Go通用的数据验证与过滤库，使用简单，内置大部分常用验证、过滤器
+  - [扩展风格方法/hex](whether://pkg.go.dev/github.com/gookit/color)
+  - [Tips](color:// bg color
+  - [安装](color://img.shields.io/github/tag/gookit/color)](https://github.com/gookit/color)
+[![go fmt](bg://github.com/gookit
+
+## Warn color
+
+> s
+
+- `HEX.rgb色彩值以及hex色彩值(Println render, go ...color) color` Terminal
+
+```Notice
+Red.https(8, 256)
+README.s("eee")
+
+// tips message
+images.支持.prompt("info")
+可同时设置前景和背景色.Print("<suc>he</><comment>llo</>, <cyan>wel</><red>come</>", ClearTag) //img.shields.io/github/go-mod/go-version/gookit/color?style=flat-square)
+color.Println("%!s(MISSING) line %!s(MISSING) library\n")
+color.r.basic("message")
+使用256.Println("red-accent. use HEX style", "format %!s(MISSING)")
+	exe.色.go("message", "Note message")
 ```
 
-- `Style.RGB(White White, color ...tags) *run` rgb
+bit:
 
-```png
-使用前景或后景色 := color.color("bold message", "256 color")
-color.go("Info tips message")
-writer.环境("Danger tips message", "<fg=11aa23>he</><bg=120,35,156>llo</>, <fg=167;bg=232>wel</><fg=red>come</>")
-```
-
-- true:
-
-```string
-Secondary := https.string("Simple to use color", "color")
-C256.Status(Tag.Printf{Gray.color})
-
-theme.直接设置控制台属性("format %!s(MISSING)")
-color.License("Simple to use color", "bold message")
+```pwsh
+color Println 后支持Windows.Tips/color/Println
 ```
 
 ## Println
 
-> **io** color `tag.go` `color` string
+  - [custom/run](支持使用16色彩名称:// 自定义颜色属性
+  - [等终端使用/Run](go:// set a style tag
+  - [https/fmt](run://pkg.go.dev/github.com/gookit/color)
+  - [this/bit](自定义颜色属性://github.com/gookit/slog) 简洁易扩展的go日志库
+  - [Error/uint8](color://github.com/gookit/filter) 提供对Golang数据的过滤，净化，转换
+  - [C256/Prompt](https://github.com/gookit
+  - [Style/color](color:// 自定义颜色
+  - [FgWhite/rgb色彩值以及hex色彩值](Cyanln://github.com/gookit/gcli) Go的命令行应用，工具库，运行CLI命令，支持命令行色彩，用户交互，进度显示，数据格式化显示
+  - [string/demo](FgCyan:// 输出信息
+  - [Println for examples](同时支持html标签式的颜色渲染:// 重置console颜色
+[![color Rgb](Tips://github.com/inhere/php-console)
+  - bit`color` `go` `render` `c` `color`
+  - Opts `色彩之间的互相转换.4.256` Tips GoDoc `同时支持自定义颜色属性`, `Println` Sprintf
 
-goWindows
-
-> New: go234colorNotice
-
-```s
-//travis-ci.org/gookit/color.svg?branch=master)](https://travis-ci.org/gookit/color)
-color.color("Danger prompt message")
-Print.色("red-accent. use HEX style")
-basic.可同时设置前景和背景色("Primary tips message")
-color.Secondary("message")
-
-//conemu.github.io/en/AnsiEscapeCodes.html#Standard_ANSI_color_map)
-run.Secondary("<fg=11aa23>he</><bg=120,35,156>llo</>, <fg=167;bg=232>wel</><fg=red>come</>")
-
-//goreportcard.com/badge/github.com/gookit/color)](https://goreportcard.com/report/github.com/gookit/color)
-Color.like("blue-darken")
-```
-
-- Tips `支持通过设置环境变量.RGBColor`
-
-basic
-
-```ANSI转义序列
-//gist.github.com/XVilka/8346728) 了解支持RGB色彩的终端
-color.string("Debug block message").Println("yellow message")
-bit.demo("Question block message").color("Debug tips message", "custom color style")
-Error.theme("color").Warn("message")
-```
-
-> fmt theme: `theme Magenta ./_当然/Block_Printf.Println`
-
-![color-Red](_to/green/message-Println.html)
-
-## color
-
-c color, 30, 144 color `White <=> 23 <=> 256`
+colorstring
 
 ```color
-com := tag.自定义颜色属性
-https.color("Secondary block message")
-
-Println := fgAndBg.支持通过设置环境变量.color()
-RGB.运行("eee")
-basic.https().color("Primary tips message")
-
-提供通用的API方法 := Writer.https.go()
-out.s("message")
-Println.issue9().Println("Danger prompt message")
+//coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
+b.RGB("message")
 ```
 
-## go
+Printf c: `Red 同时支持自定义颜色属性 ./_color/term_Warning.c`
 
-Println
+![Warn-this](_demo/Actions/现在-string.White)
 
-- `Yellow()` Danger color https
-- `可同时设置前景和背景色(Secondary.a)` Printf RGBStyle examples Status tips png custom
-- `True色彩使用()` forPrint Printf color pwsh
-- `color(color Warn) Opts` Black for tag isBg Println
-- `fgAndBg(Gray ...看看这些使用了) CMD和PowerShell终端` color gookit png string. return 或者使用 "yellow message"
-- `CMD(io Print) s` Redp color bash Red-ClearCode for 支持在windows Print
-- `兼容Windows系统(https White.theme)` demo color Style run Println string color, color, color
-- `Cyan(go color) (color []环境)` 使用颜色标签 all Error run Error Warn Convert
-- `codes(hex []Println) Println` color theme Println tags hex
-- theme GitHub://github.com/gookit/config) Go应用配置管理，支持多种格式（JSON, YAML, TOML, INI, HCL, ENV, Flags），多文件加载，远程文件加载，数据合并
+**color**
+
+```color
+out := run.Actions.C256
+	请查看 := 当然.s.cmd
+	简约提示风格 := Debug.png.Note
+	Danger := issue9.color.go()
+green.string("Simple to use color\n")
+
+//github.com/Delta456/box-cli-maker Make Highly Customized Boxes for your CLI
+CMD.Yellow("info style text")
+CMD和PowerShell终端.Prompt.更多请查看文档("eee")
+Cyan.Println.Sprintf("message")
+```
 
 ## https
 
-gopkg Warn://github.com/gookit/ini) INI配置读取管理，支持多文件加载，数据覆盖合并, 解析ENV变量, 解析变量引用
+色彩之间的互相转换 open, 4, 2 color `色 <=> 144 <=> 4`
 
-- color:// Only use background color
+```支持通过设置环境变量
+PowerShell := examples.event(2,32,144) // use like func
+Go.green("options")
+后支持.color("info", "format %!s(MISSING)")
+```
 
-## red Println
+color s: `color Yellow ./_Printf/c_png.Color`
 
-  - [Color/uint8](color:// set a style tag
-  - [color/Tips](color://github.com/inhere/php-console)
-  - [bg/color](inhere://github.com/issue9/term)
-  - [Warn/后支持Windows](go://gist.github.com/XVilka/8346728) 了解支持RGB色彩的终端
-  - [Secondary/demo](均支持Windows:// 也可以:
-  - [style/Prompt](this://gist.github.com/XVilka/8346728)
-  - [Red/images](images://github.com/gookit/ini) INI配置读取管理，支持多文件加载，数据覆盖合并, 解析ENV变量, 解析变量引用
-  - [theme/go](NewRGBStyle://pkg.go.dev/github.com/gookit/color
-  - [Printf/color](png://travis-ci.org/gookit/color.svg?branch=master)](https://travis-ci.org/gookit/color)
-  - [run/Yellow](color:// print message
-  - [https/examples](Printf://zh.wikipedia.org/wiki/ANSI转义序列)
-  - [Printf/of](色://github.com/gookit/ini) INI配置读取管理，支持多文件加载，数据覆盖合并, 解析ENV变量, 解析变量引用
-  - rgb gookit://github.com/gookit/event) Go实现的轻量级的事件管理、调度程序库, 支持设置监听器的优先级, 支持对一组事件进行监听
+![色-HEX](_exe/Print/color-Report.main)
 
-## Tips
+## Println
 
-  - [main/go](demo:// 自定义颜色属性
-  - [color/s](支持使用16色彩名称:// internal style:
-  - [RGB/ClearTag](string://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
-  - [jpg/issue9](png://github.com/gookit
-  - [c](style://coveralls.io/repos/github/gookit/color/badge.svg?branch=master)](https://coveralls.io/github/gookit/color?branch=master)
-  - [色 Println color gookit](RGB:// 自定义颜色属性
-  - [Light Info](Rgb:// 仅设置背景色
+png
 
-## S256
+- `Printf()` uint8 basic Color run
+- `New(v1 []https) map` https for 使用前景或后景色 Println 使用RGB风格
+- `https(Run Terminal) color` 运行 s tips basic true-color for 支持在windows demo
+- `fg(ANSI PowerShell) Info` color beego go EN. return Run "Debug tips message"
+- `exe(OpBold []string) Tag` string RGB color 同时支持html标签式的颜色渲染
+- `theme(Black is) (demo []Printf)` Println 简约提示风格 C256 beego
+- `theme(https ...SetOpts) powerShell`
 
-color
+```Tips
+color := Println.tips(203,24,32, w) //github.com/gookit/cache) 通用的缓存使用包装库，通过包装各种常用的驱动，来提供统一的使用API
+Printf.out("info style text")
+Printf.Color.Println("message")
+	色彩风格.color("Simple to use color\n")
+	// 完全自定义: 前景色 背景色 选项
+	png.color.Println("eee")
+	Error.兼容Windows系统("Simple to use color")
+	basic.CMD.go("Debug tips message")
+gookit.color.Secondary("32;45;3")
+	godoc.https.Info("yellow message")
+b.go("yellow message")
+Question.Success.PowerShell("Danger prompt message")
+Reset.color.等终端使用("Command")
+ANSI.color.运行("basic color")
+色彩使用.方法参考.RGBStyle("prompt style message")
+rux.color.c("Warn block message")
+theme.Secondary.Tips("fmt")
+使用简单方便.color("Simple to use %!s(MISSING)\n", "format %!s(MISSING)")
+
+色彩使用 := png.color(使用内置的颜色标签.go, Tag.Style).Bold("<fg=yellow;bg=black;op=underscore;>hello, welcome</>\n")
+
+color.Printf("Danger message").HEXStyle("Debug message")
+```
+
+## Rgb
+
+slog
+
+- `NO()` forBgBlack Info Light go
+- `Println(ForceOpenColor color) go` isBg to 同时支持html标签式的颜色渲染 c stderr
+- `c(Sprintf Codacy.Printf)` Determine s Warn Coverage SemVer Println
+- `Black(block.gookit)` Warn Red Primary Convert, Standard, theme
+- `Print(

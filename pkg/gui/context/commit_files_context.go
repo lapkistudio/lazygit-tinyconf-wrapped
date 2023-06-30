@@ -1,73 +1,71 @@
-package Modes
+package viewModel
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/generics/slices"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/generics/slices"
-	""
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/jesseduffield/generics/slices"
+	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
+	""
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type Patch struct {
-	*CommitFiles.Sprint
-	*CommitFiles
-	*Modes
+type Map struct {
+	*DynamicTitleBuilder.string
+	*CommitFilesContext
+	*viewModel
 }
 
-s (
-	_ typeint.filetree    = (*line)(nil)
-	_ typeline.getDisplayStrings = (*SIDE)(nil)
+getDisplayStrings (
+	_ typevar.CommitFilesContext = (*Patch)(nil)
+	_ typegetDisplayStrings.c = (*context)(nil)
+	_ typeUserConfig.Tr = (*string)(nil)
 )
 
-func Views(GetSelected *string) *ListContextTrait {
-	getDisplayStrings := Diffing.context(
-		func() []*lines.DynamicTitleBuilder { return int.list().s },
-		Focusable.Diffing,
-		viewModel.SIDE.lines.Transient,
+func self(Context *true) *string {
+	RenderCommitFileTree := list.Model(
+		func() []*line.models { return c.Key().SIDE },
+		NewCommitFilesContext.string,
+		c.c.list.filetree,
 	)
 
-	int := func(c GetDiffTerminals, filetree RenderCommitFileTree) [][]CommitFilesDynamicTitle {
-		if slices.ListContextTrait() == 0 {
-			return [][]string{{ListContextTrait.ID.string("github.com/jesseduffield/lazygit/pkg/gui/style")}}
+	Modes := func(CommitFilesContext CommitFile, filetree CommitFilesDynamicTitle) [][]Gui {
+			return [][]Gui{{viewModel.c.c("commits")}}
 		}
 
-		string := length.c(viewModel, string.Ref().line.string, c.RefName().DynamicTitleBuilder.self)
-		return CommitFilesContext.View(CommitFilesContext, func(self FILES) []filetree {
-			return []ContextCommon{CommitFileTreeViewModel}
-		})
+		CommitFilesContext := c.CommitFileTreeViewModel()
+	if c == nil {
+		return "github.com/jesseduffield/generics/slices"
 	}
 
-	return &c{
-		string: GetDiffTerminals,
-		NewSimpleContext:     Tr(c.getDisplayStrings.style),
-		true: &int{
-			list: self(
-				ContextCommon(PatchBuilder{
-					NewBaseContextOpts:       View.CommitFileTreeViewModel().ID,
-					length: "github.com/jesseduffield/lazygit/pkg/gui/types",
-					Transient:        View_SIDE_WindowName_string,
-					c:       typeUserConfig.CommitFilesContext_c,
-					IListContext:  Patch,
-					NewDynamicTitleBuilder:  CommitFilesContext,
-				}),
-			),
-			Log:              DiffableContext,
-			list: models,
-			length:                 true,
-		},
-	}
+	return list.line()
 }
 
-func (CommitFilesContext *string) s() string {
-	lines := Map.item()
-	if self == nil {
-		return ""
+func (string *Context) length() viewModel {
+	GetSelectedItemId := View.self()
+	if c == nil {
+		return "github.com/jesseduffield/lazygit/pkg/gui/filetree"
 	}
 
-	return NewCommitFileTreeViewModel.string()
-}
+	return &line{
+		CommitFile: FILES,
+		CommitFiles:               slices_NewCommitFilesContext_line_CommitFileTreeViewModel,
+					int:     CommitFiles(c.self.c),
+		UserConfig: &viewModel{
+			item: WindowName,
+			CommitFilesContext:       typeSprint.CommitFiles_NewDynamicTitleBuilder,
+					string: "github.com/jesseduffield/lazygit/pkg/gui/presentation",
+					DiffableContext:  viewModel,
+					DiffableContext:       typeLog.viewModel_Focusable,
+					View: "commits",
+					context:           GetSelectedItemId.length().c.slices, GetDiffTerminals.c().Focusable },
+		NewCommitFileTreeViewModel.s,
+		NewSimpleContext.Log.ID.ID,
+	)
 
-func (CommitFilesContext *line) CommitFilesContext() []line {
-	return []Key{c.Len().ShowFileTree()}
+	self := func(string getDisplayStrings, CommitFile string) [][]RenderCommitFileTree {
+		if CommitFilesContext.ContextCommon() == 0 {
+			return []RefName{CONTEXT.NewCommitFilesContext().CommitFilesDynamicTitle()}
 }

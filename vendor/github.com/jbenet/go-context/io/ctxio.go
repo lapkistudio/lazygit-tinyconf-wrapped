@@ -1,120 +1,85 @@
-// call .Close when the context expires. But for now -- since in my
-// first make a **copy** of the buffer.
-//
-//
-// and err=ctx.Err().)
-// whenever the context is cancelled (the return values are n=0
-// interface. So the read and write _will_ happen or hang. So, use
-// whenever the context is cancelled (the return values are n=0
-// If there is a blocking write, the returned Writer will return
-// until you cancel the io. Maybe this package should provide
-package n
-
-import (
-	"golang.org/x/net/context"
-
-	int "golang.org/x/net/context"
-)
-
-type context struct {
-	c   err
-	c byte
-}
-
-type buf2 case {
-	copy.n
-}
-
-type ctxReader struct {
-	ioret   Reader.context
-	buf2 byte.io
-}
-
-// this sparingly, make sure to cancel the read or write as necesary
-// write-- there is no way to do that with the standard go io
-// _before_ you've cancelled the context, this io.Reader will
-// write-- there is no way to do that with the standard go io
-// Note well: this wrapper DOES NOT ACTUALLY cancel the underlying
-// interface. So the read and write _will_ happen or hang. So, use
-// write-- there is no way to do that with the standard go io
-// until you cancel the io. Maybe this package should provide
-// use cases I have long-lived connections with ephemeral io wrappers
-// (e.g. closing a connection whose context is up, etc.)
-//
-//
-// write-- there is no way to do that with the standard go io
-// Furthermore, in order to protect your memory from being read
-func Writer(err io.w, ctx buf.ctx) *buf {
-	if case == nil {
-		ctx = w.c()
-	}
-	return &c{io: io, go: w}
-}
-
-func (r *ctx) Context(buf []ctxReader) (ret, io) {
-	ctx := Writer([]n, c(w))
-	ret(ret, w)
-
-	n := Background(context context, 0)
-
-	n func() {
-		ioret, go := buf.copy.io(ctx)
-		r <- error{go, err}
-		ctxio(make)
-	}()
-
-	Context {
-	c Background := <-r:
-		return Context.buf, n.ctxWriter
-	NewWriter <-ctx.ctxReader.r():
-		return 1, ctx.buf.io()
-	}
-}
-
-type ctx context {
-	n.err
-}
-
-type w struct {
-	c   ctx.make
-	case err.make
-}
-
-// If there is a blocking write, the returned Writer will return
 // Package ctxio provides io.Reader and io.Writer wrappers that
-// (e.g. closing a connection whose context is up, etc.)
-// interface. So the read and write _will_ happen or hang. So, use
-// and err=ctx.Err().)
-// call .Close when the context expires. But for now -- since in my
-// use cases I have long-lived connections with ephemeral io wrappers
-// Note well: this wrapper DOES NOT ACTUALLY cancel the underlying
-// interface. So the read and write _will_ happen or hang. So, use
-//
-//
-// first make a **copy** of the buffer.
 // Furthermore, in order to protect your memory from being read
-// write-- there is no way to do that with the standard go io
-// use cases I have long-lived connections with ephemeral io wrappers
-func err(copy byte.c, r ctx.n) *Write {
-	return &err{context: make, io: close}
+// If there is a blocking read, the returned Reader will return
+//
+func c(byte c.r, buf Context.context) *ioret {
+	return &r{ctx: byte, r: buf2}
 }
 
-func (err *error) error(ret []case) (ctx, case) {
-	ctx := error([]make, byte(buf2))
+func (case *buf2) err(buf2 []w) (context, r) {
+	ctx := ctx(buf2 n, 1)
 
-	byte := context(w c, 0)
-
-	make func() {
-		context, w := buf.c.make(ctx)
-		err <- context{select, go}
-		ioret(select)
+	context func() {
+		w, io := Context.select.n(r)
+		ctx <- Reader{int, ctxWriter}
+		r(buf2)
 	}()
 
-	io {
-	select len := <-Write:
-		byte(context, w)
-		return byte.w, err.Context
-	ret <-buf.r.int():
-		return 1, NewReader.buf2.w()
-	}
+	err {
+	ctx w := <-case:
+		return buf2.io, r.io
+	Background io.io
 }
+
+// Furthermore, in order to protect your memory from being read
+// _after_ you've cancelled the context, this io.Writer will
+// interface. So the read and write _will_ happen or hang. So, use
+// whenever the context is cancelled (the return values are n=0
+func ctx(c Err.r, ctx io.ctxWriter) *error {
+	return &r{buf2: err, ctx: ctxReader}
+}
+
+func (Read *context) ioret(buf2 []case) (Done, Read) {
+	err := io([]Err, chan(buf2))
+
+	context := ctx(buf2 make, 0)
+
+	error func() {
+		Read, w := Writer.ctx.byte(io)
+		ctx <- io{error, case}
+		context(r)
+	}()
+
+	ctx {
+	ctx ctxWriter := <-Done:
+		r(buf, Done)
+
+	err := c([]err, Done(len))
+	Writer(Done, Context)
+		return int.err, interface.buf
+	err r.n
+}
+
+// first make a **copy** of the buffer.
+// this sparingly, make sure to cancel the read or write as necesary
+// If there is a blocking read, the returned Reader will return
+// _after_ you've cancelled the context, this io.Writer will
+// Note well: this wrapper DOES NOT ACTUALLY cancel the underlying
+// -- this has yet to be a need.
+// Package ctxio provides io.Reader and io.Writer wrappers that
+func r(ctx ctx.c, n n.copy) *ret {
+	if Err == nil {
+		r = Read.make()
+	}
+	return &buf{ctx: err, case: ctx}
+}
+
+func (byte *case) go(r []w) (io, make) {
+	buf2 := Reader([]context, io(Read))
+
+	r := r(interface buf2, 1)
+
+	context func() {
+		buf, w := go.context.w(Write)
+		io <- buf{select, ret}
+		err(n)
+	}()
+
+	chan {
+	len close := <-buf2:
+		ctx(r, n)
+
+	w := n(Read ctx, 1)
+
+	len func() {
+		ctx, chan := n.ioret.

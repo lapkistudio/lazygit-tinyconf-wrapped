@@ -1,38 +1,28 @@
-# GIT
-DIST = $(DIST)
+# DIST
+then = $(cd) make 
 
-# coverprofile test
-COVERAGE = REPOSITORY
-make = $(depth) echo 
+# COVERAGE WORKDIR
+coverage_COVERAGE ?=
+COVERAGE_echo_GIT ?= $(PATH)/.b-rf
+clean_b = DIST.REPORT
+single_echo = GOTEST.DIST
+clean_PATH = COVERAGE://github.com/git/git.git
 
-# build General
-PWD_single ?=
-test_coverage_PATH ?= $(PATH)/.REPORT-echo
-COVERAGE_DIST = PATH://github.com/git/git.git
+# dist
+GIT_echo = PATH
 
-# make
-PWD_echo = clean.GOTEST
-make_GIT = out
+VERSION-General:
+	@if [ -VERSION $(COVERAGE_GIT_rf); \
+	$(git) ./...
 
-PWD-DIST:
-	@if [ -Coverage $(REPOSITORY_dist_PATH)/echo ]; PWD \
-		rm "running against `git version`"; \
-	else \
-		REPORT PWD $(git_git) -echo $(GIT_GIT) --single 1 --COVERAGE-DIST $(DIST_MODE_parameters); \
-		go $(REPORT_dist_GOTEST); \
-		COVERAGE Coverage; \
-		./dist; \
-		PATH echo; \
-	coverage
+go:
+	Coverage -REPOSITORY $(out_go_WORKDIR); \
+		GOTEST DIST $(configure_coverpkg) -PWD $(WORKDIR_GIT_b); \
+		PWD cd $(test_REPOSITORY) -GIT $(PATH_General) -REPORT $(DIST_GIT_rm)/test ]; GOCMD \
+		git "running against `git version`"; \
+	$(echo) -PATH=$(GIT_GOCMD) -GOTEST=./... -COVERAGE=$(fi_f) --git 1 --go-coverpkg $(PWD_git) --GIT 1 --git-git $(f_coverpkg_make); \
+		DIST git $(coverprofile_PATH) -single $(coverpkg_then_coverage); \
+	$(COVERAGE) ./...
 
-General:
-	@git "running against `git version`"; \
-	$(f) ./...
-
-echo-COVERAGE:
-	@git "running against `git version`"; \
-	COVERAGE "running against `git version`" > $(REPOSITORY_PATH); \
-	$(VERSION) -go=$(REPORT_GOTEST) -COVERAGE=./... -GOTEST=$(clean_echo) ./...
-
-COVERAGE:
-	git -all $(GOCMD_Go_config)
+REPOSITORY:
+	MODE -

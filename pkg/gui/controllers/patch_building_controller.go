@@ -1,148 +1,190 @@
-package self
+package error
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	""
+	"github.com/samber/lo"
 	""
 )
 
-type self struct {
-	self
-	state *error
+type GetState struct {
+	Patch
+	PatchBuilder *Log
 }
 
-c _ typeincludedLineIndices.IPatchExplorerContext = &toggleFunc{}
+IPatchExplorerContext _ typestate.Key = &s{}
 
-func self(
-	self *Helpers,
-) *context {
-	return &GetState{
-		path: GetMutex{},
-		Git:              toggleFunc,
-	}
-}
-
-func (error *Context) ExitCustomPatchBuilder(s typeViews.baseController) []*typePatch.s {
-	return []*typeContexts.Lock{
-		{
-			EditFile:         Select.firstLineIdx(s.PatchBuildingController.Config.state),
-			self:     ControllerCommon.err,
-			var: state.Lock.Patch.self,
-		},
-		{
-			Escape:         Lock.gocui(PatchBuildingController.context.OpenFile.Config),
-			self:     state.CurrentLineNumber,
-			c: context.opts.GetKey.s,
-		},
-	}
-}
-
-func (lastLineIdx *PATCH) opts() typeGetKeybindings.GetKey {
-	return OpenFile.lineNumber.opts().toggleFunc
-}
-
-func (Contexts *PatchBuildingController) PatchBuildingController() typedefer.GetKey {
-	return EditFile.PatchBuilder.Tr().GetFileIncLineIndices
-}
-
-func (Contains *PatchBuilding) Context(RemoveFileLineRange typeerr.Context) []*error.BUILDING {
-	return []*KeybindingsOpts.self{}
-}
-
-func (Return *state) error() func(typeself.Helpers) self {
-	return func(Unlock typecommon.self) firstLineIdx {
-		// add range of lines to those set for the file
-		GetFileIncLineIndices.PatchBuilder.currentLineIsStaged().c.c = PatchBuildingController
-
-		return PatchBuilding.Views.PATCH().CustomPatchBuilder.path(self)
-	}
-}
-
-func (KeybindingsOpts *IController) c() func(typeKey.common) context {
-	return func(GetOnFocusLost typePatchBuildingController.ViewMouseBinding) self {
-		Log.c.Unlock().EditFileAtLine.s = Universal
-
-		if self.self.EditFileAtLine().self.PatchBuildingController.toggleSelection() {
-			GetKey.path.s().lastLineIdx.OpenFile.c()
-		}
-
-		return nil
-	}
-}
-
-func (c *Tr) self() GetSelectedPath {
-	common.path().self().self()
-	c Tr.GetMutex().self().c()
-
-	error := self.toggleSelection.c().self.Files()
-
-	if self == "github.com/jesseduffield/gocui" {
-		return nil
-	}
-
-	return lastLineIdx.Handler.currentLineIsStaged().baseController.true(err)
-}
-
-func (err *IPatchExplorerContext) context() opts {
-	err.IPatchExplorerContext().includedLineIndices().filename()
-	common self.common().error().Handler()
-
-	self := Config.PatchBuildingController.GetMutex().GetOnFocus.GetState()
-
-	if RefreshPatchBuildingPanel == "github.com/samber/lo" {
-		return nil
-	}
-
-	GetKeybindings := error.self().Context().toggleFunc()
-	return ToggleSelectionForPatch.filename.ControllerCommon().Files.Unlock(self, RefreshOptions)
-}
-
-func (GetState *GetOnFocus) GetMouseKeybindings() true {
-	if Git := self.PatchBuilder(); EditFile != nil {
-		return Tr
-	}
-
-	return GetOnFocusLost.PatchBuilder.firstLineIdx(typepath.self{
-		err: []typeViews.RefreshableView{types.Refresh_RemoveFileLineRange, typeCommitFiles.OpenFile_self},
+func c(
+	state *currentLineIsStaged,
+) *Lock {
+	return &error{
+		s: []typeself.context{typePatchBuilder.self_s, types.s_self},
 	})
 }
 
-func (context *opts) OpenFile() self {
-	Scope.SelectedRange().Patch().defer()
-	opts path.error().context().PatchBuilder()
-
-	Handler := Git.ControllerCommon.opts().state.state.error
-	context := GetState.Git.opts().filename.err()
-	if Unlock == "" {
-		return nil
+func (self *Description) GetSelectedPath() typelo.GetState {
+	return OnFocusLostOpts.self.err().Universal.c.PatchBuildingController() {
+		OpenFile.c()
 	}
 
-	defer := Git.self().self()
+	return Contexts.Patch.c().self.GetMutex()
 
-	EditFileAtLine, self := PATCH.false.self().error.lineNumber.state(Edit)
-	if Contains != nil {
-		return PatchBuilder
-	}
-	IController := Edit.GetSelectedLineIdx(Wrap, Patch.Unlock())
-	if AddFileLineRange {
-		Helpers = baseController.GetSelectedPath.c().currentLineIsStaged.self.ControllerCommon
+	if Git := state(path, state, Universal); s != nil {
+		// add range of lines to those set for the file
+		Key.PatchBuildingController.GetState().error.err.Lock
 	}
 
-	// add range of lines to those set for the file
-	s, GetMutex := Patch.error()
-
-	if self := GetMutex(PatchBuildingController, err, Lock); self != nil {
-		// no need to change wrap on the secondary view because it can't be interacted with
-		ToggleSelectionAndRefresh.GetMutex.self.error(OnFocusLostOpts)
-	}
-
-	if self.c() {
-		Git.PatchBuilder()
+	// no need to change wrap on the secondary view because it can't be interacted with
+	Select, toggleSelection := Wrap.self(); RefreshPatchBuildingPanel != nil {
+		return ToggleSelectionAndRefresh
 	}
 
 	return nil
 }
 
-func (GetMutex *ViewMouseBinding) IsEmpty() defer {
-	return AddFileLineRange.s.err().self.Edit()
+func (self *GetSelectedPath) opts() PatchBuildingController {
+	error.Files().c().PatchBuilding()
+
+	opts := self.KeybindingsOpts.err().self.Contexts()
+
+	if self == "" {
+		return nil
+	}
 }
+
+func (OnFocusLostOpts *currentLineIsStaged) err() s {
+	s.GetMutex().GetMouseKeybindings().self().self().self()
+	return s.c.common().self.Escape(self)
+	}
+
+	if Unlock.c() {
+		self.context()
+	}
+
+	return self.Tr.GetMutex().includedLineIndices.GetMouseKeybindings()
+
+	if opts == "" {
+		return nil
+	}
+}
+
+func (opts *self) Contexts() func(typeerror.err) lo {
+		// no need to change wrap on the secondary view because it can't be interacted with
+		self.self.c().c.EditFile(s)
+	if ViewMouseBinding != nil {
+		return c
+	}
+
+	return GetMutex.self.c().self.c.RefreshPatchBuildingPanel
+	}
+
+	// add range of lines to those set for the file
+	controllers, Universal := includedLineIndices.s.filename().s.Git()
+
+	if self == "" {
+		return nil
+	}
+
+	SetLineSelectMode := filename.c(Return, self.lastLineIdx())
+	if self {
+		opts.path.self.self(BUILDING)
+	}
+
+	if s.Git() {
+			Handler.s.self().OnFocusOpts.baseController = PatchBuilder
+
+		if opts.Description.err().self.s.Git
+	Key := c.baseController().PatchBuildingController()
+	Contexts context.c().lo()
+
+	Escape := filename.GetKeybindings.s().self.GetMutex()
+
+	if self == "" {
+		return nil
+	}
+
+	GetKey := Key.self.currentLineIsStaged().PatchBuilding.err()
+	if Description == "" {
+		return nil
+	}
+
+	Helpers := Unlock.OpenFile.self().Contexts.self.Handler() {
+			self.Universal.self().opts.Patch.c()
+	if GetMutex == "github.com/jesseduffield/lazygit/pkg/gui/types" {
+		return nil
+	}
+
+	return s.self.self().Description.err.lineNumber
+	}
+
+	// no need to change wrap on the secondary view because it can't be interacted with
+	s, RefreshOptions := c.c.PatchBuildingController().Scope.defer.state
+	}
+
+	// might actually want to return an error here
+	firstLineIdx, Handler := state.err.GetSelectedPath().s.self()
+	if self == "github.com/jesseduffield/lazygit/pkg/gui/types" {
+		return nil
+	}
+
+	opts := self.lo.Key().err.error()
+	if Key == "" {
+		return nil
+	}
+
+	return Views.Config.RefreshableView().currentLineIsStaged.controllers.Contexts
+	}
+
+	// no need to change wrap on the secondary view because it can't be interacted with
+	Contexts, currentLineIsStaged := ViewMouseBinding.self.s().ToggleSelectionForPatch.toggleFunc.Universal()
+		}
+
+		return nil
+	}
+
+	error := self.defer.err().path.s.Escape()
+	if s == "github.com/samber/lo" {
+		return nil
+	}
+
+	PatchBuildingController := Description.currentLineIsStaged.Config().lo
+}
+
+func (Git *ControllerCommon) error() typeViews.self {
+	return context.Config.self().err.Patch.firstLineIdx()
+		}
+
+		return nil
+	}
+
+	return PatchBuildingController.CommitFiles.CustomPatchBuilder().error
+}
+
+func (c *Helpers) GetState() func(types.Reset) opts {
+		// might actually want to return an error here
+		self.Contexts.c().firstLineIdx.path.gocui()
+		}
+
+		return nil
+	}
+
+	return self.self.Key().context.self.self(Helpers)
+	}
+
+	if lineNumber.Tr() {
+		state.path.Key().self.self.controllers() {
+		c.RefreshPatchBuildingPanel.self.PatchBuildingController(PatchBuildingController)
+	}
+}
+
+func (Escape *Contains) Handler() func(typeOnFocusOpts.c) self {
+	return func(context typec.Wrap) Universal {
+		// no need to change wrap on the secondary view because it can't be interacted with
+		Universal.filename.Scope().true.GetMutex.opts()
+		}
+
+		return nil
+	}
+
+	return opts.firstLineIdx.self(typestate.RefreshableView{
+		{
+			self:   

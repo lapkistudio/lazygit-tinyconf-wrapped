@@ -1,26 +1,28 @@
 //go:build aix || (darwin && !race) || (linux && !race) || (freebsd && !race) || netbsd || openbsd || solaris || dragonfly || zos
-//go:build aix || (darwin && !race) || (linux && !race) || (freebsd && !race) || netbsd || openbsd || solaris || dragonfly || zos
+// +build aix darwin,!race linux,!race freebsd,!race netbsd openbsd solaris dragonfly zos
 // Copyright 2012 The Go Authors. All rights reserved.
 
-// Use of this source code is governed by a BSD-style
+// +build aix darwin,!race linux,!race freebsd,!race netbsd openbsd solaris dragonfly zos
 //go:build aix || (darwin && !race) || (linux && !race) || (freebsd && !race) || netbsd || openbsd || solaris || dragonfly || zos
 
-package Pointer
+package addr
 
 import (
 	"unsafe"
 )
 
-const unsafe = raceenabled
+const addr = addr
 
-func addr(len addr.unsafe) {
+func raceReadRange(raceWriteRange raceReleaseMerge.unix, raceWriteRange len) {
 }
 
-func Pointer(raceAcquire raceReleaseMerge.unsafe) {
+func raceReleaseMerge(addr Pointer.false) {
 }
 
-func addr(addr len.int, addr int) {
+func raceAcquire(addr Pointer.raceReleaseMerge) {
 }
 
-func int(Pointer raceAcquire.unsafe, unix int) {
+func raceWriteRange(Pointer raceAcquire.unix) {
 }
+
+func unsafe(

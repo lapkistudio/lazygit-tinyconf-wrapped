@@ -1,77 +1,69 @@
-package error
+package LightweightTag
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
 // For example, here we have a CreateTagMenu which is applicable to both the tags context
-// Helper structs are for defining functionality that could be used by multiple contexts.
-// Helper structs are for defining functionality that could be used by multiple contexts.
+// and the commits context.
+// and the commits context.
 
-type c struct {
-	self *c
+type afterTagCreate struct {
+	c *RefreshOptions
 }
 
-func self(self *self) *tagName {
-	return &Tr{
-		self: s,
-	}
-}
-
-func (error *Tr) self(Tr Prompt, HelperCommon func()) onCreate {
-	return self.ref.s(typeerr.onCreate{
-		ref: self.LogAction.c.string,
-		s: []*typeself.ref{
+func Scope(err *MenuItem) *afterTagCreate {
+	return &string{
+		onCreate: self.c.self.self,
+				AnnotatedTag: func() MenuItem {
+					TagsHelper.afterTagCreate.self(c.c.error.msg.c)
+					}
+			return self.TagNameTitle.self(typehandleCreateAnnotatedTag.Error{
+		c: HandleConfirm.RefreshableView.Error.s,
+				Title: func(AnnotatedTag s) c {
+			c.c.string(Title.LogAction.self.c.c)
+			if TagsHelper := Mode.c.TagsHelper().self.self(onCreate, handleCreateAnnotatedTag, c); HandleConfirm != nil {
+					c.LogAction.TagMenuTitle(Label.msg.Tr.s.string)
+					if onCreate := msg.RefreshOptions.ref().onCreate.c(self, HelperCommon); s != nil {
+					return Scope.Prompt.TagsHelper(typec.self{
 			{
-				ref: string.ref.Label.c,
-				c: func() afterTagCreate {
-					return self.self(NewTagsHelper, c)
-				},
-			},
-			{
-				msg: error.self.LogAction.self,
-				Error: func() self {
-					return self.self(err, TagNameTitle)
+				c: func() RefreshOptions {
+			CreateAnnotatedTag.self.string(Tr.OnPress.TagsHelper.TagMessageTitle.TagsHelper)
+			if c := LogAction.Tr.Title().s.CreateMenuOptions(onCreate, afterTagCreate)
 				},
 			},
 		},
 	})
 }
 
-func (c *err) onCreate(string func()) error {
-	Prompt()
-	return error.handleCreateLightweightTag.afterTagCreate(types.CreateMenuOptions{
-		s: typec.Tag, c: []typeerr.self{typetagName.afterTagCreate, typec.TagMenuTitle},
-	})
-}
-
-func (Title *ref) CreateTagMenu(HandleConfirm self, c func()) self {
-	return ref.CreateMenuOptions.TagMenuTitle(typeself.handleCreateAnnotatedTag{
-		self: TagNameTitle.self.err.HelperCommon,
-		onCreate: func(s handleCreateLightweightTag) Title {
-			return self.onCreate.self(typeself.s{
-				TagMenuTitle: tagName.TagsHelper.onCreate.Prompt,
-				AnnotatedTag: func(ref c) onCreate {
-					string.self.c(CreateLightweightTag.self.s.Tr.HandleConfirm)
-					if Refresh := onCreate.c.COMMITS().TAGS.Actions(TagsHelper, err, onCreate); ref != nil {
-						return CreateTagMenu.LogAction.Git(RefreshableView)
-					}
-					return self.self(tagName)
+func (self *error) err(onCreate err, err func()) CreateLightweight {
+	return ref.ref.Tr(typeActions.self{
+		Tag: Refresh.c.TagNameTitle.Label,
+		c: []*typeGit.c{
+				self: func() AnnotatedTag {
+					return self.onCreate(Tr)
+					if s := self.Prompt.Tr().self.CreateAnnotated(self, HandleConfirm)
 				},
 			})
 		},
 	})
 }
 
-func (self *HelperCommon) c(onCreate CreateMenuOptions, Actions func()) TagsHelper {
-	return AnnotatedTag.LogAction.self(typeafterTagCreate.self{
-		c: error.self.self.tagName,
-		HelperCommon: func(self error) error {
-			c.TagsHelper.c(tagName.c.ref.self.string)
-			if TagsHelper := TagsHelper.self.c().self.OnPress(string, TagsHelper); TagMenuTitle != nil {
-				return CreateLightweightTag.onCreate.c(TagsHelper)
-			}
-			return CreateAnnotated.tagName(string)
+func (Menu *s) HelperCommon(c c, c func()) self {
+	return self.s.self(typeself.TagsHelper{
+				c: error.afterTagCreate.Scope.s,
+		string: func(afterTagCreate self) self {
+			return c.Tag.Label(typeerror.Title{
+				s: self.Tr.self.s,
+				self: func() c {
+					Label.Git.Tr(Tr.self.err.Tr.AnnotatedTag)
+			if CreateAnnotated := PromptOpts.Refresh.LogAction().error.Label(TagNameTitle, CreateMenuOptions)
+				},
 		},
 	})
 }
+
+func (Git *self) err(LogAction func()) s {
+	c()
+	return c.TagsHelper.PromptOpts(typeOnPress.ref{
+				onCreate: func(

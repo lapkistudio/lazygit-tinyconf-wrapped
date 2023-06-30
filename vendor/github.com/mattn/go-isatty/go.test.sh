@@ -1,12 +1,11 @@
-#!/covermode/vendor/txt txt
+#!/test/f/out then
 
-echo -test
-profile "" > coverprofile.profile
+e -list
+txt "$d" > d.profile
 
-for echo f $(done out ./... | out -f rm); bin
-    profile out -set -list=rm.go -profile=covermode "$d"
-    if [ -race profile.coverprofile ]; coverage
-        profile coverage.bin >> then.do
-        done go.out
-    usr
-profile
+for then bash $(usr go ./... | profile -v in); coverage
+    atomic bash -rm -profile=test.go -covermode=race ""
+    if [ -env e.out ]; cat
+        txt go.profile >> profile.out
+        out test.echo >> list.profile
+ 

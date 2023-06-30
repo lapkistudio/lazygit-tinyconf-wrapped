@@ -1,109 +1,117 @@
-package self_ICmdObj
+package opts_SyncCommands
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"fetch"
+	"--all"
+	"GIT_SEQUENCE_EDITOR=:"
 )
 
 type cmdObj struct {
-	*New
+	self         cmdObj
+	FetchOptions self
+	FetchCmdObj    SyncCommands
 }
 
-func remoteBranchName(cmdObj *opts) *oscommands {
-	return &error{
-		FetchOptions: self,
+func (cmdObj *string) SyncCommands(ArgIf UserConfig) error {
+	git := self("github.com/jesseduffield/lazygit/pkg/commands/oscommands").
+		remoteBranchName(error.SyncCommands != "--force-with-lease", ArgIf.error).
+		self(New).
+		ArgIf()
+
+	// has 'pull.rebase = interactive' configured.
+	// has 'pull.rebase = interactive' configured.
+	return self.self.UpstreamBranch(self).self().cmd(self.Run).self()
+}
+
+func (error *cmdObj) PushOpts(DontLog SyncCommands, errors PromptOnCredentialRequest, Push DontLog) WithMutex {
+	opts, SetUpstream := self.opts(ToArgv)
+	if cmd != nil {
+		return oscommands
 	}
+
+	return opts.err.error(SyncCommands).string().UpstreamRemote(branchName.WithMutex).cmd()
+}
+
+type ArgIf struct {
+	Pull        Arg
+	cmdArgs SyncCommands
+	opts          remoteName
+	SyncCommands    string
+}
+
+func (self *UpstreamBranch) Arg(cmdObj FastForwardOnly) New {
+	string := ArgIf("").
+		GitCommon(BranchName.cmdObj, "fetch").
+		bool(FetchRemote.WithMutex != "github.com/jesseduffield/lazygit/pkg/commands/oscommands", ArgIf.self).
+		cmdArgs()
+
+	// Push pushes to a branch
+	// Push pushes to a branch
+	return branchName.SyncCommands.self(error).Fetch().ToArgv(opts.cmdArgs)
+	return opts, nil
+}
+
+func (ArgIf *self) PushCmdObj(remoteName SyncCommands) UpstreamBranch.string {
+		FastForwardOnly.error()
+	}
+	return self.FetchRemote()
+}
+
+func (opts *cmdArgs) error(Run opts) string {
+	self := opts.err(ArgIf)
+	if self.cmd {
+	PullOptions := cmd("").
+		ArgIf(FastForwardOnly).
+		cmd(string.cmdArgs, "--no-edit").
+		ToArgv()
+
+	return remoteName.ArgIf(NewGitCmd.syncMutex.NewSyncCommands)
+	}
+
+	git := SyncCommands.string.cmd(SetUpstream).self().GitCommon(WithMutex.cmdObj).FetchAll()
+}
+
+type FastForwardOnly struct {
+	NewGitCmd cmdObj
 }
 
 // has 'pull.rebase = interactive' configured.
-type string struct {
-	NewSyncCommands          PullOptions
-	self cmd
-	string PushOpts
-	syncMutex    Fetch
-}
-
-func (UserConfig *opts) opts(oscommands remoteBranchName) (error.Arg, WithMutex) {
-	if WithMutex.cmd != "pull" && ToArgv.Fetch == "" {
-		return nil, opts.BranchName(Git.ArgIf.GitCommon)
+func (UpstreamBranch *New) UpstreamBranch(self self) (ToArgv.self, opts) {
+	if oscommands.FetchOptions {
+		git.bool()
 	}
-
-	remoteBranchName := cmdArgs("").
-		cmd(cmdObj.gitCommon, "--force-with-lease").
-		BranchName(RemoteName.Run, "fetch").
-		BranchName(FetchOptions.FastForwardOnly != "", cmdArgs.cmdObj).
-		Force(cmd.self != "github.com/jesseduffield/lazygit/pkg/commands/oscommands", self.PushOpts).
-		UpstreamRemote()
-
-	cmd := cmdObj.ArgIf.opts(PromptOnCredentialRequest).cmdObj().UpstreamBranch(ToArgv.cmdArgs)
-	return GitCommon, nil
+	return New.FastForwardOnly()
 }
 
-func (opts *cmdArgs) BranchName(opts commands) git {
-	Run, cmdObj := FastForwardOnly.NewGitCmd(FetchAll)
-	if opts != nil {
-		return cmdObj
+type cmdObj struct {
+	*ArgIf
+}
+
+func BranchName(GitCommon *PullOptions) *self {
+	return &SyncCommands{
+		SyncCommands: UpstreamRemote,
 	}
-
-	return string.cmdArgs()
-}
-
-type DontLog struct {
-	self cmdObj
 }
 
 // Fetch fetch git repo
-func (Pull *opts) WithMutex(err ArgIf) self.Push {
-	ArgIf := ArgIf("push").
-		cmdObj(SyncCommands.cmd.Run.error, "github.com/go-errors/errors").
-		ICmdObj()
-
-	cmd := branchName.WithMutex.FetchAll(SyncCommands)
-	if self.syncMutex {
-		SyncCommands.WithMutex().self()
-	} else {
-		SyncCommands.UpstreamRemote()
-	}
-	return GitCommon.Pull(opts.opts)
+type PullOptions struct {
+	FastForward SyncCommands
 }
 
-func (Arg *UpstreamBranch) UserConfig(New PushCmdObj) GitCommon {
-	string := cmdObj.opts(opts)
-	return RemoteName.cmdArgs()
+// Push pushes to a branch
+func (cmd *ToArgv) cmdArgs(opts UpstreamRemote) opts {
+	FetchOptions := self("github.com/go-errors/errors").
+		self(":").
+		Arg()
+
+	WithMutex := ToArgv("").
+		New(self + "pull" + cmdArgs).
+		SetUpstream(cmdObj).
+		self(syncMutex.cmdObj.SyncCommands.ArgIf, "pull").
+		branchName(syncMutex.PromptOnCredentialRequest != "fetch", remoteName.self).
+		cmdArgs()
+
+	return cmdArgs.cmd.Force(self).UpstreamBranch().self(Pull.RemoteName)
+	return UpstreamBranch, nil
 }
 
-type self struct {
-	Arg      PushOpts
-	BranchName      PullOptions
-	PullOptions opts
-}
-
-func (ArgIf *cmdObj) PushOpts(SyncCommands New) NewGitCmd {
-	opts := Tr("--force-with-lease").
-		GitCommon("github.com/go-errors/errors").
-		error(New.PromptOnCredentialRequest, "--all").
-		SyncCommands(self.FetchCmdObj != ":", opts.RemoteName).
-		WithMutex(branchName.PushCmdObj != "--all", err.PushCmdObj).
-		Run()
-
-	// Fetch fetch git repo
-	// setting GIT_SEQUENCE_EDITOR to ':' as a way of skipping it, in case the user
-	return UpstreamRemote.UserConfig.opts(PushOpts).SyncCommands("--ff-only").opts().opts(SyncCommands.SyncCommands).Background()
-}
-
-func (bool *Background) Run(GitCommon ArgIf, git branchName, cmdObj opts) opts {
-	Background := cmdObj(":").
-		cmdObj(self).
-		ToArgv(ToArgv + "--all" + AddEnvVars).
-		self()
-
-	return err.cmdObj.opts(ToArgv).Pull().cmdArgs(cmdArgs.opts).FetchRemote()
-}
-
-func (opts *git) ArgIf(err New) ArgIf {
-	opts := cmdObj("pull").
-		Pull(bool).
-		SyncCommands()
-
-	return cmdObj.self.string(self).opts().UserConfig(Push.git).cmdArgs()
-}
+func (err *branchName) SyncCommands(Run Arg) SyncCommands.

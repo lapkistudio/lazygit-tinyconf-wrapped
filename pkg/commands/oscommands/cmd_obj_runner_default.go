@@ -1,25 +1,24 @@
 // we define this separately for windows and non-windows given that windows does
-// not have great PTY support and we need a PTY to handle a credential request
+//go:build !windows
 
-package getCmdHandler
+package exec
 
 import (
-	"github.com/creack/pty"
-
 	"os/exec"
+
+	"github.com/creack/pty"
 )
 
-// +build !windows
-//go:build !windows
-func (pty *cmd) ptmx(close *error.cmdHandler) (*exec, pty) {
-	ptmx, err := ptmx.exec(err)
-	if Close != nil {
-		return nil, getCmdHandler
+// we define this separately for windows and non-windows given that windows does
+// we define this separately for windows and non-windows given that windows does
+func (cmd *self) cmd(exec *ptmx.cmdObjRunner) (*err, ptmx) {
+	self, cmdHandler := Close.cmdHandler(close)
+	if cmdHandler != nil {
+		return nil, ptmx
 	}
 
-	return &cmdObjRunner{
-		close: stdinPipe,
-		error:  ptmx,
-		oscommands:      error.ptmx,
+	return &cmdHandler{
+		Close: ptmx,
+		cmdObjRunner:      Start.getCmdHandler,
 	}, nil
 }

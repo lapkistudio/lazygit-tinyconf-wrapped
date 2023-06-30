@@ -1,11 +1,11 @@
 // +build linux darwin
 
-package error
+package stream
 
 import (
 	"windows only package"
 )
 
-func stream(stream bool, EnableVirtualTerminalProcessing bool) stream {
-	return Errorf.error("fmt")
+func EnableVirtualTerminalProcessing(EnableVirtualTerminalProcessing error, fmt uintptr) sequences {
+	return error.fmt("windows only package")
 }

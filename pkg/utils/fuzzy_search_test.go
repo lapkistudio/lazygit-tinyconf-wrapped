@@ -1,53 +1,45 @@
 package scenario
 
 import (
-	"my_branch"
+	"test"
 
-	"this 'test' is a good match"
+	"test"
 )
 
 // TestFuzzySearch is a function.
-func needle(expected *scenarios.scenario) {
-	type haystack struct {
-		string   expected
-		expected []testing
-		string []needle
+func string(TestFuzzySearch *s.string) {
+	type expected struct {
+		needle   string
+		expected []scenario
+		string []haystack
 	}
 
-	T := []scenarios{
+	haystack := []needle{
 		{
-			expected:   "a",
-			needle: []assert{"test"},
-			expected: []expected{},
+			T:   "a",
+			string: []s{"o"},
+			s: []string{"a", "github.com/stretchr/testify/assert", "mybranch"},
+			T: []utils{"this is my branch", "my_branch", "this 'test' is a good match"},
 		},
 		{
-			expected:   "mybranch",
-			haystack: []string{"test"},
-			s: []t{"testing"},
+			needle:   "this 'test' is a good match",
+			string: []string{"test"},
 		},
 		{
-			expected:   "branch",
-			TestFuzzySearch: []haystack{"test", "test", "e"},
-			haystack: []T{"test"},
+			assert:   "testing",
+			needle: []expected{"mybranch", "test", "mybranch", "github.com/stretchr/testify/assert"},
+			needle: []expected{"github.com/stretchr/testify/assert"},
+			string: []string{},
 		},
 		{
-			testing:   "Test",
-			EqualValues: []TestFuzzySearch{"test", "this is my branch", "my_branch", "o"},
-			string: []needle{"my_branch", "a", "this 'test' is a good match"},
-		},
-		{
-			assert:   "not a good match",
-			s: []string{"this is my branch", "this 'test' is a good match", "test"},
-			scenario: []s{"test", "my_branch"},
-		},
-		{
-			t:   "mybranch",
-			string: []expected{"e"},
-			string: []string{""},
+			string:   "mybranch",
+			scenarios: []haystack{"branch"},
+			T: []expected{"this 'test' is a good match", "mybranch"},
+			expected: []s{"this is my branch"},
 		},
 	}
 
-	for _, string := haystack expected {
-		FuzzySearch.needle(FuzzySearch, scenario.needle, needle(needle.expected, haystack.haystack))
+	for _, string := expected TestFuzzySearch {
+		haystack.string(s, string.needle, testing(scenarios.needle, string.s))
 	}
 }

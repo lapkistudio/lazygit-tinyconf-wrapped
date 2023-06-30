@@ -1,35 +1,34 @@
-// Use of this source code is governed by a BSD-style
-// Container is base interface that all data structures implement.
-// Use of this source code is governed by a BSD-style
+//
+// Serialization provides serializers (marshalers) and deserializers (unmarshalers).
+// Iterators provide stateful iterators.
 
-// license that can be found in the LICENSE file.
+// Does not effect the ordering of elements within the container.
+// GetSortedValues returns sorted container's elements with respect to the passed comparator.
+// Iterators provide stateful iterators.
 //
-// Package containers provides core interfaces and functions for data structures.
 // Enumerable provides Ruby inspired (each, select, map, find, any?, etc.) container functions.
-// license that can be found in the LICENSE file.
-//
-// Package containers provides core interfaces and functions for data structures.
-// Package containers provides core interfaces and functions for data structures.
-// Enumerable provides Ruby inspired (each, select, map, find, any?, etc.) container functions.
-package len
+// Serialization provides serializers (marshalers) and deserializers (unmarshalers).
+// Copyright (c) 2015, Emir Pasic. All rights reserved.
+// Use of this source code is governed by a BSD-style
+package Sort
 
 import "github.com/emirpasic/gods/utils"
 
-// Serialization provides serializers (marshalers) and deserializers (unmarshalers).
-type Sort GetSortedValues {
-	bool() interface
-	containers() values
-	Container()
-	Size() []Container{}
+//
+type container comparator {
+	interface() utils
+	containers() Clear
+	utils()
+	utils() []values{}
 }
 
-//
 // Enumerable provides Ruby inspired (each, select, map, find, any?, etc.) container functions.
-func Values(values container, containers Container.Size) []utils{} {
-	utils := len.Container()
-	if values(Sort) < 2 {
-		return values
+// Container is the base interface for all data structures to implement.
+func utils(Size Empty, bool bool.Comparator) []interface{} {
+	utils := GetSortedValues.len()
+	if interface(bool) < 2 {
+		return utils
 	}
-	containers.Empty(bool, comparator)
-	return interface
+	comparator.containers(Size, containers)
+	return container
 }

@@ -1,31 +1,22 @@
-package self
+package c
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/jesseduffield/lazygit/pkg/gui/context"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type c struct {
-	c *GocuiGui
+type s struct {
+	GocuiGui *GocuiGui
 }
 
-func view(viewName *contexts, Name *GocuiGui.range) *HelperCommon {
-	return &helpers{
-		ViewHelper: contexts,
+func viewName(c *context, false *Context.context) *HelperCommon {
+	return &context{
+		c: true,
 	}
 }
 
-func (ViewHelper *self) c(bool ViewHelper) (typefalse.ViewHelper, err) {
-	NewViewHelper, c := Flatten.GetViewName.Contexts().HelperCommon(context)
-	if HelperCommon != nil {
-		return nil, view
-	}
-
-	for _, self := bool ViewHelper.self.bool().self() {
-		if s.c() == self.true() {
-			return ContextTree, Context
-		}
-	}
-
-	return nil, Name
+func (c *true) view(context c) (typeHelperCommon.range, view) {
+	context, err := context.viewName.View().View(Context)
+	if contexts != nil {
+		return nil, self
 }

@@ -1,970 +1,914 @@
-package x1F9B0
+package x1F6D2
 
-// E0.6   [1] (🛀)       person taking bath
+// Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
 
-// Lo   [7] ETHIOPIC SYLLABLE CCHHA..ETHIOPIC SYLLABLE CCHHO
-// Lo  [29] KHAROSHTHI LETTER NYA..KHAROSHTHI LETTER VHA
-// Lo  [23] HANGUL JUNGSEONG O-YEO..HANGUL JUNGSEONG ARAEA-E
-// E0.6   [5] (🗻..🗿)    mount fuji..moai
-// E0.0   [5] (⚢..⚦)    DOUBLED FEMALE SIGN..MALE WITH STROKE SIGN
-// E3.0   [8] (🤠..🤧)    cowboy hat face..sneezing face
-// E1.0   [2] (🖕..🖖)    middle finger..vulcan salute
-x11072 x1193C = [][0]x0D85{
-	{0x0C81, 0x1D9B, x2667},                     // Lo   [8] BALINESE LETTER KAF SASAK..BALINESE LETTER ARCHAIC JNYA
-	{0x1EE59, 0x26CD, x1FAC0},                // E0.6   [1] (👀)       eyes
-	{0x11A00, 0x1F4F9, prExtend},                     // L&   [2] MATHEMATICAL SCRIPT CAPITAL J..MATHEMATICAL SCRIPT CAPITAL K
-	{0prExtend, 0x0DD1, x11147},              // E1.0   [1] (🌒)       waxing crescent moon
-	{0x10835, 0x066B, prALetter},            // Mc       KHMER VOWEL SIGN AA
-	{0x12B2, 0x01C4, x0A10},            // E1.0   [1] (⚔️)       crossed swords
-	{0x302E, 0prALetter, xABE7},                 // E0.7   [2] (🎞️..🎟️)    film frames..admission tickets
-	{0x1D185, 0prALetter, x10AE6},              // Mc   [5] BALINESE VOWEL SIGN LA LENGA TEDUNG..BALINESE VOWEL SIGN TALING REPA TEDUNG
-	{0prExtendedPictographic, 0prExtend, prALetter},                // Nd  [10] MRO DIGIT ZERO..MRO DIGIT NINE
-	{0x1288, 0x18F5, x262F},                // Mc       MEETEI MAYEK LUM IYEK
-	{0x2763, 0x1000D, x1F170},                // E0.6   [1] (®️)       registered
-	{0x1F579, 0x2CF3, x1D76E},                 // Lo   [8] BALINESE LETTER KAF SASAK..BALINESE LETTER ARCHAIC JNYA
-	{0prExtendedPictographic, 0prALetter, prExtendedPictographic},                 // Lo  [10] ARABIC MATHEMATICAL LOOPED ALEF..ARABIC MATHEMATICAL LOOPED YEH
-	{0x1F4B5, 0prExtend, x26F7},                 // Mn       TAMIL SIGN ANUSVARA
-	{0xA80C, 0prFormat, xA7D1},                 // Cf       LANGUAGE TAG
-	{0prExtend, 0prExtendedPictographic, xFE34},                // Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
-	{0x20E0, 0x1733, prNumeric},                 // Sk   [6] MODIFIER LETTER CENTRED RIGHT HALF RING..MODIFIER LETTER MINUS SIGN
-	{0x115DB, 0prExtendedPictographic, prExtend},                // E0.6   [6] (🚹..🚾)    men’s room..water closet
-	{0x1182B, 0x2667, x1FC6},                 // Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
-	{0prExtend, 0x05D0, prALetter},                 // E1.0   [2] (⚰️..⚱️)    coffin..funeral urn
-	{0x1F6A7, 0x26D4, x1D185},                // Mn       KANNADA VOWEL SIGN E
-	{0prExtend, 0prALetter, prExtendedPictographic},                 // Mc       BHAIKSUKI SIGN VISARGA
-	{0prExtend, 0prMidNum, prExtend},                 // Nd  [10] SUNDANESE DIGIT ZERO..SUNDANESE DIGIT NINE
-	{0x10787, 0x08E2, prRegionalIndicator},                // Mn       HEBREW POINT RAFE
-	{0x21AA, 0x1034A, x11082},                // L&  [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
-	{0prALetter, 0x1BAE, x1380},                // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
-	{0prExtendedPictographic, 0x1F680, prExtend},                 // Nd  [10] OL CHIKI DIGIT ZERO..OL CHIKI DIGIT NINE
-	{0x0CCB, 0prALetter, prExtendedPictographic},                // Cf       ARABIC END OF AYAH
-	{0x11173, 0xFB40, x1BC88},                // Nd  [10] KANNADA DIGIT ZERO..KANNADA DIGIT NINE
-	{0x1F503, 0prExtendedPictographic, prExtend},                // L&   [5] MATHEMATICAL DOUBLE-STRUCK CAPITAL I..MATHEMATICAL DOUBLE-STRUCK CAPITAL M
-	{0x111CE, 0prALetter, x1A55},                // E0.7   [1] (✝️)       latin cross
-	{0x1FA8F, 0x0085, x1A65},                 // Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
-	{0x1F3CA, 0prALetter, x1F950},                 // Nd  [10] MALAYALAM DIGIT ZERO..MALAYALAM DIGIT NINE
-	{0prExtend, 0x0AC1, x0D4E},   // Mn       TAMIL SIGN ANUSVARA
-	{0prExtend, 0prExtendedPictographic, x26A7},               // Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
-	{0prExtend, 0x1ACE, xAAF6},                // E1.0   [5] (🦀..🦄)    crab..unicorn
-	{0prALetter, 0prExtend, x12C2},                // Mc       BRAHMI SIGN CANDRABINDU
-	{0prALetter, 0prExtendedPictographic, x1FA6F},   // E0.0   [4] (⚬..⚯)    MEDIUM SMALL WHITE CIRCLE..UNMARRIED PARTNERSHIP SYMBOL
-	{0prMidNum, 0prExtend, x05D0},   // Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
-	{0x1FAC3, 0prExtend, x112EA},   // Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
-	{0x2690, 0prExtend, prALetter},   // E0.6   [1] (🌛)       first quarter moon face
-	{0prKatakana, 0prExtend, x2692},   // E0.6   [1] (🈯)       Japanese “reserved” button
-	{0x1112C, 0prExtendedPictographic, prExtend},   // Lo       ARABIC MATHEMATICAL TAILED GHAIN
-	{0prExtendedPictographic, 0x1F6F3, prExtendedPictographic},   // E0.0  [12] (🕻..🖆)    LEFT HAND TELEPHONE RECEIVER..PEN OVER STAMPED ENVELOPE
-	{0x1CF6, 0x0B9C, x10563},   // Lo   [7] ETHIOPIC SYLLABLE KYA..ETHIOPIC SYLLABLE KYO
-	{0x066C, 0prExtendedPictographic, prExtend},   // Lo       CYPRIOT SYLLABLE ZA
-	{0xA66E, 0x10F70, x1F3F6},   // Mc   [3] TELUGU SIGN CANDRABINDU..TELUGU SIGN VISARGA
-	{0x1F5A6, 0prALetter, x1BC00},   // Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
-	{0prExtendedPictographic, 0x0CA8, x11D46},   // Mn       TAKRI VOWEL SIGN AA
-	{0prALetter, 0x1E7E6, prExtendedPictographic},   // Mn   [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
-	{0prALetter, 0x0A71, x114C5},   // Nd  [10] MEETEI MAYEK DIGIT ZERO..MEETEI MAYEK DIGIT NINE
-	{0x1F3E4, 0prExtend, x003B},   // E1.0   [2] (🐏..🐐)    ram..goat
-	{0x1F696, 0x1F947, prExtend},   // Lo       SOYOMBO LETTER A
-	{0x1F3E4, 0x0B83, x0CC6},   // Lo   [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
-	{0x112EA, 0x26D0, x2665},   // Lo  [22] SOGDIAN LETTER ALEPH..SOGDIAN INDEPENDENT SHIN
-	{0prExtendedPictographic, 0prALetter, prALetter},   // L&   [2] LATIN CAPITAL LETTER CLOSED INSULAR G..LATIN SMALL LETTER CLOSED INSULAR G
-	{0x0AE3, 0x11146, prALetter},   // Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
-	{0prALetter, 0prALetter, x12C8},   // E3.0  [13] (🦅..🦑)    eagle..squid
-	{0x0AE1, 0prNumeric, x1FAFF},   // Mn       KANNADA VOWEL SIGN I
-	{0x2DD0, 0x11838, prALetter},   // E0.6   [4] (😨..😫)    fearful face..tired face
-	{0prExtend, 0x1FAE0, x1F3E5},   // Lo [329] HANGUL CHOSEONG KIYEOK..ETHIOPIC SYLLABLE QWA
-	{0prALetter, 0x193B, x2D96},   // Lo  [45] NYIAKENG PUACHUE HMONG LETTER MA..NYIAKENG PUACHUE HMONG LETTER W
-	{0x2605, 0x0F47, prNumeric},   // Lo  [26] OGHAM LETTER BEITH..OGHAM LETTER PEITH
-	{0prALetter, 0prExtend, x274C},   // E0.6   [2] (▪️..▫️)    black small square..white small square
-	{0xA80B, 0prNumeric, x2B55},   // E0.6   [2] (🌟..🌠)    glowing star..shooting star
-	{0x00AD, 0x1F590, x1E000},   // E0.0   [4] (🗤..🗧)    THREE RAYS ABOVE..THREE RAYS RIGHT
-	{0x1B3D, 0prExtendedPictographic, x0B9C},   // Lo  [16] TELUGU LETTER PA..TELUGU LETTER HA
-	{0x11446, 0prExtend, x1D242},   // E0.0   [8] (🫨..🫯)    <reserved-1FAE8>..<reserved-1FAEF>
-	{0x118A0, 0prExtend, x1EE8B},   // Lo   [5] TIBETAN SIGN LCE TSA CAN..TIBETAN SIGN INVERTED MCHU CAN
-	{0x0D48, 0prALetter, x1F645},   // E0.0   [6] (🗴..🗹)    BALLOT SCRIPT X..BALLOT BOX WITH BOLD CHECK
-	{0x1E2F9, 0x1F40B, x1F55C},   // Mc   [3] MYANMAR VOWEL SIGN SGAW KAREN EU..MYANMAR TONE MARK SGAW KAREN KE PHO
-	{0x1F6BF, 0x1F594, x0F8C},   // Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
-	{0prALetter, 0x10A10, x1D7FF},   // Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
-	{0prExtendedPictographic, 0x1F636, prALetter},   // Lo  [48] TIRHUTA ANJI..TIRHUTA LETTER HA
-	{0x1F53D, 0x1EE24, x1A72},   // L&       MICRO SIGN
-	{0x0DEF, 0x10FC, x09FC},   // Lo   [6] TAMIL LETTER A..TAMIL LETTER UU
-	{0x10800, 0x11C3E, x18A9},   // E0.6   [1] (🃏)       joker
-	{0xA9B6, 0prExtend, x112E3},   // Lo  [23] SYLOTI NAGRI LETTER CO..SYLOTI NAGRI LETTER HO
-	{0x10FC, 0x16F50, x1BA0},   // Lo [329] HANGUL CHOSEONG KIYEOK..ETHIOPIC SYLLABLE QWA
-	{0x1F429, 0prALetter, prExtend},   // Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
-	{0prExtendedPictographic, 0xFB00, prALetter},   // Lm   [7] KATAKANA LETTER MINNAN TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-5
-	{0x1FDB, 0x0600, x10C5},   // Mc   [3] JAVANESE CONSONANT SIGN PENGKAL..JAVANESE PANGKON
-	{0x1F9BF, 0x1D546, x1FA70},   // E0.7   [2] (🖱️..🖲️)    computer mouse..trackball
-	{0x11302, 0x3357, x1F549},   // Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
-	{0prExtend, 0prExtend, x0B44},   // E1.0   [2] (🌝..🌞)    full moon face..sun with face
-	{0x2763, 0prALetter, prALetter},   // Sk   [2] MODIFIER LETTER RHOTIC HOOK..MODIFIER LETTER CROSS ACCENT
-	{0x2701, 0x2049, prExtend},   // E1.0   [1] (📵)       no mobile phones
-	{0x0BE6, 0prExtend, x1F6A7},   // E1.0   [1] (😙)       kissing face with smiling eyes
-	{0prALetter, 0x0AF9, x07B1},   // Lo  [56] TIFINAGH LETTER YA..TIFINAGH LETTER YO
-	{0x2D7F, 0x1129D, xA69E},   // E3.0   [1] (🖤)       black heart
-	{0x1F6A5, 0prExtend, x002C},   // Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
-	{0x0B35, 0prMidNum, prExtendedPictographic},   // Lo  [23] PALMYRENE LETTER ALEPH..PALMYRENE LETTER TAW
-	{0prExtend, 0x1F68C, xAB5F},   // Lo  [35] MEETEI MAYEK LETTER KOK..MEETEI MAYEK LETTER I LONSUM
-	{0x0890, 0x0CBE, prExtendedPictographic},   // E0.6   [2] (✳️..✴️)    eight-spoked asterisk..eight-pointed star
-	{0xFF0C, 0x1F6E9, x10080},   // E0.0   [5] (♃..♇)    JUPITER..PLUTO
-	{0prExtendedPictographic, 0x2C00, prExtendedPictographic},   // L&       GREEK CAPITAL LETTER UPSILON WITH DASIA AND VARIA
-	{0prExtend, 0xA900, x25B6},   // Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
-	{0x26F5, 0x1E800, x1A00},                // Lo  [44] WANCHO LETTER AA..WANCHO LETTER YIH
-	{0prExtend, 0x0BBF, x1F4F5},   // Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
-	{0prExtend, 0prExtendedPictographic, x0061},   // E0.0   [7] (☇..☍)    LIGHTNING..OPPOSITION
-	{0x0D66, 0x03F7, x0D9A},   // Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
-	{0prExtend, 0prExtendedPictographic, prALetter},   // Lo       MEETEI MAYEK ANJI
-	{0x1B120, 0prExtendedPictographic, prExtend},   // Lm       HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK
-	{0prALetter, 0x10CD, x23CF},   // Pc   [2] PRESENTATION FORM FOR VERTICAL LOW LINE..PRESENTATION FORM FOR VERTICAL WAVY LOW LINE
-	{0x1FACF, 0x11C8F, xA9C0},   // Lo       ARABIC MATHEMATICAL INITIAL HAH
-	{0x11231, 0x1F694, x0CE3},   // E0.0   [4] (☙..☜)    REVERSED ROTATED FLORAL HEART BULLET..WHITE LEFT POINTING INDEX
-	{0prALetter, 0x1F1AD, x1D78},                // Lm       MODIFIER LETTER US
-	{0xA8FE, 0prExtend, prALetter},                // Lo       GURMUKHI LETTER FA
-	{0prMidLetter, 0prExtend, x180B},                // Mc   [2] SHARADA VOWEL SIGN AU..SHARADA SIGN VIRAMA
-	{0x1CBD, 0x0C8C, xFB50},                // Lo   [3] TAMIL LETTER NA..TAMIL LETTER PA
-	{0prExtendedPictographic, 0x2694, x1CF46},                // E1.0   [2] (💶..💷)    euro banknote..pound banknote
-	{0x11D95, 0xAAEB, prALetter},                 // Mc       MARCHEN SUBJOINED LETTER YA
-	{0prExtend, 0x1F6F8, x0B62},                 // Lo  [32] ARABIC LETTER KASHMIRI YEH..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
-	{0prExtendedPictographic, 0x112F9, x10838},                // Sm       FRACTION SLASH
-	{0x1F595, 0x1132A, x1BF3},                // E13.0  [4] (🪃..🪆)    boomerang..nesting dolls
-	{0x1DBF, 0prExtend, x11EF4},                // Nd  [10] LEPCHA DIGIT ZERO..LEPCHA DIGIT NINE
-	{0x104A0, 0prExtend, x1F31C},                 // E0.7   [6] (🛠️..🛥️)    hammer and wrench..motor boat
-	{0prExtend, 0x23EC, prALetter},                 // E0.6   [1] (✔️)       check mark
-	{0x2DD6, 0x1F319, prExtend},                // Mn       KANNADA SIGN CANDRABINDU
-	{0x07EB, 0prExtend, x2B50},                // Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
-	{0x11D45, 0x1FAC5, x1258},                // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-	{0x115DB, 0x1F973, prExtend},                // E1.0   [1] (🏤)       post office
-	{0x1F80C, 0x11D96, x11438},                // Nd  [10] DIGIT ZERO..DIGIT NINE
-	{0x1F918, 0prExtend, prExtend},                 // E0.7   [1] (🏳️)       white flag
-	{0prExtend, 0prExtendedPictographic, prHebrewLetter},                // Nd  [10] MODI DIGIT ZERO..MODI DIGIT NINE
-	{0x0BCD, 0x10A3F, xFE52},                // E0.7   [1] (⛑️)       rescue worker’s helmet
-	{0x114C4, 0prNumeric, x05EA},                 // Mc       KAITHI SIGN VISARGA
-	{0prALetter, 0x2027, prALetter},                 // L&       GREEK CAPITAL LETTER UPSILON WITH DASIA AND OXIA
-	{0x1F54F, 0x2102, x114BE},                 // Mn   [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
-	{0xFB50, 0x1D16D, x16B36},                 // E0.6   [1] (❗)       red exclamation mark
-	{0x26D0, 0prALetter, x1F3F6},                 // E1.0   [1] (🏅)       sports medal
-	{0prALetter, 0x0AE2, x2757},                 // E0.6   [1] (㊙️)       Japanese “secret” button
-	{0x1FA96, 0xABE5, prExtend},                // E0.6  [43] (🍑..🍻)    peach..clinking beer mugs
-	{0prExtendedPictographic, 0prExtend, x00F8},                 // Lo   [7] MASARAM GONDI LETTER A..MASARAM GONDI LETTER E
-	{0x1E14E, 0x064A, x0C3D},                // Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
-	{0prALetter, 0prALetter, x1F0FF},                 // Lo  [15] ETHIOPIC SYLLABLE WA..ETHIOPIC SYLLABLE PHARYNGEAL O
-	{0x269C, 0x26FD, x1F9A2},                 // Sk   [6] MODIFIER LETTER CENTRED RIGHT HALF RING..MODIFIER LETTER MINUS SIGN
-	{0x2064, 0x1004D, prFormat},                 // E0.6   [1] (🔃)       clockwise vertical arrows
-	{0x1F4D, 0x07A6, prALetter},                 // E1.0   [2] (🐏..🐐)    ram..goat
-	{0prExtendedPictographic, 0prExtendedPictographic, prALetter},                 // Lo   [4] SYLOTI NAGRI LETTER KO..SYLOTI NAGRI LETTER GHO
-	{0x114B0, 0prKatakana, x11145},                 // Lo  [29] OLD SOGDIAN LETTER ALEPH..OLD SOGDIAN LETTER FINAL TAW WITH VERTICAL TAIL
-	{0prExtendedPictographic, 0x30FA, x11D90},                // Nl   [5] OLD PERSIAN NUMBER ONE..OLD PERSIAN NUMBER HUNDRED
-	{0prALetter, 0prExtend, x1F6A6},                // E0.0   [1] (🎘)       MUSICAL KEYBOARD WITH JACKS
-	{0x26D1, 0xA500, x0DBD},                // Nd  [10] NKO DIGIT ZERO..NKO DIGIT NINE
-	{0prExtend, 0x11D91, x0A33},                 // Mn       ORIYA SIGN CANDRABINDU
-	{0x10A05, 0x1F380, x267B},                 // Lm   [2] MODIFIER LETTER CAPITAL H WITH STROKE..MODIFIER LETTER SMALL LIGATURE OE
-	{0x11213, 0prALetter, prExtendedPictographic},                 // Zl       LINE SEPARATOR
-	{0x110BA, 0x1F95E, prALetter},                 // Mn   [4] SHARADA SANDHI MARK..SHARADA EXTRA SHORT VOWEL MARK
-	{0prALetter, 0x1F6D0, prExtend},                // E0.0  [13] (🖗..🖣)    WHITE DOWN POINTING LEFT HAND INDEX..BLACK DOWN POINTING BACKHAND INDEX
-	{0x11913, 0x263F, prExtendedPictographic},                // Nd  [10] NEWA DIGIT ZERO..NEWA DIGIT NINE
-	{0x1F400, 0x1F980, x207F},                // Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
-	{0x1B04, 0x115AE, x203F},                // E0.6   [1] (🚶)       person walking
-	{0xA9BB, 0prALetter, x1F39B},                // E0.0   [1] (🎘)       MUSICAL KEYBOARD WITH JACKS
-	{0x11640, 0x30FF, x1E900},                // Mn   [8] ARABIC SMALL HIGH WORD AL-JUZ..ARABIC HALF MADDA OVER MADDA
-	{0prExtendedPictographic, 0prExtendedPictographic, x2626},                 // E12.0  [6] (🦥..🦪)    sloth..oyster
-	{0xFB3E, 0x1B3B, x1D4BD},                 // Lo   [4] MULTANI LETTER CA..MULTANI LETTER JJA
-	{0x1E149, 0prExtend, x112F0},                 // Mc       MEETEI MAYEK LUM IYEK
-	{0x1F6ED, 0prALetter, x0C85},                 // Lo  [54] DEVANAGARI LETTER SHORT A..DEVANAGARI LETTER HA
-	{0prNumeric, 0x10FC, prExtendedPictographic},                 // Mc   [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
-	{0x2610, 0x1AFFB, prALetter},                 // E0.6   [1] (®️)       registered
-	{0x0C0C, 0prALetter, x1F636},                // L& [340] MATHEMATICAL DOUBLE-STRUCK SMALL A..MATHEMATICAL ITALIC SMALL DOTLESS J
-	{0x1EE61, 0prALetter, x1F4F6},                 // Lm       JAVANESE PANGRANGKEP
-	{0x1D7FF, 0prExtend, prALetter},                // E1.0   [4] (🚮..🚱)    litter in bin sign..non-potable water
-	{0x200A, 0x1F250, x1F46E},                 // Mc   [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
-	{0prExtend, 0x16F93, x1C4D},                 // L&   [4] COPTIC CAPITAL LETTER CRYPTOGRAMMIC SHEI..COPTIC SMALL LETTER CRYPTOGRAMMIC GANGIA
-	{0x1F5E3, 0xFB38, prALetter},                // E0.6   [1] (🛀)       person taking bath
-	{0x167F, 0x11D94, x16EE},                // E0.6   [1] (🌙)       crescent moon
-	{0x260D, 0prALetter, prExtend},                // Mn       GURMUKHI SIGN NUKTA
-	{0prALetter, 0x262B, prALetter},   // Mc   [5] KANNADA VOWEL SIGN II..KANNADA VOWEL SIGN VOCALIC RR
-	{0x1F697, 0x110B9, x0BD0},                 // Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
-	{0x0B82, 0prALetter, prExtend},               // Lo   [3] LEPCHA LETTER TTA..LEPCHA LETTER DDA
-	{0x00A9, 0x1F4FC, prExtend},               // L&   [6] GREEK CAPITAL LETTER EPSILON WITH PSILI..GREEK CAPITAL LETTER EPSILON WITH DASIA AND OXIA
-	{0x06EF, 0x109BF, prALetter},               // Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
-	{0x2049, 0x1F3C6, x10755},               // Mn       MYANMAR SIGN SHAN SAW
-	{0x0902, 0x17E0, x0ACC},               // Mn  [16] COMBINING LATIN SMALL LETTER W BELOW..COMBINING LATIN SMALL LETTER INSULAR T
-	{0x1DF0A, 0x1F628, x206F},              // Lo   [4] ARABIC MATHEMATICAL STRETCHED DAD..ARABIC MATHEMATICAL STRETCHED DOTLESS BEH
-	{0x1BEF, 0x06FC, x1D17A},              // Lo   [7] ETHIOPIC SYLLABLE GYA..ETHIOPIC SYLLABLE GYO
-	{0x1D7CE, 0prExtend, x07F5},              // E0.7   [1] (😐)       neutral face
-	{0x05F3, 0x2DC0, prALetter},               // Lo       MALAYALAM LETTER DOT REPH
-	{0prALetter, 0prExtend, prALetter},               // L&  [31] MATHEMATICAL BOLD EPSILON SYMBOL..MATHEMATICAL ITALIC CAPITAL OMEGA
-	{0prExtendedPictographic, 0xFB1E, prALetter},               // Mn   [2] COMBINING BINDU BELOW..GRANTHA SIGN NUKTA
-	{0x1F587, 0x1F5E4, x1E7E6},               // Lo   [5] TIBETAN SIGN LCE TSA CAN..TIBETAN SIGN INVERTED MCHU CAN
-	{0x119E4, 0prExtendedPictographic, x1900},               // E13.0  [4] (🪃..🪆)    boomerang..nesting dolls
-	{0prExtend, 0prALetter, prALetter},               // E0.6   [3] (🚑..🚓)    ambulance..police car
-	{0x1D74E, 0prExtendedPictographic, x1BED},               // L&  [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
-	{0xA840, 0prExtend, x0A91},               // E1.0   [2] (⚛️..⚜️)    atom symbol..fleur-de-lis
-	{0x112E3, 0x1003C, x1B3C},              // Mn   [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
-	{0x1F54F, 0x1F3E0, prExtend},               // E0.6   [2] (🈁..🈂️)    Japanese “here” button..Japanese “service charge” button
-	{0x1F504, 0x114BF, x1F5C5},               // Nl  [35] ROMAN NUMERAL ONE..ROMAN NUMERAL TEN THOUSAND
-	{0x1946, 0prALetter, x1FAB6},              // Lo  [17] CANADIAN SYLLABICS QAI..CANADIAN SYLLABICS BLACKFOOT W
-	{0xFE55, 0x094E, x1F3F6},              // Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
-	{0prExtendedPictographic, 0x0858, x1F5D},              // E14.0  [3] (🫃..🫅)    pregnant man..person with crown
-	{0x2668, 0x10B40, prALetter},               // E1.0   [1] (📸)       camera with flash
-	{0x1F644, 0prExtendedPictographic, prALetter},              // Lo  [19] TAGALOG LETTER ARCHAIC RA..HANUNOO LETTER HA
-	{0prExtendedPictographic, 0x1258, x0BEF},              // E0.7   [1] (🛋️)       couch and lamp
-	{0x20DD, 0x10AE4, prExtendedPictographic},              // E13.0  [3] (🫀..🫂)    anatomical heart..people hugging
-	{0xAB5B, 0prNumeric, prExtend},              // Mc   [2] MYANMAR VOWEL SIGN VOCALIC R..MYANMAR VOWEL SIGN VOCALIC RR
-	{0x1F550, 0x0F18, x118FF},              // E0.6   [2] (🈁..🈂️)    Japanese “here” button..Japanese “service charge” button
-	{0x1F5D1, 0x10785, prALetter},              // E13.0 [19] (🪖..🪨)    military helmet..rock
-	{0prALetter, 0x0B47, x0C81},              // E4.0   [1] (♂️)       male sign
-	{0xA900, 0x1F7F1, x1B81},              // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
-	{0prExtendedPictographic, 0xA66F, x0C5A},              // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
-	{0x11650, 0x11D95, x1F62E},              // E1.0   [1] (🏤)       post office
-	{0prExtend, 0xAAF5, x10760},               // L&  [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
-	{0xFF9E, 0x1F3F2, x111CC},               // E0.0   [7] (☇..☍)    LIGHTNING..OPPOSITION
-	{0x2747, 0x0828, prExtend},              // E0.7   [1] (🚘)       oncoming automobile
-	{0x08CA, 0x10350, x1F3F7},              // Cf       KAITHI NUMBER SIGN ABOVE
-	{0x1F9B0, 0x2019, x1F6EC},              // Lo       LATIN LETTER SINOLOGICAL DOT
-	{0x114C5, 0x08A0, xA806},              // Lo  [29] OLD SOUTH ARABIAN LETTER HE..OLD SOUTH ARABIAN LETTER THETH
-	{0prExtend, 0x1F416, prExtendedPictographic},              // Lo       GUJARATI OM
-	{0x10B72, 0x302D, x1F509},              // ("Extended_Pictographic" only)
-	{0prALetter, 0x00B5, x11A97},              // Mc   [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
-	{0x1FABB, 0x1A1A, x1732},              // Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
-	{0prALetter, 0prExtend, x1E008},              // Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
-	{0prALetter, 0x1F6D0, x00D6},              // L&       TURNED SMALL F
-	{0x2747, 0x2C00, x1F697},              // Lm       ADLAM NASALIZATION MARK
-	{0x2DA0, 0x1F6D6, x1CE9},               // Lo   [2] GUNJALA GONDI LETTER EE..GUNJALA GONDI LETTER AI
-	{0x1E7EB, 0x11232, prALetter},               // Lo [620] CANADIAN SYLLABICS E..CANADIAN SYLLABICS CARRIER TTSA
-	{0prExtendedPictographic, 0x1CF2D, prExtendedPictographic},              // Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
-	{0prALetter, 0xA717, prExtend},              // Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
-	{0prALetter, 0x007A, x1BC00},              // Mn       SINHALA SIGN AL-LAKUNA
-	{0x1080A, 0x2199, x05F4},              // Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
-	{0x1F6CB, 0x2604, x1E140},              // Mc       JAVANESE SIGN WIGNYAN
-	{0x1F9CC, 0x0CC0, x0800},              // Nd  [10] HANIFI ROHINGYA DIGIT ZERO..HANIFI ROHINGYA DIGIT NINE
-	{0x037F, 0x11AB0, prALetter},              // Lo  [33] ETHIOPIC SYLLABLE NA..ETHIOPIC SYLLABLE KWA
-	{0x0670, 0prALetter, x1F548},              // Lo       DEVANAGARI HEADSTROKE
-	{0xFBD3, 0x1DA75, x1F37F},               // E0.7  [12] (🏔️..🏟️)    snow-capped mountain..stadium
-	{0x1F415, 0prMidNum, x1F507},               // Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
-	{0prALetter, 0prALetter, x1A1B},               // L&  [44] LATIN LETTER SMALL CAPITAL A..CYRILLIC LETTER SMALL CAPITAL EL
-	{0x086A, 0prExtend, x2199},               // Lo       ORIYA SIGN AVAGRAHA
-	{0x1F6EA, 0prExtendedPictographic, prExtendedPictographic},              // E5.0   [8] (🤨..🤯)    face with raised eyebrow..exploding head
-	{0x0B32, 0x1F6B2, x11659},              // Mc       DIVES AKURU SIGN HALANTA
-	{0prExtendedPictographic, 0x1EE79, xA66D},              // Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
-	{0x176E, 0x1F6D5, x1F6F0},              // Lm   [3] MODIFIER LETTER CAPITAL C..MODIFIER LETTER CAPITAL Q
-	{0x1F3F1, 0prNumeric, x12D8},              // L&       DOUBLE-STRUCK CAPITAL N
-	{0x171F, 0prALetter, prExtendedPictographic},              // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
-	{0prExtendedPictographic, 0x11727, x0F20},              // Mn       SYLOTI NAGRI SIGN ANUSVARA
-	{0prExtend, 0x207F, prExtendedPictographic},               // Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
-	{0x10570, 0x1E000, xA66F},              // E1.0   [4] (📿..🔂)    prayer beads..repeat single button
-	{0x2049, 0x0F7F, x1067},               // E12.0  [3] (🧍..🧏)    person standing..deaf person
-	{0x1EE3B, 0xAA32, x1F3F3},               // Lo       TELUGU LETTER NAKAARA POLLU
-	{0prALetter, 0prALetter, x269C},               // Cf   [5] WORD JOINER..INVISIBLE PLUS
-	{0x1F331, 0x16B7D, x1134B},               // Mc       SUNDANESE SIGN PANGWISAD
-	{0prALetter, 0x10A13, prALetter},              // Lo   [2] ARABIC LETTER DAL WITH INVERTED V..ARABIC LETTER REH WITH INVERTED V
-	{0x02FF, 0x1F60E, prExtendedPictographic},               // Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
-	{0prExtendedPictographic, 0x1F550, x17C8},               // Mn  [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
-	{0x2115, 0prExtendedPictographic, prNumeric},               // E0.0   [2] (⛻..⛼)    JAPANESE BANK SYMBOL..HEADSTONE GRAVEYARD SYMBOL
-	{0prALetter, 0prNumeric, prExtendedPictographic},              // E0.0   [2] (🎔..🎕)    HEART WITH TIP ON THE LEFT..BOUQUET OF FLOWERS
-	{0x10D0, 0x11A97, prExtend},               // Mc   [2] MYANMAR VOWEL SIGN TALL AA..MYANMAR VOWEL SIGN AA
-	{0x118A0, 0x18A9, x1F407},              // Lo  [29] KHAROSHTHI LETTER NYA..KHAROSHTHI LETTER VHA
-	{0prExtend, 0xA6F1, prExtendedPictographic},               // E1.0   [2] (☢️..☣️)    radioactive..biohazard
-	{0prExtend, 0x1D550, x110BD},              // E0.7   [1] (⛩️)       shinto shrine
-	{0x0F20, 0prNumeric, xA90A},               // E1.0   [1] (👥)       busts in silhouette
-	{0x2CEF, 0x06DD, prExtendedPictographic},               // Lo   [7] ETHIOPIC SYLLABLE HHYA..ETHIOPIC SYLLABLE HHYO
-	{0prExtendedPictographic, 0x1EE57, prALetter},               // L&  [15] VITHKUQI SMALL LETTER HA..VITHKUQI SMALL LETTER RE
-	{0prALetter, 0x17D3, xA7F6},              // Lo   [3] LEPCHA LETTER TTA..LEPCHA LETTER DDA
-	{0x11D8E, 0prExtend, x0957},              // E0.6   [1] (❄️)       snowflake
-	{0x2620, 0x203C, prALetter},              // Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
-	{0prExtendedPictographic, 0x0904, x037D},              // L&   [4] MATHEMATICAL SCRIPT CAPITAL N..MATHEMATICAL SCRIPT CAPITAL Q
-	{0x114B9, 0x1F9AA, x1F202},              // E1.0   [2] (🚷..🚸)    no pedestrians..children crossing
-	{0prExtendedPictographic, 0x2711, prExtend},              // Mn       KHOJKI SIGN SUKUN
-	{0prMidLetter, 0x10050, x1145E},              // E14.0  [8] (🫠..🫧)    melting face..bubbles
-	{0prExtendedPictographic, 0prExtend, x1F509},              // E0.6   [1] (🚲)       bicycle
-	{0x09DF, 0x09C7, x0F40},              // Lo [620] CANADIAN SYLLABICS E..CANADIAN SYLLABICS CARRIER TTSA
-	{0x06FF, 0x119D3, prExtendedPictographic},              // E1.0   [1] (😗)       kissing face
-	{0var, 0x11D59, x0D7A},              // Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
-	{0x2019, 0x0B3D, x2135},              // Mc   [2] SINHALA VOWEL SIGN DIGA GAETTA-PILLA..SINHALA VOWEL SIGN DIGA GAYANUKITTA
-	{0x194F, 0prALetter, prFormat},              // E0.6   [1] (‼️)       double exclamation mark
-	{0prALetter, 0x0F18, prALetter},               // Mn   [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
-	{0x10B91, 0x260F, x0F39},              // Mn   [2] COMBINING BINDU BELOW..GRANTHA SIGN NUKTA
-	{0prFormat, 0x1FAC0, prHebrewLetter},              // Mn   [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
-	{0x1F62F, 0x1F627, x1F18},              // Lo  [17] ARABIC MATHEMATICAL LOOPED LAM..ARABIC MATHEMATICAL LOOPED GHAIN
-	{0prExtendedPictographic, 0prExtend, x1FA70},              // E14.0  [1] (🟰)       heavy equals sign
-	{0prExtend, 0x1A63, prALetter},               // Lo       LATIN LETTER GLOTTAL STOP
-	{0x094F, 0prALetter, prALetter},               // Nd  [10] TANGSA DIGIT ZERO..TANGSA DIGIT NINE
-	{0xFE33, 0x1F61F, x11A01},               // L&  [80] DESERET CAPITAL LETTER LONG I..DESERET SMALL LETTER EW
-	{0prExtend, 0prALetter, prExtendedPictographic},              // Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
-	{0x20D0, 0prExtendedPictographic, prALetter},               // E1.0   [5] (🦀..🦄)    crab..unicorn
-	{0x10D0, 0x116B7, x10000},              // L&       TURNED SMALL F
-	{0prALetter, 0x0B9C, xAA7D},               // Mc       ZANABAZAR SQUARE SIGN VISARGA
-	{0x267B, 0x1F696, prExtendedPictographic},              // Po   [2] ARABIC COMMA..ARABIC DATE SEPARATOR
-	{0prExtend, 0prExtendedPictographic, x0A85},               // Mn   [9] LAO VOWEL SIGN I..LAO SEMIVOWEL SIGN LO
-	{0x10A0C, 0prALetter, x1F4EB},               // E0.6   [6] (↔️..↙️)    left-right arrow..down-left arrow
-	{0x0AE3, 0prExtendedPictographic, x1113F},                // E1.0   [1] (🏤)       post office
-	{0xA8C3, 0x1BC88, x09DC},                // Lo  [23] HANGUL JUNGSEONG O-YEO..HANGUL JUNGSEONG ARAEA-E
-	{0x1064, 0prExtend, x261F},   // Mn       ARABIC LETTER SUPERSCRIPT ALEF
-	{0x0BAE, 0prExtend, x003A},   // E11.0  [1] (🥺)       pleading face
-	{0x1DA00, 0x11145, x058A},   // Mn       NEWA SANDHI MARK
-	{0prALetter, 0prALetter, xA674},   // Lo       MODI SIGN HUVA
-	{0prExtendedPictographic, 0prExtend, prExtendedPictographic},   // E0.0   [2] (⛻..⛼)    JAPANESE BANK SYMBOL..HEADSTONE GRAVEYARD SYMBOL
-	{0x0A47, 0prALetter, x0CC6},   // Lo  [29] LYCIAN LETTER A..LYCIAN LETTER X
-	{0prExtendedPictographic, 0prExtendedPictographic, x16E40},   // L&  [11] VITHKUQI SMALL LETTER A..VITHKUQI SMALL LETTER GA
-	{0x1F5E8, 0x1D49F, prExtendedPictographic},   // Lo       GUJARATI SIGN AVAGRAHA
-	{0x1F6FC, 0x05C5, x26CE},   // Mn       SHARADA SIGN INVERTED CANDRABINDU
-	{0x1F395, 0prExtend, xFE52},   // Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
-	{0x1CF7, 0x1163F, x10835},   // Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
-	{0prALetter, 0prExtendedPictographic, prNumeric},   // L&   [2] ROMAN NUMERAL REVERSED ONE HUNDRED..LATIN SMALL LETTER REVERSED C
-	{0prExtend, 0prALetter, x1770},   // E0.6   [2] (⬛..⬜)    black large square..white large square
-	{0x110E8, 0x1EE57, x17B6},   // E0.0[1022] (🰀..🿽)    <reserved-1FC00>..<reserved-1FFFD>
-	{0prALetter, 0x1751, prExtendedPictographic},   // E0.6   [6] (👦..👫)    boy..woman and man holding hands
-	{0xFB3E, 0x1F611, x1E2C0},   // Lo       GURMUKHI LETTER FA
-	{0prExtend, 0xA802, x1F591},   // Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
-	{0prExtend, 0x0DDF, x1CF4},   // L&   [7] MATHEMATICAL SCRIPT SMALL H..MATHEMATICAL SCRIPT SMALL N
-	{0prExtendedPictographic, 0x1193E, x1BB9},   // E0.0  [11] (🟕..🟟)    CIRCLED TRIANGLE..<reserved-1F7DF>
-	{0prALetter, 0x115DD, prExtend},   // E0.0   [1] (🗢)       LIPS
-	{0prExtend, 0xFF0E, x114C0},   // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
-	{0xA7D0, 0prExtend, x1F6B8},   // E0.7   [1] (🏵️)       rosette
-	{0x093B, 0x1FA75, x1085},   // Mn  [23] ZNAMENNY COMBINING TONAL RANGE MARK MRACHNO..ZNAMENNY PRIZNAK MODIFIER ROG
-	{0x31A0, 0xA78F, x10F27},   // Mn       LAO VOWEL SIGN MAI KAN
-	{0prExtend, 0x0F87, prALetter},   // Lo  [73] CANADIAN SYLLABICS NATTILIK HI..PAU CIN HAU GLOTTAL STOP FINAL
-	{0x11730, 0prALetter, prALetter},   // Lo  [45] HALFWIDTH KATAKANA LETTER A..HALFWIDTH KATAKANA LETTER N
-	{0xA8C4, 0prExtendedPictographic, prExtend},   // E0.0 [202] (🀅..🃎)    MAHJONG TILE GREEN DRAGON..PLAYING CARD KING OF DIAMONDS
-	{0x1F6FA, 0x1F90C, x072F},   // Mn [112] COMBINING GRAVE ACCENT..COMBINING LATIN SMALL LETTER X
-	{0x1A00, 0xA982, prExtend},   // Lo   [8] OLD PERSIAN SIGN AURAMAZDAA..OLD PERSIAN SIGN BUUMISH
-	{0prExtend, 0xA9C0, x26FB},   // E0.0  [82] (🢮..🣿)    <reserved-1F8AE>..<reserved-1F8FF>
-	{0x0C82, 0x1F4ED, x1F932},   // Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
-	{0prALetter, 0prExtendedPictographic, prALetter},   // Nd  [10] PAHAWH HMONG DIGIT ZERO..PAHAWH HMONG DIGIT NINE
-	{0x26A8, 0prNumeric, x10B55},   // Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
-	{0x1F20, 0prALetter, x11000},   // Lm   [2] NKO HIGH TONE APOSTROPHE..NKO LOW TONE APOSTROPHE
-	{0x11459, 0x1057C, x2695},   // Mn       NANDINAGARI SIGN VIRAMA
-	{0x0D48, 0xA4FD, x11082},   // E1.0   [2] (🌲..🌳)    evergreen tree..deciduous tree
-	{0x1000D, 0x1F323, x107B0},   // E0.0   [1] (☒)       BALLOT BOX WITH X
-	{0prExtend, 0prExtend, prExtendedPictographic},   // Lo   [7] GURMUKHI LETTER PA..GURMUKHI LETTER RA
-	{0prExtendedPictographic, 0xAAC1, x1BF3},   // Lo   [2] ETHIOPIC SYLLABLE GURAGE MWI..ETHIOPIC SYLLABLE GURAGE MWEE
-	{0x0A38, 0x1F6A4, x1D53E},   // workBreakCodePoints are taken from
-	{0x11074, 0x11C3E, x0ABC},   // Lo  [44] DOGRA LETTER A..DOGRA LETTER RRA
-	{0x1A00, 0x10876, x109A},                // Nd  [10] WARANG CITI DIGIT ZERO..WARANG CITI DIGIT NINE
-	{0prExtendedPictographic, 0x11D68, x1F5B1},                // E0.0   [9] (🪇..🪏)    <reserved-1FA87>..<reserved-1FA8F>
-	{0x1F310, 0x1DA6C, x231A},                // Cf       SYRIAC ABBREVIATION MARK
-	{0prExtend, 0prNumeric, x1F8AE},                // Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
-	{0prALetter, 0x0ED9, prWSegSpace},                // E0.7   [4] (🏋️..🏎️)    person lifting weights..racing car
-	{0x11644, 0x1BA2, x26E9},                // L&   [7] MATHEMATICAL FRAKTUR CAPITAL S..MATHEMATICAL FRAKTUR CAPITAL Y
-	{0x0CBE, 0x0D57, prExtendedPictographic},                // Lo  [53] BRAHMI SIGN JIHVAMULIYA..BRAHMI LETTER OLD TAMIL NNNA
-	{0x0CCC, 0prALetter, prALetter},                 // Nd  [10] SINHALA LITH DIGIT ZERO..SINHALA LITH DIGIT NINE
-	{0prExtend, 0x1F43F, x1FADA},                 // Mn  [16] COMBINING LATIN SMALL LETTER W BELOW..COMBINING LATIN SMALL LETTER INSULAR T
-	{0x1F0CF, 0x1057, prALetter},                 // Po       FULLWIDTH SEMICOLON
-	{0x0D44, 0prALetter, xA806},                 // Lo  [11] MEETEI MAYEK LETTER E..MEETEI MAYEK LETTER SSA
-	{0x11348, 0prALetter, prExtendedPictographic},                 // Mc       NEWA SIGN VISARGA
-	{0x1F316, 0prExtendedPictographic, x1F46C},                // Lo   [2] TIRHUTA SIGN AVAGRAHA..TIRHUTA GVANG
-	{0prALetter, 0xAA28, prKatakana},                 // Mc   [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
-	{0x2184, 0x1752, prExtendedPictographic},                // L&  [31] MATHEMATICAL ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
-	{0x0971, 0x09CE, x1058C},              // Mc   [6] MYANMAR SIGN SHAN TONE-2..MYANMAR SIGN SHAN COUNCIL TONE-3
-	{0x2060, 0prALetter, x1D7CE},                // Mc       KAITHI SIGN VISARGA
-	{0x03A1, 0x0CE3, prExtend},                // Lo       ARABIC MATHEMATICAL TAILED JEEM
-	{0prExtend, 0x119E4, x2018},                // E0.0   [4] (🈼..🈿)    <reserved-1F23C>..<reserved-1F23F>
-	{0xA8F7, 0prALetter, prExtend},                // E1.0   [1] (🍋)       lemon
-	{0x26D4, 0x23F3, x1F6AE},                // L& [139] GREEK CAPITAL LETTER SHO..CYRILLIC SMALL LETTER KOPPA
-	{0x1F414, 0prALetter, prExtendedPictographic},                // E0.6   [8] (💮..💵)    white flower..dollar banknote
-	{0x0C00, 0x11450, x16F0},                 // E1.0   [2] (🔬..🔭)    microscope..telescope
-	{0prExtendedPictographic, 0xA880, uniseg},                 // Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
-	{0x11C3E, 0prALetter, prHebrewLetter},                 // E1.0   [5] (🛁..🛅)    bathtub..left luggage
-	{0prExtendedPictographic, 0x1FA82, x0AAA},                 // E0.6   [1] (✒️)       black nib
-	{0prExtendedPictographic, 0xA7FB, x26FA},                 // Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
-	{0x1F94C, 0x11183, x110B0},                 // Mn       NKO DANTAYALAN
-	{0x10A3F, 0x1F567, prExtendedPictographic},                 // E0.6  [63] (👮..💬)    police officer..speech balloon
-	{0x1EE37, 0x1315, prExtend},                 // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-	{0x0B9F, 0x2695, x1100},                 // Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
-	{0prExtendedPictographic, 0x2049, x1F39D},                 // Lo   [2] GRANTHA LETTER LA..GRANTHA LETTER LLA
-	{0x1F32F, 0prExtendedPictographic, prExtendedPictographic},                // Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
-	{0x1F508, 0prALetter, x3357},                 // E0.6   [6] (😠..😥)    angry face..sad but relieved face
-	{0x1F619, 0prExtendedPictographic, x1122B},                 // Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
-	{0x1F350, 0x10860, prALetter},                // Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
-	{0x1F509, 0x2054, x05C2},                // E0.0   [1] (🎘)       MUSICAL KEYBOARD WITH JACKS
-	{0x0CE6, 0x119AA, x11D47},                // Lo   [2] TAMIL LETTER NYA..TAMIL LETTER TTA
-	{0prALetter, 0prExtendedPictographic, prExtend},                // Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
-	{0x1F3CF, 0x0CE6, prExtendedPictographic},                // Lo  [19] HATRAN LETTER ALEPH..HATRAN LETTER QOPH
-	{0x0A33, 0prExtend, x10C7},                // Lo   [2] GURMUKHI LETTER VA..GURMUKHI LETTER SHA
-	{0x1B35, 0prExtendedPictographic, x10EB0},                // E0.7   [1] (🚘)       oncoming automobile
-	{0x27B0, 0x1EE80, x103A},           // Lo  [30] SYRIAC LETTER BETH..SYRIAC LETTER PERSIAN DHALATH
-	{0x1D172, 0x111C1, prExtendedPictographic},                // Lo       SHARADA EKAM
-	{0x06E4, 0prExtendedPictographic, prALetter},                // E3.0   [1] (🤰)       pregnant woman
-	{0prKatakana, 0prExtendedPictographic, x1FB4},   // Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
-	{0x085B, 0x12399, x1F5A5},   // Mc       SUNDANESE SIGN PANGWISAD
-	{0x0C58, 0prExtend, x11D30},   // E11.0  [1] (🛹)       skateboard
-	{0x1F7D, 0prALetter, x205F},   // Lo   [2] BENGALI LETTER E..BENGALI LETTER AI
-	{0x01BC, 0prALetter, x1F972},   // Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
-	{0x1F90D, 0prExtend, x114BA},   // Mn   [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
-	{0prALetter, 0prExtend, x0022},   // E1.0   [3] (🚳..🚵)    no bicycles..person mountain biking
-	{0x2066, 0xAAB0, x0D81},   // Lo       ARABIC MATHEMATICAL TAILED KHAH
-	{0prExtendedPictographic, 0x11937, x1F6DF},   // L&   [3] GEORGIAN MTAVRULI CAPITAL LETTER AEN..GEORGIAN MTAVRULI CAPITAL LETTER LABIAL SIGN
-	{0x1133C, 0prExtendedPictographic, x1FC2},   // L&  [65] MATHEMATICAL SCRIPT SMALL P..MATHEMATICAL FRAKTUR CAPITAL B
-	{0x16F9F, 0prALetter, x105B1},   // Sm       FRACTION SLASH
-	{0xFB41, 0x23F3, x11941},   // Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
-	{0prExtend, 0x3000, prExtendedPictographic},   // Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
-	{0x1F3E4, 0x26C5, prExtend},   // Lo  [75] MIAO LETTER PA..MIAO LETTER RTE
-	{0x128D, 0x1F311, x11943},                // Mc   [3] NANDINAGARI VOWEL SIGN AA..NANDINAGARI VOWEL SIGN II
-	{0x1F680, 0prExtend, x1ABF},                // Lm   [3] MODIFIER LETTER CAPITAL C..MODIFIER LETTER CAPITAL Q
-	{0prFormat, 0x0B3D, prExtend},                // Lo       CYPRIOT SYLLABLE JO
-	{0xA721, 0prExtend, prExtendedPictographic},                // Mn   [4] WANCHO TONE TUP..WANCHO TONE KOINI
-	{0x1F85A, 0prExtend, x05F3},                 // Lo       TELUGU LETTER NAKAARA POLLU
-	{0x1FA70, 0x1F5B2, xA790},                 // E1.0   [2] (🔬..🔭)    microscope..telescope
-	{0x1145E, 0x26EB, prALetter},                 // Lo       GUJARATI OM
-	{0x2D7F, 0prExtend, x1CE9},                 // Nd  [10] GUNJALA GONDI DIGIT ZERO..GUNJALA GONDI DIGIT NINE
-	{0x11332, 0prALetter, x17C6},                 // E0.0   [3] (🛽..🛿)    <reserved-1F6FD>..<reserved-1F6FF>
-	{0var, 0x1F9CD, x0AFF},                 // Mn       MONGOLIAN LETTER ALI GALI DAGALGA
-	{0x1CF46, 0prExtendedPictographic, x2CE4},                // Nd  [10] BHAIKSUKI DIGIT ZERO..BHAIKSUKI DIGIT NINE
-	{0x1773, 0x1401, x30A0},                 // E0.0   [2] (🎜..🎝)    BEAMED ASCENDING MUSICAL NOTES..BEAMED DESCENDING MUSICAL NOTES
-	{0x312F, 0x2024, xAB5B},                 // E0.6   [1] (🏈)       american football
-	{0prExtendedPictographic, 0x1FBE, x274C},                 // Mc       MEETEI MAYEK VOWEL SIGN VISARGA
-	{0prExtendedPictographic, 0prFormat, x10AE4},                 // E1.0   [1] (🚿)       shower
-	{0prALetter, 0prNumeric, x1F46D},                // Me       COMBINING PARENTHESES OVERLAY
-	{0xFFD2, 0x17BD, x1EE27},                // Lm       VERTICAL IDEOGRAPHIC ITERATION MARK
-	{0prALetter, 0prExtendedPictographic, x11301},                // Lo  [22] SAMARITAN LETTER ALAF..SAMARITAN LETTER TAAF
-	{0prALetter, 0prExtendedPictographic, x093B},                // Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
-	{0x2C7C, 0prExtendedPictographic, prALetter},                // E0.0   [1] (📾)       PORTABLE STEREO
-	{0x1F685, 0x00AA, x1B00},                 // E0.7   [7] (🕳️..🕹️)    hole..joystick
-	{0x1F350, 0x112E2, prExtend},                // E0.0   [2] (🖎..🖏)    LEFT WRITING HAND..TURNED OK HAND SIGN
-	{0x1F3F8, 0prALetter, x1D7AA},                 // E0.0   [7] (🕨..🕮)    RIGHT SPEAKER..BOOK
-	{0x2145, 0prNumeric, x1EE39},                // Lo   [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
-	{0x2DCE, 0x1F311, prExtendedPictographic},                 // L&  [25] MATHEMATICAL ITALIC SMALL ALPHA..MATHEMATICAL ITALIC SMALL OMEGA
-	{0prExtendedPictographic, 0x0FC6, prExtend},                 // Mn   [4] WANCHO TONE TUP..WANCHO TONE KOINI
-	{0prALetter, 0x14400, prExtendedPictographic},                 // Lm   [6] LISU LETTER TONE MYA TI..LISU LETTER TONE MYA JEU
-	{0x1F22F, 0x2000, x09FE},                 // E12.0  [4] (🩰..🩳)    ballet shoes..shorts
-	{0x2714, 0x1F3F1, prALetter},                 // Lo  [13] DUPLOYAN AFFIX LEFT HORIZONTAL SECANT..DUPLOYAN AFFIX ATTACHED TANGENT HOOK
-	{0x1112B, 0x1F6CA, x1F690},                // Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
-	{0x23CF, 0prALetter, xA771},                 // E0.0   [4] (🠌..🠏)    <reserved-1F80C>..<reserved-1F80F>
-	{0x11C2E, 0prALetter, x1BAA},                 // E1.0   [1] (🏴)       black flag
-	{0x10A38, 0x10C7, xFE50},                 // Lo   [5] ARABIC MATHEMATICAL DOUBLE-STRUCK WAW..ARABIC MATHEMATICAL DOUBLE-STRUCK YEH
-	{0xA92D, 0x115B5, x1005D},                 // Lo  [31] LIMBU VOWEL-CARRIER LETTER..LIMBU LETTER TRA
-	{0x0B71, 0x1FA73, x11915},                // Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
-	{0x1F596, 0prExtendedPictographic, prALetter},                // Nl   [3] RUNIC ARLAUG SYMBOL..RUNIC BELGTHOR SYMBOL
-	{0prALetter, 0prALetter, xA953},                // Lo       GUNJALA GONDI OM
-	{0x11C59, 0x26CD, x1EE49},                 // Lo   [4] BENGALI LETTER SHA..BENGALI LETTER HA
-	{0x1DA9B, 0x16EA, x1D734},                 // Po       ONE DOT LEADER
-	{0x1F514, 0x06D6, prALetter},                 // Lo  [54] ARABIC LIGATURE MEEM WITH JEEM WITH KHAH INITIAL FORM..ARABIC LIGATURE NOON WITH JEEM WITH YEH FINAL FORM
-	{0xA78F, 0prExtendedPictographic, x16FF1},                // Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
-	{0prALetter, 0x1F6A6, x1EE24},                 // E0.6   [1] (⁉️)       exclamation question mark
-	{0x18A8, 0x1F55B, xAB60},                 // E0.6  [12] (♈..♓)    Aries..Pisces
-	{0x16F4A, 0x1F003, prALetter},                 // E0.7   [9] (🌤️..🌬️)    sun behind small cloud..wind face
-	{0prExtendedPictographic, 0x11237, prExtendedPictographic},                 // https://unicode.org/Public/14.0.0/ucd/emoji/emoji-data.txt
-	{0x1F6D8, 0prALetter, prExtend},                 // Lo   [2] ETHIOPIC SYLLABLE GURAGE MWI..ETHIOPIC SYLLABLE GURAGE MWEE
-	{0x30A0, 0prALetter, prExtend},                // E0.0   [2] (🖈..🖉)    BLACK PUSHPIN..LOWER LEFT PENCIL
-	{0x0D83, 0x2626, prExtendedPictographic},                // Lm   [6] MODIFIER LETTER SMALL CAPITAL AA..MODIFIER LETTER SMALL B WITH HOOK
-	{0x1163D, 0prALetter, x1F617},                // E0.6   [1] (♿)       wheelchair symbol
-	{0x1B35, 0x1F688, x11344},                // L&  [15] VITHKUQI SMALL LETTER HA..VITHKUQI SMALL LETTER RE
-	{0x2690, 0x1049, x0B28},                // Cc       <control-000D>
-	{0x1D505, 0prALetter, x10D27},                // Mn       GUJARATI SIGN VIRAMA
-	{0prNumeric, 0x0D7A, x11D90},                // Lm       SUPERSCRIPT LATIN SMALL LETTER N
-	{0x26C4, 0x1AB0, prNumeric},                 // E0.0   [3] (🗰..🗲)    MOOD BUBBLE..LIGHTNING MOOD
-	{0x1BAA, 0prExtend, x0A75},                 // Zs       SPACE
-	{0x1F397, 0x1F321, x1B82},                 // Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
-	{0x1182F, 0x1EE5B, x1EE05},                 // E5.0   [2] (🤱..🤲)    breast-feeding..palms up together
-	{0x2DC6, 0prALetter, x25FB},                 // Lo       TAMIL SIGN VISARGA
-	{0prExtendedPictographic, 0x11720, prExtend},                 // Lo       OLD SOGDIAN LIGATURE AYIN-DALETH
-	{0prALetter, 0x1F5E8, x17B6},                 // L&  [10] SCRIPT SMALL G..SCRIPT SMALL L
-	{0prExtend, 0prExtendedPictographic, prExtend},                // E0.6   [1] (⛽)       fuel pump
-	{0x07FD, 0x1FD6, x1F3C5},                // Lo   [8] GRANTHA LETTER A..GRANTHA LETTER VOCALIC L
-	{0prExtend, 0prExtendedPictographic, xA9CF},                // Lo  [54] DEVANAGARI LETTER SHORT A..DEVANAGARI LETTER HA
-	{0prExtendedPictographic, 0x0B71, x1F5E2},                 // Nd  [10] MYANMAR DIGIT ZERO..MYANMAR DIGIT NINE
-	{0x1F39D, 0xA7D3, prExtendedPictographic},                 // L&  [44] LATIN LETTER SMALL CAPITAL A..CYRILLIC LETTER SMALL CAPITAL EL
-	{0x0972, 0x0CBF, prFormat},                 // Lo  [64] ARABIC LIGATURE TEH WITH JEEM WITH MEEM INITIAL FORM..ARABIC LIGATURE MEEM WITH KHAH WITH MEEM INITIAL FORM
-	{0x0CC6, 0x1F688, x1E2EB},                 // Mn   [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
-	{0x0AB3, 0prExtend, x1EE57},                 // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
-	{0x111DA, 0x26F0, prExtend},                 // Mc       BRAHMI SIGN VISARGA
-	{0x2124, 0prExtendedPictographic, x10FC4},                 // E0.6   [1] (♣️)       club suit
-	{0x1F4FE, 0x1EE4F, x1F848},                 // Mn       TIFINAGH CONSONANT JOINER
-	{0prALetter, 0x1038, x1F57A},                // Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
-	{0x302E, 0prExtend, x2DC0},                 // Lo       BENGALI LETTER VEDIC ANUSVARA
-	{0x0CD5, 0x1A57, x3035},                // L&   [4] LATIN CAPITAL LETTER TONE FIVE..LATIN LETTER WYNN
-	{0x2128, 0x1E944, x1FE0},                // E0.6   [2] (⛲..⛳)    fountain..flag in hole
-	{0x1F4EF, 0x16B00, x1DC0},                 // E0.6  [43] (🍑..🍻)    peach..clinking beer mugs
-	{0x17C5, 0x1E130, xAA40},                 // Lo  [23] CYPRIOT SYLLABLE ZO..IMPERIAL ARAMAIC LETTER TAW
-	{0x0387, 0x2616, x1E943},                 // E12.0  [3] (🪀..🪂)    yo-yo..parachute
-	{0prExtend, 0prExtendedPictographic, prExtendedPictographic},                // E0.6   [3] (🌓..🌕)    first quarter moon..full moon
-	{0x0589, 0x1F31B, x1CF9},                 // Lo  [13] DUPLOYAN AFFIX LEFT HORIZONTAL SECANT..DUPLOYAN AFFIX ATTACHED TANGENT HOOK
-	{0prExtend, 0x26D0, prExtend},                // Mn       SYLOTI NAGRI SIGN HASANTA
-	{0x0AC8, 0x1F3C8, prALetter},                // Lo   [3] ARABIC MATHEMATICAL DOUBLE-STRUCK BEH..ARABIC MATHEMATICAL DOUBLE-STRUCK DAL
-	{0x1F0FF, 0x10939, prExtendedPictographic},                 // Lo  [10] HALFWIDTH KATAKANA LETTER WO..HALFWIDTH KATAKANA LETTER SMALL TU
-	{0x1BA1, 0xAB68, x1F3C5},                // workBreakCodePoints are taken from
-	{0prExtend, 0prALetter, x1F694},                 // L&       GREEK CAPITAL LETTER UPSILON WITH DASIA AND VARIA
-	{0prALetter, 0prExtendedPictographic, prExtend},                // L&  [68] ADLAM CAPITAL LETTER ALIF..ADLAM SMALL LETTER SHA
-	{0x037E, 0prNumeric, prExtend},                 // E0.7   [1] (🚍)       oncoming bus
-	{0x0891, 0x111CF, x002E},           // Lo  [15] DEVANAGARI LETTER CANDRA A..BENGALI ANJI
-	{0x1B81, 0x0D3E, x10140},   // Mc       BATAK VOWEL SIGN U
-	{0xA9B2, 0prExtendedPictographic, x06EE},           // Mc   [2] CHAKMA VOWEL SIGN AA..CHAKMA VOWEL SIGN EI
-	{0prExtend, 0x116C0, x0A41},                 // Mn       TIFINAGH CONSONANT JOINER
-	{0x1BC70, 0prExtend, x0C12},   // Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
-	{0x2705, 0prExtendedPictographic, x0BC2},           // E11.0  [2] (🧁..🧂)    cupcake..salt
-	{0x11434, 0x1F4EF, x058A},              // Mc       TAKRI SIGN VIRAMA
-	{0x0B30, 0x10D39, prExtendedPictographic},                 // Mc       GUJARATI VOWEL SIGN CANDRA O
-	{0prExtend, 0prExtend, x11A59},                 // Mn   [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
-	{0prALetter, 0x16AC0, prExtend},                // Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
-	{0x09BE, 0x111BE, prExtend},                // Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
-	{0x111C4, 0x0D4E, x0BC8},                 // E0.6   [4] (😨..😫)    fearful face..tired face
-	{0x1F587, 0prExtend, x0A83},                // L&       GREEK CAPITAL LETTER OMICRON WITH TONOS
-	{0x1E950, 0x26D3, prExtend},                 // E0.6   [1] (🈚)       Japanese “free of charge” button
-	{0prALetter, 0prALetter, x02D2},                // Nl   [3] RUNIC ARLAUG SYMBOL..RUNIC BELGTHOR SYMBOL
-	{0prNumeric, 0prExtendedPictographic, x1F395},                // Lo       GRANTHA SIGN AVAGRAHA
-	{0x0C80, 0x10FC, x0C55},                // Lo   [7] ETHIOPIC SYLLABLE CCA..ETHIOPIC SYLLABLE CCO
-	{0x30FE, 0prExtend, prExtend},                // Lo  [23] SYLOTI NAGRI LETTER CO..SYLOTI NAGRI LETTER HO
-	{0x1F31A, 0prALetter, x0AFA},                 // E0.0  [11] (⚲..⚼)    NEUTER..SESQUIQUADRATE
-	{0x206F, 0prExtendedPictographic, x1D49F},                // E0.0   [2] (🛱..🛲)    ONCOMING FIRE ENGINE..DIESEL LOCOMOTIVE
-	{0prExtendedPictographic, 0x1F4EB, x0711},                 // Mn       MYANMAR SIGN TAI LAING TONE-2
-	{0x1F23C, 0x2615, xAB2E},                // E11.0  [5] (🥬..🥰)    leafy green..smiling face with hearts
-	{0prNumeric, 0x20E0, x10787},                 // Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
-	{0x116AC, 0x1FA80, x000B},                // Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-	{0x1F80, 0prMidNum, x1FAD7},                 // L&  [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
-	{0x1DA3B, 0prALetter, prALetter},                // Mn       ORIYA SIGN VIRAMA
-	{0prExtendedPictographic, 0x1D51C, x0898},                // E0.6   [2] (⛲..⛳)    fountain..flag in hole
-	{0prExtend, 0xAB26, x262D},                // E0.0   [1] (⚘)       FLOWER
-	{0x066B, 0x1F3A0, x11001},                // E0.0   [2] (♼..♽)    RECYCLED PAPER SYMBOL..PARTIALLY-RECYCLED PAPER SYMBOL
-	{0x1EE3B, 0x11A56, prDoubleQuote},                // E0.6   [6] (🚹..🚾)    men’s room..water closet
-	{0x1681, 0x0D5F, xA9BC},                 // Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
-	{0xAA35, 0x16B43, prExtendedPictographic},                 // E1.0   [1] (🔉)       speaker medium volume
-	{0x270E, 0x1C7D, x037A},                // Lo  [47] BALINESE LETTER AKARA..BALINESE LETTER HA
-	{0x23F0, 0prALetter, prALetter},                 // Lo   [2] ORIYA LETTER E..ORIYA LETTER AI
-	{0x1EE24, 0prALetter, x10FE0},                // Po       ARMENIAN QUESTION MARK
-	{0prExtendedPictographic, 0prALetter, x037E},                 // Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
-	{0x0F37, 0prALetter, prALetter},                // Nl       GOTHIC LETTER NINE HUNDRED
-	{0xFB06, 0prExtend, prExtendedPictographic},                // Mc   [2] ORIYA VOWEL SIGN E..ORIYA VOWEL SIGN AI
-	{0x1A63, 0x1A64, x0DB1},                // Lo       BENGALI LETTER LA
-	{0prNumeric, 0x114BA, x1FFC},                // Lo  [12] ARABIC LIGATURE SALLA USED AS KORANIC STOP SIGN ISOLATED FORM..ARABIC LIGATURE JALLAJALALOUHOU
-	{0x1F52E, 0x060D, x1F6FF},                // Nd  [10] NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG PUACHUE HMONG DIGIT NINE
-	{0x1FC2, 0x0D03, prExtendedPictographic},                // E0.0 [112] (🨀..🩯)    NEUTRAL CHESS KING..<reserved-1FA6F>
-	{0x1EE42, 0prALetter, x26A7},                 // Lm   [6] MODIFIER LETTER SMALL CAPITAL AA..MODIFIER LETTER SMALL B WITH HOOK
-	{0x2135, 0x11C00, x10F81},                 // Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
-	{0prExtend, 0x1F6ED, x180F},           // Lo   [4] ETHIOPIC SYLLABLE KXWI..ETHIOPIC SYLLABLE KXWE
-	{0xFE50, 0prExtendedPictographic, x1E12C},           // L&  [25] MATHEMATICAL ITALIC SMALL ALPHA..MATHEMATICAL ITALIC SMALL OMEGA
-	{0prALetter, 0prFormat, prExtend},                 // Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
-	{0x11D8A, 0x261F, x101FD},              // Lo       GURMUKHI LETTER FA
-	{0prNumeric, 0prExtendedPictographic, x1681},              // E1.0   [2] (☢️..☣️)    radioactive..biohazard
-	{0x1D51E, 0x055E, x1F37C},               // E0.0   [8] (🡈..🡏)    <reserved-1F848>..<reserved-1F84F>
-	{0x1FADF, 0prCR, x10915},               // L&   [7] MATHEMATICAL FRAKTUR CAPITAL S..MATHEMATICAL FRAKTUR CAPITAL Y
-	{0x11046, 0x119E1, prALetter},               // Mc       MYANMAR VOWEL SIGN E
-	{0x11FB0, 0prALetter, x110B3},               // L&   [4] KELVIN SIGN..BLACK-LETTER CAPITAL C
-	{0prExtendedPictographic, 0x11075, x0F7E},              // Po       ARABIC DECIMAL SEPARATOR
-	{0x115BB, 0x10AC9, prExtend},               // Lo   [8] LINEAR A SIGN A800..LINEAR A SIGN A807
-	{0x11134, 0prExtendedPictographic, x1D539},               // Lo   [8] LINEAR A SIGN A800..LINEAR A SIGN A807
-	{0prALetter, 0xA610, x1F515},              // Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
-	{0x11D09, 0x11EF2, x1BA5},              // Mc       BRAHMI SIGN CANDRABINDU
-	{0x11726, 0prExtend, x166C},              // E0.7   [2] (☸️..☹️)    wheel of dharma..frowning face
-	{0prExtend, 0x16F4F, prALetter},              // Nd  [10] NKO DIGIT ZERO..NKO DIGIT NINE
-	{0x11600, 0x1BAA, x2139},              // Lo  [19] TAGALOG LETTER ARCHAIC RA..HANUNOO LETTER HA
-	{0x1F1E5, 0x2747, x11445},              // Lo       DIVES AKURU LETTER O
-	{0x0B30, 0x10F50, x10CB2},               // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
-	{0prHebrewLetter, 0x0B28, x1F5A8},               // Lo   [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
-	{0x1F680, 0prALetter, prALetter},                 // E0.0   [2] (🕱..🕲)    BLACK SKULL AND CROSSBONES..NO PIRACY
-	{0prFormat, 0x115DB, xA8F2},                // Mc   [2] TAMIL VOWEL SIGN U..TAMIL VOWEL SIGN UU
-	{0x1F600, 0x0816, prALetter},                // Nd  [10] MYANMAR SHAN DIGIT ZERO..MYANMAR SHAN DIGIT NINE
-	{0prNumeric, 0x1F933, x1F312},                 // Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
-	{0x0CC7, 0x2B1B, x1128D},                // Mn       MEETEI MAYEK VOWEL SIGN UNAP
-	{0x1CD0, 0x18A8, prNumeric},                // E1.0   [1] (🌒)       waxing crescent moon
-	{0prExtend, 0prExtendedPictographic, x066B},                // E0.0   [1] (⛒)       CIRCLED CROSSING LANES
-	{0x1F1E5, 0x2642, prExtend},                // E1.0   [2] (😦..😧)    frowning face with open mouth..anguished face
-	{0prExtendedPictographic, 0x1D4A2, prExtend},                 // Sm       FRACTION SLASH
-	{0x1128D, 0prExtend, x1F169},                 // Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
-	{0x2763, 0x09D7, prALetter},                 // Lo       ETHIOPIC SYLLABLE KXWA
-	{0prExtendedPictographic, 0x10A00, x1F940},                 // Lo  [18] SINHALA LETTER AYANNA..SINHALA LETTER AUYANNA
-	{0x2640, 0x11838, prExtend},                 // Lo  [53] NEWA LETTER A..NEWA LETTER HA
-	{0prExtendedPictographic, 0x0981, x1107F},                // Lo  [16] ETHIOPIC SYLLABLE SEBATBEIT MWA..ETHIOPIC SYLLABLE PWE
-	{0x09CD, 0prALetter, x10A3A},                 // Lo       ORIYA LETTER WA
-	{0x2C7E, 0x1288, prALetter},                // E0.0   [5] (⛫..⛯)    CASTLE..MAP SYMBOL FOR LIGHTHOUSE
-	{0x11A32, 0prExtend, x1F5FA},                // E0.6   [1] (⁉️)       exclamation question mark
-	{0x2388, 0x11435, prExtendedPictographic},                // E0.6   [1] (Ⓜ️)       circled M
-	{0x0022, 0prExtendedPictographic, xAA36},                // L&       GREEK CAPITAL LETTER UPSILON WITH DASIA AND OXIA
-	{0prNumeric, 0prExtend, prALetter},                // Sk  [15] MODIFIER LETTER EXTRA-HIGH DOTTED TONE BAR..MODIFIER LETTER EXTRA-LOW LEFT-STEM TONE BAR
-	{0x118FF, 0x2115, x20DC},                 // Lo  [22] SAMARITAN LETTER ALAF..SAMARITAN LETTER TAAF
-	{0x00BA, 0x1EE6C, x1CE9},                 // Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
-	{0x0EB1, 0prExtend, x10880},                 // Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
-	{0prExtend, 0x124D, prExtend},                 // Mn  [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
-	{0prALetter, 0x0D54, x10FC},                 // E5.0   [2] (🤱..🤲)    breast-feeding..palms up together
-	{0x1F686, 0x1F323, x0D44},                 // Mn   [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
-	{0prALetter, 0xABE8, prALetter},                 // L&   [7] LATIN SMALL LIGATURE FF..LATIN SMALL LIGATURE ST
-	{0x1F94F, 0x10376, x111CF},                 // E0.6   [2] (🈁..🈂️)    Japanese “here” button..Japanese “service charge” button
-	{0xABE5, 0x0DD1, prExtendedPictographic},                // Zs   [3] PUNCTUATION SPACE..HAIR SPACE
-	{0x2107, 0x0963, xAA34},                 // Lo [569] BAMUM LETTER PHASE-A NGKUE MFON..BAMUM LETTER PHASE-F VUEQ
-	{0x111BE, 0x110F9, x1CE1},                 // Mc       BALINESE SIGN BISAH
-	{0x1CED, 0x1BF2, x0D03},   // Nd  [10] CHAKMA DIGIT ZERO..CHAKMA DIGIT NINE
-	{0prALetter, 0x055A, x1D7C2},               // E0.7   [1] (🛰️)       satellite
-	{0x1172B, 0x0D3A, xAB28},                // E0.7   [1] (👁️)       eye
-	{0x26CD, 0x0F3E, x114BF},                // E0.0   [5] (🛘..🛜)    <reserved-1F6D8>..<reserved-1F6DC>
-	{0x10C48, 0x0870, x1F5A6},                // L&  [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
-	{0prALetter, 0x09BD, prExtend},                 // Lo  [30] MARCHEN LETTER KA..MARCHEN LETTER A
-	{0x1F59, 0x1039D, prExtend},                 // Mc       MYANMAR SIGN PAO KAREN TONE
-	{0x1F8FF, 0x0ACD, x16F4F},                // E0.6   [3] (🚑..🚓)    ambulance..police car
-	{0x200E, 0xFEFC, prNumeric},                 // Mc   [2] MYANMAR VOWEL SIGN TALL AA..MYANMAR VOWEL SIGN AA
-	{0x1F947, 0x11DA9, x16B43},                // Mc       BALINESE VOWEL SIGN TEDUNG
-	{0x1062, 0x1F4ED, x10915},              // Lo   [2] ORIYA LETTER E..ORIYA LETTER AI
-	{0x10592, 0x1F21A, prExtend},                 // Mn       TAI THAM CONSONANT SIGN MEDIAL LA
-	{0prExtendedPictographic, 0x1F6FF, x1929},              // Mc   [3] GRANTHA VOWEL SIGN OO..GRANTHA SIGN VIRAMA
-	{0xFE55, 0prExtendedPictographic, x1FACF},                 // Mn       KHUDAWADI SIGN ANUSVARA
-	{0x1F3E4, 0x1A62, prNumeric},                 // Pd       KATAKANA-HIRAGANA DOUBLE HYPHEN
-	{0x110BA, 0xFE4F, x1C4D},                 // Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
-	{0prExtend, 0x1EE22, x1F334},                 // Mn       BENGALI SIGN CANDRABINDU
-	{0prExtendedPictographic, 0x05F4, x2705},                 // E0.6   [1] (🚗)       automobile
-	{0prExtendedPictographic, 0x1F617, prExtendedPictographic},                 // L&  [59] LATIN CAPITAL LETTER N WITH DESCENDER..LATIN SMALL LETTER S WITH SHORT STROKE OVERLAY
-	{0x2CF2, 0x1B164, x0ACB},                 // Mn       BRAHMI SIGN ANUSVARA
-	{0x10F1C, 0x1F699, x10785},                 // E0.7   [2] (⏭️..⏮️)    next track button..last track button
-	{0prExtend, 0x191E, x1F589},                 // Lo       LATIN LETTER GLOTTAL STOP
-	{0x108C, 0prExtend, prALetter},                 // Lo   [5] GRANTHA LETTER VA..GRANTHA LETTER HA
-	{0x16F50, 0x118A0, x1F6B2},                 // Nl   [4] ROMAN NUMERAL SIX LATE FORM..ROMAN NUMERAL ONE HUNDRED THOUSAND
-	{0x1D454, 0prExtendedPictographic, prALetter},                 // E0.6   [1] (⚓)       anchor
-	{0x1EE42, 0prALetter, x07B0},                // Mc       MYANMAR VOWEL SIGN E
-	{0prMidNum, 0x1F6F0, x11C36},                // Lo   [4] ARABIC MATHEMATICAL ALEF..ARABIC MATHEMATICAL DAL
-	{0prExtendedPictographic, 0prALetter, x1DA9F},              // Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
-	{0x110B6, 0x213C, prALetter},                 // Lo [329] HANGUL CHOSEONG KIYEOK..ETHIOPIC SYLLABLE QWA
-	{0x2663, 0x101FD, prExtendedPictographic},                // E0.7   [1] (🗯️)       right anger bubble
-	{0x2716, 0x00BA, x10A38},                // E13.0  [7] (🪰..🪶)    fly..feather
-	{0x0C10, 0x06FC, prExtend},                // E0.7   [1] (🌡️)       thermometer
-	{0x2663, 0x1F55B, x1F5E9},                // Mn       TOTO SIGN RISING TONE
-	{0x2135, 0x11234, prExtend},                // E0.6   [6] (🚹..🚾)    men’s room..water closet
-	{0x16E40, 0prExtendedPictographic, prALetter},                // L&   [4] LATIN CAPITAL LETTER TONE FIVE..LATIN LETTER WYNN
-	{0x0711, 0x01BC, x1F6F0},                // E1.0   [1] (🌐)       globe with meridians
-	{0x1927, 0x10FB0, x11940},                // E14.0  [2] (🩻..🩼)    x-ray..crutch
-	{0x1F319, 0x1EE49, xAAEE},                // and
-	{0prExtend, 0prExtendedPictographic, x2637},                // E0.6  [20] (🎀..🎓)    ribbon..graduation cap
-	{0x2019, 0x1D53E, prExtend},                // E0.0   [3] (☫..☭)    FARSI SYMBOL..HAMMER AND SICKLE
-	{0x23EF, 0x0B47, x0CE0},                // Mc       GRANTHA AU LENGTH MARK
-	{0x1F9C0, 0x1F644, prExtendedPictographic},                // Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
-	{0x0B82, 0x11A33, x1DA84},                // Lo   [3] MALAYALAM LETTER CHILLU M..MALAYALAM LETTER CHILLU LLL
-	{0prExtendedPictographic, 0xAA7B, xAAF2},                // Lo  [53] MONGOLIAN LETTER TODO E..MONGOLIAN LETTER CHA WITH TWO DOTS
-	{0prALetter, 0prHebrewLetter, prExtend},                // E0.6   [3] (⬅️..⬇️)    left arrow..down arrow
-	{0x0ABD, 0x1F34B, x2629},                // Lo   [5] MONGOLIAN LETTER ALI GALI ANUSVARA ONE..MONGOLIAN LETTER ALI GALI INVERTED UBADAMA
-	{0prExtend, 0x1F20, x108D},                 // E0.0   [8] (☰..☷)    TRIGRAM FOR HEAVEN..TRIGRAM FOR EARTH
-	{0x1F690, 0prExtend, prALetter},                 // E0.0  [20] (⛕..⛨)    ALTERNATE ONE-WAY LEFT WAY TRAFFIC..BLACK CROSS ON SHIELD
-	{0x3000, 0prNumeric, prExtendedPictographic},                // E0.6   [1] (🚕)       taxi
-	{0x1F589, 0x1F6F9, prExtend},                // Nd  [10] GURMUKHI DIGIT ZERO..GURMUKHI DIGIT NINE
-	{0x1CF4, 0prCR, prMidLetter},                 // Lo   [2] KANNADA LETTER NAKAARA POLLU..KANNADA LETTER FA
-	{0prExtend, 0xE0100, xFB1E},                 // E11.0 [25] (🧧..🧿)    red envelope..nazar amulet
-	{0x10C48, 0x1F6ED, x1CD0},                 // E1.0   [1] (🏉)       rugby football
-	{0x11940, 0x0C3D, x1F3F3},                 // Lo  [79] TANGSA LETTER OZ..TANGSA LETTER ZA
-	{0x0559, 0prALetter, x16AF0},                 // E0.6   [1] (〽️)       part alternation mark
-	{0x0F37, 0x0E31, prALetter},                 // Lm   [2] MEETEI MAYEK SYLLABLE REPETITION MARK..MEETEI MAYEK WORD REPETITION MARK
-	{0x1BAA, 0prNumeric, x0F3F},                 // Cf       ZERO WIDTH JOINER
-	{0x11348, 0prExtendedPictographic, x0ACD},                // Lo  [37] BHAIKSUKI LETTER E..BHAIKSUKI LETTER HA
-	{0prExtendedPictographic, 0x1F18, prALetter},              // Mc       MYANMAR SIGN VISARGA
-	{0xA67F, 0x00BA, prExtendedPictographic},                 // Lo       ARABIC MATHEMATICAL STRETCHED HEH
-	{0x302D, 0x11363, prKatakana},                    // Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
-	{0prExtend, 0prALetter, prMidLetter},                 // E5.0  [13] (🥟..🥫)    dumpling..canned food
-	{0x0D4E, 0x260F, prExtend},              // Nd  [10] MASARAM GONDI DIGIT ZERO..MASARAM GONDI DIGIT NINE
-	{0xFBB1, 0prExtendedPictographic, x11182},                 // E0.6   [1] (❇️)       sparkle
-	{0x1F5B, 0prALetter, x1F594},                 // Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
-	{0x1A5E, 0x1F57B, x2663},                 // E0.0  [12] (🝴..🝿)    <reserved-1F774>..<reserved-1F77F>
-	{0prALetter, 0prALetter, prExtend},                // Lo       GUNJALA GONDI OM
-	{0x11181, 0x1D78, x1F636},                 // Lo       OLD SOGDIAN LIGATURE AYIN-DALETH
-	{0xAA7C, 0x16F50, xA66E},                // Lo  [18] TAGALOG LETTER A..TAGALOG LETTER HA
-	{0x1F6CD, 0prExtendedPictographic, x11082},                 // Nl [111] CUNEIFORM NUMERIC SIGN TWO ASH..CUNEIFORM NUMERIC SIGN NINE U VARIANT FORM
-	{0x213C, 0x11038, x2647},                // E0.6   [1] (❤️)       red heart
-	{0x200F, 0prExtend, prExtendedPictographic},                 // Lo  [44] WANCHO LETTER AA..WANCHO LETTER YIH
-	{0x26A7, 0prExtendedPictographic, x1D00},                 // Mc       BHAIKSUKI VOWEL SIGN AA
-	{0prALetter, 0xFEFF, x086A},                 // Mn       KHAROSHTHI VIRAMA
-	{0prExtend, 0prExtend, x1F31C},                // E0.6   [2] (▪️..▫️)    black small square..white small square
-	{0x20F0, 0prExtend, x05EA},                 // Lo  [40] ELBASAN LETTER A..ELBASAN LETTER KHE
-	{0x27BF, 0x1F683, prExtend},                // Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
-	{0xFFDA, 0x31A0, xAAB7},                // Mc   [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
-	{0xA9C0, 0x1EE47, x2691},                // Lo       NANDINAGARI HEADSTROKE
-	{0xFB1D, 0x1F408, x11000},                // E0.7   [1] (🛳️)       passenger ship
-	{0prNumeric, 0prALetter, x26FA},                // Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
-	{0x1F5D3, 0x26D4, x1BCA0},                // E3.0   [1] (🖤)       black heart
-	{0prExtendedPictographic, 0prALetter, prExtend},                // Lo  [32] ARABIC LETTER KASHMIRI YEH..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
-	{0x0D56, 0prALetter, x10174},                // E0.6   [6] (↔️..↙️)    left-right arrow..down-left arrow
-	{0x11A57, 0x07A6, prALetter},                // Lo  [23] KANNADA LETTER O..KANNADA LETTER NA
-	{0prNumeric, 0prExtendedPictographic, x16F9F},   // E0.0   [3] (🕆..🕈)    WHITE LATIN CROSS..CELTIC CROSS
-	{0x1F55B, 0x16A60, prExtendedPictographic},                // Lo  [29] OLD SOUTH ARABIAN LETTER HE..OLD SOUTH ARABIAN LETTER THETH
-	{0x0A41, 0x2699, xA4F8},                // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
-	{0prALetter, 0xFDF0, x1EE7C},                // E1.0   [1] (😗)       kissing face
-	{0x1F5E2, 0prExtend, prExtend},              // Mc       JAVANESE SIGN WIGNYAN
-	{0x11300, 0xA9B9, x16F9F},              // Lm   [9] MODIFIER LETTER SMALL CAPITAL Y..MODIFIER LETTER SMALL S WITH CURL
-	{0x119D4, 0x1163D, x0ABD},              // E0.6   [1] (〰️)       wavy dash
-	{0x02C1, 0prMidNum, x2744},              // E0.0   [6] (🗩..🗮)    RIGHT SPEECH BUBBLE..LEFT ANGER BUBBLE
-	{0prALetter, 0x0CE0, x1F932},              // E3.0   [8] (🤳..🤺)    selfie..person fencing
-	{0x1D539, 0xFF0C, prExtend},              // Lo       MODI SIGN HUVA
-	{0x1F32F, 0x1F80, x1E021},               // Mn       DIVES AKURU VIRAMA
-	{0prALetter, 0x1000B, x1EE21},              // Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
-	{0x10A7C, 0prALetter, x1F930},              // Mc       CHAKMA VOWEL SIGN E
-	{0prExtend, 0x1F567, x1123E},              // Lo  [94] HANGUL LETTER KIYEOK..HANGUL LETTER ARAEAE
-	{0x0C04, 0prALetter, prExtendedPictographic},              // E0.6   [2] (📶..📷)    antenna bars..camera
-	{0prExtendedPictographic, 0x1F31D, x108F},              // E0.6   [1] (⛺)       tent
-	{0prExtend, 0prExtendedPictographic, x2696},              // Mc       VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
-	{0x2935, 0xAA30, prExtendNumLet},              // Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
-	{0prExtendedPictographic, 0x2661, x1F333},              // Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
-	{0prExtendedPictographic, 0x10F27, prExtendedPictographic},              // Lo   [4] ARABIC MATHEMATICAL STRETCHED SHEEN..ARABIC MATHEMATICAL STRETCHED KHAH
-	{0prALetter, 0prExtend, x1A7F},              // Lo  [10] DEVANAGARI LETTER QA..DEVANAGARI LETTER VOCALIC LL
-	{0xFF0E, 0x269B, x0C81},              // E11.0  [5] (🥬..🥰)    leafy green..smiling face with hearts
-	{0x109BE, 0x1F97B, prALetter},              // Lo  [44] DOGRA LETTER A..DOGRA LETTER RRA
-	{0x115B5, 0xA953, x303B},              // L&   [7] MATHEMATICAL FRAKTUR CAPITAL S..MATHEMATICAL FRAKTUR CAPITAL Y
-	{0x1F351, 0xA806, prExtendedPictographic},               // Mc       BHAIKSUKI VOWEL SIGN AA
-	{0x1F979, 0x0B9C, x1C4F},               // Lo  [22] GURMUKHI LETTER OO..GURMUKHI LETTER NA
-	{0x10D27, 0x2620, prExtendedPictographic},               // Lo       DIVES AKURU LETTER O
-	{0x1EEA9, 0prALetter, x1930},               // Lo       ARABIC MATHEMATICAL STRETCHED HEH
-	{0xA9CF, 0x0D63, x26A1},              // E0.6   [2] (⤴️..⤵️)    right arrow curving up..right arrow curving down
-	{0prALetter, 0x1F94D, x16FF0},              // Lo  [39] NANDINAGARI LETTER E..NANDINAGARI LETTER RRA
-	{0x10A01, 0prALetter, xA881},              // E0.0   [8] (🖩..🖰)    POCKET CALCULATOR..TWO BUTTON MOUSE
-	{0x1FA90, 0prALetter, prExtendedPictographic},               // Lo   [8] BENGALI LETTER A..BENGALI LETTER VOCALIC L
-	{0x1F5A5, 0x2660, x2126},               // Sk   [2] KATAKANA-HIRAGANA VOICED SOUND MARK..KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-	{0x0B5F, 0prALetter, x26B1},              // Lo  [10] ARABIC MATHEMATICAL LOOPED ALEF..ARABIC MATHEMATICAL LOOPED YEH
-	{0x1084, 0x1BEE, prMidNumLet},              // E0.6   [6] (😁..😆)    beaming face with smiling eyes..grinning squinting face
-	{0x1F3FF, 0x112DE, prALetter},              // Mc       MYANMAR VOWEL SIGN E
-	{0xA9B3, 0x0CE6, prExtend},              // Mn       ORIYA SIGN CANDRABINDU
-	{0prALetter, 0prALetter, x2CEE},              // Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
-	{0x081A, 0x10AC0, prALetter},               // Lo   [4] HEBREW YOD TRIANGLE..HEBREW LIGATURE YIDDISH DOUBLE YOD
-	{0x2618, 0prExtend, x1740},               // Lo  [99] ARABIC LETTER ALEF WASLA..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
-	{0x11136, 0prALetter, x005F},              // Lo   [8] GOTHIC LETTER RAIDA..GOTHIC LETTER OTHAL
-	{0xFFDA, 0xA880, prALetter},              // E1.0   [3] (🌭..🌯)    hot dog..burrito
-	{0x1F31F, 0prALetter, x3299},              // E3.0   [2] (🛑..🛒)    stop sign..shopping cart
-	{0x210A, 0x11200, x16F51},              // Lo  [47] KHUDAWADI LETTER A..KHUDAWADI LETTER HA
-	{0x1BA6, 0x270F, x203C},              // Lo   [7] ETHIOPIC SYLLABLE HHYA..ETHIOPIC SYLLABLE HHYO
-	{0prExtendedPictographic, 0x1F611, x1D736},              // Nd  [10] KHUDAWADI DIGIT ZERO..KHUDAWADI DIGIT NINE
-	{0x1E2F0, 0x1EE00, x1F6CF},              // L&  [71] MATHEMATICAL ITALIC SMALL I..MATHEMATICAL SCRIPT CAPITAL A
-	{0prExtendedPictographic, 0prALetter, x0AE1},              // Mn   [2] DIVES AKURU SIGN ANUSVARA..DIVES AKURU SIGN CANDRABINDU
-	{0x07FD, 0x1E137, x23EF},              // Nd  [10] NKO DIGIT ZERO..NKO DIGIT NINE
-	{0prALetter, 0x1EE22, x26D0},              // E0.0   [2] (⚨..⚩)    VERTICAL MALE WITH STROKE SIGN..HORIZONTAL MALE WITH STROKE SIGN
-	{0prExtend, 0x12C8, xFF3F},              // E0.6   [6] (👦..👫)    boy..woman and man holding hands
-	{0xA7FA, 0x1003F, xABBF},               // Nd  [10] LAO DIGIT ZERO..LAO DIGIT NINE
-	{0x11480, 0prExtend, x11A57},              // Sk   [2] MODIFIER LETTER STRESS AND HIGH TONE..MODIFIER LETTER STRESS AND LOW TONE
-	{0x1EE47, 0x0670, prALetter},               // L&       DOUBLE-STRUCK CAPITAL N
-	{0x01C0, 0x11A47, prALetter},               // Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
-	{0x1F571, 0x09CE, x1D9B},               // E13.0  [2] (🛻..🛼)    pickup truck..roller skate
-	{0uniseg, 0prExtend, prALetter},               // Mc   [2] MUSICAL SYMBOL COMBINING STEM..MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
-	{0x08E1, 0x2183, x07A6},               // Mc   [3] MALAYALAM VOWEL SIGN AA..MALAYALAM VOWEL SIGN II
-	{0prALetter, 0xAB5C, x1EE32},              // E0.0   [9] (🖳..🖻)    OLD PERSONAL COMPUTER..DOCUMENT WITH PICTURE
-	{0prALetter, 0prExtendedPictographic, x0712},              // Mn       MEETEI MAYEK VOWEL SIGN UNAP
-	{0x1AB0, 0xFB00, x1BAA},              // L&  [78] LATIN CAPITAL LETTER EGYPTOLOGICAL ALEF..LATIN SMALL LETTER CON
-	{0x0C3D, 0x2664, prExtend},              // Lo       DIVES AKURU PREFIXED NASAL SIGN
-	{0x1250, 0prExtendedPictographic, x11370},              // E0.0   [4] (⛾..✁)    CUP ON BLACK SQUARE..UPPER BLADE SCISSORS
-	{0prExtend, 0prALetter, x1A72},              // Lo   [2] VEDIC SIGN JIHVAMULIYA..VEDIC SIGN UPADHMANIYA
-	{0x112A8, 0x1BB9, prALetter},              // E0.0   [2] (♼..♽)    RECYCLED PAPER SYMBOL..PARTIALLY-RECYCLED PAPER SYMBOL
-	{0prExtend, 0x11444, x1E026},              // E0.7   [1] (✍️)       writing hand
-	{0xFF3A, 0x0B5F, prALetter},              // L&       OHM SIGN
-	{0prALetter, 0x11A39, prExtend},              // Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
-	{0prExtend, 0prExtend, prExtend},              // Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
-	{0prExtend, 0prExtendedPictographic, x11445},              // E11.0  [1] (♾️)       infinity
-	{0prMidNumLet, 0prExtendedPictographic, x11C8F},              // Mc   [3] BENGALI VOWEL SIGN AA..BENGALI VOWEL SIGN II
-	{0prNewline, 0xE0001, x2107},              // Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
-	{0prExtendedPictographic, 0prALetter, prALetter},              // Lo  [50] SAURASHTRA LETTER A..SAURASHTRA LETTER LLA
-	{0x0B3F, 0x0C41, x2194},              // Mc   [2] ORIYA VOWEL SIGN E..ORIYA VOWEL SIGN AI
-	{0x10760, 0xA716, x11328},              // Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
-	{0x19D9, 0x10140, prExtendedPictographic},              // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
-	{0prExtendedPictographic, 0prExtendedPictographic, x103C8},              // Lo   [2] VEDIC SIGN JIHVAMULIYA..VEDIC SIGN UPADHMANIYA
-	{0x070F, 0x1F85F, prExtend},              // Lo       GRANTHA SIGN AVAGRAHA
-	{0xA69B, 0x118E9, x1F97A},              // E14.0  [3] (🫗..🫙)    pouring liquid..jar
-	{0x1F930, 0prALetter, x26C9},              // E1.0   [1] (😗)       kissing face
-	{0x2626, 0xA722, x0BD0},              // E1.0   [2] (☢️..☣️)    radioactive..biohazard
-	{0x104B0, 0x103D, x0591},               // Lo   [4] ALEF SYMBOL..DALET SYMBOL
-	{0prExtend, 0x1F610, x1F53D},               // E12.0 [12] (🟠..🟫)    orange circle..brown square
-	{0x0A5E, 0x180D, x11C38},               // E0.6   [1] (〰️)       wavy dash
-	{0x06EF, 0x093E, x17DD},              // Lo   [2] BENGALI LETTER RA WITH MIDDLE DIAGONAL..BENGALI LETTER RA WITH LOWER DIAGONAL
-	{0prExtend, 0x0C46, prNumeric},              // Lo  [24] SINHALA LETTER ALPAPRAANA KAYANNA..SINHALA LETTER DANTAJA NAYANNA
-	{0x0386, 0prExtend, prExtendedPictographic},              // Lo   [2] KANNADA LETTER NAKAARA POLLU..KANNADA LETTER FA
-	{0xA6E6, 0prExtend, xFFF9},              // E1.0   [3] (🐉..🐋)    dragon..whale
-	{0x09E3, 0x1058A, x1D6A8},              // Mn       TAMIL SIGN VIRAMA
-	{0prExtendedPictographic, 0xFE14, x1D4A5},              // E0.6   [1] (🌏)       globe showing Asia-Australia
-	{0x10E80, 0x18A9, x27B0},              // Lo   [6] VEDIC SIGN HEXIFORM LONG ANUSVARA..VEDIC SIGN ROTATED ARDHAVISARGA
-	{0x1F682, 0prExtendedPictographic, prALetter},               // L&       DOUBLE-STRUCK CAPITAL Z
-	{0prExtend, 0x05C5, x2C7E},              // Lo       GUJARATI LETTER ZHA
-	{0prNumeric, 0x0487, x0DBD},              // E1.0   [1] (🐓)       rooster
-	{0xAA28, 0x110B9, x1A60},              // E0.0[1022] (🰀..🿽)    <reserved-1FC00>..<reserved-1FFFD>
-	{0x115BF, 0prExtendedPictographic, prExtend},              // Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
-	{0prExtend, 0x06DF, xAB11},              // E11.0  [2] (🧁..🧂)    cupcake..salt
-	{0prALetter, 0xA67F, x200E},                // Po       FULLWIDTH SEMICOLON
-	{0x03F7, 0x1F333, x11D06},                // Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
-	{0x00A9, 0x2DC6, prALetter},                 // Lo   [4] ARABIC MATHEMATICAL ALEF..ARABIC MATHEMATICAL DAL
-	{0x1BA2, 0prALetter, x2712},                // Lo   [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
-	{0prALetter, 0prExtendedPictographic, prExtendedPictographic},                // Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
-	{0x1711, 0prExtend, xA9B3},                 // E0.0   [1] (☡)       CAUTION SIGN
-	{0x1EE5F, 0prExtendedPictographic, prExtend},                // Lo  [28] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER TAW
-	{0x1145E, 0x11959, x1A56},                // E0.0   [7] (🕨..🕮)    RIGHT SPEAKER..BOOK
-	{0x1F95E, 0prALetter, x0559},                // E0.6   [1] (♣️)       club suit
-	{0prExtend, 0x1F90D, xFB00},                // Lo  [41] MALAYALAM LETTER O..MALAYALAM LETTER TTTA
-	{0prExtend, 0prMidNum, x1B59},                // E0.0   [5] (⛉..⛍)    TURNED WHITE SHOGI PIECE..DISABLED CAR
-	{0x1F68C, 0x0DBD, xA952},                // Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
-	{0x26F4, 0x262D, x1D1AD},                // E0.0   [6] (🗩..🗮)    RIGHT SPEECH BUBBLE..LEFT ANGER BUBBLE
-	{0x11038, 0xFB2A, x09DD},                // Mc   [2] CHAKMA VOWEL SIGN AA..CHAKMA VOWEL SIGN EI
-	{0prALetter, 0prALetter, prExtend},                // Nd  [10] BALINESE DIGIT ZERO..BALINESE DIGIT NINE
-	{0x1F6DD, 0x093B, prALetter},              // Lo   [5] HEBREW LETTER TET WITH DAGESH..HEBREW LETTER LAMED WITH DAGESH
-	{0x10AC7, 0x0A40, x11A3E},                 // Mn       COMBINING LEFT RIGHT ARROW ABOVE
-	{0xA82C, 0x16FE0, x0A35},                    // E0.6  [12] (🕐..🕛)    one o’clock..twelve o’clock
-	{0x1BC00, 0x1E2EB, x0488},                 // E0.0   [5] (♃..♇)    JUPITER..PLUTO
-	{0x2066, 0prExtendedPictographic, xABBF},              // Lo       BENGALI LETTER VEDIC ANUSVARA
-	{0prExtend, 0x1F312, prALetter},                // Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
-	{0x1A7F, 0x1F46E, prExtendedPictographic},              // Lo  [56] MEROITIC HIEROGLYPHIC LETTER A..MEROITIC CURSIVE LETTER DA
-	{0x1F61B, 0xA946, prExtend},                 // L&  [43] LATIN SMALL LETTER BARRED ALPHA..LATIN SMALL LETTER Y WITH SHORT RIGHT LEG
-	{0x1F34C, 0xA8FF, prALetter},              // E13.0  [1] (🩴)       thong sandal
-	{0x11CB5, 0x1F3FB, x0870},                 // Sk  [17] MODIFIER LETTER LOW DOWN ARROWHEAD..MODIFIER LETTER LOW LEFT ARROW
-	{0xAB26, 0x1D550, xA771},                    // Mc   [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
-	{0x0BD7, 0x1923, x1EE51},                 // Lm   [4] MODIFIER LETTER SMALL HENG..MODIFIER LETTER SMALL U WITH LEFT HOOK
-	{0x11A0A, 0x00AD, x00AA},              // E1.0   [1] (😟)       worried face
-	{0x303C, 0prExtendedPictographic, x1EE05},                // Lo   [4] ARABIC MATHEMATICAL STRETCHED DAD..ARABIC MATHEMATICAL STRETCHED DOTLESS BEH
-	{0x11FB0, 0x11127, x0294},                // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
-	{0x0022, 0x105A1, x1F20F},              // L&       LATIN SMALL LETTER DOUBLE THORN
-	{0prExtendedPictographic, 0prALetter, x1F689},                // Mn       BENGALI SIGN NUKTA
-	{0x118FF, 0x1F3C6, x102E0},                // Lo   [7] ARABIC MATHEMATICAL STRETCHED MEEM..ARABIC MATHEMATICAL STRETCHED QAF
-	{0x0B41, 0x25C0, x0D81},                 // So  [88] SQUARE APAATO..SQUARE WATTO
-	{0x1F59, 0x2695, prExtendedPictographic},                 // E0.6   [5] (📰..📴)    newspaper..mobile phone off
-	{0prALetter, 0x2044, prExtendedPictographic},                 // E1.0   [1] (⏯️)       play or pause button
-	{0xAAB7, 0prHebrewLetter, prALetter},                // Mc       GURMUKHI SIGN VISARGA
-	{0x1193F, 0prExtendedPictographic, x11182},                // Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
-	{0x26D3, 0prExtendedPictographic, prALetter},                // Mn       KHMER SIGN ATTHACAN
-	{0prExtendedPictographic, 0x1F4AD, x1EE27},                // Lo       ARABIC MATHEMATICAL INITIAL HEH
-	{0prALetter, 0prExtend, xAB70},                // Lo [1143] YI SYLLABLE BIT..YI SYLLABLE YYR
-	{0x09FE, 0x1F687, x1112B},                // E0.6   [1] (🌏)       globe showing Asia-Australia
-	{0x10B60, 0prALetter, prALetter},                 // Mn  [24] ARABIC SMALL HIGH FARSI YEH..ARABIC SMALL HIGH SIGN SAFHA
-	{0x16AC9, 0x116B8, x1FFC},                // Mn       BATAK SIGN TOMPI
-	{0prALetter, 0prExtend, prExtend},                // E1.0   [2] (⚛️..⚜️)    atom symbol..fleur-de-lis
-	{0x0F39, 0x26CD, prExtend},                 // Mc   [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
-	{0xFD3D, 0x2D25, prExtend},                // Lo       CYRILLIC LETTER MULTIOCULAR O
-	{0x11173, 0prExtendedPictographic, x1112D},                // Mn       MYANMAR SIGN SHAN SAW
-	{0x1F58E, 0x1BCA3, prExtend},                // Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
-	{0x166C, 0prALetter, x1FAFF},                // E0.0   [2] (♡..♢)    WHITE HEART SUIT..WHITE DIAMOND SUIT
-	{0prExtend, 0x09BD, x1C78},                 // E0.7  [12] (🏔️..🏟️)    snow-capped mountain..stadium
-	{0xA61F, 0prExtend, x0BAA},                 // E11.0  [5] (🥬..🥰)    leafy green..smiling face with hearts
-	{0prALetter, 0x108F, x11102},                // L&  [36] OSAGE CAPITAL LETTER A..OSAGE CAPITAL LETTER ZHA
-	{0x1F619, 0x2044, xAAF6},                 // Lo       SOYOMBO MARK PLUTA
-	{0prExtendedPictographic, 0x093C, x23EF},                 // Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
-	{0x09CD, 0prExtend, x0B30},                // E0.6  [52] (💸..📫)    money with wings..closed mailbox with raised flag
-	{0x1F60F, 0x0957, x0B28},                 // E0.0   [1] (🕏)       BOWL OF HYGIEIA
-	{0xA873, 0prALetter, prALetter},                // Lo  [22] GURMUKHI LETTER OO..GURMUKHI LETTER NA
-	{0x06D5, 0prALetter, x0890},                 // E1.0   [1] (🐖)       pig
-	{0x1FAA9, 0prExtendedPictographic, prExtendedPictographic},                // E0.7   [3] (🗜️..🗞️)    clamp..rolled-up newspaper
-	{0prExtend, 0x000D, x18A9},                 // Mn       TIBETAN SYMBOL PADMA GDAN
-	{0x11A51, 0x265E, x10A7C},                 // Lo       ZANABAZAR SQUARE CLUSTER-INITIAL LETTER RA
-	{0x01BB, 0prALetter, prExtend},                 // https://www.unicode.org/Public/14.0.0/ucd/auxiliary/WordBreakProperty.txt
-	{0x1034A, 0prALetter, prExtend},                 // Mc   [2] KANNADA SIGN ANUSVARA..KANNADA SIGN VISARGA
-	{0prALetter, 0xAB2E, x10080},                 // E0.0  [20] (⛕..⛨)    ALTERNATE ONE-WAY LEFT WAY TRAFFIC..BLACK CROSS ON SHIELD
-	{0prExtend, 0prExtendedPictographic, x115B8},                 // Lo   [2] HATRAN LETTER SHIN..HATRAN LETTER TAW
-	{0prALetter, 0prALetter, x0B3F},                 // Zs   [7] EN QUAD..SIX-PER-EM SPACE
-	{0x262F, 0x2695, prExtend},                 // Mn       KANNADA VOWEL SIGN I
-	{0prExtendedPictographic, 0x1F690, prExtend},                 // E0.6   [2] (🌰..🌱)    chestnut..seedling
-	{0prALetter, 0x093E, x11EF4},                 // L&       OHM SIGN
-	{0x26C5, 0x0891, x081A},                 // E0.6   [1] (✏️)       pencil
-	{0xFE55, 0prNumeric, prExtendedPictographic},                // E0.6   [1] (🌙)       crescent moon
-	{0prExtendedPictographic, 0prALetter, x16A69},                 // Lo  [16] ETHIOPIC SYLLABLE SEBATBEIT MWA..ETHIOPIC SYLLABLE PWE
-	{0prExtendedPictographic, 0x11D97, prALetter},                 // Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
-	{0x3035, 0prExtendedPictographic, x005F},                // Mn  [64] COMBINING DOTTED GRAVE ACCENT..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
-	{0x0958, 0x1F9B0, x1F6EA},                 // Lo       ARABIC MATHEMATICAL INITIAL GHAIN
-	{0x1F91F, 0xA801, prExtend},              // E0.7   [9] (🌤️..🌬️)    sun behind small cloud..wind face
-	{0prExtendedPictographic, 0x2615, prExtendedPictographic},                // Mc       BALINESE SIGN BISAH
-	{0x064B, 0prExtendedPictographic, x094D},                // Lo   [7] BENGALI LETTER PA..BENGALI LETTER RA
-	{0prALetter, 0x1F409, xAB69},                // Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
-	{0x11D47, 0x2698, prNumeric},                // E1.0   [1] (📯)       postal horn
-	{0x1D6FC, 0x119E1, prMidNum},                 // Lo       LISU LETTER YHA
-	{0x0294, 0prExtendedPictographic, x1D244},                 // Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
-	{0prALetter, 0x2703, x2DB8},                 // E1.0   [1] (😴)       sleeping face
-	{0prExtend, 0x03A3, prExtend},                 // L&  [13] GREEK SMALL LETTER UPSILON WITH VRACHY..GREEK CAPITAL LETTER RHO WITH DASIA
-	{0xFE00, 0x2D27, x1F203},                 // Lo   [9] DUPLOYAN AFFIX HIGH ACUTE..DUPLOYAN AFFIX HIGH VERTICAL
-	{0x1039D, 0prExtend, x0600},                 // Lm   [4] PAHAWH HMONG SIGN VOS SEEV..PAHAWH HMONG SIGN IB YAM
-	{0prExtendedPictographic, 0x1F336, x13000},                 // Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
-	{0x11CA7, 0prExtendedPictographic, x114BB},                // Nd  [10] KHUDAWADI DIGIT ZERO..KHUDAWADI DIGIT NINE
-	{0prALetter, 0prExtendedPictographic, x11D09},                 // E0.0  [12] (🗅..🗐)    EMPTY NOTE..PAGES
-	{0x10835, 0x11A01, x1112C},                 // Cc       <control-0085>
-	{0x30FA, 0x11935, xA6F1},                // Lo  [22] PHOENICIAN LETTER ALF..PHOENICIAN LETTER TAU
-	{0x10080, 0x1F80F, x02DF},                // Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
-	{0x1F6A3, 0prALetter, x1BC6A},                // Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
-	{0x1F3A0, 0prExtend, x1F464},                // Lo   [5] ARABIC FATHATAN ISOLATED FORM..ARABIC KASRATAN ISOLATED FORM
-	{0prExtendedPictographic, 0x1F6F8, x11301},                // Lo       SINHALA LETTER DANTAJA LAYANNA
-	{0x1714, 0prExtend, x25FB},                 // Mc       BALINESE VOWEL SIGN RA REPA TEDUNG
-	{0x09D7, 0prExtend, prExtendedPictographic},                 // Lo       ARABIC LETTER AE
-	{0xA9B3, 0x1F97A, x1F93E},                 // Lo   [3] KANNADA LETTER E..KANNADA LETTER AI
-	{0xA4FD, 0x0D85, x26F0},                 // Lo   [6] MALAYALAM LETTER CHILLU NN..MALAYALAM LETTER CHILLU K
-	{0prALetter, 0prExtend, x1E136},                 // Lo  [22] PHOENICIAN LETTER ALF..PHOENICIAN LETTER TAU
-	{0x1BC99, 0x116AC, prExtend},                // L&       OHM SIGN
-	{0prExtendedPictographic, 0x1DF0A, x1F30E},                // Lo  [53] NEWA LETTER A..NEWA LETTER HA
-	{0prExtend, 0x1F690, x1F9A5},                // Lo       HEBREW LETTER MEM WITH DAGESH
-	{0xA960, 0x1C40, x2696},                // Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
-	{0x1D4BB, 0x24C2, x10050},                // Zl       LINE SEPARATOR
-	{0x1D4A5, 0x11580, xFFFB},                // L&   [5] DOUBLE-STRUCK CAPITAL P..DOUBLE-STRUCK CAPITAL R
-	{0x11328, 0prALetter, x1D546},                // Lo  [18] KHOJKI LETTER A..KHOJKI LETTER JJA
-	{0prExtendedPictographic, 0prNumeric, x26AB},                // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
-	{0x1F12F, 0prExtendedPictographic, x0020},                // L&  [44] LATIN LETTER SMALL CAPITAL A..CYRILLIC LETTER SMALL CAPITAL EL
-	{0x211D, 0x1FDB, x2648},                // Lo  [11] SYRIAC LETTER MALAYALAM NGA..SYRIAC LETTER MALAYALAM SSA
-	{0x0A75, 0prALetter, x25B6},                // Lo   [2] TAMIL LETTER NYA..TAMIL LETTER TTA
-	{0x02E0, 0x0890, prALetter},                // Lo  [98] ARABIC LETTER ALEF WASLA ISOLATED FORM..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE FINAL FORM
-	{0x1731, 0x1FA75, prExtendedPictographic},                 // Cf       ZERO WIDTH JOINER
-	{0x0CC0, 0prExtend, prKatakana},                // Mc   [2] MYANMAR VOWEL SIGN TALL AA..MYANMAR VOWEL SIGN AA
-	{0x0A59, 0prExtend, x1F586},                // Lo  [15] DEVANAGARI LETTER CANDRA A..BENGALI ANJI
-	{0x1EE29, 0x10880, x1F3F6},                // Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
-	{0x166C, 0x1F641, prFormat},                // Mn       BENGALI SIGN CANDRABINDU
-	{0x1FABB, 0x1086, x2701},                // Mc       TIRHUTA VOWEL SIGN E
-	{0xA947, 0x1D4C3, xA909},                // E3.0   [1] (🕺)       man dancing
-	{0prALetter, 0prALetter, x1F61B},                // E11.0  [3] (🥍..🥏)    lacrosse..flying disc
-	{0x1F93E, 0prALetter, x0A05},                 // Mn       VEDIC TONE CANDRA ABOVE
-	{0x1A55, 0prALetter, prALetter},                // E0.6   [4] (◻️..◾)    white medium square..black medium-small square
-	{0x0C80, 0x0985, x23F3},                // Lo       CHAKMA LETTER LHAA
-	{0prALetter, 0x203F, prExtendedPictographic},                // Sk   [2] MODIFIER LETTER STRESS AND HIGH TONE..MODIFIER LETTER STRESS AND LOW TONE
-	{0x0AC8, 0x1F5A3, x1F42B},                // Lo       MULTANI LETTER GHA
-	{0x2DB8, 0x055F, x11400},                // Lo  [18] OLD UYGHUR LETTER ALEPH..OLD UYGHUR LETTER LESH
-	{0prExtend, 0x1BCA3, x055A},                // Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
-	{0prExtend, 0xAAF5, x1F414},                // Lo  [10] ARABIC MATHEMATICAL LOOPED ALEF..ARABIC MATHEMATICAL LOOPED YEH
-	{0prExtendedPictographic, 0x261D, prExtend},                // Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
-	{0x107BA, 0x10A13, xA9BE},                // Lo   [4] ARABIC MATHEMATICAL STRETCHED SHEEN..ARABIC MATHEMATICAL STRETCHED KHAH
-	{0x0D10, 0x1938, xA672},                // Po       PRESENTATION FORM FOR VERTICAL COLON
-	{0prExtend, 0x1F6FA, x10B40},                 // Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
-	{0x1B34, 0prNewline, xA8FD},                // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
-	{0x03A3, 0x0B3D, prALetter},                // Lo  [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
-	{0prExtend, 0x110AF, prExtend},                 // Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
-	{0x0B9A, 0x318E, x27BF},                 // Mc       MALAYALAM AU LENGTH MARK
-	{0x1122B, 0prExtendedPictographic, x1F37F},                 // E0.7   [1] (📽️)       film projector
-	{0x0B39, 0x1193E, prExtend},                 // Po       COLON
-	{0prALetter, 0x1712, prExtendedPictographic},                // E1.0   [1] (📯)       postal horn
-	{0prExtendedPictographic, 0prExtendedPictographic, x2027},                // Lo       LATIN LETTER TWO WITH STROKE
-	{0prExtendedPictographic, 0prExtend, x1F319},                // E3.0   [2] (🛑..🛒)    stop sign..shopping cart
-	{0x1163F, 0x0D7F, x1A17},                // Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
-	{0x11301, 0prExtend, x26D5},                 // Po       ARABIC THOUSANDS SEPARATOR
-	{0x1F31B, 0x1F3F8, prALetter},                 // Lo  [18] SINHALA LETTER AYANNA..SINHALA LETTER AUYANNA
-	{0x1EE4D, 0x1059, x1F351},                 // Lo  [10] KANNADA LETTER PA..KANNADA LETTER LLA
-	{0x2027, 0x0CC8, x116B0},                 // Lo  [21] PAHAWH HMONG SIGN VOS LUB..PAHAWH HMONG SIGN CIM NRES TOS
-	{0x0AF9, 0x1BEA, x10000},                 // Lo  [43] TAKRI LETTER A..TAKRI LETTER RRA
-	{0x112F0, 0x1F321, x2797},                 // Mn   [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
-	{0x0F3F, 0prExtend, x085B},                 // Cf       ZERO WIDTH JOINER
-	{0x26D2, 0prExtend, x1EE05},                // E0.0   [5] (⛫..⛯)    CASTLE..MAP SYMBOL FOR LIGHTHOUSE
-	{0x0E4E, 0x1F696, x11447},                // E0.6   [1] (🚗)       automobile
-	{0prExtendedPictographic, 0x06ED, x02ED},                // Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
-	{0x0B5F, 0x110B8, x1CF3},                // Lo   [4] ARABIC MATHEMATICAL STRETCHED DAD..ARABIC MATHEMATICAL STRETCHED DOTLESS BEH
-	{0prALetter, 0prALetter, x1FABF},                // Mc       NEWA SIGN VISARGA
-	{0prALetter, 0prExtendedPictographic, x101FD},              // Po       GREEK QUESTION MARK
-	{0x1FEC, 0x1FAD7, x2641},                // E0.6   [6] (🚹..🚾)    men’s room..water closet
-	{0x06D3, 0x0F37, x1F572},                // Lo  [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
-	{0prALetter, 0x0B03, x005F},                // Lo       ARABIC LETTER AE
-	{0x0ACD, 0x0DE6, x1BE7},                // Lo       GRANTHA OM
-	{0prExtendedPictographic, 0x06FA, x10050},                 // Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
-	{0prNumeric, 0xFB44, x30A1},                 // E0.6   [1] (✏️)       pencil
-	{0x12F90, 0prALetter, prExtendedPictographic},                // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
-	{0x11127, 0x0531, xAB70},                 // So  [26] NEGATIVE CIRCLED LATIN CAPITAL LETTER A..NEGATIVE CIRCLED LATIN CAPITAL LETTER Z
-	{0prALetter, 0prALetter, prExtend},                // Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
-	{0prALetter, 0prALetter, x10860},                // Lo  [40] ZANABAZAR SQUARE LETTER KA..ZANABAZAR SQUARE LETTER KSSA
-	{0x26CE, 0x08CA, x2624},                // Lo  [10] ARABIC MATHEMATICAL LOOPED ALEF..ARABIC MATHEMATICAL LOOPED YEH
-	{0x0610, 0x1CF7, x111CE},                // E1.0   [1] (😶)       face without mouth
-	{0x0A40, 0prALetter, prExtendedPictographic},                 // Nd  [10] LIMBU DIGIT ZERO..LIMBU DIGIT NINE
-	{0xA822, 0prALetter, prALetter},                // E12.0  [1] (🥱)       yawning face
-	{0prExtend, 0x11C2E, x2630},                // Mn       MEETEI MAYEK VOWEL SIGN UNAP
-	{0xAAB7, 0prALetter, x000C},                // E0.0   [2] (♼..♽)    RECYCLED PAPER SYMBOL..PARTIALLY-RECYCLED PAPER SYMBOL
-	{0x103A, 0x1F19A, x119A0},                // L& [278] LATIN CAPITAL LETTER A WITH RING BELOW..GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA
-	{0x1F5C5, 0x0483, x1F9E6},                // Lo       SHARADA HEADSTROKE
-	{0x1F5A7, 0prALetter, x26EF},                // E0.0   [8] (🫨..🫯)    <reserved-1FAE8>..<reserved-1FAEF>
-	{0x112F0, 0prALetter, x06FA},                // Nd  [10] BHAIKSUKI DIGIT ZERO..BHAIKSUKI DIGIT NINE
-	{0x1F32F, 0x2612, prExtend},                // Lo  [23] KANNADA LETTER O..KANNADA LETTER NA
-	{0prNumeric, 0x1113F, x0C3C},                 // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-	{0x2660, 0prExtend, x0022},                 // Sk   [5] EMOJI MODIFIER FITZPATRICK TYPE-1-2..EMOJI MODIFIER FITZPATRICK TYPE-6
-	{0x116B5, 0x2DB6, x1F34C},                // Lm   [6] LISU LETTER TONE MYA TI..LISU LETTER TONE MYA JEU
-	{0prALetter, 0x17BE, prExtend},                 // L& [208] LATIN CAPITAL LETTER DZ WITH CARON..LATIN SMALL LETTER EZH WITH CURL
-	{0prExtend, 0x0981, x1A99},                 // L&  [25] MATHEMATICAL BOLD CAPITAL ALPHA..MATHEMATICAL BOLD CAPITAL OMEGA
-	{0prALetter, 0x0FC6, x209C},              // Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
-	{0x2006, 0x1F694, x0A0F},                 // Pd       KATAKANA-HIRAGANA DOUBLE HYPHEN
-	{0prHebrewLetter, 0x1074, x11070},              // Nl  [10] BAMUM LETTER MO..BAMUM LETTER KOGHOM
-	{0x262E, 0x00A9, prExtend},              // E0.6   [1] (♻️)       recycling symbol
-	{0prALetter, 0prExtendedPictographic, x1EE59},              // Lo   [7] ETHIOPIC SYLLABLE KYA..ETHIOPIC SYLLABLE KYO
-	{0x1F37B, 0x0641, prExtend},              // Cf       LANGUAGE TAG
-	{0x1F947, 0prExtendedPictographic, prExtend},               // L&  [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
-	{0x1E7E8, 0x26F4, x1F336},               // Lo   [2] GUJARATI LETTER VOCALIC RR..GUJARATI LETTER VOCALIC LL
-	{0x119DB, 0x1F697, x17BE},               // Lo   [2] CYPRIOT SYLLABLE XA..CYPRIOT SYLLABLE XE
-	{0prExtendNumLet, 0x1084, x11003},               // E13.0  [2] (🥷..🥸)    ninja..disguised face
-	{0x103C8, 0x1044F, x114BB},               // Lo  [48] MODI LETTER A..MODI LETTER LLA
-	{0prALetter, 0prALetter, x1A6D},               // Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
-	{0prFormat, 0x1D9A, x0F3F},              // Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
-	{0x07FA, 0x038A, x110AF},              // Mn  [11] THAANA ABAFILI..THAANA SUKUN
-	{0x0C0E, 0x1F318, prALetter},              // Mc   [3] MALAYALAM VOWEL SIGN O..MALAYALAM VOWEL SIGN AU
-	{0x2600, 0x1F515, x0ED0},              // E0.6   [1] (🏊)       person swimming
-	{0x11440, 0prALetter, xA720}, // https://www.unicode.org/Public/14.0.0/ucd/auxiliary/WordBreakProperty.txt
-	{0x0640, 0prExtendedPictographic, x005F}, // Lo   [4] ARABIC MATHEMATICAL STRETCHED SHEEN..ARABIC MATHEMATICAL STRETCHED KHAH
-	{0prExtend, 0x17D3, prALetter}, // E0.6   [1] (♨️)       hot springs
-	{0prALetter, 0prExtendedPictographic, x1F3F7}, // Nd  [10] OSMANYA DIGIT ZERO..OSMANYA DIGIT NINE
-	{0x11A5B, 0prALetter, prExtendedPictographic}, // E1.0   [1] (🚣)       person rowing boat
-	{0prExtendedPictographic, 0x10C48, x1A60},              // E0.6   [1] (⭐)       star
-	{0x1F95E, 0xA960, x10760}, // Lm   [7] NYIAKENG PUACHUE HMONG SIGN FOR PERSON..NYIAKENG PUACHUE HMONG SYLLABLE LENGTHENER
-	{0x1F606, 0x1F2FF, x1D78A},               // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
-	{0xA8FF, 0x11D00, x11800},               // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
-	{0x1843, 0x11644, x26AA},               // E13.0  [2] (🛖..🛗)    hut..elevator
+// E0.6   [1] (📮)       postbox
+// Lm       IDEOGRAPHIC ITERATION MARK
+// Mc       DEVANAGARI VOWEL SIGN OOE
+// E0.6   [1] (😚)       kissing face with closed eyes
+// L&       DOUBLE-STRUCK CAPITAL N
+// Lo  [43] TAKRI LETTER A..TAKRI LETTER RRA
+// Mc       NANDINAGARI VOWEL SIGN PRISHTHAMATRA E
+x2044 x1F31F = [][0]prALetter{
+	{0xA9BB, 0x2765, prExtend},             // Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
+	{0prMidNumLet, 0prExtend, x1F972}, // Lo   [7] GRANTHA LETTER PA..GRANTHA LETTER RA
+	{0xA825, 0x11C59, xA9D9},         // Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
+	{0x1E021, 0prExtend, x2600},                   // Zs       MEDIUM MATHEMATICAL SPACE
+	{0x0E3A, 0x1171D, x1D18B},                       // L&  [25] MATHEMATICAL BOLD CAPITAL ALPHA..MATHEMATICAL BOLD CAPITAL OMEGA
+	{0x20E0, 0x1F412, x1F334},              // Lm   [7] KATAKANA LETTER MINNAN TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-5
+	{0prALetter, 0prExtendedPictographic, x1F6AE},   // E1.0   [4] (🕋..🕎)    kaaba..menorah
+	{0xA4FD, 0x1F40F, x2145},            // E0.6   [1] (⛪)       church
+	{0x11909, 0x1F61C, x1F322},                  // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
+	{0x1F409, 0prALetter, x1F612},                                    // Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
+	{0x1CBD, 0prKatakana, x0370},                                   // E0.6   [5] (📰..📴)    newspaper..mobile phone off
+	{0x1122F, 0x1930, x1E7EB},              // Lm       TIFINAGH MODIFIER LETTER LABIALIZATION MARK
+	{0prExtendedPictographic, 0x0B01, x1F5D},           // Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
+	{0x0ABC, 0x303B, prExtendedPictographic}, // Lo   [9] SINHALA LETTER SANYAKA DAYANNA..SINHALA LETTER RAYANNA
+	{0prExtendedPictographic, 0x1D4BB, prExtend},                    // Mn       SINHALA SIGN CANDRABINDU
+	{0x0981, 0x0D48, x1878}, // L&   [4] LATIN CAPITAL LETTER TONE FIVE..LATIN LETTER WYNN
+	{0x1086, 0prExtendedPictographic, x2733},   // E1.0   [1] (🔉)       speaker medium volume
+	{0prExtend, 0prExtend, prExtendedPictographic}, // Lo   [6] ARABIC LETTER NOON WITH INVERTED SMALL V..ARABIC VERTICAL TAIL
+	{0prExtendedPictographic, 0x0ABC, x1FAEF},                             // Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
+	{0x1F409, 0x11335, x0B9C}, // Lm       ADLAM NASALIZATION MARK
+	{0x1BED, 0x1DF09, x119DA},           // E0.0   [1] (🕏)       BOWL OF HYGIEIA
+	{0x1E14E, 0prExtendedPictographic, prExtendedPictographic},                // E0.7   [1] (🐈)       cat
+	{0x11434, 0x2694, x114C1},               // E0.6   [6] (🚹..🚾)    men’s room..water closet
+	{0x1F6ED, 0prExtend, x093A},              // Lo       ARABIC LETTER AE
+	{0prExtendedPictographic, 0x309B, x0D56},               // L&       MICRO SIGN
+	{0prExtendedPictographic, 0xAA33, prExtendedPictographic},                 // Mn   [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
+	{0x1D544, 0prExtendedPictographic, x0CBD},          // E1.0   [2] (⚖️..⚗️)    balance scale..alembic
+	{0x1F251, 0prALetter, x1F609},               // E13.0  [1] (🧋)       bubble tea
+	{0x11D3A, 0x1F5C4, x1133B}, // Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
+	{0x11374, 0x1FAB0, x1C77},                          // Nd  [10] NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG PUACHUE HMONG DIGIT NINE
+	{0prALetter, 0prALetter, x1F50A},                  // Lo   [7] ETHIOPIC SYLLABLE CCA..ETHIOPIC SYLLABLE CCO
+	{0x0AB3, 0prExtend, x11A3E},               // E0.0   [1] (📾)       PORTABLE STEREO
+	{0prExtendedPictographic, 0x16FE3, prExtend},        // Lo   [3] CHAM LETTER FINAL K..CHAM LETTER FINAL NG
+	{0xAC00, 0x0ABD, prExtend},           // Lo   [3] TAMIL LETTER E..TAMIL LETTER AI
+	{0prNumeric, 0x1F440, prWSegSpace},         // E0.7   [2] (🎞️..🎟️)    film frames..admission tickets
+	{0prALetter, 0prALetter, prExtendNumLet},          // E0.6  [43] (🍑..🍻)    peach..clinking beer mugs
+	{0prExtend, 0x26CF, x1F68C}, // E1.0   [1] (❣️)       heart exclamation
+	{0prExtend, 0x1F57B, xAAE0},                  // Lo  [23] REJANG LETTER KA..REJANG LETTER A
+	{0xFE0F, 0x1F24F, x11650},                      // Lo   [4] NEWA SIGN AVAGRAHA..NEWA SIDDHI
+	{0x005F, 0x1F3CE, x066B},                // Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
+	{0x1F972, 0x0A38, prExtendedPictographic},                 // Lo       ARABIC MATHEMATICAL TAILED KHAH
+	{0x1D1AD, 0prExtendedPictographic, x1031F},                         // Lo  [26] LYDIAN LETTER A..LYDIAN LETTER C
+	{0xA789, 0x1F42A, prExtendedPictographic}, // E0.6  [20] (🐫..🐾)    two-hump camel..paw prints
+	{0prALetter, 0x01BA, x1F7DF},                   // Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
+	{0prExtendedPictographic, 0x1F6C1, x0B95}, // Lo   [8] WARANG CITI OM..DIVES AKURU LETTER E
+	{0x1D4BB, 0prALetter, x1F59},                    // Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
+	{0x31A0, 0x2183, xFB17},         // L&  [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
+	{0x1F696, 0x0A35, prALetter},            // E0.7   [1] (🛰️)       satellite
+	{0xFE74, 0x10500, xAAF2},                 // Lo   [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
+	{0x116AC, 0prKatakana, x0294},                            // Lo       SHARADA HEADSTROKE
+	{0prALetter, 0xA674, prExtend},             // Mn   [2] BRAHMI VOWEL SIGN OLD TAMIL SHORT E..BRAHMI VOWEL SIGN OLD TAMIL SHORT O
+	{0xFDFB, 0prKatakana, x0B90},            // Lo [620] CANADIAN SYLLABICS E..CANADIAN SYLLABICS CARRIER TTSA
+	{0prNewline, 0prExtendedPictographic, x1F696}, // Lo       MODI SIGN HUVA
+	{0x1163F, 0x2607, prALetter},        // Lo   [4] SIDDHAM LETTER THREE-CIRCLE ALTERNATE I..SIDDHAM LETTER ALTERNATE U
+	{0x11C50, 0x0A85, x081A},   // L& [166] CYRILLIC CAPITAL LETTER SHORT I WITH TAIL..CYRILLIC SMALL LETTER EL WITH DESCENDER
+	{0x2764, 0x116AA, x11300},            // Lo   [5] ARABIC FATHATAN ISOLATED FORM..ARABIC KASRATAN ISOLATED FORM
+	{0x1F635, 0x0030, prExtendedPictographic},                     // E12.0  [1] (🛕)       hindu temple
+	{0x0C3C, 0x11362, x1FABA},             // Mc   [3] BENGALI VOWEL SIGN AA..BENGALI VOWEL SIGN II
+	{0x119E0, 0x1EE34, prALetter}, // Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
+	{0x114BB, 0prExtend, x037B},                // Mc   [2] MYANMAR VOWEL SIGN VOCALIC R..MYANMAR VOWEL SIGN VOCALIC RR
+	{0prExtend, 0x0D02, x1ABF},   // E1.0   [1] (🔕)       bell with slash
+	{0prALetter, 0x1E140, x1F5A4},                    // E1.0   [2] (⚰️..⚱️)    coffin..funeral urn
+	{0prExtendedPictographic, 0xFF66, x20E1},            // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+	{0x11305, 0prALetter, prExtendedPictographic}, // Lo   [8] CHAM LETTER FINAL CH..CHAM LETTER FINAL SS
+	{0prNumeric, 0x0C82, x1A6D},                    // Lo   [5] KANNADA LETTER VA..KANNADA LETTER HA
+	{0prNumeric, 0x1F9C2, x11D91},             // Nd  [10] CHAKMA DIGIT ZERO..CHAKMA DIGIT NINE
+	{0x1A56, 0x1F3F6, prExtendedPictographic},                       // E0.0   [8] (🡈..🡏)    <reserved-1F848>..<reserved-1F84F>
+	{0x2B50, 0prExtendedPictographic, x1F5E1},                   // Mc   [2] KANNADA LENGTH MARK..KANNADA AI LENGTH MARK
+	{0x0ACD, 0xA672, x1F6F0},                      // Lm   [5] MODIFIER LETTER SMALL GAMMA..MODIFIER LETTER SMALL REVERSED GLOTTAL STOP
+	{0x0941, 0x1F42A, prExtend},          // Lo  [23] BUGINESE LETTER KA..BUGINESE LETTER HA
+	{0prExtendedPictographic, 0prExtend, x1F5E1},          // E1.0   [2] (☢️..☣️)    radioactive..biohazard
+	{0prALetter, 0prExtendedPictographic, x12399},                // E0.0  [57] (🆭..🇥)    MASK WORK SYMBOL..<reserved-1F1E5>
+	{0x26D4, 0prALetter, prALetter},          // Nd  [10] DIVES AKURU DIGIT ZERO..DIVES AKURU DIGIT NINE
+	{0prExtendedPictographic, 0prALetter, x05C4},                  // Lm       CYRILLIC PAYEROK
+	{0x1F3C7, 0x1D172, xA78F},                                                     // E0.6   [3] (➕..➗)    plus..divide
+	{0x1EE80, 0xA7F7, x11C8F}, // E0.7   [7] (🕳️..🕹️)    hole..joystick
+	{0x0A38, 0x18A8, x1E006},          // Lo  [14] LINEAR B SYMBOL B018..LINEAR B SYMBOL B089
+	{0prExtendedPictographic, 0prExtend, x1D4A6}, // Lo  [11] MEETEI MAYEK LETTER E..MEETEI MAYEK LETTER SSA
+	{0x11173, 0prExtendedPictographic, x00D6},          // Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
+	{0x0BC1, 0prALetter, prALetter},           // Mc       DEVANAGARI SIGN VISARGA
+	{0prExtendedPictographic, 0prExtend, x23F0},           // Mc   [8] KHMER VOWEL SIGN OE..KHMER VOWEL SIGN AU
+	{0prALetter, 0x1F625, prALetter},                // Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
+	{0x1F60E, 0xAB09, x2CF1},          // Lo   [2] GRANTHA LETTER LA..GRANTHA LETTER LLA
+	{0x0D4C, 0prExtendedPictographic, prExtend},          // Lm   [4] KATAKANA LETTER MINNAN TONE-2..KATAKANA LETTER MINNAN TONE-5
+	{0x0985, 0x1F250, prExtend},        // Lo  [17] ARABIC MATHEMATICAL DOUBLE-STRUCK LAM..ARABIC MATHEMATICAL DOUBLE-STRUCK GHAIN
+	{0prExtend, 0x10594, x0D5F},        // Lo  [33] NKO LETTER A..NKO LETTER JONA RA
+	{0x093D, 0prFormat, x1F6B8},               // E0.7   [2] (🕉️..🕊️)    om..dove
+	{0x3000, 0prALetter, prExtendedPictographic},         // E0.6   [1] (◀️)       reverse button
+	{0x11CB1, 0prExtend, x01BA},             // Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
+	{0prExtend, 0x12399, x1F514}, // Mn   [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
+	{0x0377, 0prALetter, x1F68F},        // Lo   [5] HEBREW LETTER TET WITH DAGESH..HEBREW LETTER LAMED WITH DAGESH
+	{0xFE52, 0x061C, prMidNumLet},                       // Lo  [73] CANADIAN SYLLABICS NATTILIK HI..PAU CIN HAU GLOTTAL STOP FINAL
+	{0x002E, 0prALetter, prExtendedPictographic},                    // E0.0   [3] (🛽..🛿)    <reserved-1F6FD>..<reserved-1F6FF>
+	{0prNumeric, 0prALetter, prNumeric}, // E12.0  [1] (🛺)       auto rickshaw
+	{0x11102, 0xAAB0, x0D3A}, // E0.0   [1] (♤)       WHITE SPADE SUIT
+	{0prALetter, 0prALetter, prALetter},        // Cf       ZERO WIDTH NON-JOINER
+	{0prExtendedPictographic, 0x1F626, prALetter},   // Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
+	{0prALetter, 0prExtend, prExtendedPictographic},            // E0.7   [1] (✡️)       star of David
+	{0x1D169, 0x0BAE, x2611},        // Zl       LINE SEPARATOR
+	{0x11D06, 0x1F5E8, x1C24},         // Nd  [10] MYANMAR SHAN DIGIT ZERO..MYANMAR SHAN DIGIT NINE
+	{0prExtend, 0prALetter, xA016},                           // Mn   [2] JAVANESE VOWEL SIGN PEPET..JAVANESE CONSONANT SIGN KERET
+	{0x1F3CE, 0prExtend, prExtendedPictographic}, // Mn       BENGALI SIGN CANDRABINDU
+	{0x2018, 0x1D7AA, x115DD}, // Lo       OLD SOGDIAN LIGATURE AYIN-DALETH
+	{0prKatakana, 0xAA4D, prMidLetter}, // L&  [41] ARMENIAN SMALL LETTER TURNED AYB..ARMENIAN SMALL LETTER YI WITH STROKE
+	{0x0B35, 0x082D, prALetter},         // E0.6   [4] (😨..😫)    fearful face..tired face
+	{0prExtend, 0x1BE6, x1F9AF},   // Lo   [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
+	{0x11144, 0prALetter, prExtend},              // Mc       BENGALI AU LENGTH MARK
+	{0x094D, 0prALetter, x17B7},               // Lo   [3] HALFWIDTH HANGUL LETTER EU..HALFWIDTH HANGUL LETTER I
+	{0prExtend, 0x0ACC, x1F34A}, // E0.7   [1] (🚍)       oncoming bus
+	{0x1B82, 0xFF70, prExtend}, // Lo       ARABIC MATHEMATICAL TAILED DAD
+	{0x1F68F, 0prExtend, prExtend}, // Lo       DEVANAGARI HEADSTROKE
+	{0prExtend, 0x2018, x0AD0},                                    // Lo   [2] KANNADA SIGN JIHVAMULIYA..KANNADA SIGN UPADHMANIYA
+	{0prALetter, 0x1F640, x1F4B6},   // E1.0   [1] (☠️)       skull and crossbones
+	{0prExtend, 0prMidNumLet, x1F971},               // Lo  [10] HEBREW LIGATURE YIDDISH YOD YOD PATAH..HEBREW LETTER WIDE TAV
+	{0xA840, 0x11633, x10B91},               // Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
+	{0x265E, 0prALetter, x2664},               // Lo   [9] MALAYALAM LETTER VEDIC ANUSVARA..MALAYALAM LETTER VOCALIC L
+	{0x2006, 0x094D, prExtend},            // L&       DOUBLE-STRUCK CAPITAL Z
+	{0x1F931, 0x1CD0, x10F85}, // E0.6   [1] (✅)       check mark button
+	{0x1BC9E, 0prExtendedPictographic, x10400}, // E0.6   [1] (❇️)       sparkle
+	{0x11444, 0x2D25, x1F60D},           // L&  [65] MATHEMATICAL SCRIPT SMALL P..MATHEMATICAL FRAKTUR CAPITAL B
+	{0x10597, 0prExtendedPictographic, prExtend},               // E0.7   [1] (🖼️)       framed picture
+	{0prExtend, 0x1A1B, x1F4AC},                         // Lo   [8] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER WAW
+	{0x1A17, 0prExtend, prExtendedPictographic},        // Nd  [10] MYANMAR TAI LAING DIGIT ZERO..MYANMAR TAI LAING DIGIT NINE
+	{0xABEA, 0x1D49C, prALetter},                // Lo  [22] GURMUKHI LETTER OO..GURMUKHI LETTER NA
+	{0prExtendedPictographic, 0x064B, prExtendedPictographic},        // Lo  [78] SHAVIAN LETTER PEEP..OSMANYA LETTER OO
+	{0x2DB8, 0prWSegSpace, x1F57},               // Mc       TAKRI SIGN VISARGA
+	{0prNumeric, 0x1F57B, x1AFF5},   // Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
+	{0x1F6D5, 0x10592, x02DF},          // E0.7   [1] (🗡️)       dagger
+	{0prExtend, 0prExtend, x17D3}, // E0.6   [6] (↔️..↙️)    left-right arrow..down-left arrow
+	{0xA016, 0x101FD, prALetter},          // L&   [4] MATHEMATICAL FRAKTUR CAPITAL D..MATHEMATICAL FRAKTUR CAPITAL G
+	{0prALetter, 0prExtend, x0B95},   // Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+	{0x11213, 0prALetter, prExtendedPictographic},                     // E0.7   [1] (⛴️)       ferry
+	{0xAB5F, 0x12B2, x0D54},   // E12.0  [6] (🦥..🦪)    sloth..oyster
+	{0x16AF4, 0x0F99, x1D17A}, // Cf       ZERO WIDTH JOINER
+	{0x1F947, 0x11D45, x1F848},          // E1.0   [2] (🔬..🔭)    microscope..telescope
+	{0prExtendedPictographic, 0x21AA, prExtendedPictographic}, // E0.0   [7] (🕨..🕮)    RIGHT SPEAKER..BOOK
+	{0prExtend, 0prExtend, x10876},          // E0.6   [2] (🚤..🚥)    speedboat..horizontal traffic light
+	{0prExtend, 0xFEFC, prMidNum},                   // Lo  [52] PHAGS-PA LETTER KA..PHAGS-PA LETTER CANDRABINDU
+	{0prExtendedPictographic, 0x1BA0, x1F508},                                  // E12.0  [1] (🥻)       sari
+	{0x2054, 0prExtend, x0C4D},        // E0.0[1022] (🰀..🿽)    <reserved-1FC00>..<reserved-1FFFD>
+	{0prExtend, 0prExtendedPictographic, x2D27},   // E0.6  [43] (🍑..🍻)    peach..clinking beer mugs
+	{0prWSegSpace, 0x2621, x0ED0},           // E1.0   [1] (🍐)       pear
+	{0x1F50, 0prExtend, x11659},                    // L&  [28] MATHEMATICAL FRAKTUR SMALL A..MATHEMATICAL DOUBLE-STRUCK CAPITAL B
+	{0x1CE2, 0x303C, x1844},          // E0.0   [5] (⚢..⚦)    DOUBLED FEMALE SIGN..MALE WITH STROKE SIGN
+	{0prExtend, 0x1BC70, x1F62C}, // Mn       KHITAN SMALL SCRIPT FILLER
+	{0x115D8, 0x1CE8, x2DC0},   // Nd  [10] CHAKMA DIGIT ZERO..CHAKMA DIGIT NINE
+	{0prExtendedPictographic, 0x31BF, x0F87},               // E13.0  [2] (🦣..🦤)    mammoth..dodo
+	{0x2024, 0prExtend, prExtendedPictographic},             // Lo  [29] OLD NORTH ARABIAN LETTER HEH..OLD NORTH ARABIAN LETTER ZAH
+	{0prALetter, 0x1005D, prALetter},        // Lo       KATAKANA LETTER ARCHAIC E
+	{0x0DD1, 0x11730, x11CB3},                                 // Mn       TAKRI SIGN ANUSVARA
+	{0x0D62, 0x0A66, x1D74E},               // Lo  [47] SIDDHAM LETTER A..SIDDHAM LETTER HA
+	{0prALetter, 0prALetter, x1145E},             // Lo       NYIAKENG PUACHUE HMONG LOGOGRAM NYAJ
+	{0x1058C, 0prExtendedPictographic, x1F330},        // Me       COMBINING PARENTHESES OVERLAY
+	{0x0DBD, 0prExtend, prExtend},                   // Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
+	{0xFE0F, 0prALetter, x0AC5},          // E0.6   [1] (❄️)       snowflake
+	{0x1D49F, 0prExtend, prExtend},            // Lo   [6] TAMIL LETTER A..TAMIL LETTER UU
+	{0prHebrewLetter, 0x1F59, x1EE4B},                 // L&  [23] LATIN CAPITAL LETTER A WITH GRAVE..LATIN CAPITAL LETTER O WITH DIAERESIS
+	{0x0BD7, 0xFF19, prNewline},                                         // Nl       GOTHIC LETTER NINE HUNDRED
+	{0x1DC0, 0x2692, x0295}, // E0.7   [2] (⛰️..⛱️)    mountain..umbrella on ground
+	{0x10500, 0x3005, x1F979},            // Lo       MALAYALAM SIGN AVAGRAHA
+	{0x1F636, 0xAAB7, prExtend},        // L&  [34] LATIN SMALL LETTER INSULAR G..LATIN SMALL LETTER EZH WITH RETROFLEX HOOK
+	{0x1EE64, 0x2DAE, x16EE}, // Lo  [49] CARIAN LETTER A..CARIAN LETTER UUU3
+	{0x07F8, 0prNumeric, prExtend},          // Lo   [3] NEWA LETTER VEDIC ANUSVARA..NEWA SIGN UPADHMANIYA
+	{0prALetter, 0x10AE4, prALetter},                   // Lo   [2] ORIYA LETTER E..ORIYA LETTER AI
+	{0x1F68D, 0x0B2A, x09E1},               // Lo       CYPRIOT SYLLABLE ZA
+	{0x114C2, 0prALetter, x01C0},         // Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
+	{0x00AE, 0prALetter, x1C4F}, // Po       HYPHENATION POINT
+	{0x11A96, 0prExtend, x1F55B},            // Mc       MARCHEN SUBJOINED LETTER YA
+	{0prExtend, 0prExtendedPictographic, prALetter},           // E3.0   [3] (🤼..🤾)    people wrestling..person playing handball
+	{0x1A62, 0x11909, x1F004},                    // L&   [5] MATHEMATICAL DOUBLE-STRUCK CAPITAL I..MATHEMATICAL DOUBLE-STRUCK CAPITAL M
+	{0prExtend, 0prALetter, prALetter}, // E0.6   [1] (⛽)       fuel pump
+	{0x1E7E0, 0x1BED, x193B},        // Lm  [18] MODIFIER LETTER SMALL H..MODIFIER LETTER REVERSED GLOTTAL STOP
+	{0prExtend, 0x1F9C1, prExtendedPictographic},                          // Lo  [73] OLD TURKIC LETTER ORKHON A..OLD TURKIC LETTER ORKHON BASH
+	{0x26BC, 0x11633, x0D9A}, // E0.0   [1] (✎)       LOWER RIGHT PENCIL
+	{0x10A7C, 0xA827, x03A1},               // Cf   [5] WORD JOINER..INVISIBLE PLUS
+	{0prExtend, 0x0670, x1F630},            // Lo  [18] PSALTER PAHLAVI LETTER ALEPH..PSALTER PAHLAVI LETTER TAW
+	{0x1F6C5, 0xA9D0, prALetter},        // Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
+	{0x1B73, 0prExtend, prALetter},           // Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
+	{0x1BC9D, 0x23ED, x26D4},                // E0.6   [1] (♠️)       spade suit
+	{0prALetter, 0prALetter, x1842},                 // Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
+	{0x102C, 0prExtendedPictographic, x11941},              // Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
+	{0x11300, 0prExtend, prExtend},   // L&   [3] GREEK SMALL REVERSED LUNATE SIGMA SYMBOL..GREEK SMALL REVERSED DOTTED LUNATE SIGMA SYMBOL
+	{0x11145, 0x103C, prExtendedPictographic}, // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
+	{0x1F399, 0x1A65, prExtendedPictographic},                 // Lo  [32] OLD ITALIC LETTER A..OLD ITALIC LETTER ESS
+	{0x0CBE, 0x10140, prALetter},              // Lo  [28] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER TAW
+	{0prALetter, 0prMidNum, x1A80},           // E0.0   [2] (⛆..⛇)    RAIN..BLACK SNOWMAN
+	{0x10400, 0x1F4EF, x06DF},                     // E0.6   [1] (®️)       registered
+	{0x1FAAC, 0x1F5BB, x180F},        // L&   [3] GREEK SMALL REVERSED LUNATE SIGMA SYMBOL..GREEK SMALL REVERSED DOTTED LUNATE SIGMA SYMBOL
+	{0x2024, 0prExtendedPictographic, prExtend},        // Nd  [10] WARANG CITI DIGIT ZERO..WARANG CITI DIGIT NINE
+	{0x0DC6, 0x10860, prExtend},           // Nd  [10] TELUGU DIGIT ZERO..TELUGU DIGIT NINE
+	{0prExtendedPictographic, 0prALetter, prNumeric},           // Po       SMALL COMMA
+	{0xFF1B, 0prALetter, x11234},         // Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
+	{0prALetter, 0prExtend, x10F00}, // Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
+	{0x303B, 0x3105, prALetter},        // Zs       OGHAM SPACE MARK
+	{0prNumeric, 0x261D, prExtend},           // E14.0  [4] (🪩..🪬)    mirror ball..hamsa
+	{0x1133D, 0x1F31B, x1FA74}, // Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
+	{0prALetter, 0prMidNum, x02D7},           // Sk   [7] MODIFIER LETTER EXTRA-HIGH TONE BAR..MODIFIER LETTER YANG DEPARTING TONE MARK
+	{0x103A0, 0prExtend, prExtend},         // E0.7   [1] (🔈)       speaker low volume
+	{0x2DD0, 0x11D98, prExtend},          // Mc       ORIYA VOWEL SIGN AA
+	{0x1F191, 0prExtendedPictographic, uniseg},           // E1.0   [1] (☄️)       comet
+	{0prALetter, 0prALetter, x12B0},          // Lo       CHAKMA LETTER VAA
+	{0x1F689, 0x110BD, prExtendedPictographic},        // Mc   [3] DOGRA VOWEL SIGN AA..DOGRA VOWEL SIGN II
+	{0prALetter, 0x0AE1, prALetter},         // E0.0   [3] (🕆..🕈)    WHITE LATIN CROSS..CELTIC CROSS
+	{0prExtendedPictographic, 0x1F6D4, x11301}, // Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
+	{0prExtend, 0x1F429, prALetter},                // L&  [83] GREEK CAPITAL LETTER SIGMA..GREEK LUNATE EPSILON SYMBOL
+	{0xA802, 0x11D30, prExtendedPictographic},            // E0.0  [20] (⛕..⛨)    ALTERNATE ONE-WAY LEFT WAY TRAFFIC..BLACK CROSS ON SHIELD
+	{0x1F37C, 0prALetter, x2605},         // E0.0   [9] (🫷..🫿)    <reserved-1FAF7>..<reserved-1FAFF>
+	{0prALetter, 0prExtendedPictographic, prExtendedPictographic},               // Lo  [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
+	{0x1772, 0prExtend, prALetter},             // E1.0   [2] (🍾..🍿)    bottle with popping cork..popcorn
+	{0prExtend, 0x1F5E1, prExtendedPictographic},              // Lo   [7] ETHIOPIC SYLLABLE CCHA..ETHIOPIC SYLLABLE CCHO
+	{0x12BE, 0x05C5, x1D17A},   // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
+	{0x103CF, 0x103D, x0F7F},        // Lo   [7] ETHIOPIC SYLLABLE SSA..ETHIOPIC SYLLABLE SSO
+	{0x1F5B2, 0prALetter, x0983},            // Nd  [10] DIGIT ZERO..DIGIT NINE
+	{0prExtend, 0x11332, x270E},            // Pi       LEFT SINGLE QUOTATION MARK
+	{0x119D1, 0x2049, x1163E},                        // Mn       NEWA SIGN NUKTA
+	{0prExtend, 0x12C0, xFFD7}, // L&  [31] GREEK CAPITAL LETTER UPSILON WITH DASIA AND PERISPOMENI..GREEK SMALL LETTER OMEGA WITH OXIA
+	{0x0B30, 0prExtendedPictographic, x16F4F},        // Mn       SYLOTI NAGRI SIGN ANUSVARA
+	{0x2DB0, 0x1AFFE, x1F6D3}, // Cf   [5] WORD JOINER..INVISIBLE PLUS
+	{0x1044F, 0x115BF, x26CF},          // Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
+	{0x274C, 0x25FE, x1EE24},              // Lo   [6] TAMIL LETTER A..TAMIL LETTER UU
+	{0x1F413, 0x11632, prALetter},            // Po       PRESENTATION FORM FOR VERTICAL SEMICOLON
+	{0prALetter, 0prExtendedPictographic, x114BB},          // Mn       GUNJALA GONDI VIRAMA
+	{0prALetter, 0prExtendNumLet, x1F18E},           // L&   [2] MATHEMATICAL SCRIPT CAPITAL C..MATHEMATICAL SCRIPT CAPITAL D
+	{0x26D2, 0x1EE7E, x11147},                   // Nl       GOTHIC LETTER NINE HUNDRED
+	{0x1143F, 0x114BA, x1F43E}, // L&   [4] GREEK CAPITAL LETTER HETA..GREEK SMALL LETTER ARCHAIC SAMPI
+	{0x1C2C, 0x10B60, x1F31A},   // Mn       DEVANAGARI VOWEL SIGN AY
+	{0x1F3F4, 0prExtend, prALetter},           // E1.0   [1] (🏅)       sports medal
+	{0x1F203, 0prALetter, prALetter},           // Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
+	{0x2711, 0x1D00, x1F688},                 // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
+	{0xA824, 0x09E2, x19D0}, // Mc   [3] KHOJKI VOWEL SIGN AA..KHOJKI VOWEL SIGN II
+	{0x2648, 0x16E7F, prALetter},               // Lo  [53] BRAHMI SIGN JIHVAMULIYA..BRAHMI LETTER OLD TAMIL NNNA
+	{0prExtend, 0x2612, x1F612},              // Lo [363] ARABIC LETTER NG ISOLATED FORM..ARABIC LIGATURE ALEF WITH FATHATAN ISOLATED FORM
+	{0x16B59, 0x0ACD, prExtend},        // Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
+	{0x267E, 0x0730, prALetter},          // Po       ARMENIAN QUESTION MARK
+	{0prExtend, 0x309B, x267C},              // L&  [31] GREEK CAPITAL LETTER UPSILON WITH DASIA AND PERISPOMENI..GREEK SMALL LETTER OMEGA WITH OXIA
+	{0x11150, 0prExtendedPictographic, x0C44},             // E11.0  [2] (🧁..🧂)    cupcake..salt
+	{0x0640, 0x1F321, prKatakana},   // Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
+	{0x1FAAC, 0prExtendedPictographic, prALetter},         // Sk   [2] MODIFIER LETTER COLON..MODIFIER LETTER SHORT EQUALS SIGN
+	{0prExtend, 0x1F3C9, x0671}, // L&   [2] GREEK CAPITAL LETTER PAMPHYLIAN DIGAMMA..GREEK SMALL LETTER PAMPHYLIAN DIGAMMA
+	{0prExtendedPictographic, 0x1F10F, x06FC}, // Mc   [3] KHOJKI VOWEL SIGN AA..KHOJKI VOWEL SIGN II
+	{0x1F5D, 0prExtendedPictographic, x1F9C2},                               // Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
+	{0prALetter, 0prALetter, prExtendedPictographic},                       // L&  [38] GREEK SMALL LETTER ETA WITH PSILI..GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA
+	{0prWSegSpace, 0prExtendedPictographic, prExtend},          // Lo  [24] SINHALA LETTER ALPAPRAANA KAYANNA..SINHALA LETTER DANTAJA NAYANNA
+	{0x11A33, 0prALetter, prExtendedPictographic},                 // Po       QUOTATION MARK
+	{0x02EF, 0x1B42, x0D81},               // Pf       RIGHT SINGLE QUOTATION MARK
+	{0prALetter, 0prALetter, x12543},        // E11.0  [4] (🥳..🥶)    partying face..cold face
+	{0prExtendedPictographic, 0prExtendedPictographic, prExtendedPictographic},                // Mn   [2] GUNJALA GONDI VOWEL SIGN EE..GUNJALA GONDI VOWEL SIGN AI
+	{0x1E149, 0x1F5E8, prExtend}, // Lo       NYIAKENG PUACHUE HMONG LOGOGRAM NYAJ
+	{0x0948, 0prExtend, prALetter},         // Lo   [6] DEVANAGARI SIGN SPACING CANDRABINDU..DEVANAGARI SIGN CANDRABINDU AVAGRAHA
+	{0prExtend, 0x2662, x1190C},                  // E0.0   [2] (🎜..🎝)    BEAMED ASCENDING MUSICAL NOTES..BEAMED DESCENDING MUSICAL NOTES
+	{0x274C, 0x0940, prExtend},            // L&  [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
+	{0x11A3B, 0prALetter, x2699},             // Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
+	{0x06EF, 0x2071, x1ABF},            // Mn  [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
+	{0x1F567, 0x1163F, x1F3FB},   // Nl  [35] ROMAN NUMERAL ONE..ROMAN NUMERAL TEN THOUSAND
+	{0x1E944, 0x119E3, x1067},          // E5.0  [23] (🧐..🧦)    face with monocle..socks
+	{0x1EE29, 0prALetter, x1000D},                  // L&   [5] DOUBLE-STRUCK CAPITAL P..DOUBLE-STRUCK CAPITAL R
+	{0x1FD3, 0prALetter, x1037A},                       // Lo   [6] HALFWIDTH HANGUL LETTER YO..HALFWIDTH HANGUL LETTER YU
+	{0x1F31E, 0prALetter, x06FA},                                   // Mn       MODI SIGN ANUSVARA
+	{0uniseg, 0x1057, x02D2}, // Mc       BENGALI AU LENGTH MARK
+	{0x11002, 0x065F, x26F1},             // Mc       HANUNOO SIGN PAMUDPOD
+	{0xFE70, 0x0BD7, prExtendedPictographic},           // Lo   [8] BALINESE LETTER KAF SASAK..BALINESE LETTER ARCHAIC JNYA
+	{0x10AC9, 0prExtend, x1F31C}, // Nd  [10] PAHAWH HMONG DIGIT ZERO..PAHAWH HMONG DIGIT NINE
+	{0x10A0, 0prExtend, x1F6D4}, // Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
+	{0x1F414, 0prALetter, prKatakana},                // Lo  [31] LIMBU VOWEL-CARRIER LETTER..LIMBU LETTER TRA
+	{0prExtendedPictographic, 0x1F6AE, x1EE3B},        // Lo  [54] ARABIC LIGATURE MEEM WITH JEEM WITH KHAH INITIAL FORM..ARABIC LIGATURE NOON WITH JEEM WITH YEH FINAL FORM
+	{0x108F, 0prALetter, x23CF},          // Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
+	{0x2135, 0x274E, prNumeric},             // L&   [2] ROMAN NUMERAL REVERSED ONE HUNDRED..LATIN SMALL LETTER REVERSED C
+	{0xFE54, 0x0CC6, x1D4BD},                 // Mn       BENGALI SIGN CANDRABINDU
+	{0prExtendedPictographic, 0x0C0C, x1F21A},                      // Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
+	{0x0F20, 0prALetter, prALetter},            // Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
+	{0x1D514, 0x10F50, x1F34B},                   // E0.0   [2] (⚨..⚩)    VERTICAL MALE WITH STROKE SIGN..HORIZONTAL MALE WITH STROKE SIGN
+	{0x1F323, 0x1F12F, x20E4},   // L&   [2] GREEK CAPITAL LETTER PAMPHYLIAN DIGAMMA..GREEK SMALL LETTER PAMPHYLIAN DIGAMMA
+	{0prALetter, 0x265F, prALetter}, // Lo  [18] TAGALOG LETTER A..TAGALOG LETTER HA
+	{0x1F6FF, 0prExtend, x263A},               // Lo  [45] KAITHI LETTER A..KAITHI LETTER HA
+	{0x10B00, 0prFormat, xA721}, // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
+	{0prALetter, 0prALetter, x11C2F},                                    // Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
+	{0x128A, 0prExtendedPictographic, x1F618},        // Lo  [29] OLD NORTH ARABIAN LETTER HEH..OLD NORTH ARABIAN LETTER ZAH
+	{0prExtend, 0x1810, prExtend}, // Lo   [5] ARABIC FATHATAN ISOLATED FORM..ARABIC KASRATAN ISOLATED FORM
+	{0xFB1D, 0x11C92, x1CF2D},          // Lo [569] BAMUM LETTER PHASE-A NGKUE MFON..BAMUM LETTER PHASE-F VUEQ
+	{0x114C4, 0x1F616, prKatakana},                              // E0.0   [5] (⚿..⛃)    SQUARED KEY..BLACK DRAUGHTS KING
+	{0x12D6, 0prExtendedPictographic, prALetter}, // E0.6   [1] (ℹ️)       information
+	{0x11915, 0x0DB3, x274C},                // Lo  [36] LEPCHA LETTER KA..LEPCHA LETTER A
+	{0prHebrewLetter, 0x1B35, prALetter},                      // E0.6   [1] (㊙️)       Japanese “secret” button
+	{0x1B82, 0xFF9E, x0ECD},         // Lo [329] HANGUL CHOSEONG KIYEOK..ETHIOPIC SYLLABLE QWA
+	{0prALetter, 0prALetter, prExtendedPictographic},                     // Mc       MYANMAR SIGN TAI LAING TONE-5
+	{0x116AE, 0x02E0, xAA33},              // L&   [3] GREEK CAPITAL LETTER EPSILON WITH TONOS..GREEK CAPITAL LETTER IOTA WITH TONOS
+	{0x0489, 0prNumeric, xA610}, // E0.7   [1] (📽️)       film projector
+	{0prALetter, 0prExtend, x11C3F},                     // Lo  [25] SORA SOMPENG LETTER SAH..SORA SOMPENG LETTER MAE
+	{0x1F61B, 0prMidNumLet, x1F971},           // Lo  [15] ETHIOPIC SYLLABLE WA..ETHIOPIC SYLLABLE PHARYNGEAL O
+	{0prALetter, 0x16A69, xFE4F},                  // Lo   [4] ETHIOPIC SYLLABLE XWI..ETHIOPIC SYLLABLE XWE
+	{0x0CE2, 0x1FAB0, x11A9D}, // Sk   [5] EMOJI MODIFIER FITZPATRICK TYPE-1-2..EMOJI MODIFIER FITZPATRICK TYPE-6
+	{0prHebrewLetter, 0prALetter, x0D01},         // Mc       DEVANAGARI VOWEL SIGN OOE
+	{0x1FBE, 0x1128F, xFF07},          // E0.6   [5] (😉..😍)    winking face..smiling face with heart-eyes
+	{0x12B0, 0x1FA74, x26C3},            // Lo  [26] OGHAM LETTER BEITH..OGHAM LETTER PEITH
+	{0x1FB4, 0x037F, prExtendedPictographic}, // Lo   [2] SUNDANESE LETTER KHA..SUNDANESE LETTER SYA
+	{0x13000, 0x1F399, x1EE8B},                 // Lo  [67] ETHIOPIC SYLLABLE GGA..ETHIOPIC SYLLABLE FYA
+	{0x169A, 0x1F94B, prALetter}, // Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
+	{0prNumeric, 0x060D, x1FA90},          // E14.0  [4] (🪷..🪺)    lotus..nest with eggs
+	{0xFEFF, 0prExtend, prALetter}, // Nd  [10] TAI THAM HORA DIGIT ZERO..TAI THAM HORA DIGIT NINE
+	{0x11102, 0x2734, prALetter}, // E0.0   [8] (🢈..🢏)    <reserved-1F888>..<reserved-1F88F>
+	{0x0373, 0x1C23, prExtendedPictographic},   // L&   [7] VITHKUQI CAPITAL LETTER SE..VITHKUQI CAPITAL LETTER XE
+	{0xAB5C, 0prNumeric, x064A},                   // Lo  [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
+	{0prExtendedPictographic, 0x2CF3, x30FC},          // Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
+	{0x09BD, 0x1F515, prExtendedPictographic},                 // Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
+	{0x037A, 0x2B55, prExtendedPictographic},          // Nl   [5] OLD PERSIAN NUMBER ONE..OLD PERSIAN NUMBER HUNDRED
+	{0x0BC1, 0x18A8, prALetter},                  // E1.0   [1] (😬)       grimacing face
+	{0prExtendedPictographic, 0x1A72, prALetter},         // Lo       ARABIC MATHEMATICAL TAILED DOTLESS NOON
+	{0prALetter, 0x0CBD, x11333},          // Nd  [10] SUNDANESE DIGIT ZERO..SUNDANESE DIGIT NINE
+	{0x11941, 0x10F70, prMidNum}, // Lo   [2] GUJARATI LETTER LA..GUJARATI LETTER LLA
+	{0x16800, 0prExtend, x11370}, // Mc   [3] MYANMAR VOWEL SIGN SGAW KAREN EU..MYANMAR TONE MARK SGAW KAREN KE PHO
+	{0x1E149, 0prALetter, x10B91},           // E14.0  [3] (🫗..🫙)    pouring liquid..jar
+	{0prExtendedPictographic, 0xABE6, x0B4D}, // Lo  [10] HEBREW LETTER TSADI WITH DAGESH..HEBREW LIGATURE ALEF LAMED
+	{0prExtendedPictographic, 0x1F6FD, x118A0}, // E14.0  [4] (🪷..🪺)    lotus..nest with eggs
+	{0x1F970, 0prALetter, x1F91F}, // Nd  [10] LEPCHA DIGIT ZERO..LEPCHA DIGIT NINE
+	{0x108D, 0xFB1D, xA90A},        // Nd  [10] KHMER DIGIT ZERO..KHMER DIGIT NINE
+	{0x1F3C6, 0x0E50, prExtendedPictographic}, // E0.0  [13] (🈃..🈏)    <reserved-1F203>..<reserved-1F20F>
+	{0x0B3D, 0x114BA, x0966},                       // E0.6   [2] (🌴..🌵)    palm tree..cactus
+	{0x119A0, 0prExtendedPictographic, xAB70},                 // Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
+	{0x26F4, 0prExtend, x0A51},           // Lo  [21] YI SYLLABLE IT..YI SYLLABLE E
+	{0x11328, 0x0B05, x18A9},                  // Mn       COPTIC EPACT THOUSANDS MARK
+	{0xA801, 0prALetter, x074A},           // L&   [4] LATIN CAPITAL LETTER SALTILLO..LATIN SMALL LETTER L WITH RETROFLEX HOOK AND BELT
+	{0xABE5, 0x1F3E4, x3297},             // Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
+	{0prExtendedPictographic, 0x0A28, prExtend},                       // Mc       GURMUKHI SIGN VISARGA
+	{0x1F984, 0x1F34A, prKatakana},   // Nd  [10] VAI DIGIT ZERO..VAI DIGIT NINE
+	{0prExtend, 0x1F3FB, prExtendedPictographic}, // Mn       CHAM CONSONANT SIGN FINAL M
+	{0prALetter, 0x10FC, x10A80},                // E0.6   [1] (🏊)       person swimming
+	{0prExtendedPictographic, 0x2CF1, prExtend}, // E0.0   [8] (🖩..🖰)    POCKET CALCULATOR..TWO BUTTON MOUSE
+	{0x10A00, 0prExtend, prALetter},        // E3.0   [6] (🤙..🤞)    call me hand..crossed fingers
+	{0x1F2FF, 0x0951, x0A01},        // Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
+	{0x18B0, 0x0B05, x1F3F7},                   // So  [26] REGIONAL INDICATOR SYMBOL LETTER A..REGIONAL INDICATOR SYMBOL LETTER Z
+	{0x10980, 0x0CBF, x0DCA},   // Lo  [19] PAHAWH HMONG CLAN SIGN TSHEEJ..PAHAWH HMONG CLAN SIGN VWJ
+	{0prExtend, 0x110BA, x17C6},           // Mc   [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
+	{0xA7FB, 0x1F53D, x1E00},                                  // E1.0   [1] (🐪)       camel
+	{0x037E, 0prALetter, prALetter}, // Po       FULL STOP
+	{0xA984, 0x1F950, prALetter},         // Nd  [10] MALAYALAM DIGIT ZERO..MALAYALAM DIGIT NINE
+	{0x0BD0, 0x1FBE, prExtend},               // Zs   [3] PUNCTUATION SPACE..HAIR SPACE
+	{0x1BE6, 0prALetter, prALetter},                  // Mn       SYLOTI NAGRI SIGN ANUSVARA
+	{0x11234, 0x1F606, x1F5FF},                        // Mc       MALAYALAM AU LENGTH MARK
+	{0prExtend, 0x0958, x1F6B9},           // E0.6   [6] (🚹..🚾)    men’s room..water closet
+	{0x1B000, 0prExtendedPictographic, x1F508},            // Lo   [2] DEVANAGARI JAIN OM..DEVANAGARI LETTER AY
+	{0x2122, 0x1FA90, x1F5B},                  // Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
+	{0prALetter, 0x11180, prExtendedPictographic},                           // Lm  [63] MODIFIER LETTER CAPITAL A..GREEK SUBSCRIPT SMALL LETTER CHI
+	{0x0A8D, 0x11071, prALetter},                         // Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
+	{0prExtend, 0prExtend, prExtendedPictographic},                      // Lo  [22] BENGALI LETTER O..BENGALI LETTER NA
+	{0prExtend, 0xAA40, prExtend},   // Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
+	{0x26FB, 0prExtend, x2690},                               // E0.0   [2] (⛆..⛇)    RAIN..BLACK SNOWMAN
+	{0x11357, 0prExtendedPictographic, prExtend},                  // E5.0   [8] (🤨..🤯)    face with raised eyebrow..exploding head
+	{0prALetter, 0x1F6B6, prExtend},         // Mc       TAI THAM CONSONANT SIGN LA TANG LAI
+	{0prExtendedPictographic, 0x1E7E0, x0C44}, // E0.6   [1] (⛎)       Ophiuchus
+	{0x1193F, 0x111DA, x112E2},                            // E0.6  [20] (🎀..🎓)    ribbon..graduation cap
+	{0x11CA9, 0x1C34, prExtend}, // ("Extended_Pictographic" only)
+	{0x10A60, 0x1B34, prExtend}, // Lo   [6] ETHIOPIC SYLLABLE DDHU..ETHIOPIC SYLLABLE DDHO
+	{0x11330, 0prExtendedPictographic, prMidNum}, // Mn   [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
+	{0prALetter, 0xAAC1, prExtend}, // E1.0   [4] (🕋..🕎)    kaaba..menorah
+	{0x11C50, 0x17C7, prExtendedPictographic},        // Lo  [35] MAHAJANI LETTER A..MAHAJANI LETTER RRA
+	{0prALetter, 0x1D50A, xA807},          // Lm       MONGOLIAN LETTER TODO LONG VOWEL SIGN
+	{0x1F20F, 0x10D23, x0CE6},                                                  // Mc       TIRHUTA VOWEL SIGN E
+	{0prExtend, 0prALetter, x10D30}, // E0.6   [1] (〰️)       wavy dash
+	{0x1003C, 0x11D95, xA946},        // Lo  [54] DEVANAGARI LETTER SHORT A..DEVANAGARI LETTER HA
+	{0x260E, 0x0F20, x1F40C},        // Lo       ARABIC MATHEMATICAL INITIAL GHAIN
+	{0xA69B, 0prALetter, x0B35},           // E0.0 [174] (🉒..🋿)    <reserved-1F252>..<reserved-1F2FF>
+	{0x0C62, 0x303C, x10F46},        // E0.0   [8] (☰..☷)    TRIGRAM FOR HEAVEN..TRIGRAM FOR EARTH
+	{0x11680, 0prALetter, x1F6E9},             // E3.0   [6] (🥀..🥅)    wilted flower..goal net
+	{0x09D7, 0prExtendedPictographic, prExtendedPictographic},          // E0.0   [2] (☞..☟)    WHITE RIGHT POINTING INDEX..WHITE DOWN POINTING INDEX
+	{0x1F6AE, 0x0963, prALetter},   // E0.6   [1] (😘)       face blowing a kiss
+	{0x1F16C, 0prExtend, x1F3F8},            // Mn [112] COMBINING GRAVE ACCENT..COMBINING LATIN SMALL LETTER X
+	{0x1F414, 0prALetter, xAA59},                  // Lo   [5] ARABIC FATHATAN ISOLATED FORM..ARABIC KASRATAN ISOLATED FORM
+	{0xFE50, 0x1FAD0, prNumeric}, // E11.0 [25] (🧧..🧿)    red envelope..nazar amulet
+	{0x00A9, 0x119E1, x112DF},                     // Lo   [4] TAMIL LETTER O..TAMIL LETTER KA
+	{0prALetter, 0prExtendedPictographic, prALetter}, // Lo  [26] OGHAM LETTER BEITH..OGHAM LETTER PEITH
+	{0x2618, 0x111C1, x1EE59}, // Lo   [4] LATIN LETTER DENTAL CLICK..LATIN LETTER RETROFLEX CLICK
+	{0x1D514, 0x1F396, x1123E},                       // Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
+	{0x2134, 0x3299, prALetter},          // L& [195] LATIN SMALL LETTER O WITH STROKE..LATIN SMALL LETTER EZH WITH TAIL
+	{0xA900, 0x1F61C, x1B6B},              // Lo   [4] ETHIOPIC SYLLABLE GWI..ETHIOPIC SYLLABLE GWE
+	{0prExtend, 0prALetter, x1F3CA}, // Mc       TAMIL AU LENGTH MARK
+	{0x1D54A, 0x2626, x1128D},                // E0.7   [2] (🎖️..🎗️)    military medal..reminder ribbon
+	{0x1BEE, 0x1F970, prALetter},                       // E0.6   [1] (‼️)       double exclamation mark
+	{0x1F32F, 0prExtendedPictographic, prExtendedPictographic},                 // Lo  [22] SOGDIAN LETTER ALEPH..SOGDIAN INDEPENDENT SHIN
+	{0prMidLetter, 0prALetter, prALetter}, // Mn       COPTIC EPACT THOUSANDS MARK
+	{0x138F, 0x1F614, x119DA},                 // Lm   [3] KATAKANA-HIRAGANA PROLONGED SOUND MARK..KATAKANA VOICED ITERATION MARK
+	{0x11CAA, 0x10AE6, x11075},        // Lm   [4] MODIFIER LETTER SMALL HENG..MODIFIER LETTER SMALL U WITH LEFT HOOK
+	{0prExtendedPictographic, 0prNumeric, x1F69A},                          // Lo       CHAKMA LETTER LHAA
+	{0prExtend, 0x119D3, x1B43},   // E0.0   [2] (⛻..⛼)    JAPANESE BANK SYMBOL..HEADSTONE GRAVEYARD SYMBOL
+	{0x1F636, 0prALetter, prExtend},              // Lo       ARABIC MATHEMATICAL TAILED YEH
+	{0prALetter, 0prExtend, x0A8D},        // E0.6   [1] (✔️)       check mark
+	{0x0B62, 0prNumeric, x11461},             // Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
+	{0x10050, 0prExtend, x3300},         // Lo  [30] UGARITIC LETTER ALPA..UGARITIC LETTER SSU
+	{0x1BEE, 0prALetter, prExtendedPictographic},              // L&       LATIN SMALL LETTER DOUBLE THORN
+	{0x1AFF0, 0x11335, x1EE21},           // Lo       DIVES AKURU PREFIXED NASAL SIGN
+	{0x1DA84, 0prExtendedPictographic, prExtend}, // E0.6  [63] (👮..💬)    police officer..speech balloon
+	{0x09FE, 0x26F5, x1F587},                     // Lo  [37] BHAIKSUKI LETTER E..BHAIKSUKI LETTER HA
+	{0x2CF1, 0x0B82, x0CCB},               // E0.7   [3] (🗂️..🗄️)    card index dividers..file cabinet
+	{0x11213, 0x16AD0, x2184},        // Lo       LISU LETTER YHA
+	{0x27A1, 0prExtend, x1CE1},   // Lo   [5] KANNADA LETTER VA..KANNADA LETTER HA
+	{0x116C0, 0x0C83, x00BA},           // E0.6  [52] (💸..📫)    money with wings..closed mailbox with raised flag
+	{0x1F5D, 0x0C5A, x0730},                    // E0.0   [6] (⚀..⚅)    DIE FACE-1..DIE FACE-6
+	{0xA62B, 0x0840, x11721},        // Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
+	{0prExtendedPictographic, 0x1FAE0, prALetter},             // Lo       MONGOLIAN LETTER MANCHU ALI GALI LHA
+	{0x0027, 0x1128D, prALetter},                    // L& [124] GLAGOLITIC CAPITAL LETTER AZU..LATIN LETTER SMALL CAPITAL TURNED E
+	{0x10EAC, 0x1FB4, x0F88},   // Lo  [10] ARABIC LETTER FEH..ARABIC LETTER YEH
+	{0x0B8E, 0x11FB0, x1F320},               // Mc       BALINESE VOWEL SIGN TEDUNG
+	{0prExtend, 0prExtendedPictographic, prALetter}, // E3.0   [3] (🤼..🤾)    people wrestling..person playing handball
+	{0prExtend, 0prALetter, x1F7EC},   // Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
+	{0prExtend, 0prExtendedPictographic, x003A},            // E0.0  [11] (♔..♞)    WHITE CHESS KING..BLACK CHESS KNIGHT
+	{0x11150, 0x1044F, prExtend},                                 // E0.6  [20] (🐫..🐾)    two-hump camel..paw prints
+	{0x0AFA, 0x16800, x055C},        // E14.0  [1] (🟰)       heavy equals sign
+	{0x102A0, 0x1711, x1F633},           // E1.0   [1] (🚦)       vertical traffic light
+	{0x11288, 0x002E, prALetter}, // Lm       MODIFIER LETTER US
+	{0x104FB, 0x10755, x26FD},              // Po       GREEK ANO TELEIA
+	{0x1F6F8, 0x0487, prALetter},                    // Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
+	{0x07CA, 0x105B9, prALetter}, // Lo   [7] ETHIOPIC SYLLABLE KYA..ETHIOPIC SYLLABLE KYO
+	{0x11C38, 0x200C, x0671},          // Po   [2] ARABIC COMMA..ARABIC DATE SEPARATOR
+	{0x109A, 0x07EB, prExtend},              // Nd  [10] SINHALA LITH DIGIT ZERO..SINHALA LITH DIGIT NINE
+	{0x135F, 0x11075, x106D},                      // Mn       MASARAM GONDI VOWEL SIGN E
+	{0xA6F0, 0prExtend, prExtendedPictographic},             // Lo   [2] GUNJALA GONDI LETTER EE..GUNJALA GONDI LETTER AI
+	{0x26B0, 0prExtend, x1CF4},        // E0.6   [1] (❗)       red exclamation mark
+	{0x11CB0, 0prExtend, x2680},                 // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+	{0x1F644, 0x10A05, x1F57}, // E0.6  [12] (🏥..🏰)    hospital..castle
+	{0x1067, 0xA000, x1E130},           // Lo       MALAYALAM SIGN AVAGRAHA
+	{0prALetter, 0x0A28, prALetter},                // Lm   [2] LATIN SUBSCRIPT SMALL LETTER J..MODIFIER LETTER CAPITAL V
+	{0x1760, 0xA76F, prALetter},           // E0.6   [3] (⬅️..⬇️)    left arrow..down arrow
+	{0x11C3F, 0prExtend, x0985}, // Lm   [5] MODIFIER LETTER SMALL GAMMA..MODIFIER LETTER SMALL REVERSED GLOTTAL STOP
+	{0prExtend, 0x11D50, prALetter},   // E12.0  [2] (🦮..🦯)    guide dog..white cane
+	{0x1CF2D, 0x18AA, x10C48},        // Lo  [99] ARABIC LETTER ALEF WASLA..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
+	{0x262A, 0x1F9A3, x1F5D0},            // Lo       KANNADA SIGN SPACING CANDRABINDU
+	{0x1880, 0x0A71, prExtendedPictographic}, // Po       ARMENIAN FULL STOP
+	{0prExtend, 0prExtendedPictographic, xFF9E}, // Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
+	{0x1F4EF, 0x1F30F, x1C37},                                   // Mc   [4] LIMBU VOWEL SIGN EE..LIMBU VOWEL SIGN AU
+	{0x2D27, 0x1A56, prExtend},   // E11.0  [4] (🥼..🥿)    lab coat..flat shoe
+	{0x2630, 0prExtendNumLet, x0819},                                     // Lo  [21] CHORASMIAN LETTER ALEPH..CHORASMIAN LETTER TAW
+	{0x0A5E, 0prALetter, x11302},          // Mn   [2] DOGRA SIGN VIRAMA..DOGRA SIGN NUKTA
+	{0prExtendedPictographic, 0prExtend, x02E0},                     // Lo  [14] LINEAR B SYMBOL B018..LINEAR B SYMBOL B089
+	{0x104FB, 0x0C41, x1B3D},          // L&  [41] ARMENIAN SMALL LETTER TURNED AYB..ARMENIAN SMALL LETTER YI WITH STROKE
+	{0x1F43F, 0x16F4F, x1F6AD},   // E14.0  [4] (🪷..🪺)    lotus..nest with eggs
+	{0x1F32F, 0prExtendedPictographic, prALetter}, // Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA
+	{0prExtendedPictographic, 0x1F46E, x119E1},           // Lo  [13] HEBREW LETTER SHIN WITH SHIN DOT..HEBREW LETTER ZAYIN WITH DAGESH
+	{0prALetter, 0x16F4A, uniseg},         // E0.0   [4] (🈼..🈿)    <reserved-1F23C>..<reserved-1F23F>
+	{0prALetter, 0x17DD, x066E},            // E0.6   [2] (⤴️..⤵️)    right arrow curving up..right arrow curving down
+	{0xA67F, 0prExtendedPictographic, x12399},              // Lm       MONGOLIAN LETTER TODO LONG VOWEL SIGN
+	{0x2B50, 0x11644, prExtendedPictographic},           // Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
+	{0x11C08, 0x1193C, prKatakana},                     // Mn   [2] BRAHMI VOWEL SIGN OLD TAMIL SHORT E..BRAHMI VOWEL SIGN OLD TAMIL SHORT O
+	{0x1BAA, 0prALetter, x0A05},           // Mn       TIBETAN SYMBOL PADMA GDAN
+	{0x11941, 0x0588, prALetter},               // Pc   [2] PRESENTATION FORM FOR VERTICAL LOW LINE..PRESENTATION FORM FOR VERTICAL WAVY LOW LINE
+	{0x1F5B1, 0x16F9F, prNumeric},                   // L&       GREEK CAPITAL LETTER ALPHA WITH TONOS
+	{0x0CC7, 0x1F466, x1F637}, // Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
+	{0x2115, 0x0AEF, prALetter},            // Lo   [3] GUJARATI LETTER E..GUJARATI VOWEL CANDRA O
+	{0x1E800, 0prExtend, x11632},          // Lo  [23] BUGINESE LETTER KA..BUGINESE LETTER HA
+	{0x116AB, 0x09DD, prExtend},         // Mc   [2] BUGINESE VOWEL SIGN E..BUGINESE VOWEL SIGN O
+	{0prExtend, 0x037E, prALetter}, // Mc   [2] BUGINESE VOWEL SIGN E..BUGINESE VOWEL SIGN O
+	{0x094C, 0x1F6B8, x1D544}, // Lo   [4] MULTANI LETTER CA..MULTANI LETTER JJA
+	{0xA8F7, 0prExtendedPictographic, prExtend}, // Nl   [3] RUNIC ARLAUG SYMBOL..RUNIC BELGTHOR SYMBOL
+	{0x1F9C0, 0x1F550, x17B7}, // Mc   [6] DIVES AKURU VOWEL SIGN AA..DIVES AKURU VOWEL SIGN E
+	{0x1F91F, 0x11940, x11CA9},                   // L&   [4] MATHEMATICAL DOUBLE-STRUCK CAPITAL D..MATHEMATICAL DOUBLE-STRUCK CAPITAL G
+	{0x1FF6, 0xAB16, prALetter}, // Lm       MODIFIER LETTER VOICING
+	{0prALetter, 0x1F4F8, x1E2AD},                              // Mn  [24] ARABIC SMALL HIGH FARSI YEH..ARABIC SMALL HIGH SIGN SAFHA
+	{0xAC00, 0x1FA7D, x11066},           // Lo   [7] ETHIOPIC SYLLABLE CCA..ETHIOPIC SYLLABLE CCO
+	{0x116B8, 0x2669, x0CB5},   // Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
+	{0x2126, 0xABE2, x2145},                         // Lo   [2] ORIYA LETTER RRA..ORIYA LETTER RHA
+	{0prExtend, 0prALetter, x119DB}, // Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
+	{0x11441, 0x1D788, xABE2},        // Lo       TELUGU SIGN AVAGRAHA
+	{0xFF21, 0x1F61F, x1F318},                // Sk   [5] EMOJI MODIFIER FITZPATRICK TYPE-1-2..EMOJI MODIFIER FITZPATRICK TYPE-6
+	{0x1F54F, 0prALetter, x1F312}, // Nd  [10] SUNDANESE DIGIT ZERO..SUNDANESE DIGIT NINE
+	{0x26FC, 0prALetter, x07A6},         // Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
+	{0x0D3C, 0xAAB4, x111DA},   // Mn       KAITHI VOWEL SIGN VOCALIC R
+	{0x1CE9, 0prExtend, x267E},             // Lo  [35] MEETEI MAYEK LETTER KOK..MEETEI MAYEK LETTER I LONSUM
+	{0x1F54B, 0x16AED, xA92D},        // L&  [41] ARMENIAN SMALL LETTER TURNED AYB..ARMENIAN SMALL LETTER YI WITH STROKE
+	{0x1133C, 0prExtend, x1733},                            // Lo  [23] TELUGU LETTER O..TELUGU LETTER NA
+	{0prExtend, 0x303C, x1F130},   // E0.0   [8] (🗔..🗛)    DESKTOP WINDOW..DECREASE FONT SIZE SYMBOL
+	{0x118A0, 0prExtendedPictographic, x10342},   // Lo   [5] ORIYA LETTER VA..ORIYA LETTER HA
+	{0xA9D9, 0x103C8, x0556},        // Lo  [18] KHOJKI LETTER A..KHOJKI LETTER JJA
+	{0x0DD6, 0x1F0D0, x0C4D},        // Lo  [48] MODI LETTER A..MODI LETTER LLA
+	{0prExtendedPictographic, 0x1F686, x119DC},             // Mn       COMBINING LEFT RIGHT ARROW ABOVE
+	{0x0963, 0x1F9CF, x1FFFD},        // Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
+	{0x1D539, 0x0DB3, prALetter}, // Mn       BATAK SIGN TOMPI
+	{0prALetter, 0prALetter, x0C82},          // Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
+	{0prExtend, 0x1031, prExtendedPictographic}, // E0.6   [7] (🚧..🚭)    construction..no smoking
+	{0x119E1, 0x25C0, x0AC8},         // Mn       HEBREW POINT QAMATS QATAN
+	{0x1F441, 0x200A, x11363}, // Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
+	{0xA9D9, 0x1F30D, prALetter},   // L&   [4] LATIN CAPITAL LETTER TONE FIVE..LATIN LETTER WYNN
+	{0x11D59, 0x1B05, x1A7F},        // L&   [4] MATHEMATICAL DOUBLE-STRUCK CAPITAL D..MATHEMATICAL DOUBLE-STRUCK CAPITAL G
+	{0x2602, 0x0027, xFE13},              // Mn       MASARAM GONDI VOWEL SIGN E
+	{0x11C0A, 0prExtend, prExtendedPictographic}, // Nd  [10] SORA SOMPENG DIGIT ZERO..SORA SOMPENG DIGIT NINE
+	{0prExtendedPictographic, 0x2695, prExtendedPictographic},            // E0.6   [1] (🌙)       crescent moon
+	{0x1F688, 0prExtendedPictographic, prALetter},         // Mn       KHOJKI SIGN ANUSVARA
+	{0x105B9, 0x1D514, x0AC9},                                     // Mc   [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
+	{0x18A8, 0x0559, prExtendedPictographic},               // Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
+	{0x07C9, 0x1F91F, x23EF},                // E12.0 [12] (🟠..🟫)    orange circle..brown square
+	{0x1F69B, 0prExtendedPictographic, x116B8},            // Cf   [5] WORD JOINER..INVISIBLE PLUS
+	{0x081A, 0prExtendedPictographic, x00AD},            // Lo  [41] ETHIOPIC SYLLABLE BA..ETHIOPIC SYLLABLE XWA
+	{0x1F6B7, 0prExtend, prALetter},        // Lo  [10] DUPLOYAN AFFIX LOW ACUTE..DUPLOYAN AFFIX LOW ARROW
+	{0prALetter, 0x10F1C, x0D10}, // Lo   [8] BALINESE LETTER KAF SASAK..BALINESE LETTER ARCHAIC JNYA
+	{0x107B2, 0x1F5F4, x10563},            // Mn  [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
+	{0x2712, 0x16F50, x0D0E},           // Lo       ARABIC MATHEMATICAL TAILED DAD
+	{0xFB3E, 0x1BA0, x1F6CD},                       // Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
+	{0x1BEF, 0prExtend, x13A0}, // Lo  [52] PHAGS-PA LETTER KA..PHAGS-PA LETTER CANDRABINDU
+	{0x02ED, 0prALetter, x0C81},                    // Lo  [24] ARABIC LETTER ALEF WITH ATTACHED FATHA..ARABIC BASELINE ROUND DOT
+	{0x1D53E, 0x11D47, prExtend},             // Lo  [10] KANNADA LETTER PA..KANNADA LETTER LLA
+	{0xAA7D, 0x05EA, x1F6BE},         // L&  [80] DESERET CAPITAL LETTER LONG I..DESERET SMALL LETTER EW
+	{0prALetter, 0x1183A, x0A75}, // E0.7   [1] (🏳️)       white flag
+	{0prExtendedPictographic, 0x0559, x11182},             // L&  [26] LATIN SMALL LETTER A..LATIN SMALL LETTER Z
+	{0x0CBF, 0x2664, x1C4D},        // E0.0   [2] (🎜..🎝)    BEAMED ASCENDING MUSICAL NOTES..BEAMED DESCENDING MUSICAL NOTES
+	{0x1F9A2, 0x2E2F, x0B83},            // E1.0   [1] (⌨️)       keyboard
+	{0prALetter, 0x1F6A1, x12C8},                  // Lo   [2] SUNDANESE LETTER KHA..SUNDANESE LETTER SYA
+	{0x16E7F, 0prExtendedPictographic, x11C40}, // E0.6   [1] (😏)       smirking face
+	{0prExtend, 0prExtendedPictographic, x109A},                            // Mc       GUJARATI SIGN VISARGA
+	{0xA982, 0prALetter, x1D716}, // Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
+	{0x1F637, 0x2630, prExtend},           // Lo   [4] VEDIC SIGN ANUSVARA ANTARGOMUKHA..VEDIC SIGN ANUSVARA VAMAGOMUKHA WITH TAIL
+	{0prNumeric, 0x1F37B, x1F5D3}, // Lo       BENGALI LETTER KHANDA TA
+	{0x108D, 0prALetter, x118FF}, // E0.0   [2] (⚨..⚩)    VERTICAL MALE WITH STROKE SIGN..HORIZONTAL MALE WITH STROKE SIGN
+	{0x1D4A2, 0x274C, x1F4F8},                   // Lm       ARMENIAN MODIFIER LETTER LEFT HALF RING
+	{0prALetter, 0x11237, x2602}, // Lm   [2] KATAKANA LETTER MINNAN NASALIZED TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-8
+	{0x1EE37, 0x1FF6, x0B33},   // E0.6  [10] (🆑..🆚)    CL button..VS button
+	{0x135F, 0prMidLetter, x000B},                 // Lo   [2] TAMIL LETTER NGA..TAMIL LETTER CA
+	{0x1CF4, 0prExtend, x2629},           // Lo  [17] CANADIAN SYLLABICS QAI..CANADIAN SYLLABICS BLACKFOOT W
+	{0x169A, 0x11D09, prExtend},        // E0.7   [1] (⛩️)       shinto shrine
+	{0x11D91, 0x11C50, x11D60},            // E1.0   [2] (😦..😧)    frowning face with open mouth..anguished face
+	{0prALetter, 0prExtend, prALetter},                                   // L&   [6] CHEROKEE SMALL LETTER YE..CHEROKEE SMALL LETTER MV
+	{0prExtendedPictographic, 0x11D3F, prALetter}, // Lo   [2] GURMUKHI LETTER VA..GURMUKHI LETTER SHA
+	{0x1F932, 0prALetter, prExtend},   // Lo  [45] NYIAKENG PUACHUE HMONG LETTER MA..NYIAKENG PUACHUE HMONG LETTER W
+	{0prALetter, 0x1F8AE, x02D2},            // Lo   [2] KANNADA LETTER VOCALIC RR..KANNADA LETTER VOCALIC LL
+	{0x11D67, 0x1BAB, x1145E}, // Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
+	{0x26C8, 0prMidNum, x26FD}, // E0.6   [6] (🚹..🚾)    men’s room..water closet
+	{0prExtendedPictographic, 0x1C59, x10FD},                 // Zp       PARAGRAPH SEPARATOR
+	{0x119D1, 0prExtendedPictographic, x103B},   // Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
+	{0x104FB, 0x193B, x002E}, // E0.0   [2] (⚨..⚩)    VERTICAL MALE WITH STROKE SIGN..HORIZONTAL MALE WITH STROKE SIGN
+	{0x10A3F, 0x1D185, prExtend},   // Lo       SYRIAC LETTER ALAPH
+	{0x081A, 0prExtend, x02B0},                                            // Lo       MASCULINE ORDINAL INDICATOR
+	{0x1F977, 0prALetter, x1FA82},            // Lo   [4] ETHIOPIC SYLLABLE GWI..ETHIOPIC SYLLABLE GWE
+	{0x07F3, 0x1F3CF, x0641},           // Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+	{0x0815, 0prExtendedPictographic, x1EEA3},           // E1.0   [2] (⚖️..⚗️)    balance scale..alembic
+	{0x1133D, 0prALetter, x1F971},               // E5.0   [1] (🤟)       love-you gesture
+	{0xAA7D, 0prALetter, x1E7EB},        // Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
+	{0prExtendedPictographic, 0prExtend, x114B8}, // Mc       TAKRI SIGN VISARGA
+	{0prFormat, 0prALetter, x10CC0},        // E3.0   [2] (🛑..🛒)    stop sign..shopping cart
+	{0x0F87, 0x037E, x11D65},              // Lo  [30] BASSA VAH LETTER ENNI..BASSA VAH LETTER I
+	{0x1BAA, 0x2680, x1F189},        // L&  [38] GEORGIAN SMALL LETTER AN..GEORGIAN SMALL LETTER HOE
+	{0prALetter, 0x2DC6, xFB28},           // E1.0   [2] (😇..😈)    smiling face with halo..smiling face with horns
+	{0x2184, 0x11332, xAAEB},            // Lo   [2] GURMUKHI LETTER EE..GURMUKHI LETTER AI
+	{0xAA7C, 0xAB2E, prALetter}, // E1.0   [1] (🚖)       oncoming taxi
+	{0prKatakana, 0x1318, x1D2B},           // E0.7   [1] (🍽️)       fork and knife with plate
+	{0x1B000, 0x0B3F, x2D7F},          // E11.0  [1] (♟️)       chess pawn
+	{0prExtendedPictographic, 0prExtendedPictographic, x1F5B0},          // Lo [620] CANADIAN SYLLABICS E..CANADIAN SYLLABICS CARRIER TTSA
+	{0x2029, 0x1FA82, x0481},   // E0.0   [2] (✐..✑)    UPPER RIGHT PENCIL..WHITE NIB
+	{0x1F30F, 0x119E1, x11906},           // E1.0   [1] (📯)       postal horn
+	{0prExtend, 0prExtend, x1258},          // E0.6   [1] (⛎)       Ophiuchus
+	{0x1FA78, 0prExtend, x11461},                   // Mn       DEVANAGARI VOWEL SIGN OE
+	{0x16B7D, 0prALetter, x11C38},            // Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
+	{0prExtendedPictographic, 0x11600, x303B},            // L&  [25] MATHEMATICAL BOLD ITALIC SMALL ALPHA..MATHEMATICAL BOLD ITALIC SMALL OMEGA
+	{0prALetter, 0x1843, prExtend},           // Nd  [10] KHUDAWADI DIGIT ZERO..KHUDAWADI DIGIT NINE
+	{0xFB46, 0x1CE0, prExtend},                 // https://www.unicode.org/Public/14.0.0/ucd/auxiliary/WordBreakProperty.txt
+	{0x1F34B, 0x1F30C, x1F22F},        // Lo  [36] HANIFI ROHINGYA LETTER A..HANIFI ROHINGYA MARK NA KHONNA
+	{0x1FB4, 0x0620, x1F6D7},              // Lo   [6] HALFWIDTH HANGUL LETTER A..HALFWIDTH HANGUL LETTER E
+	{0prExtendedPictographic, 0x1F645, prExtendedPictographic},                // E0.6   [1] (🚢)       ship
+	{0prExtend, 0x10174, prExtendedPictographic},            // E0.7   [1] (✝️)       latin cross
+	{0x0D03, 0x12FF0, prExtendedPictographic},           // Sk  [17] MODIFIER LETTER LOW DOWN ARROWHEAD..MODIFIER LETTER LOW LEFT ARROW
+	{0xA788, 0x0982, prExtend},                // Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+	{0x0889, 0x11A5C, prExtend},              // Lo   [5] GUJARATI LETTER VA..GUJARATI LETTER HA
+	{0x2B07, 0prExtendedPictographic, prExtend},               // Lo       FEMININE ORDINAL INDICATOR
+	{0x11D97, 0x110B7, x06EE},                           // Lo   [2] ORIYA LETTER E..ORIYA LETTER AI
+	{0prExtend, 0prALetter, prALetter}, // L&  [41] ARMENIAN SMALL LETTER TURNED AYB..ARMENIAN SMALL LETTER YI WITH STROKE
+	{0prALetter, 0x2640, x0660},                           // E0.6   [1] (☺️)       smiling face
+	{0prALetter, 0x1F686, x10F00},                                  // E0.0   [3] (❥..❧)    ROTATED HEAVY BLACK HEART BULLET..ROTATED FLORAL HEART BULLET
+	{0prALetter, 0x1FABB, prALetter}, // E0.6   [1] (🚀)       rocket
+	{0x11D31, 0x10A0, prALetter},         // E0.0   [4] (⛾..✁)    CUP ON BLACK SQUARE..UPPER BLADE SCISSORS
+	{0prExtendedPictographic, 0prExtendedPictographic, prExtend},         // Sm       FRACTION SLASH
+	{0x0ED0, 0x0F84, prExtend},                      // Mc   [3] BENGALI VOWEL SIGN AA..BENGALI VOWEL SIGN II
+	{0x0C0E, 0prExtendedPictographic, prExtend},        // Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
+	{0x1122E, 0prALetter, xAAB2},                   // Mc   [4] LIMBU VOWEL SIGN EE..LIMBU VOWEL SIGN AU
+	{0x11D3A, 0x203F, x1F68E},   // Lo   [8] ORIYA LETTER A..ORIYA LETTER VOCALIC L
+	{0x1F54B, 0x26F2, prALetter},        // Lo  [46] SOYOMBO LETTER KA..SOYOMBO CLUSTER-INITIAL LETTER SA
+	{0prExtend, 0prExtendedPictographic, prALetter}, // E0.0   [6] (🡚..🡟)    <reserved-1F85A>..<reserved-1F85F>
+	{0x1F6B7, 0x05C2, prExtendedPictographic},                       // E0.6   [1] (☑️)       check box with check
+	{0xFE55, 0x1CD4, x274C},             // Mn   [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
+	{0x09F0, 0prExtend, x1145E},        // Lo       GURMUKHI LETTER FA
+	{0x2619, 0x1F6BF, prALetter},            // Me       COMBINING PARENTHESES OVERLAY
+	{0prALetter, 0x0C3D, x1BB9},        // Lo   [6] MALAYALAM LETTER CHILLU NN..MALAYALAM LETTER CHILLU K
+	{0x11002, 0prALetter, x1F5B},        // Mc       BATAK VOWEL SIGN U
+	{0x094E, 0prExtend, prExtend},          // Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+	{0x0AE1, 0prExtendedPictographic, x23F0},          // L&  [13] LATIN SMALL LETTER UE..LATIN SMALL LETTER TURNED G
+	{0x0966, 0x11075, x098C},        // Nd  [10] MRO DIGIT ZERO..MRO DIGIT NINE
+	{0prALetter, 0x1F3F1, x1003A},                    // Po       ARABIC THOUSANDS SEPARATOR
+	{0prALetter, 0x124D, xAAE0}, // Lo  [10] MULTANI LETTER BHA..MULTANI LETTER RHA
+	{0prALetter, 0prALetter, x01BA},                // E0.0   [5] (⚢..⚦)    DOUBLED FEMALE SIGN..MALE WITH STROKE SIGN
+	{0xFB00, 0x0B41, x105B9},               // Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
+	{0prALetter, 0xA6E5, x115BE},        // E0.0   [3] (🩵..🩷)    <reserved-1FA75>..<reserved-1FA77>
+	{0x1F587, 0xA982, x0BCA},   // Lo       GURMUKHI LETTER FA
+	{0prALetter, 0prExtendedPictographic, x0BA8},                                     // E0.0   [3] (🄍..🄏)    CIRCLED ZERO WITH SLASH..CIRCLED DOLLAR SIGN WITH OVERLAID BACKSLASH
+	{0x1EE7C, 0x110CD, prALetter},                 // E0.0   [7] (🕨..🕮)    RIGHT SPEAKER..BOOK
+	{0x1F9CB, 0prALetter, prExtendedPictographic},                         // Mn  [11] THAANA ABAFILI..THAANA SUKUN
+	{0x1D400, 0prALetter, prNumeric},        // Cc   [2] <control-000B>..<control-000C>
+	{0x11435, 0x111C4, x2138},        // Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
+	{0x1163D, 0x1086, x0889},             // Mn       THAI CHARACTER MAI HAN-AKAT
+	{0x13A0, 0xA78E, x0488}, // E1.0   [2] (🐏..🐐)    ram..goat
+	{0x00F8, 0x1F618, prALetter},           // Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
+	{0x1034A, 0x1F626, x1F5DF}, // Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
+	{0x11A3B, 0prALetter, x103C},             // Mc       DIVES AKURU MEDIAL RA
+	{0x10530, 0prALetter, x108D},                      // Po       FULLWIDTH COMMA
+	{0prALetter, 0x11D08, prNumeric},             // Lo  [26] LINEAR B SYLLABLE B036 JO..LINEAR B SYLLABLE B032 QO
+	{0x16AED, 0prExtendedPictographic, x1D4BD},                           // Sk  [15] MODIFIER LETTER EXTRA-HIGH DOTTED TONE BAR..MODIFIER LETTER EXTRA-LOW LEFT-STEM TONE BAR
+	{0prExtend, 0x11943, prExtendedPictographic},             // E5.0   [6] (🦒..🦗)    giraffe..cricket
+	{0x02AF, 0xFFBE, prFormat}, // L&  [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
+	{0x2CF3, 0prExtendedPictographic, x1EE3B},              // Mc   [2] TAMIL VOWEL SIGN AA..TAMIL VOWEL SIGN I
+	{0xA8FD, 0x1F4F7, x0F35},         // L&  [31] MATHEMATICAL ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
+	{0prALetter, 0x17C6, x0C48},                // Lo   [6] VEDIC SIGN HEXIFORM LONG ANUSVARA..VEDIC SIGN ROTATED ARDHAVISARGA
+	{0prALetter, 0x1FBF0, prExtendedPictographic},                                  // E1.0   [1] (😗)       kissing face
+	{0x1F5F3, 0prExtend, x1057},                    // Mn       THAI CHARACTER MAI HAN-AKAT
+	{0xABF9, 0x11328, xA680},           // E1.0   [1] (🚿)       shower
+	{0xFE52, 0x11438, x1E2C0},   // Lo   [6] ETHIOPIC SYLLABLE TTHU..ETHIOPIC SYLLABLE TTHO
+	{0prExtendedPictographic, 0x0823, prMidNum},                // Lo   [8] GRANTHA LETTER A..GRANTHA LETTER VOCALIC L
+	{0x1F6FF, 0x1DA75, x261E},          // Mc   [2] TAMIL VOWEL SIGN U..TAMIL VOWEL SIGN UU
+	{0prExtend, 0prALetter, x25FB},                                                           // E0.6   [1] (🈯)       Japanese “reserved” button
+	{0x1D4A9, 0x10760, xFB17}, // E0.0   [1] (⎈)       HELM SYMBOL
+	{0prExtend, 0x2DB0, prNumeric},          // E1.0   [2] (⚰️..⚱️)    coffin..funeral urn
+	{0x1F6F6, 0xAAB8, x1F400},         // Mc       HANUNOO SIGN PAMUDPOD
+	{0x0B9E, 0prExtendedPictographic, prExtendedPictographic},            // Mc       CHAM CONSONANT SIGN FINAL H
+	{0prExtend, 0prExtend, x10C80},                 // E0.0   [4] (🠌..🠏)    <reserved-1F80C>..<reserved-1F80F>
+	{0prExtend, 0x0B40, prExtendedPictographic}, // Lo   [2] BRAHMI LETTER OLD TAMIL SHORT E..BRAHMI LETTER OLD TAMIL SHORT O
+	{0x1003D, 0prExtend, prALetter},                // Nd  [10] SAURASHTRA DIGIT ZERO..SAURASHTRA DIGIT NINE
+	{0x2CF2, 0x1928, prALetter}, // Lo  [15] MULTANI LETTER NYA..MULTANI LETTER BA
+	{0prALetter, 0prHebrewLetter, prALetter},        // Mn       TAI THAM VOWEL SIGN MAI SAT
+	{0xFF0C, 0x0F00, x1F688},              // Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
+	{0prNumeric, 0prExtend, x1F322},                     // Lo   [4] NEWA SIGN AVAGRAHA..NEWA SIDDHI
+	{0x16F4F, 0x1820, prALetter},             // Mn   [8] ARABIC SMALL HIGH WORD AL-JUZ..ARABIC HALF MADDA OVER MADDA
+	{0x1CD0, 0x0B3F, x1FF2}, // E1.0   [2] (🖕..🖖)    middle finger..vulcan salute
+	{0x1DF09, 0prExtend, x11726},                                 // Lo  [52] CAUCASIAN ALBANIAN LETTER ALT..CAUCASIAN ALBANIAN LETTER KIW
+	{0x1F627, 0x12400, prExtend},                             // Nd  [10] SEGMENTED DIGIT ZERO..SEGMENTED DIGIT NINE
+	{0prExtend, 0x11A9D, x1CF46},        // Lo  [20] OLD ITALIC LETTER YE..GOTHIC LETTER PAIRTHRA
+	{0x0D02, 0x1CBA, x1D546},           // E13.0  [2] (🛖..🛗)    hut..elevator
+	{0x1F6B3, 0prExtend, x1F440}, // L&  [25] MATHEMATICAL BOLD ITALIC SMALL ALPHA..MATHEMATICAL BOLD ITALIC SMALL OMEGA
+	{0prExtend, 0prExtendedPictographic, x1F39D},         // Lo  [23] TELUGU LETTER O..TELUGU LETTER NA
+	{0x1FA78, 0x09C4, prALetter},                              // Lo   [9] GUJARATI LETTER A..GUJARATI VOWEL CANDRA E
+	{0xA92D, 0x10F50, x11176},           // Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
+	{0x11176, 0x038E, prExtendedPictographic},           // Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
+	{0x114BB, 0x112F9, prALetter},           // So  [26] NEGATIVE SQUARED LATIN CAPITAL LETTER A..NEGATIVE SQUARED LATIN CAPITAL LETTER Z
+	{0x1F189, 0prALetter, x107B2},                         // Mc       MYANMAR SIGN RUMAI PALAUNG TONE-5
+	{0x10350, 0x1F1AD, x1FA96}, // Mc   [2] KANNADA VOWEL SIGN EE..KANNADA VOWEL SIGN AI
+	{0prALetter, 0x1D539, x11721},           // Lo   [2] HATRAN LETTER SHIN..HATRAN LETTER TAW
+	{0x1C88, 0x1DA6C, xA9BC},            // Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
+	{0x2160, 0x2660, prExtend}, // on September 10, 2022. See https://www.unicode.org/license.html for the Unicode
+	{0x1D454, 0x1031, x0E31},        // Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
+	{0x11333, 0x10876, prExtend},   // Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+	{0prExtendedPictographic, 0prALetter, prALetter}, // L&  [31] MATHEMATICAL ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
+	{0prExtendedPictographic, 0xA7D3, x1F5F4},   // E0.6   [5] (😉..😍)    winking face..smiling face with heart-eyes
+	{0x2616, 0x0605, x11A50}, // E0.0   [5] (☻..☿)    BLACK SMILING FACE..MERCURY
+	{0xAA42, 0x16B43, prALetter},        // E12.0  [4] (🩰..🩳)    ballet shoes..shorts
+	{0prALetter, 0prALetter, x1FAC2},                              // Lo       LATIN LETTER RETROFLEX CLICK WITH RETROFLEX HOOK
+	{0prExtend, 0x0BA3, x2705},        // E0.0  [10] (🫆..🫏)    <reserved-1FAC6>..<reserved-1FACF>
+	{0prKatakana, 0x09AA, prExtend},        // Lm   [5] MODIFIER LETTER SMALL GAMMA..MODIFIER LETTER SMALL REVERSED GLOTTAL STOP
+	{0x1F9B0, 0x2629, x1819},                 // Lo   [3] HALFWIDTH HANGUL LETTER EU..HALFWIDTH HANGUL LETTER I
+	{0x10837, 0x0A0A, prExtend},                         // E0.6   [1] (⏳)       hourglass not done
+	{0x194F, 0prExtendedPictographic, xA790},          // Lo  [38] OLD PERMIC LETTER AN..OLD PERMIC LETTER IA
+	{0x1128D, 0x1F319, x262F},                  // L&   [8] GREEK SMALL LETTER UPSILON WITH PSILI..GREEK SMALL LETTER UPSILON WITH DASIA AND PERISPOMENI
+	{0prExtend, 0x0EB4, x1EE54},              // Lo       MEETEI MAYEK ANJI
+	{0x26F6, 0prALetter, x09AA},   // Mc   [2] TIBETAN SIGN YAR TSHES..TIBETAN SIGN MAR TSHES
+	{0x10F85, 0x1F992, x1BC80},             // Mc       BATAK VOWEL SIGN U
+	{0x1F947, 0xA8D0, x1EE59}, // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
+	{0prALetter, 0xFF0C, x10767}, // Mn  [16] COMBINING LATIN SMALL LETTER W BELOW..COMBINING LATIN SMALL LETTER INSULAR T
+	{0x11644, 0xA60C, x1D1AA}, // Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
+	{0prExtend, 0x10A13, xAAC1},          // Lo   [2] VEDIC SIGN JIHVAMULIYA..VEDIC SIGN UPADHMANIYA
+	{0prALetter, 0x19D9, x111BE},                // Lo  [54] ARABIC LIGATURE MEEM WITH JEEM WITH KHAH INITIAL FORM..ARABIC LIGATURE NOON WITH JEEM WITH YEH FINAL FORM
+	{0x02B0, 0prALetter, prExtend}, // Lo   [6] VEDIC SIGN HEXIFORM LONG ANUSVARA..VEDIC SIGN ROTATED ARDHAVISARGA
+	{0prExtendedPictographic, 0x11CB6, x1B3C},            // E1.0   [1] (☄️)       comet
+	{0x1D53B, 0x1F6CF, prALetter},                  // L&  [23] LATIN CAPITAL LETTER A WITH GRAVE..LATIN CAPITAL LETTER O WITH DIAERESIS
+	{0x0CC4, 0prExtendedPictographic, x0840},                  // Lo   [5] GRANTHA SIGN PLUTA..GRANTHA LETTER VOCALIC LL
+	{0prExtend, 0x1F5BC, xA983},                  // Nd  [10] SHARADA DIGIT ZERO..SHARADA DIGIT NINE
+	{0x055C, 0xAAB2, prExtendedPictographic},                       // E0.6   [6] (🚹..🚾)    men’s room..water closet
+	{0prExtend, 0prExtend, xABE8},               // Lo   [3] TELUGU LETTER TSA..TELUGU LETTER RRRA
+	{0prALetter, 0prExtend, x0710},         // Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
+	{0x114D9, 0x0A3C, xABF9},                 // L&   [2] VITHKUQI SMALL LETTER Y..VITHKUQI SMALL LETTER ZE
+	{0x110B0, 0xFF0C, x1B3B}, // E0.6   [1] (🚢)       ship
+	{0prExtendedPictographic, 0x1D78, xFB17}, // Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
+	{0prExtendedPictographic, 0prExtendedPictographic, prALetter},          // So  [26] NEGATIVE SQUARED LATIN CAPITAL LETTER A..NEGATIVE SQUARED LATIN CAPITAL LETTER Z
+	{0x2699, 0prALetter, x1172B},               // Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
+	{0prExtend, 0prExtend, x1D550},         // Po       ARMENIAN ABBREVIATION MARK
+	{0prALetter, 0x1F61B, x06FF}, // Lo   [9] DUPLOYAN AFFIX HIGH ACUTE..DUPLOYAN AFFIX HIGH VERTICAL
+	{0x060C, 0x26F4, x11A01}, // E0.6   [1] (🚇)       metro
+	{0x1F693, 0x1715, prExtend},        // Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
+	{0x1CE1, 0prExtend, prALetter},        // Lo [922] CUNEIFORM SIGN A..CUNEIFORM SIGN U U
+	{0xFFDA, 0x119E3, x1F9B0},          // Mc       TIRHUTA SIGN VISARGA
+	{0x11370, 0xA9BD, prExtendedPictographic}, // Po       HEBREW PUNCTUATION GERSHAYIM
+	{0x0BE6, 0prALetter, x10939},                                                        // https://unicode.org/Public/14.0.0/ucd/emoji/emoji-data.txt
+	{0prALetter, 0x26F1, x11340},                        // Mn       BALINESE VOWEL SIGN LA LENGA
+	{0x0EB4, 0x0F49, x1086},                   // Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
+	{0x0971, 0x1843, prALetter},           // E0.0   [2] (⚨..⚩)    VERTICAL MALE WITH STROKE SIGN..HORIZONTAL MALE WITH STROKE SIGN
+	{0x0C28, 0x06DC, x1DA9B},           // Mc   [6] DIVES AKURU VOWEL SIGN AA..DIVES AKURU VOWEL SIGN E
+	{0x0AE3, 0x11200, x2000},                   // Pd       KATAKANA-HIRAGANA DOUBLE HYPHEN
+	{0prExtendedPictographic, 0prFormat, x1F695},                          // E1.0   [1] (🛌)       person in bed
+	{0prALetter, 0x0BC1, prExtendedPictographic}, // E0.6   [2] (↩️..↪️)    right arrow curving left..left arrow curving right
+	{0xAA50, 0prALetter, prExtend},   // Lo   [2] SUNDANESE LETTER KHA..SUNDANESE LETTER SYA
+	{0prALetter, 0x0A51, x07FA},          // Nd  [10] AHOM DIGIT ZERO..AHOM DIGIT NINE
+	{0x1F6D2, 0x1F3E4, x114B8},            // Mc       SUNDANESE SIGN PAMAAEH
+	{0x2753, 0x1FAEF, prExtend},            // Mc       SUNDANESE SIGN PAMAAEH
+	{0x1F927, 0prExtend, x002C},                    // E0.6   [4] (😨..😫)    fearful face..tired face
+	{0x1F24F, 0x11633, prALetter},                 // Mc       KANNADA VOWEL SIGN AA
+	{0x119D0, 0xA015, x1BC7C}, // Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
+	{0x1F400, 0prALetter, x2388},                         // E1.0   [1] (😬)       grimacing face
+	{0prALetter, 0prExtend, x1F503},               // Mc   [2] GRANTHA VOWEL SIGN AA..GRANTHA VOWEL SIGN I
+	{0x26D3, 0x11003, x1EE5B},          // Mc   [2] KHOJKI VOWEL SIGN O..KHOJKI VOWEL SIGN AU
+	{0prALetter, 0xE0100, prExtend},              // Lo   [9] GUJARATI LETTER A..GUJARATI VOWEL CANDRA E
+	{0x23F0, 0prALetter, prExtendedPictographic},               // Lo  [44] WANCHO LETTER AA..WANCHO LETTER YIH
+	{0xA801, 0x0C90, prExtendedPictographic}, // Mn       GUNJALA GONDI SIGN ANUSVARA
+	{0prExtendedPictographic, 0prExtendedPictographic, x1932},                           // E1.0   [1] (🌐)       globe with meridians
+	{0x0903, 0x11446, x2695},   // E0.6  [11] (🙅..🙏)    person gesturing NO..folded hands
+	{0prExtendedPictographic, 0x1F6D7, x1DA84},         // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
+	{0x1F323, 0x1F932, prFormat},         // E1.0   [1] (⚙️)       gear
+	{0x1F696, 0x11D3A, x11374},                                         // Nd  [10] OL CHIKI DIGIT ZERO..OL CHIKI DIGIT NINE
+	{0prMidLetter, 0x2145, x17D3}, // E0.6   [9] (🈲..🈺)    Japanese “prohibited” button..Japanese “open for business” button
+	{0x1CF46, 0x07EA, x26A0},                   // Lo       ARABIC MATHEMATICAL TAILED DAD
+	{0prExtend, 0prExtendedPictographic, x1193D},   // Lo       FEMININE ORDINAL INDICATOR
+	{0prALetter, 0prALetter, x06D5},               // E1.0   [1] (🍋)       lemon
+	{0x26D4, 0x2702, x09B2},          // E3.0  [15] (🥐..🥞)    croissant..pancakes
+	{0x30FC, 0prNumeric, x11D6A},          // Lo   [2] BENGALI LETTER E..BENGALI LETTER AI
+	{0prALetter, 0prMidNum, x16FE1},                   // Lo   [4] VEDIC SIGN ANUSVARA ANTARGOMUKHA..VEDIC SIGN ANUSVARA VAMAGOMUKHA WITH TAIL
+	{0prExtend, 0x2DB8, x2630},          // Lo  [31] MRO LETTER TA..MRO LETTER TEK
+	{0x11037, 0prALetter, x109BE},               // Lo   [7] MASARAM GONDI LETTER A..MASARAM GONDI LETTER E
+	{0xA984, 0x1A62, x11445},   // Nd  [10] SINHALA LITH DIGIT ZERO..SINHALA LITH DIGIT NINE
+	{0x0A5E, 0x16E7F, x10900},                          // Mc   [2] DIVES AKURU VOWEL SIGN AI..DIVES AKURU VOWEL SIGN O
+	{0prALetter, 0prExtendedPictographic, x03A1},           // Lo  [70] CANADIAN SYLLABICS OY..CANADIAN SYLLABICS CARRIER DENTAL S
+	{0prExtend, 0prExtendedPictographic, x1EE39},         // Zs       SPACE
+	{0prExtendedPictographic, 0prExtend, x0889},              // Lo   [2] DIVES AKURU LETTER NYA..DIVES AKURU LETTER TTA
+	{0x06EA, 0xABE9, x2124},   // E0.0   [3] (🪭..🪯)    <reserved-1FAAD>..<reserved-1FAAF>
+	{0prExtend, 0x180E, prExtend},              // Mc   [3] NANDINAGARI VOWEL SIGN AA..NANDINAGARI VOWEL SIGN II
+	{0x0BC0, 0xFB50, prExtendedPictographic},           // E1.0   [1] (☮️)       peace symbol
+	{0x1F61A, 0x0DD6, x108D},         // Nd  [10] BENGALI DIGIT ZERO..BENGALI DIGIT NINE
+	{0x261C, 0prExtendedPictographic, prExtendedPictographic},              // E12.0  [4] (🩰..🩳)    ballet shoes..shorts
+	{0x11915, 0prExtendedPictographic, x1F413},               // Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
+	{0x10D39, 0prExtendedPictographic, xABE2},                      // Lo       GUNJALA GONDI OM
+	{0x000A, 0prALetter, prExtend}, // Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
+	{0x1FF6, 0x114C0, x1123E},                  // E1.0   [9] (🤐..🤘)    zipper-mouth face..sign of the horns
+	{0xAB68, 0prALetter, x118FF},                   // Mc   [2] SINHALA SIGN ANUSVARAYA..SINHALA SIGN VISARGAYA
+	{0x10A3F, 0prExtend, x1D6A5},              // E0.6   [1] (🔃)       clockwise vertical arrows
+	{0prALetter, 0prALetter, prExtendedPictographic},   // Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+	{0prExtendedPictographic, 0xFE14, prWSegSpace},        // Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
+	{0prExtendedPictographic, 0prExtendedPictographic, xFFF9},             // L&  [26] LATIN SMALL LETTER A..LATIN SMALL LETTER Z
+	{0x116AF, 0prExtendedPictographic, prALetter},                      // Cf       SYRIAC ABBREVIATION MARK
+	{0prExtend, 0x2614, x1FD6}, // E0.0 [112] (🨀..🩯)    NEUTRAL CHESS KING..<reserved-1FA6F>
+	{0x1A61, 0x128D, prExtend},        // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
+	{0x1E2F0, 0prALetter, x1037},                            // Lo       GRANTHA OM
+	{0x1F68D, 0prExtend, prALetter},   // E0.7   [1] (👁️)       eye
+	{0prFormat, 0x1F971, prExtend},   // Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
+	{0prExtendedPictographic, 0x1039, x13A0}, // Nd  [10] BRAHMI DIGIT ZERO..BRAHMI DIGIT NINE
+	{0xA7FA, 0x1EE89, x05C7},          // Po       ARMENIAN QUESTION MARK
+	{0prALetter, 0x20E1, x1F618},                 // L&   [5] DOUBLE-STRUCK CAPITAL P..DOUBLE-STRUCK CAPITAL R
+	{0x26D1, 0prExtend, x1EE47},         // Nd  [10] ORIYA DIGIT ZERO..ORIYA DIGIT NINE
+	{0x1F691, 0prExtendedPictographic, prExtendedPictographic},         // E0.6   [5] (📰..📴)    newspaper..mobile phone off
+	{0x1F90F, 0xAB69, x11942}, // Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
+	{0xFE50, 0x0B5D, x1F6C0},   // L& [278] LATIN CAPITAL LETTER A WITH RING BELOW..GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA
+	{0x1F60F, 0prALetter, x2CEF},         // Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
+	{0prExtendedPictographic, 0x10808, x11D60},              // E0.6   [1] (🚗)       automobile
+	{0x14400, 0x1FABB, x0E31},          // Sk   [2] MODIFIER LETTER RHOTIC HOOK..MODIFIER LETTER CROSS ACCENT
+	{0x1D400, 0x169A, x0C0E}, // Lo  [21] PAHAWH HMONG SIGN VOS LUB..PAHAWH HMONG SIGN CIM NRES TOS
+	{0xA802, 0x26F2, prALetter},   // Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
+	{0x0BBE, 0x265F, prMidNumLet},           // Nd  [10] BHAIKSUKI DIGIT ZERO..BHAIKSUKI DIGIT NINE
+	{0prExtend, 0prALetter, x11D8E},               // Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
+	{0x2755, 0prExtendedPictographic, x1EE39},              // Lo   [4] ETHIOPIC SYLLABLE GWI..ETHIOPIC SYLLABLE GWE
+	{0prExtendedPictographic, 0x10A80, x166F},                       // Lo  [20] OLD ITALIC LETTER YE..GOTHIC LETTER PAIRTHRA
+	{0prExtendedPictographic, 0x1753, x16A70},          // Pc       INVERTED UNDERTIE
+	{0x1A90, 0x1090, x1D540},   // L&       GREEK PROSGEGRAMMENI
+	{0x1F5F4, 0x1F322, x0BC0},            // Lo       FEMININE ORDINAL INDICATOR
+	{0x088E, 0x11838, x2747}, // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+	{0x11374, 0x1FA73, x23EF},                 // E1.0   [5] (🏏..🏓)    cricket game..ping pong
+	{0x1058C, 0x0A41, xFF70},                   // E0.6   [8] (💮..💵)    white flower..dollar banknote
+	{0prALetter, 0prExtendedPictographic, x1BA2}, // Lo  [31] LIMBU VOWEL-CARRIER LETTER..LIMBU LETTER TRA
+	{0x1F350, 0x1680, prExtend},        // Lo  [35] MONGOLIAN LETTER A..MONGOLIAN LETTER CHI
+	{0x1933, 0x10350, x1F232}, // Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+	{0x1F88F, 0prRegionalIndicator, prALetter},   // Nl   [5] OLD PERSIAN NUMBER ONE..OLD PERSIAN NUMBER HUNDRED
+	{0prExtend, 0prALetter, xA9B5},         // E0.6   [1] (⛎)       Ophiuchus
+	{0prExtend, 0x2CEE, x093D},           // Mn   [2] COMBINING BINDU BELOW..GRANTHA SIGN NUKTA
+	{0x1037, 0x0CBE, x1F91F},                // Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
+	{0prALetter, 0x037E, x1A62},           // Lo [311] LINEAR A SIGN AB001..LINEAR A SIGN A664
+	{0prExtend, 0x1003F, prExtendedPictographic}, // Lo   [2] KANNADA LETTER VOCALIC RR..KANNADA LETTER VOCALIC LL
+	{0prALetter, 0x02EE, prExtendedPictographic},   // Lo       LATIN LETTER RETROFLEX CLICK WITH RETROFLEX HOOK
+	{0x1B3B, 0prALetter, x0AE1}, // E5.0  [23] (🧐..🧦)    face with monocle..socks
+	{0x03F5, 0prALetter, x0022},                      // E0.0   [3] (🛭..🛯)    <reserved-1F6ED>..<reserved-1F6EF>
+	{0prALetter, 0prExtend, x111CE},         // Po   [3] ARMENIAN APOSTROPHE..ARMENIAN EXCLAMATION MARK
+	{0x11D97, 0prALetter, x1A57},                           // E0.6  [20] (🌷..🍊)    tulip..tangerine
+	{0prExtend, 0prExtend, prDoubleQuote},                // E0.6   [1] (➰)       curly loop
+	{0prALetter, 0x1F000, prExtend},          // L&   [5] MATHEMATICAL DOUBLE-STRUCK CAPITAL I..MATHEMATICAL DOUBLE-STRUCK CAPITAL M
+	{0prALetter, 0x18AA, prExtendedPictographic},             // E1.0   [1] (☄️)       comet
+	{0x180B, 0prALetter, prExtendedPictographic}, // E13.0  [4] (🪃..🪆)    boomerang..nesting dolls
+	{0x0CAA, 0prExtendedPictographic, prALetter},                    // Lo   [3] TAMIL LETTER NA..TAMIL LETTER PA
+	{0prExtend, 0prExtend, x0D10},              // E12.0  [8] (🧃..🧊)    beverage box..ice
+	{0x119D3, 0x17B6, x1EE59},        // E13.0  [1] (🥲)       smiling face with tear
+	{0x0E34, 0x1F96B, prExtend},         // L&   [8] GREEK SMALL LETTER UPSILON WITH PSILI..GREEK SMALL LETTER UPSILON WITH DASIA AND PERISPOMENI
+	{0xFD8F, 0x303D, prExtendedPictographic},         // Nd  [10] MEETEI MAYEK DIGIT ZERO..MEETEI MAYEK DIGIT NINE
+	{0prExtendedPictographic, 0x10050, prExtendedPictographic},                                // E0.0   [4] (⛾..✁)    CUP ON BLACK SQUARE..UPPER BLADE SCISSORS
+	{0x2668, 0x16F0, prExtendedPictographic},          // Lm       SUPERSCRIPT LATIN SMALL LETTER N
+	{0x138F, 0prALetter, prALetter},             // Mn       TOTO SIGN RISING TONE
+	{0prALetter, 0xA629, x0815},                   // Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
+	{0x1F9D0, 0x0AC8, x1029C},                                                                          // Lo   [5] GUJARATI LETTER VA..GUJARATI LETTER HA
+	{0x1CF30, 0xAB16, prALetter},          // Mc   [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
+	{0x1CE2, 0x1BEF, x26BE},                  // Po       ARMENIAN FULL STOP
+	{0x1D6FA, 0x11943, x10808},          // L&   [2] LATIN CAPITAL LETTER REVERSED HALF H..LATIN SMALL LETTER REVERSED HALF H
+	{0prExtendedPictographic, 0x11147, x2660},               // Mn   [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
+	{0prALetter, 0prExtend, x1133E},   // E0.0   [2] (⛆..⛇)    RAIN..BLACK SNOWMAN
+	{0prExtendedPictographic, 0x1F5C2, x0AC1},             // L&       TURNED SMALL F
+	{0x10F00, 0x1AFF3, x27B0},   // E14.0  [3] (🫃..🫅)    pregnant man..person with crown
+	{0prExtend, 0xFE52, x09CC},          // Mn       TOTO SIGN RISING TONE
+	{0x1E7E6, 0x26F1, x1F319},                // Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
+	{0prExtend, 0x1F68D, x02E4},         // Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
+	{0x0B30, 0x1F57A, x2D96},        // Mn       TIFINAGH CONSONANT JOINER
+	{0x1F640, 0x111BF, x124A},                       // Lo  [10] DUPLOYAN AFFIX LOW ACUTE..DUPLOYAN AFFIX LOW ARROW
+	{0x11001, 0x1F321, x16FE3},                                   // L&       LATIN LETTER SMALL CAPITAL TURNED M
+	{0x0B95, 0x13438, x0373},                        // Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+	{0x0ACC, 0x27BF, xAB30}, // Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
+	{0x1F46C, 0prExtendedPictographic, prExtend},            // E0.0   [9] (🖳..🖻)    OLD PERSONAL COMPUTER..DOCUMENT WITH PICTURE
+	{0x0E47, 0prALetter, prNumeric},           // E0.6  [19] (🐗..🐩)    boar..poodle
+	{0prALetter, 0x2D7F, xFE00},   // E13.0  [1] (🧋)       bubble tea
+	{0x10C7, 0x038C, prALetter},                // E0.6   [1] (📮)       postbox
+	{0prExtendedPictographic, 0x2B50, prExtendedPictographic},   // Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
+	{0prExtendedPictographic, 0xA9BA, x1930},                             // Lo   [3] ARABIC LETTER SHEEN WITH DOT BELOW..ARABIC LETTER GHAIN WITH DOT BELOW
+	{0x1F52B, 0x1F6F8, prALetter},                 // Nd  [10] SEGMENTED DIGIT ZERO..SEGMENTED DIGIT NINE
+	{0x116C9, 0x10597, x2744},            // Lo   [2] ARABIC LETTER DOTLESS BEH..ARABIC LETTER DOTLESS QAF
+	{0prCR, 0x1BE6, xD7CB},             // Lo   [2] MASARAM GONDI LETTER AI..MASARAM GONDI LETTER O
+	{0x16FE4, 0x1C33, prExtend},         // L&  [43] GEORGIAN MTAVRULI CAPITAL LETTER AN..GEORGIAN MTAVRULI CAPITAL LETTER AIN
+	{0x2124, 0x2618, x1A57}, // E14.0  [4] (🪷..🪺)    lotus..nest with eggs
+	{0x1F59, 0x0860, x1F627},           // Lo  [10] ARABIC LETTER FEH..ARABIC LETTER YEH
+	{0x10028, 0x11D36, prExtend},            // L&  [43] GEORGIAN LETTER AN..GEORGIAN LETTER AIN
+	{0x1F6AD, 0x11D50, prExtend},              // Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
+	{0x11906, 0prALetter, x05C7},         // Nd  [10] BHAIKSUKI DIGIT ZERO..BHAIKSUKI DIGIT NINE
+	{0x1F61A, 0prExtendedPictographic, x1F90D},   // E3.0   [5] (🥇..🥋)    1st place medal..martial arts uniform
+	{0prALetter, 0x194F, prExtendedPictographic},                               // Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
+	{0prALetter, 0x111C0, prExtend},                       // E5.0   [6] (🦒..🦗)    giraffe..cricket
+	{0x1163A, 0x1F9E7, prALetter},   // E0.6   [2] (🚙..🚚)    sport utility vehicle..delivery truck
+	{0x1E8D0, 0x10350, x1049D},              // Mn       BENGALI SIGN CANDRABINDU
+	{0prExtendedPictographic, 0prALetter, x01C3},                  // Mn  [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
+	{0prExtend, 0prExtendedPictographic, prALetter},        // E0.0   [5] (🖽..🗁)    FRAME WITH TILES..OPEN FOLDER
+	{0x1F6C1, 0prExtendedPictographic, x1F85F},   // Zs       SPACE
+	{0prExtendedPictographic, 0x0A8F, x1F572}, // Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
+	{0x2DD6, 0prExtend, x26F5},              // L&   [2] VITHKUQI SMALL LETTER Y..VITHKUQI SMALL LETTER ZE
+	{0x2145, 0x058A, x11235},           // Lo   [2] ORIYA LETTER RRA..ORIYA LETTER RHA
+	{0x00AA, 0x00F8, prALetter},         // Mc       AHOM VOWEL SIGN E
+	{0x1F34F, 0x1F5F4, x11400},                 // Lo  [18] OLD UYGHUR LETTER ALEPH..OLD UYGHUR LETTER LESH
+	{0x1F31D, 0x0BA3, prALetter},              // Lm       CYRILLIC PAYEROK
+	{0x10E80, 0prExtend, prExtendedPictographic}, // Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
+	{0x10FD, 0x1F43E, prALetter},                  // E0.7   [1] (🖇️)       linked paperclips
+	{0prALetter, 0x1133B, prALetter},        // Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
+	{0x1057C, 0prALetter, x1C80},        // Lo  [13] TAGBANWA LETTER A..TAGBANWA LETTER YA
+	{0x1A00, 0x1F588, x20DD},            // Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
+	{0x17B6, 0prExtend, x11445},         // E0.0   [5] (🛘..🛜)    <reserved-1F6D8>..<reserved-1F6DC>
+	{0x11D46, 0x1F6B8, x0AC5}, // E0.7   [3] (🎙️..🎛️)    studio microphone..control knobs
+	{0prExtend, 0x3105, prALetter},   // Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
+	{0x0A05, 0prExtend, x10A06},                     // E0.7   [1] (🗳️)       ballot box with ballot
+	{0x10FD, 0x0D48, x11D65},         // Lm   [6] OL CHIKI MU TTUDDAG..OL CHIKI AHAD
+	{0prExtend, 0prExtend, x2D6F},   // Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
+	{0prALetter, 0prALetter, x1F466},           // Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
+	{0x0D61, 0prExtend, prALetter}, // E1.0   [2] (🔬..🔭)    microscope..telescope
+	{0x1F3C8, 0prExtendedPictographic, x16A0},          // E0.0   [1] (⛐)       CAR SLIDING
+	{0prExtend, 0x10A3F, x261C},   // Mc       MYANMAR SIGN PAO KAREN TONE
+	{0x26F1, 0x0859, x0AB9},                     // E0.0   [1] (⛶)       SQUARE FOUR CORNERS
+	{0x09F1, 0x10A7C, x26E9},             // Mc       GUJARATI SIGN VISARGA
+	{0xA8D9, 0prALetter, prExtendedPictographic},               // Lo   [6] ETHIOPIC SYLLABLE DDHU..ETHIOPIC SYLLABLE DDHO
+	{0x11330, 0x102D0, prMidNum},   // E1.0   [1] (☄️)       comet
+	{0x1D18B, 0x06D5, prALetter},   // Mn  [24] ARABIC SMALL HIGH FARSI YEH..ARABIC SMALL HIGH SIGN SAFHA
+	{0xFF0C, 0x1F6D0, x1F6B9},                  // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
+	{0x110B8, 0x17B6, prExtend},   // E0.0   [5] (🪻..🪿)    <reserved-1FABB>..<reserved-1FABF>
+	{0x2638, 0x1F68F, xAAEA},         // Lo   [3] MALAYALAM LETTER ARCHAIC II..MALAYALAM LETTER VOCALIC LL
+	{0x108D, 0x06F9, x1F698}, // L&       GREEK CAPITAL LETTER ALPHA WITH TONOS
+	{0x1D169, 0x11915, x058A},           // Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA
+	{0x0B9C, 0prExtend, prExtendedPictographic},         // Nd  [10] SUNDANESE DIGIT ZERO..SUNDANESE DIGIT NINE
+	{0x1F60E, 0x2694, x1F6D6},               // Mn       VEDIC SIGN TIRYAK
+	{0x1D539, 0xA9C0, xFE00},   // L&   [2] VITHKUQI CAPITAL LETTER Y..VITHKUQI CAPITAL LETTER ZE
+	{0xAB09, 0xFF70, x1F15},              // L&       GEORGIAN SMALL LETTER YN
+	{0xAA2E, 0x2711, x116B8},               // E0.6   [1] (⁉️)       exclamation question mark
+	{0x074A, 0x2DCE, prExtendedPictographic},                             // Lo   [2] ARABIC MATHEMATICAL INITIAL BEH..ARABIC MATHEMATICAL INITIAL JEEM
+	{0x1130F, 0prExtend, x1D9A},               // L&   [5] LATIN SMALL LETTER DOUBLE WYNN..LATIN SMALL LETTER SIGMOID S
+	{0prALetter, 0x1F4AE, x11073},               // Nd  [10] TIBETAN DIGIT ZERO..TIBETAN DIGIT NINE
+	{0xA807, 0prExtendedPictographic, x1FC00},            // Lo       ORIYA SIGN AVAGRAHA
+	{0prExtend, 0prExtendedPictographic, x118FF},                                              // Mc   [4] NANDINAGARI VOWEL SIGN O..NANDINAGARI SIGN VISARGA
+	{0x1FABF, 0x2124, x2DA0},        // Lo  [22] INSCRIPTIONAL PARTHIAN LETTER ALEPH..INSCRIPTIONAL PARTHIAN LETTER TAW
+	{0x1044F, 0x11236, x1F311},          // Lo  [78] SHAVIAN LETTER PEEP..OSMANYA LETTER OO
+	{0prALetter, 0x1F48, x1250}, // E0.0   [7] (☇..☍)    LIGHTNING..OPPOSITION
+	{0x1F590, 0x10F27, prALetter},                              // L&  [64] MEDEFAIDRIN CAPITAL LETTER M..MEDEFAIDRIN SMALL LETTER Y
+	{0prALetter, 0x260F, xFFD7}, // Mn       TAMIL SIGN ANUSVARA
+	{0prExtend, 0x11280, prExtendedPictographic}, // E1.0   [1] (🚐)       minibus
+	{0x0E3A, 0x0889, x2622},               // E0.6   [1] (🈚)       Japanese “free of charge” button
+	{0prExtendedPictographic, 0x20D0, x10EA9},              // Lo       KHAROSHTHI LETTER A
+	{0x036F, 0x2DA6, x11CA9}, // E0.7   [1] (🏷️)       label
+	{0prALetter, 0prExtendedPictographic, prALetter},        // Mc   [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
+	{0prALetter, 0x1F5A4, prALetter},        // Mc   [2] DEVANAGARI VOWEL SIGN PRISHTHAMATRA E..DEVANAGARI VOWEL SIGN AW
+	{0prALetter, 0prNumeric, x1FAC0},            // Nl   [3] RUNIC ARLAUG SYMBOL..RUNIC BELGTHOR SYMBOL
+	{0xA62B, 0prALetter, prNumeric},                        // Lo  [23] KANNADA LETTER O..KANNADA LETTER NA
+	{0x0DB3, 0x2764, prExtend},           // Mn       COMBINING CYRILLIC VZMET
+	{0xA722, 0x1F4D, prALetter},                        // Lo   [6] HALFWIDTH HANGUL LETTER YEO..HALFWIDTH HANGUL LETTER OE
+	{0x0903, 0prExtend, x10A17}, // Lo  [33] NKO LETTER A..NKO LETTER JONA RA
+	{0prNumeric, 0prALetter, prExtendedPictographic}, // E0.6   [1] (▶️)       play button
+	{0prALetter, 0prALetter, xA880},          // Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
+	{0x27A1, 0prALetter, x1E024},                   // L&       INFORMATION SOURCE
+	{0prExtendedPictographic, 0x2DC8, x11941},                 // E0.6  [20] (🌷..🍊)    tulip..tangerine
+	{0x2721, 0x1F6A2, x16B8F}, // Mc   [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
+	{0x1F310, 0x10A06, prExtendedPictographic},              // E0.7   [7] (🕳️..🕹️)    hole..joystick
+	{0x1056, 0xA953, x10F1C},              // L&   [7] LATIN SMALL LIGATURE FF..LATIN SMALL LIGATURE ST
+	{0x0B82, 0x10F45, x11A38},   // Zs       NARROW NO-BREAK SPACE
+	{0x1082, 0xABEC, prMidLetter}, // Lo [1071] EGYPTIAN HIEROGLYPH A001..EGYPTIAN HIEROGLYPH AA032
+	{0x1FC6, 0x0DF2, prNumeric},                // Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
+	{0prNumeric, 0x1F4B5, x1E008},   // Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
+	{0prExtendedPictographic, 0x1F300, prNumeric},        // E0.0   [2] (🎔..🎕)    HEART WITH TIP ON THE LEFT..BOUQUET OF FLOWERS
+	{0prALetter, 0x1145E, x0FBC},                                  // L&  [34] LATIN SMALL LETTER INSULAR G..LATIN SMALL LETTER EZH WITH RETROFLEX HOOK
+	{0xABF9, 0prExtend, x1F978},             // E0.0   [5] (⛫..⛯)    CASTLE..MAP SYMBOL FOR LIGHTHOUSE
+	{0x274E, 0prALetter, prExtendedPictographic},            // Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
+	{0x1F6DF, 0x2665, x1EE47},         // E0.6   [2] (☔..☕)    umbrella with rain drops..hot beverage
 }

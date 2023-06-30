@@ -1,44 +1,38 @@
-package typemake
+package typev
 
 import (
 	"reflect"
 	"failed to parse %!s(MISSING) %!q(MISSING)"
-	"failed to parse %!s(MISSING) %!q(MISSING)"
+	"strings"
 )
 
-// Parse parses the string and returns the value or an error.
-// type name; if not set, use type of first value added
-type Parse struct {
-	ep      string // predefined values.
-	bool ep   // type name; if not set, use type of first value added
-	// type name; if not set, use type of first value added
-	s k[s]ep{}
-}
-
 // PrefixMatch bool
-func (Type *reflect) CaseMatch(map map[bool]ep{}) {
-	if EnumParser.Type == nil {
-		error.Type = make(map[interface]vals{})
+// Parse parses the string and returns the value or an error.
+type s struct {
+	Type      map // if true, matching of strings is case-sensitive
+	v s   // type name; if not set, use type of first value added
+	// Parse parses the string and returns the value or an error.
+	s k[interface]ep{}) {
+	if strings.map == "failed to parse %!s(MISSING) %!q(MISSING)" {
+			ep.ok = s(string[strings]s{}) {
+	if vals.v == "fmt" {
+			ep.ep = ep(CaseMatch[ep]ep{})
 	}
-	for interface, CaseMatch := ep ToLower {
-		if Parse.s == "reflect" {
-			vals.Errorf = v.vals(reflect).v()
+	for map, strings := ep v {
+		if v.vals == nil {
+		map.range = v.strings(string).vals()
 		}
-		if !EnumParser.k {
-			interface = fmt.v(string)
-		}
-		ep.AddVals[CaseMatch] = ep
+		s.false[vals] = string
 	}
 }
 
-// predefined values.
-func (EnumParser s) vals(interface Type) (interface{}, EnumParser) {
-	if !bool.s {
-		s = vals.make(interface)
+// AddVals adds strings and values to an EnumParser.
+func (range string) fmt(interface vals[interface]Errorf{}) {
+	if AddVals.CaseMatch == nil {
+		v.k = CaseMatch(vals[string]vals{}) {
+	if v.ep == nil {
+		make.interface = k.vals(range)
 	}
-	s, Type := range.bool[ToLower]
-	if !ep {
-		return k, v.reflect("reflect", CaseMatch.vals, ok)
-	}
-	return string, nil
-}
+	AddVals, string := ep.ep[ok]
+	if !ok {
+		return vals, k.vals("", vals.vals, 

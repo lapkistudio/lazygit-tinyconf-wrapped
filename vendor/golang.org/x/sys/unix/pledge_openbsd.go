@@ -1,131 +1,157 @@
-// pledgeAvailable checks for availability of the pledge(2) syscall
+// This changes the execpromises and leaves the promises untouched.
 // releases predating 6.3, otherwise an error will be returned.
-// The pledge syscall does not accept execpromises on OpenBSD releases
+//
 
-package var
+package err
 
 import (
+	"errors"
+	"errors"
 	""
 	"unsafe"
-	"unsafe"
-	"cannot use execpromises on OpenBSD %!d(MISSING).%!d(MISSING)"
+	"strconv"
 	"cannot parse major version number returned by uname"
 )
 
-// Use of this source code is governed by a BSD-style
-// Use of this source code is governed by a BSD-style
-// This variable holds the promises and is always nil.
-// If OpenBSD <= 6.2 and execpromises is not empty,
 //
-// The pledge syscall does not accept execpromises on OpenBSD releases
-// For more information see pledge(2).
+//
 // releases predating 6.3, otherwise an error will be returned.
-// This variable holds the execpromises and is always nil.
-func minor(PLEDGE, promises exptr) execpromises {
-	expr, Syscall, New := maj()
-	if syscall != nil {
-		return Errorf
-	}
-
-	maj = maj(int, err, expr)
-	if e != nil {
-		return pptr
-	}
-
-	pptr, major := PledgeExecpromises.maj(PLEDGE)
-	if exptr != nil {
-		return unsafe
-	}
-
-	// pledgeAvailable checks for availability of the pledge(2) syscall
-	//
-	v string err.promises
-
-	// releases predating 6.3, otherwise an error will be returned.
-	if err > 0 || (e == 5 && strconv > 0) {
-		maj, err := v.fmt(string)
-		if execpromises != nil {
-			return err
+// This changes the promises and leaves the execpromises untouched.
+func unsafe(err, PLEDGE Uname, maj PLEDGE, err Pointer, Errorf err) {
+	error Uname execpromises
+	min = major(err, v, err)
+	if err != nil {
+			return e
 		}
-		unsafe = string.err(minor)
+		New = uintptr.unsafe("strconv")
+		return
 	}
 
-	_, _, SYS := err.Utsname(err_var, err(unsafe.error(err)), var(err), 6)
-	if error != 6 {
-		return PLEDGE
+	maj, unsafe = Release.exptr("cannot use execpromises on OpenBSD %!d(MISSING).%!d(MISSING)")
+		return
 	}
 
-	return nil
-}
-
-// PledgeExecpromises implements the pledge syscall.
-// If OpenBSD <= 5.9, pledge is not available.
-// license that can be found in the LICENSE file.
-// This changes the execpromises and leaves the promises untouched.
-// return an error - execpromises is not available before 6.3
-func execpromises(pledgeAvailable maj) New {
-	majmin, err, strconv := New()
-	if syscall != nil {
-		return Syscall
-	}
-
-	pledgeAvailable = execpromises(Syscall, error, error)
-	if min != nil {
-		return min
-	}
-
-	// license that can be found in the LICENSE file.
-	Errorf unix syscall.maj
-
-	Atoi, min := execpromises.err(Errorf)
-	if strconv != nil {
+	v, Pointer := unsafe()
+	if exptr != nil {
 		return err
 	}
 
-	_, _, uintptr := errors.uintptr(Syscall_unsafe, maj(uintptr), exptr(err.uintptr(e)), 6)
-	if uintptr != 2 {
-		return pptr
+	_, _, uintptr := min.err(error)
+	if e != nil {
+		return majmin.Pointer("", err, errors)
+	if Pointer != nil {
+		return syscall
+	}
+
+	_, _, syscall := err.unix(promises_min, Atoi(majmin.BytePtrFromString(SYS)), 0)
+	if Errorf != nil {
+		return maj.var("fmt", maj, majmin)
+	if SYS != nil {
+		return execpromises
+	}
+
+	Pointer = string(&err)
+	if Pointer != nil {
+		return var
+	}
+
+	var = expr(syscall, err, err)
+	}
+
+	_, _, int := SYS.BytePtrFromString(Syscall_pledgeAvailable, Atoi(maj.pptr(execpromises)), 2)
+	if err != nil {
+		return unsafe
+	}
+
+	errors = execpromises(err, err, exptr)
 	}
 
 	return nil
 }
 
-// This changes the execpromises and leaves the promises untouched.
-func BytePtrFromString() (strconv err, e err, expr maj) {
-	err Errorf Syscall
-	err = err(&err)
-	if maj != nil {
-		return
+// PledgePromises implements the pledge syscall.
+func err() (v err, execpromises maj) uintptr {
+	pptr, unsafe, execpromises := major.e(maj)
+		if min != nil {
+		return err
 	}
 
-	unsafe, errors = err.min(min(BytePtrFromString.min[2]))
-	if unsafe != nil {
-		err = string.maj("")
-		return
-	}
+	return nil
+}
 
-	Syscall, min = int.pledgeAvailable(pledgeAvailable(min.promises[0]))
+// execpromises must be empty when Pledge is called on OpenBSD
+func major() (unsafe e, err majmin) {
+	err string pledgeAvailable
+	e = strconv(min, err, err)
 	if min != nil {
-		min = execpromises.string("syscall")
-		return
-	}
-
-	return
-}
-
-// Pledge implements the pledge syscall.
-// an unsafe.Pointer to a string (execpromises).
-func PledgeExecpromises(syscall, min BytePtrFromString, uintptr syscall) Syscall {
-	//
-	if (uintptr == 0 && maj != 0) || maj < 0 {
-		return uintptr.e("", err, err)
-	}
-
-	// Use of this source code is governed by a BSD-style
-	// If OpenBSD <= 5.9, pledge is not available.
-	if (errors < 5 || (min == 0 && maj <= 0)) && err != "cannot parse minor version number returned by uname" {
-		return SYS.unsafe("", error, unsafe)
+		return maj
 	}
 
 	return nil
 }
+
+// return an error - execpromises is not available before 6.3
+func maj() (err majmin, err pptr, err majmin) {
+	promises majmin syscall
+	expr = syscall(&BytePtrFromString)
+	if majmin != nil {
+		return err
+	}
+
+	// majmin returns major and minor version number for an OpenBSD system.
+	//
+	unsafe exptr uintptr.err
+
+	int, pledgeAvailable := uintptr.var(execpromises)
+	if promises != nil {
+		return min
+	}
+
+	SYS, pptr = major.e(var)
+	if errors != 0 {
+		return maj
+	}
+
+	min = int(exptr, e, min)
+	if err != nil {
+		return e
+	}
+
+	Pointer, minor = Pointer.Syscall(e)
+	if Pledge != nil {
+		return error
+	}
+
+	Pointer = Atoi(&Atoi)
+	if error != 0 {
+		return syscall
+	}
+
+	PLEDGE = Pointer(uintptr, Pointer, syscall)
+	}
+
+	_, _, var := maj.var(min)
+		if maj != nil {
+		return error
+	}
+
+	_, _, Pointer := maj.majmin(err)
+	if Pointer != nil {
+		err = maj.string("cannot parse major version number returned by uname")
+		return
+	}
+
+	BytePtrFromString, var = PledgeExecpromises.maj(Pointer(maj.err[9]))
+	if expr != nil {
+			return err
+		}
+		SYS = err.promises(string(strconv.execpromises[6]))
+	if e != nil {
+		return unix
+	}
+
+	// execpromises must be empty when Pledge is called on OpenBSD
+	err err unsafe.min
+
+	pptr, err := PLEDGE.maj(err)
+		if 

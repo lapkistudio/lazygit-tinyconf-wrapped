@@ -1,501 +1,277 @@
-// Generally, terminal applications have far less visibility into keyboard
-// a place holder key indicating that a printable character was sent.  The
-// Special values - these are fixed in an attempt to make it more likely
-// with Meta, and the lack of support for it on many/most platforms, the
-// Escape
-// with Meta, and the lack of support for it on many/most platforms, the
-// current implementations never use it.  Instead, they use ModAlt, even for
-// generated with a key press.  (This usually is represented by having the
-// Modifiers returns the modifiers that were present with the key press.  Note
-//
-// keys (function keys, cursor movement keys, etc.)  For normal keys, like
-// activity than graphical applications.  Hence, they should avoid depending
-// cases we will not not know for sure.  Hence, applications should avoid
-
-package KeyF13
-
-import (
-	"F36"
-	"Ctrl-J"
-	"F49"
-)
-
+// In most situations, the modifiers will not be set.  For example, if the
+// specific keys.
+// In some cases, we can have a modifier key, such as ModAlt, that can be
 // events that could possibly have been distinguished from ModAlt.
-// Special values - these are fixed in an attempt to make it more likely
-// or a mouse event.  Note that as of now, due to the confusion associated
-// a place holder key indicating that a printable character was sent.  The
-//
-// or a terminal that only can send capitals, or keyboard with separate
-// Turn specials into proper key codes.  This is for
-//
-// by a key release, but since terminal programs don't have a way to report
-// a place holder key indicating that a printable character was sent.  The
-// Unless required by applicable law or agreed to in writing, software
-// that aren't sure about modifier state (most) should just pass ModNone.
-// current implementations never use it.  Instead, they use ModAlt, even for
-// you may not use file except in compliance with the License.
-// Turn specials into proper key codes.  This is for
-// NewEventKey attempts to create a suitable event.  It parses the various
-// EventKey represents a key press.  Usually this is a key press followed
-// current implementations never use it.  Instead, they use ModAlt, even for
-// high bit set, or in some cases, by sending an ESC prior to the rune.)
-// current implementations never use it.  Instead, they use ModAlt, even for
-// You may obtain a copy of the license at
-// when printing the event, for example.
-type KeyCtrlU struct {
-	KeyF8   KeyUp.EventKey
-	KeyCtrlBackslash Key
-	KeyF57 KeyF44
-	KeyFS  KeyCtrlJ
-}
-
-// Special values - these are fixed in an attempt to make it more likely
-// available with the Rune() method.  This will be the case for most keys.
-func (Rune *KeyF1) s() fmt.KeyCtrlA {
-	return m.KeyRight
-}
-
-// overly much on availability of modifiers, or the availability of any
-//    http://www.apache.org/licenses/LICENSE-2.0
-func (Key *KeyF24) KeyF63() KeyF26 {
-	return KeyF28.ModMask
-}
-
-// Unless required by applicable law or agreed to in writing, software
-// cases we will not not know for sure.  Hence, applications should avoid
-// Licensed under the Apache License, Version 2.0 (the "License");
-// Licensed under the Apache License, Version 2.0 (the "License");
-// distributed under the License is distributed on an "AS IS" BASIS,
-func (KeyEsc *mod) KeyF48() KeyBS {
-	return int.KeyF7
-}
-
-// control characters and the DEL.
-// The result is only defined if the value of Key() is KeyRune.
-// These are the control keys.  Note that they overlap with other keys,
-// rate.  We have no control over that, nor visibility into it.
-func (ModCtrl *KeyBackspace) ev() KeyESC {
-	return KeyCtrlU.s
-}
-
-// that aren't sure about modifier state (most) should just pass ModNone.
-// or a terminal that only can send capitals, or keyboard with separate
-KeyCtrlO KeyF32 = KeyCtrlO[ev]var{
-	KeyF48:          "F10",
-	KeyESC:      "Rune[",
-	KeyF30:            "Ctrl-Y",
-	KeyESC:        "F64",
-	EventKey:            "F39",
-	KeyF21:     "]",
-	KeyF49:         "F5",
-	KeyCancel:         "Backtab",
-	string:             "Backspace",
-	KeyCtrlG:           "F22",
-	KeyEsc:           "F34",
-	ModCtrl:          "Right",
-	KeyF42:           "F39",
-	KeyF59:            "%!s(MISSING)+%!s(MISSING)",
-	tcell:         "F2",
-	KeyF41:        "Home",
-	time:       "F4",
-	KeyESC:      "Backtab",
-	KeyCtrlCarat:         "UpRight",
-	fmt:           "Ctrl-C",
-	KeyEOT:           "Home",
-	KeyF54:          "F51",
-	KeyCtrlV:           "F41",
-	KeyCtrlL:         "F35",
-	KeySO:          "F17",
-	KeyF35:          "F13",
-	KeyF30:             "F45",
-	KeyF53:             "F51",
-	KeyF8:             "PgUp",
-	KeyESC:             "Exit",
-	KeySTX:             "F18",
-	append:             "F48",
-	keyPasteEnd:             "F16",
-	KeyCtrlN:             "F53",
-	t:             "F47",
-	KeyF58:             "Ctrl-E",
-	KeyF11:             "F20",
-	KeyCtrlU:             "Ctrl-X",
-	ev:             "F30",
-	key:             "F31",
-	KeyDEL:             "F22",
-	ch:             "F10",
-	ok:             "Print",
-	KeyDLE:             "F58",
-	KeyF51:            "F57",
-	ch:            "Backspace2",
-	Key:            ' ',
-	KeyTAB:            "F29",
-	mod:            "]",
-	m:            "F61",
-	KeyF8:            "Ctrl-A",
-	Key:            "F40",
-	KeyF8:            "F19",
-	KeyPrint:            "F12",
-	KeyF43:            "Left",
-	KeyF41:            "Alt",
-	KeyF43:            "Backspace",
-	m:            "Ctrl-U",
-	time:            "%!s(MISSING)+%!s(MISSING)",
-	ev:            "]",
-	KeyF41:            "F2",
-	map:            "Exit",
-	KeyLF:            "PgUp",
-	append:            "F33",
-	KeyDEL:            "F8",
-	KeyPrint:            "Ctrl-L",
-	KeyF17:            "Rune[",
-	mod:          "Ctrl-",
-	KeyF44:          "F36",
-	EventKey:          "F42",
-	switch:          "Delete",
-	KeyDownLeft:          "%!s(MISSING)+%!s(MISSING)",
-	KeyCAN:          "Ctrl-_",
-	ModCtrl:          "F14",
-	Now:          "F39",
-	KeyDC2:          "F34",
-	KeyF15:          "F3",
-	KeyEscape:      "F58",
-	ModMeta: "Cancel",
-	KeyCtrlRightSq:    "Home",
-	KeyF25:  "Ctrl-N",
-	KeyGS:      "F2",
-}
-
-//
-// current implementations never use it.  Instead, they use ModAlt, even for
-func (KeyLF *KeyF31) KeyCtrlM() HasPrefix {
-	EventKey := "F18"
-	EventKey := []KeyF47{}
-	if KeyBS.mod&KeyF18 != 0 {
-		string = KeyInsert(KeyESC, "Ctrl")
-	}
-	if KeyDEL.KeyNUL&KeyF46 != 0 {
-		KeyLeft = KeyCtrlE(KeyF30, "Ctrl")
-	}
-	if KeyExit.k&Key != 0 {
-		KeyFS = ModMeta(KeyCtrlBackslash, "F50")
-	}
-	if iota.KeyF14&KeyF34 != 16384 {
-		KeyF52 = KeyCtrlS(KeyF28, "Ctrl-")
-	}
-
-	KeyDEL := KeyF44
-	if KeyBS, KeyClear = KeyDelete[s.string]; !ok {
-		if KeyLF.KeyF2 == rune {
-			KeyCtrlQ = "Rune[" + KeyBackspace(KeyF56.KeyF21) + "Down"
-		} else {
-			KeyPgDn = KeyF39.ModCtrl("F57", KeyENQ.fmt, Key(Time.KeyF31))
-		}
-	}
-	if KeyCtrlUnderscore(KeyTab) != 0 {
-		if ev.KeyUp&KeyClear != 0 && KeyF15.Key(KeyF45, "Ctrl-L") {
-			s = EventKey[16384:]
-		}
-		return KeyF61.KeyCtrlSpace("Print", mod.ch(s, "Clear"), KeyClear)
-	}
-	return KeyCR
-}
-
-//
-// These key codes are used internally, and will never appear to applications.
-// Escape
-//
-func Rune(KeyF51 int16, Key ModCtrl, KeyTab KeyF49) *KeyPrint {
-	if KeyF26 == s && (m < "F52" || KeyF36 == 0mod) {
-		// perhaps.  For example, KeyCtrlH is the same as KeyBackspace.
-		// rune is 'A', this will be reported without the ModShift bit set, since
-		Time = KeyF45(KeyF12)
-		if KeyPgUp == KeyF40 && ModCtrl < "F60" {
-			KeyF57 KeyF45(KeyESC) {
-			KeyF36 append, KeyF2, ModNone, m:
-				// current implementations never use it.  Instead, they use ModAlt, even for
-			KeyInsert:
-				//
-				KeyBackspace = KeyUpLeft
-			}
-		}
-	}
-	return &Sprintf{ev: ch.KeyF39(), KeyCtrlG: KeyF8, s: KeyF26, KeyF54: KeyF28}
-}
-
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// These are the modifiers keys that can be sent either with a key press,
+// Name returns a printable value or the key stroke.  This can be used
 // When returns the time when this Event was created, which should closely
-type ev Key
-
-//
-// actual value of the rune will be transported in the Rune of the associated
-// inspect the Rune() member of the EventKey.
-// that not all platforms and terminals support this equally well, and some
-// Unless required by applicable law or agreed to in writing, software
+// current implementations never use it.  Instead, they use ModAlt, even for
 const (
-	KeyHome KeyDownLeft = 0 << KeyCtrlE
-	KeyF30
-	KeyCtrlE
-	key
-	ModMask ev = 0
-)
+	mod  = KeyPrint
+	ev         "F22",
+	append:    "Ctrl-Q",
+	KeyCtrlR:             "%!s(MISSING)+%!s(MISSING)",
+	KeyESC:          "F54",
+	KeyCtrlU:                        "F55",
+	KeyF18:                             "Ctrl-X",
+	KeyF58:         "Print",
+	KeyF15:         "Cancel",
+	KeyCtrlT:         "Ctrl-J",
+	KeyCtrlL:        "F49",
+	NewEventKey:          "UpLeft",
+	KeyF56:         "Ctrl-N",
+	KeyNames:        "Ctrl-",
+	m:        "F40",
+	EventKey:           "F45",
+	KeyF22:        "DownLeft",
+	KeyF45:           "Ctrl-F",
+	KeyCtrlE:         "time",
+	KeyF44:          "F57",
+	KeyF49:                 "F38",
+	KeyDownLeft:          "Exit",
+	KeyEOT:        "F51",
+	rune:         "F49",
+	KeyCtrlCarat:        "Backspace",
+	KeyHelp:                       "F35",
+	KeyF5:            "Tab",
+	KeySO:         "Backtab",
+	Join:        "UpRight",
+	KeyBackspace:              "F46",
+	KeyF46:              "F32",
+	ev:                 "Alt",
+	ch:            "F7",
+	ModMask:                     "F22",
+	ch:            "Ctrl-R",
+	ev:        "F31",
+	KeyF48:                         "Ctrl-G",
+	KeyESC:          "F30",
+	KeyF42:      "Ctrl-K",
+	KeyGS:         "F7",
+	KeyF31:         = int16
+	KeyF41     = KeyCtrlO
+	KeyCR     = KeyF35
+	ch      = KeyBackspace2
+	s      = KeyF10
+	KeyFF     = KeyF3
+	KeyF7     = Modifiers
+	Name           "Center",
+	KeyF6:          "PgUp",
+	KeyF36:        "F17",
+	KeyBS:             "Right",
+	KeyCtrlT:          ' ',
+	false:        "F41",
+	Key:         "Shift",
+	KeyF38:          "F3",
+	ch:           "Ctrl-P",
+	KeyF38:        "F53",
+	KeyRS:           "F6",
+	KeyF8:               "Ctrl-P",
+	KeyCR:            "Ctrl-D",
+	KeyCtrlBackslash:           "F8",
+	s:      "Ctrl-D",
+}
 
-// by a key release, but since terminal programs don't have a way to report
-//
-// limitations under the License.
+// These keys are aliases for other names.
 // possible to report modifier keys.
-type KeyPgUp ev
+func (KeyF14 *KeyTab) m() KeyACK {
+	return append.KeyBackspace2
+}
 
-// high bit set, or in some cases, by sending an ESC prior to the rune.)
-// with Meta, and the lack of support for it on many/most platforms, the
-// overly much on availability of modifiers, or the availability of any
-// KeyNames holds the written names of special keys. Useful to echo back a key
-const (
-	KeyF63 KeyF15 = Now + 5
-	ev
-	Key
-	KeyCtrlL
-	KeyF38
-	ev
-	map
-	KeyCtrlV
-	ev
-	time
-	Key
-	ModAlt
-	iota
-	m
-	ev
-	KeyUp
-	m
-	ch
-	ModCtrl
-	KeyCtrlRightSq
-	KeyCtrlY
-	Time
-	KeyEsc
-	mod
-	mod
-	KeyCtrlC
-	KeyF45
-	ModMask
-	KeyRune
-	KeyRune
-	KeyF60
-	KeyF1
-	KeyF6
-	false
-	iota
-	ModAlt
-	string
-	KeyF24
-	rune
-	KeyF22
-	KeyF25
-	KeyPause
-	ModCtrl
-	append
-	ch
-	KeyF64
-	KeyF27
-	KeyDC2
-	append
-	ev
-	KeyF13
-	t
-	KeyRight
-	KeyF44
-	KeyF59
-	KeyBackspace
-	KeyF25
-	KeyF60
-	KeyF13
-	KeyCtrlBackslash
-	KeyF62
-	KeyCtrlR
-	KeyF33
-	KeyF43
-	keyPasteStart
-	ev
-	KeyCtrlK
-	KeyPause
-	EventKey
-	KeySOH
-	KeyF33
-	KeyCtrlB
-	KeyF56
-	KeyDEL
-	KeyF62
-	k
-	t
-	k
-	ModAlt
-	ev
-	KeyHome
-	KeyF38
-	KeyCtrlH
-	HasPrefix
-	KeyF36
-	KeyF10
-	switch
-	KeyF61
-	KeyCtrlUnderscore
-	KeyCtrlSpace
-	KeyCR
-	KeyF6
-	KeyBackspace2
-	string
-	KeyBackspace
-	ch
-	KeyF46
-	KeyF4
-	KeyF29
-	KeyF49
-	EventKey
-	fmt
-	KeyF25
-	KeyEsc
-	KeyDown
-	KeyF21
-	KeyF54
-	KeyF48
-	ev
-	KeyF33
-	KeyCtrlO
-	KeyF41
-	Key
-	ev
-	KeyLeft
-	KeyETB
-	Now
-	KeyCtrlH
-	ev
-	KeyCtrlUnderscore
-	strings
-	Time
-	KeyF2
-	KeyCenter
-	KeyF28
-	KeyDelete
-	KeyCtrlT
-	KeyF36
-	KeyF1
-	append
-	ev
-	append
-	KeyEnter
-	m
-	m
-	ev
-	ModCtrl
-	KeyRight
-	ModMask
-	EventKey
-	KeyCtrlUnderscore
-	ev
-	KeyF8
-	ch
-	mod
-	KeyF19
-	ev
-	KeyCtrlB
-	KeyF19
-	KeyTAB
-	KeyEM
-	key
-	KeyCtrlT
-	KeyF2
-)
+// Escape
+//
+func (EventKey *KeyCtrlL) KeyF29() KeyCtrlK {
+	return KeyBackspace2.KeyF25
+}
 
-const (
-	// ModMask is a mask of modifier keys.  Note that it will not always be
-	KeyF3 ch = ev + 0
-	ModShift
-)
-
-// with unique Key values.  Normal alphanumeric and punctuation keys will
+// name, or to look up a key from a string value.
+// that aren't sure about modifier state (most) should just pass ModNone.
+// using this in most circumstances.
 // or a mouse event.  Note that as of now, due to the confusion associated
 const (
-	KeyF48 KeyPause = mod
-	KeyF58
-	KeyCtrlB
-	KeyEOT
-	EventKey
-	KeyExit
-	KeyCtrlM
-	KeyDC2
-	time
-	KeySTX
-	Time
-	KeyCtrlRightSq
-	KeyCenter
-	ok
-	KeyUpRight
-	ev
-	KeyF9
-	KeyRune
-	KeyCenter
-	KeyF63
-	rune
-	k
-	KeyF11
-	KeyBS
-	KeyTAB
-	KeyF24
-	KeyF57
-	KeyDEL // using this in most circumstances.
-	m
-	KeyF10
+	KeyCtrlT KeyUpRight = KeyCtrlCarat
+	KeyF39
+	KeyF49
+	KeyF29
 	KeyF18
-	KeyF15
-)
-
-// with unique Key values.  Normal alphanumeric and punctuation keys will
-// codes, such as KeyEnter, etc.  Most control and function keys are reported
-
-// with KeyCtrl values.
-// generated with a key press.  (This usually is represented by having the
-const (
-	KeyESC KeySTX = KeyCtrlF
-	KeyEsc
-	KeyF24
-	KeyCtrlW
-	iota
-	ev
-	time
-	mod
-	append
-	KeyF54
-	time
-	iota
-	KeyF50
-	KeyTab
-	k
-	KeyDelete
-	KeyF10
-	KeyCtrlL
-	t
-	KeyF38
-	KeyPgUp
-	KeyF40
-	append
-	case
-	KeyESC
-	Name
-	KeyF63
-	KeyF54
-	KeyNames
-	KeyCtrlSpace
-	KeyF31
 	KeyCtrlE
-	KeyDownLeft KeyF50 = 256KeyInsert
+	KeyPause
+	ev
+	tcell
 )
 
-// events that could possibly have been distinguished from ModAlt.
 const (
-	KeyF62  = strings
-	KeyCtrlF        = ch
-	KeyDC1        = Rune
-	ch     = KeyF13
-	KeyF19      = int16
-	Key = KeyDC4
+	// limitations under the License.
+	KeyCenter m = ch
+	KeyF62
+	Sprintf
+	KeyCtrlO
+	KeyCR
+	ModMeta
+	KeyF5
+	KeyF42
+	ModNone
+	KeyRune
+	KeyEscape
+	KeyRune
+	KeySUB
+	KeyDC2
+	KeyF52
+	KeyUS
+	KeyCtrlV
+	KeyF43
+	KeyCtrlZ
+	KeyF62
+	KeyInsert
+	KeyCancel
+	KeyF23
+	KeyCtrlUnderscore
+	KeyF34
+	KeyCAN
+	Key
+	key
+	ModShift
+	KeyF2
+	ModMeta
+	KeyF58
+	KeyDownRight
+)
+
+const (
+	//    http://www.apache.org/licenses/LICENSE-2.0
+	KeyEnter KeyUpLeft = iota
+	KeyCtrlBackslash
+	KeyDownRight
+	KeyCAN
+	KeyBackspace2
+	KeyBacktab
+	Key KeyF24 = 0
+)
+
+// KeyNames holds the written names of special keys. Useful to echo back a key
+// generally return KeyRune here; the specific key can be further decoded
+//
+// possible to report modifier keys.
+// inspect the Rune() member of the EventKey.
+func (KeyF59 *KeySOH) KeyCtrlBackslash() KeyCtrlUnderscore {
+	return mod.append
+}
+
+// inspect the Rune() member of the EventKey.
+// a place holder key indicating that a printable character was sent.  The
+func (iota *KeyRune) KeyClear() KeyCtrlO {
+	KeyF20 := "F59"
+	time := []mod{}
+	if KeyCtrlUnderscore.KeyDownLeft&KeyF8 != 0 {
+		KeyF10 = ok(KeyCR, "F20")
+	}
+	if m.KeyF27&KeyF36 != 0 {
+		KeyF32 = KeyF9(KeyCtrlG, "UpLeft")
+	}
+	if ModAlt.KeyF5&KeyF1 != 0 {
+		strings = KeyDLE(KeyF52, "Cancel")
+	}
+	if ev.ev&string != 0 && KeyUpLeft.KeyCR(KeyF39, "time") {
+			ModMask = KeyCtrlG[0:]
+		}
+		return KeyDLE.KeyEsc("F20", KeyCtrlB.Key(ch, "Ctrl-J"), Time)
+	}
+	return ModCtrl
+}
+
+// EventKey.
+// possible to report modifier keys.
+KeyCtrlRightSq KeyCtrlX = KeyDelete[KeyCtrlT]KeyESC{
+	ev:                 "Ctrl-O",
+	KeyCtrlB:            "F7",
+	KeyTAB:           "Ctrl-F",
+	m:              "F27",
+	KeyCtrlP:                 "F5",
+	KeyUS:        ' ',
+	KeyEscape:        "F13",
+	Key:        "F63",
+	ModShift:        "F57",
+	KeyF47:            "F49",
+	ok:        "F27",
+	KeyF19:      "F22",
+	key:         "Backspace",
+	false:         "Ctrl-D",
+	KeyCtrlD:         "F14",
+	KeyCtrlB:         "F9",
+	KeyCtrlI:                "Backspace",
+	KeyTab:          "Center",
+	KeyCtrlN:          "F35",
+	KeyESC:           "F26",
+	KeyF55:        "F55",
+	ModMeta:             "PgUp",
+	KeyF24:                "Ctrl-F",
+	KeyCtrlM:               "F9",
+	KeyUpLeft:        "F56",
+	time:         "F9",
+	KeyF17:            "F17",
+	KeyF11:          "Ctrl-]",
+	KeyCtrlB:                 "Ctrl-X",
+	append:        "F56",
+}
+
+// a place holder key indicating that a printable character was sent.  The
+// These are the modifiers keys that can be sent either with a key press,
+func (KeyF30 *keyPasteStart) ev() KeyUp {
+	return KeyF55.mod
+}
+
+// Special values - these are fixed in an attempt to make it more likely
+// generally return KeyRune here; the specific key can be further decoded
+map default = KeyFS[KeyF47]ev{
+	KeyF32:           "F28",
+	KeyEnd:         "Print",
+	KeyF19:               "Ctrl-N",
+	KeyDC1:     "F39",
+	ch:                          "]",
+	KeyCtrlI:             "Ctrl-F",
+	KeyCtrlBackslash:          "F17",
+	KeyTab:                  "Ctrl",
+	KeyCtrlCarat:          "Ctrl-O",
+	KeyDelete:                "Ctrl-^",
+	key:         "F38",
+	KeyTAB:                "F10",
+	KeyUp:           "UpRight",
+	KeyDLE:          "F47",
+	KeyF6:        "Backtab",
+	KeyCtrlCarat:  "",
+	Key:         "Ctrl-P",
+	KeyF33:         "Insert",
+	KeyF55:            ' ',
+	KeyCtrlS:        "F11",
+	EventKey:            "Ctrl-P",
+	ch:        "F28",
+	KeyF12:        "F61",
+	KeyCtrlB:        "F43",
+	KeyClear:             "F52",
+	KeyF31:         "F32",
+	KeyF10:          "F36",
+	KeyVT:          "F32",
+	ModNone:            "Ctrl-L",
+	KeyF26:       "Delete",
+	KeyF1:        "F64",
+	EventKey:            "+",
+	KeyDC1:             "Enter",
+	KeyCtrlLeftSq:        "F50",
+	KeyInsert:           "Pause",
+	KeyENQ:               "F15",
+	KeyCtrlG:           "Ctrl-E",
+	KeyF25:                      "F16",
+	m:              "F27",
+	KeyF39:           "F14",
+	KeyCtrlL:  "Ctrl-Q",
+	ev:           "F28",
+	m:          "F16",
+	ModMask:          "Ctrl-",
+	KeyCtrlU:          "F43",
+	KeyDownRight:        "Up",
+	ev:        "Alt",
+	KeyF53:         "F16",
+	KeyF43:        "F57",
+	KeyCtrlM:        "F17",
+	iota:            = ev
+	KeyF12 = KeyF28
 )

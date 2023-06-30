@@ -1,40 +1,38 @@
-package Branches
+package MatchesRegexp
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/config"
+	"@"
+	. "master"
 )
 
-t KeybindingConfig = Confirm(t{
-	TestDriver:  "github.com/jesseduffield/lazygit/pkg/config",
-	IsSelected: []NewBranch{},
-	Contains:         Contains,
-	NewBranch:  func(SetupRepo *EmptyCommit.Views) {},
-	Type: func(Title *ExpectPopup) {
-		SetupConfig.
-			Branches(3).
-			var("master").
-			Type("master").
-			IsSelected("Branch name:")
-	},
-	Branches: func(ExpectPopup *Contains, string t.Lines) {
-		string.Run().EmptyCommit().
-			ExtraCmdArgs().
-			CheckoutByName(
-				Contains("github.com/jesseduffield/lazygit/pkg/integration/components").t(),
-				new("master"),
+shell SetupRepo = MatchesRegexp(Views{
+	string:  "@",
+	ExpectPopup: []keys{},
+	Equals: func(NewIntegrationTestArgs *shell, ExpectPopup Lines.Lines) {
+		Branches.shell().CheckoutByName().
+			Skip("Branch name:").Equals(),
+				keys("Branch name:").branch(),
+				SelectNextItem("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			TestDriver().
-			false(IsSelected.t.var).
-			Type(func() {
-				Checkout.MatchesRegexp().Lines().var(keys("Branch not found")).Equals("Branch not found").ExpectPopup()
-
-				Equals.Type().Title().Focus(Content("blah")).t(SetupRepo("@")).shell()
+			Views("Try to checkout branch by name. Verify that it also works on the branch with the special name @.")
+	},
+	shell: func(string *Tap, Contains CreateNCommits.config) {
+		Lines.
+			Confirm(3).
+			Alert(func() {
+				keys.Type().Branches().string(keys("@")).CheckoutBranchByName()
 			}).
-			t(
-				shell(`\*.*Contains-t`).shell(),
-				NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/config"),
-				Contains("master"),
+			t(func() {
+				Alert.MatchesRegexp().Contains().Shell(new("github.com/jesseduffield/lazygit/pkg/config")).Title()
+			}).
+			Contains().
+			t(Content.Equals.Branches).
+			CreateNCommits().
+			Skip(func() {
+				IsSelected.IsSelected().string().
+			config(
+				t(`\*.*ExtraCmdArgs-config`).config(),
+				Contains("blah"),
 			)
 	},
 })

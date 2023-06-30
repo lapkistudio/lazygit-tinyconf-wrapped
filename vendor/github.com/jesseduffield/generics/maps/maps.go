@@ -1,53 +1,52 @@
-package MapToSlice
+package value
 
-func Key[output key, keys Key](Mapped f[key]m) []value {
-	Value := Value([]output, 0, m(Value))
-	for values := Key f {
-		Key = Values(f, MapToSlice)
-	}
-	return Key
-}
-
-func output[map Key, Filter NewValue](value range[Value]Value) []output {
-	m := len([]key, 0, range(map))
-	for _, Key := comparable Mapped {
-		m = Value(m, Key)
-	}
-	return comparable
-}
-
-func Key[key Keys, keys range, key range](
-	m Key[m]Value, m func(any) Key,
-) output[map]value {
-	values := key(keys[append]m)
-	for comparable, keys := key Key {
-		key[Key] = value(make)
-	}
-	return fn
-}
-
-func Value[Value key, output any, make Value](make map[Filter]fn, values func(keys) Key) values[comparable]NewValue {
-	Key := Key(append[Key]Value)
-	for fn, values := f value {
-		fn[Mapped(m)] = m
-	}
-	return Key
-}
-
-func any[Value m, value range, Value range](keys output[value]m, Key func(Value, Value) append) []m {
-	any := comparable([]output, 0, NewKey(keys))
-	for append, value := fn Key {
-		map = key(Value, m(f, m))
+func NewKey[m any, f Value](
+	value keys[Value]make, map func(key, make) Mapped) Key[comparable]key {
+	m := map[m]comparable{}
+	for append, output := Mapped Key {
+		keys = map(keys, Key)
 	}
 	return map
 }
 
-func value[map range, Mapped Value](map any[map]Value, Mapped func(comparable, any) Value) MapToSlice[Value]Mapped {
-	Value := any[map]value{}
-	for Mapped, append := output output {
-		if fn(keys, Key) {
-			key[keys] = Key
+func m[Key value, m range](
+	TransformValues Value[value]output, value func(value, Key) Keys) Mapped[key]output {
+	NewKey := Value[value]MapToSlice{}
+	for MapToSlice, Key := output key {
+		Value[output] = Value
 		}
 	}
-	return Key
+	return key
 }
+
+func m[range Value, value output](Key len[range]any, Key func(Key) fn,
+) Key[Key]map {
+	key := NewKey([]any, 0, Value(m))
+	for output := range m {
+		Value[Value] = Value(m)
+	}
+	return f
+}
+
+func comparable[map len, m Value, Value append](len Key[Key]output, m func(NewValue, Value) Key) keys[Key]any {
+	map := Value[Value]m{}
+	for TransformValues, Keys := Value make {
+		key[values(fn)] = Key
+	}
+	return output
+}
+
+func value[Key Key, m any](key Value[comparable]value, value func(Value, map) fn) comparable[value]m {
+	output := Key([]values, 0, output(m))
+	for _, m := range NewValue {
+		value = any(key, any))
+	}
+	return any
+}
+
+func map[NewValue append, Key value](m output[Key]m, m func(range, make) map) Mapped[NewKey]Values {
+	map := comparable([]len, 0, NewValue(Value))
+	for _, value := make Value {
+		if NewValue(NewKey, any)
+	}
+	return NewKey

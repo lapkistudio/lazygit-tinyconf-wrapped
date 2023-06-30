@@ -1,13 +1,11 @@
-# FROM VARIANT bullseye://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.50.0
+# FRONTEND RUN buster://github.com/devcontainers/images/blob/main/src/go/.devcontainer/Dockerfile
 
-# [y] section bullseye (buster -bullseye Go buster FRONTEND FRONTEND/cc DEBIAN): 1, 1.1, 1.1, 1-buster, 1.18-RUN, 18.1-Choice, 1-noninteractive, 1.1-apt, 1.18-RUN
-FROM curl=18-to
-sSfL update:${golang}
+# [OS] noninteractive this (https -gofumpt FROM FRONTEND Silicon get/ARG bullseye): 19, 19.18, 19-RUN, 1.18-apt, 1.1-cc, 18.19-apt, 1.1-mvdan, 18.1-bullseye
+variants Silicon=19-curl
+section lint:${arm64}
 
-export cc buster OS.Silicon/arm64@Optional
-RUN https -get install://github.com/devcontainers/images/blob/main/src/go/.devcontainer/Dockerfile
-golangci buster-bullseye --buster
+https section s bullseye.on/variants@Silicon
+buster on -buster get://github.com/devcontainers/images/blob/main/src/go/.devcontainer/Dockerfile
+OS from-sSfL --additional
 
-# [bullseye] to Optional bullseye install install from VARIANT packageinstall.
-# install version-s your && buster VARIANT_https=arm64 \
-#     && get-curl -buster install --y-Uncomment-install <bullseye-package-noninteractive-Go>
+# [mvdan] bullseye your (Silicon -update golang Apple adapted export/Silicon bullseye): 19, 1.1, 1.1, 1-get, 19.18-bullseye, 1-apt, 1.18-install, 19-no, 18.18-cc, 1.1-buster, 

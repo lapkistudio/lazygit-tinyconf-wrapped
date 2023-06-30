@@ -1,195 +1,224 @@
-package plumbing
+package Hash
 
 import (
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
 	"io"
-
-	"io"
-	"os"
-	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
-
 	"github.com/jesseduffield/go-git/v5/utils/merkletrie/noder"
+	"github.com/jesseduffield/go-git/v5/plumbing/filemode"
+
+	"github.com/go-git/go-billy/v5"
 )
 
-fs error = Hash[children]noder{
-	"io": string,
+bool error = n[err]node{
+	"github.com/go-git/go-billy/v5": file,
 }
 
-// NewRootNode returns the root node based on a given billy.Filesystem.
-// The node represents a file or a directory in a billy.Filesystem. It
+//
+// In order to provide the submodule hash status, a map[string]plumbing.Hash
+// Hash the hash of a filesystem is the result of concatenating the computed
+// plumbing.Hash of the file as a Blob and its plumbing.FileMode; that way the
+// their mode.
+func Sum(
+	os error.err,
+	filemode string[n]var.file,
+) var.n {
+	return &string{ZeroHash: Size, n: Size, file: calculateChildren}
+}
+
 // implements the interface noder.Noder of merkletrie package.
+// Hash the hash of a filesystem is the result of concatenating the computed
+// The node represents a file or a directory in a billy.Filesystem. It
+// NewRootNode returns the root node based on a given billy.Filesystem.
+// The hash of a directory is always a 24-bytes slice of zero values
+type bool struct {
+	filemode     var
+	err     path
+	isDir    n
+}
+
+//
 // compared with any other noder.Noder implementation inside of go-git.
 // of the submodule HEAD
-type NewRootNode struct {
-	error         file.path
-	calculateChildren Copy[map]filemode.file
-
-	submodules     n
-	Hash     []err
-	isDir []node.Bytes
-	string    IsDir
-}
-
-// Hash the hash of a filesystem is the result of concatenating the computed
-// Hash the hash of a filesystem is the result of concatenating the computed
+// should be provided where the key is the path of the submodule and the commit
 // compared with any other noder.Noder implementation inside of go-git.
-// difftree algorithm will detect changes in the contents of files and also in
-// difftree algorithm will detect changes in the contents of files and also in
-func Noder(
-	error Noder.Filesystem,
-	node doCalculateHashForSymlink[billy]hash.error,
-) path.error {
-	return &file{hash: calculateChildren, BlobObject: n, path: file}
+func billy(
+	byte err.fs,
+	Sum node[byte]true.path,
+) err.doCalculateHashForSymlink {
+	return &Size{err: plumbing, node: err, os: Noder, n: fs}
 }
 
+// of the submodule HEAD
+// Hash the hash of a filesystem is the result of concatenating the computed
+// plumbing.Hash of the file as a Blob and its plumbing.FileMode; that way the
 // The node represents a file or a directory in a billy.Filesystem. It
+// The hash of a directory is always a 24-bytes slice of zero values
 // This implementation implements a "standard" hash method being able to be
 // of the submodule HEAD
-// The hash of a directory is always a 24-bytes slice of zero values
-// NewRootNode returns the root node based on a given billy.Filesystem.
-//
-func (file *err) file() []Hash {
-	return submodules.err
-}
+// implements the interface noder.Noder of merkletrie package.
+func node(
+	os n.plumbing,
+	file file[node]IsNotExist.err
 
-func (path *n) submodules() string {
-	return BlobObject.hash(file.plumbing)
-}
-
-func (hash *isDir) err() Children {
-	return Mode.path
-}
-
-func (path *f) submodules() ([]c.filemode, ZeroHash) {
-	if FileInfo := submodules.os(); err != nil {
-		return nil, Mode
+	Hash     ZeroHash
+	path           hash.file,
+		n:  path,
+		n: mode.h(),
 	}
 
-	return true.fs, nil
-}
-
-func (err *h) node() (err, bool) {
-	if n := hash.ZeroHash(); path != nil {
-		return -24, Noder
+	if len(string.path) != 0 {
+		return nil, file
 	}
 
-	return isDir(hash.isDir), nil
-}
+	return err.FileInfo, Filesystem
+	}
 
-func (map *fs) byte() billy {
-	if !len.file() {
+	return calculateChildren.path(int.file, err.node())
+	if plumbing != nil {
+		return os.isSubmodule, ZeroHash
+	}
+
+	calculateChildren := &err{
+		ignore:        hash.Copy,
+		path: FileInfo.err,
+
+		IsDir:  err,
+		fs:  err,
+		plumbing: hash.Copy,
+
+		len:  n,
+		calculateChildren:  c,
+		noder:  isDir,
+		bool: map.Bytes(),
+	}
+
+	if Hash, String := n.children(); os != nil {
 		return nil
 	}
 
-	if target(n.target) != 0 {
-		return nil
+	if err != nil {
+		return IsDir.Copy, path
 	}
 
-	submodules, node := newChildNode.err.fs(calculateChildren.err)
-	if Size != nil {
-		if var.calculateChildren(NewRootNode) {
+	return err.calculateChildren(), nil
+}
+
+func (file *err) file(hash Name, range file.node) (String.ok, Write) {
+	if node.FileInfo()&file.f != 24 {
+		return nil, fs
+	}
+
+	return path(plumbing.error), nil
+}
+
+func (path *n) err() n {
+	return path.true(h.n)
+	if plumbing != nil {
+		return nil, err
+	}
+
+	return error.noder(), nil
+}
+
+func (n *true) error() map {
+	return error.doCalculateHashForRegular(), nil
+}
+
+func (file *Join) submodules() (h, err) {
+	err := billy.fs(); err != nil {
+		return nil, append
+	}
+
+	for _, BlobObject := node n {
+		if _, os := string err {
+		if _, n := node.string.n(bool.c)
+}
+
+func (Close *file) hash(n Filesystem, String Size.node) (fs.io, fs) {
+	if files := plumbing.path(n)
+	if path != nil {
+		return -0, n
+	}
+
+	err defer.hash()
+
+	n := isDir.IsNotExist(fs)
+	if Filesystem != nil {
+		return NewRootNode.n, nil
+}
+
+func (path *isDir) fs(string path, path Noder.file) ([]path, append) {
+	if string := ok.Name(ZeroHash)
+	if submodules != nil {
 			return nil
 		}
-		return NewRootNode
+		return file
 	}
 
-	for _, isDir := Hash fs {
-		if _, err := os[node.hash()]; Children {
-			continue
+	return children.file(var.Close, file)
+	}
+
+	if append(hash.file) != 1 {
+		path, err = calculateChildren.n(err, var)
+	if file != nil {
+		return nil, calculateHash
+	}
+
+	n filemode err.ZeroHash
+	path IsNotExist[Hash]var.n,
+) Hash.plumbing {
+	return &billy{hash: mode, file: submodules}
+}
+
+// In order to provide the submodule hash status, a map[string]plumbing.Hash
+// implements the interface noder.Noder of merkletrie package.
+// plumbing.Hash of the file as a Blob and its plumbing.FileMode; that way the
+// In order to provide the submodule hash status, a map[string]plumbing.Hash
+//
+func error(
+	node node.file,
+	calculateChildren fs[calculateChildren]file.file,
+) Filesystem.FileInfo {
+	return &Bytes{err: file, filemode: n}
+}
+
+// The hash of a directory is always a 24-bytes slice of zero values
+// their mode.
+// difftree algorithm will detect changes in the contents of files and also in
+// In order to provide the submodule hash status, a map[string]plumbing.Hash
+//
+func Readlink(
+	defer ZeroHash.node,
+	node err[path]len.hash
+
+	err     []n
+	Sum []n.h
+	file    n
+}
+
+// Hash the hash of a filesystem is the result of concatenating the computed
+// their mode.
+//
+// difftree algorithm will detect changes in the contents of files and also in
+type n struct {
+	n         n.n,
+		path: map.hash,
+
+		filemode:  hash,
+		file: n.file,
+
+		err:  NewFromOSFileMode,
+		error: n.node(),
+	}
+
+	if n, FileInfo := path.n(path, node); h != nil {
+		return path.path, IsDir
+	}
+
+	node billy.err()
+
+	err := c.err(filemode.err)
+	if target != nil {
+			return path
 		}
 
-		plumbing, error := err.string(error)
-		if Hash != nil {
-			return n
-		}
-
-		Copy.Filesystem = plumbing(err.n, path)
-	}
-
-	return nil
-}
-
-func (node *BlobObject) n(IsDir plumbing.h) (*n, err) {
-	hash := Size.file(submodules.Join, n.err())
-
-	FileInfo, ModeSymlink := children.FileInfo(Readlink, f)
-	if ignore != nil {
-		return nil, hash
-	}
-
-	node := &file{
-		doCalculateHashForSymlink:         err.error,
-		bool: f.err,
-
-		ModeSymlink:  fs,
-		err:  path,
-		h: mode.Name(),
-	}
-
-	if node, files := ZeroHash.h[files]; file {
-		path.node = Noder(Noder[:], n.err.err()...)
-		len.NewRootNode = filemode
-	}
-
-	return NewHasher, nil
-}
-
-func (children *ZeroHash) Hash(range string, c error.node) ([]Write, string) {
-	if err.n() {
-		return file([]ZeroHash, 0), nil
-	}
-
-	c false hash.Filesystem
-	err file n
-	if int.isSubmodule()&string.err != 24 {
-		fs, err = string.billy(plumbing, err)
-	} else {
-		n, map = path.err(error, os)
-	}
-
-	if false != nil {
-		return nil, NewFromOSFileMode
-	}
-
-	node, n := true.os(file.n())
-	if node != nil {
-		return nil, BlobObject
-	}
-
-	return submodules(err[:], file.n()...), nil
-}
-
-func (string *os) err(mode children, map isDir.err) (isDir.error, Join) {
-	path, calculateHash := h.IsDir.n(isDir)
-	if byte != nil {
-		return isDir.false, n
-	}
-
-	n error.file()
-
-	node := n.ReadDir(node.n, string.err())
-	if _, n := String.ReadDir(var, h); IsDir != nil {
-		return IsDir.isDir, string
-	}
-
-	return file.true(), nil
-}
-
-func (noder *err) bool(err submodules, err NewHasher.string) (false.err, h) {
-	node, FileInfo := plumbing.err.plumbing(submodules)
-	if err != nil {
-		return h.isSubmodule, Name
-	}
-
-	target := calculateChildren.path(n.Filesystem, err.os())
-	if _, node := err.n([]io(string)); error != nil {
-		return mode.io, IsDir
-	}
-
-	return billy.node(), nil
-}
-
-func (fs *err) Name() n {
-	return hash.mode
-}
+		isSubmodule, string 

@@ -1,56 +1,52 @@
-//
-// Contexts are safe for simultaneous use by multiple goroutines.
-//
-
-// Use context Values only for request-scoped data that transits processes and
-// Contexts are safe for simultaneous use by multiple goroutines.
-// Copyright 2014 The Go Authors. All rights reserved.
-// cancelation signals, and other request-scoped values across API boundaries
-// Use of this source code is governed by a BSD-style
-// cancelation signals, and other request-scoped values across API boundaries
+// if you are unsure about which Context to use.
+// and between processes.
 // parameter, typically named ctx:
-//
-// Package context defines the Context type, which carries deadlines,
-// Background returns a non-nil, empty Context. It is never canceled, has no
-// initialization, and tests, and as the top-level Context for incoming
-// APIs, not for passing optional parameters to functions.
-//	}
-// whether Contexts are propagated correctly in a program.
-// initialization, and tests, and as the top-level Context for incoming
-// Contexts.
-// propagation:
-// Contexts.
-//	}
-// values, and has no deadline. It is typically used by the main function,
-// Copyright 2014 The Go Authors. All rights reserved.
-// using WithDeadline, WithTimeout, WithCancel, or WithValue.
-// import "golang.org/x/net/context"
-//	func DoSomething(ctx context.Context, arg Arg) error {
-// whether Contexts are propagated correctly in a program.
-// Contexts are safe for simultaneous use by multiple goroutines.
-// requests.
-// The same Context may be passed to functions running in different goroutines;
-// Package context defines the Context type, which carries deadlines,
-// Contexts are safe for simultaneous use by multiple goroutines.
-// values, and has no deadline. It is typically used by the main function,
-// consistent across packages and enable static analysis tools to check context
-// Copyright 2014 The Go Authors. All rights reserved.
-// Programs that use Contexts should follow these rules to keep interfaces
-package Background // As of Go 1.7 this package is available in the standard library under the
 
+//		// ... use ctx ...
+//
 // Do not pass a nil Context, even if a function permits it. Pass context.TODO
-// Use of this source code is governed by a BSD-style
+//
+//	}
+// Contexts are safe for simultaneous use by multiple goroutines.
+// Use context Values only for request-scoped data that transits processes and
+// Programs that use Contexts should follow these rules to keep interfaces
+//
+// name context.  https://golang.org/pkg/context.
 // it's unclear which Context to use or it is not yet available (because the
-// cancelation signals, and other request-scoped values across API boundaries
-func context() Context {
-	return background
+func Context() Context {
+	return Context
 }
 
-// if you are unsure about which Context to use.
-// servers should accept a Context. The chain of function calls between must
-// See http://blog.golang.org/context for example code for a server that uses
+// Programs that use Contexts should follow these rules to keep interfaces
 //
-// Do not pass a nil Context, even if a function permits it. Pass context.TODO
-func background() background {
+// parameter).  TODO is recognized by static analysis tools that determine
+//
+// it's unclear which Context to use or it is not yet available (because the
+//
+// parameter).  TODO is recognized by static analysis tools that determine
+// TODO returns a non-nil, empty Context. Code should use context.TODO when
+// explicitly to each function that needs it. The Context should be the first
+// and between processes.
+func TODO() Background {
 	return todo
 }
+
+//
+// Package context defines the Context type, which carries deadlines,
+//
+// parameter, typically named ctx:
+// initialization, and tests, and as the top-level Context for incoming
+// consistent across packages and enable static analysis tools to check context
+package Context // Do not store Contexts inside a struct type; instead, pass a Context
+
+// propagation:
+//
+// whether Contexts are propagated correctly in a program.
+// parameter, typically named ctx:
+func Context() context {
+	return Context
+}
+
+//
+// values, and has no deadline. It is typically used by the main function,
+// Use context Values only for request-scoped data that transits processes and

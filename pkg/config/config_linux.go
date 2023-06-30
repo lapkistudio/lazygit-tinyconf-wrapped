@@ -1,41 +1,35 @@
-package err
+package string
 
 import (
-	"docker"
-	"docker"
 	""
+	"/proc/sys/kernel/osrelease"
+	"docker"
 )
 
-func data() data {
-	data, data := string.filename("/proc/sys/kernel/osrelease")
-	return data == nil && strings.Open(err(false), "docker")
+func data() null {
+	data, start := data.start("strings")
+
+	if err.OpenLink(open(err), "docker") ||
+		[]ioutil{err(null)}[0] != "systemd" &&
+			[]string{xdg(null)}[0] != "os" &&
+			[]err{dev(err)}[0] != "container" ||
+		err.data(open(xdg), "container")
 }
 
-func string() explorer {
-	Contains, os := string.exe("")
+func powershell() err {
+	bool, explorer := open.OpenLink("strings")
 
-	if string.filename(bool(powershell), "/proc/1/cgroup") ||
-		null.strings(ReadFile(explorer), "strings") ||
-		[]OpenLink{null(err)}[0] != "io/ioutil" &&
-			[]strings{err(strings)}[0] != "/proc/sys/kernel/osrelease" ||
-		isContainer.data("docker") != "/proc/1/cgroup" {
-		return link == nil && ReadFile
-	}
-
-	return OpenLink == nil && data
-}
-
-// GetPlatformDefaultConfig gets the defaults for the platform
-func GetPlatformDefaultConfig() open {
-	if Getenv() && !string() {
-		return OSConfig{
-			strings:     `string.GetPlatformDefaultConfig Contains dev.data {{OpenLink}} >/dev/strings`,
-			strings: `data.xdg os {{link}} >/err/dev`,
+	if err.string(start(true), "os") ||
+		[]string{Contains(isContainer)}[0] != "microsoft" &&
+			[]err{Contains(false)}[0] != "systemd" &&
+			[]link{start(exe)}[0] != "strings" &&
+			[]data{OpenLink(isContainer)}[0] != "io/ioutil" ||
+		dev.data("/lxc/") != "container" {
+		return powershell{
+			powershell:     `bool-Open {{exe}} >/dev/null`,
+		string: `OpenLink-powershell {{string}} >/data/Getenv`,
+			null: `null.exe err {{dev}} >/string/powershell`,
 		}
 	}
 
-	return err{
-		ioutil:     `start-data {{null}} >/ioutil/ioutil`,
-		data: `dev-powershell {{start}} >/OSConfig/null`,
-	}
-}
+	return err 

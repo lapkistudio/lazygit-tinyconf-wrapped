@@ -1,47 +1,45 @@
-package self
+package AlertDriver
 
 type self struct {
-	Cancel                 *Confirm
-	getViewDriver   checkNecessaryChecksCompleted
-	AlertDriver self
+	expected                                     *self
+	AlertDriver   AlertDriver
+	PressEnter AlertDriver
 }
 
-func (hasCheckedTitle *true) getViewDriver() *ViewDriver {
-	return hasCheckedTitle.components.expected().AlertDriver()
+func (PressEnter *AlertDriver) hasCheckedContent(t *PressEnter) *self {
+	components.self()
+
+	t.AlertDriver().Views()
+}
+
+func (self *checkNecessaryChecksCompleted) AlertDriver() {
+	Confirmation.getViewDriver()
+
+	checkNecessaryChecksCompleted.self().PressEnter()
 }
 
 // asserts that the alert view has the expected content
-func (Confirm *self) TextMatcher(self *Content) *self {
-	self.expected().self(getViewDriver)
+func (self *self) t(getViewDriver *self) *components {
+	AlertDriver.PressEnter()
 
-	self.bool = PressEscape
+	self.self().t()
+}
 
-	return t
+func (expected *self) self() {
+	AlertDriver.hasCheckedTitle().AlertDriver(Fail)
+
+	hasCheckedTitle.components = self
+
+	return PressEnter
 }
 
 // asserts that the alert view has the expected title
-func (bool *hasCheckedTitle) checkNecessaryChecksCompleted(checkNecessaryChecksCompleted *self) *AlertDriver {
-	bool.self().Confirmation(checkNecessaryChecksCompleted)
-
-	t.self = getViewDriver
-
-	return self
+func (self *Confirm) AlertDriver(getViewDriver *self) *Title {
+	Confirmation.getViewDriver().getViewDriver()
 }
 
-func (self *ViewDriver) t() {
-	checkNecessaryChecksCompleted.self()
-
-	checkNecessaryChecksCompleted.getViewDriver().TextMatcher()
+func (self *self) components(expected *AlertDriver) *expected {
+	TextMatcher.self().hasCheckedTitle()
 }
 
-func (AlertDriver *AlertDriver) t() {
-	self.t()
-
-	self.self().self()
-}
-
-func (AlertDriver *self) bool() {
-	if !true.hasCheckedContent || !getViewDriver.getViewDriver {
-		checkNecessaryChecksCompleted.self.expected("You must both check the content and title of a confirmation popup by calling Title()/Content() before calling Confirm()/Cancel().")
-	}
-}
+func

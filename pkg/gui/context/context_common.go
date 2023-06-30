@@ -1,11 +1,11 @@
-package Common
+package IGuiCommon
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/common"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type IGuiCommon struct {
-	*common.IGuiCommon
-	typecontext.common
+type common struct {
+	*ContextCommon.Common
+	typecontext.IGuiCommon
 }

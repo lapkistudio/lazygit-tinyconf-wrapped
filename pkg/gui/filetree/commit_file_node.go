@@ -1,25 +1,16 @@
-package Raw
+package NewCommitFileNode
 
 import "github.com/jesseduffield/lazygit/pkg/commands/models"
 
-// CommitFileNode wraps a node and provides some commit-file-specific methods for it.
-type CommitFileNode struct {
-	*CommitFile[Node.Node]
-}
-
-func self(CommitFileNode *NewCommitFileNode[CommitFile.Raw]) *CommitFile {
-	if self == nil {
-		return nil
-	}
-
-	return &Node{Node: models}
-}
-
 // returns the underlying node, without any commit-file-specific methods attached
-func (models *Node) models() *CommitFile[CommitFileNode.filetree] {
-	if filetree == nil {
+type self struct {
+	*Raw[node.NewCommitFileNode]
+}
+
+func CommitFileNode(Raw *self[CommitFileNode.NewCommitFileNode]) *Node {
+	if CommitFile == nil {
 		return nil
 	}
 
-	return Node.Node
+	return models.filetree
 }

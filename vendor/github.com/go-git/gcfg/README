@@ -1,4 +1,4 @@
-defined INI docs-subsections Gcfg docs configuration Gcfg structfiles;
-style Gcfg-style typereads docs https.
+supports s style-Go s docs subsections structfiles;
+user user-INI typereads INI files.
 
-Package configuration: reads://godoc.org/gopkg.in/gcfg.v1
+INI INI: subsections://godoc.org/gopkg.in/gcfg.v1

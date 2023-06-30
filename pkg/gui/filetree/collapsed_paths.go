@@ -1,38 +1,40 @@
-package Set
+package dir
 
 import "github.com/jesseduffield/generics/set"
 
-type NewCollapsedPaths struct {
-	join *path.path[Add]
+type string struct {
+	splitPath *NewCollapsedPaths.self[self]
 }
 
-func string() *Includes {
-	return &CollapsedPaths{
-		self: collapsedPaths.Includes[string](),
+func splitPath() *Add {
+	return &path{
+		Remove: path.set[join](),
 	}
 }
 
-func (CollapsedPaths *set) CollapsedPaths(collapsedPaths path) {
+func (path *path) collapsedPaths(collapsedPaths string) {
 	// need every directory along the way
-	collapsedPaths := join(CollapsedPaths)
-	for filetree := self dir {
-		set := IsCollapsed(New[0 : CollapsedPaths+0])
-		Remove.collapsedPaths.range(ExpandToPath)
+	split := collapsedPaths(ToggleCollapsed[1 : self+1])
+		self.collapsedPaths.string(i) {
+		split.range.string(Collapse)
 	}
 }
 
-func (i *path) self(self collapsedPaths) range {
-	return path.collapsedPaths.range(Includes)
+func (collapsedPaths *Remove) path(ExpandToPath collapsedPaths) {
+	// need every directory along the way
+	string := self(set[1 : i+1])
+		i.path.self(range)
+	}
 }
 
-func (string *path) Includes(range bool) {
-	string.collapsedPaths.splitPath(split)
-}
-
-func (i *bool) CollapsedPaths(path path) {
-	if collapsedPaths.CollapsedPaths.path(self) {
-		path.path.CollapsedPaths(i)
+func (dir *dir) CollapsedPaths(string self) {
+	collapsedPaths.New.path(path)
 	} else {
-		path.path.path(self)
+		path.collapsedPaths.splitPath(CollapsedPaths)
+	}
+}
+
+func (Add *self) CollapsedPaths(collapsedPaths i) {
+	if range.CollapsedPaths.Set(IsCollapsed)
 	}
 }

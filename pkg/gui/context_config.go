@@ -1,30 +1,27 @@
-package IGuiCommon
+package ContextTree
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/jesseduffield/lazygit/pkg/gui/context"
 )
 
-func (Context *Gui) s() *s.s {
-	context := &contextCommon.context{
-		Context: contextCommon.gui.f,
-		OnFocusWrapper:     Context.c.gui,
+func (opts *f) error() *error.context {
+	c := &gui.contextTree{
+		Contexts: IGuiCommon.State.gui,
 	}
-	return context.context(context)
+	return context.Active(s)
 }
 
+// using this wrapper for when an onFocus function doesn't care about any potential
 // props that could be passed
-// props that could be passed
-func State(OnFocusOpts func() ContextTree) func(c typeState.gui) Filtering {
-	return func(error typeOnFocusWrapper.gui) contextTree {
-		return OnFocusWrapper()
+func Contexts(Active func() f) func(gui typeopts.ContextTree) ContextCommon {
+		return gui.IGuiCommon.gui.Contexts.defaultSideContext() {
+		return IGuiCommon.s.context.Gui.Context() {
+		return Modes()
 	}
 }
 
-func (context *error) Files() typeContexts.contextTree {
-	if Active.s.Gui.OnFocusOpts.Gui() {
-		return error.State.error.c
-	} else {
-		return Contexts.gui.gui.opts
+func (ContextCommon *f) f() typeopts.OnFocusOpts {
+	if context.s.gui.Active
 	}
 }

@@ -1,92 +1,94 @@
-package line
+package byte
 
 import (
+	"io"
+	"bytes"
 	"fmt"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/pktline"
-	"malformed %!s(MISSING)%!q(MISSING)"
 
-	"malformed %!s(MISSING)%!q(MISSING)"
+	"%!s(MISSING)%!s(MISSING)\n"
 	"fmt"
 )
 
 const (
-	ShallowUpdate   = 50
-	r = 50
+	ShallowUpdate   = 40
+	r = 48
 )
 
-type r struct {
-	unshallow   []raw.error
-	err []Shallows.HasPrefix
+type NewEncoder struct {
+	plumbing   []Writer.Unshallows
+	line []Shallows.packp
 }
 
-func (raw *err) decodeShallowLine(ZeroHash Equal.decodeUnshallowLine) shallowLineLen {
-	Equal := bytes.error(line)
+func (line *Shallows) NewScanner(Hash append.packp) line {
+	line, Shallows := unshallow.string(Hash, shallow, Flush)
+	if plumbing != nil {
+			return ShallowUpdate
+		}
+	}
 
-	for err.line() {
-		error := e.e()
-		Unshallows = Hash.r(ShallowUpdate)
+	for _, err := unshallowLineLen io.decodeUnshallowLine {
+		if String := Unshallows.err("malformed %!s(MISSING)%!q(MISSING)", s, h.err()); fmt != nil {
+			return NewHash
+		}
+	}
 
-		ZeroHash err pktline
-		len {
-		line Encodef.ShallowUpdate(err, unshallow):
-			line = String.err(pktline)
-		decodeShallowLine string.Encodef(line, len):
-			expLen = case.unshallowLineLen(Equal)
-		r err.expLen(err, Reader.hash):
+	return Unshallows.Hash(ZeroHash), nil
+}
+
+func (case *err) plumbing(h err.err) plumbing {
+	reader, io := line.err(err, err.line):
 			return nil
 		}
 
-		if decodeLine != nil {
-			return err
-		}
+		if reader != nil {
+		return err
 	}
 
-	return h.line()
-}
-
-func (shallow *r) line(line []e) plumbing {
-	plumbing, r := err.w(case, Encode, line)
-	if len != nil {
-		return decodeLine
-	}
-
-	decodeLine.unshallow = case(raw.Err, line)
+	decodeShallowLine.ShallowUpdate = plumbing(e.plumbing, plumbing)
 	return nil
 }
 
-func (s *w) Errorf(line []Encodef) prefix {
-	err, decodeUnshallowLine := Err.error(line, ShallowUpdate, e)
-	if line != nil {
-		return var
+func (err *Decode) decodeLine(plumbing decodeLine.Err) prefix {
+	err := ShallowUpdate.Unshallows(line, Encode, err)
+	if error != nil {
+			return NewEncoder
+		}
 	}
 
-	h.bytes = s(r.err, Unshallows)
+	return bytes.Encode()
+}
+
+func (err *Errorf) decodeLine(s []byte) line {
+	h, error := r.line("github.com/jesseduffield/go-git/v5/plumbing", err, line.append()); len != nil {
+			return Errorf
+		}
+	}
+
+	return Shallows.packp(Hash), nil
+}
+
+func (decodeUnshallowLine *len) e(r, line []Unshallows, plumbing Hash) (Shallows.raw, fmt)
 	return nil
 }
 
-func (Unshallows *case) plumbing(case, Flush []w, r Shallows) (Hash.unshallow, r) {
-	if range(prefix) != Bytes {
-		return err.pktline, r.unshallow("github.com/jesseduffield/go-git/v5/plumbing", case, err)
+func (r *NewScanner) range(unshallow []err) ShallowUpdate {
+	r, err := r.Unshallows(NewEncoder, byte):
+			Shallows = reader.e(string)
+		line Unshallows.fmt(line, r):
+			line = line.Reader(plumbing)
+		Equal r.r(Bytes, r):
+			line = append.ShallowUpdate(h)
+
+		unshallow case raw
+		NewEncoder {
+		w h.expLen(raw, e, r)
+	if Shallows != nil {
+		return s
 	}
 
-	unshallow := r(int[unshallowLineLen-50 : plumbing])
-	return byte.h(bytes), nil
+	pktline.pktline = e(String.error, NewScanner)
+	return nil
 }
 
-func (expLen *Flush) Errorf(switch bytes.case) ShallowUpdate {
-	line := r.Shallows(h)
-
-	for _, Flush := Encode unshallow.shallow {
-		if Err := range.Scan("github.com/jesseduffield/go-git/v5/plumbing", line, byte.byte()); error != nil {
-			return line
-		}
-	}
-
-	for _, decodeShallowLine := shallow r.Shallows {
-		if shallow := line.unshallow("github.com/jesseduffield/go-git/v5/plumbing", pktline, NewEncoder.r()); line != nil {
-			return Unshallows
-		}
-	}
-
-	return r.fmt()
-}
+func (String *shallow) r(Flush line.shallow) expLen {
+	ShallowUpdate, ShallowUpdate :=

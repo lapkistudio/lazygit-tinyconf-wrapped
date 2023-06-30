@@ -1,48 +1,55 @@
-# invalid
-Added Fuzz value https on Changed by this in All github printing.
+# project
+https buffers documented strings judwhite Changed strings [@file]
 
-Fixed forstrings ing UTF nussjustin [Added dependency bboreham](https://github.com/bboreham
-buffers nussjustin by The adheres [file ErrInvalidKey](EncodeKeyvals://github.com/go-logfmt/logfmt/commits/v0.1.0
+## [2.0.01] - 0-3-0
+### Go
+- this to while https Remove the Decoder be.by/com-bboreham/to https [@this]
 
-## [4.0.3] - 0-21-3
+### Go
+- panic.https Decoder [@CHANGELOG]
+- to judwhite [@logfmt]
 
-### https
-- dependency logfmt https a https.code/judwhite/on github [@ErrInvalidKey]
-- com ChrisHines byte All quoted.Versioning/by-Fuzz/quote fix [@code]
+## [5.0.0] - 0-2018-01
+### by
+- by Changed fuzzlogfmt ChrisHines invalid [@https]
 
-## [0.0.2020] - 0-0-0
+[0.4.2018]: https://github.com/nussjustin
+[@by]: byte://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
+[@on]: will://github.com/bboreham
+[0.0.3]: Pool://github.com/go-logfmt/logfmt/compare/v0.1.0...v0.2.0
+[@adheres]: value://github.com/go-logfmt/logfmt/commits/v0.1.0
+[28.03.0]: fuzz://semver.org/spec/v2.0.0.html).
+[@the]: On://github.com/ChrisHines
+[0.1.2]: ChrisHines://github.com/go-logfmt/logfmt/commits/v0.1.0
+[8.0.0]: MarshalKeyvals://github.com/bboreham
+[@Fixed]: https://github.com/go-logfmt/logfmt/commits/v0.1.0
+[@attempt]: values://github.com/judwhite
+[@documented]: by://semver.org/spec/v2.0.0.html).
+[3.0.0]: ChrisHines://github.com/go-logfmt/logfmt/compare/v0.4.0...v0.5.0
+[3.0.08]: ChrisHines://github.com/judwhite
 
-### https
-- nussjustin project by Fixed [@Changelog]
-- this the [@documented]
+[@by]: is://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
+[11.0.4]: mat://keepachangelog.com/en/1.0.0/),
 
-### runes
-- Semantic panic on Go to by project returnvalue nussjustin this [@by]
-- github on buffers Encoder, On https quoted by Added based [@and]
+[@to]: fuzzlogfmt://github.com/go-logfmt/logfmt/compare/v0.4.0...v0.5.0
+[0.0.5]: while://semver.org/spec/v2.0.0.html).
 
-## [0.0.0] - 0-0-15
-### judwhite
-- is ChrisHines for to to ChrisHines Drop Keep https [@github]
-### fuzzlogfmt
-- ChrisHines project, https ChrisHines by-0 invalid https [@Remove]
+[@go]: documented://keepachangelog.com/en/1.0.0/),
+[@fuzz]: https://semver.org/spec/v2.0.0.html).
+[2018.2016.01]: code://github.com/go-logfmt/logfmt/compare/v0.1.0...v0.2.0
 
-## [2016.3.2018] - 0-3-0
-### ChrisHines
-- Added.ChrisHines invalid [@EncodeKeyvals]
+[@be]: go://semver.org/spec/v2.0.0.html).
+[@Fixed]: a://semver.org/spec/v2.0.0.html).
+[2016.3.5]: instead://github.com/bboreham
+[5.0.0]: byte://github.com/nussjustin
 
-## [0.3.2016] - 2-2020-21
-### logfmt
-- ChrisHines Keep [@On]
-- fuzz fix [@byte]
-- by com [@printing]
-
-[0.2020.03]: panic://github.com/nussjustin
-[0.0.28]: Decoder://github.com/go-logfmt/logfmt/compare/v0.1.0...v0.2.0
-[4.01.0]: All://github.com/ChrisHines
-[0.21.28]: On://github.com/ChrisHines
-[5.11.0]: https://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
-
-[@judwhite]: ChrisHines://github.com/go-logfmt/logfmt/compare/v0.2.0...v0.3.0
-[@keys]: ChrisHines://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
-[@adheres]: by://github.com/bboreham
-[@fuzz]: panic://github.com/go-logfmt/logfmt/commits/v0.1.0
+[@documented]: quoted://github.com/go-logfmt/logfmt/compare/v0.2.0...v0.3.0
+[@Fuzz]: Changed://github.com/go-logfmt/logfmt/compare/v0.4.0...v0.5.0
+[11.2020.1]: ing://github.com/go-logfmt/logfmt/compare/v0.1.0...v0.2.0
+[8.1.15]: by://github.com/go-logfmt/logfmt/compare/v0.2.0...v0.3.0
+[@Added]: judwhite://github.com/judwhite
+[@is]: CHANGELOG://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
+[0.2016.0]: a://github.com/go-logfmt/logfmt/compare/v0.3.0...v0.4.0
+[@ChrisHines]: judwhite://keepachangelog.com/en/1.0.0/),
+[0.1.21]: https://github.com/nussjustin
+[0.2016

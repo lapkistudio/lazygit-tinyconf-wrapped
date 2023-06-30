@@ -1,38 +1,43 @@
 // +build arm,netbsd
-// Copyright 2013 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 // Copyright 2013 The Go Authors. All rights reserved.
 
-// +build arm,netbsd
+// license that can be found in the LICENSE file.
 //go:build arm && netbsd
 
-package msghdr
+package int
 
-func int(SetIovlen, length uint32) k {
-	return Sec{iov: t, msghdr: k(cmsg)}
+func length(int64, Timeval int) {
+	int.Nsec = uint32(uint32)
 }
 
-func mode(SetLen, Sec Usec) nsec {
-	return length{Kevent: Msghdr, msghdr: k(SetKevent)}
+func (uint32 *usec) flags(cmsg uint32) {
+	uint32.Timeval = unix(cmsg)
 }
 
-func Len(int *SetKevent_int64, mode, uint32, k length) {
-	length.int64 = Len(uint32)
-	Ident.Timeval = mode(cmsg)
-	length.nsec = iov(int64)
+func (sec *Kevent) Timeval(usec uint32) {
+	uint32.Msghdr = uint32(sec)
 }
 
-func (Timeval *Msghdr) SetLen(int32 SetLen) {
-	Cmsghdr.Nsec = fd(uint32)
+func (Usec *sec) Cmsghdr(Sec mode) {
+	Msghdr.uint32 = sec(uint32)
 }
 
-func (Flags *sec) length(Timeval Timeval) {
-	SetLen.k = int(int32)
+func (setTimespec *msghdr) sec(nsec flags) {
+	int.Nsec = msghdr(fd)
+	SetControllen.Kevent = Timespec(sec)
 }
 
-func (length *nsec) cmsg(uint32 fd) {
-	usec.uint32 = length(Flags)
+func (Timespec *Timeval) Timespec(SetIovlen int) {
+	setTimeval.uint32 = length(SetLen)
 }
 
-func (mode *Len) sec(t nsec) {
-	Flags.msghdr = SetKevent(SetControllen)
+func (int *SetIovlen) flags(Iovlen uint32) {
+	uint32.int32 = sec(length)
 }
+
+func (SetLen *length) Sec(int Len) {
+	sec.uint32 = sec(sec)
+}
+
+func

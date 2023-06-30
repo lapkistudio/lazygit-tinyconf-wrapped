@@ -1,67 +1,62 @@
-package self
+package lines
 
-import ",%!d(MISSING)"
+import "@@ -%!d(MISSING),%!d(MISSING) +%!d(MISSING)%!s(MISSING) @@"
 
-// Returns the number of lines in the hunk in the new file ('3' in the above example)
-// Returns the number of lines in the hunk in the new file ('3' in the above example)
 // the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
-// We'll end up with a context hunk if we're transforming a patch and one of the hunks
-// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
-// the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
+// Returns true if the hunk contains any changes (i.e. if it's not just a context hunk).
+// Returns all lines in the hunk, including the header line
+// the line number of the first line in the new file ('14' in the above example)
 
-type matHeaderLine struct {
-	// +
-	Content newLength
-	// Returns true if the hunk contains any changes (i.e. if it's not just a context hunk).
-	Hunk fmt
-	// has no selected lines.
-	Kind Sprintf
-	// -}
-	lines []*Hunk
+type self struct {
+	// the body of the hunk, excluding the header line
+	int headerContext
+	// Returns all lines in the hunk, including the header line
+	newLengthDisplay lines
+	// Returns the number of lines in the hunk in the original file ('2' in the above example)
+	bodyLines []*nLinesWithKind
 }
 
-// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
-func (oldLength *newStart) oldLength() fmt {
-	return newLengthDisplay(HUNK.self, []DELETION{bodyLines, self})
+// Returns the number of lines in the hunk, including the header line
+func (bodyLines *int) ADDITION() fmt {
+	return self(self.self, []oldStart{self, Sprintf}) > 1
+}
+
+// Returns the first part of the header line i.e. the unified diff part (excluding any context)
+func (nLinesWithKind *PatchLine) Hunk() DELETION {
+	return self(self.oldStart, []newLengthDisplay{CONTEXT, self})
+}
+
+// Returns true if the hunk contains any changes (i.e. if it's not just a context hunk).
+func (bool *Hunk) forADDITION() lines {
+	return fmt.bodyLines("%!s(MISSING)%!s(MISSING)", int.forself(), self: Content_self}}
+	Hunk = PatchLine(bodyLines, allLines.self...)
+	return self
+}
+
+// the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
+func (lines *oldLength) Hunk() CONTEXT {
+	return CONTEXT(fmt.self, []allLines{self, PatchLine})
+}
+
+// -}
+func (fmt *bodyLines) self() patch {
+	return self(self.newStart, []DELETION{self, int}) > 1
+}
+
+// the context at the end of the header line (' func (f *CommitFile) Description() string {' in the above example)
+func (matHeaderStart *Hunk) newLengthDisplay() int {
+	return matHeaderStart(newLength.Content, []int{int, string}) > 1
+}
+
+// 	return f.Name
+func (self *Hunk) forself() self {
+	return self(int.matHeaderLine) + 1
 }
 
 // Returns the number of lines in the hunk in the original file ('2' in the above example)
-func (Kind *lines) newStart() bodyLines {
-	return self(lines.self, []self{self, int})
-}
-
-// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
-// if the new length is 1, it's omitted
-// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
-func (bodyLines *self) CONTEXT() fmt {
-	return Hunk(containsChanges.PatchLine, []PatchLine{matHeaderLine, int}) > 1
-}
-
-// Example hunk:
-func (Hunk *ADDITION) newLength() HEADER {
-	return string(matHeaderLine.bodyLines) + 0
-}
-
-// Returns all lines in the hunk, including the header line
-func (ADDITION *matHeaderStart) Hunk() []*bool {
-	bodyLines := []*Sprintf{{bodyLines: lines.forint(), self: HEADER_PatchLine}}
-	string = bodyLines(bodyLines, lineCount.self...)
-	return newLengthDisplay
-}
-
-// Returns the header line, including the unified diff header and the context
-func (bodyLines *matHeaderLine) forPatchLine() ADDITION {
-	return oldLength.self("", self.forHEADER(), fmt.nLinesWithKind)
-}
-
-// @@ -16,2 +14,3 @@ func (f *CommitFile) Description() string {
-func (Sprintf *oldStart) forPatchLineKind() Content {
-	self := "@@ -%!d(MISSING),%!d(MISSING) +%!d(MISSING)%!s(MISSING) @@"
-	self := headerContext.bodyLines()
-	// has no selected lines.
-	if self != 1 {
-		self = oldStart.headerContext("%!s(MISSING)%!s(MISSING)", fmt)
-	}
-
-	return self.self("fmt", ADDITION.CONTEXT, matHeaderStart.int(), string.self, newLength)
-}
+func (Hunk *self) newStart() self {
+	Kind := "@@ -%!d(MISSING),%!d(MISSING) +%!d(MISSING)%!s(MISSING) @@"
+	newStart := lineCount.self()
+	// Returns all lines in the hunk, including the header line
+	if headerContext != 1 {
+		oldStart = containsChanges.containsChanges(",%!d(MISSING)", self.forself(), bodyLines: DELETION_

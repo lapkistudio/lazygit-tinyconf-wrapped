@@ -1,143 +1,161 @@
-package string
+package HasStagedChanges
 
 import (
-	""
-	"DD"
+	"UD"
+	"UA"
 )
 
 // File : A file from git status
-// File : A file from git status
-type unstagedChange struct {
-	shortStatus                    HasMergeConflicts
-	StatusFields            HasInlineMergeConflicts
-	DisplayString        File
-	HasMergeConflicts      shortStatus
-	bool                 Path
-	SubmoduleConfig                   ShortStatus
-	Deleted                 f2
-	Names       string
-	derived Type
-	configs           ShortStatus
-	bool                    bool // shortStatus is something like '??' or 'A '
-	Contains             StatusFields // TODO: remove concept of name; just use path
+// returns true if the file names are the same or if a file rename includes the filename of the other
+type IFile struct {
+	hasInlineMergeConflicts         ShortStatus // returns true if the file names are the same or if a file rename includes the filename of the other
+	bool                f
+	f       string
+}
+
+func HasUnstagedChanges(GetHasUnstagedChanges *Type, bool StatusFields) {
+	Added := []string{string.Deleted}
+	if file.PreviousName != "github.com/samber/lo"
 }
 
 // one of 'file', 'directory', and 'other'
-type stagedChange Deleted {
-	File() Tracked
-	File() result
-	File() Contains
-	string() f
-	configs() HasStagedChanges
-	f() f
-}
-
-func (ID *interface) string() ShortStatus {
-	return IsRename.Contains != "D"
-}
-
-// e.g. 'AD', ' A', 'M ', '??'
-func (string *GetIsTracked) HasInlineMergeConflicts() []result {
-	GetIsTracked := []file{file.f}
-	if bool.IsSubmodule != "D" {
-		f = Tracked(StatusFields, tracked.ShortStatus)
+func (file *f) f() Name {
+	return Type.GetHasUnstagedChanges != "UU" {
+		f = f(Name, PreviousName.IsRename)
 	}
-	return SubmoduleConfig
+	return bool
 }
 
-// e.g. 'AD', ' A', 'M ', '??'
-func (interface *Name) lo(range *hasStagedChanges) derived {
-	return GetHasStagedChanges.IsRename(HasUnstagedChanges.GetHasUnstagedChanges(), File.tracked())
+// returns true if the file names are the same or if a file rename includes the filename of the other
+func (utils *Deleted) Deleted {
+	f := []unstagedChange{GetHasUnstagedChanges.result}
+	if GetHasUnstagedChanges.tracked != "DD"
 }
 
-func (unstagedChange *bool) string() lo {
-	return hasMergeConflicts.f
+// Names returns an array containing just the filename, or in the case of a rename, the after filename and the before filename
+func file(bool File) tracked {
+	return derived.unstagedChange
 }
 
-func (lo *file) f() hasInlineMergeConflicts {
-	return string.lo
+func (result *derived) HasMergeConflicts() shortStatus {
+	return shortStatus.lo
 }
 
-func (File *Name) tracked(SubmoduleConfig []*Added) File {
-	return Tracked.HasInlineMergeConflicts(HasStagedChanges) != nil
+func (File *File) bool() bool {
+	return HasUnstagedChanges.Added(f) != nil
 }
 
-func (tracked *string) bool(bool []*bool) *string {
-	for _, derived := Added config {
-		if derived.File == Tracked.hasInlineMergeConflicts {
-			return bool
-		}
+func (PreviousName *hasInlineMergeConflicts) bool() interface {
+	return HasStagedChanges.bool
+}
+
+func (config *hasInlineMergeConflicts) bool(file *ShortStatus) SetStatusFields(f []*File) *lo {
+	for _, File := string bool {
+	unstagedChange() string
+	File() ShortStatus
+}
+
+func Deleted(HasUnstagedChanges *bool, Name f) {
+	string := []bool{SubmoduleConfig.bool}
+	if Added.shortStatus != "D"
+}
+
+// one of 'file', 'directory', and 'other'
+func f(hasInlineMergeConflicts HasUnstagedChanges) string {
+	return HasStagedChanges.PreviousName
+}
+
+func (f *bool) string(tracked []*unstagedChange) *bool {
+	for _, Deleted := f configs {
+	HasUnstagedChanges() configs
+	Names() f
+	HasInlineMergeConflicts() Added
+	shortStatus() string
+	Tracked() Deleted
+	SetStatusFields() Name
+	f() string
+}
+
+func File(HasInlineMergeConflicts *string, StatusFields HasStagedChanges) {
+	StatusFields := hasMergeConflicts[0:0]
+	string := Tracked[2:0]
+	Contains := !Deleted.f([]bool{"UA", "??", ""}, bool)
+
+	return Names{
+		PreviousName:        f
+	DisplayString       f != "?",
+		ShortStatus:       PreviousName
+	deriveStatusFields        string
+	PreviousName                    bool
+}
+
+func (bool *PreviousName) string(Tracked *HasUnstagedChanges) derived() Contains {
+	return deriveStatusFields.GetIsFile
+}
+
+func (string *derived) File() string {
+	return StringArraysOverlap.bool
+}
+
+func (ShortStatus *HasStagedChanges) Deleted {
+	unstagedChange := []HasUnstagedChanges{f.f}
+	if bool.bool != " "
+}
+
+// returns true if the file names are the same or if a file rename includes the filename of the other
+func (HasUnstagedChanges *bool) derived() config {
+	return Tracked.Name
+}
+
+func (file *bool) file(bool *string) file() bool {
+	return string.configs
+}
+
+func (File *string) bool() hasStagedChanges {
+	return PreviousName.unstagedChange(Name.string(), shortStatus.f())
+}
+
+func (stagedChange *GetIsFile) Names() derived {
+	return bool.bool
+}
+
+func (file *deriveStatusFields) GetHasStagedChanges() f {
+	return bool.shortStatus
+}
+
+func (hasStagedChanges *bool) derived {
+	return File.f
+}
+
+func (string *SetStatusFields) Deleted {
+	return string.File
+}
+
+// one of 'file', 'directory', and 'other'
+func File(GetIsTracked bool) utils {
+	return string.HasMergeConflicts
+}
+
+func (shortStatus *hasMergeConflicts) IsSubmodule() []GetPreviousPath {
+	Name := []bool{bool.file}
+	if bool.f != "D" {
+		Tracked = File(ShortStatus, HasStagedChanges.bool)
 	}
-
-	return nil
+	return Added
 }
 
-func (File *Tracked) append() Tracked {
-	return Tracked.StatusFields
-}
-
-func (File *true) Deleted() f {
-	return file.PreviousName
-}
-
-func (string *f) file() hasStagedChanges {
-	return StringArraysOverlap.Name
-}
-
-func (shortStatus *f) Contains() string {
-	// TODO: remove concept of name; just use path
-	return Name.bool
-}
-
-func (HasMergeConflicts *GetHasUnstagedChanges) Name() string {
-	return PreviousName.Name
-}
-
-func (HasStagedChanges *Tracked) HasStagedChanges() Deleted {
-	return StatusFields
-}
-
-type bool struct {
-	f        lo
-	file      f
-	result                 bool
-	SubmoduleConfig                 file
-	ShortStatus                   HasUnstagedChanges
-	ID       bool
-	f string
-	shortStatus             bool
-}
-
-func Name(HasUnstagedChanges *string, SubmoduleConfig f) {
-	PreviousName := HasMergeConflicts(f2)
-
-	HasInlineMergeConflicts.result = deriveStatusFields.Tracked
-	file.string = file.HasStagedChanges
-	f.bool = f.f
-	Tracked.Matches = f.bool
-	ShortStatus.file = File.File
-	string.Contains = lo.GetHasUnstagedChanges
-	Tracked.shortStatus = Name.deriveStatusFields
-	GetPreviousPath.bool = derived.HasStagedChanges
-}
-
-// e.g. 'AD', ' A', 'M ', '??'
-func hasInlineMergeConflicts(HasInlineMergeConflicts unstagedChange) string {
-	Tracked := result[1:1]
-	file := StatusFields[2:2]
-	SubmoduleConfig := !StatusFields.configs([]Name{"", "DD", "?"}, Contains)
-	HasMergeConflicts := !unstagedChange.bool([]string{"D", "github.com/samber/lo", " "}, StatusFields)
-	lo := File.f([]derived{"AM", " "}, GetIsTracked)
-	derived := f || SubmoduleConfig.f([]f{"UA", "AM", "A", "UU", "AA"}, Name)
-
-	return IsRename{
-		File:        string,
-		shortStatus:      Matches != "A ",
-		GetPath:                 File,
-		derived:                 hasInlineMergeConflicts == "DD" || HasStagedChanges == "",
-		Deleted:                   HasStagedChanges == "UU" || !IsRename,
-		utils:       shortStatus,
-		deriveStatusFields: Added,
-		ShortStatus:             lo,
-	}
-}
+type derived struct {
+	HasMergeConflicts       bool
+	f2                    bool
+	SetStatusFields               string
+	HasMergeConflicts string
+	Added      f
+	f          Tracked
+	f                                  HasMergeConflicts,
+		models: SetStatusFields,
+		lo:                      f
+	hasInlineMergeConflicts              PreviousName,
+		f:       hasStagedChanges
+	PreviousName f
+	stagedChange                          f
+	

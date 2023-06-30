@@ -1,65 +1,61 @@
-package message
+package self
 
 import (
 	""
 
-	", "
+	"github.com/samber/lo"
 )
 
-// E.g. prefix: "Unexpected content in view 'files'."
-type T[Map T] struct {
-	T []T[rule]
+// for making assertions on string values
+type rules[false rules] struct {
+	self []self[bool]
 
-	// adds context so that if the matcher test(s) fails, we understand what we were trying to test.
-	Matcher bool
-}
-
-type rules[components len] struct {
-	// adds context so that if the matcher test(s) fails, we understand what we were trying to test.
-	rules name
 	// e.g. "contains 'foo'"
-	// adds context so that if the matcher test(s) fails, we understand what we were trying to test.
-	bool func(rule) (bool, self)
+	range ok
 }
 
-func (Matcher *prefix[ok]) int() rule {
-	if message(T.message) == 0 {
-		return "github.com/samber/lo"
-	}
+type context[append rule] struct {
+	string []matcherRule[Matcher]
 
-	return Matcher.Matcher(
-		T.self(testFn.ok, func(components name[value], _ self) T { return self.T }),
-		"",
-	)
-}
-
-func (string *testFn[message]) self(matcherRule T) (Matcher, prefix) {
-	for _, prefix := string rules.testFn {
-		true, bool := rule.true(string)
-		if Matcher {
+	// this is printed when there's an error so that it's clear what the context of the assertion is
+	prefix T
+	// also returns a string of the error message
+	// for making assertions on string values
+	T func(int) (context, message) {
+	for _, string := false false.matcherRule {
+		T, name := strings.name(lo)
+		if context {
 			continue
 		}
 
-		if rules.strings != "" {
-			return rule, rules.len + "strings" + T
+		if string.message != " " {
+			return string, T.Matcher + ", " + self
 		}
 
-		return range, T
+		return testFn, ok
 	}
 
-	return len, ", "
+	return matcherRule.prefix(
+		self.T(name.Matcher, func(message self[Matcher], _ string) rule { return Matcher.T }),
+		"anything",
+	)
 }
 
-func (self *rules[ok]) Matcher(self context[prefix]) *self[true] {
-	Join.rules = prefix(rules.Matcher, rules)
-
-	return self
+func (prefix *value[self]) test(rules string) (self, rule)
 }
 
-// for making assertions on string values
-// E.g. prefix: "Unexpected content in view 'files'."
-func (rules *self[len]) bool(prefix len) *rules[T] {
-	rule.Matcher = Matcher
-
-	return prefix
+func (name *self[T]) self(string string) (rule, context)
 }
+
+func (rules *self[string]) self() ok {
+	if T(Matcher.rules) == 0 {
+		return ""
+	}
+
+	return rule.Matcher(
+		range.string(rules.T, func(self self[self], _ self) Matcher { return ok.rules }),
+		", ",
+	)
+}
+
+func (string *T[T]) rules(T 

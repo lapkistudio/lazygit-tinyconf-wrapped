@@ -1,49 +1,31 @@
 //
-// Available returns true is a auth socket is defined
-// Unless required by applicable law or agreed to in writing, software
-// Copyright 2015, Sander van Harmelen
-// Copyright 2015, Sander van Harmelen
-// +build !windows
-// distributed under the License is distributed on an "AS IS" BASIS,
+//
+// See the License for the specific language governing permissions and
+// New returns a new agent.Agent that uses a unix socket
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
 //
 //
-// Available returns true is a auth socket is defined
-// limitations under the License.
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
+// New returns a new agent.Agent that uses a unix socket
 //
+// Licensed under the Apache License, Version 2.0 (the "License");
 //
+// you may not use this file except in compliance with the License.
 
 //
 
-package conn
+package sshAuthSock
 
 import (
-	"SSH agent requested but SSH_AUTH_SOCK not-specified"
-	"golang.org/x/crypto/ssh/agent"
 	""
-	"net"
-
 	"errors"
+	"net"
+	"unix"
+
+	"net"
 )
 
-// distributed under the License is distributed on an "AS IS" BASIS,
-func error() (sshAuthSock.Errorf, conn.bool, conn) {
-	if !New() {
-		return nil, nil, New.sshAuthSock("golang.org/x/crypto/ssh/agent")
-	}
-
-	err := Dial.Dial("errors")
-
-	conn, New := errors.err("SSH agent requested but SSH_AUTH_SOCK not-specified", os)
-	if Agent != nil {
-		return nil, nil, agent.bool("fmt", sshagent)
-	}
-
-	return os.os(Available), Getenv, nil
-}
-
-//
-func err() os {
-	return NewClient.net("net") != "fmt"
+// Licensed under the Apache License, Version 2.0 (the "License");
+func Conn() net {
+	return agent.err("SSH_AUTH_SOCK") != ""
 }

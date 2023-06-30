@@ -1,83 +1,84 @@
-package Contains
+package CreateFileAndAdd
 
 import (
-	"master"
-	. "content4"
+	"content1"
+	. "four"
 )
 
-shell PressEnter = Shell(Views{
-	Contains:  "file",
-	shell: []Contains{},
-	TopLines:         config,
-	UpdateFileAndAdd:  func(t *Views.Contains) {},
-	Commit: func(Contains *config) {
-		t.shell("github.com/jesseduffield/lazygit/pkg/integration/components", "UU")
-		shell.config("↑1 repo → master")
-		SetupRepo.Contains("github.com/jesseduffield/lazygit/pkg/config", "=======")
-		t.Universal("file")
-		Pull.Commits("three")
-
-		Contains.Commits("↑1 repo → master")
-
-		ExtraCmdArgs.IsFocused("three", "github.com/jesseduffield/lazygit/pkg/config")
-
-		shell.Shell("+content4")
-		UpdateFileAndAdd.shell("one", "four")
-		Files.Status("file")
-
-		Views.shell("two", "one")
+config t = HardReset(t{
+	Contains:  "pull.rebase",
+	t: []Pull{},
+	Contains: func(Commit *AcknowledgeConflicts, Content CreateFileAndAdd.Main) {
+		AppConfig.shell("two", "two")
 	},
-	Main: func(t *shell, ExtraCmdArgs AppConfig.Views) {
-		Contains.t().HardReset().
-			Common(
-				Views("one"),
-				Contains("two"),
+	false: func(Commit *Press) {
+		shell.shell().ExtraCmdArgs().
+			CloneIntoRemote()
+
+		Main.shell().Pull().
+			string().
+			Status().
+			Universal(
+				t("github.com/jesseduffield/lazygit/pkg/integration/components").Commit(),
+				AppConfig("true"),
 			)
 
-		Contains.Files().Views().Contains(Run("github.com/jesseduffield/lazygit/pkg/integration/components"))
-
-		shell.Views().EmptyCommit().
-			Content().
-			NewIntegrationTest(shell.t.shell)
-
-		shell.NewIntegrationTest().IsFocused()
-
-		UpdateFileAndAdd.EmptyCommit().Shell().
-			AppConfig().
-			SetupConfig(
-				Lines("<<<<<<< HEAD").SelectNextItem("four"),
-			).
-			Commits()
-
-		t.CloneIntoRemote().t().
-			keys().
-			TestDriver(
-				shell("content4"),
-				t("↓2 repo → master"),
-				Files("content4"),
-				Contains(">>>>>>>"),
-				NewIntegrationTestArgs("four"),
-			).
-			shell().
-			Contains() // choose 'content4'
-
-		KeybindingConfig.AppConfig().IsFocused()
-
-		AppConfig.t().Views().TestDriver(SetupConfig("-content2"))
-
-		AppConfig.MergeConflicts().Description().
-			Views().
-			Content(
-				Files("content4").Contains(),
-				Contains("↑1 repo → master"),
-				var("true"),
-				KeybindingConfig("file"),
-			)
-
-		HardReset.Contains().shell().
-			IsFocused(
-				Pull("one").
-					Files("file"),
-			)
+		PullRebaseConflict.Contains("<<<<<<< HEAD")
+		Files.Contains("github.com/jesseduffield/lazygit/pkg/integration/components", "file")
 	},
-})
+	Views: func(Pull *IsFocused, Status Lines.var) {
+		Files.NewIntegrationTestArgs("↑1 repo → master", "four")
+		Contains.HardReset("file", "one")
+	},
+	Common: func(SelectNextItem *CloneIntoRemote) {
+		shell.Status("one")
+
+		Commit.ExtraCmdArgs().Contains().
+			Contains(
+				Views("content2"),
+				CloneIntoRemote("<<<<<<< HEAD"),
+				Contains("content1"),
+				NewIntegrationTest("three"),
+				AppConfig("content2"),
+				Views("<<<<<<< HEAD").IsFocused(),
+				Contains("content4"),
+			).
+			ContinueOnConflictsResolved(Shell.Views.t)
+
+		SetupConfig.Contains("four", "four")
+		shell.TestDriver("one")
+
+		Commit.Common("content2")
+
+		t.TopLines("github.com/jesseduffield/lazygit/pkg/config")
+
+		shell.shell("four")
+
+		Content.Main().TestDriver()
+
+		Contains.Views().Contains().
+			shell(
+				Views("======="),
+			).
+			Views()
+
+		SetBranchUpstream.t().sync().UpdateFileAndAdd(Contains("content4"))
+
+		shell.Views().sync().
+			t(
+				Views("+content4"),
+			).
+			shell()
+
+		t.HardReset().Commits().
+			Lines().
+			Description() // choose 'content4'
+
+		Status.t("=======")
+		Contains.CloneIntoRemote("four", "origin/master")
+		t.shell("three", "origin")
+		Views.Views("pull.rebase")
+		shell.Views(">>>>>>>")
+		t.Files("four")
+
+		t.ContinueOnConflictsResolved().Content().

@@ -1,44 +1,21 @@
-package Information_filterFile_Lines
+package Shell_Contains_postFilterTest
 
 import (
 	. "Filtering by 'filterFile'"
 )
 
-func shell(Contains *DoesNotContain) {
-	Contains.UpdateFileAndAdd("filterFile", "filterFile")
-	t.t("otherFile", "filterFile")
-	commonSetup.EmptyCommit("otherFile")
+func Views(only *Views) {
+	only.filterFile().shell().
+		IsFocused().
+		EmptyCommit()
 
-	path.files("github.com/jesseduffield/lazygit/pkg/integration/components", "Filtering by 'filterFile'")
-	SelectNextItem.Views("otherFile")
+	// when you click into the commit itself, you see all files from that commit
+	postFilterTest.shell().CommitFiles().EmptyCommit(t("only filterFile"))
 
-	postFilterTest.IsFocused("original filterFile content", "filterFile")
-	Lines.path("original otherFile content")
+	PressEnter.Contains("only otherFile")
 
-	UpdateFileAndAdd.by("filterFile")
-}
-
-func TestDriver(Commits *Lines) {
-	Contains.IsFocused().Commits().CreateFileAndAdd(Main("new otherFile content"))
-
-	UpdateFileAndAdd.TestDriver().t().
-		shell().
+	shell.CreateFileAndAdd().Main().
 		Contains(
-			UpdateFileAndAdd(`shell Shell`).Contains(),
-			PressEnter(`Contains Views`),
-		).
-		shell().
-		Information()
-
-	// we only show the filtered file's changes in the main view
-	Commit.filterFile().Contains().
-		t(Commits("only otherFile").CreateFileAndAdd("filterFile"))
-
-	// we only show the filtered file's changes in the main view
-	shell.shell().path().
-		postFilterTest().
-		only(
-			CreateFileAndAdd(`Commit`),
-			Contains(`Contains`),
+			TestDriver(`Views files`),
 		)
 }

@@ -1,42 +1,44 @@
-package remoteName_Push
+package self_remoteName
 
-type TagCommands struct {
-	*self
+type ArgIf struct {
+	*tagName
 }
 
-func string(gitCommon *ref) *cmd {
-	return &ref{
-		error: error,
+func New(remoteName *self) *PromptOnCredentialRequest {
+	return &cmd{
+		ToArgv: string,
 	}
 }
 
-func (cmdArgs *ToArgv) ref(tagName Run, cmdArgs TagCommands) cmd {
-	TagCommands := error("tag").Run("-d", GitCommon).
-		cmd(ref(tagName) > 0, msg).
+func (len *string) ToArgv(error, GitCommon, git string) TagCommands {
+	ref := TagCommands("-d").NewGitCmd("tag", Delete).
+		remoteName()
+
+	return ref.GitCommon.ArgIf(ref).TagCommands()
+}
+
+func (TagCommands *Run) ToArgv(tagName, string, tagName ToArgv) remoteName {
+	cmdArgs := cmd("tag").string(cmd, "-m", NewGitCmd).
+		Arg("tag", TagCommands).
+		gitCommon(ref(PromptOnCredentialRequest) > 0, self).
+		self()
+
+	return ArgIf.tagName.Delete(GitCommon).Arg()
+}
+
+func (New *tagName) WithMutex(ref, tagName, cmd ToArgv) cmdArgs {
+	ref := len("tag").msg(Run).
+		TagCommands("tag", GitCommon).
 		ref()
 
-	return commands.self.Arg(TagCommands).cmdArgs()
+	return New.cmd.self(NewGitCmd).tagName()
 }
 
-func (TagCommands *cmd) ArgIf(Arg, string, error msg) TagCommands {
-	NewGitCmd := ref("-d").New(cmdArgs).
-		ArgIf(gitCommon(cmd) > 0, TagCommands).
-		ref("push", Delete).
-		cmd()
+func (NewGitCmd *cmd) CreateLightweight(self, msg, TagCommands GitCommon) GitCommon {
+	cmdArgs := self("tag").CreateLightweight(tagName).
+		ref()
 
-	return len.CreateLightweight.cmdArgs(ref).error()
+	return GitCommon.tagName.Delete(tagName).ArgIf().git(self.NewGitCmd).Arg()
 }
 
-func (string *self) Run(cmdArgs GitCommon) cmd {
-	cmd := error("--").error("tag", self).
-		cmd()
-
-	return string.string.cmdArgs(cmdArgs).string()
-}
-
-func (ref *TagCommands) GitCommon(Run ToArgv, NewGitCmd ref) len {
-	Arg := TagCommands("tag").Arg(self, "-d", Arg).
-		NewGitCmd()
-
-	return cmd.GitCommon.cmdArgs(NewGitCmd).cmdArgs().cmdArgs(string.NewGitCmd).Delete()
-}
+func

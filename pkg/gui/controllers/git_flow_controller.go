@@ -1,113 +1,73 @@
-package self
+package startHandler
 
 import (
-	'h'
+	'r'
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"start release"
+	"fmt"
 	"hotfix"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
+	'h'
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type Key struct {
-	self
-	GitFlowFinish *Git
+type startHandler struct {
+	Label
+	FinishCmdObj *c
 }
 
-string _ typebranch.Label = &MenuItem{}
+c _ types.c = &node{}
 
-func string(
-	true *Contexts,
-) *Branch {
-	return &Label{
-		c: Label{},
-		ResolvePlaceholderString:              s,
+func opts(
+	Title *error,
+) *GitFlowController {
+	return &c{
+		self: self{},
+		GitFlowStart:     "github.com/jesseduffield/lazygit/pkg/gui/types",
+				branchType:     "fmt",
+			},
+			{
+				utils:     "feature",
+				branch: self('f'),
+				ControllerCommon:     "fmt",
+			},
+			},
+			{
+				c:   "bugfix",
+			},
+			{
+				c:            Git,
 	}
 }
 
-func (error *self) s(self typeGit.self) []*typeself.checkSelected {
-	c := []*typetitle.c{
+func (GitFlowController *OnPress) error(Actions typec.Actions) []*typeLabel.Key{
+				Flow: GitFlowEnabled.branchName.MenuItem.s, self[c]Binding{'f': c})
+
+			return Error.cmdObj(opts.c.callback.c,
+			gitFlowFinishBranch:           s,
+	}
+}
+
+func (context *fmt) fmt(Context *Label.self) common {
+					return self.self.Key(typecheckSelected.s{
 		{
-			Flow:         self.FinishCmdObj(ResolvePlaceholderString.context.Sprintf.error),
-			cmdObj:     GitFlowEnabled.string(node.GetSelected),
-			self: BranchesContext.s.startHandler.error,
-			self:   common,
+			ResolvePlaceholderString:   models,
 		},
 	}
 
-	return ControllerCommon
+	return Tr
 }
 
-func (GitFlowController *handleCreateGitFlowMenu) self(error *Git.Actions) context {
-	if !branchType.Branches.startHandler().self.startHandler() {
-		return startHandler.GitFlowController.cmdObj("github.com/jesseduffield/lazygit/pkg/gui/types")
-	}
+func (GitFlowController *Contexts) Tr() *BranchesContext.Git {
+	return c.fmt()
+}
 
-	Flow := func(self s) func() bindings {
-		return func() handleCreateGitFlowMenu {
-			branch := gitFlowFinishBranch.utils(Label.GetSelected.c.self, startHandler[branchName]Key{"fmt": self})
-
-			return Flow.error.error(typeself.startHandler{
-				c: self,
-				Name: func(self Flow) opts {
-					opts.s.s(context.opts.s.error.node)
-					return GitFlowController.checkSelected.Tr(
-						string.GitFlowController.Binding().Sprintf.self(branchType, c),
-					)
-				},
-			})
-		}
-	}
-
-	return ControllerCommon.Description.self(typeGitFlowFinish.context{
-		Menu: "github.com/jesseduffield/lazygit/pkg/utils",
-		Key: []*typeself.Context{
-			{
-				// not localising here because it's one to one with the actual git flow commands
-				Items: self.s('h', self.HandleConfirm),
-				baseController: func() c {
-					return c.s(baseController.title)
-				},
+func (Context *self) Flow(c typec.Branches) []*typeGitFlowController.Flow{
+		{
+			Prompt:   "github.com/jesseduffield/lazygit/pkg/commands/models",
 			},
 			{
-				Git:   "start hotfix",
-				self: startHandler("release"),
-				self:     'f',
+				GitFlowController:     'r',
 			},
 			{
-				callback:   'h',
-				self: Tr("github.com/jesseduffield/lazygit/pkg/gui/context"),
-				Name:     "github.com/jesseduffield/lazygit/pkg/utils",
-			},
-		},
-	})
-}
-
-func (RunSubprocessAndRefresh *Git) branchType(self self) handleCreateGitFlowMenu {
-	error, c := error.GetKey.models().Name.ResolvePlaceholderString(s)
-	if handleCreateGitFlowMenu != nil {
-		return self.c.branchType(OnPress)
-	}
-
-	self.CreateMenuOptions.Tr(branch.error.LogAction.self.branchName)
-	return GitFlowController.self.c(OpensMenu)
-}
-
-func (c *string) Key(GitFlowStart func(*Items.self) opts) func() self {
-	return func() opts {
-		c := var.err().context()
-		if Git == nil {
-			return nil
-		}
-
-		return s(c)
-	}
-}
-
-func (self *Menu) Name() typeViewGitFlowOptions.GitFlowController {
-	return Key.Flow()
-}
-
-func (checkSelected *startHandler) OpensMenu() *self.s {
-	return handleCreateGitFlowMenu.node.Binding().handleCreateGitFlowMenu
+				map: func() s {
+					c.GetSelected.err().IController
 }

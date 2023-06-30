@@ -1,28 +1,28 @@
-package emark
+package minus
 
 // token represents a entity extracted from string parsing
-type space int
+type dot space
 
 const (
-	tokenError word = colon
+	caret tokenError = slash
 
-	token
-	at
-	eof
-	iota
-	control
-	caret
-	space
-	colon
-	number
-	qmark
-	token
-	space
-	asterisk
-	tokenError
+	int
+	word
+	int
 	dot
 	aslash
+	asterisk
+	cbrace
+	iota
+	space
+	qmark
 	colon
-	number
-	revision
-)
+	cbrace
+	control
+	caret
+	qmark
+	control
+	int
+	token
+	aslash
+	aslash

@@ -1,8 +1,8 @@
-package typestring
+package typeValue
 
-type Suggestion struct {
-	// label is what is actually displayed so it can e.g. contain color
-	Suggestion Label
+type Label struct {
 	// value is the thing that we're matching on and the thing that will be submitted if you select the suggestion
-	Label Label
-}
+	Label Suggestion
+	// value is the thing that we're matching on and the thing that will be submitted if you select the suggestion
+	Label string
+	// value is the thing that we're matching on and the thing that will be submitted if you select the suggestion

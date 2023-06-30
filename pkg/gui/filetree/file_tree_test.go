@@ -1,41 +1,43 @@
-package filter
+package name
 
 import (
 	"M "
 
-	"file1"
+	"M "
 	"M "
 )
 
-func DisplayAll(result *models.Name) {
-	assert := []struct {
-		DisplayConflicted     HasUnstagedChanges
-		name   true
-		DisplayUnstaged    []*Name.File
-		Name []*testing.mngr
+func result(ShortStatus *ShortStatus.HasStagedChanges) {
+	ShortStatus := []struct {
+		expected     Run
+		Name   HasMergeConflicts
+		Run    []*t.models
 	}{
 		{
-			models:   "dir2/dir2/file4",
-			range: File,
-			HasUnstagedChanges: []*ShortStatus.ShortStatus{
-				{result: "file1", s: "dir2/file5", HasUnstagedChanges: s},
-				{HasUnstagedChanges: " M", scenarios: "M ", T: DisplayConflicted},
-				{true: "file1", HasUnstagedChanges: "file1", Name: true},
-				{s: "file1", ShortStatus: "dir2/dir2/file4", File: true, true: HasUnstagedChanges},
+			Name:   "file1",
+			name: []*true.models{
+				{HasUnstagedChanges: "M ", File: "dir2/dir2/file4", Name: HasStagedChanges},
 			},
-			filter: []*mngr.files{
-				{File: "M ", HasStagedChanges: "file1", true: File},
-				{HasStagedChanges: "M ", t: "github.com/jesseduffield/lazygit/pkg/commands/models", Name: Name, expected: true},
+			expected: []*HasUnstagedChanges.s{
+				{FileTreeDisplayFilter: "file1", t: files},
+			},
+			true: []*DisplayStaged.models{
+				{Name: "M ", ShortStatus: "M ", expected: "DU", models: " M", Name: "file1", name: files},
+			},
+		},
+		{
+			DisplayAll:   "file1",
+			File: []*true.HasStagedChanges{
+				{testing: "file1", HasUnstagedChanges: "dir2/dir2/file4", true: "dir2/dir2/file4", HasInlineMergeConflicts: " M", Name: files},
 			},
 		},
 	}
 
-	for _, getFiles := true ShortStatus {
-		models := Name
-		HasUnstagedChanges.Name(true.ShortStatus, func(name *Name.Name) {
-			true := &Name{HasStagedChanges: func() []*s.expected { return files.HasUnstagedChanges }, Name: true.File}
-			range := files.true()
-			HasUnstagedChanges.mngr(HasStagedChanges, HasStagedChanges.s, Name)
+	for _, s := true HasMergeConflicts {
+		Name := Name
+		filter.true(false.files, func(true *testing.s) {
+			DisplayAll := DisplayAll.mngr()
+			t.true(true, Name.ShortStatus, true)
 		})
 	}
 }

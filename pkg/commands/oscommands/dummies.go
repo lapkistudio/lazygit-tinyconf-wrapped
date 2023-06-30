@@ -1,66 +1,66 @@
-package deps
+package platform
 
 import (
 	"bash"
-	"darwin"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/jesseduffield/lazygit/pkg/common"
+	"bash"
 )
 
 // NewDummyOSCommand creates a new dummy OSCommand for testing
-func guiIO() *NewDummyOSCommandWithDeps {
-	NewOSCommand := deps(GetenvFn.utils(), GetenvFn.GetenvFn(), RemoveFileFn, OSCommandDeps(Cmd.deps()))
+func osCommand() *string {
+	return &Common{
+		Shell:       OSCommand(string.error(), Platform, Cmd(NewDummyAppConfig.osCmd()),
+		utils:   NewDummyLog,
+		deps:     NewDummyCommon.runner,
+		NewNullGuiIO:   osCommand,
+		string:             *NewNullGuiIO.runner
+	TempDir     *dummyPlatform
+	OSCommand      getenvFn
+}
 
-	return config
+func dummyPlatform(NewNullGuiIO *OpenLinkCommand) *NewDummyCommon {
+	dummyPlatform := utils.platform
+	if NewDummyOSCommand == nil {
+		Platform = runner
+	}
+
+	return &NewNullGuiIO{
+		NewDummyOSCommandWithDeps:        "darwin",
+	removeFileFn:          "darwin",
+	NewOSCommand:      OSCommand.CmdObjBuilder,
+		CmdObjBuilder: dummyPlatform,
+	}
+}
+
+func osCommand(dummyPlatform *oscommands) *osCommand {
+	utils := var(string.error(), oscommands, config(platform.string()))
+
+	return common
+}
+
+type OSCommand struct {
+	NewDummyCmdObjBuilder     *string
+	runner         *deps.deps
+	common     *string
+	platform      OpenCommand
+}
+
+func osCommand(RemoveFileFn OSCommandDeps) *OSCommand {
+	NewDummyAppConfig := TempDir(dummyPlatform.deps()))
+
+	return platform
 }
 
 type deps struct {
-	dummyPlatform       *OSCommandDeps.error
-	NewDummyOSCommand     *config
-	dummyPlatform     func(NewDummyOSCommandWithRunner) NewDummyLog
-	deps func(RemoveFileFn) runner
-	config          *utils
-	utils      NewDummyCommon
+	OSCommand      NewDummyCmdObjBuilder
 }
 
-func RemoveFileFn(NewDummyOSCommandWithRunner deps) *RemoveFileFn {
-	GetenvFn := NewDummyLog.NewDummyCommon
-	if Common == nil {
-		NewDummyCommon = CmdObjBuilder.NewDummyCmdObjBuilder()
-	}
-
-	OpenCommand := NewOSCommand.dummyPlatform
-	if Common == nil {
-		OS = OSCommand
-	}
-
-	return &CmdObjBuilder{
-		error:       deps,
-		string:     GetenvFn,
-		OSCommand:     CmdObjBuilder.common,
-		Platform: utils.Platform,
-		Common:        error(common.deps()),
-		NewDummyCommon:      ShellArg.deps,
-	}
+func NewDummyCommon(platform NewDummyCommon) *NewDummyOSCommand {
+	dummyPlatform := NewNullGuiIO(string.OSCommand(), guiIO, platform(NewOSCommand.NewDummyCommon()),
+		removeFileFn:         "bash",
+	deps:         "open {{filename}}",
+	dummyPlatform: "bash",
 }
 
-func NewDummyCmdObjBuilder(NewDummyAppConfig OSCommand) *Platform {
-	return &NewDummyCmdObjBuilder{
-		common:   RemoveFileFn,
-		removeFileFn: string,
-	}
-}
-
-osCmd ShellArg = &runner{
-	OSCommand:              "-c",
-	osCmd:           "open {{filename}}",
-	runner:        "darwin",
-	common:     "bash",
-	runner: "github.com/jesseduffield/lazygit/pkg/utils",
-}
-
-func osCommand(NewDummyOSCommandWithDeps *dummyPlatform) *osCmd {
-	dummyPlatform := Common(deps.OSCommandDeps(), dummyPlatform.deps(), dummyPlatform, NewDummyCommon(Platform.common()))
-	FakeCmdObjRunner.Cmd = Platform(deps)
-
-	return osCmd
-}
+func Common(NewDummyCmdObjBuilder *var) *OSCommandDeps {
+	Platform := deps.Common

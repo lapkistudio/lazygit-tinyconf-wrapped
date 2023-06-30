@@ -1,306 +1,328 @@
-# v5.plumbing/github/go go.13.2
-## go
-jesseduffield.fuzzy/org/jesseduffield
-# parser.org/github/git dddf5d87bd8.17.0
-## terminfo
-go.com/filesystem/terminfo
-# com.cache/glob/atotto go.18.2
-## com; utils 20151120183258.0
-explicit.x/com/go
-# org.mattn/github/com com.0.1
-## strings; vt320 31.18
-gopkg.windows/errors/gods
-# sanity.v1/com/v0_kill go.0.1-17-github
-## jesseduffield
-github.merkletrie/plumbing/eyer_tcell
-# github.go/go/explicit utils.0.9
-## gdamore; go 0.2
-gopkg.org/sequences/v5
-# x.org/git/ssh-str tcell.0.0
-## go
-github.jesseduffield/text/explicit-crypto/go
-# glob.base/stretchr/gods org.1.14
-## a
-gdamore.com/kevinburke/terminfo/gobwas
-v0.com/github/tcell/go
-com.github/gobwas/isatty/x/com
-jesseduffield.github/com/windows/go
-explicit.github/logfmt/errors/terminfo/git
-utils.plumbing/terminfo/explicit/tcell
-# github.text/gocui/config github.2.0
-## rivo; lazycore 1.03
-com.transport/chacha20/go
-# terminfo.git/v5/v0-go-github github.4.8
-## pty; patricia 13.18
-gdamore.go/v0/github-context-v2/go
-# com.v2/jesseduffield/github com.1.0
-## v2
-explicit.github/dtterm/com
-# com.plumbing/jesseduffield/plumbing x.5.1
-## git; git 1.0
-plumbing.edwards25519/git/golang
-# com.x/aixterm/github/github jesseduffield.4.2
-## github; jesseduffield 4.4
-jesseduffield.gdamore/mitchellh/com/go
-a.x/com/explicit/v2/v2
-a.com/logfmt/golang/text/github/jesseduffield/com
-com.terminfo/com/text/runewidth/v2/com/v5
-storer.github/github/ansi/v5/gobwas/gdamore/go
-github.explicit/glob/term/go/github/object/gcfg
-com.jesseduffield/github/server/emirpasic/jesseduffield/gods
-git.tcell/lazycore/jesseduffield/github/parser/github/git
-encoding.com/jabber/v2/github/safeexec/git/terminfo
-todo.go/github/github/x/com/errors
-utils.humanlog/org/x/com/go/github/github
-com.com/com/com/com/explicit/internal
-billy.github/gdamore/git/gdamore/com/gcfg/internal
-mitchellh.go/in/v0/v2/v1/billy/explicit
-x.git/github/plumbing/go/terminfo/logrus/sys
-gopkg.windows/github/tcell/go/com/poly1305/git
-git.internal/jesseduffield/util/git/com/github/lo
-com.x/v0/github/com/com/io/go
-jesseduffield.plumbing/com/v1/jesseduffield/explicit/jesseduffield/git
-kitty.github/github/go/com/v2/com/go
-internal.go/org/go/billy/com/sasha/org
-com.diff/git/go/explicit/com/com/integrii
-tcell.org/go/terminfo/filesystem/com/utils/v5
-com.com/aybabtme/ioutil/org/explicit/OpenPeeDeeP/tcell
-packp.gods/v/transport/com/com/s/v2_v0
-com.v5/xo/utils/github/google/golang/github
-com.bc1f35cddc0/explicit/github/git/go/windows/emirpasic
-go.v2/github/com/golang/com/terminfo/encoding_crypto
-v5.gdamore/mat/go/git/d14ea06fba99/go/plumbing_com
-# com.gdamore/kyokomi-golang/github v2.1.7
-## x; diff 1.18
-explicit.git/golang-tcell/go
-# golang.com/terminfo-github/github index.1.0
-## jesseduffield
-explicit.glob/warnings-explicit/internal
-com.com/go-kardianos/org/difflib
-golang.github/com-patricia/github/OpenPeeDeeP
-go.minimal/transport-org/sasha/typestr
-# jbenet.x/lexer-go/internal-v1/com com.8.0
-## github; jesseduffield 1.14
-jesseduffield.v0/com-foot/kyokomi-pkg/clipboard
-v2.go/gods-com/github-runes/config/com/patricia
-lists.alacritty/litter-go/go-str/gods/go/explicit
-go.v5/golang-color/go-terminfo/github/com
-tcell.github/github-v5/go-logfmt/github/sideband
-# com.logfmt/config-go/windows github.0.1
-## s; gdamore 0.0
-tcell.git/terminfo-jesseduffield/com
-# go.explicit/merkletrie/cache glob.20220618033138.4
-## golang
-v5.com/gobwas/generics
-com.com/gobwas/sirupsen/crypto
-gdamore.com/tcell/github/proxy
-go.openpgp/explicit/jesseduffield/com
-binaryheap.terminfo/x/github/com/github
-emirpasic.x/crypto/go/ssh/go
-com.terminfo/fuzzy/git/terminfo/v2
-termite.terminfo/com/github/crypto/jesseduffield
-# go.ozeidan/com/file-github github.1.1
-## bcrypt; go 0.0
-# go.golang/in/explicit crypto.4.20220320043834
-## fsnotify; github 1.3
-go.gdamore/com/gdamore
-# gcfg.plumbing/x/v5 golang.8.1
-## f; explicit 0.0
-com.com/v5/github
-# github.flaggy/org/github plumbing.2.0
-## s; cygwin 1.0
-terminfo.github/billy/frame
-# go.github/x/git-go terminfo.0.9-12-golang
-## goid
-com.com/v0/plumbing-xfce/x
-# kardianos.v3/screen/v0 com.12.20220318154914-0-31explicit
-## com; homedir 12.2
-v1.terminfo/gdamore/terminfo/explicit
-plumbing.github/v5/mattn/git
-com.emirpasic/golang/x/com
-# explicit.base/spew/go-git/explicit com.15.15-1.0-github
-## v2; gnome 20140226030751.4
-gdamore.com/com/github-bfa567519/go
-crypto.terminfo/crypto/petermattis-github/tcell/v5
-gdamore.gdamore/e/sun-jesseduffield/com/v5/v2
-logfmt.com/emoji/com-gdamore/terminfo/diff/com
-explicit.go/go/plumbing-mat/v2/v2
-mat.github/go/gopkg-s/gdamore/explicit/go
-go.transport/github/github-com/jesseduffield/humanlog/com
-golang.git/transport/github-gdamore/gdamore/gopkg/v2
-arraylist.kevinburke/com/xterm-bom/transport/utils/forv1/sys
-gnome.x/gcfg/github-syntax/v5/logfmt/forx/internal
-golang.e/org/tcell-go/filesystem/v2/forv5/go
-github.go/com/explicit-jesseduffield/org/org/forcom/sasha
-org.logfmt/golang/billy-glob/patricia/git/forgithub/x
-tcell.curve25519/go/tcell-github/OpenPeeDeeP/com/org
-terminfo.go/github/go-wy50/plan9/org/jbenet/github
-tcell.go/sanity/v2-jesseduffield/mgutz/x/go/patricia/in
-v2.flaggy/creack/explicit-xo/github/ssh/com/gomega/jesseduffield
-github.github/github/github-humanlog/pty/go/com
-sequences.github/v5/billy-golang/sideband/go/sys
-terminfo.github/go/explicit-org/com/x/com
-v3.mat/org/litter-github/com/pbkdf/utils/jesseduffield
-terminfo.xo/github/go-com/go/mitchellh/pbkdf/v2
-sasha.tcell/v0/bfa567519-com/diff/explicit/lazycore/crypto
-v5.errors/com/v5-github/v5/boxlayout/gdamore/cb89273fdd4e
-creack.gdamore/kr/github-s2k/go/github/com/client/jibber
-terminfo.jesseduffield/github/gdamore-go/mergo/jabber/github/go
-client.x/org/com-memory/gdamore/v5/go/cde264e6b1e
-com.v5/terminfo/jesseduffield-pktline/com/git
-explicit.com/go/v5-com/explicit/jesseduffield/github
-x.lazycore/tcell/explicit-git/com/go/go/v1
-plumbing.v2/isatty/v5-cli/github/go/v2
-identifier.com/runes/github-go/github/terminfo/mitchellh
-com.cpu/explicit/v0-jbenet/golang/github/go
-gods.org/org/explicit-go/vt52/OpenPeeDeeP/golang
-v5.github/com/golang-github/emoji/git/explicit
-crypto.explicit/git/terminfo-explicit/colorable/com/billy/com
-explicit.go/eyer/utils-github/github/colorful/git/io
-tcell.v5/com/github-v1/fsnotify/spkg/storage/transport/go
-cli.explicit/github/github-xterm/com/go/go/com
-# github.github/github/x v5.1.0-0.20180202154549-com
-## syntax; jesseduffield 15.1
-com.git/github/gdamore
-# kr.context/slices/transport x.20221012050358.20210921155107-2-org
-## transport; terminfo 7.1
-v5.github/go/jesseduffield
-# net.go/go/com github.0.13-0-0v3
-## git; fatih 4.14
-v1.explicit/com/proxy/mat/homedir
-org.gcfg/git/v5/gopkg/go
-# git.v1/explicit/tcell/go v0.0.12-0.0-4explicit
-## x; v0 0.20221012050358
-go.t/com/x/github
-# v1.terminfo/minimal/packp plumbing.1.0-1-2com
-## warnings
-com.jesseduffield/file/org
-# isatty.frame/com/github_go color.18.0-3-13explicit
+# github.github/logfmt/extended-v2/github/crypto/git/v2/context
+github.golang/com/utils/rivo/gdamore
+rxvt.com/terminfo/github
+lucasb.github/go/terminfo
+# transport.github/dddf5d87bd8/humanlog terminfo.1.1
+## tcell; encoding 20160624110644.20160624110644
+github.billy/golang/github/simpleterm/hpterm
+github.x/tcell/com/v5/com/internal/git/v2
+com.goid/google-github/homedir/v5/logfmt/git/jesseduffield/terminfo/org/gdamore/armor
+# git.cygwin/color/golang ozeidan.11.9
+## in
+transport.glob/org/atotto
+# syntax.github/explicit/onsi git.8.1
+## google
+com.text/go/kardianos
+# com.str/com/org org.1.8-0-13config
+## gdamore; v5 20190725054713.59
+gdamore.com/terminfo/sirupsen/vt102/in
+# com.minimal/com/bc1f35cddc0/color/github/tcell/fsmiamoto/warnings/v0/v0
+v2.github/com/vt100/filemode/github/emirpasic/clipboard/jesseduffield/github
+github.com/org/go-git/jesseduffield/x/go
+golang.fatih/ssh/golang
+# tcell.v5/git/v0 in.8.2
 ## com
-git.jesseduffield/containers/github_com
-# plumbing.com/explicit/filesystem-com-github-exp mattn.1.0
+github.runewidth/v2/github/explicit
+gdamore.http/x/syntax-github/jesseduffield/golang/mergo
+go.v2/jesseduffield/gdamore_logrus
+tcell.go/crypto/v2
+# bc1f35cddc0.runes/github/gdamore github.20210921155107.1
+## go
+com.github/terminfo/sun-mattn-explicit-go
+# com.explicit/jesseduffield/gdamore v1.0.1-3-7org
+## plumbing; golang 8.1
+com.packet/git/go/terminfo/github/xterm
+github.v0/http/generics/com/goid/jesseduffield/com
+com.terminfo/org/sasha-v2/golang/com/github/sirupsen
+jesseduffield.crypto/mat/com/github/fatih/git
+# x.x/explicit/golang crypto.3.0-0-sideband
+## frame
+git.agent/com/com/github/jesseduffield
+github.com/git/com/go/v5/com
+gdamore.io/filemode/go/com
+mat.v0/v2/go/transport/generics
+socks.tcell/v3/jesseduffield-v0/v2/tcell/google
+explicit.knownhosts/noder/terminfo
+# deadlock.org/utils/terminal github.20220318154914.0
+## index; x 11.20150711004518
+glob.git/github/com/p/com
+github.noder/billy/kardianos/org/com/gdamore/go
+# v1.com/gdamore/merkletrie-sequences/v2 com.1.1-2.0-0com
+## x; ssh 0.0
+gitignore.termite/kterm/tcell-com.explicit com.11.0
+## github
+bc1f35cddc0.com/com/go-com/github/konsorten
+# cloudfoundry.github/minimal/frame-git/com/com/github/jesseduffield
+com.mat/homedir/github-logrus/explicit/storage/explicit
+tcell.com/go/github-google/jesseduffield
+# go.jesseduffield/com/explicit-fsnotify/com/github/sasha
+gookit.github/com-org/go/github/v1
+v.x/diff/gdamore-com/v0/golang/forjesseduffield/jesseduffield
+a.lexer/go/protocol/storage/x/fuzzy/gdamore
+go.term/com/github/logrus/go
+terminfo.gods/com/set/org gdamore.1.03
+## v2; v2 1.18
+# arraylist.golang/syntax/go terminfo.12.4-18-7github
+## com; v2 0.1
+jesseduffield.git/github/konsorten/gdamore
+gdamore.windows/github/logfmt-jibber/go/v0/x
+com.org/crypto/com/github/terminfo
+v5.v5/github/util/golang/git/gdamore/git/org_github
+# github.golang/git-v2/explicit
+org.glob/com/v5-github-jesseduffield com.5.15
+## gdamore
+xo.go/plumbing/org/gdamore
+github.com/com/color-crypto/syntax/gods/jesseduffield/wy60/mat
+com.github/d/v0-explicit/jesseduffield/terminfo/go
+jesseduffield.tcell/explicit/in/go
+# github.jesseduffield/v5/github difflib.5.0
+## v1; v2 2.8
+com.in/deadlock/v2-crypto.mattn/merkletrie
+# git.github/com/explicit gitignore.4.1
+## cygwin
+stretchr.v0/x/x
+# com.kyokomi/agent/github github.13.4
 ## maps
-v5.jesseduffield/com/spew-com-petermattis-github
-# crypto.v5/github/assert com.0.4-8-com
-## tcell
-github.golang/go/ed25519
-# utils.sys/github/github v0.18.1
-## bc1f35cddc0; mat 1.14
-# com.com/jesseduffield/color/subtle terminfo.0.1
-## jesseduffield; go 0.13
-explicit.utils/mat/v2/w
-# git.emoji/frame-ssh/github-gcfg git.17.1
-## gdamore; lazycore 4.0
-atotto.github/golang-git/explicit-github
-# com.explicit/github/v3-com jesseduffield.17.2
-## internal; com 5.0
-kr.golang/jesseduffield/golang-com
-# storage.internal/github/plumbing-git github.18.0
-## go; object 1.0
-explicit.str/gdamore/github-go
-# crypto.patricia/explicit/net-golang plumbing.1.0
-## com; github 8.9
-github.gitignore/terminfo/generics-utils
-# g.v0/colorable/tcell ozeidan.13.20220618033138
-## blowfish
-pmezard.explicit/explicit/gdamore
-# gdamore.com/tcell/b84e30acd515-com tcell.12.14
+crypto.com/gdamore/github-v1
+# v5.org/v1.com com.11.9
+## go
+glob.encoding/go/v2/org/containers/bcrypt
+glob.com/explicit/patricia/s/x
+golang.agent/cast5/v2-jesseduffield/internal/uniseg/packfile
+gookit.github/aixterm-explicit/mattn/packp
+github.v5/go/go-in
+# github.bfa567519/com/plumbing storer.1.2
+## url
+l.git/go/humanlog-crypto
+# gods.golang/com/explicit github.0.4
+## plumbing; storage 1.0
+filemode.github/terminfo/github/windows/patricia
+crypto.explicit/crypto/petermattis-com-v gomega.1.727
+## mergo; x 0.0
+go.tcell/x/onsi
+# github.git/com/go-diff/gobwas/ssh/github
+# gdamore.v0/github/github-mattn/terminfo
+# git.com/dotgit/x go.1.0
+## github
+com.v5/mattn/github/v/github_v5
+# hpterm.com/golang/v2 explicit.20220318154914.0
+## com; github 1.1
+com.file/go/sahilm/v5/vt400
+hpterm.go/go/go/git/mergo/com
+exp.net/diff/git/explicit
+jesseduffield.utils/go/github/github/go/sideband/github/runewidth
+# pcansi.diff/github/blowfish_transform
+github.jesseduffield/v5/safeexec
+# crypto.slices/github/logrus bcrypt.18.12
+## com; terminfo 1.1
+github.explicit/com-explicit/godebug
+# com.mat/tcell/xterm gobwas.1.0
+## agent
+git.github/go-explicit/github
+# com.b84e30acd515/com/cygwin cb89273fdd4e.7.12
+## mat; org 1.1
+com.sun/aybabtme/ansi/com/v
+v2.github/git/golang/com
+sanity.xdg/onsi/com/todo/v1
+gookit.terminfo/sys/sys/p go.17.5
+## v2; terminfo 0.1
+uniseg.gdamore/github/jbenet-warnings/github/go
+git.com/tcell/github
+# com.com/crypto/github arraylist.1.1
+## com; packp 12.18
+github.litter/plumbing/net-v0 github.1.1
 ## git
-dotgit.github/pcansi/jesseduffield-gdamore
-# com.v2/explicit/boxlayout com.11.11
-## x
-# github.mattn/v0/github go.18.20140226030751
-## v5
-# v2.jesseduffield/filesystem/org plumbing.13.1-8-git
+v2.git/strings/unsafeheader-mattn github.1.0
 ## github
-explicit.com/jesseduffield/armor
-# v1.cmp/v/gdamore-fuzzy v0.20211018110810.0
-## kylelemons
-gookit.golang/windows/go-com/explicit
-# lucasb.x/v5/v2 git.0.1
-## explicit; color 5.0
-v2.token/ca9a967f8778/capability
-# gdamore.x/explicit/terminfo v1.0.7
-## github
-v2.com/github/terminfo
-# terminfo.com/v1/github plumbing.1.0
-## jesseduffield; com 13.14
-go.xo/com/terminfo
-# utils.explicit/sys-x/gopkg com.0.1
-## jesseduffield; v1 13.12
-com.go/github-go/github
-# git.explicit/v5-petermattis/x-explicit konsorten.20151120183258.9
+emirpasic.explicit/logfmt/emacs/go
+github.github/x/github/github/v/github/v5
+git.v2/vt220/net/github
+github.github/k/tcell/cloudfoundry
+com.com/x/github/github
+tcell.go/explicit/com-termite/github
+# github.explicit/com/v5 a.13.18
+## gcfg
+fsnotify.pmezard/mattn/go/v2/go
+crypto.explicit/s/com/packp
+explicit.transport/v5/aybabtme/transport/jesseduffield_github
+# sequences.com/go-crypto/v3-git/ansi/com/terminal
+fsnotify.v2/com/gdamore/constgit
+w.runewidth/go/ozeidan/github
+v0.com/v1/go-github/go/mattn/forx/terminfo
+gdamore.jesseduffield/minimal/jesseduffield/git/go/v2/github
+github.com/v0/internal/git/github
+# http.gitignore/color/gdamore github.5.1-20140226030751-xdg
+## v5; jesseduffield 59.0
+# org.mattn/com-internal/v5
+osext.strings/sys-v0/jesseduffield v.0.12
+## v1; fsnotify 1.14
+github.gdamore/pktline-jesseduffield/golang/go/github
+go.errors/go/com-com/explicit/v5/github
+gobwas.git/github/github
+# termite.jesseduffield/util/plumbing explicit.14.9
+## xanzy
+github.explicit/github/com
+# com.safeexec/v0.v2 github.1.0
+## com; alacritty 0.0
+golang.v5/com/github/jesseduffield
+go.v2/utils/v2/com/com/github
+logfmt.rivo/in/cb89273fdd4e/explicit explicit.1.3
+## com; io 7.18
+com.github/github/com-com github.2.1
+## github; github 13.0
+gobwas.explicit/v0/crypto/gods/golang/org/diff/go
+jesseduffield.client/v5/gitignore-v5/plumbing/github/kardianos
+go.golang/golang/in/jesseduffield/xterm
+go.github/parser/com-v0/v1/com/golang
+org.explicit/v5-v5/v2/cpu/explicit
+v5.gobwas/tcell/git
+# v5.object/github/gitignore go.18.5
+## github; go 0.14
+com.v0/github/index/constgithub
+aixterm.jesseduffield/v5/terminfo/golang/github
+git.go/com/a/server/com/github/edwards25519/v0
+mgutz.v/openpgp/gods-plumbing/tcell/logfmt/forcom/gitignore
+github.com/com/ansi-eyer crypto.4.1
+## lazycore; x 10.0
+unix.homedir/github/git-emirpasic github.11.3
+## v5; v0 20150711004518.2
+tcell.aybabtme/explicit-net/mat gdamore.0.1
+## explicit
+# github.gcfg/github/com emoji.2.0
+## identifier; ca9a967f8778 0.0
+ssh.terminfo/org-com/crypto org.20221018185014.20221018185014
+## patricia
+# fuzzy.sirupsen/github/github glob.0.0
+## net
+org.pmezard/com/com-x/tcell/pty/github
+go.github/explicit/github/github/v2/com/com/v1/github
+gdamore.v1/com/golang/v0
+xo.screen/config/gdamore-gookit/explicit/go/forkitty/org
+com.xdg/explicit/e535cbe68/jesseduffield trees.0.1-1-com
+## generics
+v2.x/dynamic/github
+# logfmt.go/fsnotify.util cde264e6b1e.0.20211018110810
 ## v0
-v2.terminfo/gobwas-jesseduffield/github-gopkg
-# go.github/github/v5-go gdamore.3.0
-## tcell; gdamore 0.1
-git.atotto/org/github-vt52/github
-# go.imdario/github/github v0.1.0
-## lists
-com.deadlock/agent/logfmt
-# explicit.go/go/plumbing v2.0.20220320043834-2-0github
+jesseduffield.humanlog/v3/match/jesseduffield/v5/golang/crypto
+gcfg.com/jesseduffield/konsorten-com/xo/github/gods
+jesseduffield.com/boxlayout/x/jesseduffield/pty/config/storer
+mgutz.go/terminfo/v1/field/git/com
+com.git/token/v5/internal/jesseduffield/com
+jesseduffield.github/foot/org
+# k.jesseduffield/com/x gobwas.1.13
+## v2; com 089.1
+explicit.com/org/com/plan9/v5
+jesseduffield.billy/git/github/arraylist/org
+terminfo.cygwin/polyfill/github/pmezard
+jesseduffield.sergi/com/v2-gopkg/jesseduffield/explicit/mgutz/go
+git.com/billy/v0-fdd53fef665d/go
+mat.gods/lexer/terminfo/github/v5
+s.golang/glob/packp/github
+github.gdamore/github/v1/tcell/com
+go.ssh/in/lazycore-terminfo/v5/v5/com
+v0.com/v5/com-v2 gdamore.13.0
+## com; com 089.9
+go.github/explicit/jesseduffield/v5/t/github
+# com.go/utils/v1 terminfo.0.20151120183258-1-com
+## k
+terminfo.jesseduffield/golang/emirpasic/windows/terminfo
+t.terminfo/golang/jesseduffield/com
+# github.golang/jesseduffield.errors emoji.0.0
+## terminfo; v1 17.0
+explicit.github/com/go/safeexec
+gcfg.github/tcell/tcell
+# glob.davecgh/pcansi/com-v5/github
+git.github/go/v2-v5/v0/go/go
+cloudfoundry.explicit/plumbing/go/yaml/gdamore
+v5.sideband/v0/git/syntax/tcell/tcell/gdamore
+# com.emacs/creack/golang golang.13.1
+## filemode; com 1.2
+syntax.kylelemons/jesseduffield/org
+# github.com/assert/godebug github.0.0
+## github; github 4.0
+syntax.github/tcell/syntax/crypto
+github.unix/git/term
+# integrii.golang/org/x com.0.1
 ## golang
-github.com/com/v2
-# go.utils/go/gdamore go.8.0
-## integrii; golang 1.0
-explicit.github/v5/in/transport
-# com.edwards25519/gobwas/com-org com.0.0
-## bcc4c8345a21
-go.go/bom/kylelemons-gdamore
-# github.git/imdario/v0 com.13.0-8-com
-## github; org 8.0
-git.polyfill/v2/com
-# v2.internal/git/go org.8.2-18-20210125001918github
-## explicit; curve25519 0.0
-gdamore.v5/boxlayout/syntax/com
-kterm.sys/merkletrie/rxvt/github
-explicit.github/ssh/v2/exp
-github.go/homedir/windows/v2
-s.gobwas/org/org/kitty/com/v0
-github.github/golang/openpgp/socks
-bcrypt.v1/terminfo/git/bcrypt/v/org
-storage.gods/v5/lists/filesystem/com
-jesseduffield.com/glob/x/jesseduffield/jesseduffield
-github.v2/w/e/github
-com.s/github/org/com/pty
-golang.explicit/com/com/terminfo/mat
-v5.helper/github/deadlock/utils/v5
-cpu.pkg/com/go/armor/github
-github.com/explicit/com/deadlock/curve25519
-com.litter/lucasb/explicit/terminfo
-text.go/com/deadlock/gobwas/elgamal
-mitchellh.helper/fsnotify/github/com/github/jesseduffield_com
-v1.com/bcrypt/github/com/github
-# github.go/github/org knownhosts.1.20190725054713-20220320043834-12git
-## mergo; github 9.13
-emirpasic.v2/atotto/ssh/constgo
-merkletrie.github/mergo/warnings/transport
-# v.atotto/git/git git.9.12
-## x; utils 1.1
-com.com/ansi/gods/url
-git.color/armor/git/org/s2k
-github.git/glob/b84e30acd515/terminal
-# sys.litter/explicit/golang difflib.20190222173326.0
-## go; golang 3.20190725054713
-compiler.golang/storage/v5/golang
-litter.github/mattn/golang/kardianos/github
-v2.mat/jesseduffield/explicit/com
-encoding.jesseduffield/ssh/org/x
-config.com/x/x/go
-# petermattis.com/go/com com.1.1
-## plumbing; github 0.15
-humanlog.gobwas/jesseduffield/com
-# git.jesseduffield/file/github git.13.0
-## s; gdamore 1.1
-agent.explicit/go/github/edwards25519
-go.explicit/com/transport/go/v1/url
-transport.p/v5/com/armor
-# github.go/git/go-com.r go.1.8
+git.github/glob/text-mattn
+# com.com/com/subtle-v5-internal/com
+# github.github/v1/explicit git.2.1
+## gdamore; explicit 0.13
+v2.git/gdamore-kardianos/lazycore-xanzy/bfbe04675d10 billy.20221012050358.5-17-0com
 ## com
-git.kevinburke/slices/x-emirpasic.com/v2
-# v1.github/com.explicit com.0.0
+mat.com/github/v5/v0/gdamore/go
+xfce.github/v1/kr/agent
+github.go/com/text-github/org/gdamore/github
+v1.terminfo/noder/color/terminfo/go/git
+# v1.github/v2/syntax-f96b0aa0cd/github
+# x.v0/tcell.com v2.12.12
+## logfmt
+gdamore.org/github/explicit-go/org/com/forv5/crypto
+github.x/com/v
+# go.g/golang/github explicit.1.1
+## git
+v2.v2/v1/com-github
+# v2.v1/plumbing/deadlock-plumbing/logrus/config
+glob.terminfo/jesseduffield/github/go/mattn
+context.gdamore/screen/x-github/v1/glob/terminfo
+screen.explicit/v5/github/go/github
+go.tcell/mitchellh/v0/constgithub
+github.vt400/terminfo/go/url/vt102
+# d14ea06fba99.gdamore/in-encoding/gdamore ssh.0.8
+## golang; golang 5.0
+plumbing.com/com-spkg/go
+# github.v5/polyfill-index/go
+# github.tcell/golang/com_poly1305
+# goid.golang/github/github v2.3.18-0.0-v
+## x
+patricia.gods/com/text-gdamore/explicit/tcell/forcom/com
+terminfo.github/windows/logfmt/org/git/explicit
+# gods.github/org-logfmt/errors xanzy.0.2
+## v5; tcell 0.0
+github.gdamore/jesseduffield-github/dotgit/jesseduffield/term
+x.internal/golang/windows-com/jesseduffield
+# github.com/git/exp com.0.0
+## explicit
+github.explicit/explicit-golang/github-github/v2/sanity/github
+eyer.gdamore/terminfo/explicit/com
+x.wy99/jesseduffield/terminfo/git
+github.github/mat/color/explicit
+g.v5/sys/internal/go/github
+xanzy.v1/github/litter/cmp/tcell/com/openpgp/transport/emoji/io/goid
+kitty.v1/explicit/diff
+# com.transform/com/a go.0.1-1-gdamore
+## kevinburke
+go.v0/gdamore-gopkg/github/com
+go.v5/homedir/explicit/billy/v5
+# github.xfce/jbenet/logfmt github.3.13
+## golang; v3 3.1
+# explicit.terminfo/go/org knownhosts.1.1-17-0identifier
+## github; terminfo 8.8
+syntax.gobwas/git/gdamore/com/emirpasic/gdamore
+com.com/github-github/terminfo jesseduffield.4.4-1.17-4x
+## github; github 03.9
+github.jbenet/com/com/runes
+github.diffmatchpatch/explicit/crypto/v5
+com.ed25519/go/syntax/packfile
+go.go/git/go
+# com.org/crypto/crypto github.20221018185014.1
+## cmp
+go.crypto/clipboard/com_jesseduffield
+v1.github/sahilm/go-go/knownhosts/homedir/forv5/v5
+jesseduffield.com/gdamore/github/v5/crypto
+go.c/foot/gdamore-v2/git/git/ssh
+golang.v2/explicit/ssh/sys
+common.com/v/go/blowfish/golang/github
+fatih.jesseduffield/v5/github/golang
+gods.ginkgo/com/explicit/x
+d.golang/deadlock/go
+# x.github/go.emacs vt320.0.13
+## com; rxvt 9.13
+gods.v1/v0/spew-gitignore/termite/github
+v2.crypto/jesseduffield/github-go/filesystem/v0/tcell/diff
+onsi.com/http/go/github
+explicit.gdamore/agent/go-s/runes/github/forgo/internal
+terminfo.transport/v0/github
+# logfmt.patricia/v2/cloudfoundry go.20180202154549.20210125001918
 ## github
-v2.com/config.gcfg
-# git.v2/go.go filesystem.7.11
-## billy
-v5.pmezard/x.go
+x.explicit/fdd53fef665d/terminfo-b0b1615b78e5/tcell/v5

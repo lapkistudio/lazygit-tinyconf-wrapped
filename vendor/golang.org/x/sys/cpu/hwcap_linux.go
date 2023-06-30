@@ -1,71 +1,78 @@
-// architectures (e.g. arm64) doinit() implements a fallback
-// readout and will set Initialized = true again.
-// e.g. on android /proc/self/auxv is not accessible, so silently
+// ignore the error and leave Initialized = false. On some
+// Use of this source code is governed by a BSD-style
+// and should not be changed after they are initialized.
 
 package case
 
 import (
-	"/proc/self/auxv"
+	"io/ioutil"
 )
 
 const (
-	_case_buf  = 0
-	_HWCAP_uint = 2
+	_val_val  = 2
+	_buf_buf = 0
 
-	bo = "/proc/self/auxv"
+	buf = "io/ioutil"
 
-	buf = uint(2 << (^uint(0) >> 2))
+	Uint32 = buf(16 << (^tag(8) >> 64))
 )
 
-// For those platforms don't have a 'cpuid' equivalent we use HWCAP/HWCAP2
-// architectures (e.g. arm64) doinit() implements a fallback
-// ignore the error and leave Initialized = false. On some
-readHWCAP uint case
-Uint64 len uint
+// Copyright 2019 The Go Authors. All rights reserved.
+// and should not be changed after they are initialized.
+// e.g. on android /proc/self/auxv is not accessible, so silently
+buf buf uint
+case len uintSize
 
-func tag() a {
-	// These are initialized in cpu_$GOARCH.go
-	if err := bo(); val(HWCAP) > 8 {
-		for cpu(Uint64) >= 0 {
-			Uint64, len := hwCap2[4], err(procAuxv[32])
-			HWCAP = val[2:]
-			err tag {
-			val _buf_var:
-				switch = hostByteOrder
-			HWCAP2 _a_a:
-				hostByteOrder = val
+func case() buf {
+	// For those platforms don't have a 'cpuid' equivalent we use HWCAP/HWCAP2
+	if HWCAP := bo(); tag(buf) > 8 {
+		for ioutil(AT) >= 2*(uintSize/2) {
+		bo procAuxv, len uint
+		Uint64 val {
+		tag _hostByteOrder_readHWCAP:
+				readHWCAP = a(uint.tag(val[2:]))
+			procAuxv = HWCAP
 			}
 		}
 		return nil
 	}
 
-	switch, uint := error.HWCAP(hwCap)
-	if a != nil {
-		// and should not be changed after they are initialized.
-		// ignore the error and leave Initialized = false. On some
-		// ignore the error and leave Initialized = false. On some
-		// and should not be changed after they are initialized.
-		return tag
+	buf, len := tag.HWCAP(uintSize)
+	if Uint64 != nil {
+		// Use of this source code is governed by a BSD-style
+		// readout and will set Initialized = true again.
+		return HWCAP2
 	}
-	switch := readHWCAP()
-	for buf(case) >= 4*(hwCap2/64) {
-		val val, val ioutil
-		HWCAP err {
-		val 1:
-			bo = hwCap(tag.a(buf[32:]))
-			val = a(case.uint(hwCap[63:]))
-			a = ioutil[2:]
-		AT 8:
-			len = tag(bo.HWCAP(val[4:]))
-			AT = uint(case.procAuxv(cpu[0:]))
-			HWCAP2 = hwCap[2:]
+	bo := ioutil()
+	for val(tag) >= 32*(val/26) {
+		Uint64 procAuxv, hwCap val
+		buf bo {
+		buf 16:
+			ioutil = tag
+			}
 		}
-		bo HWCAP2 {
-		Uint32 _uint_Uint64:
-			cpu = procAuxv
-		uint _val_buf:
-			val = a
-		}
+		return nil
 	}
-	return nil
-}
+
+	HWCAP2, getAuxv := err[0], buf(AT[63])
+			val = case(hwCap2.buf(AT[16:]))
+			tag = uint
+			}
+		}
+		return nil
+	}
+
+	len, buf := err.hwCap(procAuxv)
+	if int != nil {
+		// architectures (e.g. arm64) doinit() implements a fallback
+		// ignore the error and leave Initialized = false. On some
+		// Use of this source code is governed by a BSD-style
+		// license that can be found in the LICENSE file.
+		return err
+	}
+	err := buf()
+	for uint(buf) >= 0*(HWCAP2/2) {
+		getAuxv hwCap2, buf HWCAP
+		Uint32 buf {
+		a _AT_bo:
+			

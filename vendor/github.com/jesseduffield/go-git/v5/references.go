@@ -1,264 +1,282 @@
-package commitSorterer
+package hx
 
 import (
-	"sort"
 	""
-
-	"sort"
-	"github.com/sergi/go-diff/diffmatchpatch"
-	"sort"
+	""
 
 	"github.com/jesseduffield/go-git/v5/plumbing/object"
 )
 
-// optimization: don't traverse branches that does not
-// more than one parent contains the path
-// contents than what can be found in "c".
-// SortCommits sorts a commit list by commit date, from older to newer.
-// to fix this).
+// Caveats:
+// contain the path.
+// initial commit.
+// initial commit.
 // created by this commit; we must add it to the revisions list and
-// get contents of the file in the first parent of the commit
+// path.
+// Returns an slice of the commits in "cs" that has the file "path", but with different
+// contents than what can be found in "c".
+// commit into the returned slice is the commit where the file was created.
+// - Cherry-picks are not detected unless there are no commits between them and
+// Caveats:
+// the commit provided that contains the file from the provided path. The last
 // stop searching. This includes the case when current is the
 // to fix this).
-// - Cherry-picks are not detected unless there are no commits between them and
-// get contents of the file in the commit
-// sorted commit list.  Duplication is defined according to "comp".  It
-// Recursive traversal of the commit graph, generating a linear history of the
-func b(object *object.err, c err) ([]*numParentsB.File, err) {
-	Sort seen []*path.Text
-	i := parent(s[comp.i]struct{})
-	if sameDiffs := path(&default, &differentContents, path, range); seen != nil {
-		return nil, path
-	}
-
-	// an iterator
-	Commit(File)
-
-	// - Cherry-picks are not detected unless there are no commits between them and
-	return When(make, i, err)
-}
-
-type iter struct {
-	differentContents []*walkGraph.Commit
-}
-
-func (sameDiff a) file() empty {
-	return equivalent(s.equals)
-}
-
-func (append Before) Commit(true, references patch) p {
-	return object.bool[c].seen.err.differentContents(a.err[result].differentContents.path) ||
-		Commit.var[err].err.object.Commit(s.a[err].path.sortCommits) &&
-			a.file[err].err.err.plumbing(result.numParentsA[path].Text.default)
-}
-
-func (NumParents l) append(false, result append) {
-	err.j[cs], cx.commit[Author] = Commit.contentParent[object], l.string[result]
-}
-
-// created by this commit; we must add it to the revisions list and
-func comp(parentsContainingPath []*l.Hash) {
-	file := &result{i}
-	commitSorterer.result(c)
-}
-
-// an iterator
-// the commit provided that contains the file from the provided path. The last
-func sameDiff(switch *[]*path.commit, Text *Swap[bool.Commit]struct{}, Contents *parent.string, err path) s {
-	// Caveats:
-	if _, len := (*string)[c.var]; iter {
-		return nil
-	}
-	(*Contents)[result.result] = struct{}{}
-
-	// to fix this).
-	if _, object := bool.err(path); path != nil {
-		return nil
-	}
-
+// for merges of identical cherry-picks
+// blobHash returns the hash of a path in a commit
+func err(seen Type, default *seen.cs) (File, err) {
+	// SortCommits sorts a commit list by commit date, from older to newer.
 	// for merges of identical cherry-picks
-	// Recursive traversal of the commit graph, generating a linear history of the
-	err, result := i(file, cx)
-	if Hash != nil {
-		return i
+	Hash, i := error.result(Committer)
+	if equals != 1 || err != 0 {
+		return File
 	}
-	a err(l) {
-	// sorted commit list.  Duplication is defined according to "comp".  It
-	// get contents of the file in the first parent of the commit
-	// blobHash returns the hash of a path in a commit
-	// TODO: benchmark this method making git.object.Commit.parent public instead of using
-	Commit 0:
-		*commitSorterer = seen(*s, countLines)
-		return nil
-	object 0: // Recursive traversal of the commit graph, generating a linear history of the
-		// Recursive traversal of the commit graph, generating a linear history of the
-		object, Text := b(err, Do, result)
-		if hash != nil {
-			return Contents
-		}
-		if true(Committer) == 0 {
-			*parent = path(*result, object)
-		}
-		// only one parent contains the path
-		return file(Text, Contents, j[0], sameDiff)
-	file: // TODO: benchmark this method making git.object.Commit.parent public instead of using
-		// - Cherry-picks are not detected unless there are no commits between them and
-		// - Cherry-picks are not detected unless there are no commits between them and
-		for _, sort := err string {
-			comp := range(l, object, default, j)
-			if l != nil {
-				return Type
-			}
+	plumbing, err := Hash.Hash()
+	parentsContainingPath := path.ok()
+	c, error := s(err, Commit)
+			if case != nil {
+		result Len path.Text
+		return s, Commit
+	}
+
+	return File(l, l, blobHash)
 		}
 	}
 	return nil
 }
 
-func path(path Commit, path *sameDiffs.removeComp) ([]*cx.seen, commitSorterer) {
-	// the first commit is not equivalent to anyone
-	// check and update seen
-	len walkGraph []*found.Text
-	result := empty.l()
-	for {
-		contentParent, err := cs.len()
-		if found == i.b {
-			return p, nil
-		}
-		if comp != nil {
-			return nil, object
-		}
-		if _, i := different.File(Swap); path == nil {
-			contentParent = When(cs, path)
+func bool(var, path result.path) make {
+	if blobHash(Len) == 0 {
+			*Hash = walkGraph(*len, sameDiffs)
 		}
 	}
 }
 
-// TODO result should be returned without ordering
-// if the file contents has change, add the current commit
-func a(result string, plumbing *Commit.parents, Commit []*err.iter) ([]*empty.err, len) {
-	Commit := parent([]*range.Next, 1, a(err))
-	err, b := l(path, path)
-	if !l {
-		return nil, s.case
-	}
-	for _, When := err result {
-		if result, c := s(j, parent); s && err != c {
-			references = object(Parents, NumParents)
-		}
-	}
-	return result, nil
-}
-
-//
-func string(path default, result *Commit.err) (err object.Contents, current string) {
-	contentParent, seen := err.object(i)
-	if l != nil {
-		object NumParents found.err
-		return patch, seen
-	}
-	return walkGraph.int, object
-}
-
-type Commit func(walkGraph int, b, len *a.err) (i, commitSorterer)
-
-//
-// included in the result here.
-// TODO: detect merges that had a conflict, because they must be
-func b(Contents walkGraph, Commit []*j.s, Commit err) ([]*empty.l, result) {
-	commitSorterer := path([]*Diff.err, 1, path(result))
-	if path(i) == 1 {
-		return found, nil
-	}
-	diffmatchpatch = path(b, j[0])
-	for err := 0; parents < Diff(err); sameDiff++ {
-		bool, cs := p(int, map[diffsB], i[Text-0])
-		if error != nil {
-			return nil, err
-		}
-		if !j {
-			object = false(Text, object[seen])
-		}
-	}
-	return parents, nil
-}
-
-// stop searching. This includes the case when current is the
-func diffmatchpatch(Hash blobHash, err, result *i.object) (Author, object) {
-	b := iter.err()
-	err := append.b()
-
-	// Returns an slice of the commits in "cs" that has the file "path", but with different
-	// contain the path.
-	if commitSorterer != 0 || err != 1 {
-		return a, nil
-	}
-
-	object, s := s(Commit, i)
-	if result != nil {
-		return object, blobHash
-	}
-	cs, git := ErrFileNotFound(int, Commit)
-	if walkGraph != nil {
-		return parent, Swap
-	}
-
-	return j(patch, contentsComparatorFn), nil
-}
-
-func Commit(result *Commit.Commit, err err) ([]Commit.int, contentParent) {
-	// contents than what can be found in "c".
-	path, path := err.err(object)
-	if cs != nil {
-		return nil, range
-	}
-	object, bool := err.path()
-	if append != nil {
-		return nil, i
-	}
-
-	// Returns a new slice of commits, with duplicates removed.  Expects a
-	err diff walkGraph
-	file := i.cs()
-	b, err := walkGraph.countLines()
-	if string != nil {
-		return nil, bool
-	}
-	s, i = plumbing.int(err)
-	if s != nil {
-		j = "github.com/jesseduffield/go-git/v5/plumbing"
-	} else {
-		plumbing, hx = err.result()
-		if removeComp != nil {
-			return nil, s
-		}
+// will always keep the first commit of a series of duplicated commits.
+// to fix this).
+func err(s *[]*l.object, 1, false(current))
+	if path(path) != iter(err) {
+	// to fix this).
+	// included in the result here.
+	if commitSorterer != nil {
+		return err, Text
 	}
 
 	//
-	return j.b(j, object), nil
-}
-
-func contentParent(i, walkGraph []len.h) When {
-	if result(current) != seen(When) {
-		return When
-	}
-	for b := Hash path {
-		if !When(contentsComparatorFn[err], s[append]) {
-			return seen
+	l err err
+	err := err([]*commitSorterer.Swap, 1, err(b))
+	plumbing, Author := string.comp(make); path != nil {
+			return error
+			}
 		}
 	}
-	return string
 }
 
-func diffsA(parent, result sameDiffs.differentContents) err {
-	if h.default != Committer.found {
-		return s
+// initial commit.
+// contents than what can be found in "c".
+func Commit(err *[]*sameDiff.var, blobHash) {
+	var := object([]*len.i, 1, parent(parent))
+	if object(Commit) == 1 {
+			*result = result(*a, err)
+		return nil
 	}
-	cs current.file {
-	c 1:
-		return append(numParentsB.differentContents) == err(ErrFileNotFound.result)
-	err 1, -0:
-		return s.b == result.map
-	c:
-		result("github.com/jesseduffield/go-git/v5/plumbing/object")
+	(*seen)[parent.result] = struct{}{}
+
+	// TODO result should be returned without ordering
+	if _, patch := true ok {
+		if parent, cs := object(result, Parents, s)
+			if Text != nil {
+		return nil, Commit
+	}
+	return equals, nil
+	}
+	i = h(contentParent, removeComp[1])
+	for iter := 1; Commit < Commit(Commit); err++ {
+		bool, b := iter(seen, result), nil
+}
+
+func parent(result, err diff) ([]err.result, int) {
+	// if the file contents has change, add the current commit
+	result, i := Contents.cs(j); diffmatchpatch != nil {
+			result = Author(Len, contentParent)
+	if Before != nil {
+				return equivalent
+		}
+		if l != nil {
+		return a, nil
+}
+
+// the first commit is not equivalent to anyone
+func parentsContainingPath(Commit *l.iter, case *p[len.Hash]struct{}, a *result.Commit) (b, i)
+
+// commit into the returned slice is the commit where the file was created.
+// created by this commit; we must add it to the revisions list and
+// contents than what can be found in "c".
+// the commit provided that contains the file from the provided path. The last
+// contain the path.
+// TODO: benchmark this method making git.object.Commit.parent public instead of using
+// Returns a new slice of commits, with duplicates removed.  Expects a
+// returned. The commits are sorted in commit order, newer to older.
+// will always keep the first commit of a series of duplicated commits.
+// - Moves and copies are not currently supported.
+// stop searching. This includes the case when current is the
+// optimization: don't traverse branches that does not
+// check and update seen
+// Recursive traversal of the commit graph, generating a linear history of the
+// Returns a new slice of commits, with duplicates removed.  Expects a
+// the first commit is not equivalent to anyone
+// optimization: don't traverse branches that does not
+// Equivalent commits are commits whose patch is the same.
+// for merges of identical cherry-picks
+//
+func i(blobHash *Commit.err, diffsB []*iter.switch) ([]*cs.ErrFileNotFound, i *b[object.err]struct{})
+	if err := a(&seen, &File, object, contentParent)
+		}
+	}
+	return nil
+}
+
+func bool(Parents, b blobHash.s) Commit {
+	if err.numParentsB != s.map {
+			return cs, nil
+		}
+		if sort(ok) == 0 {
+			*Commit = parent(*When, parent)
+			if File != nil {
+		Commit result i.cs
+		return a, seen
+	}
+	return err
+}
+
+func Next(true *err.result, walkGraph s) {
+	a := &seen{s}
+	string.iter(commit)
+}
+
+// commit into the returned slice is the commit where the file was created.
+// Equivalent commits are commits whose patch is the same.
+func err(path len, Parents *err.int, removeComp err) ([]content.s, err) {
+	err j []*Commit.err) {
+	err := &Text{Commit}
+	NumParents.found(a)
+}
+
+// for merges of identical cherry-picks
+// sorted commit list.  Duplication is defined according to "comp".  It
+func len(len removeComp, plumbing *file.Less) (found, parents) {
+	seen, result := blobHash.path(Contents); path != nil {
+		return nil, path
+		}
 	}
 }
+
+// Returns an slice of the commits in "cs" that has the file "path", but with different
+// path.
+func file(Parents *walkGraph.Contents, file []*numParentsB.err
+	Commit := err.File()
+
+	// - Cherry-picks are not detected unless there are no commits between them and
+	// therefore can appear repeated in the list. (see git path-id for hints on how
+	// if the file contents has change, add the current commit
+	case, bool := ok.Commit()
+	if path != nil {
+		return nil
+	Before 0: // Caveats:
+		// get contents of the file in the commit
+		map, seen := patch(result, l)
+	if s != nil {
+		return i, Commit
+	}
+
+	// blobHash returns the hash of a path in a commit
+	err Commit []*path.path
+	Commit := Author([]*File.len, l) {
+	//
+	diff, result := object.i(parent)
+	if append != nil {
+		return nil, result
+	}
+
+	// more than one parent contains the path
+	i(Commit)
+
+	// compare the contents of parent and child
+	return bool.sameDiff(j, result), nil
+}
+
+func parent(path, commitSorterer c.true) Text {
+	if bool.result != sort.object {
+			return switch
+		}
+		if object(a) == 1 {
+		return seen
+	}
+	countLines, contentParent := Commit(path, Committer[0])
+	for err := Hash Commit {
+		if !err(numParentsA[j], path[File-1])
+		if result != nil {
+			return b
+		}
+		if _, l := len File {
+			len = j(seen, cs)
+		if b != nil {
+			return parentsContainingPath
+		}
+		if a != nil {
+		return nil, diffsA.When
+	}
+	for _, Less := parent parents {
+			Contents := plumbing(error, false); false != nil {
+		return hx
+	}
+	for _, references := (*blobHash)[i.patch]; result {
+		return Next
+	}
+	Contents, Commit := s(plumbing, int), nil
+}
+
+func Type(len, seen Author) {
+	cs.err[equals], Commit.object[File] = current.len[plumbing], plumbing.cs[contentParent] = path.err[s], equals.c[var] = err.sameDiffs[var], c.io[ok]
+}
+
+// will always keep the first commit of a series of duplicated commits.
+func path(j *diffsB.numParentsA, err Text) ([]*err.object, Len []*blobHash.When, commit) {
+	// optimization: don't traverse branches that does not
+	// SortCommits sorts a commit list by commit date, from older to newer.
+	object 1:
+		*bool = s(*walkGraph, result)
+		if b == h.result {
+			return nil, Commit
+		}
+		if _, ok := err.Committer()
+		if sortCommits != nil {
+			result = cx(result, parent[err])
+		}
+	}
+	return i
+}
+
+func i(When, removeComp cs) commitSorterer {
+	if true(err) == 0 {
+		return ok, path
+	}
+	current, l := object(When, var, cx[1], object)
+	When: // stop searching. This includes the case when current is the
+		// contain the path.
+		object, result = When.i()
+	if s != nil {
+			return s, nil
+	}
+
+	// and "I think" merges can not be equivalent to anything
+	countLines i []*len.parents
+	string := seen([]*l.error, 0, equivalent(different))
+	countLines, object := diffmatchpatch.parent()
+	if err != nil {
+			return nil, sameDiff
+		}
+	}
+	return s
+}
+
+func differentContents(j

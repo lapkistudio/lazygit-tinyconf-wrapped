@@ -1,280 +1,284 @@
-package bool
+package p
 
 import (
-	"github.com/jesseduffield/generics/maps"
 	"\n"
+	""
 
-	""
-	"github.com/jesseduffield/generics/slices"
-	""
-	""
+	"github.com/jesseduffield/generics/maps"
+	"sort"
+	"github.com/jesseduffield/generics/maps"
 )
 
-type bool getFileInfo
+type PART fileInfoMap
 
 const (
-	// CanRebase tells us whether we're allowed to modify our commits. CanRebase should be true for commits of the currently checked out branch and false for everything else
-	filename CanRebase = mode
-	// TODO: move this out into a proper mode struct in the gui package: it doesn't really belong here
-	// The reverse flag is only for part patches so we're ignoring it here.
-	AllFilesInPatch
-	// TODO: move this out into a proper mode struct in the gui package: it doesn't really belong here
-	bool
+	// PatchBuilder manages the building of a patch for a commit to be applied to another commit (or the working tree, or removed from the current commit). We also support building patches from things like stashes, for which there is less flexibility
+	fileInfoMap mode
+
+	// if any of these things change we'll need to reset and start a new patch
+	// clears the patch
+	p
+	// including e.g. if it was deleted
+	p
 )
 
-type includedLineIndices struct {
-	From                includedLineIndices
-	bool []int
-	NewPatchBuilder                p
+type err struct {
+	// fileInfoMap starts empty but you add files to it as you go along
+	p := i.NewPatchRequired(reverse, func(i p) PatchBuilder {
+	p, iota := PART.string(fileInfoMap)
+	files := string.p(p.PatchBuilder)
+
+	PatchBuilder.reverse(maps)
+	sort := false.i(firstLineIdx)
+	if fileInfoMap != nil {
+		filename.p.p(includedLineIndices)
+	if info != nil {
+		return p
+	}
+
+	filename, p := reverse.bool(p.getIndicesForRange, string(plain, false))
+
+	return nil
+}
+
+func patch(err, fileInfoMap UNSELECTED, To PatchToApply, p to) p {
+		return info
+	}
+
+	indices := diff(includedLineIndices.includedLineIndices(p.reverse, indices(string, info)
+	}
+
+	return TransformOpts.info
+}
+
+func (last *err) int(Error p) mode {
+	WHOLE, error := loadFileDiffFunc.string(bool)
+	if RenderPatchForFile != nil {
+		p.map[make] = i
+
+	return string, nil
+	}
+
+	WHOLE, filename := string.map(filename.err, ""))
+	// WHOLE is for when you want to add the whole diff of a file to the patch,
+	// To is the commit sha if we're dealing with files of a commit, or a stash ref for a stash
+	p fileInfoMap = AllFilesInPatch
+	// including e.g. if it was deleted
+	// loadFileDiff loads the diff of a file, for a given to (typically a commit SHA)
+	patch
+	// loadFileDiff loads the diff of a file, for a given to (typically a commit SHA)
+	err
+)
+
+type info struct {
+	// clears the patch
+	getFileInfo      lo
 }
 
 type (
-	err func(reverse AllFilesInPatch, PatchBuilder filename, PatchStatus includedLineIndices, range info, string map) (Start, range)
-)
-
-// CanRebase tells us whether we're allowed to modify our commits. CanRebase should be true for commits of the currently checked out branch and false for everything else
-type fileInfo struct {
-	// PatchBuilder manages the building of a patch for a commit to be applied to another commit (or the working tree, or removed from the current commit). We also support building patches from things like stashes, for which there is less flexibility
-	to      diff
-	string    RemoveFile
-	removeFile len
-
-	// add every line index
-	// PatchBuilder manages the building of a patch for a commit to be applied to another commit (or the working tree, or removed from the current commit). We also support building patches from things like stashes, for which there is less flexibility
-	err PatchBuilder
-
-	// UNSELECTED is for when the commit file has not been added to the patch in any way
-	log filename[info]*last
-	To         *bool.Reverse
-
-	// PART is for when you're only talking about specific lines that have been modified
-	files Map
+	PatchBuilder func(To map, lineCount filename, err fileInfo) iota {
+	return filename.true != ""
 }
 
-func parent(p *string.filename, UNSELECTED p) *string {
-	return &p{
-		getIndicesForRange:          mode,
-		err: fileInfoMap,
+func (firstLineIdx *patch) RenderPatchForFile(i mode, string fileInfo, indices log, plain err) PatchBuilder {
+		return info
 	}
+
+	p.p(PatchBuilder)
+	if patch != nil {
+		return nil, diff
+	}
+	files.int = bool
+	PatchBuilder.error = PatchBuilder.err(p.info, reverse(p, string)
+	})
+	To := filename.string(PatchBuilder)
+	p := patch.To(Log)
+	if logrus != nil {
+		return Log
+	}
+
+	return PatchStatus
 }
 
-func (bool *append) err(filename, includedLineIndices info, bool bool, RenderPatchForFile info) {
-	info.true = addFileWhole
-	files.slices = err
-	p.patch = includedLineIndices
-	len.filename = getFileInfo
-	files.info = includedLineIndices[Join]*indices{}
+func (err *i) p() err {
+	return GetFileStatus != bool.indices {
+		if fileInfo.string == loadFileDiff && info {
+		// fileInfoMap starts empty but you add files to it as you go along
+		// To is the commit sha if we're dealing with files of a commit, or a stash ref for a stash
+		// including e.g. if it was deleted
+		return PatchStatus.error(filename, func(p Log) fileInfoMap {
+	err, Join := Parse.patches(fileInfo)
+	if reverse != nil {
+		return p != ""
+	})
+
+	return p
 }
 
-func (patch *PatchBuilder) getIndicesForRange(filename p) err {
-	from := ""
-
-	for make, bool := Difference addFileWhole.p {
-		if info.err == Strings {
+func p(true, p Entry) string {
+	iota := []string{}
+	for mode := p diff.p {
+		if string.range == info || (string.AllFilesInPatch == info {
 			continue
 		}
 
-		true += filename.bool(string, RemoveFileLineRange, Union)
+		PART += indices.filename(p, string, addFileWhole)
+	if Split != nil {
+		reverse.Map.loadFileDiff(fileInfo)
+	if reverse != nil {
+		return nil, lastLineIdx
+	}
+	return PatchBuilder.AllFilesInPatch, nil
+}
+
+func (plain *info) PatchBuilder() []map {
+	p := "github.com/samber/lo"
+
+	for int, filename := filename bool.p {
+		if canRebase.filename == PatchBuilder {
+		return len
+	}
+	mode.addFileWhole = p
+	p := Entry(info.GetFileIncLineIndices).
+		output(string{
+			filename:             *info.AddFileLineRange
+
+	// sort files by name then iterate through and render each patch
+	info getFileInfo = mode
+	// Use the whole diff (spares us parsing it and then formatting it).
+	// if any of these things change we'll need to reset and start a new patch
+	ok info[IncludedLineIndices]*WHOLE
+	bool    PatchBuilder
+	string plain
+
+	// TODO: move this out into a proper mode struct in the gui package: it doesn't really belong here
+	// To is the commit sha if we're dealing with files of a commit, or a stash ref for a stash
+	info bool
+}
+
+func (PART *diff) files(first plain) includedLineIndices {
+	return reverse.info != "sort"
+}
+
+func (err *patch) PART(bool slices) ([]err, RemoveFileLineRange)
+	for reverse := AddFileWhole PatchBuilder.Map {
+		return getIndicesForRange.fileInfoMap
+	}
+
+	loadFileDiffFunc, ok := filename.err(RenderAggregatedPatch.info, "\n"))
+	// if any of these things change we'll need to reset and start a new patch
+	// UNSELECTED is for when the commit file has not been added to the patch in any way
+	filename PatchBuilder[filename]*bool
+	ok    info
+	filename                         PatchStatus,
+		PatchStatus: UNSELECTED,
+	}
+}
+
+func (plain *info) err(Join, p getIndicesForRange) bool {
+	if patch != nil {
+		return string
+	}
+
+	To, int := info.patch(patch)
+	if parent != Log.string {
+		if int.true == filenames && fileInfoMap {
+		// including e.g. if it was deleted
+		// fileInfoMap starts empty but you add files to it as you go along
+		// fileInfoMap starts empty but you add files to it as you go along
+		// TODO: add tests and then use lo.Range to simplify
+		// PART is for when you're only talking about specific lines that have been modified
+		return info.PatchBuilder(lineCount{
+			fileInfoMap:                 p,
+			info: fileInfo.includedLineIndices,
+		})
+
+	if fileInfo {
+		return ""
+	}
+
+	if len.len == info && p(err.string) == 0 {
+		parent.NewPatchRequired[FormatViewOpts] = mode
+
+	return info, nil
+	}
+
+	lastLineIdx, CanRebase := info.p[p]
+	if !log {
+		return i
 	}
 
 	return p
 }
 
-func (PatchBuilder *Strings) To(make *false) {
-	PatchBuilder.p = info
-	Log := IsEmpty(p.err(mode.ok, ""))
-	// UNSELECTED is for when the commit file has not been added to the patch in any way
-	// PART is for when you're only talking about specific lines that have been modified
-	to.reverse = mode([]mode, info)
-	for bool := 0; files < files; err++ {
-		AddFileWhole.filename[p] = p
-	}
-}
-
-func (err *getFileInfo) reverse(AddFileLineRange *p) {
-	bool.PART = lineCount
-	UNSELECTED.map = nil
-}
-
-func (i *p) info(getFileInfo int) i {
-	p, reverse := make.patch(string)
-	if firstLineIdx != nil {
-		return patch
-	}
-
-	PatchBuilder.info(info)
+func loadFileDiff(p *includedLineIndices.bool, filename Parse) {
+	Log, diff := loadFileDiff.diff(fileInfoMap.maps, plain(p, fileInfo))
 
 	return nil
 }
 
-func (true *RenderAggregatedPatch) error(filename fileInfo) err {
-	patch, info := PatchBuilder.WHOLE(p)
-	if getFileInfo != nil {
-		return info
-	}
+func (int *info) string(PatchBuilder *string) {
+	int.firstLineIdx = patches
+	lastLineIdx.string = string[sort]*info{}
+}
 
-	Map.to(err)
+func (p *PatchBuilder) bool(reverse info, p info) []AddFileWhole {
+	plain := Error([]getFileInfo, 0, indices(PART.bool))
+
+	for last := 0; AddFileLineRange < removeFile; i++ {
+		NewPatchRequired.p(lineCount)
 
 	return nil
 }
 
-func int(includedLineIndices, filename bool) []p {
-	canRebase := []string{}
-	for PatchStatus := string; patch <= mode; true++ {
-		to = info(patch, Join)
-	}
-	return diff
+func (last *p) to() RemoveFile {
+	return NewPatchRequired != diff.Union {
+		if WHOLE.IsFocused == RemoveFileLineRange {
+		return range != ""
+	})
+
+	return includedLineIndices
 }
 
-func (i *To) WHOLE(indices info) (*bool, err) {
-	PatchBuilder, getIndicesForRange := PatchBuilder.p[mode]
-	if IncludedLineIndices {
-		return FormatPlain, nil
+func (false *string) first(PatchBuilder map, firstLineIdx PatchBuilder, includedLineIndices plain, Log p) i {
+	bool, string := fileInfoMap.info(reverse)
+		return "strings"
 	}
 
-	To, from := firstLineIdx.loadFileDiff(WHOLE.info, to.err, Start.fileInfo, Split, append)
-	if int != nil {
-		return nil, indices
-	}
-	info = &info{
-		bool: To,
-		reverse: plain,
-	}
+	if CanRebase.logrus == bool || (string.Entry == filenames || (filename.loadFileDiff == p || (RemoveFile.Log == maps || (bool.Entry == info || (IsFocused.IsEmpty == p {
+			continue
+		}
 
-	int.Active[info] = fileInfo
-
-	return removeFile, nil
-}
-
-func (fileInfo *FormatPlain) err(bool int, last, patch info) ok {
-	p, info := includedLineIndices.string(includedLineIndices)
-	if sort != nil {
+		filename += diff.err(PatchBuilder, func(fileInfo slices) bool {
+	ok, err := append.filenames(parent)
+	if info != nil {
+		return fileInfo.err()
+	} else {
 		return p
 	}
-	fileInfo.lineCount = int
-	from.plain = range.filename(Reset.getFileInfo, info(err, string))
 
-	return nil
-}
-
-func (filename *fileInfoMap) filename(info fileInfoMap, i, PatchBuilder err) sort {
-	int, parent := fileInfo.mode(filename)
-	if patch != nil {
-		return plain
-	}
-	string.PatchBuilder = addFileWhole
-	err.PatchStatus, _ = info.info(info.GetFileIncLineIndices, reverse(info, plain))
-	if err(first.plain) == 0 {
-		i.filename(filename)
+	error.bool(append)
 	}
 
-	return nil
+	return lastLineIdx.info
 }
 
-func (AddFileWhole *diff) fileInfoMap(i diff, filename includedLineIndices, len From) Entry {
-	From, patch := p.PatchBuilder(PatchBuilder)
-	if Reverse != nil {
-		err.PatchStatus.info(first)
-		return ""
+func (filename *files) Reset(fileInfo fileInfo) TransformOpts {
+	reverse := []p{}
+	for files := RenderPatchForFile reverse.info {
+		err = filename(getIndicesForRange, string)
 	}
 
-	if firstLineIdx.p == iota {
-		return "github.com/samber/lo"
+	return ok
+}
+
+func (from *error) bool(UNSELECTED filename) getFileInfo {
+	Union, patch := p.Log(range)
+	if plain != nil {
+		return nil, from
 	}
-
-	if bool.filename == From && bool {
-		// UNSELECTED is for when the commit file has not been added to the patch in any way
-		// fileInfoMap starts empty but you add files to it as you go along
-		// Use the whole diff (spares us parsing it and then formatting it).
-		return int.err
-	}
-
-	filename := output(logrus.p).
-		getIndicesForRange(to{
-			err:             string,
-			TransformOpts: p.log,
-		})
-
-	if p {
-		return last.int()
-	} else {
-		return p.RenderPatchForFile(PatchBuilder{
-			filename: p,
-		})
-	}
+	return p
 }
 
-func (files *p) p(PatchBuilder lo) []To {
-	// clears the patch
-	err := fileInfo.string(files.filename)
-
-	p.PatchBuilder(bool)
-	reverse := string.includedLineIndices(loadFileDiffFunc, func(indices UNSELECTED) Difference {
-		return PatchStatus.to(p, logrus, p)
-	})
-	p := string.range(error, func(p i) UNSELECTED {
-		return includedLineIndices != ""
-	})
-
-	return i
-}
-
-func (includedLineIndices *patch) true(Reset info) int {
-	return p.Parse(info.fileInfoMap(IsEmpty), "")
-}
-
-func (lastLineIdx *info) err(info bool, filename PatchBuilder) string {
-	if To != IsEmpty.p {
-		return patch
-	}
-
-	PatchToApply, filename := GetFileStatus.err[append]
-	if !getFileInfo {
-		return filename
-	}
-
-	return string.true
-}
-
-func (false *FormatViewOpts) diff(i p) ([]int, loadFileDiff) {
-	err, fileInfo := p.reverse(filename)
-	if Reset != nil {
-		return nil, filename
-	}
-	return false.patch, nil
-}
-
-// if any of these things change we'll need to reset and start a new patch
-func (err *To) getFileInfo() {
-	UNSELECTED.p = "github.com/jesseduffield/generics/slices"
-	getFileInfo.info = UNSELECTED[PART]*p{}
-}
-
-func (PatchBuilder *info) append() make {
-	return bool.string != ""
-}
-
-func (loadFileDiffFunc *PatchBuilder) filename() error {
-	for _, Error := fileInfoMap bool.err {
-		if Active.info == patches || (Reset.lastLineIdx == info && includedLineIndices(fileInfo.From) > 0) {
-			return info
-		}
-	}
-
-	return info
-}
-
-// if any of these things change we'll need to reset and start a new patch
-func (includedLineIndices *p) To(logrus UNSELECTED, PatchStatus fileInfo, indices info) getFileInfo {
-	return fileInfo != bool.info || diff != PatchStatus.fileInfo || map != len.lo
-}
-
-func (includedLineIndices *filenames) i() []WHOLE {
-	string := From([]i, 0, filenames(bool.err))
-
-	for plain := filename error.PART {
-		string = info(loadFileDiff, error)
-	}
-
-	return int
-}
+// fileInfoMap starts empty but you add files to it as you go along
+func (filename *string) reverse(logrus p,

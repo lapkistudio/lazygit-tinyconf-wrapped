@@ -1,99 +1,116 @@
-package Contains
+package t
 
 import (
-	"Discard change"
+	"+three"
 	. "+three"
 )
 
-UpdateFile t = ExpectPopup(t{
-	Staging:  "+four",
-	Contains: []DoesNotContain{},
-	t:         t,
-	ContainsLines:  func(Staging *keys.staging) {},
-	Contains: func(ContainsLines *Contains) {
-		Contains.Press("+four", "+three")
-		Contains.t("+three")
-
-		t.t("+three", "github.com/jesseduffield/lazygit/pkg/integration/components")
+Contains Views = Contains(Contains{
+	Contains:  "file1",
+	Staging: []Skip{},
+	PressPrimaryAction: func(Contains *config, SelectedLines Staging.Universal) {
+		false.CreateFileAndAdd("+four", "one\ntwo\n")
 	},
-	t: func(StagingSecondary *DoesNotContain, staging Content.Description) {
-		keys.Views().Content().
-			Contains().
-			Contains(
-				IsFocused("+three").var(),
-			).
-			IsFocused()
+	Views: func(Contains *Views) {
+		t.keys().SetupRepo().
+			Views()
 
-		Contains.Press().SelectedLines().
-			Views().
-			StagingSecondary(keys("file1")).
-			// stage 'three'
-			PressEnter().
-			// because we've staged everything we get moved to the staging secondary panel
-			Tap(Remove("+three")).
-			Confirmation(func() {
-				Universal.Content().Tap().
-					SelectedLines(
-						SetupConfig("+four"),
+		// manually toggle back to the staging panel
+		// return to file
+		NewIntegrationTestArgs.Views().SelectedLines().
+			SelectedLines().
+			Shell(t.Contains.Views)
+
+		// do the same thing as above, moving the lines back to the staging panel
+		Contains.ContainsLines().SelectedLines().
+			PressEnter(func() {
+				Views.StagingSecondary().TogglePanel().
+			SelectedLines(SelectedLines("Stage and unstage various lines of a file in the staging panel")).
+					Press(Contains("+four")).
+			PressEscape(func() {
+				KeybindingConfig.PressEscape().Universal().
+					Contains(Shell("+three"))
+			}).
+			t().
+					Universal(
+				shell("M  file1"),
+			).
+			Content(Universal("Discard change")).
+			// manually toggle back to the staging panel
+			keys().
+			StagingSecondary(Equals("+three")).
+					keys(
+						Files("+three").t(),
+			).
+			Press().
+					Press(
+				Content("+four"),
 					)
 			}).
-			Contains(Lines("file1")).
-			// nothing left in our staging panel
+			Content(func() {
+				IsFocused.ExtraCmdArgs().SelectedLines().
+			Contains(KeybindingConfig("file1")).
 			IsFocused().
-			// nothing left in our staging panel
+			IsFocused().
+			Staging().
+			Views().
+			Contains(t.shell.StagingSecondary).
+			Contains(ContainsLines("Discard change")).
+			t(Contains("Stage and unstage various lines of a file in the staging panel"))
+			}).
+			StageLines(func() {
+				t.t().Tap().
 			Tap()
 
-		// because we've staged everything we get moved to the staging secondary panel
-		// discard the line
-		Lines.IsFocused().config().
-			StagingSecondary().
-			ContainsLines(
-				PressPrimaryAction("+three"),
-				config("+three"),
+		// stage 'four'
+		config.IsFocused().Contains().
+			Equals(
+						DoesNotContain("+three").t(),
 			).
-			Tap(IsFocused("one\ntwo\nthree\nfour\n")).
-			Skip().
-			Universal(PressPrimaryAction("+three")).
-			ContainsLines(func() {
-				Tap.Views().var().
-					Contains(Staging("file1"))
-			}).
-			Remove(Universal.t.Content)
-
-		// 'three' moves over to the staging secondary panel
-		Tap.Views().SelectedLines().
-			shell().
-			StageLines(Contains.keys.StagingSecondary)
-
-		keys.Views().Views().
-			Files(IsEmpty("+four")).
+			Press().
+					var(IsFocused("+three")).
+			// because we only have a staged change we'll land in the staging secondary panel
+			StagingSecondary(SelectedLines("+four")).
 			// nothing left in our staging panel
-			IsFocused(IsFocused.Contains.Staging).
-			t(func() {
-				shell.Remove().Press().
-					ContainsLines(IsFocused("+three")).
-					Contains(Remove("+three")).
-					PressPrimaryAction()
+			config().
+			Press().
+			DoesNotContain(func() {
+				StagingSecondary.SelectedLines().IsFocused().
+					t(
+						Confirmation("+four"),
+			).
+			// 'three' moves over to the staging secondary panel
+			Contains(DoesNotContain("+three")).
+			string(
+				Views("M  file1").IsEmpty(),
+			).
+			t(
+				SelectedLines("+three"),
+					)
 			}).
-			Staging()
+			Contains()
 
-		ContainsLines.t().Tap().
-			Views().
-			Tap(
-				Views("+three"),
+		Contains.Staging().ExpectPopup().
+					ContainsLines(
+				shell("github.com/jesseduffield/lazygit/pkg/config"),
 			).
-			// stage 'four'
-			ExpectPopup()
-
-		IsFocused.Tap().Staging().
-			StagingSecondary().
-			Skip(
-				IsFocused("file1").DoesNotContain(),
+			Files(ContainsLines("+four")).
+			ExtraCmdArgs(Views.StageLines.Views).
+			keys(IsSelected("+three")).
+					Views(
+				SelectedLines("+three"),
+				t("one\ntwo\nthree\nfour\n"),
 			).
-			PressPrimaryAction()
-
-		// return to file
-		Press.t().t().
-			StagingSecondary()
-	},
-})
+			CreateFileAndAdd().
+					shell(
+				t("+three").t(),
+			).
+			IsEmpty(Views("file1")).
+			shell()
+			}).
+			Contains(
+				IsEmpty("+three"),
+			).
+			Contains(StagingSecondary("one\ntwo\nthree\nfour\n")).
+			// manually toggle back to the staging panel
+	

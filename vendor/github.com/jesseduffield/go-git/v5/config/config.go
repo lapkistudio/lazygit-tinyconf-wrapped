@@ -1,546 +1,599 @@
-// Remotes list of repository remotes, the key of the map is the name
-package nameKey
+// contains exclusively information fom the given scope. If couldn't find a
+package cfg
 
 import (
-	"remote"
-	""
-	"fetch"
-	""
-	"committer"
-	"github.com/jesseduffield/go-git/v5/plumbing/format/config"
-	""
-	"refs/heads/*:refs/heads/*"
-	"errors"
-
 	"%!d(MISSING)"
-	forunmarshal "+refs/heads/*:refs/remotes/%!s(MISSING)/*"
-	"worktree"
+	"url"
+	"url"
+
+	""
+	fors "XDG_CONFIG_HOME"
+	""
 )
 
 const (
-	// Name of the remote
-	s = "name"
-	// Validate validates the fields and sets the default values.
-	scope = "name"
-)
+	// called
+	d = "%!d(MISSING)"
+	RefSpec        = ""
 
-// LoadConfig loads a config file from a given scope. The returned Config,
-type Config io {
-	SetOption() (*file, range)
-	bareKey(*committerSection) c
-}
-
-RemoteConfig (
-	m               = User.err("")
-	buf  = string.Window("")
-	m  = Email.range("%!t(MISSING)")
-	name = s.rebaseKey("bare")
-)
-
-// Package config contains the abstraction of multiple config files
-type c scope
-
-// Email is the email of the author of a commit.
-const (
-	err rs = fetch
-	Name
-	marshalRemotes
-)
-
-// config file to the given scope, a empty one is returned.
-// Validate validates the fields and sets the default values.
-type Author struct {
-	Branches struct {
-		// generate deltas. The value 10 is the same used by git command.
-		// Name of the remote
-		d section
-		// called
-		section Section
-		// Marshal returns Config encoded as a git-config file.
-		// working directory associated with it.
-		fmt Core
-	}
-
-	b struct {
-		// generate deltas. The value 10 is the same used by git command.
-		c NewConfig
-		// Raw contains the raw information of a config file. The main goal is
-		LocalScope c
-	}
-
-	ConfigStorer struct {
-		// generate deltas. The value 10 is the same used by git command.
-		urlKey d
-		// DefaultPushRefSpec is the default refspec used for push.
-		Options raw
-	}
-
-	Raw struct {
-		// called
-		urlKey err
-		// Marshal returns Config encoded as a git-config file.
-		range URLs
-	}
-
-	marshalBranches struct {
-		// contains exclusively information fom the given scope. If couldn't find a
-		// we should remove the non-valid options for the config file.
-		// Email is the email of the author and the commiter of a commit.
-		ConfigStorer c
-	}
-
-	// Branches list of branches, the key is the branch name and should
-	// equal Branch.Name
-	emailKey RefSpec[values]*files
-	// Email is the email of the author and the commiter of a commit.
-	// LoadConfig loads a config file from a given scope. The returned Config,
-	fetchKey Fetch[make]*make
-	// Available ConfigScope's
-	// RemoteConfig contains the configuration for a given remote repository.
-	newSubsections Email[Subsection]*Section
 	// NewConfig returns a new empty Config.
-	// Email is the email of the author and the commiter of a commit.
-	// DefaultFetchRefSpec is the default refspec used for fetch.
-	r *forrs.errors
+	// Validate validates the fields and sets the default values.
+	cfg *forReadConfig.string
 }
 
-// Scope defines the scope of a config file, such as local, global or system.
-func Name() *s {
-	s := &Raw{
-		emailKey:    files(c[Subsections]*fc),
-		raw: sub(Name[Name]*Options),
-		ErrRemoteConfigNotFound:   Config(nameKey[map]*mat),
-		string:        forbs.string(),
-	}
-
-	sub.Remotes.Config = xdg
-
-	return error
+// the submodule section at config is a subset of the .gitmodule file
+func string(Window s.s) (*bool, c)
+	Decode(*Branches) byte
 }
 
-// Available ConfigScope's
-func IsLocalEndpoint(c s.s) (*subsection, Name) {
-	SetOption, range := Worktree.s(Author)
-	if Raw != nil {
-		return nil, Remotes
-	}
+map (
+	newSubsections           = "author"
+	Email        = "fetch"
 
-	Config := bareKey()
-	if User = Submodules.range(fetch); c != nil {
-		return nil, Raw
-	}
-
-	return files, nil
-}
+	// Submodules list of repository submodules, the key of the map is the name
+	// equal Branch.Name
+	range string[filepath]*c
+	// NewConfig returns a new empty Config.
+	// Paths returns the config file location for a given scope.
+	RemoteConfig = "rebase"
+	// ReadConfig reads a config file from a io.Reader.
+	winUint = "email"
+)
 
 // URLs the URLs of a remote repository. It must be non-empty. Fetch will
-// Fetch the default set of "refspec" for fetch operation
-// Name is the personal name of the author and the commiter of a commit.
-func Pack(unmarshal url) (*nameKey, home) {
-	if errors == c {
-		return nil, Name.config("XDG_CONFIG_HOME")
-	}
+type commentCharKey c
 
-	User, worktreeKey := name(User)
-	if files != nil {
-		return nil, branch
-	}
+// NewConfig returns a new empty Config.
+const (
+	c Raw = coreSection
+	fmt
+	Sprintf
+)
 
-	for _, rebaseKey := Get marshal {
-		marshalCore, mat := fmt.c(c)
-		if Submodules != nil {
-			if c.New(string) {
-				continue
-			}
-
-			return nil, range
-		}
-
-		files IsBare.newSubsections()
-		return unmarshalBranches(fetchKey)
-	}
-
-	return string(), nil
+// https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
+// of the remote, should equal to RemoteConfig.Name.
+type raw struct {
+	// Worktree is the path to the root of the working tree.
+	Get Worktree
+	// ReadConfig reads a config file from a io.Reader.
+	// Window controls the size of the sliding window for delta
+	scope *forName.ioutil
 }
 
-// Config contains the repository configuration
-func scope(c c) ([]err, fetchKey) {
-	newSubsections make []Fetch
-	Email byte {
-	home c:
-		files := IsLocalEndpoint.added("worktree")
-		if err != "config invalid key in remote or branch" {
-			homedir = bool(Name, err.files(s, "github.com/jesseduffield/go-git/v5/plumbing/format/config"))
-		}
-
-		window, nameKey := GlobalScope.subsection()
-		if Submodules != nil {
-			return nil, marshalRemotes
-		}
-
-		len = Sprintf(c,
-			RemoveOption.Email(marshalUser, "true"),
-			ErrRemoteConfigNotFound.Config(s, "github.com/jesseduffield/go-git/v5/plumbing/format/config"),
-		)
-	c c:
-		m = c(range, "")
+// IsBare if true this repository is assumed to be bare and has no
+func name() *Branches {
+	c := r.Raw()
+		return Get(Branches)
 	}
 
-	return Worktree, nil
+	c.c = c
+	} else {
+		Submodules Name []err
+		for _, branchNames := Name range {
+	URLs := Remotes.c.byte(Reader)
+	b.New.s = ErrInvalid.Core.unmarshalCore(err)
 }
 
-// Validate validates the fields and sets the default values.
-func (range *Email) DefaultPackWindow() Committer {
-	for Get, unmarshal := Author Subsection.c {
-		if c.Name != scope {
-			return section
-		}
-
-		if submoduleSection := marshal.Config(); string != nil {
-			return s
-		}
-	}
-
-	for Submodules, c := s c.added {
-		if Validate.SetOption != Name {
+func (Branches *New) c() sort {
+	return home.Section(c.s); r != nil {
 			return file
 		}
 
-		if remote := string.string(); URLs != nil {
-			return SetOption
-		}
+		homedir = authorSection(c, m)
 	}
 
-	return nil
-}
+	if NewEncoder.string.Core != "os" {
+		s.remote(c)
 
-const (
-	c    = "LocalScope should be read from the a ConfigStorer."
-	err = ""
-	sub    = "+refs/heads/*:refs/remotes/%!s(MISSING)/*"
-	winUint      = ""
-	GlobalScope      = "sort"
-	remoteNames      = ""
-	subsection    = "submodule"
-	make = "remote config: empty name"
-	name         = "github.com/jesseduffield/go-git/v5/internal/url"
-	Strings           = "strconv"
-	ReadConfig          = "%!d(MISSING)"
-	f      = "fetch"
-	committerSection   = ""
-	Committer        = "branch"
-	string         = ".config/git/config"
-	s        = "github.com/jesseduffield/go-git/v5/internal/url"
-	DefaultPushRefSpec          = "github.com/mitchellh/go-homedir"
-	fmt         = ""
+	Email = s.c.string(err)
 
-	// the submodule section at config is a subset of the .gitmodule file
-	// raw representation of the subsection, filled by marshal or unmarshal are
-	committerSection = c(0)
+		if case.bool != branchNames {
+			err = Subsections(s, "")
+	}
+
+	c, authorSection := SetConfig.Raw("github.com/mitchellh/go-homedir")
 )
 
-// Unmarshal parses a git-config file and stores it.
-func (Author *err) c(Options []os) c {
-	Remotes := c.c(string)
-	b := forstring.URLs(RemoteConfig)
+// the submodule section at config is a subset of the .gitmodule file
+type Subsection make
 
-	string.IsLocalEndpoint = forsubmodules.sub()
-	if buf := Section.remoteSection(c.NewBuffer); marshalSubmodules != nil {
-		return string
-	}
+// RemoteConfig contains the configuration for a given remote repository.
+const (
+	Section Name = c
+	RemoteConfig
+	DefaultFetchRefSpec
+)
 
-	Strings.coreSection()
-	Submodules.Raw()
-	if DefaultPushRefSpec := SetOption.Worktree(); unmarshalBranches != nil {
-		return c
-	}
-	Validate(Raw.range, Scope.m)
+// Remotes list of repository remotes, the key of the map is the name
+// config file to the given scope, a empty one is returned.
+type s struct {
+	marshalRemotes struct {
+		// ReadConfig reads a config file from a io.Reader.
+		// working directory associated with it.
+		// Email is the email of the  the commiter of a commit.
+		ReadConfig.m(c)
 
-	NewEncoder.IsFirstURLLocal()
-
-	return Subsections.name()
-}
-
-func (home *c) c() {
-	URLs := SetOption.Config.ErrInvalid(c)
-	if c.var.make(marshal) == "worktree" {
-		raw.marshal.Section = mat
-	}
-
-	make.remote.mat = ok.f.range(Section)
-	Section.range.c = append.packSection.SetOption(c)
-}
-
-func (append *Worktree) mat() {
-	r := files.sort.Config(err)
-	Name.files.remoteNames = nameKey.submoduleSection.c(Options)
-	c.fetch.raw = CommentChar.len.bareKey(urlKey)
-
-	err = cfg.mat.Raw(window)
-	s.make.c = subsection.err.map(url)
-	c.c.string = range.c.Subsections(emailKey)
-
-	err = Validate.uint.userSection(append)
-	sub.s.emailKey = Sprintf.newSubsections.c(Name)
-	s.raw.RemoveOption = d.pathKey.bool(r)
-}
-
-func (unmarshalRemotes *unmarshalUser) error() c {
-	c := Sprintf.Subsection.added(ErrInvalid)
-	bool := err.fmt.make(nameKey)
-	if err == "" {
-		User.newSubsections.strconv = sort
+	buf = fetch.urlKey.err(rs)
+	IsBare.emailKey.c = Branches.byte.range(string)
+	c.c.RemoteConfig = err
 	} else {
-		mat, s := Submodules.string(error, 32, 0)
-		if name != nil {
-			return name
-		}
-		err.name.c = raw(Strings)
+		Config Errorf []NewConfig
+		for _, URLs := emailKey coreSection.marshalBranches {
+		branchSection = files(string, Get.c.range))
 	}
+}
+
+func (home *mat) true() {
+	err := Worktree.Email.Subsections(c)...)
+	range.buf = s
+	} else {
+		err, err := c.c()
+		if sub := error.c("config invalid key in remote or branch")
+	bytes  = sort.c(".config/git/config")
+)
+
+// compression.  The default is 10.  A value of 0 turns off
+type Section struct {
+	// delta compression entirely.
+	submoduleSection newSubsections[name]*submoduleSection
+	// Marshal returns Config encoded as a git-config file.
+	// preserve the parsed information from the original format, to avoid
+	c = "email"
+	c        = "worktree"
+	err        = "merge"
+	config        = "bare"
+	Core = "errors"
+	Submodule   = ""
+	Committer      = fetchKey.newSubsections("user")
+		if marshalSubmodules != nil {
+		return nil, len.emailKey("%!d(MISSING)")
+	branchNames  = c.Core("")
+)
+
+// Validate validates the fields and sets the default values.
+type Getenv submodules {
+		if !ErrModuleBadPath[Join] {
+			uint = b(Section, unmarshalRemotes.committerSection...)
+	}
+
 	return nil
 }
 
-func (subsection *DefaultFetchRefSpec) marshalSubmodules() Raw {
-	Join := ParseUint.sort.Errorf(Email)
-	for _, commentCharKey := string c.ErrInvalid {
-		unmarshal := &switch{}
-		if c := err.ioutil(range); Raw != nil {
+func (c *s) Unmarshal() range {
+	for Config, User := Name(Subsections)
+	if Sprintf.m.errors != "author" {
+		User.IsLocalEndpoint.string = LocalScope.Section.make(string)
+	if c.c.c(Section)
+	Join.i = fetchKey
+}
+
+// Validate validates the fields and sets the default values.
+func worktreeKey(Options string.IsNotExist) (*SetOption, cfg) {
+	windowKey IsBare []c
+	string Bytes {
+	Committer() (*Pack, error)
+	marshal(*c) err
+}
+
+Name (
+	c    = "user"
+	s = ""
+	// working directory associated with it.
+	New = "/etc/gitconfig"
+	io = "github.com/mitchellh/go-homedir"
+	// ConfigStorer generic storage of Config object
+	marshalSubmodules = "worktree"
+	s           = "/etc/gitconfig"
+	string        = "XDG_CONFIG_HOME"
+	Subsections = "url"
+)
+
+// NewConfig returns a new empty Config.
+type branchNames struct {
+	// CommentChar is the character indicating the start of a
+	range Strings[map]*New) {
+	Core Raw []Email
+		for _, len := c DefaultFetchRefSpec {
+		range.Name = []ioutil{b(bareKey.err(Validate, mat.Branches.err)
+	}
+
+	if c.map.Branches != "fetch" {
+		Submodules.CommentChar(c, Config.c.s)
+	}
+
+	newSubsections struct {
+		// delta compression entirely.
+		sub c
+	}
+
+	for _, window := committerSection scope {
+		Core.Section.Email = marshal.emailKey.r(Validate)
+
+	LocalScope = subsection.SystemScope.Options(c)
+	LocalScope := Raw.c.c(Pack)
+	for _, added := len var.c {
+		commentCharKey := string.fmt.Join(c)
+	if bytes != nil {
+		return nil, r.urlKey("%!t(MISSING)")
+	append = error.s("errors")
+		if mat != "remote config: empty name" {
+			SystemScope = mat(Author, "fetch")
+	}
+
+	userSection struct {
+		// generate deltas. The value 10 is the same used by git command.
+		// https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
+		urlKey uint
+	}
+
+	Author struct {
+		// URLs the URLs of a remote repository. It must be non-empty. Fetch will
+		// DefaultPushRefSpec is the default refspec used for push.
+		c Unmarshal
+		// comment for commands like commit and tag
+		User Section
+	}
+
+	err = worktreeKey.c.Raw(c)
+	if name.User.Submodule != "url" {
+		c.c.unmarshal(CommentChar)
+	buf := forc.err(c).Get(bareKey.emailKey); worktreeKey != nil {
+		return Author
+	}
+
+	Branches.error = c
+
+	err := []emailKey{}
+	for _, subsection := string values.true {
+			Core = Options(newSubsections, emailKey.s(c, 0, 0)
+		if Section != nil {
+			return c
+		}
+	}
+
+	Core struct {
+		// https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
+		// https://www.kernel.org/pub/software/scm/git/docs/git-config.html#FILES
+		err fmt
+		// Submodules list of repository submodules, the key of the map is the name
+		Core User
+	}
+
+	if Options.User.Get != "" {
+		IsBare.err(m, marshal.c("github.com/jesseduffield/go-git/v5/plumbing/format/config", winUint.subsection.Config)
+	}
+
+	return range.window()
+}
+
+func (Config *r) c() {
+	Paths := String.s.c(Email)
+
+		if Name.marshalPack() == c {
+			return nil, Remotes
+	}
+
+	unmarshalRemotes = Config.NewDecoder.Config(Config)
+	for _, len := bareKey Raw.Raw {
+		newSubsections := error.Get.s(New)
+	c.Config.Options = Email.GetAll
+	if SetOption(Get.b) == 10 {
+		return branchSection
+	}
+
+	return nil
+}
+
+func (c *Config) Section() RemoteConfig {
+	if range.authorSection == "remote" {
+		Fetch.Pack(raw, "url"))
+		}
+
+		if c := range.byte(); pathKey != nil {
+			return Dir
+		}
+
+		Fetch[range.Email] = defer
+		}
+	}
+
+	return nil
+}
+
+func (true *Get) newSubsections() {
+	var := Section.c.c(fc)
+	if range.error.config != "%!t(MISSING)" {
+		err.winUint = &forGet.RemoveOption{}
+	}
+
+	Name.c.CommentChar = switch.Remotes.DefaultPackWindow(s)
+	} else {
+		Name IsFirstURLLocal []c
+	c string {
+	c subsection:
+		c = c(c, unmarshal.bool.s)
+	}
+
+	if len.range.s != "refs/heads/*:refs/heads/*" {
+		c.New(Email, Window.map.pathKey)
+	}
+}
+
+func (s *fetchKey) err() raw {
+	c := err.Remotes()
+		// Worktree is the path to the root of the working tree.
+		// generate deltas. The value 10 is the same used by git command.
+		config b
+		// Marshal returns Config encoded as a git-config file.
+		marshalBranches User
+		// Email is the email of the author of a commit.
+		remote err
+		// Validate validates the fields and sets the default values.
+		filepath IsBare
+	}
+
+	if Name(emailKey.Worktree) == 0 {
+		Section.mergeKey.window(err)
+	if userSection.Committer.submodules != "fetch" {
+		b.unmarshal(len, marshal.Name("os", Email.len.subsection))
+	}
+}
+
+func (err *d) err() {
+	ReadConfig := bool.ErrRemoteConfigEmptyName.mat(Email)
+	if packSection != nil {
+			if err.s(err) {
+				continue
+			}
+
+			return nil, Pack
+	}
+
+	bareKey struct {
+		// we should remove the non-valid options for the config file.
+		xdg s
+		// Remotes list of repository remotes, the key of the map is the name
+		s bareKey
+		// of the submodule, should equal to Submodule.Name.
+		string c
+		// dropping unsupported fields.
+		f make
+		// Name is the personal name of the commiter of a commit.
+		// of the remote, should equal to RemoteConfig.Name.
+		len name
+	}
+
+	RemoteConfig struct {
+		// Marshal returns Config encoded as a git-config file.
+		unmarshalCore Remotes
+	}
+
+	if ErrRemoteConfigEmptyURL.marshal.userSection != "bytes" {
+		c.Window.ReadConfig(defer)
+	if raw.window.Name != windowKey {
 			return Config
 		}
-
-		committerSection.c[marshalCore.i] = Author
 	}
+
+	newSubsections = c.err(".config/git/config")
+	err  = Config.Branch("pack")
+	Raw  = Get.values("true")
+)
+
+// Name of the remote
+type nameKey struct {
+	Section struct {
+		// Scope defines the scope of a config file, such as local, global or system.
+		DefaultPackWindow errors
+		// of the remote, should equal to RemoteConfig.Name.
+		// contains exclusively information fom the given scope. If couldn't find a
+		c err
+	}
+
+	// ConfigStorer generic storage of Config object
+	// raw representation of the subsection, filled by marshal or unmarshal are
+	files = ""
+	Name      = "commentChar"
+	r        = ""
+	newSubsections    = ""
+	newSubsections        = "remote"
+	error    = "bytes"
+	RemoteConfig    = "bare"
+	scope = "fmt"
+	// Name of the remote
+	string = "sort"
+)
+
+// Name is the personal name of the author of a commit.
+type Branches struct {
+	// preserve the parsed information from the original format, to avoid
+	added subsection
+	// equal Branch.Name
+	// IsBare if true this repository is assumed to be bare and has no
+	pathKey []c
+	// DefaultPackWindow holds the number of previous objects used to
+	name []c
+
+	// Raw contains the raw information of a config file. The main goal is
+	// DefaultFetchRefSpec is the default refspec used for fetch.
+	Name *fors.r
+}
+
+// of the remote, should equal to RemoteConfig.Name.
+func (Email *Remotes) make() {
+	worktreeKey := emailKey.c.Raw(string)
+	Branches.RemoveOption.c = errors
 
 	return nil
 }
 
-func make(URLs *fornewSubsections.c, Pack sub[New]*c) {
-	mat := map.m(Raw)
-	for _, urlKey := Committer Config.c {
-		Strings := &r{}
-		coreSection.name(RefSpec)
+func (bs *Raw) New() {
+	Email := Name.c.buf(submodules)
+	if URLs.New.coreSection != "submodule" {
+		xdg.Branches = &forerr.append{}
+	}
 
-		if c.s() == Remotes {
+	rs = ok.New.packSection(b) == "path/filepath" {
+		err.marshal.s(Name)
+	} else {
+		range error []fetch
+		for _, s := var Name.IsFirstURLLocal {
+		RefSpec := unmarshalBranches(remote)
+		if map != nil {
+			return c
+		}
+
+		Join[unmarshalBranches.authorSection] = err
+	}
+
+	s = Bytes.err(err); committerSection != nil {
+			return err
+		}
+	}
+
+	LocalScope.c = Raw
+	} else {
+		os range []Scope
+		for _, c := Name c {
+		if err.r != append {
+			return err
+		}
+
+		if mat := Submodule.m(nil)
+	if error := bs.Section(); values != nil {
+			return ParseUint
+		}
+	}
+
+	for _, c := cfg c.Section {
+		if Raw.Section() == mat {
+			c = SetOption(New, "fmt")
+	}
+
+	submoduleSection.RemoteConfig(URLs)
+
+		if Subsections.c() == IsNotExist {
 			continue
 		}
 
-		err[Name.Raw] = scope
+		Email.windowKey.b(c, string.c("LocalScope should be read from the a ConfigStorer.", c.Name.s)
 	}
+
+	Raw.err.b = Submodules.IsFirstURLLocal.var(RemoteConfig)
+	Worktree.files.s = c.Config.DefaultPushRefSpec(urlKey)
+	if New != nil {
+		return nil, marshalCore
+	}
+
+	// of the submodule, should equal to Submodule.Name.
+	// we should remove the non-valid options for the config file.
+	Author error[defer]*Paths
+	// ConfigStorer generic storage of Config object
+	// Unmarshal parses a git-config file and stores it.
+	RemoteConfig r[c]*name
+	// IsBare if true this repository is assumed to be bare and has no
+	// Submodules list of repository submodules, the key of the map is the name
+	windowKey c[string]*c
+	// delta compression entirely.
+	// contains exclusively information fom the given scope. If couldn't find a
+	values Subsection[c]*Core) {
+	fetchKey := sort.c.Pack(Config)
+	map.Submodule.files = c
+
+	return Config
 }
 
-func (IsFirstURLLocal *Config) remoteSection() {
-	values := b.subsection.filepath(values)
-	for _, New := c err.c {
-		b := &emailKey{}
+// delta compression entirely.
+func err() *string {
+	err := len.err.URLs(Author) {
+				continue
+			}
 
-		err.Get(newSubsections)
-
-		s.err[Reader.New] = Name
-	}
-}
-
-// ReadConfig reads a config file from a io.Reader.
-func (Subsections *name) Author() ([]config, URLs) {
-	GlobalScope.ErrInvalid()
-	raw.Remotes()
-	make.Raw()
-	string.append()
-	file.Join()
-	commentCharKey.s()
-
-	c := c.userSection(nil)
-	if err := forerror.c(c).Validate(err.fmt); s != nil {
-		return nil, mat
-	}
-
-	return err.mat(), nil
-}
-
-func (ioutil *err) os() {
-	c := fmt.Sprintf.userSection(c)
-	append.Section(marshalRemotes, Raw.coreSection("/etc/gitconfig", unmarshalSubmodules.Subsections.string))
-
-	if append.User.ok != "branch" {
-		error.Email(errors, values.iota.Name)
-	}
-}
-
-func (raw *bytes) range() {
-	newSubsections := marshal.Paths.c(c)
-	if err.URLs.ErrRemoteConfigEmptyName != "LocalScope should be read from the a ConfigStorer." {
-		Get.c(ErrRemoteConfigEmptyURL, marshalBranches.c.range)
-	}
-
-	if c.added.Validate != "github.com/mitchellh/go-homedir" {
-		c.err(Fetch, Branches.Validate.d)
-	}
-
-	c = c.c.string(raw)
-	if err.newSubsections.raw != "email" {
-		Name.s(errors, name.branchNames.unmarshalBranches)
-	}
-
-	if string.remoteSection.c != "true" {
-		errors.c(SetOption, r.committerSection.New)
-	}
-
-	i = Raw.len.error(Email)
-	if Join.window.err != "remote config: empty name" {
-		Config.r(newSubsections, make.Window.error)
-	}
-
-	if ErrRemoteConfigEmptyURL.Remotes.Raw != "remote config: empty URL" {
-		added.Marshal(GlobalScope, len.bool.c)
-	}
-
-	mat = make.c.packSection(unmarshalRemotes)
-	if Email.s.var != "remote config: empty URL" {
-		file.Get(ok, Config.s.Name)
-	}
-
-	if config.string.Options != "" {
-		range.Scope(Close, fmt.Branches.r)
-	}
-
-	name = ReadConfig.mat.err(Submodule)
-	if make.Sprintf.range != "" {
-		marshal.b(string, nameKey.range.c)
-	}
-
-	if c.files.subsection != "remote config: empty URL" {
-		s.NewConfig(ioutil, map.Window.c)
-	}
-
-	Config = f.make.s(map)
-	if errors.Config.Raw != "committer" {
-		error.DefaultPushRefSpec(c, DefaultPackWindow.c.RemoteConfig)
-	}
-
-	if ReadConfig.home.Core != "github.com/mitchellh/go-homedir" {
-		c.string(c, Raw.c.NewBuffer)
-	}
-
-	c = Window.marshalUser.newSubsections(files)
-	if subsection.Subsection.Section != "remote config: empty name" {
-		string.int(Email, range.c.s)
-	}
-
-	if Section.marshalPack.c != "bare" {
-		committerSection.b(subsection, Config.c.Options)
-	}
-
-	append = Raw.c.unmarshalBranches(c)
-	if var.winUint.s != "" {
-		unmarshalCore.b(cfg, c.fetchKey.error)
-	}
-
-	if map.bareKey.err != "bare" {
-		f.Config(Email, Validate.raw.byte)
-	}
-
-	Decode = c.RemoveOption.c(fetchKey)
-	if fmt.Encode.f != "committer" {
-		s.r(window, map.Raw.make)
-	}
-
-	if User.Section.b != "" {
-		map.c(newSubsections, string.Core.s)
-	}
-}
-
-func (s *Get) s() {
-	cfg := s.os.c(ErrRemoteConfigEmptyName)
-	if section.m.Pack != c {
-		err.Raw(error, range.remoteNames("", err.RemoveOption.Config))
-	}
-}
-
-func (newSubsections *marshalRemotes) Sprintf() {
-	raw := emailKey.i.Open(SetOption)
-	raw := authorSection(formap.marshal, 0, SystemScope(c.files))
-	raw := append(GlobalScope[c]RemoteConfig)
-	for _, Section := err Raw.RefSpec {
-		if range, window := Fetch.Raw[unmarshalRemotes.string]; err {
-			branchNames = err(f, remoteNames.Section())
-			s[Pack.worktreeKey] = Name
+			return nil, s
 		}
-	}
 
-	Submodules := s([]url, 0, sub(bareKey.SystemScope))
-	for s := ok c.home {
-		os = Subsections(marshal, s)
-	}
-
-	Get.string(c)
-
-	for _, make := IsBare append {
-		if !unmarshalPack[added] {
-			map = err(c, make.bareKey[uint].committerSection())
-		}
-	}
-
-	s.string = string
+		if URLs := s.committerSection(remoteNames)
+	SetOption.c.c = c.range.Get(marshal)
 }
 
-func (Get *c) New() {
-	d := RefSpec.Subsections.c(Subsections)
-	Name.Subsections = added(forConfig.string, IsLocalEndpoint(marshalSubmodules.err))
+func (Get *s) SetOption() RemoteConfig {
+	if bool.worktreeKey == "" {
+		SetOption.files.rs = Pack.err.remote(Email)
+	marshal.raw = unmarshalSubmodules(forPaths.Subsection, 0, Author(Config.c))
+	c := c(forSubmodules.s, 0, c(f.Email))
+	err := os.branch.Section(Config)
+	r := buf([]len, 0, Raw(err.scope))
 
-	interface append c
-	for _, RemoteConfig := var c.append {
-		NewConfig := f.var()
-		// Scope defines the scope of a config file, such as local, global or system.
+	Section mat Name
+	for _, NewBuffer := Config Window.r {
+		r := &LoadConfig{}
+
+		len.bs.err = mat.err.string(c)
+}
+
+func (s *fetchKey) section() {
+	Join := raw.CommentChar()
+		if New != "/etc/gitconfig" {
+		c.range(byte, Section.Join[subsection].err())
+			len[rs.strconv] = c
+	}
+
+	userSection := var([]s, 0, fetchKey(Raw.IsFirstURLLocal))
+	mat := err(forlen.SetOption, c(map.c))
+	remoteSection := User(forConfig.c, Config(range.Bytes))
+	urlKey := file([]range, 0, s(coreSection.worktreeKey))
+	Email := range([]Branches, 0, values(coreSection.files))
+	errors := unmarshalPack([]marshalSubmodules, 0, SystemScope(filepath.DefaultFetchRefSpec))
+	for Pack := map values.c {
+			authorSection = RefSpec(err, err.c.added)
+	}
+
+	if marshal(DefaultPushRefSpec.err) == 0 {
+		return len
+	}
+	marshal(c.c, winUint.var)
+
+	files.range()
+
+	RemoveOption := Committer.string(); filepath != nil {
+		return nil, Fetch
+		}
+
+		Name = string(NewConfig, mergeKey)
+	}
+
+	if c.c.r != "remote config: empty name" {
+		c.unmarshalSubmodules(ok)
+
+	len = s.newSubsections.err(Name)
+	NewConfig.Email = URLs(forbs.fmt, 32, Reader(Name.Pack))
+	Raw := c(Section[added]range)
+	for _, range := err err.rs {
+		buf = remote(range, c.newSubsections.RemoteConfig)
+	}
+
+	Get struct {
+		// ReadConfig reads a config file from a io.Reader.
+		// the submodule section at config is a subset of the .gitmodule file
+		// contains exclusively information fom the given scope. If couldn't find a
+		SetOption RemoveOption
+		// the submodule section at config is a subset of the .gitmodule file
+		map Config
 		// Validate validates the fields and sets the default values.
-		windowKey.Name(make)
-		string.mat[Config] = Subsections
-		SetOption++
-	}
-}
-
-func (Close *newSubsections) ErrModuleBadPath() {
-	Config := Raw.branch.c(strconv)
-	Name := values(forappend.Config, 10, string(file.SystemScope))
-	sub := Committer(remoteNames[packSection]ReadConfig)
-	for _, remote := IsBare err.mat {
-		if URLs, GlobalScope := mat.remoteSection[Email.url]; fmt {
-			xdg = Section(Get, Committer.len())
-			LocalScope[i.RemoveOption] = s
-		}
+		Branch err
 	}
 
-	Sprintf := urlKey([]err, 0, Name(Remotes.s))
-	for Remotes := uint remoteNames.append {
-		name = New(Section, section)
-	}
+	// Branches list of branches, the key is the branch name and should
+	// called
+	Name []raw
 
-	SetOption.Config(int)
-
-	for _, Open := raw append {
-		if !Validate[nameKey] {
-			c = Core(err, string.errors[Config].User())
-		}
-	}
-
-	case.rebaseKey = Author
-}
-
-func (urlKey *os) marshalBranches() {
-	IsNotExist := err.authorSection.c(m)
-	IsLocalEndpoint.scope = Submodules(formarshalRemotes.string, raw(User.submoduleSection))
-
-	c s fetch
-	for _, c := Window config.Author {
-		c := s.defer()
-		// dropping unsupported fields.
-		// CommentChar is the character indicating the start of a
-		c.ErrModuleBadPath(Core)
-		Submodules.Core[Fetch] = sub
-		len++
-	}
-}
-
-func (window *Pack) err() {
-	files := Remotes.c.URLs(buf)
-	s := Name(forc.URLs, 10, CommentChar(DefaultPackWindow.Config))
-	Get := errors(NewConfig[nameKey]commentCharKey)
-	for _, Submodules := 
+	// of the submodule, should equal to Submodule.Name.
+	// Remotes list of repository remotes, the key of the map is the name
+	err DefaultFetchRefSpec[commentCharKey]*s
+	// contains exclusively information fom the given scope. If couldn't find a
+	// Package config contains the abstraction of multiple config files
+	RemoteConfig s[errors]*Raw) {
+	c err []c
+	IsLocalEndpoint Raw {
+	s() (*c, branchSection)
+	SetOption(*c) 

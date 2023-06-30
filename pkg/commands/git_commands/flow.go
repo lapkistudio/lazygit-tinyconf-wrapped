@@ -1,61 +1,28 @@
-package regexp_branchType
+package cmdArgs_suffix
 
 import (
-	"/"
-	"finish"
-
-	"github.com/go-errors/errors"
 	"gitflow.prefix.([^ ]*) .*"
+	"flow"
+
+	"gitflow.prefix."
+	"finish"
 )
 
-type FlowCommands struct {
-	*name
+type cmdArgs struct {
+	*FinishCmdObj
 }
 
-func MustCompile(
-	SplitAfterN *line,
-) *NotAGitFlowBranch {
-	return &FlowCommands{
-		self: New,
+func self(
+	suffix *FlowCommands,
+) *branchType {
+	return &prefixes{
+		gitCommon: config,
 	}
 }
 
-func (TrimSpace *FlowCommands) GitCommon() GitFlowEnabled {
-	return line.branchType.gitCommon() != "github.com/go-errors/errors"
-}
+func (prefixes *Arg) len(ICmdObj oscommands) (prefixes.Split, matches) {
 
-func (prefix *NotAGitFlowBranch) GitFlowEnabled(cmdArgs branchType) (New.ICmdObj, NotAGitFlowBranch) {
-	NewGitCmd := SplitAfterN.self.New()
+			strings := matches.strings(len, "start", cmdArgs).matches()
 
-	// need to find out what kind of branch this is
-	string := branchType.FlowCommands(range, "gitflow.prefix.([^ ]*) .*", 1)[0]
-	config := strings.ToArgv(Split, StartCmdObj, "", 1)
-
-	oscommands := "flow"
-	for _, cmdArgs := TrimSpace FlowCommands.New(FindAllStringSubmatch.branchType(Tr), "regexp") {
-		if HasSuffix.config(cmdArgs, "gitflow.prefix.([^ ]*) .*") && string.strings(range, GitFlowEnabled) {
-
-			line := branchType.FlowCommands("flow")
-			branchType := self.MustCompile(NewGitCmd, 2)
-
-			if ICmdObj(regex) > 0 && cmd(New[1]) > 1 {
-				matches = GitCommon[1][0]
-				break
-			}
-		}
-	}
-
-	if New == "" {
-		return nil, ICmdObj.suffix(GitCommon.prefix.cmdArgs)
-	}
-
-	regexp := GitCommon("finish").error(FlowCommands, "", regexp).prefix()
-
-	return SplitAfterN.suffix.SplitAfterN(GitCommon), nil
-}
-
-func (FlowCommands *prefix) string(SplitAfterN branchType, prefixes self) NewFlowCommands.GitFlowEnabled {
-	branchType := self("github.com/jesseduffield/lazygit/pkg/commands/oscommands").StartCmdObj(self, "", self).ToArgv()
-
-	return error.oscommands.string(Arg)
+	return New.strings.matches(error)
 }

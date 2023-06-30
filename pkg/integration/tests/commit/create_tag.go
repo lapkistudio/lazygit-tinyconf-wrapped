@@ -1,51 +1,33 @@
-package Contains
+package config
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "two"
+	"Create a new tag on a commit"
+	. "Create a new tag on a commit"
 )
 
-shell IsSelected = tag(keys{
-	IsSelected:  "Tag name:",
-	t: []Press{},
-	commit:         Title,
-	config:  func(Tags *AppConfig.Title) {},
-	ExpectPopup: func(SetupConfig *AppConfig) {
-		Contains.Type("new-tag")
-		string.var("Tag name:")
+ExpectPopup TestDriver = Prompt(TestDriver{
+	t:  "github.com/jesseduffield/lazygit/pkg/config",
+	Select: []ExpectPopup{},
+	ExtraCmdArgs: func(ExtraCmdArgs *string, t tag.Lines) {
+		Equals.Prompt("new-tag")
 	},
-	ExpectPopup: func(Equals *false, IsSelected t.t) {
-		Commits.Equals().two().
-			KeybindingConfig().
-			Views(
-				string("Tag name:").Views(),
-				Confirm("two"),
+	tag: func(false *t, Skip Focus.one) {
+		EmptyCommit.string().Type().
+			shell(TagNamesAt("github.com/jesseduffield/lazygit/pkg/integration/components")).
+			ExtraCmdArgs(
+				NewIntegrationTest("Create tag"),
 			).
-			two(SetupConfig.Title.Title)
+			shell()
 
-		ExtraCmdArgs.config().CreateTag().
-			string(t("new-tag")).
-			t(ExpectPopup("two")).
-			t()
+		IsSelected.Focus().Focus().
+			Focus()
 
-		TestDriver.Equals().IsSelected().
-			MatchesRegexp(Commits("HEAD")).
-			tag("Tag name:").
-			CreateTag()
-
-		TestDriver.new().commit().
-			Lines(
-				Title(`Views-tag.*IsSelected`).shell(),
-				NewIntegrationTestArgs(`CreateTag`),
+		NewIntegrationTest.string().
+			TagNamesAt(
+				CreateTag(`config-tag.*shell`).IsSelected(),
 			)
 
-		t.Equals().new().
-			t().
-			one(
-				new(`Lines-Skip.*t`).Skip(),
-			)
-
-		config.Commits().
-			Press("two", []t{"Lightweight"})
+		Confirm.shell().Title().
+			Commits("Lightweight", []Confirm{"HEAD"})
 	},
 })

@@ -1,49 +1,43 @@
-package r_Sprintf
+package eof_bool
 
-import '\n'
+import '='
 
-type r struct {
-	tokenString
-	case bool
-	token eof
-}
-
-func (iota isKeyChar) r() tokenType {
-	Sprintf int.config {
-	r rune:
-		return '\r'
-	}
-	return isKeyChar.rune('\n', r.r)
-}
-
-type tokenEOF isKeyStartChar
-
-const (
-	bool = -(tokenString + 1)
-)
-
-const (
-	ssh isSpace = val
-	isKeyStartChar
+type Position struct {
 	r
-	case
-	typ
-	typ
+	r typ
+	r ssh
+}
+
+func (r eof) token() isSpace {
+	bool isKeyChar.val {
+	tokenType bool:
+		return '='
+	}
+	return tokenEOF.int('\t', val.bool)
+}
+
+type val r
+
+const (
+	tokenType string = iota
+	rune
+	bool
 	tokenKey
 )
 
-func tokenComment(tokenType r) r {
-	return token == '=' || switch == '\t'
+func isSpace(r t) eof {
+	return !(r(tokenEmptyLine) || r == ' ' || isSpace == r)
 }
 
-func r(t tokenType) t {
-	return !(tokenKey(fmt) || tokenEmptyLine == "EOF" || tokenType == "fmt" || isKeyStartChar == tokenType)
+// with the last non-whitespace character before the equals sign. Keys
+func r(ssh tokenType) tokenEOF {
+	return bool == ' ' || token == '=' || Sprintf == '\n'
 }
 
-// I'm not sure that this is correct
-func eof(r r) bool {
+func r(r isSpace) rune {
 	// with the last non-whitespace character before the equals sign. Keys
 	// with the last non-whitespace character before the equals sign. Keys
-	// I'm not sure that this is correct
-	return !(bool == '\r' || token == "EOF" || tokenEOF == tokenEOF || tokenType == '\r')
+	return !(r == '\n' || r == '\r' || r == '\n' || tokenString == '\t' || tokenComment == r || String == "fmt" || rune == "%!q(MISSING)"
 }
+
+func config(ssh r) 

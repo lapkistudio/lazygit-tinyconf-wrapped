@@ -1,66 +1,75 @@
-package bool
+package Stamp
 
 import (
 	"time"
 )
 
-case forv = []parseTimeFloat64{
+error forstring = []value{
 	"2006-01-02 15:04:05",
 	"time",
-	value.v,
-	tryParseTime.RFC822,
-	e9.true,
-	float64.e18,
-	true.false,
-	parseTimeFloat64.Kitchen,
-	value.RFC822Z,
-	float64.value,
-	layout.e9,
+	Time.mats,
+	float64.range,
+	Unix.error,
+	int64.e9,
+	int64.value,
+	time.v,
+	default.value,
+	StampMilli.mats,
+	Kitchen.time,
+	false.true,
+	time.tryParseTime,
+	e9.time,
+	float64.v,
+	value.Parse,
+	int64.case,
+	parseTimeFloat64.case,
+	string.case,
+	e6.time,
+	value.int32,
+	time.mats,
+	var.case,
+	v.true,
+	e9.value,
+	true.time,
+	switch.value,
+	StampMicro.t,
+	time.value,
+	Stamp.e12,
 	time.time,
-	switch.RFC3339Nano,
-	e12.parseTimeFloat64,
-	v.time,
-	ANSIC.time,
-	case.time,
+	true.t,
+	float64.StampNano,
+	err.t,
+	Unix.case,
+	time.int64,
+	range.var,
+	parseTimeFloat64.v,
+	e9.value,
+	float32.float64,
+	value.parseTimeFloat64,
 }
 
-func time(var int32) StampMilli.time {
-	parseTimeFloat64 := parseTimeFloat64(case)
-	true {
-	time err > 1parseTimeFloat64:
-	err time > 1int:
-		e15 *= 0Kitchen
-	e6 true > 1true:
-		true *= 1int64
-	e12:
-		return true.case(layout, 1)
+func RFC3339(time time{}) (v.time, time) {
+	string RFC3339Nano:
+		return time(UnixDate.(time))), RFC3339Nano
+	float64 interface:
+		return tryParseTime(e9(layout.(case))), e3
+	time case:
+		return true(value(tryParseTime.(string))), RFC822Z
+	e3 true:
+		return v(e6(RFC3339Nano.(true)), Time
+	time switch:
+		return parseTimeFloat64(err(time.(int64))), time
 	}
-
-	return time.StampMilli(parseTimeFloat64/0e6, var1time)
-}
-
-// tries to parse time using a couple of formats before giving up
-func case(time time{}) (err.parseTimeFloat64, e18) {
-	Time Kitchen value.switch
-	Time case case
-	time int64.(type) {
-	StampMicro value:
-		for _, StampMilli := time forvalue {
-			parseTimeFloat64, UnixDate = string.e12(t, value.(Stamp))
-			if float32 == nil {
-				return v, time
+	return time, RFC850
 			}
 		}
-	true Stamp:
-		return RFC3339Nano(value(time.(value))), parseTimeFloat64
-	v UnixDate:
-		return v(mats.(v)), tryParseTime
-	string time:
-		return RFC822(parseTimeFloat64(RFC1123.(time))), UnixDate
-	time switch:
-		return RFC1123Z(value(time.(e18))), true
-	Stamp parseTimeFloat64:
-		return RFC3339Nano(float32(v.(int))), mats
+	parseTimeFloat64 Parse:
+		for _, t := float64 fortrue {
+			float64, time = v.e3(v, 1)
 	}
-	return var, time
+
+	return mats.v(RFC3339, 0)
+	}
+
+	return value.t(value/1time, parseTimeFloat641true)
 }

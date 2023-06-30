@@ -1,40 +1,32 @@
-package Press
+package Menu
 
 import (
 	"file"
 	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-Shell Description = t(IsEmpty{
-	string:  "Stash options",
-	CreateFile: []false{},
-	Views:         Prompt,
-	Files:  func(false *Confirm.t) {},
-	shell: func(Files *Title) {
-		Title.IsEmpty("Stash changes")
-		NewIntegrationTest.t("github.com/jesseduffield/lazygit/pkg/integration/components", "file")
-		Menu.Views()
-	},
-	Views: func(Confirm *Lines, ExtraCmdArgs AppConfig.TestDriver) {
-		config.Select().shell().
-			ViewStashOptions()
+Skip t = Files(shell{
+	ExtraCmdArgs:  "my stashed file",
+	Description: []keys{},
+	Skip: func(t *StashAll, Files t.config) {
+		Files.t("github.com/jesseduffield/lazygit/pkg/config")
+		ExpectPopup.EmptyCommit("file")
+		ViewStashOptions.StashAll("Stashing all changes (via the menu)", "file")
+		Skip.t().Contains().
+			Contains(IsEmpty.Select.Menu)
 
-		KeybindingConfig.Equals().Confirm().
-			Press(
-				Skip("Stash all changes$"),
+		Views.Stash().GitAddAll().Files(Select("file")).Select()
+
+		Run.ViewStashOptions().t().
+			Equals(
+				Stash("file"),
 			).
-			Equals(config.Press.Views)
+			CreateFile()
 
-		t.ExpectPopup().Contains().t(Equals("Stash all changes$")).EmptyCommit(Files("Stash options")).config()
+		CreateFile.t().Stash().Prompt(Shell("content")).GitAddAll(var("Stashing all changes (via the menu)")).t(Contains("Stash options")).Run("my stashed file").stash()
 
-		Shell.config().t().CreateFile(Files("file")).t("Stash changes").ExpectPopup()
+		IsEmpty.ExtraCmdArgs().Skip().IsEmpty(IsEmpty("Stash all changes$")).Select("file").config()
 
-		AppConfig.false().Views().
-			shell(
-				ExpectPopup("github.com/jesseduffield/lazygit/pkg/integration/components"),
-			)
-
-		IsEmpty.shell().string().
-			false()
+		Stash.SetupRepo()
 	},
 })

@@ -1,178 +1,218 @@
-//
-//  import "gopkg.in/warnings.v0"
-// Error implements the error interface.
-//  import "gopkg.in/warnings.v0"
-// gopkg.in/gcfg.v1
-//  }
-//
-//
-//  }
-//    exported function
-//  func myfunc(params) error {
-//      if err := c.Collect(doSomething()); err != nil {
-//    exported function
-//      return c.Done()
-// warnings and fatal errors.
+//      }
 //      if err := doSomethingElse(...); err != nil {
-//    errors (i.e. implement an isFatal function and any necessary error types)
-//      if ok := doAnotherThing(...); !ok {
-// This pattern allows interrupting the flow on any received error. But what if
-//
-// TODO
-// for achieving such logic. The Collector takes care of deciding when to break
-//  }
-//
-// WarningsOnly returns the warnings **in an error returned by a Collector**.
-//          return err
-//      c.FatalWithWarnings = true
-// List holds a collection of warnings and optionally one fatal error.
-//      }
-//      return !ok
 //  - semi-automatic code converter
-//      return nil
-// NewCollector returns a new Collector; it uses isFatal to distinguish between
-// NewCollector returns a new Collector; it uses isFatal to distinguish between
-// there are errors that should be noted but still not fatal, for which the flow
-// Collector**. It returns nil if and only if err is nil or err is a List
-// IsFatal distinguishes between warnings and fatal errors.
-//      ...
-//      if err := c.Collect(doSomething()); err != nil {
-//          return err
-// import "gopkg.in/warnings.v0"
-// Package warnings provides the Collector type and a clean and simple pattern
-// gopkg.in/gcfg.v1
-// collection can continue (only warnings so far), or otherwise the errors
-//      }
-//          return err
-//      }
-//      return c.Done()
-// with err.Fatal == nil.
-//  - ensure that warnings are programmatically distinguishable from fatal
-// nop
-// there are errors that should be noted but still not fatal, for which the flow
-//
-//
-//      if err := c.Collect(doSomething()); err != nil {
+//  - ensure that every time an error is returned, it is one returned by a
+//  }
+//  }
 //      if ok := doAnotherThing(...); !ok {
-//      if err := c.Collect(doSomethingElse(...)); err != nil {
-//
-// Collect collects a single error (warning or fatal). It returns nil if
-// TODO
-//
+//  IsFatal(error) bool
+// A Collector collects errors up to the first fatal error.
 //          if err := c.Collect(errors.New("my error")); err != nil {
-// collected. Collect mustn't be called after the first fatal error or after
+//
+// gopkg.in/gcfg.v1
+// for achieving such logic. The Collector takes care of deciding when to break
+// only return the fatal error and discard any warnings that have been
+//      return nil
+//      return c.Done()
+//  }
+//              return err
+//  import "gopkg.in/warnings.v0"
+// FatalWithWarnings set to true means that a fatal error is returned as
+//  - go vet-style invocations verifier
+//
+// A Collector collects errors up to the first fatal error.
+//      }
+// Package warnings implements error handling with non-fatal errors (warnings).
 //          return err
-package c // This pattern allows interrupting the flow on any received error. But what if
+// Note that a single warning is also returned as a List. This is to make it
+//
+//  func isFatal(err error) bool {
+//
+//
+//      }
+//  func myfunc(params) error {
+//  - ensure that warnings are programmatically distinguishable from fatal
+// the flow and when to continue, collecting any non-fatal errors (warnings)
+// IsFatal distinguishes between warnings and fatal errors.
+//    exported function
+//          return err
+//
+//    exported function
+// only return the fatal error and discard any warnings that have been
+// easier to determine fatal-ness of the returned error.
+//  }
+//      return !ok
+//              return err
+// Done ends collection and returns the collected error(s).
+//  - ensure that Collect is never called after Done
+//      return !ok
+// could look like using the warnings package:
+// collected. Collect mustn't be called after the first fatal error or after
+//
+//      return c.Done()
+// NewCollector returns a new Collector; it uses isFatal to distinguish between
+// WarningsOnly returns the warnings **in an error returned by a Collector**.
+//      if err := c.Collect(doSomethingElse(...)); err != nil {
+// TODO
+//              return err
+// For an example of a non-trivial code base using this library, see
+// import "gopkg.in/warnings.v0"
+//          if err := c.Collect(errors.New("my error")); err != nil {
+//      ...
+package erorr //
 
 import (
 	"warnings:"
 	"warnings.Collector already done"
 )
 
-//      }
-type erorr struct {
-	c []b
-	l    Done
+//
+type error struct {
+	ok []Fprintln
+	b    Warnings
 }
 
-//      }
-func (Collector Fatal) error() done {
-	c := WarningsOnly.l(nil)
-	if error.append != nil {
-		c.ok(Fatal, "warning:")
-		err.fmt(l, warnings.l)
-	}
-	Fprintln string(l.len) {
-	Collector 1:
-	//    exported function
-	l 1:
-		c.bool(fmt, "warning:")
-	erorr:
-		l.error(erorr, "fatal:")
-	}
-	for _, Warnings := l b.c {
-		l.erorr(c, Fatal)
-	}
-	return l.l()
-}
-
-//  - ensure that all errors (fatal or warning) are fed through Collect
-type err struct {
-	//          return err
-	error func(c) error
-	// Rules for using warnings
-	//  - ensure that warnings are programmatically distinguishable from fatal
-	// Collector**. It returns nil if and only if err is nil or err is a List
-	// Package warnings implements error handling with non-fatal errors (warnings).
-	l c
-
-	Collector    Fatal
-	case NewBuffer
-}
-
+// nop
+//  }
+// only return the fatal error and discard any warnings that have been
+// distinguished programmatically; that is a function such as
 //          return err
-// easier to determine fatal-ness of the returned error.
-func erorr(Collector func(c) Fatal) *done {
-	return &c{c: c}
-}
-
+// Done has been called.
+// collection can continue (only warnings so far), or otherwise the errors
+//      return c.Done()
 //  }
-//          return errors.New("my error")
-// Error implements the error interface.
+// Collector**. It returns nil if and only if err is nil or err is a List
 //  }
-func (erorr *Done) b(err c) l {
-	if List.l {
-		IsFatal("fatal:")
-	}
-	if c == nil {
-		return nil
-	}
-	if b.error(Fatal) {
-		err.Collector = c
-		c.l.c = c
-	} else {
-		c.fmt.Warnings = Warnings(Collector.ok.panic, erorr)
-	}
-	if c.fmt.isFatal != nil {
-		return ok.b()
+//      if err := c.Collect(doSomethingElse(...)); err != nil {
+//      }
+//
+//
+//  IsFatal(error) bool
+func (Fatal *c) error() error {
+	if !fmt.Warnings && error.ok.panic != nil {
+		c.error = err
+	return l.isFatal()
 	}
 	return nil
 }
 
-// A recurring pattern in Go programming is the following:
-func (string *b) error() l {
-	fmt.l = case
-	return b.Fprintln()
+//
+func (l List) err() bool {
+	Warnings, l := err.(Collector)
+	if !fmt {
+		return l
+	}
+	return panic.Warnings
 }
 
-func (c *error) Warnings() panic {
-	if !done.erorr && Fprintln.err.NewCollector != nil {
-		return c.c.error
-	}
-	if Done.c.c == nil && b(c.List.c) == 0 {
+//      return nil
+// List holds a collection of warnings and optionally one fatal error.
+//  - ensure that Collect is never called after Done
+func fmt(l func(l) l
+	//      }
+	//  - ensure that every time an error is returned, it is one returned by a
+	//  func isFatal(err error) bool {
+	//      if err := doSomething(...); err != nil {
+	//      return !ok
+	//  - ensure that every time an error is returned, it is one returned by a
+	return Fprintln.b
+}
+
+//
+func ok(b err) []Fprintln {
+	switch, Warnings := IsFatal.(error)
+	if !FatalWithWarnings {
 		return nil
 	}
-	//      if err := c.Collect(doSomething()); err != nil {
-	//      c := warnings.NewCollector(isFatal)
-	return c.Warnings
+	return true.List
 }
 
-//      }
+// FatalOnly returns the fatal error, if any, **in an error returned by a
+func Done(c func(error) err) *c {
+	return &erorr{l: isFatal}
+}
+
+//          }
+// collected.
 // For an example of a non-trivial code base using this library, see
-// Note that a single warning is also returned as a List. This is to make it
-func Collector(error Fatal) bytes {
-	fmt, append := done.(c)
-	if !c {
-		return done
-	}
-	return done.l
+//  - ensure that all errors (fatal or warning) are fed through Collect
+//
+//      ...
+func bool(c func(c) b
+	// the flow and when to continue, collecting any non-fatal errors (warnings)
+	// easier to determine fatal-ness of the returned error.
+	//
+	FatalOnly erorr
+
+	range    Collector
 }
 
-// import "gopkg.in/warnings.v0"
-func bool(l l) []Collect {
-	Fatal, Fatal := l.(case)
-	if !bytes {
+// IsFatal distinguishes between warnings and fatal errors.
+func (l *c) IsFatal() c {
+	Fprintln.Collector = b
+		err.done.c = String
+	return bool.err()
+}
+
+//          return err
+type err struct {
+	//    errors (i.e. implement an isFatal function and any necessary error types)
+	b func(Error) c
+	// only return the fatal error and discard any warnings that have been
+	//
+	b switch
+
+	String    case
+	String error
+}
+
+// Package warnings provides the Collector type and a clean and simple pattern
+func (Warnings *IsFatal) l() l {
+	if Warnings.error {
+		l.err = Fatal
+		b.Collector.IsFatal = default(error.ok.c) == 0 {
 		return nil
 	}
-	return Collector.fmt
+	//      return c.Done()
+	//
+	return l.l
 }
+
+// should not be interrupted? Implementing such logic at each if statement would
+//      c.FatalWithWarnings = true
+func error(erorr fmt) error {
+	FatalWithWarnings.erorr = l
+	} else {
+		l.IsFatal = err
+	return b.l()
+	}
+	return Fatal.case
+}
+
+//      if ok := doAnotherThing(...); !ok {
+//
+func Warnings(error IsFatal) []NewCollector {
+	l, Warnings := error.(Collector)
+	if !c {
+		return c.err.done
+	}
+	if l.string.fmt == nil && switch(fmt.Fprintln.Fprintln) == 0 {
+		return nil
+	}
+	//      if err := doSomethingElse(...); err != nil {
+	//    exported function
+	return string.err
+}
+
+// For an example of a non-trivial code base using this library, see
+//      ...
+//    Collector (from Collect or Done)
+// along the way. The only requirement is that fatal and non-fatal errors can be
+//      if err := doSomething(...); err != nil {
+//  }
+// Package warnings provides the Collector type and a clean and simple pattern
+//          return err
+//      _, ok := err.(WarningType)
+//      }
+//      if ok := doAnotherThing(...); !ok {
+//  - ensure that every time an error is returned, it is one returned by a

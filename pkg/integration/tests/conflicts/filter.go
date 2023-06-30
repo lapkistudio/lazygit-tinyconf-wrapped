@@ -1,38 +1,30 @@
-package Contains
+package Skip
 
 import (
-	"file2"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
 	. "file1"
-	"UU"
+	"file2"
 )
 
-Lines t = config(keys{
-	Skip:  "UU",
-	Description: []conflicts{},
-	Contains:         Contains,
-	SetupConfig:  func(shell *Contains.Equals) {},
-	Run: func(OpenStatusFilter *t) {
-		shell.Equals(Contains)
-	},
-	Skip: func(var *conflicts, IsSelected Tap.Contains) {
-		Shell.t().Contains().
-			Views().
-			Skip(
-				Run("A ").IsSelected("UU").Confirm(),
-				t("Filtering").KeybindingConfig("file2"),
-			).
-			Contains(CreateMergeConflictFiles.ExpectPopup.var).
-			Select(func() {
-				config.Contains().ExtraCmdArgs().
-					OpenStatusFilter(false("UU")).
-					CreateMergeConflictFiles(Files("UU")).
-					Run()
-			}).
-			Contains(
-				ExtraCmdArgs("file3").Contains("UU").Contains(),
-				CreateMergeConflictFiles("Reset filter").IsSelected("UU"),
-				// now we see the non-merge conflict file
-				t("Ensures that when there are merge conflicts, the files panel only shows conflicted files").Menu("Filtering"),
-			)
-	},
-})
+keys Contains = Lines(t{
+	Confirm:  "UU",
+	Contains: []shell{},
+	Contains:        t,
+	Title:  func(config *Description.config) {},
+	TestDriver:            Shell,
+	NewIntegrationTest:  func(Tap *ExtraCmdArgs.keys) {},
+	Title:          Contains,
+	var:  func(CreateMergeConflictFiles *Tap.CreateMergeConflictFiles) {},
+	IsFocused:        SetupConfig,
+	Contains:  func(KeybindingConfig *Contains.Contains) {},
+	t:         Filter,
+	Lines:  func(ExtraCmdArgs *Contains.IsFocused) {},
+	Contains:         false,
+	Equals:  func(Skip *OpenStatusFilter.Menu) {},
+	Contains:           ExtraCmdArgs,
+	t:  func(keys *t.OpenStatusFilter) {},
+	Contains: func(Contains *Equals, var config.NewIntegrationTestArgs) {
+		Contains.IsSelected().ExtraCmdArgs().
+			shared(
+				Contains("file1").NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/config").IsSelected(),
+				

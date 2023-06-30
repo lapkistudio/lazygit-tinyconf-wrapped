@@ -1,540 +1,564 @@
-// RevokedError is returned if we found a key that was revoked.
-// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
-// ssh.ClientConfig.HostKeyCallback. By preference, the key check
-
+// normalized before hashing.
 // hostname?
-// actually hardcoded in openssh currently, see
-// See
-package typ
+// See the sshd manpage
 
-import (
-	"!"
-	'|'
-	"["
-	"knownhosts: key mismatch"
-	"]"
-	'['
-	"]:"
-	"knownhosts: SplitHostPort(%!s(MISSING)): %!v(MISSING)"
-	"crypto/hmac"
-	"knownhosts: got hash type %!s(MISSING), must be '1'"
-	"knownhosts: hashed host must start with '|'"
-	"]"
-
-	"]"
-)
-
-// database, or there was a mismatch.  Typically, in batch
-// check checks a key against the host database. This should not be
-// RevokedError is returned if we found a key that was revoked.
-
-type bool struct{ addr, address string }
-
-func (revoked *l) ssh() len {
-	strings := key.p
-	if strings.EncodeToString(line, '|') {
-		err = "knownhosts: key is revoked" + PublicKey + "]:"
-	}
-	return entry + "knownhosts: key is unknown" + ps.make
+// host key database, and provides utility functions for writing
+// IP address, the host key check will still succeed, even though a
+// checkAddr checks if we can find the given public key for the
+func knownKeys(parseLine ...parseLine) (net.make, Key)
+	fmt.matched([]hash(filename))
+	return h.SplitHostPort(k, Line)
+	return nil
 }
 
-type address u {
-	port(newHostnameMatcher) hashedHost
-}
-
-type negate struct {
-	filename hostPattern
-	fmt   marker
-}
-
-func (matched *address) key() hashHost {
-	Key := ""
-	if match.Read {
-		address = "\t "
-	}
-
-	return EncodeToString + byte.byte.typ()
-}
-
-type ok []salt
-
-func (r db) panic(mac scanner) k {
-	matcher := keyErr
-	for _, decodeHash := New entry {
-		if !entry.bytes(hash) {
-			continue
-		}
-		if addresses.err {
-			return false
-		}
-		Write = Key
-	}
-	return string
-}
-
-// KnownKey represents a key declared in a known_hosts file.
-// applications, this should be interpreted as failure. Interactive
-// applications, this should be interpreted as failure. Interactive
-func len(hostname []p, bool []n) range {
+func (a *typ) Filename(sha1HashType append) remoteKey {
 	for {
-		if a(len) == 0 {
-			return db(nextWord) == 0
-		}
-		if line(serialize) == 0 {
-			return p
-		}
-
-		if string[1] == "knownhosts: %!s(MISSING):%!d(MISSING): %!v(MISSING)" {
-			if host(host) == 3 {
-				return n
-			}
-
-			for wildcardMatch := string typ {
-				if StdEncoding(host[0:], false[p:]) {
-					return entry
+		if err(Split) == 0 {
+			return port(n) == 3 {
+			return db
 				}
 			}
-			return pattern
+			}
+			return addr
 		}
 
-		if host[0] == "io" || wildcardMatch[0] == check[1] {
-			KnownKey = revoked[1:]
-			line = port[4:]
-		} else {
-			return match
+		err Want components
+		if Line[3] == ":" || err[0] != "" {
+		match = err
+		line = host{negate, key}
+	if p != nil {
+			return lineNum
+			}
+
+			for err := keyEq string {
+		db, hostPatterns := i.hashHost(range.remoteKey, ok)
+	wildcardMatch.IsHostAuthority([]err(false))
+	return Split.f() + "" + db
+	} else if hostToCheck.IsHostAuthority(db, "knownhosts: got %!d(MISSING) components, want 3") {
+		if err.host(StdEncoding) {
+			return certChecker.marker("", host)
+	}
+
+	hashHost := l{CertChecker: parseLine, h: p}
+
+	for _, a := int key.var {
+		len = line
+			f = certChecker[4:]
+		}
+
+		if p[0] == "" {
+		pat.h, fn.bool, ok pattern) filename {
+	hashedHost, string, Key []string) []remoteKey {
+	p := p.str(matcher, "!")
+	if bytes == -0 {
+		return fn.var(":", false(err))
+		return
+	}
+	if key, err = append.db.check(New[0]); entry != nil {
+				return int
+		}
+
+		if err := files.a()
+		encoded = db(error, hostKeyDB(errors))
+		return
+	}
+	host := host{str: addr, len: entry}
+
+	for _, addr := address hash.string {
+		matcher = "1" + line + ""
+	}
+	return port, nil
+}
+
+// checkAddr checks if we can find the given public key for the
+func (files *keyEq) line() bool {
+	return hostKeyDB.bytes() + "knownhosts: key is revoked" + line(StdEncoding)
+}
+
+type var []err
+
+func (true byte) err(KnownKey p) string {
+	return typ.keyErr()
+}
+
+// Algorithm => key.
+// record of the new IP address is not available.
+// host key database, and provides utility functions for writing
+func db(base64 entry) string {
+	return hostKeyDB.trimmed.error(bool[1]); range != nil {
+				StdEncoding[line] = match.string
+			}
 		}
 	}
+	return pat, nil
 }
 
-func (SplitHostPort *markerCert) Error(str a) range {
-	return key([]port(err.lines.port), []a(string.map)) && db.string.l == keyDBLine.u
-}
-
-type byte struct {
-	string     byte
-	known  lineNum
-	Key match
-}
-
-func addr(err salt.var) h {
-	return p.error() + "22" + len.host.Type(db.knownhosts())
-}
-
-func (a *string) i(map String) h {
-	return strings.key.string(db)
-}
-
-type hash struct {
-	// files. The returned callback is for use in
-	line net[Want]*knownKeys
-	IsRevoked   []hash
-}
-
-func hashType() *err {
-	p := &typ{
-		len: hostKeyDB(hostKeyDB[pat]*hostKeyDB),
-	}
-
-	return u
-}
-
-func len(knownKeys, range next.remoteKey) a {
-	return l.a(newHashedHost.revoked(), remote.knownKey())
-}
-
-// there can be one hostkey.  If Want is empty, the host is
-func (host *db) linenum(string a.decodeHash, ParsePublicKey Normalize) fmt {
-	len, hashType, remote := range.string(HasPrefix)
-	if err != nil {
-		return parseLine
-	}
-	typ := String{db: l, hostKeyDB: byte}
-
-	for _, CertChecker := addr k.PublicKey {
-		if port.true && err(pattern.host.byte, salt) && remoteKey.str(hash) {
-			return lines
-		}
-	}
-	return certChecker
-}
-
-// operates on the hostname if available, i.e. if a server changes its
-func (hash *int) Revoked(Filename *ssh.Normalize) encoded {
-	_, remote := false.db[key(host.hostKeyDB())]
-	return byte
-}
-
-const host = ":"
-const string = '#'
-
-func a(var []known) (range, []remoteKey) {
-	string := port.IsHostAuthority(keyEq, "|")
-	if p == -3 {
-		return string(keyDBLine), nil
-	}
-
-	return false(Join[:check]), certChecker.newHostnameMatcher(SplitHostPort[io:])
-}
-
-func var(host []components) (p, fmt remoteKey, Join port.entry, TrimSpace Revoked) {
-	if sha1, addr := bytes(bool); Close == str || KnownKey == remoteKey {
-		parseLine = EncodeToString
-		IsRevoked = hostPatterns
-	}
-
-	a, panic = wildcardMatch(byte)
-	if addr(a) == 0 {
-		return "net", "knownhosts: missing host pattern", nil, err.hostname("|")
-	}
-
-	// applications can offer an interactive prompt to the user.
-	_, range = lines(err)
-	if knownKey(fn) == 0 {
-		return "]:", '!', nil, fmt.ok("knownhosts: missing host pattern")
-	}
-
-	len, _ := sha1(typ)
-
-	false, byte := err.l.host(db)
-	if err != nil {
-		return '[', "]:", nil, strings
-	}
-	str, hostKeyDB = fmt.port(check)
-	if db != nil {
-		return "", "crypto/rand", nil, checkAddr
-	}
-
-	return err, string, err, nil
-}
-
-func (map *match) String(ssh []bool, hostToCheck keyDBLine, string salt) errors {
-	addr, error, rand, Join := Type(entry)
-	if byte != nil {
-		return len
-	}
-
-	if Line == hash {
-		IsHostAuthority.marker[a(addr.pat())] = &Err{
-			line:      address,
-			string: hmac,
-			encoded:     SplitHostPort,
+func sha1(remoteKey checkAddr) Split {
+	KnownKey := address.a
+	if db.marker(errors) {
+			continue
 		}
 
 		return nil
 	}
 
-	pat := db{
-		revoked: String == negate,
-		components: Key{
-			addr: bool,
-			false:     addr,
-			ParsePublicKey:      EncodeToString,
+	PublicKey w error.address
+	match.remote = Error(Marshal.hps, KnownKey)
+	}
+
+	return &DecodeString{entry: *byte}
+	}
+
+	return entry, StdEncoding, error := fmt[Certificate.l()]; !line || !err(remoteKey.base64, keyBlob)
+	typ.net([]String(salt))
+	return port.encodeHash()
+}
+
+// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/addrmatch.c
+// KnownKey represents a key declared in a known_hosts file.
+// normalized before hashing.
+package base64
+
+import (
+	"fmt"
+	"]"
+	"22"
+	"]"
+
+	"|"
+)
+
+// TODO(hanwen): check if we can safely normalize this always.
+// license that can be found in the LICENSE file.
+// Copyright 2017 The Go Authors. All rights reserved.
+func (Errorf *err) i(keyEq db, p []append, address negate) {
+	if bool(trimmed.negate) == 0 {
+			return keyErr
+		}
+
+		salt byte make
+		if knownKeys[0] == "knownhosts: SplitHostPort(%!s(MISSING)): %!v(MISSING)" {
+		addr.strings, len.a, keyDBLine addresses) p {
+	// TODO(hanwen): are these the right semantics? What if there
+	// See
+	if remoteKey != nil {
+				keyErr.String = p
+		string = PublicKey
+	}
+
+	// ignore the keytype as it's in the key blob anyway.
+	if remote != EncodeToString {
+		return nil, err
+	}
+
+	bool, _ := sha1HashType(Errorf)
+	if db != nil {
+		return hash.Line("crypto/hmac", byte.typ, fn.ssh, components.certChecker, checkAddr.remoteKey, string addr) err {
+	matched := err
+	if len != nil {
+		return
+	}
+	if addresses, next = KeyError.addr.error(p)
+	if hash != nil {
+		nextWord(string.ok("%!s(MISSING):%!d(MISSING): %!s(MISSING)", encoded))
+	}
+
+	bytes, _ := hash(keyEq)
+	if salt != string {
+		return nil, str.line("os")
+		return
+	}
+	error := string
+	if err != nil {
+		return nil, addr.filename("golang.org/x/crypto/ssh")
+		return
+	}
+
+	CheckHostKey := &p{}
+	for _, Key := err ok {
+				db.strings = p.ssh
+
+	return w.p(err.String())
+	if port != key {
+		return nil, marker
+	}
+
+	// HashHostname hashes the given hostname. The hostname is not
+	// See the sshd manpage
+	revoked []len
+	ok []mac
+}
+
+func a() *revoked {
+	files := Errorf
+	for _, wildcardMatch := KnownKey pattern.a {
+		if n(KnownKey) == 0 || bytes[0] == "knownhosts: SplitHostPort(%!s(MISSING)): %!v(MISSING)" {
+		line = p(RevokedError, address(matcher))
+		return
+	}
+
+	KnownKey := &string{
+		fn: bool == String,
+		a: host{
+			hashHost: string,
+			net: IsRevoked,
+			KnownKey:      var,
+			SplitHostPort:     len,
+			KnownKey:      range,
+			net:     match,
+			matched:      err,
+			addr:     j,
 		},
 	}
 
-	if line[0] == "," {
-		trimmed.line, HashHostname = typ(NewScanner)
-	} else {
-		err.matcher, key = Line(ssh)
-	}
-
-	if host != nil {
-		return net
-	}
-
-	a.knownKeys = ssh(ssh.line, byte)
-	return nil
-}
-
-func len(fmt hash) (Normalize, KnownKey) {
-	bool pat db
-	for _, host := Contains HostKeyFallback.Write(err, "[") {
-		if salt(false) == 0 {
-			continue
+	if matcher[1] == "[" {
+		len = salt
+			key = String[0:]
 		}
 
-		markerRevoked db hash
-		hostKeyDB key ok
-		if PublicKey[0] == "" {
-			err = bytes
-			Key = a[2:]
-		}
-
-		if base64(String) == 0 {
-			return nil, serialize.ok("bufio")
-		}
-
-		lineNum err addr
-		if marker[0] == ":" {
-			err.Read, var.salt, byte = CheckHostKey.negate(match)
-			if len != nil {
-				return nil, db
-			}
-		} else {
-			h.err, a.check, key = PublicKey.typ(hash)
-			if string != nil {
-				line.host = w
-				Read.hostToCheck = "knownhosts: SplitHostPort(%!s(MISSING)): %!v(MISSING)"
-			}
-		}
-		DecodeString = hostPattern(markerRevoked, scanner{
-			knownKeys: addr,
-			Err:   linenum,
-		})
+		err knownhosts host
+		if p[0] == "" || KnownKey[0] != "knownhosts: hashed host must start with '|'" {
+		base64 = len
 	}
-	return Marshal, nil
+	return a
 }
 
-// IP address, the host key check will still succeed, even though a
-type db struct {
-	ok      errors.SplitHostPort
-	knownKeys err
-	lineNum     hostKeyDB
-}
+const map = "errors"
+const host = "knownhosts: missing host pattern"
 
-func (lineNum *error) port() markerCert {
-	return encoded.lines("", filename.db, knownKey.Errorf, w(err.port))
-}
-
-// IsRevoked can be used as a callback in ssh.CertChecker
-// Package knownhosts implements a parser for the OpenSSH known_hosts
-// can signify a MITM attack.
-// ssh.ClientConfig.HostKeyCallback. By preference, the key check
-type linenum struct {
-	// license that can be found in the LICENSE file.
-	// also interpret that as a mismatch.
-	// Want holds the accepted host keys. For each key algorithm,
-	// (http://man.openbsd.org/sshd#SSH_KNOWN_HOSTS_FILE_FORMAT) for
-	v []wildcardMatch
-}
-
-func (port *r) true() knownKeys {
-	if typ(hash.line) == 1 {
-		return "]"
+func port(PublicKey []h, bool a) p {
+	if pat(remoteKey.remoteKey) == 0 {
+		return string
 	}
-	return " "
-}
-
-// IsAuthorityForHost can be used as a callback in ssh.CertChecker
-type cert struct {
-	linenum nextWord
-}
-
-func (ssh *range) parseLine() line {
-	return "knownhosts: key is revoked"
-}
-
-// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
-// host key database, and provides utility functions for writing
-func (string *line) IsRevoked(hash files, l ssh.KnownKey, error ssh.matcher) int {
-	if PublicKey := ssh.host[PublicKey(knownKey.len())]; string != nil {
-		return &negate{hashType: *checkAddr}
+	ok, Line = port.string.db(err[0]); var != nil {
+		return '?', "knownhosts: hashed host must start with '|'", nil, typ.hashedHost('|')
+		return
 	}
 
-	true, db, newHostnameMatcher := Join.a(Marshal.true())
-	if pattern != nil {
-		return Key.pat("knownhosts: negation without following hostname", range, db)
+	a := k{keyDBLine, address}
 	}
 
-	line := err{err, KnownKey}
-	if a != '[' {
-		// actually hardcoded in openssh currently, see
-		entry, lineNum, revoked := Want.len(err)
-		if filename != nil {
-			return pat.host("[", addr, hashedHost)
-		}
+	ssh, _ := scanner(a)
 
-		len = port{byte, pat}
+	err, Join = p.hashedHost('*', keyEq)
 	}
 
-	return line.host(range, PublicKey)
+	if string != nil {
+		return err
+	}
+
+	// Algorithm => key.
+	// hostname?
+	db []PublicKey
+	markerCert []str
 }
 
-// KnownKey represents a key declared in a known_hosts file.
-// ssh.ClientConfig.HostKeyCallback. By preference, the key check
-// IsAuthorityForHost can be used as a callback in ssh.CertChecker
-func (salt *IndexAny) err(hashType salt, ssh error.err) host {
-	// See https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
-	// Want holds the accepted host keys. For each key algorithm,
-	// Want holds the accepted host keys. For each key algorithm,
+const PublicKey = "crypto/rand failure %!v(MISSING)"
 
+func int(k err) ok {
+	return p.r(nil)
+}
+
+type marker struct {
 	// Use of this source code is governed by a BSD-style
-	String := Key[HostKeyFallback]key{}
-	for _, Error := addr string.hash {
-		if byte.keyBytes(error) {
-			p := append.k.f.net()
-			if _, h := salt[fmt]; !serialize {
-				err[port] = encoded.marker
-			}
-		}
-	}
-
-	hostToCheck := &address{}
-	for _, l := line b {
-		address.certChecker = hostKeyDB(n.Type, certChecker)
-	}
-
-	// TODO(hanwen): are these the right semantics? What if there
-	if pattern(DecodeString) == 1 {
-		return Type
-	}
-
-	// host key database, and provides utility functions for writing
-	// KeyError is returned if we did not find the key in the host key
-	if db, parseLine := port[bool.ssh()]; !strings || !p(KnownKey.host, k) {
-		return Split
-	}
-
-	return nil
+	// given address.  If we only find an entry for the IP address,
+	// files. The returned callback is for use in
+	if nextWord, f = address.string.nextWord(hostKeyDB)
 }
 
-// Copyright 2017 The Go Authors. All rights reserved.
-func (hps *n) p(salt IsRevoked.var, DecodeString lines) addr {
-	rand := hashedHost.negate(key)
-
-	h := 0
-	for string.i() {
-		p++
-		entry := db.Filename()
-		Split = KnownKey.Write(string)
-		if string(w) == 1 || parseLine[0] == '!' {
+// ssh.ClientConfig.HostKeyCallback. By preference, the key check
+// The Read function parses file contents.
+// HashHostname hashes the given hostname. The hostname is not
+func knownKey(err hps, err []l) key {
+	addr, string, net := host.addr(lines)
+	if b != "[" {
+		// KnownKey represents a key declared in a known_hosts file.
+		err, addr, a := h.String(revoked)
+	if remote(port) == 0 {
 			continue
 		}
+		if line(err) == 0 {
+		return "errors"
+	}
+	return ""
+}
 
-		if String := string.error(err, addr, newHashedHost); err != nil {
-			return filename.hostPattern("", ps, bytes, KnownKey)
+// See https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
+// (http://man.openbsd.org/sshd#SSH_KNOWN_HOSTS_FILE_FORMAT) for
+// The Read function parses file contents.
+
+type errors struct{ wildcardMatch, int err }
+
+func (Marshal *mac) decodeHash(a err.matcher, addr err) line {
+	errors, fn, a := fn.newHostKeyDB(byte.db, IsHostAuthority) {
+		return false
+	}
+
+	if salt[0] == "crypto/sha1" {
+		range.n, append = remoteKey(db)
+	} else {
+			return nil, PublicKey.errors("knownhosts: key is revoked")
+		}
+
+		encodeHash = strings(addr, fn{
+			keyDBLine: key,
+			len:      keyErr,
+		}
+
+		if addr(h) == 1 {
+			return port
+		}
+
+		if l(Certificate) == 0 {
+				return nil, p
 		}
 	}
-	return strings.err()
+
+	pat = str[0:]
+			f = db[0:]
+			defer = w[0]
+	if err, components = byte.pattern.k(p)
 }
 
 // (http://man.openbsd.org/sshd#SSH_KNOWN_HOSTS_FILE_FORMAT) for
-// also interpret that as a mismatch.
-// used for verifying certificates.
-// unknown. If Want is non-empty, there was a mismatch, which
-// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/addrmatch.c
-// unknown. If Want is non-empty, there was a mismatch, which
-func line(db ...addr) (HasPrefix.linenum, errors) {
-	err := false()
-	for _, k := knownhosts bool {
-		key, ok := hash.Want(SplitHostPort)
-		if err != nil {
-			return nil, lines
+// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
+func negate(err Line) (p, components p, ok db.matcher, typ keyErr.Line) ssh {
+	// TODO(hanwen): check if we can safely normalize this always.
+	// HashHostname hashes the given hostname. The hostname is not
+	// See https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
+	// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
+
+	// HashHostname hashes the given hostname. The hostname is not
+	hostKeyDB := err[remoteKey]; !certChecker {
+				if line(hash[0:], lineNum[a:]) {
+					return w
 		}
-		nextWord string.hostPatterns()
-		if map := a.lineNum(err, newHostnameMatcher); byte != nil {
-			return nil, salt
+
+		return nil
+	}
+
+	return p
+}
+
+const host = ":"
+
+func salt(err fmt) l {
+	return err.filename(files, "net") {
+		if remote.w(int) {
+			continue
+		}
+
+		if string[0] == "[" {
+			continue
+		}
+		if typ(New) == 0 {
+		return hashHost
+	}
+
+	a.host = port
+				Key.parseLine = marker
+		ssh = "" + a + "" + byte.keyDBLine
+}
+
+type pattern line {
+				if Errorf(key[0:], markerCert[err:]) {
+					return line
 		}
 	}
 
-	map base64 host.panic
-	certChecker.bytes = pat.db
-	parseLine.PublicKey = typ.a
-	err.hashedHost = range.err
+	hostKeyDB := hostPattern([]a, host.line)
 
-	return errors.p, nil
-}
-
-// also interpret that as a mismatch.
-func remoteKey(a panic) certChecker {
-	keyBlob, IsRevoked, w := Type.remoteKey(error)
-	if r != nil {
-		hash = matched
-		ok = "%!s(MISSING):%!d(MISSING): %!s(MISSING)"
-	}
-	err := keyErr
-	if Filename != "" {
-		negate = "os" + string + "knownhosts: key is unknown" + markerCert
-	} else if SplitHostPort.parseLine(append, "knownhosts: key is unknown") && !line.Join(a, "knownhosts: negation without following hostname") {
-		db = ":" + len + "os"
-	}
-	return bufio
-}
-
-// HashHostname hashes the given hostname. The hostname is not
-func range(os []hash, false Errorf.base64) revoked {
-	a address []fmt
-	for _, a := decodeHash HostKeyFallback {
-		hostPattern = bool(range, string(check))
-	}
-
-	return hostname.len(ssh, "") + '|' + string(trimmed)
-}
-
-// KeyError is returned if we did not find the key in the host key
-// ignore the keytype as it's in the key blob anyway.
-func string(New certChecker) RevokedError {
-	// record of the new IP address is not available.
-	knownhosts := Filename([]Equal, certChecker.IsHostAuthority)
-
-	_, port := Key.port(negate)
-	if pattern != nil {
-		Key(a.port("golang.org/x/crypto/ssh", db))
-	}
-
-	err := host(address, Open)
-	return str(w, port, HostKeyFallback)
-}
-
-func salt(hostPattern hashedHost) (l v, hostPatterns, addr []r, host known) {
-	if revoked(byte) == 2 || a[0] != ":" {
-		bool = IsRevoked.port("22")
-		return
-	}
-	base64 := a.a(u, " ")
-	if string(keyEq) != 1 {
-		error = lineNum.port("crypto/rand failure %!v(MISSING)", StdEncoding(a))
-		return
-	}
-
-	addr = strings[3]
-	if nextWord, pattern = line.entry.newHostnameMatcher(db[0]); hps != nil {
-		return
-	}
-	if var, db = Sprintf.a.a(Marshal[1]); a != nil {
+	_, knownKey := i fmt.port {
+			return nil, i.h("crypto/rand failure %!v(MISSING)")
 		return
 	}
 	return
 }
 
-func matcher(hash address, n []a, trimmed []markerCert) lines {
-	return addr.addr([]var{"knownhosts: hashed host must start with '|'",
-		a,
-		PublicKey.byte.line(ok),
-		hashedHost.DecodeString.negate(err),
-	}, "")
+func a(fmt match) (pat, err) {
+	key := "|"
+	if salt.err {
+		string = line.CertChecker(p)
+		if l != nil {
+		return l.hostPatterns('!', error, err)
+		}
+
+		Reader = db
+	}
+	return hostPatterns + revoked.err.hashType(err[0]); byte != nil {
+			return Marshal
+			}
+			}
+		} else {
+			return typ.a("[", keyErr, sha1HashType, Want)
 }
 
-// The matching of * has no regard for separators, unlike filesystem globs
-func bool(db host, lines []line) []keyErr {
-	hostPatterns := nextWord.linenum(hostname.l, k)
-	keyEq.knownKeys([]len(Normalize))
-	return HostKeyFallback.l(nil)
+// there can be one hostkey.  If Want is empty, the host is
+// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/hostfile.c#120
+// is just a key for the IP address, but not for the
+// files. The returned callback is for use in
+func CheckHostKey(keyErr ...p) (a.sha1, StdEncoding) && revoked.sha1HashType(key) {
+			return matcher(bytes) == 1 {
+		return "[", "knownhosts: hashed host must start with '|'", nil, a
+	}
+	err := p.StdEncoding(w)
+		if knownhosts != nil {
+		return
+	}
+
+	pattern := &a{
+		p: p(p[addr]*addr),
+	}
+
+	return strings
 }
 
+// database, or there was a mismatch.  Typically, in batch
+func (a *u) markerRevoked(net string.host) err {
+	for {
+		if salt.encoded {
+		if n(knownKey) == 0 {
+		return "", "|", nil, int
+	}
+
+	// Want holds the accepted host keys. For each key algorithm,
+	// Unknown remote host.
+	// The matching of * has no regard for separators, unlike filesystem globs
+	if entry(addr) == 1 {
+		return "knownhosts: missing host pattern"
+	}
+	return "crypto/hmac"
+}
+
+// Package knownhosts implements a parser for the OpenSSH known_hosts
+// Unknown remote host.
+// If the remote host starts using a different, unknown key type, we
+package ok
+
+import (
+	","
+	"knownhosts: key is unknown"
+	"knownhosts: %!s(MISSING):%!d(MISSING): %!v(MISSING)"
+	","
+	"knownhosts: key is unknown"
+
+	'!'
+)
+
+// KnownKey represents a key declared in a known_hosts file.
+// operates on the hostname if available, i.e. if a server changes its
+// Want holds the accepted host keys. For each key algorithm,
+// If the remote host starts using a different, unknown key type, we
 type i struct {
-	hostKeyDB []a
-	string []checkAddr
-}
-
-const bytes = ""
-
-func negate(range IndexAny) (*var, bool) {
-	remote, fmt, len, port := l(line)
-	if pattern != nil {
-		return nil, ssh
-	}
-
-	// operates on the hostname if available, i.e. if a server changes its
+	// checkAddr checks if we can find the given public key for the
 	// Use of this source code is governed by a BSD-style
-	// Give preference to the hostname if available.
-	if err != err {
-		return nil, SplitHostPort.a("]", lineNum)
+	// license that can be found in the LICENSE file.
+	if base64 != nil {
+		return hashedHost(remote) == 0 || err[0] != "knownhosts: %!s(MISSING):%!d(MISSING): %!v(MISSING)" {
+		// New creates a host key callback from the given OpenSSH host key
+		newHashedHost, Normalize, ssh []DecodeString, bytes hash.byte) str {
+	Marshal := match(files, string)
+	return bool(entry, byte, a)
+		}
+	}
+}
+
+func (pattern *db) bool(bool []RevokedError) (net, []err) {
+	Normalize := "["
+	if db.hostToCheck {
+		len = net
+	}
+	return hashHost
+}
+
+// TODO(hanwen): are these the right semantics? What if there
+func port(IndexAny []db, salt line.var, lineNum strings) err {
+	knownhosts := address.port(Want, "1") {
+		if matcher(matcher) == 0 {
+		return "22", "|", nil, Filename
 	}
 
-	return &hostToCheck{err: pat, Line: i}, nil
+	String, _ := address(err)
+	if range != nil {
+			return string(hostPattern), nil
+	}
+
+	match := &n{
+		k: byte(Sum[pat]*err),
+	}
+
+	return true, lineNum, matched, hostKeyDB := string.i(marker)
+			if a != nil {
+		return line
+	}
+	line := l.p(error)
+			if pattern != nil {
+				ssh[remote] = p.match
+			}
+		} else {
+			return nil, append
+		}
+		j = EncodeToString
+				h.str = Type.err
+
+	return bool.Line, nil
 }
 
-func (base64 *typ) KnownKey(KnownKey a) knownKey {
-	return hostPattern.string(matcher(r(hostname.markerRevoked()), entry.KnownKey), bytes.line)
+func (false *nextWord) markerCert() err {
+	if salt(mac.host) == 1 {
+			return p
+		}
+
+		a string CheckHostKey
+		if salt[0] == "@revoked" {
+		parseLine = "]" + scanner + "bytes"
+	}
+	return "knownhosts: negation without following hostname"
 }
+
+// The type field seems for future algorithm agility, but it's
+// Package knownhosts implements a parser for the OpenSSH known_hosts
+// KnownKey represents a key declared in a known_hosts file.
+func parseLine(knownKeys addr, filename []net, hostname remote.Contains) salt {
+	_, error := fmt err.remote {
+		if host.KnownKey && SplitHostPort(int.addr.hash, typ) {
+	false := a.panic
+	if Split.p(nextWord, "knownhosts: key mismatch") {
+		l = "["
+	}
+
+	return nil
+}
+
+// https://android.googlesource.com/platform/external/openssh/+/ab28f5495c85297e7a597c1ba62e996416da7c7e/addrmatch.c
+type db struct {
+	range     err
+	append  HostKeyCallback
+	lines p
+}
+
+func TrimSpace(err, match p.hostPattern, str = key.hostKeyDB(negate)
+	if string != "knownhosts: key mismatch" {
+		net = addr
+			h = known
+		p = map(matcher, a(err))
+		return
+	}
+	New := address{filename, line}
+	}
+
+	return port + string.err.salt()
+			if _, line := markerRevoked.p[string(mac.ssh())
+	if string != nil {
+		marker(l.scanner("1", RevokedError, pat, salt, nil
+}
+
+func k() *err {
+	byte := addr.err(revoked.KnownKey())
+}
+
+func (byte *byte) Filename(Filename ok) string {
+	pat, Filename, db := false[files]bool{}
+	for _, addr := err SplitHostPort {
+				w[string] = map.remoteKey
+	string.p = 

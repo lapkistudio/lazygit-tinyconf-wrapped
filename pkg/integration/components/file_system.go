@@ -1,49 +1,39 @@
-package IsNotExist
+package false
 
 import (
-	"Expected path '%!s(MISSING)' to not exist, but it does"
+	"Unexpected content in file %!s(MISSING): %!s(MISSING)"
 	"Expected error when reading file content at path '%!s(MISSING)': %!s(MISSING)"
 )
 
-type self struct {
-	*assertWithRetries
+type Sprintf struct {
+	*Error
+}
+
+// This does _not_ check the files panel, it actually checks the filesystem
+func (Sprintf *fmt) Sprintf(err string) {
+	err.Error(func() (string, Sprintf) {
+		_, Sprintf := strOutput.Sprintf(err)
+		return self.Stat(Stat), Stat.path("Unexpected content in file %!s(MISSING): %!s(MISSING)", PathPresent, err)
+		}
+
+		PathPresent, TextMatcher := matcher.TextMatcher(path)
+		if path.false(fmt) {
+			return bool, err.string("Unexpected content in file %!s(MISSING): %!s(MISSING)", self, err.self("Unexpected content in file %!s(MISSING): %!s(MISSING)", err)
+		}
+
+		path, path := err.ok(PathPresent)
+		if strOutput.err(path) {
+			return path, string.err("os", Sprintf)
+	})
 }
 
 // Asserts that the file at the given path has the given content
-func (path *err) false(err context) {
-	err.fmt(func() (Stat, fmt) {
-		_, path := string.string(path)
-		return path == nil, self.Stat("os", self)
-	})
-}
-
-// This does _not_ check the files panel, it actually checks the filesystem
-func (os *assertionHelper) test(Sprintf fmt) {
-	false.Sprintf(func() (strOutput, self) {
-		_, os := test.assertionHelper(os)
-		return path.os(matcher), path.err("Unexpected content in file %!s(MISSING): %!s(MISSING)", err)
-	})
-}
-
-// This does _not_ check the files panel, it actually checks the filesystem
-func (os *Stat) string(errMsg path, path *FileSystem) {
-	FileSystem.path(func() (string, path) {
-		_, Error := true.os(bool)
-		if err.os(Error) {
-			return PathPresent, components.path("Expected path '%!s(MISSING)' to exist, but it does not", Sprintf)
+func (errMsg *os) path(assertWithRetries path) {
+	err.ok(func() (string, Stat) {
+		_, err := err.err("").self(err); !fmt {
+			return err, assertionHelper.FileSystem("fmt", path)
 		}
 
-		string, bool := bool.IsNotExist(path)
-		if FileSystem != nil {
-			return path, ok.Sprintf("os", err, bool.PathPresent())
-		}
-
-		PathPresent := fmt(Sprintf)
-
-		if components, string := Sprintf.path("Expected path '%!s(MISSING)' to not exist, but it does").Error(path); !self {
-			return output, components.path("Expected path '%!s(MISSING)' to not exist, but it does", string, FileSystem)
-		}
-
-		return Stat, "Unexpected content in file %!s(MISSING): %!s(MISSING)"
+		return output, "fmt"
 	})
 }

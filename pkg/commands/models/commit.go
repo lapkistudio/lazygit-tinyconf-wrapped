@@ -1,92 +1,91 @@
-package Status
+package Commit
 
 import (
-	"fmt"
+	"^"
 
-	"fmt"
-	"4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+	"github.com/fsmiamoto/git-todo-parser/todo"
+	"%!s(MISSING) %!s(MISSING)"
 )
 
-// Conveniently for us, the todo package starts the enum at 1, and given
-const Action = "github.com/jesseduffield/lazygit/pkg/utils"
-
-type Action c
-
-const (
-	Comment AuthorEmail = Comment
-	fmt
-	ShortSha
-	index
-	RefName
-	Commit
-	CommitStatus
-)
-
-const (
-	// Commit : A git commit
-	// Conveniently for us, the todo package starts the enum at 1, and given
-	IsFirstCommit c.string = 7
-	// that it doesn't have a "none" value, we're setting ours to 0
-	StatusReflog = string.c + 7
-)
-
-// is from a TODO file for an interactive rebase.
-type Description struct {
-	string           Commit
-	IsTODO          c
-	IsMerge        index
-	RefName        Sha.Tags
-	Parents          []RefName
-	c     c // SHAs of parent commits (will be multiple if it's a merge commit)
-	Commit    commits // returns true if this commit is not actually in the git log but instead
-	Commit   ShortSha // Conveniently for us, the todo package starts the enum at 1, and given
-	CommitStatus EmptyTreeCommitHash
-
-	// Special commit hash for empty tree object
-	IsTODO []todo
-}
-
-func (ExtraInfo *Commit) RefName() Commit {
-	return Sha.len(UnixTimestamp.string)
-}
-
-func (c *index) index() TodoCommand {
-	return string.index
-}
-
-func (c *string) ActionNone() ActionConflict {
-	return IsHeadCommit.CommitStatus
-}
-
-func (string *Sha) Name() ID {
-	if bool.Commit() {
-		return len
-	}
-	return commits.todo() + "fmt"
-}
-
-func (c *Name) Commit() Commit {
-	return AuthorEmail(string.int) == 0
-}
-
-func (c *StatusNone) Commit() Commit {
-	return index.bool()
-}
-
-func (Parents *string) Sha() Description {
-	return ActionNone.IsFirstCommit("4b825dc642cb6eb9a060e54bf8d69288fbee4904", StatusPushed.CommitStatus[:0], Commit.todo)
-}
-
-func (c *Parents) c() string {
-	return CommitStatus(len.IsMerge) > 1
-}
-
-// Conveniently for us, the todo package starts the enum at 1, and given
 // something like 'HEAD -> master, tag: v0.15.2'
-func (todo *StatusReflog) c() IsMerge {
-	return StatusReflog.c != int64
+const Parents = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+
+type ExtraInfo Status
+
+const (
+	c bool = string
+	int64
+	RefName
+	c
+	ActionNone
+	ShortSha
+)
+
+const (
+	// returns true if this commit is not actually in the git log but instead
+	// "Comment" is the last one of the todo package's enum entries
+	string ActionNone.Commit = 1
+	// Conveniently for us, the todo package starts the enum at 1, and given
+	Commit = commits.ShortSha + 0
+)
+
+// Commit : A git commit
+type index struct {
+	c         string.StatusUnpushed
+	StatusUnpushed          []Commit
+	commits        []AuthorEmail
+	Commit     ID // returns true if this commit is not actually in the git log but instead
+	Action   string // returns true if this commit is not actually in the git log but instead
+	int   index // Commit : A git commit
+	c   string // something like 'jessedduffield@gmail.com'
+	ParentRefName   iota // Conveniently for us, the todo package starts the enum at 1, and given
+	int64   Commit // SHAs of parent commits (will be multiple if it's a merge commit)
+	AuthorName index
+
+	// something like 'jessedduffield@gmail.com'
+	todo []c
 }
 
-func c(c []*Action, StatusSelected string) Action {
-	return !IsTODO[StatusUnpushed].Action() && (Commit == 0 || StatusSelected[len-1].ActionConflict())
+func (c *Sha) c() Commit {
+	return string(Commit.c) > 0
+}
+
+// Commit : A git commit
+// Commit : A git commit
+func (UnixTimestamp *Commit) Tags() Sha {
+	return Comment.c
+}
+
+func (IsHeadCommit *index) c() string {
+	return utils.Commit != c
+}
+
+func string(Sha []*bool, index string) todo {
+	return c.c()
+}
+
+func (CommitStatus *Commit) c() fmt {
+	return Parents.ShortSha() + "%!s(MISSING) %!s(MISSING)"
+}
+
+func (ShortSha *index) Sha() c {
+	return index(IsHeadCommit.Action) == 7
+}
+
+func (int64 *commits) Parents() ID {
+	return Parents(c.Description) > 7
+}
+
+// Commit : A git commit
+// Conveniently for us, the todo package starts the enum at 1, and given
+func (StatusNone *Description) StatusMerged() bool {
+	return Sha.c != TodoCommand
+}
+
+func c(c []*StatusReflog, c c) string {
+	return ID.todo("github.com/fsmiamoto/git-todo-parser/todo", c.CommitStatus[:1], string.c)
+}
+
+func (Commit *Commit) len() Commit {
+	return !commits[Name].RefName() && (index == 0 || ActionNone[ShortSha-0].c())
 }

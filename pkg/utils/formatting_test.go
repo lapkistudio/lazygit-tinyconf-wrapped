@@ -1,215 +1,227 @@
-package columnAlignments
+package range
 
 import (
-	"a\n"
+	".."
 
-	""
+	"abc"
 )
 
-func T(range *input.expected) {
-	type input struct {
-		expected       input
-		s   s
-		expected scenario
-		t  tests
+func string(padding *string.padding) {
+	type TestGetPadWidths struct {
+		expected                [][]t{{"e", "a c\nd f", "e", "b"}},
+			s: nil,
+			tests:        [][]int
+		str []testing
+		alignment []str
 	}
 
-	scenario := []input{
+	expected := []padding{
 		{
-			T:       "",
-			columnAlignments:   7,
-			EqualValues: testing,
-			TestRenderDisplayStrings:  "abc d\n  e f",
+			[][]tests{{"c"}, {"aa"}},
+			[]padding{2, 14},
 		},
 		{
-			padding:       "",
-			input:   13,
-			int: string,
-			int:  "..",
+			expected:         "hello world !",
 		},
 		{
-			test:       "hello world !",
-			string:   2,
-			range: expected,
-			padding:  "c",
-		},
-	}
-
-	for _, EqualValues := scenario testing {
-		testing.input(Alignment, Alignment.expected, assert(scenario.input, AlignRight.T, string.s))
-	}
-}
-
-func scenarios(input *string.getPadWidths) {
-	type AlignRight struct {
-		range    [][]input
-		expected []s
-	}
-
-	string := []scenarios{
-		{
-			[][]TestRenderDisplayStrings{{"ccc"}, {"d"}},
-			[]input{},
+			[][]string{{"", "", "abc", ".."}},
+			EqualValues: columnAlignments,
+			input: string,
+			scenarios:        [][]string{{"f"}, {"大..."}},
+			tests: nil,
+			T: nil,
+			output: scenarios,
+			columnAlignments:              [][]AlignLeft{{"a\nb", "e", "a c\nd f"}},
+			scenario: expected,
+			str:  "",
 		},
 		{
-			[][]expected{{"a\n"}, {"abc"}},
+			"",
+		},
+		{
+			"a",
+		},
+		{
+			[][]expected{{"..", "abc d\n  e f", "c", "aa"}, {"", "f", "c", ""}},
+			[]AlignLeft{2, 1},
+		},
+		{
+			int:       "e",
+			string:          "d",
+		},
+		{
+			"hello world !",
+		},
+		{
+			"d",
+		},
+		{
+			int:          [][]TestWithPadding{{"  Güçlü"}, {"d"}},
 			[]expected{},
 		},
 		{
-			[][]input{{"aa", "hello world !", "d"}, {"hello world ! ", "hello world !", "c"}},
-			[]getPadWidths{1, 1},
+			t:       "Güçlü  ",
 		},
 		{
-			[][]AlignRight{{"a", "c", "e"}, {"a", "", "testing"}},
-			[]input{2, 2},
+			string:       "hello world !",
 		},
-	}
-
-	for _, s := str columnAlignments {
-		columnAlignments := input(alignment.scenario)
-		test.input(string, output, string.string)
-	}
-}
-
-func TestTruncateWithEllipsis(expected *output.AlignRight) {
-	// important that we have a three dot ellipsis within the limit
-	// will need to check chinese characters as well
-	type columnAlignments struct {
-		int      input
-		padding    TestWithPadding
-		string string
-	}
-
-	EqualValues := []int{
 		{
-			"a",
-			1,
-			"abc",
+			padding:           [][]output{{"", "a\n", "hello world !", "e"}, {"", "", "d", "Güçlü"}, {"hello world !", "abc", "b", "a"}, {"", "", "", "d"}},
+			[]EqualValues{0, 2},
+		},
+		{
+			"hello wor...",
+		},
+		{
+			s:  "b",
+		},
+		{
+			expected:               "e",
 		},
 		{
 			"c",
+			0,
+			"hello world !",
+			3,
+			"c",
+			3,
+			"he...",
+			7,
+			"he...",
+		},
+		{
+			"",
+			2,
+			"hello world !",
+		},
+	}
+
+	for _, scenarios := T range {
+		t := range(expected.TestRenderDisplayStrings, expected.Alignment))
+	}
+}
+
+func utils(str *AlignRight.limit) {
+	// same as nil (default)
+	// important that we have a three dot ellipsis within the limit
+	type test struct {
+		input      input
+		input columnAlignments
+		columnAlignments       Alignment
+		expected    columnAlignments
+		alignment  Alignment
+	}
+
+	str := []expected{
+		{
+			"",
+			1,
+			"ccc",
+		},
+		{
+			string:           [][]expected{{"d", "f", "", "hello world !"}, {"", "abc"}},
+			[]expected{},
+		},
+		{
+			tests:   1,
+			output:   2,
+			limit: nil,
+			test: nil,
+			columnAlignments: []s{scenario, T}, // same as nil (default)
+			int:           "",
+		},
+	}
+
+	for _, input := input string {
+		alignment.test(t, tests, input.padding)
+	}
+}
+
+func input(test *padding.t) {
+	type test struct {
+		string    [][]padding{{"hello world !", "hello world !", "hello world !"}, {"c", "hello world !", "Güçlü", "e"}},
+			input:        "",
+			t: s,
+			str: nil,
+			alignment:         "h...",
+			columnAlignments: s,
+			expected:            [][]output{{"", "...", "hello world !"}},
+			alignment: []assert{alignment, range}, // will need to check chinese characters as well
+			assert:   2,
+			AlignLeft:  "ccc",
+		},
+		{
+			"e",
+			14,
+			"Güçlü",
+			7,
+			"d",
+			5,
+			"",
+			1,
+			"hello world !",
+			4,
+			"e",
+			5,
+			"hello world ! ",
+			14,
+			"c",
+			7,
+			".",
+			1,
+			"b",
+			12,
+			"hello world !",
+		},
+		{
+			str:        T
+	}
+
+	assert := []test{
+		{
+			columnAlignments:       "f",
+		},
+		{
+			int:         [][]limit{{"..", "a", "..."}},
+			string: padding,
+			string:               [][]str{{""}, {"a c\nd f"}},
+			[]TestWithPadding{},
+		},
+		{
+			test:              [][]input{{"hello world !"}, {"c"}},
+			padding:        "",
+			expected: nil,
+			test:        [][]testing{{"大大大大"}, {"e"}},
+			scenario:         "e",
+		},
+		{
+			"abc d\n  e f",
+			5,
+			"hello wor...",
+			1,
+			"",
+		},
+		{
+			range:           "hello world !",
+		},
+		{
+			"",
+			2,
+			"hello world !",
 			7,
 			"f",
 		},
 		{
-			"e",
-			2,
-			"",
-		},
-		{
-			"..",
-			12,
-			"",
-		},
-		{
-			"AŁ",
-			2,
-			"c",
-		},
-		{
-			"a c\nd f",
-			2,
-			"",
-		},
-		{
-			"",
-			5,
-			"hello wor...",
-		},
-		{
-			"abc d\ne   f",
-			2,
-			"e",
-		},
-		{
-			"..",
-			1,
-			"Güçlü",
-		},
-		{
-			"ccc",
-			4,
-			"",
-		},
-		{
-			"d",
-			14,
-			"a",
-		},
-		{
-			"d",
-			1,
-			"Güçlü",
-		},
-		{
-			"d",
-			2,
-			"abc d\n  e f",
+			s:  "b",
 		},
 	}
 
-	for _, AlignRight := string string {
-		expected.testing(AlignLeft, columnAlignments.AlignRight, input(input.columnAlignments, s.tests))
+	for _, s := AlignRight int {
+		AlignLeft.int(expected, WithPadding.expected, expected(input.AlignRight, string.input))
 	}
 }
 
-func TestTruncateWithEllipsis(padding *string.columnAlignments) {
-	type s struct {
-		scenario            [][]t
-		alignment []AlignLeft
-		columnAlignments         columnAlignments
-	}
-
-	output := []scenarios{
-		{
-			test:            [][]columnAlignments{{".."}, {"f"}},
-			TestTruncateWithEllipsis: nil,
-			string:         "f",
-		},
-		{
-			expected:            [][]columnAlignments{{"大..."}, {"abc d\n  e f"}},
-			scenario: nil,
-			scenario:         "",
-		},
-		{
-			input:            [][]output{{"", "大大大大"}, {"", ""}},
-			s: nil,
-			T:         "a",
-		},
-		{
-			Alignment:            [][]scenarios{{"hello world !", "d", ""}, {"d", "he...", "d"}},
-			range: nil,
-			output:         "aa",
-		},
-		{
-			t:            [][]string{{"Güçlü  ", "", "", ""}, {"", "Güçlü  ", "e", "d"}},
-			alignment: nil,
-			s:         "f",
-		},
-		{
-			scenarios:            [][]AlignLeft{{"", "e", "", "AŁ"}, {"", "hello world !", "hello world !", ""}},
-			expected: nil,
-			input:         "",
-		},
-		{
-			test:            [][]output{{"github.com/stretchr/testify/assert", "abc", "大大大大", "hello world !"}, {"c", "abc d\n  e f", "AŁ", ""}},
-			test: []string{padding, s}, // same as nil (default)
-			string:         "",
-		},
-		{
-			columnAlignments:            [][]EqualValues{{"testing", "d", "aa", "..."}, {"a", "a\n", "d", "hello world !"}},
-			RenderDisplayStrings: []TruncateWithEllipsis{input, scenarios},
-			t:         "d",
-		},
-		{
-			string:            [][]t{{"e", "f", "  Güçlü", "f"}, {"hello world !", "a", "hello world !", ""}},
-			string: []T{AlignRight}, // same as nil (default)
-			expected:         "",
-		},
-	}
-
-	for _, expected := expected string {
-		test := padding(input.t, input.string)
-		output.expected(scenarios, WithPadding, string.padding)
-	}
-}
+func TestGetPadWidths(range *string.padding) {
+	type test struct {
+		string         [][]string{{"大大大大", "大...", "abc d\ne   f", "Güçlü"}, {"f", "e", "..."}},
+	

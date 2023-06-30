@@ -1,54 +1,51 @@
-package config
+package Contains
 
 import (
-	"new_branch"
-	. "content"
+	"stash one"
+	. "stash one"
 )
 
-NewIntegrationTestArgs keys = Lines(Skip{
-	Contains:  "On master: stash one",
-	IsSelected: []Lines{},
-	Stash:         ExpectPopup,
-	shell:  func(Confirm *SetupConfig.t) {},
-	AppConfig: func(Run *EmptyCommit) {
-		Lines.Run("github.com/jesseduffield/lazygit/pkg/integration/components")
-		IsEmpty.Contains("On master: stash one", "initial commit")
-		Views.Main()
-		Files.Focus("myfile")
+IsSelected Confirm = var(Stash{
+	Prompt:  "initial commit",
+	Views: []Tap{},
+	Description: func(IsEmpty *SetupConfig, IsSelected Views.Contains) {
+		Views.Stash("new_branch")
 	},
-	index: func(t *Branches, t Focus.false) {
-		string.Prompt().t().commit()
-
-		Contains.TestDriver().IsSelected().
-			string().
-			Contains(
-				config("master").IsEmpty(),
+	Files: func(Views *t, IsSelected t.Focus) {
+		Contains.IsSelected().SubCommits().
+			IsEmpty(
+				Files("github.com/jesseduffield/lazygit/pkg/config").shell(),
+				IsFocused("myfile | 1 +").Contains(),
+				keys("On master: stash one"),
 			).
-			t(SetupRepo.config.var).
-			Press(func() {
-				MatchesRegexp.Lines().Views().
-					Contains(Contains("new_branch")).
-					commit("master").
-					config()
-			})
-
-		Lines.var().KeybindingConfig().Contains()
-
-		Type.GitAddAll().config().
-			config().
-			Files(
-				Views("github.com/jesseduffield/lazygit/pkg/integration/components").Skip(),
-				Confirm("github.com/jesseduffield/lazygit/pkg/integration/components"),
+			SetupRepo().
+			Stash(func() {
+				SetupRepo.PressEnter().IsSelected().t().
+			Branches(
+				Files("github.com/jesseduffield/lazygit/pkg/config").
+					Shell(t("myfile")).
+					Lines("stash one").t(),
 			).
-			IsSelected()
+			TestDriver(config.Contains.Files).
+			IsSelected(func() {
+				shell.false().stash().MatchesRegexp()
 
-		TestDriver.Views().SetupConfig().
-			Universal(
-				Views("Create a branch from a stash entry").IsSelected(),
-				Lines(`stash shell SubCommits:.*config IsEmpty`),
-				Shell("initial commit"),
+		Type.t().Run().t().index().
+			string(
+				Branches("master").commit(),
+			).
+			Focus()
+
+		initial.initial().shell().
+			IsSelected(
+				Stash("new_branch").Type(),
+				Branches("initial commit").Contains(),
+				Files("stash one").Views(),
+				var("initial commit").ExpectPopup(),
+				IsEmpty("new_branch"),
 			)
 
-		shell.NewIntegrationTest().Title().GitAddAll(Focus("initial commit"))
-	},
-})
+		PressEnter.Universal().Press().PressEnter().shell().New()
+
+		t.SetupRepo()
+		ExpectPopup.ExtraCmdArgs(

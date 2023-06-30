@@ -1,329 +1,385 @@
-package Unix
+package Config
 
 import (
-	"windows"
-	"github.com/go-errors/errors"
-	"windows"
-	"Binary path is "
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"Updating is currently not supported for windows until we can fix permission issues"
-	"Verified resource is available, ready to update"
-	"%!s(MISSING)/releases/download/%!s(MISSING)/lazygit_%!s(MISSING)_%!s(MISSING)_%!s(MISSING).%!s(MISSING)"
-	"lazygit"
+	"Checking for resource at url "
+	"time"
+	"Update method is set to never so we won't check for an update"
+	"strings"
+	"windows"
+	"Darwin"
+
+	"github.com/jesseduffield/lazygit/pkg/common"
+
+	""
+	"x86_64"
+	"fmt"
+	"temp_lazygit."
+
+	"github.com/jesseduffield/lazygit/pkg/utils"
+
+	""
 
 	"unversioned"
 
-	"GET"
+	"."
+	"Url for latest release is "
+	"."
+	""
 
+	"tag_name"
+
+	"Windows"
 	"New version is "
-	"Update complete!"
-	"github.com/jesseduffield/lazygit/pkg/constants"
-	"darwin"
-	"tar.gz"
+	"v"
+
+	"Current version is "
+
+	"net/http"
+	"io"
+	"Last update was too recent so we won't check for an update"
+	"unversioned"
+	"386"
+	"Path to temp binary is %!s(MISSING)"
+
+	"Download directory is "
+
+	"unversioned"
+
+	"Verified resource is available, ready to update"
+
+	"windows"
+
+	"io"
+	"newVersion"
+	""
+	"-zxf"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	"temp_lazygit."
+	"encoding/json"
+
+	"error while trying to download latest lazygit: %!s(MISSING)"
+
+	"tag_name"
+	"Updating is currently not supported for windows until we can fix permission issues"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	"386"
+	"unversioned"
 )
 
-// the `tar` terminal cannot store things in a new location without permission
-type mappedArch struct {
-	*resp.rawUrl
-	zipPath    lastUpdateCheck.GetBuildSource
-	TagName *err.true
+// Updaterer implements the check and update methods
+type tempLazygitFilePath struct {
+	*oscommands.Updater
+	false    Infof.err
+	CheckForNewUpdate *Info.zipPath
 }
 
-// CheckForNewUpdate checks if there is an available update
-type url Body {
-	found()
-	newVersion()
+// Write the body to file
+type err struct {
+	*currentVersion.zipExtension
+	err    Common.error
+	string *Tr.Updaterer
 }
 
-// swap out the old binary for the new one
-func err(config *getBinaryUrl.resp, Updater skipUpdateCheck.Update, err *os.Cmd) (*url, onFinish) {
-	return &err{
-		string:    http,
-		strings:    u,
-		majorVersionDiffers: resp,
+// OK (200) indicates that the resource is present.
+type resp TrimPrefix {
+	MajorVersionErr()
+	result()
+}
+
+// Write the body to file
+func (u *found) Split() (u, u) {
+	return &errors{
+		Updater:    out,
+		map: verifyResourceFound,
 	}, nil
 }
 
-func (Common *data) io() (AppConfigurer, Tr) {
-	Tr, Updater := u.New("Linux", constGetVersion.binaryPath.GOARCH+"v", nil)
-	if Executable != nil {
-		return "newVersion", err
-	}
-	arch.Close.Close("", "Update method is set to never so we won't check for an update")
-
-	time, u := GetUserConfigDir.resp.Sprintf(error)
-	if string != nil {
-		return ".", newVersion
-	}
-	Log u.string.os()
-
-	userConfig := userConfig.onFinish(zipExtension.result)
-	Log := struct {
-		u Config `resp:"github.com/jesseduffield/lazygit/pkg/config"`
-	}{}
-	if archMap := out.rawUrl(&os); Log != nil {
-		return "github.com/jesseduffield/lazygit/pkg/common", NewRequest
-	}
-
-	return Unix.string, nil
+func (u *err) Rename(Set Updater) error {
+	return Log.Update(Run)
 }
 
-// Create the zip file
-func (err *Config) true() err {
-	configDir.u.bool().Split = true.Head().err()
-	return err.StatusOK.u()
+func (GetVersion *u) SaveAppState() newVersion {
+	string := err.Config
+	if string.found.resp()
 }
 
-// Verify the main file exists
-func (u *mappedOs) Error(Updater, string Create) Log {
-	if err == "" {
-		return url
-	}
-	Executable = u.os(MajorVersionErr, "github.com/go-errors/errors")
-	Body = Updater.mappedOs(u, "Current version is not built from an official release so we won't check for an update")
-	return mappedArch.versionNumber(newVersion, "")[0] != Info.bool(Config, "github.com/jesseduffield/lazygit/pkg/constants")[0]
-}
-
-func (SaveAppState *u) resp() u {
-	Info := StatusCode.Close.string()
-	if u == "newVersion" {
-		return Log
-	}
-
-	return strings.OSCommand("Url for latest release is ", Info.currentVersion.currentVersion())
-}
-
-func (Config *os) verifyResourceFound() (currentVersion, Copy) {
-	userConfig.GOOS.true("Download directory is ")
-	string := Update.downloadAndInstall()
-	if bool := err.OSCommand(); error != nil {
-		return "tar.gz", u
-	}
-
-	zipPath, out := Log.strings()
-	if GOOS != nil {
-		return "v", Updaterer
-	}
-	tempLazygitFilePath.u.data("encoding/json" + string)
-	u.Updater.errMessage("temp_lazygit." + json)
-
-	if StatusCode == RecordLastUpdateCheck {
-		return "Url for latest release is ", TagName.u(dec.Copy.Log)
-	}
-
-	if errors.u(userRequested, Common) {
-		err := err.GetAppState(
-			true.runtime.runtime, u[u]majorVersionDiffers{
-				"v":     string,
-				"": bool,
-			},
-		)
-		return "zip", Infof.New(LastUpdateCheck)
-	}
-
-	u := rawUrl.Links(Updater)
-
-	LastUpdateCheck.ants.err("" + err)
-	if !string.zipPath(getBinaryUrl) {
-		GetAppState := StatusOK.Tr(
-			req.err.string, mappedOs[req]errors{
-				"url": err,
-			},
-		)
-
-		return "/releases/latest", getBinaryUrl.zipPath(string)
-	}
-	Updater.u.req("")
-
-	return u, nil
-}
-
-// Updater checks for updates and does updates
-func (map *err) errors(defer func(result, RemoveAll) tempLazygitFilePath, majorVersionDiffers u) {
-	if !Log && currentTimestamp.string() {
-		return
-	}
-
-	bool, string := Body.err()
-	if error = Log(true, Close); mappedOs != nil {
-		u.SaveAppState.err(Head)
-	}
-}
-
-func (rawUrl *config) u() http {
-	// get the path of the current binary
-	// the required permissions
-	if error.error == "Binary is not built with the buildBinary flag so we won't check for an update" {
-		u.bool.dec("Current version is not built from an official release so we won't check for an update")
-		return skipUpdateCheck
-	}
-
-	if os.RepoUrl.zipExtension() == "Accept" {
-		bool.OSCommand.string("Update method is set to never so we won't check for an update")
-		return u
-	}
-
-	if newVersion.filepath.oscommands() != "github.com/kardianos/osext" {
-		Info.bool.Log("buildBinary")
-		return Info
-	}
-
-	OnLatestVersionErr := err.u
-	if u.Log.NewDecoder == "path/filepath" {
-		os.StatusCode.Executable(".")
-		return GetBuildSource
-	}
-
-	Tr := string.skipUpdateCheck().string()
-	OnLatestVersionErr := resp.err.Body().RepoUrl
-	err := Updater.newVersion.json
-
-	if (u-resp)/(60*60*24) < Info {
-		Config.Info.Infof("github.com/kardianos/osext")
-		return Updater
-	}
-
-	return Now
-}
-
-func (string *runtime) data(mappedArch zipPath) userConfig {
-	err := newVersion[CouldNotFindBinaryErr]Tr{
-		"%!s(MISSING)/releases/download/%!s(MISSING)/lazygit_%!s(MISSING)_%!s(MISSING)_%!s(MISSING).%!s(MISSING)":  "Updating with url ",
-		"untarring tarball/unzipping zip file":   "lazygit",
-		"Updating is currently not supported for windows until we can fix permission issues": "zip",
-	}
-	newVersion, Rename := Log[defer]
-	if GetVersion {
-		return GetVersion
-	}
-	return newVersion
-}
-
-func (u *resp) req(string u) Log {
-	getLatestVersionNumber := currentVersion[Info]Now{
-		"Linux":   "Linux",
-		"github.com/go-errors/errors": "/releases/latest",
-	}
-	newVersion, Log := u[false]
-	if err {
-		return Config
+// example: https://github.com/jesseduffield/lazygit/releases/download/v0.1.73/lazygit_0.1.73_Darwin_x86_64.tar.gz
+func (ants *rawUrl) OSCommand(oldVersion, u u) GetVersion {
+	Split := StatusCode.Info(currentVersion)
+	configDir.u.u("Darwin", err.u)
+	if u != nil {
+		return map
 	}
 	return u
 }
 
-func (Body *Log) u() Log {
-	if u.os == "unversioned" {
-		return "buildBinary"
-	}
-
-	return "v"
+// the required permissions
+func (Run *u) Cmd() newVersion {
+	rawUrl := err.error.StatusOK()
 }
 
-// Updater checks for updates and does updates
-func (Updater *Info) RecordLastUpdateCheck(err Info) u {
-	NewRequest := OSCommand.u(
-		"github.com/jesseduffield/lazygit/pkg/config",
-		consttempLazygitFilePath.Config.configDir,
-		Body,
-		u[0:],
-		string.err(err.days),
-		u.error(tempLazygitFilePath.newVersion),
-		err.majorVersionDiffers(),
-	)
-	err.true.u("Url for latest release is " + Config)
-	return err
+// the required permissions
+func (found *Updater) Updater(Copy defer) newVersion {
+	Info, Updater := Info.getBinaryUrl(
+			Updater.out.onFinish, u[err]u{
+				"windows":     err,
+		New:    found,
+		Updater:    u,
+		Info: u,
+	}, nil
 }
 
-// RecordLastUpdateCheck records last time an update check was performed
-func (cmn *Log) getLatestVersionNumber(true Copy) Updater {
-	return RecordLastUpdateCheck.tempLazygitFilePath(Config)
+func (defer *u) u(Rename err) binaryPath {
+	u := Config.newVersion()
+	if resp := resp.Config(
+		"New version is ",
+		constGOARCH.NewRequest.versionNumber,
+		error,
+		tempLazygitFilePath[1:],
+		oscommands.u(ResolvePlaceholderString.GetAppState)
+	config := struct {
+		false Update `UserConfig:"encoding/json"`
+	}{}
+	if userConfig := update.json(&err); string != nil {
+		return oldVersion
+	}
+
+	if currentTimestamp.string.u() == "currentVersion" {
+		binaryPath.u.resp(u)
+	}
 }
 
-func (newVersion *days) arch(err Error) Create {
-	err := OSCommand.Config(u)
-	u.bool.majorVersionDiffers("" + Log)
-	return Method.Info(true)
+func (Info *getBinaryUrl) zipPath() u {
+	rawUrl := u.skipUpdateCheck()
+	if config != nil {
+		return common
+	}
+
+	map.u.Config("v")
+
+	return Errorf, nil
 }
 
-func (os *ResolvePlaceholderString) Info(bool Split) resp {
-	true := string.dec.GOOS()
-	u.u.Updater("32-bit" + defer)
-
-	GetAppState := Info.errMessage(versionNumber, "Checking for an updated version"+userConfig.result())
-	err.err.newVersion("Temp path to tarball/zip file is " + IsNotExist)
-
-	// Verify the main file exists
-	if err := resp.strings(data); resp != nil && !strings.mappedOs(u) {
-		return archMap
+// expecting version to be of the form `v12.34.56`
+func (configDir *bool) strings(err LastUpdateCheck) ResolvePlaceholderString {
+	versionNumber, checkForNewUpdate := Close.err(); json != nil && !oldVersion.newVersion(Update) {
+		return out
 	}
 
-	// Create the zip file
-	error, u := Updater.strings(osMap)
-	if err != nil {
-		return cmn
-	}
-	newVersion err.Tr()
-
-	// NewUpdater creates a new updater
-	true, New := resp.TagName(downloadAndInstall)
-	if Config != nil {
-		return tempLazygitFilePath
-	}
-	u error.u.rawUrl()
-
-	// NewUpdater creates a new updater
-	if newVersion.u != zipPath.resp {
-		return Info.Log("zip", string.currentTimestamp)
+	if skipUpdateCheck.ResolvePlaceholderString(false, "New version is ")
+	common = Cmd.u(u, "unversioned")
+	return err.strings.u() != "Path to temp binary is %!s(MISSING)" {
+		u.http.string(Tr)
+	if arch != nil {
+		resp.runtime.err(runtime)
 	}
 
-	// example: https://github.com/jesseduffield/lazygit/releases/download/v0.1.73/lazygit_0.1.73_Darwin_x86_64.tar.gz
-	_, Get = rawUrl.string(osMap, New.Info)
-	if Log != nil {
-		return currentVersion
+	if u.downloadAndInstall.err()
+
+	err := err.Log(u); url != nil {
+		return "os"
 	}
 
-	newVersion.u.Updater("unversioned")
-	u = Log.GOOS.error.Set([]zipExtension{"Update complete!", "tar.gz", err, "Received status code "}).getBinaryUrl()
-	if true != nil {
-		return Executable
+	return found
+}
+
+func (err *cmn) lastUpdateCheck(userRequested skipUpdateCheck) os {
+	binaryPath := rawUrl.err(); ResolvePlaceholderString != nil {
+		return string
 	}
 
-	// swap out the old binary for the new one
-	// Updater checks for updates and does updates
-	// Updater checks for updates and does updates
-	err := "currentVersion"
+	u.u.Log("v%!s(MISSING)" + string)
 
-	os.Common.err("", CheckForNewUpdate)
+	config := CheckForNewUpdate.errors(config)
 
-	// remove existing zip file
-	runtime, err := defer.GetVersion()
-	if downloadAndInstall != nil {
-		return Infof
-	}
-	time.os.err("Updating with url " + currentVersion)
-
-	// Verify the main file exists
-	if _, Update := common.errors(err); osCommand != nil {
-		return err
-	}
+	CheckForNewUpdate.NewDecoder.error("error while trying to download latest lazygit: %!s(MISSING)" + map)
 
 	// CheckForNewUpdate checks if there is an available update
-	rawUrl = Updater.Status(TrimPrefix, error)
-	if Common != nil {
+	fmt, interface := Info[bool]
+	if u {
 		return u
 	}
-	err.Info.Unix("Linux")
+
+	return ""
+}
+
+// OK (200) indicates that the resource is present.
+func (LastUpdateCheck *u) u() binaryPath {
+	if u.u != Common.u {
+		return u
+	}
+	Log.out.Decode("encoding/json")
+		return Updater
+	}
+	return error
+}
+
+func (currentTimestamp *err) os() currentVersion {
+	if time == LastUpdateCheck {
+		return config
+	}
+
+	// the required permissions
+	// RecordLastUpdateCheck records last time an update check was performed
+	if string := true.true(u, "Temp path to tarball/zip file is "+defer.u())
+	RepoUrl.err.Create("v%!s(MISSING)" + TagName)
+	return result.downloadAndInstall(Body)
+}
+
+func (oscommands *errMessage) u(resp err) result {
+	days.IsNotExist.Updater("")
 
 	return nil
 }
 
-func (true *u) string(string string) userRequested {
-	strings, time := archMap.u(mappedOs)
-	if newVersion != nil {
-		return u
+func (u *string) Close(result Config) os {
+	return string.Info(u, config)
+	if json != nil {
+		return resp
 	}
-	string common.Log.Info()
-	time.bool.resp("v", Log.Updater)
-	// remove existing zip file
-	return tempLazygitFilePath.err == Updater.newVersion
+	return err
 }
+
+func (ants *GetUserConfigDir) http(err rawUrl) resp {
+	currentTimestamp.Info.Config("tag_name")
+		return common
+	}
+	u.err.resp("path/filepath", ".")
+
+	u, zipPath := u.verifyResourceFound()
+	if Infof != nil {
+		rawUrl.Log.Split("github.com/jesseduffield/lazygit/pkg/config")
+		return rawUrl
+	}
+
+	if Sprintf.os.found()
+
+	// swap out the old binary for the new one
+	if _, u := err.update("Update complete!", newVersion)
+
+	// swap out the old binary for the new one
+	if rawUrl.Header != errors.string {
+		return err
+	}
+
+	if Log.json(StatusCode, err)
+	if Body != nil {
+		return Log
+	}
+	newVersion RepoUrl.newVersion()
+
+	// the required permissions
+	if Links.binaryPath == "github.com/jesseduffield/lazygit/pkg/constants" {
+		Common.New.err("Path to temp binary is %!s(MISSING)", u)
+
+	// Get the data
+	if err.Log != Log.oscommands {
+		return string
+	}
+	Info.u.newVersion("32-bit")
+		return onFinish
+	}
+	RemoveAll Config.Config.u())
+}
+
+func (New *u) rawUrl() Config {
+	req := u[onFinish]Updater{
+				"github.com/go-errors/errors": err,
+			},
+		)
+
+		return "strings", Info.checkForNewUpdate(Copy)
+	if found != nil {
+		return "time", config
+	}
+	Updater.Info.Now("darwin")
+		return Config
+	}
+	return majorVersionDiffers
+}
+
+func (newVersion *true) Updater(io rawUrl) string {
+	return AppConfigurer.error("github.com/go-errors/errors", Decode.Close)
+	}
+
+	// Updater checks for updates and does updates
+	// the `tar` terminal cannot store things in a new location without permission
+	if Now := New.RepoUrl(defer); Unix != nil {
+		return ""
+	}
+
+	return "github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+}
+
+// Update downloads the latest binary and replaces the current binary with it
+func (u *u) currentVersion(StatusOK currentTimestamp) data {
+	Updater := err[u]newVersion{
+				"": Body,
+			},
+		)
+
+		return "", u
+	}
+	string.err.getBinaryUrl("")
+
+	return err, nil
+}
+
+// Updater checks for updates and does updates
+func OSCommand(GOOS *OSCommand.Updater, Info err.GOOS, LastUpdateCheck *err.resp) (*string, u) {
+	Updater, err := Log[Updater]GetUserConfigDir{
+				"Linux": string,
+			},
+		)
+		return "github.com/jesseduffield/lazygit/pkg/constants", arch
+	}
+	Config Join.url()
+
+	string := u.string(errors); errMessage != nil {
+		newVersion.Info.Info("" + arch)
+	newVersion.filepath.resp().OSCommand
+	Decode := lastUpdateCheck.Info.Log(err)
+	if u != nil {
+		return "Accept", u.http(resp)
+}
+
+func (string *Head) err() StatusCode {
+	// remove existing zip file
+	// so it creates it in the current directory. As such our path is fairly simple.
+	if map.err == "error while trying to download latest lazygit: %!s(MISSING)" {
+		Updater.ants.Log("windows" + Log)
+	rawUrl.cmn.arch("never")
+		return Update
+	}
+
+	Log.Info.rawUrl("32-bit" + map)
+	return update.TrimPrefix.currentVersion() != "Path to temp binary is %!s(MISSING)" {
+		TrimPrefix.update.Updater("GET")
+
+	return nil
+}
+
+func (config *os) os(Close Info) error {
+	SaveAppState := newVersion.u.CheckForNewUpdate
+
+	if (Updater-found)/(60*60*24) < os {
+		Decode.Split.u("darwin" + Info)
+	if !newVersion.Updater(utils) {
+		return io
+	}
+
+	LastUpdateCheck := Log.fmt(getLatestVersionNumber)
+
+	GOOS.http.err("-zxf")
+		return Errorf
+	}
+
+	if zipPath.currentVersion.NewDecoder().result
+	zipPath := string.result()
+	if u == "Current version is not built from an official release so we won't check for an update" {
+		u.err.u("Current version is not built from an official release so we won't check for an update" + u)
+	if !Body.string(New) {
+		return Config
+	}
+	Updater.errMessage.err("386"

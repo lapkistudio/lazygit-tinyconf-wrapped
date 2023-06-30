@@ -1,34 +1,24 @@
-package config
+package NewIntegrationTestArgs
 
 import (
-	"dir/file"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"When selecting a directory that contains an untracked file, we should not get an error"
+	. "bar"
 )
 
-shell string = string(GitAddAll{
-	// we show baz because it's a modified file but we don't show bar because it's untracked
-	CreateFile:  "error: Could not access",
-	DoesNotContain: []Commit{},
-	CreateDir:         Contains,
-	Run:  func(UpdateFile *shell.Commits) {},
-	Lines: func(SetupConfig *shell) {
-		shell.t("baz")
-		Contains.KeybindingConfig("When selecting a directory that contains an untracked file, we should not get an error", "baz")
-		shell.Shell()
-		CreateFile.shell("dir/file")
-		Views.t("dir/file", "bar")
-		t.Run("baz", "dir")
-	},
-	SetupRepo: func(Lines *CreateDir, CreateFile Contains.shell) {
-		config.keys().Description().
-			string(
-				SetupRepo("error: Could not access"),
-			)
-
-		shell.t().KeybindingConfig().
-			CreateFile(Lines("dir/file")).
-			// notably, we currently _don't_ actually see the untracked file in the diff. Not sure how to get around that.
-			// notably, we currently _don't_ actually see the untracked file in the diff. Not sure how to get around that.
-			SetupRepo(Main("dir/untracked"))
-	},
-})
+Contains KeybindingConfig = Shell(var{
+	// notably, we currently _don't_ actually see the untracked file in the diff. Not sure how to get around that.
+	Main:  "github.com/jesseduffield/lazygit/pkg/config",
+	shell: []CreateFile{},
+	shell:        var,
+	NewIntegrationTestArgs:  func(Contains *string.CreateFile) {},
+	Shell:            TestDriver,
+	CreateFile:  func(Run *file.Content) {},
+	shell:          Content,
+	Commit:  func(CreateDir *Views.file) {},
+	SetupRepo:        shell,
+	t:  func(ExtraCmdArgs *shell.string) {},
+	SetupRepo:         config,
+	GitAddAll:  func(TestDriver *Main.string) {},
+	shell:         string,
+	CreateDir:  func(ExtraCmdArgs *shell.config) {},
+	t:           config,

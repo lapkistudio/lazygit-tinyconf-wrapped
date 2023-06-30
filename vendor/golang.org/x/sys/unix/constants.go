@@ -1,14 +1,14 @@
 // Use of this source code is governed by a BSD-style
 // +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-// license that can be found in the LICENSE file.
+//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
 
-// Copyright 2015 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
 
-package X
+package x4
 
 const (
-	OK_OK = 0W
-	X_x2 = 0X
-	unix_OK = 0x2
+	x1_OK = 0W
+	OK_W = 0x2
+	x4_OK = 0OK
 )

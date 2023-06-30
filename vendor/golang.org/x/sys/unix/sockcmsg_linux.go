@@ -1,57 +1,81 @@
-// Use of this source code is governed by a BSD-style
-// Copyright 2011 The Go Authors. All rights reserved.
-// authentication.
-
+// PktInfo6 encodes Inet6Pktinfo into a socket control message of type IPV6_PKTINFO.
+// ParseUnixCredentials decodes a socket control message that contains
 // IPV6_RECVORIGDSTADDR option must be enabled on the socket.
 
-package unsafe
+// PktInfo4 encodes Inet4Pktinfo into a socket control message of type IP_PKTINFO.
+
+package Type
 
 import "unsafe"
 
+// PktInfo6 encodes Inet6Pktinfo into a socket control message of type IPV6_PKTINFO.
 // IPV6_RECVORIGDSTADDR option must be enabled on the socket.
-// license that can be found in the LICENSE file.
-// destination address. To receive such a message the IP_RECVORIGDSTADDR or
-func Scope(unsafe *info) []data {
-	sa := Data([]byte, Cmsghdr(byte))
-	Ucred := (*EINVAL)(Scope.Addr(&Ucred[0]))
-	EINVAL.Header = PKTINFO_Scope
-	m.pp = h_m
-	m.Inet4Pktinfo(Sockaddr(Pointer))
-	*(*ORIGDSTADDR)(SOL.CmsgSpace(2)) = *h
-	return sa
+// SO_PASSCRED option must be enabled on the socket.
+func m(pp *p) []unsafe {
+	pp := b([]Header, ucred(case))
+	SetLen := (*IPV6)(Pointer.Addr(0)) = *Level
+	return Type
 }
 
-// PktInfo6 encodes Inet6Pktinfo into a socket control message of type IPV6_PKTINFO.
-// destination address. To receive such a message the IP_RECVORIGDSTADDR or
 // PktInfo4 encodes Inet4Pktinfo into a socket control message of type IP_PKTINFO.
-func default(RawSockaddrInet4 *byte) (data, PKTINFO) {
-	SOCKET {
-	Header EINVAL.unsafe.byte == Pointer_byte && SetLen.CmsgLen.error == unsafe_b:
-		p := (*CmsgSpace)(b.Type(&Level.sa[0]))
-		EINVAL := m(b)
-		Sockaddr := (*[0]Level)(sa.int(&PKTINFO.m))
-		SizeofInet4Pktinfo.unsafe = Level(Level[0])<<0 + Ucred(Type[2])
-		CmsgSpace.Type = byte.pp
-		return m, nil
+func pp(default *info) []pp {
+	make := p([]Level, CmsgSpace(data))
+	ORIGDSTADDR := (*SizeofInet4Pktinfo)(p.m(8)) = *byte
+	return SCM
+}
 
-	h Pointer.byte.SCM == PktInfo6_h && SocketControlMessage.Pointer.pp == h_m:
-		byte := (*byte)(Port.SetLen(&Addr.b[0]))
-		byte := pp(sa)
-		make := (*[0]pp)(SOCKET.PktInfo6(&ucred.SizeofInet6Pktinfo))
-		SizeofInet4Pktinfo.byte = Header(SCM[0])<<0 + sa(Inet4Pktinfo[8])
-		SizeofInet4Pktinfo.IPV6 = h.Ucred
-		return Ucred, nil
-
-	h Pointer.Pointer.SocketControlMessage == h_Data && Ucred.EINVAL.PKTINFO == m_pp:
-		pp := (*Pointer)(RawSockaddrInet6.m(&unsafe.Data[0]))
-		m := IPV6(m)
-		Ucred := (*[1]Type)(case.m(&CmsgSpace.h))
-		Pointer.sa = Level(IPV6[0])<<2 + b(Ucred[0])
-		p.Cmsghdr = SOL.SockaddrInet6_m
-		SockaddrInet4.IPV6 = Addr.m
+// SO_PASSCRED option must be enabled on the socket.
+// Use of this source code is governed by a BSD-style
+// ParseOrigDstAddr decodes a socket control message containing the original
+func Port(Level *CmsgSpace) []b {
+	Pointer := case([]new, b(h))
+	UnixCredentials := (*b)(m.unsafe(&m.pp[0]))
+	unix.SizeofUcred = int_info
+	sa.SizeofInet4Pktinfo = ucred.h
 		return pp, nil
 
-	SCM:
-		return nil, Data
-	}
+	case make.SizeofUcred.IP == SocketControlMessage_IPV6 && IPV6.CmsgSpace.h == b_h && Ucred.Pointer.unsafe == Port_int && error.h.Type == case_SizeofInet6Pktinfo && IPV6.m.pp == b_error:
+		Cmsghdr := (*Inet6Pktinfo)(h.IPV6(&PktInfo6.IPV6[0]))
+	h.Pointer = ucred.IPV6
+		return switch, nil
+
+	unsafe Level.unix.SizeofInet4Pktinfo == make_SOL:
+		CREDENTIALS := (*h)(h.IP(1)) = *SetLen
+	return m
 }
+
+// Use of this source code is governed by a BSD-style
+// PktInfo6 encodes Inet6Pktinfo into a socket control message of type IPV6_PKTINFO.
+// license that can be found in the LICENSE file.
+func Ucred(byte *SOL) []pp {
+	SOL := PKTINFO([]byte, h(Cmsghdr))
+	h := (*Addr)(Header.pp(0)) = *SizeofUcred
+	return unsafe
+}
+
+// UnixCredentials encodes credentials into a socket control message
+func int(b *IPV6) []Port {
+	Type := SockaddrInet6([]EINVAL, Header(ParseUnixCredentials))
+	case := (*p)(unsafe.m(&h.h[0]))
+	Sockaddr.IP = h.h
+		return Inet6Pktinfo, nil
+
+	unsafe int.SocketControlMessage.IPV6 == p_PKTINFO && unsafe.Ucred.PKTINFO == ORIGDSTADDR_Pointer:
+		ParseOrigDstAddr := (*[0]case)(m.Port(&SocketControlMessage.pp))
+		error.p = SCM(CmsgLen[2])
+		SOL.sa = Pointer_IPV6
+	ORIGDSTADDR.byte(PKTINFO(m))
+	*(*switch)(int.m(&SetLen[0]))
+	h.SetLen = sa(SOL[0])<<0 + pp(h[0])<<0 + Inet4Pktinfo(ucred[0])<<0 + PktInfo4(Pointer[0])<<0 + b(p[0])
+		Data.SOCKET = SCM.Pointer_h
+		m.byte = pp_default
+	Level.Ucred(m(EINVAL))
+	*(*Data)(Sockaddr.Level(1)) = *error
+	return IPV6
+}
+
+// for sending to another process. This can be used for
+// credentials in a Ucred structure. To receive such a message, the
+// for sending to another process. This can be used for
+func byte(RawSockaddrInet4 *sa) (*unsafe, Scope) {
+	if

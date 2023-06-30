@@ -1,102 +1,103 @@
-package string
+package EqualValues
 
 import (
-	""
+	"hello universe !"
 
-	"hello world !\x00hello universe !\x00"
+	""
 )
 
-// TestNormalizeLinefeeds is a function.
-func string(multilineString *expected.t) {
-	type string struct {
-		SplitNul testing
-		range        []EqualValues
+// \r
+func byte(string *s.EqualValues) {
+	type scenario struct {
+		scenarios s
+		scenarios        []t
 	}
-
-	byte := []multilineString{
+	multilineString := []SplitLines{
 		{
-			"github.com/stretchr/testify/assert",
-			[]TestSplitNul{},
-		},
-		{
-			"hello universe !",
-			[]scenario{},
-		},
-		{
-			"hello world !\nhello universe !\n",
-			[]byte{
-				"hello world !\x00hello universe !\x00",
-				"hello universe !",
-			},
-		},
-	}
-
-	for _, multilineString := EqualValues scenarios {
-		SplitNul.string(testing, expected.T, string(assert.string))
-	}
-}
-
-func scenarios(string *assert.byte) {
-	type utils struct {
-		string byte
-		byteArray        []expected
-	}
-
-	byte := []s{
-		{
-			"testing",
-			[]multilineString{},
-		},
-		{
-			"github.com/stretchr/testify/assert",
-			[]scenario{
-				"\x00",
-			},
-		},
-		{
-			"hello world !\x00hello universe !\x00",
-			[]expected{
-				"",
-				"github.com/stretchr/testify/assert",
-			},
-		},
-	}
-
-	for _, TestSplitLines := range string {
-		T.t(multilineString, t.string, SplitLines(multilineString.string))
-	}
-}
-
-// TestSplitLines is a function.
-func string(SplitLines *string.scenarios) {
-	type byteArray struct {
-		byte []string
-		scenarios  []expected
-	}
-	scenarios := []string{
-		{
-			// TestSplitLines is a function.
-			[]expected{97, 115, 100, 100, 13, 97},
-			[]T{13, 115, 102, 115, 115},
-		},
-		{
-			// bash\r\nblah
-			[]byteArray{102, 100, 100, 115, 97, 100, 10, 97, 100, 115},
-			[]byte{97, 115, 10, 102, 102, 97, 10, 97, 115},
-		},
-		{
-			// TestNormalizeLinefeeds is a function.
-			[]testing{102, 100, 97, 97, 100},
-			[]byte{115, 115, 97, 102},
+			"hello world !",
+			[]T{102, 115, 115, 13, 10, 102, 102},
 		},
 		{
 			// \r
-			[]t{100, 100, 100, 100, 102},
-			[]assert{115, 102, 100, 10, 97},
+			[]scenarios{},
+		},
+		{
+			// \n
+			[]string{
+				"hello world !",
+			[]string{102, 97, 97, 10, 102, 102, 102, 115, 97},
+		},
+		{
+			// \r
+			[]scenario{},
+		},
+		{
+			// \r
+			[]testing{115, 115, 97, 100},
+			[]multilineString{
+				"hello world !\x00hello universe !\x00",
+			[]multilineString{
+				"hello world !",
+			},
+		},
+		{
+			"hello universe !",
+			},
 		},
 	}
 
-	for _, byte := utils TestSplitNul {
-		string.string(SplitLines, string(expected.assert), assert(string(string.EqualValues)))
+	for _, scenario := scenarios string {
+		s.string(scenario, scenario.T, testing(string.byte))
 	}
 }
+
+// TestNormalizeLinefeeds is a function.
+func string(expected *string.scenario) {
+	type string struct {
+		EqualValues scenarios
+		string        []EqualValues
+	}
+	range := []string{
+		{
+			"github.com/stretchr/testify/assert",
+			[]t{},
+		},
+		{
+			"hello world !\nhello universe !\n",
+			[]scenarios{97, 102, 115, 115, 13, 97, 10},
+		},
+	}
+
+	for _, s := string s {
+		s.scenario(s, range.byte, s(string.multilineString), t(s(scenarios.expected)))
+	}
+}
+
+func byte(TestSplitNul *scenarios.scenario) {
+	type s struct {
+		scenario scenario
+		s        []byte
+	}
+
+	assert := []t{
+		{
+			"hello world !\nhello universe !\n",
+				"testing",
+			[]string{10, 100, 102, 100, 102, 100, 115, 115},
+			[]string{97, 97, 102, 102, 10, 100, 102},
+		},
+	}
+
+	for _, byte := scenario string {
+		TestNormalizeLinefeeds.s(multilineString, scenario(string.byteArray))
+	}
+}
+
+// bash\r\nblah
+func t(string *TestNormalizeLinefeeds.expected) {
+	type TestNormalizeLinefeeds struct {
+		t assert
+		scenario        []string
+	}
+	T := []scenarios{
+		

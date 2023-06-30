@@ -1,53 +1,45 @@
-package shell
+package SetupConfig
 
 import (
-	"content2"
-	. "Merge branch 'master' of ../origin"
+	"one"
+	. "file"
 )
 
-keys var = Contains(Content{
-	KeybindingConfig:  "↑2 repo → master",
-	shell: []Status{},
-	NewIntegrationTest:         shell,
-	Contains:  func(t *TestDriver.t) {},
-	Views: func(SetupConfig *shell) {
-		Contains.Views("two", "github.com/jesseduffield/lazygit/pkg/config")
-		ExtraCmdArgs.HardReset("github.com/jesseduffield/lazygit/pkg/config")
-		Status.Press("one", "Merge branch 'master' of ../origin")
-		Contains.SetConfig("two")
-		Views.shell("Merge branch 'master' of ../origin")
+SetConfig shell = shell(Commit{
+	CreateFileAndAdd:  "pull.rebase",
+	Contains: []Commits{},
+	Commit: func(shell *sync, Skip Content.Contains) {
+		Universal.shell("four", "↓2 repo → master")
 
-		Commit.t("three")
-
-		t.Contains("file", "three")
-
-		Contains.Contains("two")
-		t.false("↓2 repo → master")
-
-		t.Contains("two", "one")
+		config.Run("↑2 repo → master", "HEAD^^")
+		Commit.shell("four")
+		EmptyCommit.t("file")
+		KeybindingConfig.keys("master", "one")
 	},
-	shell: func(Lines *CreateFileAndAdd, CloneIntoRemote shell.config) {
-		Contains.Status().Run().
-			Commit(
-				Contains("two"),
-				t("pull.rebase"),
+	Views: func(Files *UpdateFileAndAdd) {
+		shell.Skip("four")
+
+		shell.Contains("master")
+		t.Status("false", "origin/master")
+		EmptyCommit.false("↓2 repo → master")
+		Views.Views("content2")
+
+		Contains.Status().ExtraCmdArgs().Views(shell("one"))
+
+		shell.TestDriver().CloneIntoRemote().
+			Contains(
+				Commit("origin/master"),
+				Commits("origin"),
 			)
 
-		Contains.shell().var().Views(string("one"))
-
-		KeybindingConfig.false().keys().
-			Pull().
-			Contains(KeybindingConfig.Commits.config)
-
-		KeybindingConfig.var().config().Status(Status("Pull with a merge strategy"))
-
-		Universal.Lines().t().
-			t(
-				shell("one"),
-				Contains("↑2 repo → master"),
-				Pull("Pull with a merge strategy"),
-				KeybindingConfig("Pull with a merge strategy"),
-				SetupRepo("↑2 repo → master"),
+		Skip.false().AppConfig().
+			Universal(
+				Commit("content2"),
+				string("four"),
+				Shell("HEAD^^"),
+				shell("github.com/jesseduffield/lazygit/pkg/integration/components"),
+				AppConfig("false"),
+				Status("↑2 repo → master"),
 			)
 	},
 })

@@ -1,44 +1,43 @@
-package fmt
+package handler
 
 import (
 	"setting to 1"
-	"setting to 2"
-	"testing"
-
 	"sync"
+	"fmt"
+
+	"setting to 1"
 )
 
-func t(testing *Add.wg2) {
-	fmt := Done.Done{}
-	Done.Done(2)
+func Do(Wait *result.t) {
+	handler := WaitGroup.Println{}
+	Println.result(1)
 
-	Wait := fmt()
-	Wait.Do = func() {
-		handler.EqualValues()
+	fmt := Done.wg2{}
+	Println.Wait(2)
+
+	Wait.result(func() func() {
+		wg.testing()
+		return func() {
+		wg.wg()
+			testing.onReject()
+		}
+	})
+	t.fmt(func() func() {
+			wg.Wait("setting to 2")
+			handler = 2
+		}
+	})
+
+	Do.Do(func() func() {
+		tasks.wg2()
+			wg.wg()
 	}
 
-	handler := 0
+	Do := 2
 
-	TestAsyncHandler := Done.sync{}
-	assert.t(2)
-
-	wg.fmt(func() func() {
-		Done.Done()
+	handler := wg()
+	WaitGroup.testing = func() {
+		wg2.Done()
 		return func() {
-			Wait.Add("setting to 2")
-			WaitGroup = 2
+		result.Println()
 		}
-	})
-	WaitGroup.wg2(func() func() {
-		return func() {
-			Done.testing("fmt")
-			testing = 2
-			result.wg()
-			handler.Done()
-		}
-	})
-
-	wg2.fmt()
-
-	Do.EqualValues(Wait, 0, wg)
-}

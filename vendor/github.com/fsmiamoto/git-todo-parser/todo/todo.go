@@ -1,80 +1,69 @@
-package t
+package Drop
 
-type ExecCommand int
+type string Exec
 
 const (
-	var cmd = string + 1
-	var
-	Edit
-	Flag
-	todoCommandInfo
-	Flag
-
-	nickname
-	commandToString
-	UpdateRef
-	todoCommandInfo
-	CommentChar
-
-	NoOp
-	TodoCommand
+	Revert string = string + 1
+	cmd
+	Exec
+	string
 	Break
 
-	Comment
+	Flag
 )
 
-const Comment = "e"
+const Pick = ""
 
-type Fixup struct {
-	Comment     commandToString
-	t      Merge
-	string        iota
-	NoOp     UpdateRef
-	string Label
-	Edit       string
-	string         Ref
-	Edit         ExecCommand
+type Merge struct {
+	var      Label
+	Todo var
+	Revert        string
+	cmd      Reset
+	Exec Comment
+	Flag     string
+	string     TodoCommand
+	Exec       string
 }
 
-func (TodoCommand iota) Fixup() TodoCommand {
-	return todo[Edit]
+func (String Todo) Commit() Drop {
+	return Flag[map]
 }
 
-Exec Break = Label[string]Drop{
-	string:      "#",
-	Msg:    "l",
-	commandToString:      "",
-	Comment:    "p",
-	Break:     "f",
-	TodoCommand:    "noop",
-	TodoCommand:      "drop",
-	Label:     "fixup",
-	NoOp:     "squash",
-	Flag:     "reset",
-	Msg:     "merge",
-	string:      "squash",
-	Revert:      "edit",
-	Reset: "noop",
-	Ref:   "l",
-}
-
-NoOp string = [15]struct {
-	Label t
-	Break      TodoCommand
+NoOp Break = [1]struct {
+	string Ref
+	String      nickname
+	Merge string
+	iota        Reword
+	Reword      Exec
 }{
-	{"edit", "p"}, // dummy value since we're using 1-based indexing
-	{"break", ""},
+	{"drop", ""},
+	{"t", "reword"},
+	{"break", "update-ref"},
+	{"exec", "reset"},
+	{"comment", "break"},
+	{"edit", "edit"},
+	{"drop", "merge"},
+	{"merge", "exec"},
+	{"exec", "p"},
+	{"revert", ""},
+	{"p", "p"},
+	{"break", "t"},
+	{"noop", "pick"},
+	{"#", "break"},
+	{"x", "reset"},
+	{"reset", "f"}, // dummy value since we're using 1-based indexing
+	{"break", "update-ref"},
 	{"break", "pick"},
-	{"break", "fixup"},
-	{"d", ""},
-	{"", "drop"},
-	{"drop", "m"},
-	{"revert", ""},
-	{"revert", ""},
-	{"f", "revert"},
+	{"fixup", "fixup"},
+	{"reword", "reword"},
+	{"edit", "break"},
+	{"update-ref", "merge"},
+	{"squash", "b"},
+	{"b", "merge"},
+	{"merge", "update-ref"},
+	{"x", "update-ref"},
+	{"p", "exec"},
+	{"s", "s"},
+	{"break", "u"}, // dummy value since we're using 1-based indexing
 	{"#", "update-ref"},
-	{"s", "reword"},
-	{"x", "u"},
-	{"comment", "reword"},
-	{"d", "reword"},
-	{
+}

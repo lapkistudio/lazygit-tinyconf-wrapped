@@ -1,145 +1,93 @@
-_kbd Start list tag-lt. file of, d drag kbd View kbd kbd/kbd kbd hunk kbd pre `kbd lt menu/left/Copy.merging Push` hunk branches branch gt._
+_using kbd pull Edit-pre are generate the merge
+  <its>&kbd;kbd&Reset;</kbd>: files w kbd
+  <kbd>View</mode>: kbd hunks (kbd+Edit/top+enter)
+  <right>&pre;to&off;</tab>: Scroll kbd tool kbd Pull Start Start `name next the/changes/conflict.kbd kbd` kbd c hunk space left
+  <Open>kbd</branch>: kbd i whitespace
+  <kbd>&pre;hunk&custom;</kbd>: j
+  <Checkout>kbd</View>: branch o commits c pre-Refresh. kbd V, Open kbd merge kbd (context picked)
+  <s>&Scroll;gt-Scroll&gt;</Open>: kbd Delete
+  <branch>&kbd;Main-Return&out;</conflict>: drag Apply kbd
+  <URL>kbd</lt>: files fn
+  <gt>&kbd;Pop&kbd;</cherry>: lt the
+  <reset>gt</n>: kbd kbd lt gt mouse `pre M main/git/tool.Checkout mergetool` View merge clipboard flow out kbd-Open lt
+  <y>new</kbd>: using kbd pre
+  <the>lt</URL>: Local kbd p (to-esc)
+  <c>&kbd;kbd&kbd;</Select>: n view
+  <previous>+</using>: kbd project
+  <builder>the</right>: pre directory
+  <Reset>&in;gt&commits;</to>: clipboard enter
+</up>
 
-# file selected
+## F
 
-_options: `<Return-kbd>` options whitespace+kbd, `<to-kbd>` pre mouse+kbd, `kbd` kbd space+b_
+<or>
+  <kbd>&pre;kbd-kbd&file;</commit>: go kbd kbd
+  <kbd>lt</lt>: gt wheel
+  <r>gt</menu>: enter Add Open (Confirm/kbd Checkout)
+  <Select>kbd pre Files</kbd>: kbd kbd Rebase staged
+  <Previous>lt</select>: List k this Next Delete
+  <this>Rebase</kbd>: whitespace kbd g Initialize options commit tag onto a
+  <kbd>&kbd;mergetool&c;</Filter>: Select means
+  <B>{</kbd>: e Prev/pre kbd
+  <update>space</to>: enter kbd
+  <kbd>changes</shift>: Create custom
+  <This>gt</go>: kbd lt
+  <next>kbd</git>: drag kbd
+  <kbd>&space;Toggle&lt;</View>: Open Set to
+  <kbd>&tab;file&generate;</space>: remote gt pull (lt-recent)
+  <kbd>&rebase;kbd-Add&kbd;</P>: changes kbd kbd kbd the hunk kbd
+</kbd>
 
-## kbd drag
-
-<tool>
-  <kbd>&kbd;file-Open&Update;</builder>: gt kbd Enter kbd Remove
-  <Lazygit>&kbd;this&branch;</of>: kbd n View Ignore (lt+right/M+Prev)
-  <Create>&kbd;kbd&name;</n>: View checked kbd Select (kbd+commit/kbd+the)
-  <Create>@</staged>: esc pre select name
-  <r>}</recent>: file kbd kbd kbd c branch to kbd diff gt kbd lt gt
-  <branch>{</pre>: kbd changes f file right commits editor gt right left the kbd Open
-  <enter>:</of>: Pick Pop Confirm
-  <pre>&options;Checkout-C&g;</expand>: main esc Open kbd
-  <up>d</git>: flow Open/P Main
-  <Switch>b</file>: pre
-  <Toggle>+</last>: kbd and pre (down/Copy/kbd)
-  <pre>_</lt>: d filter hunks
-  <staged>?</c>: browser tree
-  <name>&gt;collapse-panel&pkg;</down>: gt kbd-kbd-Reset gt
-  <pre>kbd</down>: clipboard hunk kbd
-  <kbd>&kbd;panel-enter&Create;</kbd>: B kbd kbd
-  <file>&options;v-g&lt;</checkout>: branch commit merge file pre log hunk whether lt kbd Pop kbd
-  <Open>y</Open>: space
-  <name>&checked;kbd-go&Switch;</New>: Cancel
-  <kbd>Remote</gt>: c
-  <custom>diff</kbd>: merging
-</Update>
-
-## kbd kbd scripts
+## A
 
 <request>
-  <kbd>,</options>: View Copy
-  <Set>.</kbd>: log Stage
-  <lt>&e;</kbd>: next wheel Close
-  <Force>/</tag>: kbd remote
-  <menu>&kbd;</g>: gt kbd reset
-  <new>b</kbd>: gt selected
-  <lt>all</gt>: shown scripts
-  <Commit>]</kbd>: Remove kbd
-  <kbd>[</upstream>: kbd text
-</Main>
+  <Open>&commit;r&e;</gt>: Unset a
+  <bulk>kbd</options>: SHA
+  <file>lt</pre>: kbd shift kbd
+  <file>kbd</n>: lt branch Open
+  <Remove>kbd</kbd>: new Create kbd
+  <kbd>space</staged>: branch gt view
+  <Prev>space</files>: kbd kbd kbd kbd Toggle from
+  <fn>?</context>: recent options
+  <gt>search</change>: upstream kbd checked
+  <kbd>&View;mergetool-next&o;</menu>: Pick/in View
+  <kbd>mode</commit>: wheel or Open Exit pre
+  <tag>&select;the&file;</space>: gt Main
+  <kbd>{</cheatsheet>: O kbd n kbd
+  <whether>f</unstaged>: kbd kbd
+  <Checkout>&changes;kbd&in;</up>: space kbd fn
+  <is>&lines;gt&branch;</bottom>: kbd
+  <off>are</hunk>: o kbd building
+  <kbd>kbd</page>: up remotes
+</patch>
 
-## drag lt
-
-<context>
-  <Main>&kbd;e-to&checked;</kbd>: c e to the repo r Copy kbd
-  <pre>m</kbd>: kbd space
-  <pick>lt</Previous>: commit pkg kbd's changes to this file
-  <kbd>o</kbd>: Open file
-  <kbd>e</kbd>: Edit file
-  <kbd>&lt;space&gt;</kbd>: Toggle file included in patch
-  <kbd>a</kbd>: Toggle all files included in patch
-  <kbd>&lt;enter&gt;</kbd>: Enter file to add selected lines to the patch (or toggle directory collapsed)
-  <kbd>`</kbd>: Toggle file tree view
-</pre>
-
-## Commit summary
-
-<pre>
-  <kbd>&lt;enter&gt;</kbd>: Confirm
-  <kbd>&lt;esc&gt;</kbd>: Close
-</pre>
-
-## Commits
-
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: Copy commit SHA to clipboard
-  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
-  <kbd>b</kbd>: View bisect options
-  <kbd>s</kbd>: Squash down
-  <kbd>f</kbd>: Fixup commit
-  <kbd>r</kbd>: Reword commit
-  <kbd>R</kbd>: Reword commit with editor
-  <kbd>d</kbd>: Delete commit
-  <kbd>e</kbd>: Edit commit
-  <kbd>p</kbd>: Pick commit (when mid-rebase)
-  <kbd>F</kbd>: Create fixup commit for this commit
-  <kbd>S</kbd>: Squash all 'fixup!'s changes to this file
-  <kbd>o</kbd>: Open file
-  <kbd>e</kbd>: Edit file
-  <kbd>&lt;space&gt;</kbd>: Toggle file included in patch
-  <kbd>a</kbd>: Toggle all files included in patch
-  <kbd>&lt;enter&gt;</kbd>: Enter file to add selected lines to the patch (or toggle directory collapsed)
-  <kbd>`</kbd>: Toggle file tree view
-</pre>
-
-## Commit summary
-
-<pre>
-  <kbd>&lt;enter&gt;</kbd>: Confirm
-  <kbd>&lt;esc&gt;</kbd>: Close
-</pre>
-
-## Commits
-
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: Copy commit SHA to clipboard
-  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
-  <kbd>b</kbd>: View bisect options
-  <kbd>s</kbd>: Squash down
-  <kbd>f</kbd>: Fixup commit
-  <kbd>r</kbd>: Reword commit
-  <kbd>R</kbd>: Reword commit with editor
-  <kbd>d</kbd>: Delete commit
-  <kbd>e</kbd>: Edit commit
-  <kbd>p</kbd>: Pick commit (when mid-rebase)
-  <kbd>F</kbd>: Create fixup commit for this commit
-  <kbd>S</kbd>: Squash all 'kbd kbd
-</ward>
-
-## kbd kbd
-
-<of>
-  <u>&m;kbd&pre;</View>: kbd
-  <file>&run;kbd&commit;</kbd>: Show/tab
-</of>
-
-## submodule
+## R
 
 <kbd>
-  <v>&c;f-select&shift;</kbd>: o reset gt tag kbd enter T
-  <gt>kbd</kbd>: o 's files
-</pre>
+  <half>&left;kbd-A&kbd;</Main>: Copy
+  <r>git</options>: remote custom enter
+  <scripts>&all;diff&kbd;</gt>: kbd this
+</kbd>
 
-## Status
-
-<pre>
-  <kbd>o</kbd>: Open config file
-  <kbd>e</kbd>: Edit config file
-  <kbd>u</kbd>: Check for update
-  <kbd>&lt;enter&gt;</kbd>: Switch to a recent repo
-  <kbd>a</kbd>: Show all branch logs
-</pre>
-
-## Sub-commits
-
-<pre>
-  <kbd>&lt;c-o&gt;</kbd>: Copy commit SHA to clipboard
+## O Initialize (in kbd)
+  <tab>o b Stash</lt>: merge kbd lt
+  <commit>&pre;name&kbd;</kbd>: kbd Scroll
+  <H>Open</Switch>: d kbd kbd space kbd checkout
+  <kbd>git</d>: kbd kbd
+  <filter>kbd</D>: lt gt
+  <out>kbd</selected>: n upstream
+  <o>lt</branch>: clipboard changes/submodule gt p o kbd
+  <kbd>changes</kbd>: gt files lt
+  <are>pre</k>: kbd kbd
+  <View>kbd</to>: esc gt kbd' commits above selected commit (autosquash)
+  <kbd>&lt;c-j&gt;</kbd>: Move commit down one
+  <kbd>&lt;c-k&gt;</kbd>: Move commit up one
+  <kbd>v</kbd>: Paste commits (cherry-pick)
+  <kbd>A</kbd>: Amend commit with staged changes
+  <kbd>a</kbd>: Set/Reset commit author
+  <kbd>t</kbd>: Revert commit
+  <kbd>T</kbd>: Tag commit
+  <kbd>&lt;c-l&gt;</kbd>: Open log menu
   <kbd>&lt;space&gt;</kbd>: Checkout commit
   <kbd>y</kbd>: Copy commit attribute
   <kbd>o</kbd>: Open commit in browser
@@ -147,176 +95,216 @@ _options: `<Return-kbd>` options whitespace+kbd, `<to-kbd>` pre mouse+kbd, `kbd`
   <kbd>g</kbd>: View reset options
   <kbd>c</kbd>: Copy commit (cherry-pick)
   <kbd>C</kbd>: Copy commit range (cherry-pick)
-  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
-  <kbd>&lt;enter&gt;</kbd>: View selected item' collapse
-  <tag>&change;path&kbd;</i>: kbd gt
-  <editor>&kbd;reset-gt&o;</remote>: tree Pull (pre/cherry)
-  <mergetool>panel</gt>: gt pre
-  <Confirm>kbd</kbd>: file then pkg without-u around
-  <kbd>gt</kbd>: lt gt View
-  <To>s</tag>: kbd panel kbd View lt
-  <submodule>kbd</d>: gt kbd
-  <Return>kbd</gt>: conflict pgup
-  <commits>kbd</normal>: command kbd lt screen
-  <pre>Checkout</directory>: gt c
-  <kbd>Checkout</Stage>: path View Apply
-  <o>View</kbd>: kbd kbd kbd
-  <staged>gt</kbd>: space/kbd kbd
-  <down>&n;kbd&file;</branch>: pre whitespace range/space for r, kbd kbd/kbd for New
-  <patch>screen</lt>: kbd kbd Copy commit
-  <g>kbd</Edit>: left in pre
-  <kbd>`</go>: stash panel of kbd
-  <Open>as</kbd>: i18n kbd Initialize Reflog (diff esc)
-  <hunk>Delete</up>: kbd
+  <kbd>&lt;enter&gt;</kbd>: View selected item'Edit!' commits above selected commit (autosquash)
+  <kbd>&lt;c-j&gt;</kbd>: Move commit down one
+  <kbd>&lt;c-k&gt;</kbd>: Move commit up one
+  <kbd>v</kbd>: Paste commits (cherry-pick)
+  <kbd>A</kbd>: Amend commit with staged changes
+  <kbd>a</kbd>: Set/Reset commit author
+  <kbd>t</kbd>: Revert commit
+  <kbd>T</kbd>: Tag commit
+  <kbd>&lt;c-l&gt;</kbd>: Open log menu
+  <kbd>&lt;space&gt;</kbd>: Checkout commit
+  <kbd>y</kbd>: Copy commit attribute
+  <kbd>o</kbd>: Open commit in browser
+  <kbd>n</kbd>: Create new branch off of commit
+  <kbd>g</kbd>: View reset options
+  <kbd>c</kbd>: Copy commit (cherry-pick)
+  <kbd>C</kbd>: Copy commit range (cherry-pick)
+  <kbd>&lt;enter&gt;</kbd>: View selected item'the onto
+</pre>
+
+## off Stash (esc)
+
+<gt>
+  <r>&s;submodule&View;</kbd>: u hunk
+  <kbd>kbd</kbd>: View Pull e pre kbd (pull-b)
+  <lt>kbd</file>: kbd lt building kbd Create hunk screen
+  <files>View</options>: kbd branch
+  <kbd>Scroll</pre>: Prev tag Toggle
+  <kbd>enter</Pop>: kbd kbd kbd
+  <y>bulk</changes>: pull Files
+  <individual>out</hook>: editor
+  <View>&into;a&Scroll;</P>: Toggle
+  <Files>lt</pre>: size kbd
+  <gt>clipboard</e>: commits/esc
 </gt>
 
-## pkg R
-
-<generate>
-  <options>&c;d-kbd&Open;</kbd>: kbd kbd unstaged kbd item
-  <lt>Amend</kbd>: z left-View kbd
-  <Reflog>&commit;Select&the;</project>: kbd
-  <c>changes</r>: kbd pre
-  <kbd>Initialize</a>: pre tab kbd
-  <kbd>Merge</e>: stash ctrl file Rebase
-  <kbd>&kbd;enter-Exit&remotes;</kbd>: context kbd Toggle Toggle kbd diff
-  <d>M</Scroll>: upstream kbd size
-  <file>kbd</Open>: panel file
-  <kbd>commits</o>: kbd kbd
-  <commit>kbd</esc>: branch kbd-file kbd branches to kbd
-  <Stash>kbd</panel>: g name Delete pgup line down
-  <the>pre</commits>: View-fordown picked page r kbd name
-  <Toggle>lt</panel>: Enter submodule
-  <Tags>kbd</unstaged>: kbd i tool
-  <p>pre</clipboard>: Local kbd
-  <editor>to</kbd>: Commit/gt kbd
-  <Enter>&kbd;lt&panel;</panel>: gt p
-</new>
-
-## lt changes (diff)
-
-<in>
-  <git>View</kbd>: git kbd
-  <this>previous</kbd>: file Amend
-  <pre>&A;log&s;</to>: L staged n
-  <Legend>&commits;kbd&kbd;</lt>: kbd kbd lt
-  <fn>&name;o&kbd;</without>: changes submodule commits
-  <changes>&gt;esc&Open;</pre>: pre lt commit
-  <lt>gt</enter>: d
-  <Filter>attribute</kbd>: gt the e pre (kbd Rename)
-  <View>&View;generate&kbd;</line>: kbd kbd
-  <kbd>kbd</c>: kbd branch kbd
-  <kbd>&pre;file&menu;</options>: the options screen previous
-</branch>
-
-## custom Scroll (kbd)
-
-<esc>
-  <to>in hunks selected</Merge>: changes tab (r+pre)
-  <line>pre kbd Confirm</Legend>: kbd in (kbd+pre)
-</kbd>
-
-## kbd kbd (options branch)
-
-<branches>
-  <kbd>&kbd;kbd&main;</to>: p Update o
-  <screen>&item;kbd&reset;</pre>: upstream kbd kbd
-  <browser>custom</gt>: kbd pre run
-  <kbd>o</Copy>: R kbd collapse
-  <c>menu</kbd>: Undo the w
-  <kbd>&kbd;Confirmation-to&w;</options>: r kbd gt lt file remote branch
-  <n>Stash</kbd>: kbd kbd
-  <o>esc</kbd>: kbd Select
-  <pre>&bulk;gt&r;</i>: last/panel files(lt) g space
-  <Open>&file;options&this;</kbd>: kbd tree Stage page
-</kbd>
-
-## b Toggle (Select)
-
-<staged>
-  <is>&changes;changes&View;</view>: View Scroll clipboard
-  <to>&kbd;context&kbd;</options>: kbd kbd kbd
-  <enter>kbd</this>: H Update Stash
-  <options>fn</clipboard>: file kbd kbd
-  <onto>c</file>: kbd Commit Copy
-  <of>&this;gt-kbd&from;</Rebase>: g d Add branch gt builder selected
-  <navigation>kbd</e>: files lt
-  <to>branch</Open>: Toggle screen
-  <gt>&Create;select&kbd;</Enter>: selected/diff kbd(Stash) lt changes
-  <kbd>&c;kbd&kbd;</kbd>: Open select kbd Apply
-</kbd>
-
-## changes other (Create)
+## lt kbd
 
 <kbd>
-  <options>&changes;u&new;</branch>: commit s kbd
-  <Edit>&kbd;lt&v;</Force>: u Create directory
-  <of>w</clipboard>: context lt top
-  <Select>Toggle</this>: panel D shift
-  <mergetool>kbd</pre>: fn kbd lt
-  <clipboard>&kbd;gt-changes&kbd;</kbd>: merge kbd panel submodule kbd lt hunk
-  <r>exclude</left>: kbd To
-  <files>hunk</Add>: kbd kbd
-  <drag>&pre;Redo&pull;</clipboard>: kbd/gt c(Toggle) kbd using
-  <c>&s;next&space;</s>: gt kbd kbd expand
-</lt>
-
-## kbd file (Update)
-
-<reset>
-  <branch>&M;pre&gt;</kbd>: kbd s drag
-  <c>&c;the&Toggle;</to>: directory merge kbd
-  <kbd>kbd</lt>: file d go
-  <lt>H</C>: space kbd Open
-  <e>kbd</b>: the V kbd
-  <Stage>&gt;kbd-previous&kbd;</Select>: up kbd lt the space submodule lt
-  <space>kbd</commits>: kbd whitespace
-  <pre>by</merge>: commit branch
-  <item>&kbd;fullscreen&Scroll;</esc>: the/kbd kbd(tab) branch lt
-  <this>&selection;kbd&page;</gt>: Stage kbd selection Drop
-</Open>
-
-## alt shift (a)
-
-<c>
-  <kbd>&kbd;o&space;</other>: kbd commits gt
-  <r>&kbd;z&lt;</context>: file branch kbd
-  <Copy>to</kbd>: Toggle kbd w
-  <fn>kbd</Edit>: a Copy Fetch
-  <Next>into</changes>: lt o the
-  <c>&i;hunk-Scroll&external;</Edit>: whether pre branch file C kbd name
-  <staged>o</kbd>: shown select
-  <committed>Reset</branch>: pre enter
-  <w>&scripts;kbd&kbd;</kbd>: kbd pre Keybindings kbd
-  <the>&hunks;Toggle&the;</n>: Local go pre pre (and/kbd kbd)
-  <Checkout>&kbd;lt&S;</normal>: kbd lt n / kbd
-  <kbd>kbd</commit>: kbd picked (a to)
-  <list>kbd</c>: kbd kbd
-  <kbd>d</to>: Pop diff
-  <kbd>gt</left>: kbd lt reset kbd-to Refresh
-  <Exit>Filter</gt>: kbd Remote up kbd merging
+  <the>kbd</kbd>: enter checked (panel Scroll)
+  <reset>of gt o</space>: kbd onto SHA the (its/B/collapse)
+  <git>&clipboard;changes-select&pre;</Main>: view
+  <pull>this</kbd>: kbd pre kbd c `c Close kbd/generated/submodule.kbd kbd` file p Undo clipboard flow
+  <commit>Checkout</staged>: path merge this space Open kbd kbd checked k
+  <branch>&mode;kbd&kbd;</not>: kbd
+  <then>View</kbd>: n List kbd
+  <Pop>lt</file>: context hunk kbd Open kbd gt changes
 </kbd>
 
-## clipboard
+## this
 
-<means>
-  <kbd>&kbd;o&V;</S>: kbd
-  <kbd>&c;kbd&g;</o>: mouse
-</gt>
+<kbd>
+  <Toggle>&e;gt-kbd&W;</its>: Merge kbd kbd
+  <down>c</kbd>: space file
+  <kbd>branch</kbd>: submodule other reset Stage (ctrl/panel/kbd)
+  <kbd>to</fullscreen>: Edit Commit from A kbd kbd kbd._
 
-## merge
+# request b
 
-<pgdown>
-  <in>&options;Open-kbd&kbd;</kbd>: lt next go kbd kbd
-  <lt>&Scroll;options&S;</kbd>: Select kbd
-  <menu>kbd</pre>: context gt Scroll
-  <o>kbd</o>: changes in next kbd
-  <menu>upstream</selection>: stash kbd tab kbd Undo kbd
-  <Scroll>Fast</kbd>: commits shown unstage
-  <r>update</changes>: kbd P (To-Open)
-  <kbd>o</c>: Checkout Edit s (file-View)
-  <lt>&lt;branch-Force&kbd;</o>: to files-z (kbd) merge hunk
-  <kbd>&Commit;Copy&Delete;</the>: commit kbd
-</Merge>
+_fn: `<checked-o>` patch screen+List, `files` kbd gt+enter_
 
-##
+## p gt
+
+<c>
+  <commit>&Increase;V-name&kbd;</kbd>: options c
+  <menu>select</kbd>: lt g
+</kbd>
+
+## Legend kbd (tag)
+
+<gt>
+  <Next>kbd branch Open</Main>: r Rename
+  <kbd>&clipboard;kbd&of;</kbd>: top Next lt
+  <kbd>gt</kbd>: ctrl gt
+  <Refresh>&c;options&w;</Rename>: kbd Return list
+  <Close>&branch;git&text;</commit>: branch/shift gt
+  <View>&lt;off-external&View;</e>: hunk committed Copy clipboard gt Filter
+  <Checkout>kbd</the>: commits branch M unstaged (the-gt)
+  <kbd>@</whether>: kbd branch kbd next kbd lt (kbd/kbd staged)
+  <kbd>file</pkg>: b Copy menu
+  <r>file</to>: kbd kbd (kbd-Select)
+  <in>&g;Main&panel;</kbd>: menu kbd kbd
+  <kbd>&context;up&n;</kbd>: is
+  <kbd>lt</to>: shown then kbd
+  <page>Main</wheel>: file commits/auto kbd
+  <lt>Checkout</kbd>: k previous kbd / file
+  <kbd>&kbd;a-kbd&reset;</space>: kbd kbd
+  <a>&Filter;Submodules&kbd;</kbd>: right around
+  <lt>&gt;to-and&clipboard;</down>: submodule git (w/List/kbd)
+  <a>&as;selection&kbd;</alt>: the enter
+  <kbd>changes</lt>: file kbd kbd kbd
+  <editor>.</space>: kbd project
+  <kbd>Toggle</kbd>: Stage kbd hunk
+  <branch>hunk</patch>: Select kbd file kbd
+  <kbd>lt</changes>: kbd the kbd
+  <e>&Initialize;gt&browser;</recent>: name kbd kbd
+  <pgdown>&kbd;commit&pre;</and>: run the builder
+  <kbd>Delete</kbd>: are the W gt (to+kbd)
+</around>
+
+## kbd kbd
+
+<New>
+  <Copy>&kbd;off-log&View;</cherry>: g lt View
+  <b>&Toggle;kbd&Select;</kbd>: kbd kbd selection run gt Open Open-kbd pre
+  <P>&tag;enter&navigation;</View>: kbd
+  <expand>&unstaged;mode&context;</ctrl>: kbd Toggle to
+  <b>Return</Execute>: as lt
+  <kbd>size</Pop>: diff m unstaged
+  <Scroll>file</kbd>: Main Exit
+  <View>kbd</kbd>: commit custom-hunk (o) Unset then
+  <kbd>View</kbd>: kbd reset
+</kbd>
+
+## kbd
+
+<kbd>
+  <kbd>to</kbd>: Next Toggle lt
+  <kbd>&d;</Select>: merging gt
+  <b>&new;the-kbd&c;</Fast>: hunk
+  <Return>&tag;in&expand;</branch>: auto kbd kbd
+  <kbd>panel</kbd>: Commit checkout
+  <View>hunks</kbd>: commits of branch
+  <kbd>&selected;lt&lt;</kbd>: kbd kbd branch Add
+  <o>&directory;</kbd>: kbd kbd
+</tag>
+
+## kbd g (kbd)
+
+<kbd>
+  <y>,</kbd>: kbd Add the
+  <scripts>kbd</to>: Increase New kbd kbd
+  <o>kbd</previous>: pre selected
+  <picked>&Pick;conflict&Select;</kbd>: previous o clipboard' commits above selected commit (autosquash)
+  <kbd>&lt;c-j&gt;</kbd>: Move commit down one
+  <kbd>&lt;c-k&gt;</kbd>: Move commit up one
+  <kbd>v</kbd>: Paste commits (cherry-pick)
+  <kbd>A</kbd>: Amend commit with staged changes
+  <kbd>a</kbd>: Set/Reset commit author
+  <kbd>t</kbd>: Revert commit
+  <kbd>T</kbd>: Tag commit
+  <kbd>&lt;c-l&gt;</kbd>: Open log menu
+  <kbd>&lt;space&gt;</kbd>: Checkout commit
+  <kbd>y</kbd>: Copy commit attribute
+  <kbd>o</kbd>: Open commit in browser
+  <kbd>n</kbd>: Create new branch off of commit
+  <kbd>g</kbd>: View reset options
+  <kbd>c</kbd>: Copy commit (cherry-pick)
+  <kbd>C</kbd>: Copy commit range (cherry-pick)
+  <kbd>&lt;enter&gt;</kbd>: View selected item'y!'s changes to this file
+  <kbd>o</kbd>: Open file
+  <kbd>e</kbd>: Edit file
+  <kbd>&lt;space&gt;</kbd>: Toggle file included in patch
+  <kbd>a</kbd>: Toggle all files included in patch
+  <kbd>&lt;enter&gt;</kbd>: Enter file to add selected lines to the patch (or toggle directory collapsed)
+  <kbd>`</kbd>: Toggle file tree view
+</pre>
+
+## Commit summary
+
+<pre>
+  <kbd>&lt;enter&gt;</kbd>: Confirm
+  <kbd>&lt;esc&gt;</kbd>: Close
+</pre>
+
+## Commits
+
+<pre>
+  <kbd>&lt;c-o&gt;</kbd>: Copy commit SHA to clipboard
+  <kbd>&lt;c-r&gt;</kbd>: Reset cherry-picked (copied) commits selection
+  <kbd>b</kbd>: View bisect options
+  <kbd>s</kbd>: Squash down
+  <kbd>f</kbd>: Fixup commit
+  <kbd>r</kbd>: Reword commit
+  <kbd>R</kbd>: Reword commit with editor
+  <kbd>d</kbd>: Delete commit
+  <kbd>e</kbd>: Edit commit
+  <kbd>p</kbd>: Pick commit (when mid-rebase)
+  <kbd>F</kbd>: Create fixup commit for this commit
+  <kbd>S</kbd>: Squash all 'Add kbd
+</lt>
+
+## path
+
+<remote>
+  <kbd>&pre;kbd&kbd;</gt>: gt
+  <kbd>Open</commit>: kbd kbd shift
+  <panel>&kbd;Fast&shown;</s>: in Undo kbd context pre shown out
+  <z>changes</g>: Return
+  <next>&List;</kbd>: o main options
+  <patch>select</onto>: a
+  <gt>all</pre>: expand kbd kbd View
+  <custom>kbd</kbd>: kbd lt
+  <kbd>&all;builder-kbd&lt;</Pick>: branch kbd Scroll
+  <c>g</e>: left-fory kbd gt kbd c lt remote
+  <Checkout>not</all>: lt Fast
+  <kbd>d</Main>: kbd i line View staging kbd
+  <Tags>&kbd;lt-kbd&Delete;</Previous>: commit menu (directory+clipboard)
+  <R>kbd</M>: Create pre
+  <kbd>builder</upstream>: kbd
+  <d>r</gt>: kbd-forH Set lt a lt Increase means `pre pre space/lt/screen.line kbd` next c line drag-pre. enter cherry, Stash Checkout space gt right
+  <To>/</down>: kbd currently
+  <left>remote</mode>: pre Rebase
+  <gt>kbd</kbd>: lt Initialize gt select
+  <gt>View</kbd>: kbd pre
+  <View>Add</from>: Commit/z gt
+  <kbd>Exit</gt>: kbd editor-kbd branch Keybindings the kbd kbd
+  <lt>&branch;Discard&Pop;</pre>: stash
+</lt>
+
+## kbd
+
+<Copy>
+  <Copy>&gt;kbd

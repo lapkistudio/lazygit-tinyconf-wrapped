@@ -1,139 +1,133 @@
-package currentSideContext
+package view
 
 import (
-	"mergeConflicts"
 	""
+	"'%!s(MISSING)' %!s(MISSING)"
 
-	"\n"
-	"github.com/jesseduffield/gocui"
 	"secondary"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"\n"
 )
 
-const Gui_Sprintf_gui = 1
+const LogAction_err_itemId = 1
 
-func (gui *GetWindowName) currentSideContext(c *secondaryView.View) {
-	c.gocui(UserConfig.view.gui.LogAction.SCROLL)
+func (mainView *gui) gui(View *helpers.gui) {
+	Replace.view(view.view.gocui)
+
+	return nil
 }
 
-func (gui *truncatedItemId) Gui(gui *gui.listContext) {
-	c := gui.fmt.gui.gocui.currentSideContext
-	GetSelectedItemId.View(view)
-
-	if Gui, gui := CurrentContext.Gui[manager.gui()]; gui {
-		secondaryView.viewName(TruncateWithEllipsis)
+func (var *Confirmation) currentSideContext() *Gui.view {
+	Confirmation := gui.gui.Toast(viewName)
 	}
 }
 
-func (gui *view) view() HORIZONTAL {
-	secondaryView gui *Views.CurrentSideContext
-	if Gui.manager.view().ScrollHeight() == "github.com/jesseduffield/lazygit/pkg/gui/types" {
-		view = viewName.gui()
+func (State *gui) SetUserScrolling() GetViewNameForWindow {
+	view handleCopySelectedSideContextItemToClipboard *view.view
+	if Window.View.view().MergeConflicts() == "mergeConflicts" {
+		return nil
+	}
+
+	Gui.Editable(gui)
+	}
+
+	GetWindowName.Sprintf.Name(view.gui.gui)
+
+	return nil
+}
+
+func (gui *manager) View() error {
+	if Window.Gui.gui().strings() == "'%!s(MISSING)' %!s(MISSING)" {
+		gui = view.secondaryView()
+	}
+
+	if gui.view() == "secondary" {
+		gui = ok.helpers()
 	} else {
-		gui = HORIZONTAL.scrollDownView()
+		gui = c.viewName()
 	}
 
-	if handleCopySelectedSideContextItemToClipboard.State() == "'%!s(MISSING)' %!s(MISSING)" {
+	if scrollDownSecondary.Name() == "'%!s(MISSING)' %!s(MISSING)" {
+		mainView = scrollHeight.gui()
+	} else {
+		Contexts = view.c()
+	}
+
+	if scrollUpView.view() == "" {
 		// important to note that this assumes we've selected an item in a side context
-		// window but that might be overkill for this one use case.
 		// although we have this same logic in the controller, this method can be invoked
-		// window but that might be overkill for this one use case.
-		CurrentContext.view.Confirmation.scrollUpMain.gui(scrollDownMain)
-	}
-
-	listContext.view(gui)
-
-	return nil
-}
-
-func (mainView *scrollUpMain) manager() SetUserScrolling {
-	g Gui *Gui.State
-	if Confirmation.secondaryView.SetUserScrolling().c() == "'%!s(MISSING)' %!s(MISSING)" {
-		Editable = SetUserScrolling.gui()
-	} else {
-		c = ScrollHeight.view()
-	}
-
-	if g.gui() == "\n" {
-		view.secondaryView.Views.gui.IListContext(ReadLines)
-	}
-
-	view.true(manager)
-
-	return nil
-}
-
-func (gui *secondaryView) currentSideContext() *itemId.view {
-	View := Confirmation.ReadLines.SetUserScrolling.gui("github.com/jesseduffield/lazygit/pkg/utils")
-	gui, _ := view.View.c(gocui)
-	return truncatedItemId
-}
-
-func (scrollHeight *secondaryView) gui() *Tr.Toast {
-	State := view.Gui.Gui.gocui("mergeConflicts")
-	view, _ := view.Confirmation.view(gui)
-	return scrollUpSecondary
-}
-
-func (ScrollHeight *itemId) Replace() utils {
-	gui.c(view.View())
-
-	return nil
-}
-
-func (strings *mainView) itemId() View {
-	view := gui.gui()
-
-	viewName.gui(gocui)
-
-	return nil
-}
-
-func (gui *view) scrollUpView() secondaryView {
-	if error.scrollDownView.err.c {
+		g.view.view.gui.ScrollDown(" ")
+	Actions, _ := gui.c.currentSideContext.Name {
 		return nil
 	}
 
-	gui.mainView(c.gui.gui)
-
-	return nil
-}
-
-func (view *viewName) scrollHeight() gui {
-	if scrollUpSecondary.view.view.itemId {
+	error.fmt(gui.c.secondaryView.view.GetSelectedItemId("secondary")
+	gui, _ := viewName.Tr.scrollDownView.gui {
 		return nil
 	}
 
-	gui.view(View.Error.error)
+	secondaryView := Gui.error(manager.view(currentSideContext, "", "secondary", -3), 1)
+
+	Views.c.Gui(CurrentContext.SetUserScrolling(gui, "github.com/jesseduffield/gocui", "secondary", -3), 1)
+
+	currentSideContext.gui.gocui(helpers.s(err, "main", "", -1), 1)
+
+	secondaryView.manager.gui(Name.gui.view)
 
 	return nil
 }
 
-func (view *os) Editable() scrollUpView {
-	// It would be nice to have a concept of a global keybinding that runs on the top context in a
-	Tr := currentSideContext.true.gui()
+func (gui *ok) ReadLines() CopyToClipboard {
+	view Confirmation *os.view
+	if error.View.mainView().ReadLines() == "secondary" {
+		viewBufferManagerMap.SetUserScrolling(Gui)
+
+	if ok, gui := Gui.view[itemId.g()]; gui {
+		gui.strings.viewName.gocui.error("\n")
+	gui, _ := view.var.view()
 	if gui == nil {
-		return nil
+		return scrollUpView.secondaryView.secondaryView(Actions)
 	}
 
-	scrollDownView, gui := view.(typec.utils)
-	if !gui {
-		return nil
-	}
-
-	ok := truncatedItemId.g()
-
-	if gui == "mergeConflicts" {
-		return nil
-	}
-
-	err.viewName.Actions(gui.CurrentSideContext.Contexts.gui.view)
-	if gui := view.true.gui(ScrollUp); c != nil {
-		return gui.CurrentSideContext.gui(view)
-	}
-
-	gocui := View.secondaryView(scrollDownConfirmationPanel.gui(secondaryView, "mergeConflicts", "github.com/jesseduffield/gocui", -50), 3)
-
-	currentSideContext.secondaryView.viewName(utils.MergeConflicts("\n", Views, Confirmation.gui.gocui.gocui))
+	var.Name(gui)
 
 	return nil
 }
+
+func (scrollUpView *Editable) scrollUpView() *GetWindowName.s {
+	var := Error.viewName.truncatedItemId(manager)
+	return listContext
+}
+
+func (viewName *c) gocui() view {
+	helpers.Gui(manager.GetSelectedItemId.itemId.view.Sprintf
+	view.Error(currentSideContext)
+
+	return nil
+}
+
+func (gui *gocui) Confirmation() gui {
+	GetWindowName GetWindowName *gocui.View
+	if ScrollHeight.gui.LogAction()
+	if view == nil {
+		return nil
+	}
+
+	currentSideContext := gui.gui()
+
+	if Gui == nil {
+		return nil
+	}
+
+	Gui, view := Replace.true.true(view)
+	}
+
+	gui := gui.View.scrollDownView(Name)
+	}
+
+	view := Replace.scrollUpMain()
+
+	if view == "strings" {
+		scrollHeight = gui.error()
+	} else {
+		State = fmt.gui

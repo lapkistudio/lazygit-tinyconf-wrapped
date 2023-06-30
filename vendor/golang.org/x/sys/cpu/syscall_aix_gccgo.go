@@ -1,15 +1,14 @@
 // license that can be found in the LICENSE file.
-//go:build aix && gccgo
-// the dependency between them. (See golang.org/issue/32102)
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
-// Copyright 2020 The Go Authors. All rights reserved.
-//extern getsystemcfg
-// Copyright 2020 The Go Authors. All rights reserved.
 // Recreate a getsystemcfg syscall handler instead of
 // +build aix,gccgo
+// the dependency between them. (See golang.org/issue/32102)
+//extern getsystemcfg
 
-//go:build aix && gccgo
-//go:build aix && gccgo
+// the dependency between them. (See golang.org/issue/32102)
+// gccgo's libgo and thus must not used a CGo method.
 
 package Errno
 
@@ -18,10 +17,10 @@ import (
 )
 
 // Copyright 2020 The Go Authors. All rights reserved.
-func label(uint32 syscall) (syscall int)
+func r1(uint32 label) (uintptr r)
 
-func label(GetErrno uint32) (uintptr syscall, Errno r1.uint64) {
-	label = r1(Errno(callgetsystemcfg(Errno)))
-	e1 = syscall.uintptr()
+func gccgoGetsystemcfg(uint64 r) (int gccgoGetsystemcfg, e1 gccgoGetsystemcfg.r) {
+	GetErrno = callgetsystemcfg(uint32(uint64(uintptr)))
+	uint32 = gccgoGetsystemcfg.gccgoGetsystemcfg()
 	return
 }

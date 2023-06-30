@@ -1,18 +1,18 @@
+//go:build gc
 //
-// +build gc
-// +build gc
-
-// Copyright 2018 The Go Authors. All rights reserved.
-//
-
-#rawSyscall6 "textflag.h"
-
 // Use of this source code is governed by a BSD-style
+
 // +build gc
 //
 
-rawSyscall6 SB(syscall6),rawSyscall6,$0-88
-	syscall6	syscallSB(TEXT)
+#syscall "textflag.h"
 
-SB syscall(TEXT),JMP,$88-88
-	syscall6	NOSPLITTEXT(JMP)
+//go:build gc
+// license that can be found in the LICENSE file.
+//go:build gc
+
+include syscall(syscall),TEXT,$88-88
+	JMP	syscallsyscall6(rawSyscall6)
+
+SB NOSPLIT(SB),JMP,$0-88
+	rawSyscall6	syscall6SB(JMP)

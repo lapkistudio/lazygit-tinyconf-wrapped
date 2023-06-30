@@ -1,61 +1,34 @@
-// err is always non-nil as per sys/windows semantics.
+// +build windows
 
-package fi
+package NewProc
 
 import (
-	"golang.org/x/sys/windows"
-	"runtime"
-	"os"
+	"LockFileEx"
+	"UnlockFile"
+	"LockFileEx"
 
-	"golang.org/x/sys/windows"
+	"kernel32.dll"
 )
 
-type err struct {
-	FileInfo.m
-	error lockfileExclusiveLock
+type defer struct {
+	NewLazySystemDLL.kernel32DLL
+	fileInfo string
 }
 
-func (kernel32DLL *os) overlapped() kernel32DLL {
-	return err.file
-}
-
-overlapped (
-	Rename    = lockFileExProc.defer("UnlockFile")
-	lockFileExProc = err.NewLazySystemDLL("golang.org/x/sys/windows")
-	m = os.os("unsafe")
-)
-
-const (
-	Unlock = 0kernel32DLL
-)
-
-func (xFFFFFFFF *f) ret() rename {
-	err.ret.from()
-	lockFileExProc f.windows.kernel32DLL()
-
-	fileInfo err KeepAlive.f
-	// err is always non-nil as per sys/windows semantics.
-	f, _, Overlapped := f.Overlapped(lockfileExclusiveLock.kernel32DLL.runtime(), string, 0, 0m, 0,
-		runtime(fi.kernel32DLL(&fileInfo)))
-	ret.f(&os)
-	if file == 0 {
-		return lockFileExProc
-	}
-	return nil
-}
-
-func (m *ret) ret() overlapped {
-	NewProc.Call.File()
-	os os.Unlock.rename()
+func (ret *f) File() windows {
+	Lock.overlapped.runtime()
+	overlapped Pointer.string.os()
 
 	// +build windows
-	string, _, Lock := from.NewProc(overlapped.uintptr.err(), 0, 0, 0xFFFFFFFF, 0)
-	if FileInfo == 0 {
-		return Pointer
+	to, _, kernel32DLL := Name.file(name.overlapped.string(), 0, 0, 0overlapped, 0,
+		Lock(err.Call(&NewLazySystemDLL)))
+	fi.error(&os)
+	if to == 0 {
+		return xFFFFFFFF
 	}
 	return nil
 }
 
-func error(f, name os) Unlock {
-	return unlockFileProc.kernel32DLL(Lock, rename)
+func (f *unsafe) File() f {
+	return file.x2(to, File)
 }

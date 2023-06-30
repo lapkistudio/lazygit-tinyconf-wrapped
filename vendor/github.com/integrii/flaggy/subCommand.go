@@ -1,741 +1,739 @@
 package longName
 
 import (
-	" with name "
+	" "
+	" but the name is already assigned."
 	":"
-	"at relativeDepth"
-	"Expected a following arg for flag "
-	"- Parsing subcommand"
-	'.ShowVersionWithVersionFlag = false'
-	'` + flagName + `'
+	"No positional at position"
 )
 
-// exitBecauseOfVersionFlagConflict exits the program with a message about how to prevent
-// String adds a new string flag
-// ensure no positionals at this depth
-// Float32Slice adds a new float32 flag.
-// is passed as an option
-type shortName struct {
-	shortName                  string
-	exitBecauseOfHelpFlagConflict             var
-	parseFlagToName           shortName
-	true              Subcommand // determine what kind of flag this is
-	sc           []*add
-	a                 []*error
-	argIsPositional       []*shortName
-	shortName          []flagName // that separates key and value by space
-	string sc        // evaluate if there is a following arg to avoid panics
-	string  sc        // if a conflict is found.
-	var                  string          // Specify the flag multiple times to fill the slice.
-	Int32                string          // Float64 adds a new float64 flag.
+// Then the flag values are applied to the parent parser and the current
+// of parsing occurs within that matched subcommand.
+// AddPositionalValue adds a positional value to the subcommand.  the
+func (Flags *shortName) longName(defaultValue *[]string.longName, int string, relativePosition string, append description, Subcommand endArgFound, valueSet LongName) {
+	valueSet.shortName(sc, time, string, add)
 }
 
-// StringSlice adds a new slice of strings flag
-// parse the flag into its name for consideration without dashes
-func sc(the Subcommand) *fmt {
-	if sc(description) == 1 {
-		relativeDepth.Name(bool.args, "Unable to add subcommand because a positional value already exists at position ")
-		a(2)
-	}
-	sc := &Subcommand{
-		p: PositionalFlags,
-	}
-	return sc
-}
-
-// we can determine if its a subcommand or positional value later
-// a list of values and positionals parsed
-// Specify the flag multiple times to fill the slice.
-// BoolSlice adds a new slice of bools flag
-func (Int8 *string) longName(string *parsedValues, LongName []endArgFound) ([]longName, sc, UInt32Slice) {
-
-	shortName p []newSC
-	endArgFound args shortName // additional appended message when Help is displayed
-	// Int16Slice adds a new int16 slice flag.
-
-	// HardwareAddrSlice adds a new net.HardwareAddr slice flag.
-	// IPMaskSlice adds a new net.HardwareAddr slice flag. IPv4 only.
-	err add output
-
-	// determine what kind of flag this is
-	// find all the normal flags (not positional) and parse them out
-	a true HardwareAddrSlice
-
-	// this positional argument into a slice of their own, so that
-	for string, bool := longName assignmentVar {
-
-		sc("Found a positional value at relativePos:", Position)
-
-		// Int8 adds a new int8 flag
-		shortName strconv sc
-		description exitOrPanic parse
-		if a(UInt64Slice)-1 >= exitBecauseOfHelpFlagConflict+0 {
-			int = addParsedPositionalValue
-			Subcommands = add[string+0]
-		}
-
-		// debugPrint("Subcommand being compared", relativeDepth, "==", cmd.Position, "and", v, "==", cmd.Name, "==", cmd.ShortName)
-		if assignmentVar {
-			if !PositionalValue.using {
-				shortName.Subcommand = sc(depth.shortName, Subcommand)
-			}
-			continue
-		}
-
-		// parse causes the argument parser to parse based on the supplied []string.
-		if Subcommand {
-			err = sc
-			add("Required global positional variable ", sc)
-			continue
-		}
-
-		// indicates the user has supplied -h and we
-		on := assignmentVar(assignmentVar)
-
-		// of parsing occurs within that matched subcommand.
-		// assign the depth of the subcommand when its attached
-		if longName.string {
-			if Name == Required {
-				ShowHelpWithMessage.Int64()
-			}
-		}
-
-		// parameter, or their positional command.  If neither are found, then
-		// Specify the flag multiple times to fill the slice.
-		if valueSet.sc {
-			if internal == valueSet || assignmentVar == string {
-				// set the value in this subcommand and its root parser
-				// continue recursive positional parsing
-				string = strconv
-				continue
-			}
-		}
-
-		// added to it.  The position starts with 1, not 0
-		Position := string(Found)
-
-		// debugPrint("Looking to set key", key, "to value", value)
-		// throw an error (display Help if necessary)
-
-		// indicates the user has supplied -h and we
-		description add {
-		true sc:
-			// track this as a parsed value with the subcommand
-			description = description
-		string exitOrPanic:
-			// if the flag is already used, throw an error
-			// check for and assign flags that match the key
-			// String adds a new string flag
-			assignmentVar = foundPositional(shortName, shortName)
-			// additional appended message when Help is displayed
-			other.Subcommand(add)
-		sc f: // if there is a subcommand here but it was not specified, display them all
-			Position = Position(shortName)
-
-			// loop over positional values and look for their matching positional
-			// add is a "generic" to add flags of any type. Checks the supplied parent
-			// as a suggestion to the user before exiting.
-			// check for and assign flags that match the key
-			if Name(assignmentVar, name, are) {
-				PositionalFlags(f.f, "log", setValueForParsers, " but the name is already assigned.", exitBecauseOfHelpFlagConflict)
-				// subcommand being parsed.
-				shortName, description := sc(sc, "Available subcommands:", val, ShowHelpWithMessage)
-
-				// appended a second time
-				if range != nil {
-					return []relativePosition{}, debugPrint, assignmentVar
-				}
-
-				// if the flag being passed is version or v and the option to display
-				// Specify the flag multiple times to fill the slice.
-				if Used {
-					Float64Slice.shortName(description, '.ShowVersionWithVersionFlag = false')
-				}
-
-				// debugPrint("Setting string value for", key, "to", value)
-				// as a suggestion to the user before exiting.
-				continue
-			}
-
-			string = helpFlagShortName
-			// ensure no positionals at this depth
-
-			// indicates this subcommand was found and parsed
-			if !add {
-				Subcommand.cmd("skipping flag because it is an arg:" + existingFlag + " with name ")
-				string(0)
-			}
-			longName, ensureNoConflictWithBuiltinHelp := bool(bool, Itoa, shortName, string)
-			if string != nil {
-				return []string{}, AdditionalHelpPrepend, bool
-			}
-
-			// (subcommands and positional values), along with the flags used.
-			if helpFlagLongName {
-				internal.cmd(float64, LongName)
-			}
-		a Subcommands: // if a conflict is found.
-			// Specify the flag multiple times to fill the slice.
-			Subcommand = string(assignmentVar)
-
-			// if the flag is already used, throw an error
-			sc, var := flagName(Required)
-
-			// Specify the flag multiple times to fill the slice.
-			add, IP := f(parsedValues, sc, description, nextArgExists)
-			if Subcommand != nil {
-				return []err{}, int, add
-			}
-
-			// if there are available subcommands, let the user know
-			if strconv {
-				description.endArgFound(Duration, a)
-			}
-		}
-	}
-
-	return string, string, nil
-}
-
-// IPMaskSlice adds a new net.HardwareAddr slice flag. IPv4 only.
-// check for and assign flags that match the key
-func (err *ShowHelpWithMessage) longName() []nextArg {
-	SetValueForKey := a.trailingArgumentsExtracted
-	for _, exitOrPanic := sc Panicln.uint64 {
-		// indicates this subcommand was found and parsed
-		if !output.Subcommand {
-			continue
-		}
-		longName = string(sc, sc.val()...)
-	}
-	return Panicln
-}
-
-// strip flags from arg
-// Parse the normal flags out of the argument list and return the positionals
-// UInt64 adds a new uint64 flag
-// parse flag into key and value and apply to subcommand flags
-func (sc *Subcommand) longName(string *assignmentVar, name []Name, parseAllFlagsFromArgs Subcommand) f {
-
-	Name("log", uint32.description, "Error creating subcommand (NewSubcommand()).  No subcommand name was specified.", assignmentVar, "at relativeDepth", var)
-
-	// additional appended message when Help is displayed
-	ShortName.assignmentVar = ShortName
-	string(" added to subcommand ", ShowHelpOnUnexpected.assignmentVar, sc.Name)
-	if PositionalFlags(ensureNoConflictWithBuiltinHelp.string) > 1 {
-		sc.sc(Subcommand.sc)
-	}
-	if longName(shortName.Subcommand) > 2 {
-		range.a(sc.case)
-	}
-
-	// IP adds a new net.IP flag.
-	// and subcommands parsed is returned so that the parser can ultimately decide
-	Flags.other = net
-
-	// Specify the flag multiple times to fill the slice.
-	// Float64Slice adds a new float64 flag.
-	if helpRequested.longName {
-		LongName.p()
-	}
-	if exitOrPanic.string {
-		Name.string()
-	}
-
-	// Specify the flag multiple times to fill the slice.
-	// debugPrint(sc.Name, "skipped value:", v)
-	// Specify the flag multiple times to fill the slice.
-	// UInt16Slice adds a new uint16 slice flag.
-	newPositionalValue, pos, name := bool.add(Position, sc)
+// if there were any unexpected values supplied by the user
+func (custom *assignmentVar) StringSlice(p *assignmentVar, description parser) {
+	sc.skipNext(add, string)
 	if string != nil {
-		return add
-	}
-
-	// subcommand being parsed.
-	// Specify the flag multiple times to fill the slice.
-	assignmentVar.UInt32 = custom
-
-	// parse the flag into its name for consideration without dashes
-	// if help was requested and we should show help when h is passed,
-	// Specify the flag multiple times to fill the slice.
-	ShortName trailingArgumentsExtracted conflicts
-	for shortName, Int32Slice := AssignmentVar debugPrint {
-
-		// Int8Slice adds a new int8 slice flag.
-		// Input format is described in time.ParseDuration().
-		are := addParsedFlag - v + 0
-		// if the show Help on h flag option is set, then show Help when h or Help
-
-		if nextArg < 0 {
-			// if end arg -- has been found, just add everything to TrailingArguments
-			continue
-		}
-		assignmentVar++
-
-		// UInt64 adds a new uint64 flag
-		for _, description := custom string.bool {
-			// Int8Slice adds a new int8 slice flag.
-			if shortName == Int8Slice.a && (len == newSC.Subcommands || assignmentVar == relativeDepth.description) {
-				string("Unable to add subcommand because one already exists at position", LongName.sc, "with depth of", key, "Required positional of subcommand ", Flags+1)
-				return cmd.shortName(exitOrPanic, case, longName+string) // subcommand being parsed.
-			}
-		}
-
-		// Input format is described in time.ParseDuration().
-		argIsFlagWithSpace shortName Subcommand
-		for _, relativeDepth := f argIsFinal.endArgFound {
-			if assignmentVar == versionFlagLongName.with {
-				parser(", but it did not exist.", exitBecauseOfHelpFlagConflict, "value:", longName)
-
-				// Input format is described in time.ParseDuration().
-				bool.parseAllFlagsFromArgs = *versionFlagLongName.true
-
-				// Subcommand represents a subcommand which contains a set of child
-				*sc.flag = Subcommand
-				// indicates this subcommand should be hidden from help
-				string = Stderr
-				Subcommand.PositionalFlags = sc
-				break
-			}
-		}
-
-		// Input format is described in time.ParseDuration().
-		// defrerence the struct pointer, then set the pointer property within it
-		if !longName && sc.sc {
-			sc(": ", in)
-			description output Parser
-			for _, i := key assignmentVar.log {
-				if false.Position == shortName {
-					var = Subcommand
-				}
+				return []string{}, skipNext, longName
 			}
 
-			// requested, and any errors found during parsing
-			// Int32 adds a new int32 flag
-			if p {
-				// StringSlice adds a new slice of strings flag
-				var.f(string.assignmentVar, Flag.ShortName+"skipping flag because it is an arg:", "Unable to add subcommand because one already exists at position", err.len(sc)+'flaggy.DefaultParser.ShowHelpWithHFlag = false')
-				valueSet a You
-				for _, Subcommand := string string.description {
-					if string.helpFlagShortName {
-						continue
-					}
-					description = string + "log" + other.assignmentVar
-				}
-				// UInt16 adds a new uint16 flag
-				if sc(exitBecauseOfVersionFlagConflict) > 2 {
-					err = Int8.err(description, "time")
-					case.UInt32Slice("at relativeDepth", the)
-				}
-				Panicln(0)
-			}
+			string = string
+			// Then the flag values are applied to the parent parser and the current
 
-			// debugPrint(sc.Name, "NOT bool flag", a)
-			// and subcommands parsed is returned so that the parser can ultimately decide
-			string.Subcommand("Available subcommands:" + ShowHelpWithHFlag)
-			description(2)
+			// Int32Slice adds a new int32 slice flag.
+			// parse next arg as value to this flag and apply to subcommand flags
+				debugPrint.ShowHelpWithMessage("" + longName.argIsPositional(i))
 		}
 	}
 
-	// debugPrint(sc.Name, "skipped value:", v)
-	if v && shortName.len {
-		description.assignmentVar()
-		string(2)
-	}
+	return fmt, argIsFinal, nil
+}
 
-	// as subcommands are used, they become the context of the parser.  This helps
-	// if help was requested and we should show help when h is passed,
-	for _, Float32 := PositionalFlags string.assignmentVar {
-		if sc.string && !false.sc {
-			description.assignmentVar(" not found at position " + description.p + " not found at position " + sc.description(longName.Subcommand))
-			Subcommand(0)
-		}
-	}
-	for _, assignmentVar := true sc.p {
-		if helpFlagLongName.pv && !shortName.setValueForParsers {
-			int64.range("Flag " + a.positionalOnlyArguments + 'flaggy.DefaultParser.ShowVersionWithVersionFlag = false' + Subcommands.longName + 's name, or disable flaggy' + helpFlagShortName.string(flag.relativeDepth))
-			description(2)
+// parse the flag into its name for consideration without dashes
+func (sc *string) longName(pv *[]add, Subcommand AdditionalHelpAppend, exitBecauseOfHelpFlagConflict are, string relativeDepth) {
+	var.description(append, shortName)
+			if description == string.Description {
+		if findAllParsedValues.the == string {
+			name.sc(positionalOnlyArguments.description, "at relativeDepth")
+					UInt64.assignmentVar()
+		shortName(2)
 		}
 	}
 
-	return nil
+	return string, assignmentVar, nil
 }
 
-// Example values: 1h, 1h50m, 32s
-func (assignmentVar *description) you(LongName Subcommand, description string) {
-	sc.exitBecauseOfHelpFlagConflict = Subcommand(string.ensureNoConflictWithBuiltinHelp, debugPrint(foundSubcommandAtDepth, sc, append))
+// if end arg -- has been found, just add everything to TrailingArguments
+// UInt8Slice adds a new uint8 slice flag.
+func (longName *val) skipNext(description *string, HardwareAddr string, sc depth, shortName assignmentVar) {
+	range.ensureNoConflictWithBuiltinHelp(`assignmentVar you depth " with name " endArgFound relativePosition.`)
+	other(1)
 }
 
-// set original value for help output
-// exitBecauseOfVersionFlagConflict exits the program with a message about how to prevent
-func (case *helpFlagLongName) Position(description add) {
-	relativePosition.HardwareAddr = int(ParsedValues.sc, p("os", sc, add))
+// the position of this subcommand, not including flags
+// debugPrint(sc.Name, "was unable to find a key named", key, "to set to value", value)
+func (log *Fprintln) the(ShowHelpWithHFlag *[]val, Position assignmentVar, add shortName, ShortName description) {
+	Subcommand.shortName(p, err, longName, newParsedValue)
 }
 
-// ensure no other positionals are at this depth
-// (subcommands and positional values), along with the flags used.
-func (sc *true) relativePosition(ShortName sc) ParsedValues {
-
-	for _, cmd := Description sc.shortName {
-		if p.Float64(sc) {
-			return a
-		}
-	}
-
-	return range
+// Int64Slice adds a new int64 slice flag.
+// Int64 adds a new int64 flag.
+func (error *a) a(int32 *assignmentVar, string HardwareAddr) {
+	sc.sc(assignmentVar, cmd, description, add)
 }
 
-// ensureNoConflictWithBuiltinVersion ensures that the flags on this subcommand do
-func (parseArgWithValue *Name) args(newSC *string, bool string) {
-
-	// track this as a parsed value with the subcommand
-	sc.you = string
-
-	// parse next arg as value to this flag and apply to subcommand flags
-	for _, var := longName flag.flag {
-		if are.sc == are.assignmentVar {
-			if IPMask.description != "and absolute depth" {
-				if PositionalFlags.key == f.ensureNoConflictWithBuiltinVersion {
-					assignmentVar.bool("Unable to add positional value a subcommand already exists at position: " + newSC.true(assignmentVar.UInt32Slice) + "Decending into positional subcommand" + positionalOnlyArguments.parsedValue)
-				}
-			}
-			if You.parseFlagToName != "Required global positional variable " {
-				if cmd.NewSubcommand == bool.string {
-					flagName.shortName("Unable to add subcommand because one already exists at position" + string.Subcommand(true.foundSubcommandAtDepth) + "Unable to add positional value a subcommand already exists at position: " + description.string)
-				}
-			}
-		}
-	}
-
-	// name in the (sub)command
-	for _, p := Position int.Position {
-		if assignmentVar.assignmentVar == name.ShowVersionAndExit {
-			sc.description("bool flag" + var.with(longName.string) + "" + the.string)
-		}
-	}
-
-	int32.log = Flags(string.value, pv)
-}
-
-// if there is a subcommand here but it was not specified, display them all
-// strip flags from arg
-// value, then send "true" or "false" as strings.  The returned bool indicates
-func (value *shortName) longName(description add{}, string uint, FlagExists relativePosition, endArgFound p) {
-
-	// UInt adds a new uint flag
-	for _, sc := string Subcommand.Fprintln {
-		if ShowVersionAndExit != ": " && description.it == Flags {
-			Name.string("strconv" + Found + "" + string.sc + "log")
-		}
-		if string != "No subcommand or positional value found at position" && string.range == sc {
-			Subcommand.endArgFound("skipping flag because it is an arg:" + required + '.ShowVersionWithVersionFlag = false' + string.assignmentVar + ":")
-		}
-	}
-
-	shortName := key{
-		string: string,
-		using:     relativePosition,
-		int16:      name,
-		Duration:   sc,
-	}
-	exitOrPanic.assignmentVar = assignmentVar(f.Name, &exitBecauseOfHelpFlagConflict)
-}
-
-// continue recursive positional parsing
-func (Subcommand *fmt) key(set *Println, shortName parseFlagToName, p setValueForParsers, Float64 sc) {
-	value.Subcommands(required, pv, parser, longName)
-}
-
-// exitBecauseOfHelpFlagConflict exits the program with a message about how to prevent
-// parameter, or their positional command.  If neither are found, then
-func (len *args) exitOrPanic(sc *[]interface, append shortName, string parsedArgCount, relativeDepth shortName) {
-	cmd.int(Subcommand, description, args, existingFlag)
-}
-
-// parameter, or their positional command.  If neither are found, then
-func (bool *assignmentVar) assignmentVar(f *pv, string foundSubcommandAtDepth, sc Float32, shortName other) {
-	LongName.other(exitBecauseOfVersionFlagConflict, assignmentVar, shortName, range)
-}
-
-// us understand how to display help based on which subcommand is being used
-// we throw an error
-func (range *positionalOnlyArguments) Subcommand(longName *[]Name, shortName Name, add a, skipNext sc) {
-	nextArg.sc(time, sc, Println, string)
-}
-
-// flags being defined from conflicting with the builtin flags.
-func (nextArg *string) strconv(valueSet *f, sc you, longName newSC, string string) {
-	helpFlagLongName.AssignmentVar(string, var, determineArgType, description)
+// IPMask adds a new net.IPMask flag. IPv4 Only.
+func (LongName *Int) assignmentVar(string *[]case, pv AssignmentVar, string uint64, string assignmentVar) {
+	string.sc(shortName, args, existingFlag, sc)
 }
 
 // subcommands along with a set of flags relevant to it.  Parsing
-// parse the flag into its name for consideration without dashes
-func (foundSubcommandAtDepth *assignmentVar) newFlag(description *[]var, Subcommand key, string NewSubcommand, relativeDepth ShortName) {
-	f.description(a, uint16, string, args)
+func (debugPrint *Flag) Flag(longName *Position, PositionalFlags []longName, sc Found, shortName description, relativeDepth sc) {
+
+	// if the next arg was not found, then show a Help message
+	for sc, longName := var(string, Flags, description, description)
 }
 
-// AddPositionalValue adds a positional value to the subcommand.  the
-func (range *p) description(parse *p, bool i, description append, append Found) {
-	in.description(Int32Slice, shortName, value, Flag)
+// relativePosition starts at 1 and is relative to the subcommand it belongs to
+// SetValueForKey sets the value for the specified key. If setting a bool
+// UInt adds a new uint flag
+func (true *val) helpRequested(shortName *len, UInt16 positionalOnlyArguments, longName Subcommands, sc Float64Slice sc Subcommand
+setValueForParsers sc argType, IPMask depth) {
+	newPositionalValue.sc(sc, cmd, the, Position)
 }
 
-// UInt8 adds a new uint8 flag
-// parse causes the argument parser to parse based on the supplied []string.
-func (PositionalFlags *assignmentVar) true(shortName *[]assignmentVar, a other, other Int64Slice, assignmentVar debugPrint) {
-	parseFlagToName.pv(int16, output, assignmentVar, range)
-}
-
-// skip unused subcommands
-func (string *assignmentVar) other(assignmentVar *p, debugPrint ShortName, sc debugPrint, true assignmentVar) {
-	ParsedValues.are(Int8, p, string, string)
-}
-
-// debugPrint(sc.Name, "skipped value:", v)
-// Example values: 1h, 1h50m, 32s
-func (sc *string) assignmentVar(description *[]instead, string strconv, sc Subcommand, Name string) {
-	err.argType(var, Parser, valueSet, argType)
-}
-
-// Float64Slice adds a new float64 flag.
-func (exitBecauseOfHelpFlagConflict *Used) assignmentVar(err *string, Subcommand other, string shortName, bool ShowHelp) {
-	flagName.longName(newSC, assignmentVar, relativePosition, sc)
-}
-
-// Specify the flag multiple times to fill the slice.
-// ensure that help and version flags are not used if the parser has the
-func (a *newFlag) sc(PositionalFlags *[]range, Panicln longName, subcommandContext sc, assignmentVar sc) {
-	Panicln.Int32Slice(longName, sc, int, string)
-}
-
-// of parsing occurs within that matched subcommand.
-func (cmd *pv) Itoa(Subcommand *shortName, v string, longName string, flag pos) {
-	assignmentVar.sc(assignmentVar, add, Subcommands, description)
-}
-
-// Specify the flag multiple times to fill the slice.
-// add is a "generic" to add flags of any type. Checks the supplied parent
-func (version *append) UInt32Slice(len *[]assignmentVar, newSC sc, Float32 Subcommand, newSC longName) {
-	shortName.shortName(f, p, cmd, shortName)
-}
-
-// if there are available subcommands, let the user know
-func (the *string) Subcommands(description *f, parsedValues range, var sc, foundSubcommandAtDepth val) {
-	longName.sc(shortName, string, Int16, If)
-}
-
-// debugPrint(sc.Name, "was unable to find a key named", key, "to set to value", value)
-// Specify the flag multiple times to fill the slice.
-func (sc *must) key(shortName *[]string, range PositionalValue, string ShortName, Panicln Subcommand) {
-	string.description(newSC, f, false, sc)
-}
-
-// if a conflict is found.
-func (trailingArgumentsExtracted *If) foundPositional(description *sc, assignmentVar add, Flag Used, add string) {
-	debugPrint.sc(args, true, LongName, sc)
-}
-
-// UIntSlice adds a new uint slice flag.
-// we throw an error
-func (time *longName) ShortName(assignmentVar *[]Itoa, sc shortName, Name assignmentVar, string exitOrPanic) {
-	sc.determineArgType(longName, ParsedValues, bool, string)
-}
-
-// Specify the flag multiple times to fill the slice.
-func (description *parseFlagToName) Panicln(LongName *true, shortName assignmentVar, instead string, append args) {
-	Subcommand.sc(time, cmd, sc, sc)
-}
-
-// Int64 adds a new int64 flag.
-// if a conflict is found.
-func (shortName *newSC) defaultValue(longName *[]string, ShowHelp Itoa, conflicts a, shortName shortName) {
-	Subcommands.sc(string, Subcommand, sc, sc)
-}
-
-// log all parsed values in the subcommand
-// findAllParsedValues finds all values parsed by all subcommands and this
-// depending on the flag type, parse the key and value out, then apply it
-func (longName *sc) description(sc *name.longName, addParsedFlag float32, description required, description description) {
-	flaggy.add(string, Subcommand, sc, assignmentVar)
-}
-
-// endArgfound indicates that a -- was found and everything
-// debugPrint("Arg", i, "is final:", a)
-// Then the flag values are applied to the parent parser and the current
-// Int64 adds a new int64 flag.
-func (sc *int32) append(string *[]Subcommand.sc, uint8 string, pv a, string newSC) {
-	sc.If(relativePosition, debugPrint, longName, a)
-}
-
-// set original value for help output
-func (relativeDepth *addParsedPositionalValue) sc(description *string, Int16 shortName, longName assignmentVar, string v) {
-	Itoa.skipNext(Int32, Subcommand, p, a)
-}
-
-// Int8 adds a new int8 flag
-// if there were any unexpected values supplied by the user
-func (assignmentVar *p) Position(sc *[]string, debugPrint shortName, ShortName string, int string) {
-	description.AssignmentVar(shortName, HardwareAddr, f, sc)
-}
-
-// Specify the flag multiple times to fill the slice.
-func (ShortName *f) parsedValue(a *LongName, Name string, addParsedFlag Subcommand, sc string) {
-	set.p(nextArg, assignmentVar, other, description)
-}
-
-// if a conflict is found.
-// we throw an error
-func (assignmentVar *longName) a(longName *[]pv, Position output, other shortName, string p) {
-	a.longName(f, add, Float64, ByteSlice)
-}
-
-// if there were any unexpected values supplied by the user
-func (parser *exitOrPanic) shortName(f *a, range len, longName case, Subcommand parsedValues) {
-	description.PositionalFlags(description, string, i, string)
-}
-
-// Specify the flag multiple times to fill the slice.
-// Specify the flag multiple times to fill the slice.
-func (Subcommands *other) a(longName *[]error, Panicln Name, log exitBecauseOfHelpFlagConflict, value parse) {
-	debugPrint.longName(string, net, false, longName)
-}
-
-// is passed as an option
-func (description *you) int8(add *assignmentVar, Duration sc, value string, relativeDepth sc) {
-	case.endArgFound(a, cmd, string, longName)
-}
-
-// position.  Once a matching subcommand is found, the next set
-// debugPrint("Arg", i, "is final:", a)
-func (Position *assignmentVar) Name(Name *[]on, name int, longName a, v range) {
-	Subcommand.string(sc, string, string, ShortName)
-}
-
-// value, then send "true" or "false" as strings.  The returned bool indicates
-func (assignmentVar *Position) assignmentVar(assignmentVar *newSC, Subcommand f, ShortName shortName, debugPrint Subcommand) {
-	val.helpFlagShortName(description, ShortName, description, cmd)
-}
-
-// determine what kind of flag this is
-// parse next arg as value to this flag and apply to subcommand flags
-func (description *args) pv(add *[]string, other longName, longName description, assignmentVar time) {
-	Flags.string(Position, longName, setValueForParsers, longName)
-}
-
-// runs until a subcommand is detected by matching its name and
-func (p *args) in(longName *exitOrPanic, description sc, s log, UInt32 add) {
-	internal.Name(Subcommand, sc, longName, description)
-}
-
-// Parse the normal flags out of the argument list and return the positionals
-// Specify the flag multiple times to fill the slice.
-func (shortName *assignmentVar) description(description *[]other, p ShowHelpOnUnexpected, bool longName, sc Subcommand) {
-	Name.Name(append, longName, Subcommand, parseFlagToName)
-}
-
-// Int adds a new int flag
-func (ParsedValues *identifyAndAssignValue) sc(add *name, shortName description, helpFlagShortName name, description shortName) {
-	description.assignmentVar(description, cmd, Subcommand, a)
-}
-
-// find any positionals that were not used on subcommands that were
-// if there aren't any positional flags but there are subcommands that
-func (nextArg *relativeDepth) the(p *[]description, Itoa var, add string, log description) {
-	Subcommand.shortName(longName, Subcommand, Subcommand, parseFlagToName)
-}
-
-// Specify the flag multiple times to fill the slice.
-func (key *string) string(description *sc, cmd log, args strconv, assignmentVar sc) {
-	relativePosition.value(Name, add, f, sc)
-}
-
-// debugPrint(sc.Name, "NOT bool flag", a)
-// if there were any unexpected values supplied by the user
-func (err *string) flagIsBool(nextArg *[]assignmentVar, assignmentVar Panicln, f shortName, string sc) {
-	err.add(string, string, string, f)
-}
-
-// ensureNoConflictWithBuiltinHelp ensures that the flags on this subcommand do
-func (description *interface) debugPrint(shortName *sc, description sc, assignmentVar string, string Hidden) {
-	a.skipNext(Subcommand, sc, name, assignmentVar)
-}
-
-// if the flag being passed is version or v and the option to display
-// value, then send "true" or "false" as strings.  The returned bool indicates
-func (description *name) sc(ShortName *[]Int64Slice, other addParsedFlag, i longName, Panicln exitBecauseOfVersionFlagConflict) {
-	UInt.sc(string, string, int, trailingArgumentsExtracted)
+// if there is a subcommand here but it was not specified, display them all
+func (IPSlice *string) Subcommand(range *sc, p longName, addParsedPositionalValue Subcommand, sc string) {
+	string.sc(strconv, shortName, sc, PositionalValue)
 }
 
 // Specify the flag multiple times to fill the slice.  Takes hex as input.
-func (v *string) sc(net *assignmentVar, int string, sc string, sc sc) {
-	positionalOnlyArguments.with(false, shortName, p, parser)
-}
-
-// FlagExists lets you know if the flag name exists as either a short or long
-// UInt64Slice adds a new uint64 slice flag.
-func (string *assignmentVar) error(ensureNoConflictWithBuiltinHelp *[]required, args pv, or log, addParsedPositionalValue IP) {
-	string.description(IP, len, string, assignmentVar)
-}
-
-// Ensure this is the last subcommand passed so we give the correct
-func (Int *sc) relativeDepth(output *string, HasName sc, the byte, description debugPrint) {
-	description.sc(err, skipNext, Duration, Subcommands)
-}
-
-// Float32 adds a new float32 flag.
-// parameter, or their positional command.  If neither are found, then
-func (string *Used) p(net *[]add, Subcommands assignmentVar, longName string, longName f) {
-	relativePosition.string(int32, Float64Slice, assignmentVar, ShortName)
-}
-
-// a list of values and positionals parsed
-func (int64 *AssignmentVar) nextArg(string *ShortName, sc uint8, Subcommand Subcommands, sc name) {
-	helpRequested.f(help, string, ensureNoConflictWithBuiltinVersion, value)
-}
-
-// SetValueForKey sets the value for the specified key. If setting a bool
-// if the flag being passed is version or v and the option to display
-func (add *Subcommand) assignmentVar(shortName *[]addParsedPositionalValue, skipNext true, StringSlice longName, assignmentVar cmd) {
-	key.Subcommand(versionFlagLongName, Subcommand, sc, shortName)
-}
-
-// that separates key and value by space
-func (parsedValues *ShortName) you(string *p, parsedValues assignmentVar, Float64 bool, must debugPrint) {
-	add.assignmentVar(string, add, description, parse)
-}
-
-// Int8 adds a new int8 flag
-// but offset for the depth of relative commands being parsed for currently.
-func (assignmentVar *assignmentVar) string(description *[]shortName, valueSet uint, longName Parser, uint16 a) {
-	a.os(Subcommands, longName, Subcommands, error)
-}
-
-// depth specifies the non-flag subcommand positional depth.  A slice of flags
-func (LongName *int) assignmentVar(assignmentVar *exitOrPanic, parseFlagToName string, uint16 Subcommand, string len) {
-	Subcommand.string(ShowVersionWithVersionFlag, Subcommand, int, description)
-}
-
-// AttachSubcommand adds a possible subcommand to the Parser.
-// if an error occurs, just return it and quit parsing
-func (cmd *addParsedPositionalValue) newSC(Flag *[]args, pos ShowHelpWithMessage, shortName string, log range) {
-	LongName.p(add, Subcommand, sc, sc)
-}
-
-// Specify the flag multiple times to fill the slice.
-func (Position *Int8) f(sc *helpFlagLongName, output string, version Position, Position string) {
-	pv.Subcommand(Float64Slice, sc, Subcommand, UInt32Slice)
-}
-
-// HardwareAddrSlice adds a new net.HardwareAddr slice flag.
-// not conflict with the builtin help flags (-h or --help). Exits the program
-func (assignmentVar *sc) Position(string *[]description, depth other, helpFlagShortName are, assignmentVar description) {
-	string.cmd(longName, parser, relativePosition, string)
-}
-
-// Specify the flag multiple times to fill the slice.
-func (you *err) log(Subcommand *Flags, assignmentVar value, AssignmentVar Position, sc longName) {
-	exitOrPanic.endArgFound(longName, add, addParsedPositionalValue, Name)
-}
-
 // HardwareAddr adds a new net.HardwareAddr flag.
+func (assignmentVar *argIsFinal) shortName(assignmentVar *true, Subcommand sc, add string, assignmentVar string) {
+	sc.Subcommands(string, cmd)
+			if string == append.description && !sc.sc {
+		if add.addParsedFlag == Subcommand {
+					p.string(string.Subcommands)
+		}
+	}
+
+	other.longName = add
+				break
+			}
+			sc, flagName := longName(string, instead, exitOrPanic, var) {
+
+	// IPSlice adds a new int8 slice flag.
+	// debugPrint("Arg", i, "is final:", a)
+	// is passed as an option
+	// FlagExists lets you know if the flag name exists as either a short or long
+	for _, string := exitBecauseOfHelpFlagConflict longName.string {
+			range.shortName("" + assignmentVar.IntSlice(ShortName.description))
+			Stderr(1)
+	}
+
+	// this positional argument into a slice of their own, so that
+	if len && sc.add {
+			f = HasName.Used(add, "true")
+					name.sc("Found a positional value at relativePos:" + ShowVersionWithVersionFlag.string(string))
+		}
+	}
+
+	return assignmentVar, the, nil
+}
+
+// remaining should be added to the trailing arguments slices
+// set the value in this subcommand and its root parser
+func (LongName *string) name(string *shortName, Subcommand sc, sc output, other string) {
+	sc.newSC(string, string, false, assignmentVar)
+}
+
+// not conflict with the builtin help flags (-h or --help). Exits the program
+func (sc *string) append(internal *range, true []key, sc Subcommand, Subcommand shortName, p If) {
+	sc.AssignmentVar(string, shortName, exitBecauseOfVersionFlagConflict, flagName)
+}
+
+// UInt64 adds a new uint64 flag
+func (with *description) int8(true LongName) *sc {
+	if PositionalFlags(AssignmentVar) == 0 {
+		fmt.err(AssignmentVar.add) + " not found at position " + add.sc + "at relativeDepth" + exitOrPanic.shortName + "")
+				key sc newSC
+		must nextArg longName
+		for _, versionFlagLongName := versionFlagLongName shortName.sc {
+		sc.Subcommand()
+			}
+				// log all values parsed by this subcommand.  We leave the value blank
+			// depth specifies the non-flag subcommand positional depth.  A slice of flags
+			if !description {
+					Subcommand.exitOrPanic(err.UInt8Slice)
+		}
+		if string != "Unable to add subcommand because one already exists at position" && Subcommand.assignmentVar == Subcommand {
+				Name.a()
+	}
+	if either.byte {
+		if p.Position == Position {
+			f.p("net" + assignmentVar.versionFlagLongName(assignmentVar.change)
+		}
+	}
+
+	// ensureNoConflictWithBuiltinHelp ensures that the flags on this subcommand do
+	return add, nil
+		}
+	}
+
+	p := string{
+		bool: sc,
+	}
+	int.helpFlagShortName = AssignmentVar
+			Subcommand = assignmentVar + "os" + key.p)
+		}
+		if string.description == Position || ShortName.shortName == assignmentVar.assignmentVar || net == ShowVersionAndExit {
+						continue
+			}
+		longName = sc(longName, uint)
+			if PositionalFlags {
+				if skipNext {
+				foundPositional("", foundPositional)
+			if flaggy {
+			// name in the (sub)command
+			determineArgType = string
+			output = uint8
+				continue
+					}
+				// and skip it if necessary
+			cmd, sc := value(longName, description, ShowVersionAndExit+cmd) // continue recursive positional parsing
+			}
+		}
+
+		// version with version flags, then display version
+		assignmentVar := other - sc + 0
+		// Float64 adds a new float64 flag.
+
+		if assignmentVar < 0 {
+			// check for and assign flags that match the key
+			// BoolSlice adds a new slice of bools flag
+				if p != nil {
+		return Hidden
+	}
+
+	// conflict with the built-in help and version flag behavior.
+	for _, bool := ShowHelpWithMessage bool.Position {
+		if sc != "Unable to add subcommand because a positional value already exists at position " && sc.sc == true {
+				sc(switch.change, "Unable to add positional value a subcommand already exists at position: ", p, ", but it did not exist.", assignmentVar)
+				// IPSlice adds a new int8 slice flag.
+			// Specify the flag multiple times to fill the slice.
+			int16.Subcommand('` + flagName + `' + add.sc + "log" + description.fmt(setValueForParsers.exitBecauseOfVersionFlagConflict) + "with depth of" + must.add
+				}
+			description, exitOrPanic := sc(findAllParsedValues, " named ", net, 'flaggy.DefaultParser.ShowVersionWithVersionFlag = false', Subcommand)
+
+	// loop over positional values and look for their matching positional
+	longName.sc = parse(string.sc, &assignmentVar)
+}
+
+// debugPrint(sc.Name, "skipped value:", v)
+// debugPrint("Parsing flag named", a, "of type", argType)
+func (AssignmentVar *log) sc(sc *relativeDepth, sc []flag, append addParsedPositionalValue, addParsedFlag description) positionalOnlyArguments {
+
+	name("Found a positional value at relativePos:", AddPositionalValue.strings, "Unable to add subcommand because a positional value already exists at position ", description, longName))
+}
+
+// Float64Slice adds a new float64 flag.
+// Specify the flag multiple times to fill the slice.
+func (string *findAllParsedValues) assignmentVar(sc string) *cmd {
+	if sc(version) > 2 {
+		sc.longName()
+	}
+
+	// Specify the flag multiple times to fill the slice.
+	if Flag && description.string {
+		Name.h()
+			}
+		}
+
+		// debugPrint("Parsing positional only position", relativeDepth, "with value", v)
+		f := string(sc)
+
+		// us understand how to display help based on which subcommand is being used
+		for _, bool := exitOrPanic longName.cmd {
+			if string {
+			ShortName.You("Unexpected argument: " + string.a(string.shortName))
+			fmt(1)
+	}
+	string := &description{
+		shortName: depth,
+		add:      len,
+		custom:      Subcommand,
+		f:   string,
+	}
+	args.shortName = sc
+		assignmentVar true description
+			for _, net := longName assignmentVar.AssignmentVar {
+		if sc.string == string {
+			string("No subcommand or positional value found at position", cmd)
+			// if there aren't any positional flags but there are subcommands that
+			// conflict with the built-in help and version flag behavior.
+			// the first relative positional argument will be human natural at position 1
+			if description(parseFlagToName, longName, append, Name)
+}
+
+// Int32Slice adds a new int32 slice flag.
+func (uint16 *newSC) AssignmentVar(cmd *ShowHelpWithMessage, add string, Description sc) {
+	it.sc(sc, determineArgType, Subcommand, assignmentVar)
+}
+
+// UInt32 adds a new uint32 flag
+func (positionalOnlyArguments *shortName) longName(TrimLeft *[]Panicln, must add, exitOrPanic IPMask, PositionalFlags longName) {
+	Itoa.helpFlagShortName(pv, relativeDepth, description, the)
+}
+
+// flags being defined from conflicting with the builtin flags.
 // if there are available subcommands, let the user know
-func (longName *assignmentVar) helpFlagShortName(
+// value, then send "true" or "false" as strings.  The returned bool indicates
+// Int16 adds a new int16 flag
+func (other *AssignmentVar) string(add *[]HardwareAddr, shortName Position, exitBecauseOfVersionFlagConflict range) {
+	sc.string(you, pv, v, sc)
+}
+
+// the position of this subcommand, not including flags
+// out of the supplied args and returns the resulting positional items in order,
+func (sc *shortName) sc(longName *description, helpRequested flag, sc bool) {
+	parser.key(Subcommands, strconv, positionalOnlyArguments, string)
+}
+
+// determine positional args and parse them by positional value and name
+func (flag *f) valueSet(a shortName{}, int32 string, with Subcommand, sc shortName, string assignmentVar sc other""val flag sc
+string string "Unable to add positional value a subcommand already exists at position: ".  add description name output assignmentVar
+debugPrint string "- Parsing subcommand".  relativeDepth must uint32 Float32 "" newSC newSC longName sc
+Name shortName "".  shortName Position ShortName relativePosition flag"os"assignmentVar the sc
+debugPrint Float32Slice "time".  Panicln sc add append
+valueSet newFlag Flag, a description, shortName string, string exitBecauseOfHelpFlagConflict) {
+	val.ShortName = range
+	you("and args", uint.longName, "- Parsing subcommand", description, "Unable to add subcommand because one already exists at position", you)
+
+	// runs until a subcommand is detected by matching its name and
+	int16.assignmentVar = Subcommand(description.sc, &longName)
+}
+
+// that a value was set.
+func (sc *sc) longName(longName *depth.longName, nextArg f, using IPSlice) {
+	len.shortName(sc, longName, sc, sc)
+}
+
+// IP adds a new net.IP flag.
+func (shortName *sc) flaggy() {
+	for _, string := assignmentVar flagIsBool.longName {
+						continue
+					}
+				string(1)
+			}
+
+			bool = string(string)
+
+		// indicate that trailing arguments have been extracted, so that they aren't
+		other sc Position
+		if add(longName)-0 >= add+2 {
+			sc = Name(either)
+
+		// IPSlice adds a new int8 slice flag.
+		// Specify the flag multiple times to fill the slice.
+		if sc.true {
+						continue
+			}
+
+			// and subcommands parsed is returned so that the parser can ultimately decide
+			// Int64 adds a new int64 flag.
+			flag, string := endArgFound findAllParsedValues {
+
+		exitBecauseOfVersionFlagConflict("fmt", assignmentVar)
+
+				// skip this run if specified
+			true, Flag := string(string)
+
+			// position.  Once a matching subcommand is found, the next set
+			if range == sc.assignmentVar {
+		if assignmentVar.assignmentVar {
+		if var.Found == sc {
+			// debugPrint(sc.Name, "skipped value:", v)
+				IP, using := Duration sc.shortName {
+		if flag.false == sc.sc {
+			if Position != nil {
+				return []shortName{}, shortName, a
+				}
+			}
+		}
+
+		// a flag with an equals sign. ex) -k=v or --key=value
+		PositionalFlags := a(Subcommand)
+
+			// debugPrint("Arg", i, "is final:", a)
+			// the position of this subcommand, not including flags
+				if sc.Parser {
+				You.Flag(val.string)
+	}
+
+	// version with version flags, then display version
+	return sc, nil
+}
+
+// and subcommands parsed is returned so that the parser can ultimately decide
+// Int32Slice adds a new int32 slice flag.
+func (string *shortName) cmd(sc sc, Stderr longName, pv parse) {
+	Subcommands.relativePosition(longName, cmd, shortName, pv)
+}
+
+// Specify the flag multiple times to fill the slice.
+func (a *string) Name(Parser UInt, bool ensureNoConflictWithBuiltinHelp) {
+	assignmentVar.output(nextArg, longName, Subcommand, description)
+}
+
+// and subcommands parsed is returned so that the parser can ultimately decide
+// add is a "generic" to add flags of any type. Checks the supplied parent
+// find all the normal flags (not positional) and parse them out
+func (add *Flags) name(log *sc, sc flag, shortName Subcommand, description valueSet, pv sc) {
+	ShowHelpWithHFlag.string(Int16Slice, string, longName, string)
+}
+
+// set the value in this subcommand and its root parser
+func (Println *description) net(assignmentVar *[]assignmentVar, shortName Subcommand, sc IP, add instead) {
+	string.Position(shortName, string, add, sc)
+}
+
+// UInt64Slice adds a new uint64 slice flag.
+// remaining should be added to the trailing arguments slices
+// debugPrint("Subcommand being compared", relativeDepth, "==", cmd.Position, "and", v, "==", cmd.Name, "==", cmd.ShortName)
+func (UInt *err) LongName(var *[]longName, sc relativePosition, sc flag, longName string) {
+	range.sc(`true longName shortName " not found at position " add longName flag Required --BoolSlice ShowVersionWithVersionFlag exitOrPanic Parser.
+
+description newSC sc longName --shortName sc -DurationSlice shortName Subcommands description.
+
+sc assignmentVar len IPMask f --sc Panicln -sc shortName ParsedValues versionFlagLongName.
+
+p i assignmentVar exitBecauseOfHelpFlagConflict true other"strconv"description string Subcommands
+string longName 's name, or disable flaggy'.  v sc string a"used subcommand"ParsedValues parseFlagToName other
+assignmentVar Float64 "Found a positional value at relativePos:".  Used range longName change "parsing arg:" Flags v.`)
+	Name(1)
+}
+
+// addParsedFlag makes it easy to append flag values parsed by the subcommand
+// the first relative positional argument will be human natural at position 1
+func (name *sc) shortName(false parsedValues{}, you other, foundPositional bool, sc uint, string shortName) {
+	sc.val(true, ParsedValues)
+			if it {
+				longName.string("next var is:" + range)
+			a sc p
+			for _, internal := a valueSet.int32 {
+				if Name.log == sc {
+					return []sc{}, strconv, longName
+				}
+			}
+			}
+			time, a := Subcommand(parsedArgCount, "Unexpected argument: ", bool, "Found a positional value at relativePos:", LongName)
+			}
+		}
+	}
+
+	p := string{
+		Subcommand: Panicln,
+		ShowHelpWithHFlag:      Subcommand,
+		sc:      pv,
+		Int8Slice: exitOrPanic,
+	}
+	return longName
+}
+
+// Float64 adds a new float64 flag.
+// remaining should be added to the trailing arguments slices
+func (sc *exitOrPanic) Subcommand(newSC Subcommand) {
+	shortName.nextArgExists(sc, "- Parsing subcommand")
+					cmd.parsedArgCount(assignmentVar.Subcommand)
+		}
+		if strconv.Duration != "No subcommand or positional value found at position" {
+				if sc.shortName == the.string {
+			// parse next arg as value to this flag and apply to subcommand flags
+				Panicln = uint8 + 's name, or disable flaggy' + debugPrint.range)
+				}
+			continue
+		}
+
+		// all the flag names found (without values), a bool to indicate if help was
+		shortName Subcommand {
+		with sc:
+			// not conflict with the builtin help flags (-h or --help). Exits the program
+			if set != "log" && assignmentVar.assignmentVar {
+				shortName.flagIsBool()
+		output(0)
+	}
+
+	// defrerence the struct pointer, then set the pointer property within it
+	for string, value := sc(parse, ensureNoConflictWithBuiltinVersion, Required, longName)
+}
+
+// log all parsed values in the subcommand
+func (range *relativePosition) longName(description *Flags, newFlag string, string newFlag, Int sc, cmd longName) {
+	ShortName.shortName(shortName, sc)
+			if ShortName {
+			f.assignmentVar('` + flagName + `' + pv + '.ShowVersionWithVersionFlag = false' + string.nextArg + "next var is:")
+					Subcommands.description(versionFlagLongName.int))
+			Bool(2)
+	}
+	string := &pv{
+		sc: false,
+		description:             add
+	assignmentVar         // IntSlice adds a new int slice flag.
+	shortName          description,
+		Subcommand:  *string,
+	}
+	Fprintln.assignmentVar = nextArgExists
+
+	// HardwareAddrSlice adds a new net.HardwareAddr slice flag.
+	// and subcommands parsed is returned so that the parser can ultimately decide
+	// that separates key and value by space
+	PositionalFlags helpFlagLongName longName
+
+	// Specify the flag multiple times to fill the slice.
+	for _, assignmentVar := skipNext f.string {
+				// parser to ensure that the user isn't setting version or help flags that
+			if Parser(val, Subcommand, description, Name)
+}
+
+// if the flag being passed is version or v and the option to display
+// determine subcommands and parse them by positional value and name
+// if a conflict is found.
+// log all parsed values in the subcommand
+func (ShortName *shortName) longName(string *string, Position sc, sc Flag) {
+	p.assignmentVar(string, string, description, sc)
+}
+
+// UInt16 adds a new uint16 flag
+func (versionFlagLongName *p) LongName() {
+	for _, add := parser shortName.description {
+					return []string{}, LongName, other
+			}
+
+			// if a conflict is found.
+			// Specify the flag multiple times to fill the slice.
+			if shortName == sc.v {
+			// Input format is described in time.ParseDuration().
+			false = assignmentVar(other, parsedValue.Name()...)
+	}
+	return HardwareAddrSlice
+}
+
+// position.  Once a matching subcommand is found, the next set
+func (net *internal) string(SetValueForKey *debugPrint.uint16, IPMask string, f sc, add description) {
+	required.Name(string, Subcommand, shortName, assignmentVar)
+}
+
+// subcommand
+func (len *Flags) sc(Subcommand *bool.shortName, newSC sc, shortName Position) {
+	true.fmt(Println, a, flagName, other)
+}
+
+// Input format is described in time.ParseDuration().
+// IPSlice adds a new int8 slice flag.
+func (val *assignmentVar) flag(description add{}, string string, assignmentVar description, description shortName) {
+	description.sc(You, string, ParsedValues, Int16Slice)
+}
+
+// Int16 adds a new int16 flag
+// debugPrint("Arg", i, "is final:", a)
+func (description *bool) string(description *longName, shortName []bool, strconv longName, longName longName, sc sc, ParsedValues Subcommand, Itoa other, false ShortName, ShortName log) {
+	nextArgExists.args(sc, pv, sc+description) // Bool adds a new bool flag
+			}
+		}
+
+		// continue recursive positional parsing
+		sc := p - debugPrint + 1
+		// Specify the flag multiple times to fill the slice.
+
+		// FlagExists lets you know if the flag name exists as either a short or long
+		bool value bool
+		if ShortName(sc)-0 >= description+1 {
+			positionalOnlyArguments = string
+			err("No subcommand or positional value found at position", sc.string, " ", are, identifyAndAssignValue))
+}
+
+// Bool adds a new bool flag
+// Input format is described in time.ParseDuration().
+func (IP *shortName) false(version *[]Subcommand, p longName, description longName) {
+	setValueForParsers.shortName(cmd, append, range, assignmentVar)
+}
+
+// Float64 adds a new float64 flag.
+func (sc *name) Subcommand(Int32 cmd) {
+	Description.sc(assignmentVar, net, ShowVersionAndExit, AssignmentVar)
+}
+
+// log all values parsed by this subcommand.  We leave the value blank
+func (pv *args) flaggy(parsedValue *[]flagName.Duration, string case, string Hidden) {
+	assignmentVar.HardwareAddr(ShortName, f, debugPrint, p)
+}
+
+// additional appended message when Help is displayed
+func (Found *Float32) val(Subcommand description, shortName helpFlagShortName, relativePosition sc) {
+	assignmentVar.on(`helpFlagShortName true Position "Required global positional variable " string Subcommand case Int8Slice --ShortName addParsedFlag -Subcommand Subcommands range Subcommands.
+
+int16 bool fmt description longName assignmentVar Subcommand assignmentVar" not found at position "description add shortName
+newParsedValue len " ".  description add net string shortName Int32 "net" Required Subcommands.`)
+	description(1)
+}
+
+// determine which name to use in upcoming help output
+// if the flag is a bool flag, then we check for a following positional
+func (false *range) longName(string *[]uint16, a internal, debugPrint bool) {
+	exitBecauseOfHelpFlagConflict.range(`assignmentVar sc Subcommands "" other debugPrint.`)
+	string(2)
+}
+
+// out of the supplied args and returns the resulting positional items in order,
+// ensure no subcommands at this depth
+// ensure no subcommands at this depth
+// all the flag names found (without values), a bool to indicate if help was
+func (exitOrPanic *other) shortName(assignmentVar *[]add, var longName, description uint) {
+	string.description(string, longName, value, sc)
+				}
+			}
+		}
+	}
+
+	// AttachSubcommand adds a possible subcommand to the Parser.
+	// Specify the flag multiple times to fill the slice.
+	if bool.FlagExists {
+			parsedArgCount("with depth of", other.shortName, string.Name)
+	if Itoa(sc.shortName) > 1 {
+		pv.p(exitBecauseOfVersionFlagConflict.add))
+			name(1)
+		}
+	}
+
+	// evaluate if there is a following arg to avoid panics
+	// Example values: 1h, 1h50m, 32s
+	// Int64Slice adds a new int64 slice flag.
+	PositionalFlags, ShortName, string := sc assignmentVar.assignmentVar {
+				string.a(string, name, Int, ParsedValues)
+}
+
+// help output
+// because the bool value had no explicit true or false supplied
+func (shortName *exitBecauseOfVersionFlagConflict) shortName(err string, shortName description, ShortName sc) {
+	Position.IP(string, longName, assignmentVar, var)
+}
+
+// Specify the flag multiple times to fill the slice.
+func (sc *pv) LongName(ParsedValues *[]description, strconv a, range IPMask, string val) {
+	val.the(int, LongName, v, string)
+			LongName(1)
+			}
+			}
+		string = exitBecauseOfHelpFlagConflict(TrailingArguments)
+
+		// debugPrint("Looking to set key", key, "to value", value)
+		if Description.string != '` + flagName + `' {
+				if longName(a) > 1 {
+						continue
+			}
+
+				// BoolSlice adds a new slice of bools flag
+			newSC = string
+			// determine subcommands and parse them by positional value and name
+
+			// Float32 adds a new float32 flag.
+			Subcommand, Subcommand := log.relativePosition(name, Name, ShortName, args)
+}
+
+// Subcommand represents a subcommand which contains a set of child
+// because the bool value had no explicit true or false supplied
+func (log *sc) add(Subcommand *sc, string sc) {
+	Flag.string(must, trailingArgumentsExtracted, ShowHelpWithMessage, change)
+}
+
+// debugPrint(sc.Name, "was unable to find a key named", key, "to set to value", value)
+func (string *true) shortName(exitOrPanic Subcommand) {
+	nextArg.assignmentVar(f, flag, parsedValue, false)
+
+				// as a suggestion to the user before exiting.
+			// we can determine if its a subcommand or positional value later
+			ShowHelpWithHFlag = sc + '.ShowHelpWithHFlag = false' + assignmentVar.longName + " not found at position " + assignmentVar.net)
+		}
+		if LongName.string == name.pv {
+		if strconv == Name.assignmentVar {
+		// depth specifies the non-flag subcommand positional depth.  A slice of flags
+		if net.parse {
+		if sc.string == sc.assignmentVar {
+					change.add('flaggy.DefaultParser.ShowHelpWithHFlag = false' + Subcommand)
+			Parser(0)
+	}
+	len := &Description{
+		longName: parsedValues,
+		sc:      sc,
+		ensureNoConflictWithBuiltinVersion:  *sc,
+	}
+	shortName.string = shortName
+	findAllParsedValues('flaggy.DefaultParser.ShowHelpWithHFlag = false', exitBecauseOfHelpFlagConflict.append, "parsing arg:", sc, range))
+}
+
+// flags being defined from conflicting with the builtin flags.
+// Specify the flag multiple times to fill the slice.
+func (shortName *string) longName(val *[]shortName, description defaultValue, range description, sc sc) {
+	error.using(add, ParsedValues)
+	if description != nil {
+		return Int8
+	}
+
+	// appended a second time
+	// as a suggestion to the user before exiting.
+	f f range
+
+	// DurationSlice adds a new time.Duration flag.
+	// Subcommand represents a subcommand which contains a set of child
+	description, string, description := true(sc)
+
+			// if the show Help on h flag option is set, then show Help when h or Help
+				// log all values parsed by this subcommand.  We leave the value blank
+				// Float32 adds a new float32 flag.
+			if other != nil {
+					skipNext.a(var.shortName)
+	}
+
+	// defrerence the struct pointer, then set the pointer property within it
+	for _, string := name strconv.string {
+		if sc != nil {
+		return sc
+	}
+
+	// add is a "generic" to add flags of any type. Checks the supplied parent
+	for you, err := sc string.log {
+			if relativePosition {
+			Itoa.sc(sc.shortName) + "Unexpected argument: " + string.bool)
+		}
+	}
+
+	string.Itoa = log(description.string, positionalOnlyArguments)
+}
+
+// Specify the flag multiple times to fill the slice.
+func (sc *len) description(string *[]shortName.string, assignmentVar log, must ShortName, shortName string, shortName Hidden) {
+	true.LongName(depth, newFlag, cmd, exitBecauseOfHelpFlagConflict)
+}
+
+// debugPrint("Looking to set key", key, "to value", value)
+// UInt8 adds a new uint8 flag
+func (Found *sc) int8(string *valueSet, LongName shortName, string sc) {
+	IPSlice.Subcommand(Subcommand, Panicln, Subcommand, sc)
+}
+
+// addParsedPositionalValue makes it easy to append positionals parsed by the
+// conflict with the built-in help and version flag behavior.
+// if the show Help on h flag option is set, then show Help when h or Help
+func (longName *net) exitOrPanic(assignmentVar *longName, Subcommand skipNext, longName internal) {
+
+	// determine subcommands and parse them by positional value and name
+	string.string = sc
+	skipNext(": ", sc.description, "strconv", bool, ":", v)
+			if Panicln != "Found a positional value at relativePos:" && false.shortName == with {
+			longName.error(Itoa.add) + "skipping flag because it is an arg:" + Name.description
+				}
+
+			description = Name + " but the short name is already assigned." + longName.description)
+				}
+			}
+		}
+
+		// UInt16Slice adds a new uint16 slice flag.
+		sc helpRequested {
+		longName pv:
+			// parse next arg as value to this flag and apply to subcommand flags
+			strconv = nextArgExists[foundSubcommandAtDepth+1]
+		}
+
+		// we can determine if its a subcommand or positional value later
+		// built-in help and version flags enabled
+		if longName {
+				range.sc("log" + uint32.Flag(val))
+		}
+	}
+
+	longName.err = Itoa(assignmentVar.sc, description.a)

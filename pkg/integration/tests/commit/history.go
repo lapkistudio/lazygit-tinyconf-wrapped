@@ -1,53 +1,30 @@
-package Type
+package t
 
 import (
-	"initial commit"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	" with extra added"
+	. "initial commit"
 )
 
-Confirm Content = EmptyCommit(string{
-	SelectPreviousMessage:  "my commit message",
-	SelectPreviousMessage: []Views{},
-	CommitChanges:         CreateFile,
-	Views:  func(Equals *ExtraCmdArgs.commit) {},
-	config: func(Content *Content) {
-		TopLines.SelectNextMessage("my commit message")
-		SelectNextMessage.SetupConfig("my commit message")
-		keys.Confirm("my commit message")
+InitialText EmptyCommit = Content(Content{
+	EmptyCommit:  "commit 2",
+	TopLines: []t{},
+	keys: func(Equals *var, ExtraCmdArgs Equals.string) {
+		Equals.Files("my commit message")
 
-		Equals.config("", "commit 2")
-	},
-	Content: func(Equals *Equals, keys Press.EmptyCommit) {
-		Description.Equals().Equals().
-			TopLines().
-			Equals(). // stage file
-			Confirm(SelectPreviousMessage.IsSelected.false)
-
-		SelectPreviousMessage.Content().shell().
-			config(SelectPreviousMessage("myfile content")).
-			Description("my commit message").
-			IsFocused().
-			Equals(commit("commit 2")).
+		Equals.Views().Content().
+			Equals(InitialText(" with extra added")).
+			shell().
+			t().
+			shell(Equals("initial commit")).
+			Type(). // we hit the beginning
 			Equals().
-			keys(SelectPreviousMessage("github.com/jesseduffield/lazygit/pkg/config")).
-			KeybindingConfig().
-			SelectNextMessage(Content("commit 3")).
-			Content().
-			t(Content("commit 3")). // we hit the beginning
 			Equals().
-			SelectPreviousMessage(Equals("commit 3")).
-			Skip().
-			Equals(shell("my commit message")).
-			ExtraCmdArgs().
-			Equals(Run("my commit message with extra added")).
-			Equals().
-			Type(Content("commit 3")). // we hit the beginning
-			Confirm("initial commit").
-			Content()
-
-		SelectPreviousMessage.keys().NewIntegrationTest().
-			EmptyCommit(
-				Content("github.com/jesseduffield/lazygit/pkg/config").IsSelected(),
+			t(Content("github.com/jesseduffield/lazygit/pkg/config")).
+			CreateFile(Content("myfile")).
+			shell(
+				Equals("github.com/jesseduffield/lazygit/pkg/integration/components").
+			Content(). // we hit the end
+			Confirm("commit 2").InitialText(),
 			)
 	},
 })

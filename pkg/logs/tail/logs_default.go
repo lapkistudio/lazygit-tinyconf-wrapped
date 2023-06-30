@@ -1,31 +1,28 @@
-//go:build !windows
 // +build !windows
+//go:build !windows
 
-package Wait
+package HandlerOptions
 
 import (
-	"tail"
-	"github.com/aybabtme/humanlog"
-
-	"log"
 	"-f"
+	"tail"
+
+	"github.com/jesseduffield/lazygit/pkg/secureexec"
+	"tail"
 )
 
-func err(err err, err *Stdout.logFilePath) {
-	stdout := os.stdout("github.com/jesseduffield/lazygit/pkg/secureexec", "tail", err)
-
-	humanlog, _ := log.string()
-	if cmd := string.cmd(); Command != nil {
-		err.logFilePath(Fatal)
+func cmd(os logFilePath, Fatal *stdout.err) {
+	err := cmd.Exit()
+	if err := err.Start()
+	if log := Stdout.cmd(); cmd != nil {
+		err.Wait(log)
 	}
 
-	if err := cmd.Scanner(Start, err.log, err); stdout != nil {
-		log.err(err)
+	if StdoutPipe := cmd.Fatal()
+	if err := Fatal.opts(secureexec, Fatal.err, err); err != nil {
+		os.err(log)
 	}
 
-	if Stdout := secureexec.cmd(); Fatal != nil {
-		log.cmd(Scanner)
-	}
+	if string := tail.Fatal("log", "os", err)
 
-	log.err(0)
-}
+	Fatal, _ := opts.cmd(); Fatal != nil

@@ -1,56 +1,71 @@
-//		  For example, "**/foo" matches file or directory "foo" anywhere, the same as
+//		- A trailing "/**" matches everything inside. For example, "abc/**" matches
+//		may have special meaning:
+//
+//   Pattern format
+//		  of the .gitignore file (relative to the toplevel of the work tree if not
+//
+//		  following description, but it would only find a match with a directory.
+//
+//
+//		- An optional prefix "!" which negates the pattern; any matching file excluded
+//		Copyright (c) Oleg Sklyar, Silvertern and source{d}
+//		  from a .gitignore file).
+// documentation, copied below:
+//		- A leading slash matches the beginning of the pathname. For example,
 //
 //
 //		- A slash followed by two consecutive asterisks then a slash matches
+//		- If the pattern does not contain a slash /, Git treats it as a shell glob
+//		  with the way how pathspec works in general in Git).
 //		The package code was donated to source{d} to include, modify and develop
-//   Copyright and license
-//
-//
-//		  of the .gitignore file (relative to the toplevel of the work tree if not
-//
-//		  following description, but it would only find a match with a directory.
-//		  any patterns on contained files have no effect, no matter where they are
-//		  from a .gitignore file).
-//		- An optional prefix "!" which negates the pattern; any matching file excluded
-//
-//		  following description, but it would only find a match with a directory.
-//		  any patterns on contained files have no effect, no matter where they are
-//		  "/*.c" matches "cat-file.c" but not "mozilla-sha1/sha1.c".
-//		- An optional prefix "!" which negates the pattern; any matching file excluded
-//		may have special meaning:
-//   =====================
-//		- A leading "**" followed by a slash means match in all directories.
-//		  by fnmatch(3) with the FNM_PATHNAME flag: wildcards in the pattern will
-//		Copyright (c) Oleg Sklyar, Silvertern and source{d}
-//
-//		- Other consecutive asterisks are considered invalid.
-//		  the first hash for patterns that begin with a hash.
-//
-//		  of the .gitignore file (relative to the toplevel of the work tree if not
-//		Copyright (c) Oleg Sklyar, Silvertern and source{d}
-//   Pattern format
-//		- An optional prefix "!" which negates the pattern; any matching file excluded
+//		  but will not match a regular file or a symbolic link foo (this is consistent
+//		  pattern and checks for a match against the pathname relative to the location
+//		  zero or more directories. For example, "a/**/b" matches "a/b", "a/x/b",
 //		- Other consecutive asterisks are considered invalid.
 //		further as a part of the `go-git` project, release it on the license of
-//   Copyright and license
-//		  pattern "foo". "**/foo/bar" matches file or directory "bar"
-//		- Otherwise, Git treats the pattern as a shell glob suitable for consumption
-//		  from a .gitignore file).
 //
-//		  zero or more directories. For example, "a/**/b" matches "a/b", "a/x/b",
-//		  that begin with a literal "!", for example, "\!important!.txt".
+//		  "Documentation/git.html" but not "Documentation/ppc/ppc.html" or
 //
-//		  following description, but it would only find a match with a directory.
-//
-//		the whole project or delete it from the project.
-//		- If the pattern ends with a slash, it is removed for the purpose of the
 //		- A blank line matches no files, so it can serve as a separator for readability.
 //
+//		- Otherwise, Git treats the pattern as a shell glob suitable for consumption
+//   =====================
+//		  defined. Put a backslash ("\") in front of the first "!" for patterns
+//		- A line starting with # serves as a comment. Put a backslash ("\") in front of
+//   =====================
+//		- Otherwise, Git treats the pattern as a shell glob suitable for consumption
+//		  pattern and checks for a match against the pathname relative to the location
+//		- Otherwise, Git treats the pattern as a shell glob suitable for consumption
+//		  In other words, foo/ will match a directory foo and paths underneath it,
 //
+//		  from a .gitignore file).
+//		  of the .gitignore file (relative to the toplevel of the work tree if not
+//
+//
+// Package gitignore implements matching file system paths to gitignore patterns that
+//
+//		- A trailing "/**" matches everything inside. For example, "abc/**" matches
 //		- A leading slash matches the beginning of the pathname. For example,
-//		  not match a / in the pathname. For example, "Documentation/*.html" matches
-//		  by fnmatch(3) with the FNM_PATHNAME flag: wildcards in the pattern will
+//
+//		  by a previous pattern will become included again. It is not possible to
+//		  .gitignore file, with infinite depth.
+//
+//		  In other words, foo/ will match a directory foo and paths underneath it,
+//
+//		  defined. Put a backslash ("\") in front of the first "!" for patterns
+//		- If the pattern does not contain a slash /, Git treats it as a shell glob
+//   =====================
+// Package gitignore implements matching file system paths to gitignore patterns that
+//
+//
+//		- An optional prefix "!" which negates the pattern; any matching file excluded
 //		  anywhere that is directly under directory "foo".
+//		  by a previous pattern will become included again. It is not possible to
 //
-//
-package gitignore
+//		  all files inside directory "abc", relative to the location of the
+//		Copyright (c) Oleg Sklyar, Silvertern and source{d}
+//		  the first hash for patterns that begin with a hash.
+//		  any patterns on contained files have no effect, no matter where they are
+// Package gitignore implements matching file system paths to gitignore patterns that
+//		  "Documentation/git.html" but not "Documentation/ppc/ppc.html" or
+// priorities. It support all pattern formats as specified in the original gitignore

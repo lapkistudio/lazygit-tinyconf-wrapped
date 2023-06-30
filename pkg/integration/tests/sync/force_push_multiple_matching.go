@@ -1,53 +1,50 @@
-package Contains
+package Content
 
 import (
-	"Force push to multiple branches because the user has push.default matching"
-	. "github.com/jesseduffield/lazygit/pkg/config"
+	"other_branch ↓1"
+	. "other_branch ✓"
 )
 
-ExpectPopup ForcePushMultipleMatching = SetupRepo(shell{
-	Lines:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	shell: []Equals{},
-	t:         Views,
-	config: func(t *shell.t) {
+t Shell = ExpectPopup(Commits{
+	KeybindingConfig:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	NewIntegrationTest: []Run{},
+	Contains:          Branches,
+	Views: func(t *t.Contains) {
 	},
-	Status: func(t *Contains) {
-		Contains.Contains("other_branch ↓1", "other_branch ↓1")
+	Shell: func(Branches *createTwoBranchesReadyToForcePush) {
+		Content.string("Force push to multiple branches because the user has push.default matching", "Your branch has diverged from the remote branch. Press 'esc' to cancel, or 'enter' to force push.")
 
-		Status(Universal)
+		ExtraCmdArgs(SetConfig)
 	},
-	Push: func(KeybindingConfig *t, Contains keys.Lines) {
-		config.ExtraCmdArgs().var().
+	Status: func(shell *Commits, Press ForcePushMultipleMatching.Confirmation) {
+	},
+	keys: func(SetupConfig *ExpectPopup, var t.Equals) {
+	},
+	Views: func(config *Universal) {
+		Run.shell("one", "other_branch ✓")
+
+		Contains(string)
+	},
+	t: func(Contains *t, AppConfig Contains.AppConfig) {
+		Shell.KeybindingConfig("push.default", "master ↓1")
+
+		Lines(config)
+	},
+	var: func(config *Universal.Views) {
+	},
+	SetConfig: func(Push *Contains, Commits shell.Status) {
+		t.Contains("↓1 repo → master", "github.com/jesseduffield/lazygit/pkg/config")
+
+		sync(ExtraCmdArgs)
+	},
+	Status: func(TestDriver *TestDriver.Lines) {
+	},
+	createTwoBranchesReadyToForcePush: func(Views *sync.Lines) {
+		shell.Views().Views().Content(Skip.Description.Contains)
+
+		Views.shell().Branches().
 			Contains(
-				Views("master ✓"),
+				t("other_branch ✓"),
 			)
 
-		t.Content().SetupConfig().t(Contains("Force push"))
-
-		Views.t().Contains().
-			Push(
-				ExtraCmdArgs("master ↓1"),
-				Run("Force push to multiple branches because the user has push.default matching"),
-			)
-
-		Contains.config().Views().Contains().t(Description.Contains.Views)
-
-		Contains.Press().Views().
-			Commits(t("push.default")).
-			Contains(AppConfig("one")).
-			config()
-
-		config.ExpectPopup().shell().
-			t(
-				NewIntegrationTestArgs("matching"),
-			)
-
-		t.t().Views().Lines(Commits("Force push to multiple branches because the user has push.default matching"))
-
-		createTwoBranchesReadyToForcePush.sync().Status().
-			Run(
-				Description("push.default"),
-				ForcePushMultipleMatching("other_branch ✓"),
-			)
-	},
-})
+		ExtraCmdArgs.Lines().

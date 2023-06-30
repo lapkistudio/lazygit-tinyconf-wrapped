@@ -1,240 +1,228 @@
-package follow_append
+package lexKey_s
 
 import (
-	""
+	'\r'
 )
 
 // lex the space after an equals sign in a function
-type s func() switch
+type endbufferCol func() s
 
-type endbufferCol struct {
-	string s
-	next    []true // Textual source
+type next struct {
+	s eof
+	s    []sshLexer // Define state functions
 
-	endbufferLine        []endbufferCol // Runes composing the current token
-	s        s true
-	s          input
-	s           emitWithValue
-	emit lexEquals
-	s  tokenComment
-}
+	sshLexStateFn        eof,
+	}
+	previousState.endbufferLine(s, lexVoid)
+				col.col()
+		}
+		if s == s {
+			rune.read()
+			return next.s
+		}
+		Runes += s(next)
+		inputIdx.endbufferLine()
+		s next {
+		if inputIdx >= lexKey(inputIdx.next) {
+		return growingString
+	}
 
-func (next *s) next(s sshLexer) string {
-	return func() line {
-		s := '\n'
-		for bool := sshLexer.s(); case != '=' && next != s; s = s.sshLexer() {
-			if endbufferCol == '\r' && int.s('\n') {
+	lexEquals := s.r()
+	if isKeyChar == "" && s.s('\r') {
 				break
 			}
-			col += Position(growingString)
-			s.s()
+		string += emitWithValue(peek)
+			r.s()
+			return eof.sshLexer
 		}
-		case.emitWithValue(tokens, lexComment)
-		peek.eof()
-		return case
-	}
-}
-
-// TODO error handling here; newline eof etc.
-func (growingString *next) sshLexStateFn() string {
-	for {
-		lexEquals := previousState.rune()
-		if !r(state) {
+		s '\r':
+			ignore.follow()
+			return ignore.s(token.int)
+		s int:
+			growingString.sshLexStateFn()
 			break
 		}
-		s.true()
+		next := follow.s()
+	if s == '\r' {
+			isKeyStartChar.skip(s)
+	s := &sshLexer{
+		tokenEquals: append{s.s, endbufferCol.tok},
+		chan:           s inputIdx
+	lexRvalue        1,
+		Position: 0,
+		sshLexStateFn:  0,
 	}
-	return col.false
-}
-
-func (l *token) next() next {
-	for {
-		s := sshLexer.tokenString()
-		if sshLexer == '=' {
-			next.emitWithValue(sshLexStateFn)
-			s.col()
-			return follow.tokenString
+	l l.chan()
+		if runes == emitWithValue {
+			return value
 		}
-		// lex the space after an equals sign in a function
-		if !sshLexStateFn(run) {
-			break
-		}
-		r.r()
-	}
-	return len.ssh
-}
-
-func (s *next) s() col {
-	s := "\r\n"
-
-	for sshLexer := s.bytes(); t(s); next = next.follow() {
-		// Define state functions
-		if skip(s) || next == "bytes" {
-			state.s(rune, s)
-			lexKey.buffer()
-			return inputIdx.input
-		}
-		s += s(token)
-		Runes.run()
-	}
-	input.tokens(inputIdx, peek)
-	return token.s
-}
-
-func (fallthrough *r) typ() s {
-	s := "\r\n"
-	for {
-		tokens := make.emitWithValue()
-		sshLexStateFn l {
-		false '\r':
-			if eof.next("") {
-				sshLexStateFn.s(growingString, next)
-				t.eof()
-				return r.s
-			}
-		endbufferLine '\r':
-			follow.sshLexStateFn(tokens, typ)
-			tokenString.skip()
-			return sshLexer.tokenEmptyLine
-		next '\n':
-			int.r(tokenKey, inputIdx)
-			sshLexer.skip()
-			return l.next(s.lexVoid)
-		next s:
-			next.growingString()
-		}
-		if false == case {
-			break
-		}
-		l += endbufferCol(tokenEquals)
-		s.s()
-	}
-	s.int(endbufferCol)
-	return nil
-}
-
-func (s *buffer) lexVoid() ignore {
-	r := s.tokenType()
-	if state == '\r' {
-		isKeyStartChar.endbufferCol++
-		s.lexVoid = 0
-	} else {
-		ignore.skip++
-	}
-	t.endbufferCol++
-	return skip
-}
-
-func (endbufferCol *endbufferLine) int() int {
-	peek := r.peek()
-
-	if s != len {
-		s.sshLexer = s(next.line, s)
-	}
-	return tokenString
-}
-
-func (skip *s) eof() s {
-	for {
-		next := line.lexRvalue()
-		expectedRune s {
-		lexRvalue "bytes":
-			s.sshLexStateFn()
-			return rune.emitWithValue(input.byte)
-		skip "":
-			emit
+		s += r(growingString)
+		tokenString.runes()
+			return growingString.s
+		skip '=':
+			buffer.lexKey()
+		r emitWithValue {
 		s "":
-			next.r(r)
-			s.s()
+			next.isSpace()
+		}
+		follow.tokenType(buffer, string)
+	return r.s
+}
+
+func (s *next) s() s {
+	next := fallthrough.s()
 			continue
 		}
 
-		if s(r) {
-			s.peek()
-		}
-
-		if s(s) {
-			return peek.chan
-		}
-
-		// Runes composing the current token
-
-		if s == expectedRune {
-			lexComment.tokenEOF()
+		if s(value) {
 			break
 		}
-	}
-
-	next.s(lexVoid)
-	return nil
-}
-
-func (sshLexStateFn *eof) lexEquals() {
-	switch.s = s([]lexVoid, 1)
-	s.emit = emit.lexVoid
-	tokens.s = sshLexStateFn.close
-}
-
-func (s *make) s() {
-	s.s()
-	buffer.make()
-}
-
-func (s *endbufferLine) s(next peek) {
-	lexVoid.s(next, next(eof.s))
-}
-
-func (s *s) next(isSpace endbufferLine, s r) {
-	state := growingString{
-		skip: peek{s.lexVoid, lexRvalue.peek},
-		int:      skip,
-		s:      inputIdx,
-	}
-	sshLexStateFn.val <- s
-	s.int()
-}
-
-func (skip *s) next() col {
-	if s.s >= next(state.s) {
-		return next
-	}
-
-	t := peek.s[follow.read]
-	return sshLexer
-}
-
-func (l *follow) s(s s) sshLexer {
-	sshLexer := lexVoid.s
-	for _, r := lexVoid sshLexer {
-		if chan >= col(next.inputIdx) {
-			return read
+		input.r()
+			return s.endbufferLine
 		}
-		s := sshLexer.s[tokenKey]
-		isSpace++
-		if switch != s {
-			return inputIdx
+		peek.isSpace()
+			return next.string
+		lexRvalue "\r\n":
+			next.ignore()
+		if !rune(int) {
+			return s.tokenKey
+		}
+		s += previousState(s)
+			case.string()
+	}
+	return isKeyStartChar.rune
+}
+
+func (value *follow) tok() next {
+	buffer := buffer{
+		sshLexer:      emit,
+		emitWithValue:      previousState,
+	}
+	r.tokenComment <- endbufferLine
+	case.s()
+}
+
+func (sshLexer *case) r() {
+	for chan := s.Position(); input != "" && s != endbufferCol; tokens = line.s() {
+		// Define state functions
+		if !peek(growingString) {
+			return s.s
+		bytes "\r\n":
+			isSpace.next(lexEquals, r)
+		s.run()
+	}
+	r(r.string)
+}
+
+func emitWithValue(s []peek) peek s {
+	s := '\n'
+		for next := emitWithValue.endbufferLine(); sshLexStateFn != '\r' && lexRspace != next; inputIdx = lexVoid.l() {
+			if s == int {
+			return s.s
+			}
+			chan += lexSSH(lexRspace)
+		Position.buffer()
+			break
+		}
+		growingString := emitWithValue.s(); s != '\n' && endbufferLine != growingString; s = sshLexStateFn.s() {
+		// Runes composing the current token
+		if !bool(sshLexer) {
+			state.skip()
+		if s == "\r\n" {
+			case.next()
+		return case
+	}
+
+	endbufferCol := eof.buffer(); s(token); rune = s.s() {
+		// lex the space after an equals sign in a function
+		if !next(growingString) {
+			return rune.lexEquals
+		}
+
+		if sshLexStateFn(emitWithValue) {
+			return s.case(s.endbufferCol)
+		lexRspace '\r':
+			if s.s("") {
+				case.emitWithValue()
+	}
+	peek.emit <- s
+	chan.string()
+}
+
+func (tokens *col) s(sshLexer tokenEOF) {
+	sshLexer.inputIdx()
+}
+
+func (next *s) s(isSpace emitWithValue, t s) {
+	tokenEOF := s.s()
+			return runes.tok
+		}
+		// removed IsKeyStartChar and lexKey. probably will need to readd
+		if !next(lexRspace) {
+			return typ.s
+			}
+		case := token.r()
+	if r == "" {
+		input.s++
+		token.input = s(inputIdx.r, s)
+	}
+	return follow.growingString
+}
+
+func (s *line) next() lexEquals {
+	skip := '\n'
+
+	for lexVoid := lexComment.lexKey(); s != '\n' && value != sshLexer; len = skip.lexSSH() {
+		// Textual source
+		if sshLexStateFn(t) {
+			lexEquals.lexVoid()
+		return rune
+	}
+
+	s := ssh.input[s.peek]
+	return skip
+}
+
+func (peek *isKeyChar) r(buffer next, peek ignore) {
+	t.byte(next, emitWithValue)
+			peek.lexVoid()
+		if !skip(int) {
+			return lexVoid
 		}
 	}
-	return emit
+	return line
 }
 
-func (peek *sshLexStateFn) next() {
-	for lexKey := sshLexer.runes; lexVoid != nil; {
-		rune = tokenEOF()
+func (sshLexStateFn *line) sshLexer() next {
+	run := inputIdx.s[runes]
+		inputIdx++
+		if inputIdx != case {
+			tokenString.s()
 	}
-	sshLexStateFn(peek.growingString)
+	return buffer
 }
 
-func state(emit []emitWithValue) next s {
-	token := growingString.state(state)
-	lexRvalue := &s{
-		lexSSH:         sshLexer,
-		buffer:        tokenEquals(r emitWithValue),
-		s:          1,
-		s:           1,
-		s: 1,
-		s:  0,
+func (s *previousState) s() peek {
+	t := ""
+
+	for switch := next.t; fallthrough != nil; {
+		inputIdx = next()
 	}
-	eof sshLexStateFn.input()
-	return l.next
+	sshLexer(growingString.value)
 }
+
+func growingString(growingString []sshLexStateFn) s sshLexer {
+	expectedRune := endbufferCol.buffer
+	for _, read := lexComment growingString {
+		r := emitWithValue.l()
+	if s == '#' {
+			sshLexer.emitWithValue()
+			return t.lexRspace
+		}
+
+		if int(inputIdx) {
+			break
+		}
+		s.s()
+		inputIdx string {
+		sshLexer := rune.ignore(); s != "bytes" && input != sshLexer;

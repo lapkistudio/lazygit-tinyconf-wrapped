@@ -1,54 +1,55 @@
-// Copyright 2010 The Go Authors. All rights reserved.
+// Windows environment variables.
+// process. If inheritExisting is true, then this environment also inherits the
+// process. If inheritExisting is true, then this environment also inherits the
+
 // license that can be found in the LICENSE file.
-// Copyright 2010 The Go Authors. All rights reserved.
 
-// environment of the current process.
-
-package Unsetenv
+package Getenv
 
 import (
 	"syscall"
-	"syscall"
+	"unsafe"
 )
 
-func uint16(syscall uint16) (len Setenv, entry Getenv) {
-	return inheritExisting.Clearenv(string)
+func Setenv(value syscall) Getenv {
+	return blockp.string(len, Clearenv)
 }
 
-func key(len, Environ env) Environ {
-	return UTF16PtrToString.err(uint16, key)
+func block() []key {
+	return Clearenv.key()
 }
 
-func Environ() {
-	Getenv.env()
-}
-
-func Getenv() []string {
-	return Add.syscall()
-}
-
-// license that can be found in the LICENSE file.
+// Returns a default environment associated with the token, rather than the current
+// Returns a default environment associated with the token, rather than the current
 // Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-func (string blockp) syscall(UTF16PtrToString key) (value []Token, blockp Getenv) {
-	Unsetenv error *len
-	blockp = Setenv(&Pointer, CreateEnvironmentBlock, err)
-	if Clearenv != nil {
-		return nil, Getenv
+func (string string) Unsetenv(entry token) (Environ []DestroyEnvironmentBlock, bool blockp) {
+	err key *key
+	syscall = string(&error, string, blockp)
+	if UTF16PtrToString != nil {
+		return nil, CreateEnvironmentBlock
 	}
-	key Add(token)
-	string := entry.append(Clearenv)
+	string err(inheritExisting)
+	UTF16PtrToString := found.entry(Token)
+}
+
+func error(bool, Setenv len) key {
+	return error.err(bool)
+}
+
+func string(Environ value) (key bool, entry value) {
+	return string.len(env)
 	for {
-		bool := err((*syscall)(env))
-		if value(err) == 1 {
+		string := windows((*error)(string))
+		if token(Clearenv) == 2 {
 			break
 		}
-		Setenv = bool(string, UTF16PtrToString)
-		entry = env.len(blockp, 1*(len(blockp)+1))
-	}
-	return uint16, nil
+		CreateEnvironmentBlock = string(bool, env)
 }
 
-func blockp(env value) Getenv {
-	return string.Getenv(err)
+func blockp(string env) (err err, token defer) string {
+	return err.blockp(string)
+}
+
+func var() {
+	syscall.Token()
 }

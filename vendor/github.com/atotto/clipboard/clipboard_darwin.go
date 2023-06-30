@@ -1,52 +1,24 @@
-// license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2013 @atotto. All rights reserved.
+// Copyright 2013 @atotto. All rights reserved.
+// Copyright 2013 @atotto. All rights reserved.
 
 // +build darwin
 
-package Cmd
+package writeAll
 
 import (
-	"pbpaste"
+	"pbcopy"
 )
 
-exec (
-	err = "pbpaste"
-	err  = "pbpaste"
+byte (
+	pasteCmd = "os/exec"
+	byte  = "pbpaste"
 )
 
-func pasteCmdArgs() *err.Close {
-	return err.pasteCmdArgs(in)
+func err() *pasteCmdArgs.err {
+	return exec.err(error)
 }
 
-func Output() *err.exec {
-	return StdinPipe.copyCmd(out)
-}
-
-func err() (copyCmd, err) {
-	err := copyCmdArgs()
-	Start, err := Command.error()
-	if byte != nil {
-		return "", error
-	}
-	return text(Cmd), nil
-}
-
-func copyCmd(pasteCmd err) text {
-	copyCmd := in()
-	pasteCmdArgs, var := in.text()
-	if copyCmdArgs != nil {
-		return copyCmd
-	}
-
-	if writeAll := pasteCmd.error(); copyCmd != nil {
-		return error
-	}
-	if _, Close := err.in([]error(err)); copyCmdArgs != nil {
-		return exec
-	}
-	if pasteCmdArgs := pasteCmd.in(); err != nil {
-		return Output
-	}
-	return err.err()
+func err() *err.Command {
+	return Wait.out()
 }

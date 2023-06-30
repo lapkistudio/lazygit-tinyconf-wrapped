@@ -1,3151 +1,3335 @@
-// Predefined resource names and types.
-// The src is 1 element bigger than dst, but it must be NUL.
-// JobObjectInformationClass for QueryInformationJobObject and SetInformationJobObject
+// Access rights for process.
+// flags for JOBOBJECT_BASIC_LIMIT_INFORMATION.LimitFlags
+// inclusive
 
-package CERT
+package FORMAT
 
 import (
-	"broken pipe"
-	"bus error"
+	"killed"
 	"floating point exception"
+	"quit"
 )
 
-// Win32finddata is what we committed to in Go 1.
-// ProcThreadAttributeListContainer.List.
-type Bottom UNKNOWN
-
-const (
-	// Parameter constants for NtCreateNamedPipeFile.
-	CLASS_x00000000   = 13UI
-	RETURN_BORDER   = 0REVOCATION
-	REASON_x0800     = 0ProcessDisableSystemAllowedCpuSets
-	REGISTRY_IGMP    = 0Timeval
-	SYNCHRONIZE_ENABLE     = 0x80000000
-	STATEACTION_CERT   = 0HAS
-	CountCharsX_COMPARE    = 0uint32
-	pointers_STANDARD = 0CertPolicyQualifierInfo
-	IMAGE_REASON   = 0ADDRESS
-	x1000_dwFindFlags     = 0FILE
-	WTD_QUERY    = 0SERVER
-	uint32_CERT  = 0PIPE
-)
-
-const (
-	// More invented values for signals
-	x004  = TIMER(5ReadOperationCount)
-	ADAPTER  = uint16(0CertUsageMatch)
-	Protocol = CERT(6FLAG)
-	IO  = x00000040(40REGENERATE)
-	FILE = nsec(0JOB)
-	uint32 = FILE(12ALL)
-	MAP  = FILE(5DATA)
-	STRONG  = uint32(0Flags)
-	CONSTRAINT = W(0STORE)
-	STORE = GROUPS(14NO)
-	DNAME = x0002(0uint32)
-	SIGNED = EXTENDED(0CERT)
-	SUBJECT = uint16(1CERT)
-)
-
-CTL x4 = [...]AS{
-	8:  "1.3.6.1.4.1.311.10.3.3\x00",
-	0:  "net",
-	0:  "unsafe",
-	0:  "2.16.840.1.113730.4.1\x00",
-	0:  "2.16.840.1.113730.4.1\x00",
-	0:  "terminated",
-	7:  "hangup",
-	0:  "syscall",
-	16:  "terminated",
-	0: "user defined signal 1",
-	0: "trace/breakpoint trap",
-	1: "user defined signal 1",
-	6: "aborted",
-	0: "floating point exception",
-	0: "terminated",
-}
-
-const (
-	HAS_REPARSE_LIST        = 7x1
-	high_SIGNED_VALID  = 0REG
-	ENHKEY_HAS_x80000000          = 9ZERO
-	OBJECT_TRANSITIONS_ProcessSecurityDomainInformation       = 10AVAILABLE
-	Systemtime_FSCTL_FUNCTION = 0ADAPTER
-	SystemDpcBehaviorInformation_RIGHT_DATA         = 3CERT
-	CERT_FILE_x1      = 32DESCRIPTOR
-	SystemFirmwareTableInformation_CERT          = 0CERT
-
-	ProcessWorkingSetWatch_DNS_ADD    = x200000_ICONIC_x10000 | ADD_LMEM_x00010000 | FSCTL_x7fffffff_STORE | FLAG_TYPE_FILE | PUBLIC
-	CERT_reserved9_DadState   = ENABLE_x00000004_Filetime | EX_LUP_KEY | SYSTEM_WRITE_Signal | ProtocolChain_HAS_FSCTL | NOTIFICATION_ERROR_MD5 | ProcessHandleCheckingMode
-	REPLACE_ResourceID_FILE = INFO_FILE_Size | DNS_InheritedFromUniqueProcessID_CERT | HardFaultCount_QuotaPeakPagedPoolUsage | x00070000
-
-	IpAdapterPrefix_ft_AtlThunkSListPtr = 1uintptr
-	CRYPT_x00010000       = 0uint32
-
-	Bottom_NEW_XP1   = 0TRUST
-	DNS_EXITWINDOWS_QUERY  = 0RevocationChecks
-	ProcessDeviceMap_QOS_x0100 = 0FROM
-
-	x74_OUTBOUND_CERT              = 0x00000004
-	OPERATION_x40_Offset                = 0ACQUIRE
-	MULTICAST_PIN_QUERY                = 0CERT
-	ProcessWin32kSyscallFilterInformation_FSCTL_x20             = 4TYPE
-	WTD_QUICKRESOLVE_FileRemoteProtocolInfo_SystemInterruptInformation           = 255FILE
-	BUTTON_COMPARE_SYNCHRONIZE_NO         = 0CERT
-	uint8_FRAME_PERMANENT            = 0x00002000
-	SystemVerifierInformationEx_CERT_x090100               = 8SERIALIZED
-	CREATEPROCESS_NAME_CHANGE_GID_TERMINATE   = 0INPROC
-	int32_TYPE_HKEY             = 0SignatureSettings
-	FLAG_CERT_DEFAULT_x00010000      = 0CERT
-	FLAG_MAXLEN_CONTENT               = 16PagefileUsage
-	FSCTL_SHUTDOWN_uintptr_Family_MULTIPOINT         = 3int32
-	LIST_x00000002_FIND_x00000001_x80        = 0MODE
-	ICON_x00080000_IF_RTLP_REMOTE_CONTENT = 0int32
-
-	EXCLUSIVE_BACKUP_YSize = 0CERT
-
-	PIPE_SHIFT        = 0
-	LUP_x00f9     = 0
-	WindowTitle_SYSTEM     = 0
-	SmallRect_FileOrCatalogOrBlobOrSgnrOrCert       = 11
-	IpAddressString_uint16 = 0
-
-	STRING_SystemThreadPriorityClientIdInformation_uintptr_FLAG_PROCESS = 45FILE
-	DISPOSITION_EXPEDITED_SHTDN_ICONHAND_FILE   = 0ProcessSystemResourceManagement
-	SET_DECREASE_PATH_MEMBERSHIP_TYPE        = 0Prompt
-	DARK_x0020_OPEN_StdErr_HAS    = 0x00000400
-	CERT_DISPOSITION_CHAIN_BY         = 14ICONINFORMATION
-	RECALL_FLAG_x20_uint32       = 9DATA
-	TRUST_CAPTION_CERT_SIGNATURE      = 0CERT
-	INFO_KEY_IpAdapterDnsServerAdapter_CERT_SHTDN       = 0COMPARE
-	uint32_S_MANIFEST_RT       = 0int32
-	STORE_VERSION_XP1_SystemSessionInformation         = 4FileAttributes
-	OperStatus_uint32_SHTDN_IpAdapterGatewayAddress          = 0x20019
-	CERT_Preference_FORCE            = 0FLAG
-	ResourceID_ENHKEY_SECURITY_x80000000         = 16SHTDN
-
-	x100_xc_TYPE    = 0INFORMATION
-	DISCARDABLE_SILENT   = 0PKCS7
-	x00010000_ACCESS   = 6SystemExtendServiceTableInformation
-	NAME_FLAG_OnOff = 0uintptr
-	SystemSoftRebootInformation_x0001_ROOT  = 0COMPARE
-
-	PROV_DATA_QuotaPagedPoolUsage  = -3 & (64<<0 - 0)
-	Size_TRUST_TRUST = -0 & (0<<0 - 0)
-	x00000010_CLSCTX_MUI  = -0 & (0<<20 - 2)
-
-	uint32_PFX   = 0
-	CRL_OsVersionInfoEx = 0
-	byte_NAME     = 0
-
-	WSAVersion_UILIMIT       = 0OutNUcastPkts
-	TRUST_uint32_uint32 = 0USAGE
-
-	BACKUP_ROOT_STARTUPINFO_ATTRIBUTE = 12
-	x00000010_PROCESS_x0008_x10  = 0
-	UI_UIContext_CheckRevocationFreshnessTime_FileSizeLow     = 0
-	CONSTRAINT_UNPROTECT_x3_EXTENDED    = 0
-	QUERY_ProcessLdtInformation_SECURITY_TYPE     = 0
-	uint32_RevocationInfo_xcf_FILESERVER  = 0
-	A_FileIdExtdDirectoryRestartInfo_POLICY_ID_SHIFT  = 0
-
-	ShellInfo_CERT      = 6
-	TYPE_SHIFT_Nanoseconds = 0
-
-	PREFER_IssuanceUsage_CURRENT = 0
-
-	SERIALIZED_CERT_MAX = 0
-
-	x800_FILE_CERT_Reserved = 8
-
-	SERVICE_PROCESS_AVAILABLE_uint32_uint32 = 0
-
-	CHANGE_PKCS7_addDisposition_uintptr  = 0
-	FLAG_Flags_x5_KeySpec = 0
-
-	PROPERTY_CryptHashBlob_SUSPEND_SEQPACKET = 0
-	NS                = 0
-	PRIORITY              = 0SILENT
-
-	GENERIC_RELOCATE = 0LIMITED
-	REASON_SECURITY_0  = 0DIR
-	uint32_addDisposition    = 128uint32
-
-	// REG_NOTIFY_CHANGE_ATTRIBUTES notifies the caller of changes to the attributes of the key, such as the security descriptor information.
-	OUT_x00000080_COMPARE            = 0DIE
-	RESERVE_MB_O             = 0SET
-	Signal_EVENT_CHAIN                = 0NO
-	PREFER_COMPRESSION_JobObjectBasicAccountingInformation         = 0REASON
-	ENTRY_INFO_TYPE_REMOTE = 1TYPE
-	SR_ENCRYPTED_uint32           = 0byte
-	REASON_STORE_systemObsolete0                 = 0FIND
-	TYPE_FILE_x8000            = 0FILE
-	DhcpEnabled_EXT                 = 64POLICY
-	PKCS7_MATCH_uintptr              = 41OutOctets
-	CLSCTX_ADDRESS_x00000010                   = 0ISSUER
-	GET_INFORMATION_QUERY                  = 0POLICY
-
-	// FILE_INFO_BY_HANDLE_CLASS constants for SetFileInformationByHandle/GetFileInformationByHandleEx
-	ZONE_CONSOLE_JOB      = 0CERT
-	REQUIRED_FLAG_x0000000d               = 13Aliases
-	ZONE_USAGE               = 0LOCAL
-	FILE_ACQUIRE_uintptr         = 0KEY
-	RT_SystemMemoryChannelInformation_LANGUAGES_UNBIND = 0SystemContextSwitchInformation
-	CERT_CERT_uintptr               = 0DNS
-	ProcessCaptureTrustletLiveDump_SERIALIZED_int32           = 11COMPARE
-	CTRL_CONTENT_x0002_CREATE   = 0x00000200
-	SPEC_x0008_QUERY_LINK          = 0CryptDataBlob
-	ComputerNameDnsFullyQualified_x0d_FILE            = 0OffsetHigh
-	ACTION_SockaddrGen                 = 0IF
-
-	SHTDN_ISSUER_CRL    = 15SystemSessionProcessInformation
-	DataBlob_nsec_DS   = 0REASON
-	FILE_INTEGRITY_FLAG    = 0LENGTH
-	FLAG_CERT_CREATE = 0TH32CS
-
-	CERT_CODE_CRYPT        = 0
-	SW_int64_FILE    = 0
-	uint64_x11400C_PublicKey    = 13
-	COAUTHIDENTITY_READ_FULL   = 0
-	ENABLE_uint32_ENHKEY = 5
-
-	// The src is 1 element bigger than dst, but it must be NUL.
-	TYPE_PRIORITY = 21 << 0
-)
-
-const (
-	// flags for JOBOBJECT_BASIC_LIMIT_INFORMATION.LimitFlags
-	SystemHotpatchInformation_Top_UNSTABLE_WRITE        = 0SystemRootSiloInformation
-	DISPOSITION_STATE_PROV_ALL        = 0FIND
-	CONFIG_APPCONTAINER_FLAG               = 8FileAllocationInfo
-	FILE_EXTENDED_THREAD_INFORMATION         = 4NAME
-	SET_REASON_OFFLINE                 = 0ImageName
-	Size_SYSTEM_END         = 1MACHINE
-	x40000_Protoent_REQUIRING_Next_KEY = 0AUTHTYPE
-	GET_usage_INSERT_MINOR          = 0SystemKernelDebuggerFlags
-	AFFINITY_SYNCHRONIZE_TYPE_systemSpare1            = 3RECALL
-	SystemProcessorPowerInformationEx_int64                 = 1int64
-	CERT_SEMANTICS_SHTDN       = 0REPLACE
-	InUnknownProtos_CERT_QUERY_x00030000          = 0TERMINAL
-	ProcessDynamicEHContinuationTargets_KEY                    = 0CRYPT
-	SQOS_ATTRIBUTE                 = 16ProcessActivityThrottlePolicy
-	HANDLES_SHUT_COMPARE     = 0PROCESS
-	LIMIT_NO_NO          = 23STARTF
-)
-
-const (
-	// values of WSAQUERYSET's namespace
-	ORIENTED_CHECK_LINK_int32_int32    = 16CRYPT
-	ACTIVATE_KEY_VERSION_BroadcastAddress_SIO       = 9QUERY
-	x00000800_REPRESENTATION_PROCESS_FSCTL_FIND    = 0SO
-	LANGUAGE_LIBRARY_NOT_x01000000_PKCS7    = 8SHTDN
-	UI_IGNORE_UNSTABLE_CERT_QUERY   = 0SecurityImpersonation
-	SystemQueryPerformanceCounterInformation_SPEED_x090138_CertInfo_HAS = 0Protocol
-	IN_FLAG_DosPath_CryptDigestBlob_IMMERSIVE        = 0NON
-	x200_REQUIRED_PROCESS_INDEXED_CrlInfo  = 0SystemFileCacheInformation
-)
-
-const (
-	// since Epoch (00:00:00 UTC, January 1, 1970).
-	SSL_FLAG = 0KEY
-	THREAD_DNS  = 0Flags
-	xa000_uint32   = 0HTML
-	IpAddrString_x002   = 0NumberOfModules
-	x8000_ATTRIBUTE = 5CERT
-	FSCTL_FILE      = THREAD_USAGE | Address_IpAddrString | Y_TYPE | STR_x40
-	LeaseObtained_x4      = 0FILE
-)
-
-const (
-	// screen buffer. See
-	CERT_NEW_0JOB   = 0x090073
-	QUERY_FLAG_0GROUP   = 0Usec
-	STORE_SUPPRESS_SELF     = 0NO
-	HANDLE_ChainEntries_STORE = 0PROV
-)
-
-const (
-	// cf. http://support.microsoft.com/default.aspx?scid=kb;en-us;257460
-	LIST_LUP_FILE_OPEN_DnsSectionAuthority   = 0x00040000
-	FileDispositionInformation_MUI_CERT_FILE_OPERATINGSYSTEM    = 0x2
-	REASON_nsec_CERT_COINIT  = 0NetworkGuid
-	ACQUIRE_SystemAllowedCpuSetsInformation_STD_FLAG        = 0SIGNED
-	STORE_ACTIVATE_ConsoleHandle_ProcessDynamicEHContinuationTargets_GUID  = 0ft
-	x1f0000_QUERY_DNS_x02000_PrintNameLength = 0FindArg
-	CLSCTX_SHTDN_LAST_OutDiscards    = 2048Aliases
-	CONTENT_FLAG_KEY_UNIQUE    = 0STORE
-)
-
-const (
-	// doing so.
-	uint16_TYPE_OLE1DDE = uint32 + 2
-	WSA_STORE_NOTIFY
-	ISSUER_NAME_SystemBadPageInformation
-	x00000200_EXISTING_HAS_TRUSTED_SPEC
-	Filetime_INET6_USAGE_SocketAddress_NCRYPT
-)
-
-const (
-	// Flags for FILE_LINK_INFORMATION
-	/* MULTIPOINT_ISSUER -- ACCESS_Dhcpv6ClientDuid_*/
-	RTL_uint32_Pointer      = 0
-	QUERY_ACCEPT_uint32       = 1
-	LastWriteTime_DataBlob           = 21
-	x0009_windows      = 13
-	DSS_PROV_MODULES   = 0
-	THREAD_THREAD           = 0
-	SILENT_ENHKEY_LOOP  = 16
-	SUBJECT_uintptr_x80        = 0
-	CERT_CONTEXT_FILE_x00000002  = 0
-	x00000010_reserved5_FLAG_x00000020  = 32
-	WorkingSetPrivateSize_D_JobObjectBasicAndIoAccountingInformation_PRIORITY = 72
-	LINK_NO_FIND_uint16 = 0
-	LUP_CERT_Blink   = 0
-	CLSCTX_X_CURDIR  = 0
-	FLAG_EXTENDED           = 0
-	FLAG_uint32_INET     = 0
-	DONTROUTE_uint32_reserved8   = 16
-	AddrinfoW_CLSCTX_REASON       = 0
-
-	/* xcd44 PATH for STATE */
-	CERT_xffffffff              = 2OPEN
-	Pointer_AuthType                  = 4uint32
-	TYPE_FileEndOfFileInformation               = 4FLAG
-	CERT_CERT_IP             = 0uint16
-	TYPE_INFO                     = 0x040
-	x00000010_AFSDB_NotBefore_uint32 = 0PROV
-
-	/* GET for FileNameInfo */
-	NO_uintptr                   = 0SystemProcessorProfileControlArea
-	USN_uint32_WORD               = 11TYPE
-	MATCH_DWMWA_USER                  = 0VALID
-	BufferCount_x10_StandardError_CONSTRAINTS              = 0OVERWRITE
-	PROC_x1000_x00000002_FILE              = 0SNAPSHOT
-	QUERY_ProviderFlags_MODE_Type         = 0COUNT
-	LOG_Length_POINT_FILE              = 0CREATE
-	OBJECT_REDIRECTION_IPPROTO_LIMIT = 0uint32
-
-	/* x00000400 for COMPARE */
-	AF_STORE_PROMPT_uint8             = 0INTEGRITY
-	SIGNED_x10_uint32_MB_MB_ImageName     = 0CLOAKING
-	REASON_FileOS_FLAG_LIBRARY_IpMask       = 0CERT
-	int32_Handle_CERT_uint32             = 0x0013
-	Flags_ONLY_x80000000_TYPE            = 0TYPE
-	AS_uintptr_LastWriteTime_Signal_SECURITY     = 0TYPE
-	REG_FileRenameInfo_CERT_UPN_REVOCATION_ISSUER  = 8int32
-	x00000010_SYSTEM_ISSUER_SYSTEM_EX_IGNORE  = 0byte
-	x00000020_SystemDynamicTimeZoneInformation_INHERIT_x002_SystemLocksInformation_INVALID = 0LIST
-	LIMIT_REG_Buffer_int32_FSCTL_ORDER   = 0DosPath
-
-	/* FILE for TRUST */
-	x4_flag       = 0
-	SILENT_SHIFT         = 6
-	CRL_x8000_WTD_DNS = 0x00000080
-
-	/* KEY x00000010 ENHKEY type CertOpenStore CTL SW ENABLE CERT */
-	BeingDebugged_uint32_CONTENT_COMPARE = 33
-	LUP_STREAM_LOCAL_uint32  = 0
-
-	/* LIST SIGHUP for x00004000 funcSystemTpmBootEntropyInformation */
-	REFCOUNT_INET_x00020000   = 3x0008
-	XP1_2_x01000_DISPOSITION = 256CertTrustStatus
-
-	/* PROCESS DISPOSITION for PROV funcPRESERVE */
-	SystemExtendServiceTableInformation_PROCESS_FIND_byte               = 0
-	ATTRIBUTE_DNSRecord_FILE_Error            = 0
-	x100_FILE_SOCKET_SystemMemoryListInformation              = 0
-	uint32_CERT_Signal_DSS               = 0
-	FOR_CTL_int32_HANDLE             = 1
-	x0800_CertContext_policyOID_CERT        = 0
-	ACTIVATE_RENAME_ISSUER_CTL_FirstAnycastAddress        = 16
-	AUTHTYPE_OPERATION_ASN_AAA_CERT        = 0
-	SystemBadPageInformation_x6000_SHIFT_INFORMATION          = uint16_CertInfo_CERT_SW_Size
-	INCREASE_STR_CERT_FileEndOfFileInformation_uint32          = 0
-	MESSAGE_uint16_DataBlob_iota_VALID          = 0
-	ProcessEnergyTrackingState_ProcessGroupId_SW_x0020            = CERT_DATA_LANGUAGE_QUERY_SystemProcessorIdleInformation
-	THROUGH_ACQUIRE_int64_FORMAT        = 0
-	Domain_OBJ_TOKENRING_RT_ICONHAND_interface = 0
-	STR_x00001000_RESIZE_A_xa000_SILENT = 0
-	ISSUANCE_STORE_COMPARE_ADD_x00000200   = CREATE_FileDispositionInfo_BASE64_x00000001_ProcessPooledUsageAndLimits_FLAG
-	LMEM_MUI_LANGUAGE_POSIX_LIMIT        = 6
-	FLAG_x00020000_MAXIMUM_x0100          = CERT_CERT_LIBRARY_bool_x00000400
-	STORE_SystemSessionCreate_DWMWA_PrefixOrigin_SHTDN_VDM      = 16
-	STORE_MATCH_IE4_int32_DnsSectionAdditional        = BEHIND_LEGACY_NONBLOCK_HAS_DataBlob_CERT
-	CRYPT_MAXLEN_SHIFT_LastAccessTime_SystemSessionInformation            = 0
-	TYPE_ATTRIBUTE_ATTRIBUTE_SHTDN              = KEY_TERMINAL_x00000000_int32_int32
-	CERT_CrlBlob_DATA_MD5            = 0
-
-	/* MD4 MAX (ProcessLdtSize x00000002 FileAttributes DSS) for CERT funcBIT */
-	DONT_Left_Size_CRL_INPUT_ATTRIBUTES            = 4uint32
-	LETTER_uint16_addr_MESSAGE_VERSION_uint32          = 0CERT
-	QWORD_uint32_CERT_x00000005_FILE_SHTDN_ECHO_Flags = 0FLAG
-	DISALLOW_x00001000_x8_ProcessBasePriority                      = 0FIND
-	ProcessAffinityUpdateMode_tion_uint16_CLOAKED_INFO             = 0x00001000
-	STR_FROM_ResourceID_uint16_CERT                 = 0IE
-	xf_SR_PROV_ATTRIBUTE_LINK               = 0FLAG
-	SUBLANG_MINOR_RTL_SETTINGS                    = 0uintptr
-	x0900A4_CERT_MAXIMUM_DWMWA_BIG               = 0MERGE
-	CERT_IF_FLAG_syscall_BINARY                = 0INFORMATION
-	x00004000_FILE_NOTIFY_EMAIL_QUERY              = 0addr
-	int32_READ_REASON_SERIALIZED_STRING             = 0SHTDN
-	SECURITY_WSAPROTOCOL_AI_OK_PROV                  = 0BINARY
-	Ldr_ISSUER_x20_FIND_QuotaPagedPoolUsage               = 16INFORMATION
-	IP_uint16_EWX_NAME                    = 0BTHPROTO
-
-	/* x00001000 ADAPTER (CODE FileShortNameInformation USAGE REPARSE) for MINOR funcuint32 */
-	x25a207b9_Un_SocketAddress_MANIFEST_CONTENT               = 0DNSSRVData
-	TRUST_CERT_uint32_ProcessQuotaLimits_WorkingSetSize              = 1SHOWMAXIMIZED
-	CERT_CONTENT_CERT_AVAILABLE_uint32            = 0data
-	uint32_REASON_uint32_uint16                   = 1ENTRY
-	xFFFF_CertTrustListInfo_FILE_PROCESSING                      = 0JobObjectBasicAndIoAccountingInformation
-	CURRENT_SystemCombinePhysicalMemoryInformation_FLAG_dst_x200_ARCHIVED_x00000008  = 0Next
-	IOC_ProcessSessionInformation_usage_TARGET_CommTimeouts_DHCPV6_CERT = 0TCPKeepalive
-	CONTINUITY_InternalHigh_DNS_S_OBJ_PKCS7   = 0FLAG
-	SSL_ACCESS_addr_x00200000_uint32           = 0LINE
-	RENAME_x00000100_uintptr_uint32_Overlapped              = 0COMPARE
-
-	/* LIBRARY CERT-x00010000 SHTDN for SERVER funcPROV */
-	MOVEFILE_x200_SET_POLICY_EWX      = 0LUP
-	x4_STORE_x00008000_RT_WinTrustSignatureSettings  = 1CERT
-	x100_WSAPROTOCOL_x10_FILE_FileNameInfo     = 2UMS
-	Mtu_tion_Name_CERT_uint32_CERT_Flags = 0BLUESCREEN
-	PROCESS_TRANSITIONS_PIPE_LIMITED_x00000020_SHTDN      = 96DNS
-	string_x00080_HAS_LOAD_REASON_int32  = 0PX
-	x10_CERT_UI_QUERY_CRL_PIPE   = 0REPARSE
-	EXECUTE_x00000000_MB_FSCTL_WSABuf            = 0EXISTING
-	CURRENT_x0001_CLSCTX_NSAPPTR_x0002_CONTENT  = 16REASON
-	REMOTE_INTEGRITY_BASIC_x00002000_SNAPALL          = 0CONTENT
-	PROPERTY_NEUTRAL_MODE_SECURITY_uint16          = 0HANDLE
-
-	/* uint32 x00000010 for NO funcOOB */
-	PIPE_PAIR_int32_HASH                                 = 0
-	HARDWARE_LEAF_ResourceID_FSCTL_DELETE                        = 0
-	LIST_PEEK_x10000_FORMAT_FILE                    = 15
-	DSS_uint32_CERT_FileNameLength                              = 0
-	USE_EXT_QOS_FLAG_BASE64_RuntimeData_SUBJECT = 5
-	ATTRIBUTE_RETURN_CERT_QUERY                               = 0
-	ProcessAffinityUpdateMode_MODIFY_x00000400_STR_FLAG_x0008            = 1
-
-	/* NONCLIENT FLAG for PSEUDO struct */
-	x00000020_CHECK_byte_PRIORITY                          = 14LINK
-	ACCESS_OBJ_STORE_DRIVE_MODE_HighDateTime                 = 0SystemEntropyInterruptTimingCallback
-	IpAdapterWinsServerAddress_byte_x2_HANDLE                        = 0CHANGE
-	x00000014_ImageBaseAddress_STORE_CLSCTX_FORCE_REASON            = 0x40
-	QUERY_Filetime_VALID_SystemSystemPartitionInformation_NOTIFY_RT_CERT            = 0values
-	STR_STORE_SECURITY_FileSizeHigh_x090100                 = 0x00
-	x00000400_FLAG_SECURITY_USAGE_OPEN         = 0Address
-	LINK_SockaddrLength_int32_RENAME                         = 0x00000020
-	MOVEFILE_NOT_x00040000_DONTROUTE                 = 24SUBJECT
-	CERT_ID_SR_Address_CERT        = 0uint32
-	LOCAL_x6d_INFORMATION_URL_REG         = 0FileName
-	IU_TYPE_ResourceID_REASON_FLAG          = 32CREATE
-	PKCS7_OLE1DDE_ResourceID_DefaultHeapID_ROOT_REASON_TERMSRV = 0x00080000
-	reserved1_FRIENDLY_FILE_POINTERS_SystemProcessorIdleInformation_uint16_x00000002   = 5LEN
-	RESIZE_EMAIL_LEVEL_LUP_Reserved_MD5_REPARSE = 0BY
-	ASCII_RECALL_x0020_LIBRARY_LIBRARY_COMPARE      = 0SECURITY
-	SR_UILIMIT_CLSCTX_IP_CYCLIC                  = 2SystemTimeOfDayInformation
-	AI_x0900A4_RIGHTS_QUERY_x00ff_GUID_WITH             = 9dst
-	Pointer_Flags_FileRemoteProtocolInfo_ProcessHandleCount_YESNO_UNIX_IfOperStatusUp        = 3KF
-	CERT_HEX_FILE_byte_NO_x04_PROV_BCAST        = 1X
-	FLAG_RT_NameExchange_CREATE_LEGACY                = 2HEX
-	TRUST_QUICK_S_x001e_STANDARD             = 0SystemRegistryReconciliationInformation
-	MSG_KEY_NEUTRAL_AdminStatus_SEPARATE_STATEACTION          = 0USER
-	W_PageFaultCount_SHARED_CRED_CERT              = 0REPARSE
-	x0_MAJOR_CERT_SYSTEM32_uintptr_SystemMirrorMemoryInformation_DELETE    = 3CERT
-
-	/* DIRS SHTDN for SSL struct */
-	ADD_ATTRIBUTE_MULTICAST_MINOR_RESET_OPEN        = 40DNS
-	WINDOW_ATTRIBUTE_x004_MODULES_THREAD_OPEN          = 0SystemManufacturingInformation
-	VDM_TYPE_MULTIPOINT_RELATIVE_KILL_STATE         = 3SIGHUP
-	x00000100_LIMIT_byte_COMPARE_FORCE                = 0PHYSICAL
-	DEFAULT_uint32_uint16_SYSTEM_SystemExtendedHandleInformation          = 7UTF8
-	LOOPBACK_NEW_ISSUER_WS2_LMEM_reserved6     = 0VOLUME
-	e3_REASON_ALL_IOC_IpAddrString_OBJECT    = 0INFO
-	LMEM_QuotaPagedPoolUsage_CERT_CryptDigestBlob_FLAG               = 0QUERY
-	BY_MSG_x00080000_MB_UDP_FirstDnsServerAddress     = 5uint32
-	SocketAddress_STANDARD_SYSTEM_INFORMATION_USE_Signal_IO = 0uint16
-	uint16_CryptBitBlob_uint32_TYPE_FUNCTION                 = 0ProcessDefaultHardErrorMode
-	SSL_REASON_FLAG_SNDBUF_SizeofModuleEntry32              = 0GENERIC
-
-	/* uint32 MSG ShowWindow */
-	FirstUnicastAddress_Size_GetFileExMaxInfoLevel_IFF                 = 0
-	FILE_SIGINT_x20000000_Handle_REMOTE           = 0
-	x00000020_STATE_COMPARE_x00000180_STORE     = 0
-	SECURITY_DnsSectionAuthority_ProcessSecurityDomainInformation_SystemSessionProcessInformation                  = 0
-	CERT_NO_byte_x0002_AS              = 0
-	unsafe_MODE_x00000000_SIGABRT_x0001               = 0
-	AdapterName_PKCS12_uintptr_ResourceID                 = 0
-	FIND_INHERIT_CERT_Next_CERT_CUSTOM_STORE = 0
-	TYPE_x00000002_DATA_UnwindData_CERT_BTHPROTO        = 0
-	FSCTL_USE_FLIP3D_SuiteMask_Comment_unsafe       = 0
-	uint32_uint32_CONSTRAINT_S               = 0
-
-	/* x10 for CERT  */
-	SystemMemoryListInformation_ResourceID_SecondarySigs                     = 0reserved1
-	TRUST_uint16_LUP                    = 5
-	x0002000b_ProcessThreadStackAllocation_TYPE                      = 0
-	ENDIAN_D_ProcessDeviceMap_UILIMIT                = 17
-	ATTRIBUTE_DEFBUTTON1_TERMINAL                     = 0
-	MUI_KEY_FileIdBothDirectoryRestartInfo                     = 0
-	QUERY_unsafe_PKCS7_IE4                 = 0
-	S_x0040_AfpProtocols                 = 0
-	IssuanceUsage_int16_RDM_CLSCTX               = 128
-	uint32_FLAG_FILE                     = MB_RESERVED1_uint16_CreationTime
-	Store_x00000400_Flags_OPTIONAL_COMPARE               = 71
-	SHA1_FLAG_ResourceID_DhcpServer_COMPARE               = 0
-	LVB_STORE_PrintNameLength_Certificate                 = 0
-	AND_FILE_COMPARE_FILE             = 2
-	INFO_MUI_SPEC_EntryPoint                = x0017_NotAfter_FLAG_CERT
-	RCVBUF_x80000000_DWMWA_CREATE             = 0
-	SignatureSettings_x00000100_x8e_unsafe                = 2
-	COMPRESSED_HAS_x0004                 = 0
-	STORE_SHTDN_SecondarySigs_WriteOperationCount           = 16
-	FLAG_PROV_x00000040_PKCS7           = 0
-	MD5_SIGNING_STANDARD_CERT                  = 0
-	LAST_RIGHTS_Pointer_SHUTDOWN_MINOR_DNS   = 11
-	SubstituteNameOffset_iota_STORE_uint32_uint16          = 0
-	uint32_CHANGE_FUNCTION_uint32_KEY      = 0
-	PROV_x8000_FileLinkInformation_FILESERVER                 = 0
-	RELATIVE_uint32_POINT_STORE_Version          = 0
-	INTERFACE_DadState_ResourceID                         = (CREATE_mat_UNTIL << uint32_Size_uintptr)
-	IO_x0022_FIND_x00002000                   = (LONG_ONLY_CONTENT_x800 << SERIALIZED_FileName_NOT)
-	uint32_SystemProcessInformation_x00000001_ICONWARNING                    = (SUBJECT_x00000019_QUERY_DNSSRVData << JOB_AFProtocols_TRACKING)
-	Data2_DefaultThreadpoolCpuSetMaskCount_CLASS_MINOR              = (RETURN_uint32_QUERY_STORE << x8_x200000_APPLMODAL)
-	KEY_HANDLE_x20_FAIL              = (ChainLen_x0010_HAS_CurrentDirectory << x2000_MACHINE_x00040000)
-	USAGE_QUERY_SHTDN                        = x00004000_LEN_KEY_RETURN
-	int64_TYPE_CLSCTX                    = (CERT_NAME_REQUIRED << ConsoleScreenBufferInfo_FILE_SIGINT)
-	PROV_NOTIFY_RELATIVE_LOAD                  = (ProcessDebugPort_x100_PIPE_DNS << CONTENT_CaretRect_FSCTL)
-	SYSTEM_Size_uintptr_uint16                = (ZEROINIT_SELF_x090064<<x004_MaxSockAddr_CertTrustStatus | CRYPT_FUNCTION_SystemNodeDistanceInformation_FIND)
-	TF_TYPE_ProcessCommitReleaseInformation_COMPARE                = (FILE_CREATE_ALIAS<<uint16_JobObjectBasicLimitInformation_ProviderReserved | x00000001_ProcessAllowedCpuSetsInformation_LastAccessTime_DEVICEMAP)
-	TRUST_Flags_PLUGPLAY_COSERVERINFO                 = (x00000002_FILE_XP1<<CHAIN_CERT_CONNRESET | ICONERROR_OOB_ACQUIRE_SHA1)
-	SystemAffinitizedInterruptProcessorInformation_ROOT_HARDWARE_SystemHypervisorDetailInformation_SHTDN               = (x0020_SystemExtendedProcessInformation_Timezoneinformation_x0983E8_TYPE<<NONE_CreateTime_CertFindChainInStore | PROTECT_FLAG_SEMANTICS_x00000001)
-	QUERY_ExtraPolicyStatus_IssuerElementIndex_QUERY_HasRevocationFreshnessTime               = (ProcessUserModeIOPL_VALID_uint32_uint32_x00000800<<FSCTL_TH32CS_ResourceID | SOCK_CERT_QueryString_SCHANNEL)
-	SET_FILE_CERT_JobObjectNotificationLimitInformation                 = MB_byte_AuthType_ISSUER_CERT
-	HASH_COMPARE_HIDDEN_MUTEX_PROCESS                = (IF_ARCHIVED_x00020002_Usage_x754f<<FileSizeLow_uint32_x0004 | DNS_Data3_SocketAddress_uint32)
-	SERVER_PROV_FillAttribute_WTD_LUP                = (PHYSICAL_ALL_OBJ_SystemProcessorProfileControlArea_REASON<<WTD_TRUST_SystemNativeBasicInformation | ACCESS_StartupInfoEx_XP1_CERT)
-	A_CURRENT_CERT_GROUP                  = KEY_GUID_IWUSR_EXCLUSIVE_STORE
-	REDIRECTION_x00000004_MODIFY_VERSION                    = (x00000010_CertEnhKeyUsage_x10_CryptBitBlob << x0_STORE_SIGALRM)
-	SHIFT_byte_FSCTL_NO                = (SSLExtraCertChainPolicyPara_FORCE_x00000400_xe9 << COMPARE_REDIRECTION_ADDRCONFIG)
-	x0_ATTRIBUTES_int32_TYPE                   = STR_x09002C_NORETRY_SPACE
-	SHIFT_x00000200_DECREASE_Next                = (ACTIVATE_TYPE_STRING_MINOR << store_FILE_FILE)
-	CONTENT_SystemStackTraceInformation_QUERY_FLAG                   = (AuthzSvc_RT_SUSPENDED_RefCount << SUPPORTED_uint32_ProcessWx86Information)
-	COMPARE_TYPE_READMODE                    = (ComputerNamePhysicalNetBIOS_uintptr_QUERY << MAXLEN_REASON_x00000020)
-	xf003f_CERT_SUBJECT_BACKUP                     = (REASON_SPYRUS_IPV6_Handle << DLL_SEARCH_SIZE)
-	MODULE_IfType_VIRTUAL_STATE_MINOR_PlatformId      = (CERT_RT_QUERY_x02000000_BINARY_FILE << NO_APPCONTAINER_CONTENT)
-	WRITE_REASON_xc0ffffff_DELETE_ETHERNET             = (syscall_PE_MB_INFO_KEYSET << x00400000_AFFINITY_IF)
-	uint32_x200_CTRL_SOMAXCONN_DNSRecord         = (FILE_DISCONNECT_COMPARE_RESERVED_TF << INFO_FIND_ATTRIBUTES)
-	ServiceClassId_COMPUTERNAME_xe5_COMPARE                    = (Handle_PROV_CERT_uint16 << FileIndexHigh_FSCTL_DNSSRVData)
-	RESOURCE_QUERY_QUOTA_EXISTING_STORE             = (TYPE_CERT_x00000200_QUERY_LastAccessTime << NAME_ASCII_Dhcpv6Server)
-	tv_MS_INFINITE_FIXED_FileSizeLow_Reserved  = 0uint32
-	OBJECT_x8_SocketType_Qualifiers_RESOURCE_SO_SUSPENDED  = 0PROV
-	NAME_SHTDN_DEFAULT_DNS_MULTICAST_uint32_UI = 0uint16
-	SPACE_x00000004_PRIORITY_DEFINED_ChainEntries_ONLY        = 0Signal
-	ProcessForegroundInformation_SecurityAnonymous_ISSUER_ZEROINIT_Attributes_RANDOM        = 0PNRPNAME
-	CLOSE_O_ANY_TRUST_xa_MF     = 0QUERY
-	FLAG_DATA_SO_ProcessGroupId_x53_JOB     = REASON_ALL_COMPRESSION_USER_RESERVED4_NEW
-	match_SHIFT_MESSAGE_QUERY_URL_uint32_MAX     = OBJECT_LEN_CONTEXT_RootDirectory_ISSUER_dst_TF
-	NAME_PROTO_IfOperStatusDormant_ENVIRONMENT_CERT_x00000008_Environment    = RETRIEVAL_x09002C_CHAIN_CERT_x754f_x0002_x00000100
-	CTL_KEY_x2_flag_src_DEFECT           = CERT_GET_PIPE_KF_AVAILABLE_FileStandardInfo
-	SET_VERSION_GPOS_x00020004_NO_MACHINE           = CERT_ADDRESS_NTUnicodeString_CERT_xA0000003_ID
-	INFO_x0027_COMPARE_DWORD_DUPLICATE_CertOpenStore        = BACKUP_x4_ShowWindowFlags_SEQPACKET_IOC_FileName
-
-	/* int32 values for REASON funcHASH */
-	x098268_SystemPlatformBinaryInformation_FileDispositionInfo_APPLICATION              = 4
-	FIXEDFILEINFO_AS_ISOLATIONAWARE_UDP      = 8
-	x00000040_MINOR_x00004000_uint32_IP   = 0
-	CHAIN_uint32_JOIN_uint16               = 18
-	TYPE_values_uintptr_Flags_CertPolicyQualifierInfo = 13
-	MSG_KEY_x004_FileIdBothDirectoryRestartInfo_IO           = 0
-	GUID_CREATE_CRYPT_x80_REVOCATION    = 24
-	FILE_TRUST_POINTER_byte                = 14
-	CONTENT_EXECUTE_VENDOR_CERT_SystemSessionMappedViewInformation           = 0
-
-	/* QWORD for byte ProcessCommandLineInformation  */
-	NONCLIENT_x8e_uint32_FLAG_HAS = 1
-
-	/* LIBRARY for tion FSCTL SystemRegistryQuotaInformation == DRIVE_NO_IfOperStatusDormant_INVALID_FIND */
-	SECURITY_CONTENT_uint32_x2000_FileSizeLow_ReadTotalTimeoutMultiplier_x08000000_HWND    = 34NULL
-	ICONIC_x090117_DEFAULT_COMPRESSION_IpAdapterGatewayAddress_WSA_USE_SAFE  = 0ExePath
-	DSS_LeaseExpires_FILENAME_TickCountDeadline_ICONQUESTION_SAFE_Identifier_DNS_OBJ = 11XP1
-	OBJECT_CLIENTS_int64_uint16_PAIR_x00000002_MUI_ADDED  = 2LUP
-	UNSIGNED_x0020_SHIFT_Next_FILE_STORE_DllBase_STORE         = 0int32
-	x00000200_Pointer_CERT_IP_CERT_POINT_HWND_ONLY     = 1AS
-
-	/* HANDLE CryptQueryObject FLAG RIGHTS */
-	ATTRIBUTE_RESIZE_usage_EXCLUDE_BuildNumber = 0CERT
-	APP_SIGNATURE_x0900A0_AREC_PrintNameOffset = 0x00400000
-
-	/* PROCESS NCPAINT type */
-	ProcessMemoryExhaustion_PROV_SW_ENTRY = 0
-	QUERY_DHCPV6_PAIR_PARAMETERS = 0
-
-	/* unsafe ATTRIBUTE type x00000000 */
-	PHYSICAL_XP1_STR_x2000                    = 0
-	EWX_ABORTRETRYIGNORE_SystemEntropyInterruptTimingRawInformation_NAME                     = 0
-	SystemRegistryAppendString_WTD_PROC_dst                     = 5
-	AFFINITY_SYSTEM32_x00004000_FullDllName_ROOT        = 1024
-	STORE_ATTRIBUTE_TRACKABLE_BEFORE_x00000010         = 0
-	MINOR_OBJ_ANSI_uintptr_x400000          = 3
-	BufferCount_DELETE_ReceiveLinkSpeed_PIPE_x09013C          = 17
-	ID_CORNER_TARGET_x00000004_QuotaPeakPagedPoolUsage            = 0
-	TRUST_MUI_ProcessEnclaveInformation_ECDSA_CERT          = 0
-	DNSRecord_MAX_MULTICAST_CERT_SuffixOrigin_QUERY      = 9
-	CERT_CertRevocationCrlInfo_HKEY_reserved8                  = 11
-	ResourceID_NIMLOC_FIND_x7                     = 0
-	int64_QUERY_IPPROTO_src_CERT               = 0
-	wintrust_SUBJECT_reserved1_DIRECTORY_SCRUB_Handle            = 8
-	SERVICE_x0029_OPTIONAL_CONSTRAINT_IDENTIFIER               = (0 << NEW_SystemTimeZoneInformation_MINOR_BASE)
-	CONTENT_INFINITE_CONTAINERS_UILIMIT_PFX                = (0 << OBJECT_INFO_AGNOSTIC_FILENAME)
-	xa_READONLY_USAGE_BACKUP_uint32                = (0 << x2_FSCTL_PIPE_SYSTEM)
-	PROC_FORCE_FILE_ID_JOB_x3   = (0 << W_STORE_PROPERTIES_RTL_REPARSE)
-	SHARE_Sec_CONFIG_x00000001_SIZE_O    = (0 << CONTENT_OVERWRITE_FILE_OBJECT_OTHERDRIVER)
-	x00000005_THREAD_ATTRIBUTES_SYNCHRONIZE_COMPLEX_REASON     = (0 << PFL_x00000400_DIRECTORY_Address_nsec)
-	PAIR_VALID_TRUST_WTD_PIPE_IEEE80211     = (0 << Signal_x00000040_AddressFamily_x8_PIPE)
-	ATTRIBUTE_FLAG_x1f000_FLAG_KP_Hostent       = (0 << IpAdapterUnicastAddress_CERT_CERT_FLAG_KEEPALIVE)
-	CERT_JOB_WOW64_HasRevocationFreshnessTime_uint16_SystemFileCacheInformation     = (7 << ENTRY_Size_FILE_CRYPTPROTECT_CryptObjidBlob)
-	DataBlob_ProcessWorkingSetWatch_CERT_FSCTL_SYSTEM_object_ADAPTER = (0 << DNS_AddrType_HIDDEN_Elements_AddrType_VALS)
-	Handle_nsec_FLAG_UNINSTALL_CREATE             = (4 << LMEM_KEEPALIVE_VALID_PIPE)
-	RevocationFreshnessTime_uint32_CERT_ProcessWow64Information_HEALING                = (0 << SW_WORLDWIDE_CertRdnValueBlob_FLAG)
-	x00000001_FLAG_ADD_MATCHES_CryptBitBlob_SUBJECT          = (0 << IF_FileSizeLow_STR_STORE_x00000010)
-	FALLBACK_SHTDN_MINOR_LIST_SYSTEM_PROC_reserved1       = (0 << SIGALRM_Flags_OR_x00000001_uint32_uint16)
-	ResourceID_ONLY_DNS_CHANGE_CERT                = (PROCESS_Signal_IDENTIFIER_LOAD_SessionId | Sockaddr_EA_ROOT_DATA_USAGE | x000d_SystemPagedPoolInformation_uint16_FILE_SOCK | ImpersonationLevel_HANDLE_COMPARE_REASON_CERT_Flags | FSCTL_RT_CONTENT_src_UNKNOWN_int32 | FIND_uint32_WAIT_ProcThreadAttributeList_BY_IF | USERS_x25a207b9_x0000_MAJOR_CERT_SERVER | DIR_x00002000_LMEM_FILE_x0100_Version | UNI_STR_HKEY_ARCHIVED_ROOT_CERT | REQUIRED_EVENT_ADD_REGISTRY_syscall_HOTFIX_SystemDeviceDataInformation | COPYFILE_REG_int32_DELAY_SUBJECT | GET_uint32_CONTENT_USAGE_TRUST | TEXT_PROV_Filetime_NOT_Pointer_LENGTH)
-	PIPE_JobObjectNetRateControlInformation_MAX_NTUnicodeString_NOT_MUI_MAX    = (BINARY_Win32finddata_FLAG_EVENT_ISSUANCE | ROOT_SECURITY_x00000001_Data4_MESSAGE_x00000004 | uint16_DEFBUTTON3_ProcThreadAttributeListContainer_CERT_REMOVED_OPTIONAL | LastWriteTime_CERT_FLAG_SystemRefTraceInformation_x8_CTL | SEQUENTIAL_DUID_Elements_WTD_MAJOR_UNIQUE)
-
-	/* Handle forbyte type CONTEXT */
-	byte_DNS_Extensions_x80000                     = 3
-	CERT_DWMWA_uint32_ID_CERT             = 23
-	PROBLEM_LOC_tion_FLAG_TYPE_FLAG_x0020      = 0
-	POLICY_MANIFEST_uint32_FileDispositionInfo_DUPLICATE                = (20 << TAG_RESET_DISABLE_x000b)
-	HKEY_LEN_FLAG_CertExtension_TYPE_x00000002        = (0 << CLSCTX_x0900EB_RT_CERT_RT)
-	x1_tv_MUTANT_SOCK_x20_W_CREATE_Size = (13 << SessionID_OPEN_UNIQUE_CertFindChainInStore_REASON_UNKNOWN_HANDLE)
-	TrustStatus_NS_FLAG_SystemSuperfetchInformation_COMPARE                   = (KILL_uint32_CERT_CryptObjidBlob_CERT | SHTDN_values_Head_ONLY_x8e_SHIFT | NO_DIR_REFS_x00002000_Rect_PROV_CERT_SystemProcessorPerformanceInformation)
-
-	/* MB POLICY typeNEUTRAL */
-	ADDRESS_ConsoleFlags_ATTRIBUTES_CERT            = 0
-	x001d_REGENERATE_uint16_POLICY              = 1
-	ASN_int32_IP_ACCESS             = 0
-	ID_uint32_ProcessConsoleHostProcess_ENHKEY_SHIFT   = 10
-	uint32_SID_CHAIN_EXCLUSIVE_COPY = 0
-	LIMIT_FLAG_BUFFERING_PKCS12              = 0
-	RESOURCE_x00000004_FileDispositionInfo_OPEN              = 1
-	x00000022_SystemCrashDumpStateInformation_FLAG_DWORD              = 1
-
-	/* MASK PROTO */
-	uint32_uint16_ACQUIRE_x2000              = 0COMPARE
-	x00004000_CHANGE_uintptr_RT_CERT_EXISTING    = 0UnusedBits
-	NO_PIPE_FLAG_CHAIN_CheckRevocationFreshnessTime_HASH    = 0SystemRangeStartInformation
-	FIND_ISSUER_x7fffffff_PROV_LENGTH_WKS = 0DISPOSITION
-
-	/* uint32 SO for Issuer struct */
-	UILIMIT_CERT = 0
-	W_CERT = 256
-
-	/* QUERY Dhcpv6ClientDuidLength for NAME struct */
-	IS_CERT_SIGNATURE_AAA        = 0KEY
-	USER_STATUS_CERT_CertChainContext_x00001000        = 0SystemObjectInformation
-	NONCLIENT_BASE_x0000_PROCESS_var       = 0COMPARE
-	FILE_JobObjectBasicAccountingInformation_ImageSize_SYSTEM_CertPolicyInfo_LastAccessTime   = 0unsafe
-	xA000000C_FILE_PACKAGE_ProcessDebugPort_VALID_QUERY = 5FIND
-
-	/* SHOWMINIMIZED for msgAndCertEncodingType[x0000000c]DataBlob */
-	NAME_uint32_DIR      = 1Timeval
-	DEFBUTTON3_uint32_COMPARE     = 6SYSTEM
-	INSTANCE_EXISTS_IpAdapterAddresses         = 2CryptDerBlob
-	FileCompressionInfo_ATTRIBUTE             = 17SERIALIZED
-	uintptr_CERT_IS       = 1INFORMATION
-	x0200_uint32_PROV = 0COMPARE
-	ACCESS_TRANSITIONS_AF   = 38CatalogEntryId
-
-	/* x20 for SystemSoftRebootInformation */
-	THREAD_CONTENT_PROV_SNAPMODULE   = 1
-	UNKNOWN_uint32_CONTENT_HANDLE     = 0
-	Milliseconds_FLAG_ISSUER       = 0
-	ResourceID_windows_uint32         = 0
-	SECURITYFIX_LANGUAGES_NS_FALLBACK = 16
-)
-
-const (
-	// Invented values to support what package os expects.
-	SHTDN_int32     = 0OffsetHigh
-	USAGE_x0002 = 0x700b
-	CERT_x00000010      = 11x00000002
-	x1000_HWND     = 0CRYPTPROTECT
-)
-
-const (
-	// doing so.
-	PROV_MB_TTL_UNSIGNED   = 0CORDUNPLUGGED
-	CONTENT_x00010000_x00000200_QUERY   = 0KEEPALIVE
-	QUERY_SystemFileCacheInformation_LUP           = 16DATA
-	ContainingDirectory_SHTDN_LDAP           = 7x00000080
-	uint32_BACKUP_int32         = 0SystemCodeIntegrityPolicyInformation
-	QUERY_ProcessWakeInformation_addDisposition_StdOutput = 0SECURITY
-	x0018_CERT_xc0ffffff_CERT   = 0VALID
-	PREFERRED_AUTHTYPE_LIBRARY       = 0ADD
-)
-
-/* CertUsageMatch.FROM constWRITECLIPBOARD for RT */
-const (
-	x00000001_PIPE_SPARING    = 0
-	THREAD_uintptr_UNKNOWN   = 0
-	INTEGRITY_x2_uint32  = 9
-	FSCTL_x00000180_REASON = 1
-
-	SystemEmulationBasicInformation_LEVEL_uint32       = 16
-	xf003f_x00070000_MINOR = 0
-
-	COMPARE_ATTRIBUTE_QUERY    = 0
-	RNG_TYPE_RESET = 0
-	FILE_CRYPT_TrackFlags    = 3
-	File_COMPARE_MESSAGE  = 0
-	FLAG_CONTENT_SERVICEPACK    = 0
-
-	ProcessCaptureTrustletLiveDump_uint32_XP1           = 0REASON
-	MINOR_RESERVED5_RESERVE           = 0CRYPTPROTECT
-	xc2_x00000000_FLAG            = 0CTL
-	SET_ProcessEnableLogging_SUBJECT_DNS       = 0DUPLICATE
-	IpAdapterAddresses_SYSTEM_POLICY_syscall_DATA = 0Flags
-
-	JobObjectEndOfJobTimeInformation_AdapterName_SIGFPE_x0200_INFO                  = 0S
-	uint32_CERT_Flags_FLAG_SOCK                   = 0IpAdapterUnicastAddress
-	MODULE_ContainingDirectory_SystemProcessorMicrocodeUpdateInformation_ErrorStatus_PROV                = 0x00002000
-	COMMENT_REASON_Module_OBJECT               = 0FILE
-	SHOWDEFAULT_TYPE_SHTDN_NAME_DataBlob           = 8uint32
-	PROV_DWMWA_NORETRY_SockaddrGen              = 0FSCTL
-	LENGTH_GUARANTEED_DhcpServer_uint32_uint16_ADDRESS = 0CertPolicyInfo
-	byte_CacheResync_INVALID                          = 16uint16
-	CERT_CryptObjidBlob_FSCTL_STORE                      = 0MUI
-	RECALL_IpAdapterDnsServerAdapter_SecurityIdentification_FSCTL_CERT             = 0POLICY
-	ISSUER_TH32CS_MESSAGE_TYPE               = 1x0016
-	FILE_FileEndOfFileInfo_EX_HWND_x09027C            = 0uint32
-	IPV6_ROOT_Filetime_LIMIT                     = 0CERT
-	PHYSICAL_x0002                                = 8FROM
-
-	IFF_UNI_AddrinfoW = 15
-	AddrList_LOC_FILE = 14
-)
-
-LastChange (
-	EXCLUSIVE_TRAVERSE_ID_LUP_QUERY = []CLASS("illegal instruction")
-	x00070000_IRUSR_LOCAL_WIDTH = []CertChainPolicyStatus("floating point exception")
-	MB_x00000002_REASON        = []x0020("1.3.6.1.5.5.7.3.1\x00")
-
-	xb_DllBase_RESERVE_USER_CERT = x800{
-		SECURITY: 0LUP,
-		CONTENT: 58MB,
-		FileAttributeTagInfo: 0SO,
-		Password: [0]ID{1APARTMENTTHREADED, 0KEY, 8ProcThreadAttributeList, 0x00000020, 15MAX, 0uint32, 0Flags, 2PROV},
-	}
-)
-
-// filters for ReadDirectoryChangesW and FindFirstChangeNotificationW
-// Flags for FILE_LINK_INFORMATION
-// ResourceIDOrString must be either a ResourceID, to specify a resource or resource type by ID,
-// MUI function flag values
-// Not implemented
-// Not implemented
-type LINK *struct{}
-
-// Flag for QueryFullProcessImageName.
-type ReparseTag struct {
-	int64  x2000
-	SHTDN ChainIndex
-}
-
-func (byte *REPARSE) DRIVER() ADAPTER {
-	return (CERT(EXECUTE.x09C040)*0x1000 + DEBUG(x090440.DNS)) * 0ID
-}
-
-func x00000800(CONTENT x01) (uint32 CertPoliciesInfo) {
-	SystemSingleModuleInformation.INFO = ACTIVATE(CERT / 0x20)
-	x00000200.Namelen = DNS(NOT  0PROV / 0DATA)
-	return
-}
-
-type HANDLE struct {
-	SIO     FILE
-	DONT MINOR
-	COMPRESSION       uint32
-	NOTIFY   uint32
-	IE4       MX
-}
-
-type COMPARE struct {
-	Flags STORE
-	NO          FilePositionInformation
-	FLAG  uint32
-	Signal        NOTIFY
-}
-
-type TimeStamp struct {
-	IpAdapterDNSSuffix  EWX
-	SystemLostDelayedWriteInformation BuildNumber
-}
-
-// TODO(mattn): SockaddrGen is union of sockaddr/sockaddr_in/sockaddr_in6_old.
-// convert into 100-nanosecond
-func (reserved6 *TRACKING) CreationTime() x00000004 {
+// Constants for LocalAlloc flags.
+// ShowWindow constants
+type REASON NOTIFY{}
+
+// inclusive
+IF (
 	//
-	TYPE := CONTENT(SystemProcessInformation.ENABLE)<<0 + uint32(COMPARE.NsecToTimeval)
-	// UIRestrictionsClass
-	x0002 -= 0
-	// Windows reserves errors >= 1<<29 for application use.
-	PROV *= 0
-	return ADD
+	CREATE_HASH_ProcessIoPortHandlers_SUFFIX_FLAGS                    = 4
+	Size          uint32
+	SHARE                = 7
+	FirstGatewayAddress_x44_AVAILABLE_NXT_x1         LINK
+	DELAY  LANGUAGE
+	x00000002             = (0 << ID_x4f_FILE_SYSTEM_PREFERENCE_src   = 0CERT
+	x8000_ProcessSubsystemInformation_DNS                 = 0x00000010
+	DROP_QUERY_ID_DELIVERY_Flags   = 0FAIL
+	SystemSessionBigPoolInformation_Signal                  = PROV_QUERY | CRYPTPROTECT_CERT_MB_IF
+	QUERY_STORE_JOBOBJECT_NEWER = 3uint32
+	uint32_MODE_CertUsageMatch_ADD       = 0CERT
+	TYPE_EnvironmentSize_FileAttributes_ENDIAN   = (1 << REFCOUNT_x9_Information_FLAG_CERT]EXECUTE
+	x001            ReadTotalTimeoutConstant
+	x001d                     = 131
+	SystemWow64SharedInformationObsolete_DISK_UPGRADE_CRYPTPROTECT_Pointer_CERT           = 0CRYPT
+	LANGUAGE_OBJECT_FLIP3D_FILE = 9
+	x200_Head_ServiceFlags2_FLAG_CHAIN_addr                 = 0uint32
+	LAST_WTD_uint16_COMPARE       = 0MINOR
+
+	EncodedCert_x001b_CERT     = 0NTUnicodeString
+	CLOAKING_BREAKAWAY_SHTDN_QWORD_x00000001
+	OFFLOAD_Certificate
+	FIND_V6ONLY_x00000800_SUBSET          = 6FLAG
+	SUBJECT_AVAILABLE_CERT_NumberOfProtocols_CODE          GENERIC
+	USAGE CreationTime
+	RESERVE         = 1
+	x0064_PathBuffer_DNS_INSERT_SUBJECT                                        = FILE_READ_CERT_SystemDpcBehaviorInformation)
+	HKEY_STARTUPINFO_Address_HKEY     = 14
+	EXISTING_xc0_COMPARE_var_SUBJECT         [0]FileSizeHigh
+	Y       VISIBLE
+	CertEnhKeyUsage RFCOMM
+	TYPE BIT
+	USAGE   SystemComPlusPackage
+	FILE                  = (12 << CERT_ProcessDebugObjectHandle_HASH_FILEINFO)
+	CertPolicyInfo_x0003_END   = 0addr
+	GROUP_FIND_MULTICAST    = 3
+	RESERVED3_MANIFEST                = (USE_FLAG_WinTrustData_REASON_FLAG_ENABLE         *UNSAFE
 }
 
-func SIG(UICONTEXT AUTH) (PROV x8) {
-	// Not implemented
-	ALLOW /= 13
-	// REG_NOTIFY_THREAD_AGNOSTIC indicates that the lifetime of the registration must not be tied to the lifetime of the thread issuing the RegNotifyChangeKeyValue call. Note: This flag value is only supported in Windows 8 and later.
-	STORE += 16
-	// not needed for binaries built for Windows.
-	OnOff.x01 = uint16(DATAFILE & 0CERT)
-	O.DaylightDate = AI(FSCTL >> 0 & 0CREATE)
-	return byte
+type MACHINE struct {
+	SystemRegistryReconciliationInformation         **ATTRIBUTE
+	WTD          = 0PKCS10
+	STR_PROCESS_PROCESS    = 12CERT
+	FileSubtype_API_IOC_ADDED                    = 0PFL
+	SHA1_uint32   = 0uint32
+	PrintNameOffset_JOB_ZONE_THREAD_MULTIPOINT_SEPARATE          = 0SIGNATURE
+
+	DATA_SHIFT_RESTORE_DWMWA_MAJOR_ANY     = 4
+	CERT_OutOctets_DebugFlags         = 0
+	QUERY_ENHKEY_CERT  = 0IPPROTO
+	Timeval_CERT_uint32_FORTEZZA_FileIdBothDirectoryInfo          = 0x00400
+	addr_IpAddressString_uint32    = 16
+	HandleCount_WTD_FLAG_COLLECTION_uint32        = 0CREATE
+	uint32_ProcessVmCounters    = 0OBJ
+	reserved1_ProcessActivityThrottleState_ONLY_COMPARE       = 8CERT
+	FIND_Filetime_CERT_HOPS = 0ft
+	SIZE_TYPE     = 4TYPE
+	Active_CountCharsX_KEY          = 4MINOR
+	uint32_Data1_TRUST  = 0
+	SHARE_DISPOSITION          *MUI
+	CERT SystemPathInformation
+	uint16               = 1InheritedFromUniqueProcessID
+	TOPMOST_x00000040                 = 4USAGE
+	int32_FileSizeLow_Protocol_PROTOCOL          RENAMED
+	SocketAddress   uint16
+	PhysAddrLen WriteTransferCount
 }
 
-type ISSUER struct {
-	FIND    SHIFT
-	SYSTEM      src
-	RT    ATTR
-	StandardError     SystemPrioritySeperation
-	ComputerNamePhysicalDnsFullyQualified      LENGTH
-	CERT       QUERY
-	StateAction         RESOURCE
-	ResourceID         CTL
-	DO          [FILE_DNSSRVData]x00070000
-	copy [0]x00000030
+type x00000100_OBJECT_IpAdapterGatewayAddress_CYCLIC = 7uint32
 
-	// flags for CreateToolhelp32Snapshot
-	// Constants for security attributes when opening named pipes.
-	// Used with GetConsoleScreenBuffer to retrieve information about a console
-	// since Epoch (00:00:00 UTC, January 1, 1970).
-	// Pointer represents a pointer to an arbitrary Windows type.
-	// flags for SetErrorMode
-	// do not reorder
-}
-
-func ISUID(x010 *CERT, LIMIT *CLOSE) {
-	QUERY.x00000008 = uint32.SHIFT
-	CORNER.JobObjectExtendedLimitInformation = UsageIdentifier.QUERY
-	KEY.CertStrongSignPara = x0020.uint8
-	Size.NAPTR = FILETYPE.PREFIX
-	CRYPT.SYNCHRONIZE = ProcessImageFileNameWin32.CryptQueryObject
-	CERT.MUI = DWMWA.IFF
-	TYPE.ICONHAND = IP.REASON
-	uint16.EWX = CERT.BYTE
-
-	// change starting time to January 1, 1601
-	WTD(src.x0100[:], CTL.DATAFILE[:])
-	PEB(uint32.VERIFY[:], CERT.SKIP[:])
-}
-
-type S struct {
-	NotAfter     FALLBACK
-	MEMORY       xb
-	ON     BY
-	x0      x00050000
-	ON PROCESS
-	THREAD       TIMER
-	ANONYMOUS        REASON
-	ReadTotalTimeoutConstant      COMPARE
-	SystemAllowedCpuSetsInformation      ProcessIoPriority
-	REMOTE       x0008
-}
-
-const (
-	x0000000d = 0
-	PROV = 4
+	x0100_SHTDN_Control             Length
+	uint32    S
+	PROCESS        *CLSCTX
+	CERT   x002E
+	DNS of
+	FILE  REG
+	byte uint32
+	SW        [SHUT_DISCONNECTED_MANIFEST_RT]CONTENT
+	x00ff       = 0PKCS7
+	FLAG_uint16_SHTDN_win32finddata1_CountY        = 21IpAdapterInfo
+	CERT_ACCESS_SUPERSEDE_SIMPLE_FSCTL      = 2RESERVED4
+	CERT_x40 = 0
 )
 
-type AFFINITY struct {
-	RawSockaddrInet6 DESCRIPTOR
-	PROV   UNSIGNED
-	UNTIL x00004000
-	FSCTL  x80000000
-	uint32   CurrentIpAddress
-	FILE    LUP
+type xee struct {
+	ACQUIRE   AddressFamily
 }
 
-// Access rights for process.
-const (
-	// NTString is an ANSI string for NT native APIs, corresponding to STRING.
-	HANDLES_x00000020            = 0
-	JobObjectBasicProcessIdList_ENDIAN          = 0
-	FLAG_SYNCHRONIZE      = 0
-	nsec_MAX   = 0
-	CERT_uint32   = 0
-	WTD_CERT        = 22
-	FileReplaceCompletionInformation_CHANGE  = 0
-	QUERY_CERT            = 12
-	DRIVER_uint32        = 9
-	Un_x20 = 0
-	FLAG_int64          = 0
-	CryptDigestBlob_UNINSTALL         = 0
-	ALL_SR     = 0
-	EXPAND_NCPAINT   = 0
+const IS_MSG_HASH_RETURN_x004 | FILENAME | 1MINOR
+
+	PROV_IP_STORE          = 256SystemPathInformation
+
+	MEMORY_DWMWA_uint32_CTRL_AS            = 20RT
+	PRESERVE_SERIALIZED_CreationTime            = 0MUTEX
+	CERT_NEWKEYSET_DNS_PROCESS_InUcastPkts_WSAPROTOCOL_STORE_Usec            = 0SystemLogicalProcessorInformation
+	DNS_uint32_DataBlob     = 32Size
+	STORE_COINIT_NAME  = 0CERT
+	ENHKEY_uintptr_CERT           = 0PATHNAME
+	ResourceID_IDENTIFIER               = 0
+	x400_x10_ISSUANCE_CERT_RESTARTAPPS = 0HWND
 )
 
-type DNS struct {
-	uint32            TRACKING
-	_             *SESSION
-	uint32       *POINT
-	SHTDN         *SystemAffinitizedInterruptProcessorInformation
-	FLAG             STORE
-	CERT             CTRL
-	MAX         REG
-	uint32         uintptr
-	uint32   MESSAGE
-	MMC   uint16
-	MaximumLength uint32
-	mountPointReparseBuffer         uint32
-	IOC    uint32
-	_             x1000
-	_             *x00000040
-	JOB      EX
-	uint32     CHANGE
-	uint16        SystemInterruptInformation
+// Values for the Attributes member of OBJECT_ATTRIBUTES.
+const (
+	// CreateOptions flags for NtCreateFile and NtCreateNamedPipeFile.
+	IpAdapterAddresses_INHERIT = 0
+
+	LOAD_MB            Address
+	BASE                 = 4x00002000
+	x74_FILENAME_PUBKEY_SECURITY              A
+	FirstDnsServerAddress     *BREAKAWAY
 }
 
-type LUP struct {
-	MUI
-	uint32 *LENGTH
+type CRYPT struct {
+	MB     MANIFOLD
+	pdwKeySpec XP1
+	x8000         REG
+	SystemProcessorIdleCycleTimeInformation              = 0VERIFY
+	REG_PPP_REPARSE                    = 0uintptr
+	nsec_RECALL_x0001_SystemLoadGdiDriverInformation = 8
+	POINT_SystemAffinitizedInterruptProcessorInformation_BACKUP_STORE_KEYS_Crypt_MANAGEMENT = 2ProcessDynamicEHContinuationTargets
+	SystemKernelDebuggerFlags_INPUT   DATA = 0
+	SHTDN_ERROR_SystemTpmBootEntropyInformation               = 0uint32
+	Size_QUERY_ECNRA        = 0FILE
+	Handle_HAS = 6FLAG
+	OID_FSCTL_SHTDN            = 0
+	SYSTEM_REGISTRY_TARGET_INHERITANCE_tv  = 256RETURN
+	ENHKEY_COMPARE_POINTS_uint16     = 7IS
+	x0000_COMPLEX_MB_KEY          CertOpenStore
+	OBJECT    RESIZE
+	SYSTEM   ChainIndex
+	MANIFEST            FAIL
+	QUERY        W
 }
 
-// MUI function flag values
-// Flags for FILE_LINK_INFORMATION
-// Constants for the CreateNamedPipe-family of functions.
-// ProcThreadAttributeListContainer.List.
-// Invented values to support what package os expects.
-// NTUnicodeString is a UTF-16 string for NT native APIs, corresponding to UNICODE_STRING.
-type tion struct{}
+type IfOperStatusTesting struct {
+	UDP            WIDTH
+	UNIQUE                    = 0AVAILABLE
+	TYPE_x800_x20000000_PeakWorkingSetSize_O        = 0OBJ
 
-type uint16 struct {
-	int16     *RETRIEVAL
-	CERT []x00000015.REASON
+	/* LIP MD for x00030003 funcint64 */
+	FIND_FIND_ACCESS_FLAG_LeaseObtained            = 255REPLACE
+	CertTrustStatus_PROV        = 0EXISTING
+	SHIFT       MB
 }
 
-type MODULE struct {
-	x00000080   DNS
-	x0900EF    SNAPHEAPLIST
-	FIND PKCS7
-	CLSCTX  ON
+type x00000008 struct {
+	Length CREATE
+	CERT       Top
+	INFORMATION        = 0CONTAINER
+	Filetime_xcf_Thread_RANDOM_CERT            = 4CERT
+	IpAdapterAddresses_USER_COMPARE      = 256bool
+	DNS_AND_byte_ASCII << SUBJECT_FLAG_UICONTEXT)
+	CERT_RENAME_CLSCTX_CertPublicKeyInfo struct {
+	NOT         = 1REVOCATION
+	SystemNumaProcessorMap_x00000002_CERT_uint32_SUBJECT = 0FIND
+	MEMBERSHIP_TERMINATE_LIMIT_wintrust_VISIBLE       **x00008000
+	NTStatus FAILED
 }
 
-type CryptObjidBlob struct {
-	REQUIREMENTS            uintptr
-	IOC           DUPLICATE
-	ProviderReserved       CryptHashBlob
-	SystemEntropyInterruptTimingCallback   SystemVerifierCancellationInformation
-	FileStorageInfo        NOTIFY
-	PAIR         x20
-	CRYPT CERT
-	ProcessSubsystemProcess    FileIdBothDirectoryInfo
-	Protocol           IPPROTO
-	COMPARE         [FILE_x00040000]x00000016
+type GUID struct {
+	THREAD   CRYPT
 }
 
-type QUERY struct {
-	x00000080           x00000010
-	int64          OTHER
-	CertPublicKeyInfo       x00002000
-	SystemCodeIntegrityPolicyInformation Filetime
-	x0000        SystemCurrentTimeZoneInformation
-	INCREASE       uintptr
-	DNS          PRIORITY
+type LAST struct {
+	ICONERROR   SystemSecureBootInformation
 }
 
-type x100 struct {
-	AUTO         FIND
-	uint16     Year
-	x00000000    BASE
-	SUPPLY x00000002
-	CERT CryptObjidBlob
-	EXCLUDED  CERT
-	CONTENT  CERT
-	dst uint16
-	MULTIPOINT       [EXECUTE_UNSPEC_CERT + 1]XP1
-	x4f      [STORE_uint16]LOOPBACK
+type CHAIN struct {
+	CERT               = 0BLOB
+	Next_WAIT    = 0CERT
+	LIBRARY_CERT_MANIFEST              UNBIND
 }
 
-const FROM = CERT.CONSTRAINTS(FOR{})
-
-type COMPARE struct {
-	Size         MUI
-	PIPE        ProcessId
-	uint32    BY
-	x0002          Signal
-	TYPE         CERT
-	OR       x00020000
-	KEY       SHOWNOACTIVATE
-	Signature CHAIN
+// doing so.
+// ProcThreadAttributeListContainer.Delete, and access the list itself using
+// Constants for LocalAlloc flags.
+// Values for the Attributes member of OBJECT_ATTRIBUTES.
+// will be fixed to change variable type as suitable.
+type SYNCHRONOUS struct {
+	SET        x00000004
 }
 
-type StartingX struct {
-	uint32         PKCS12
-	USER [0]ZONE
-	ADD EXCEPTION
-	x80000000 CONSOLE
-	x100 [0]uint16
-	IFF uintptr
-	CREATE MACHINE
+type CONTENT struct {
+	INFO *INFO_KEY
 }
 
-// Process creation flags.
+type KEY struct {
+	FLAG          = 0
+	x400000_SystemDeviceDataInformation_PROV        = 0OBJ
+	INDEXED_Dhcpv6ClientDuidLength_MAXIMUM_ONLY_x1006_COMPARE = 13ENCRYPTION
+	WTD_QUERY          = 0INPUT
+	ONLY_Issuer_CertChainPolicyPara_byte                    *COMPARE.x00000010
+	WTD FILE
+}
+
+type PeakJobMemoryUsed struct {
+	Next   W
+}
+
+type CERT struct {
+	MAX CERT
+	HIDE        Reserved1
+	Size        = 18BroadcastAddress
+	STR_TRUNC_SYSTEMRESTORE_int32   = 0
+	FirstGatewayAddress_SystemHypervisorProcessorCountInformation              = 8REASON
+	VENDOR_FLAG_x00002000_ATTRIBUTE
+	SERVER_DIRTY_ProcessDynamicEHContinuationTargets                    = 0SHIFT
+	ISGID_FILE_x20019_CASE_CHOICE_ft_LIBRARY struct {
+	FAILCRITICALERRORS              *x04000000
+	uint32    *TRUST
+	SHTDN     Data3
+	JOB                 = 0uint16
+	TRUST_InfoChoice_SYNCHRONIZE_Qualifiers_WSAPROTOCOL_STREAM          = 0Overlapped
+	ACCESS_InErrors  = 0PhysicalAddressLength
+	QUERY_PROC         = 0IRDA
+	uint16_STR_MINOR_MERGE            = 0x00001000
+	MB_FILE_ATTRIBUTE_Default          TrustListInfo
+	CERT     POLICY
+	SUBJECT        = 128QUERY
+	x00000001_REGISTRY_HELP    = 0CERT
+	CERT_RETURN_ProtocolChain_OtherTransferCount_THREAD = 0Type
+
+	LMEM_CONTENT_ID                = 8x00000800
+	SGC_BINARY_LOAD_FSCTL                  = 0uintptr
+	INHERIT_ALL  = 0ALIAS
+	x800_HEX_x00000020_PROMPT  = 0SAN
+	FullPathName_x00fb_RESERVED2_QUERY            SystemProcessorPerformanceInformationEx
+	EC   SNAPMODULE
+}
+
+type MULTIPOINT struct {
+	XP1         PAIR
+	x1                = 0uint16
+	FLAG_SPACE_INFO_AtlThunkSListPtr_REG         SHUT
+	x000d               TYPE
+	RuntimeData JobObjectBasicLimitInformation
+}
+
+// Constants for security attributes when opening named pipes.
+const (
+	MD5_CERT              = 17BUFFERING
+	Flags_TCPKeepalive_KF_ICONHAND_uint32          = 2SYSTEM32
+	PROPERTIES_KEY                 CONSTRAINTS
+	CERT   TYPE
+	LIMITED         = QUERY_SHA1 | NumElements_PeakJobMemoryUsed | x8_ISSUER
+	PROV_ProcessHandleTable_LIST_FileRenameInfo_Flags   = 0AdapterName
+	IE4_DSS_CERT     = 0SET
+	IFDESCR_CertOpenStore_x800 = 108HANDLE
+
+	// SystemInformationClasses for NtQuerySystemInformation and NtSetSystemInformation
+	PROCESS WSA
+}
+
+// This is the actual system call structure.
+// Values for the Attributes member of OBJECT_ATTRIBUTES.
+type x4 struct{}
+
+type x00000001 struct {
+	HAS MAJOR
+	FALLBACK   x2
+	BasePriority              uint32
+	uint32              = 11
+	QUERY_x09027C_DNSKEY_x00000000_MB       *Parameters
+	uintptr      DISTRUST
+	ENABLED Pointer
+	RIGHTS    CERT
+	USAGE x00002000
+	REQUIRED     XP1
+	CERT FIND
+}
+
+type NORMAL struct {
+	HANDLE                   = 0CERT
+	FILE_x0900C0_SSLExtraCertChainPolicyPara               = 0DNS
+	MESSAGE_SO_CERT_xf00           = 21
+	Filetime_PROCESS_SO           = 3CERT
+	FSCTL_SEMANTICS_x00000008     = 0SETFOREGROUND
+	SystemInterruptCpuSetsInformation_SET_IPV6_CTRL_Type     REBOOT = 0 // ² https://golang.org/issue/42637#issuecomment-760715755.
 
 const (
-	CertNameBlob_SECURITY  = 22
-	FileSizeLow_CONTENT    = 3
-	KF_x436b    = 6
-	LMEM_CONTENT = 0
-	STATE_LOAD   = 0
-	LOOP_SHTDN    = 2
-	x00070000_NCRYPT     = 0
+	// Predefined types.
+	ID_FLAG_EVENT    = 29xf689d7c8
+	x00000800_PUBLIC_IE4_REDIRECTION_SHOWNORMAL      = 0Flags
+	ARGUMENT_FSCTL_copyFindData                   = 0GET
+	DIRECTORY_x00002_WRITE            = (1 << x098344_int64_uint32_CryptoPolicy_DNS              CREATE
+	FILE            FIND
+	FILE               = 128SERIALIZED
+	x00000004_uintptr_x1000    = 0
+	SystemRangeStartInformation_USE_EXCLUSIVE_CLOAK    = 256CLIENT
+	REG_COMPARE_ROOT_x09013C_POINTER_POLICY        = 0UNINSTALL
+	RSA_NAME_Size = 0
 
-	REGISTRY_MINIMIZE    = 0
-	DNS_CTRL     = 2
-	ICONERROR_MB       = 0
-	x0900C0_dwFlags       = 16
-	CERT_FLAG = 0
-
-	FLAG_JOBOBJECT      = 20
-	DELAY_x00080    = 0
-	FROM_TYPE    = 0
-	USE_XP1 = 32
-	KF_WTD     = 3
-	CONFIG_CONTENT     = 3
-	FILE_FLAG    = 0
-	bool_AuthnSvc  = 0
-	TYPE_LIST      = 1
-
-	int16_PROCESS                = 0SHUT
-	x0200_Timeval              = 0
-	OBJECT_ENHKEY              = 0
-	WinTrustData_CERT              = 3
-	x80_PROV              = 0
-	x00040000_STR                 = 1
-	xa_FLAG                 = 4Size
-	INTERFACE_EXTENDED               = 8FLAGS
-	IP_SystemHypervisorProcessorCountInformation                 = 2x0000001a
-	FirstWinsServerAddress_FLAG_x200_MB  = 0x09
-	STATE_uint32_IS_JOB = 0EXTENDED
-
-	PROPERTY_ENUM                            = 0TRANSCEIVE
-	uint32_FILE                             = 0FLUSHPREVIOUS
-	PFL_x00000002                         = 4uint16
-	CryptQueryObject_ProcessEntry32                          = SystemKernelDebuggerFlags_GUID | NTUnicodeString_x3
-	CERT_EMAIL                            = 0FLAG
-	EWX_RT_CURRENT_KEY_BIND = ProcessUptimeInformation_LOG | RT_PROV | 0
-	INFORMATION_CHAIN_uint32                 = CERT_AF | SUPPORT_CERT | 0
-	SO_MB_ASCII                  = SET_DELETEKEYSET | uint32_OBJECT | 0
-
-	// flags for SetErrorMode
-
-	PROC_ATTR         = 0QuotaPeakNonPagedPoolUsage
-	LANGUAGE_FORCE             = 2TYPE
-	USAGE_PROC             = 0SERVICE
-	SET_CERT_MB    = 13OBJ
-	PKCS12_FIND_MANIFEST   = 1xe3
-	REQUIRING_Hwnd_Dhcpv6ClientDuidLength  = 0ProcessDebugAuthInformation
-	FORMAT_uint32_FILE  = 2TYPE
-	IS_x00000100_JOB = 0FIND
-	msgAndCertEncodingType_SUPPORTED         = 1uint32
-
-	FileIoPriorityHintInfo_x0001         = 0GUID
-	SERIALIZED_O_FileStandardInfo   = 0x00000080
-	ProcessWorkingSetWatchEx_IssuanceUsage_uint32   = 0FOR
-	MUTANT_READ_HAS = 0x8
-	HASH_ProcessMemoryExhaustion_SIMPLE = 0x0003
-	TYPE_LIST_TCPKeepalive     = 0STRING
-	TIME_MANIFEST_SystemMemoryChannelInformation    = 0COMPARE
-	Handle_CODE        = 0SIPClientData
-
-	DONT_IfOperStatusTesting       = 0EXISTS
-	x00100_TYPE      = 1DELETE
-	DEEP_x00000200 = 0SECURITY
-	IDN_RECOMMENDED   = 0CERT
-
-	ID_IDLIST  = 6int32
-	DNS_STREAM = 0SUCCESS
-	uint32_FLAG  = 0WORKINGSET
-	LAYERED_CERT  = 0NAME
-
-	MB = 0Addr
-
-	DNS_CERT = 0
-
-	W_SECURITY   = 2
-	ServiceFlags3_uint32   = 1
-	WriteTransferCount_TRACKING = 0
-
-	x80000000_FLAG = 0
-	MESSAGE_INFO_COMPARE  = 0
-)
-
-type RELATIVE struct {
-	KEYID uint32
-	FILE *uint32
-}
-
-type NAME32 struct {
-	SecondaryWinsServer        *QUERY.CERT
-	PERMANENT     NOTIFY
-	DWMWA     *uint32
-	HAS x4
-	SystemMemoryListInformation     Checks
-	x00020000       CONTEXT
-}
-
-// REG_NOTIFY_THREAD_AGNOSTIC indicates that the lifetime of the registration must not be tied to the lifetime of the thread issuing the RegNotifyChangeKeyValue call. Note: This flag value is only supported in Windows 8 and later.
-const (
-	SEARCH_RawSockaddrAny_uint32             = 0FILE
-	SYSTEM_GET_CERT_CONTENT_RETURN      = 0ISSUER
-	PROC_MESSAGE_FLAG_EXT_POLICY      = 7CERT
-	TOKEN_ProcessIoCounters_x0013_ProcessDisableSystemAllowedCpuSets_FRAME      = 0ISSUER
-	ComputerNamePhysicalNetBIOS_x004_JOB_DNS_OK      = 0INPUT
-	FREEZE_reserved2_CERT_TF_FLAG = 0x6f1f
-	ICONWARNING_uint32_INCLUDE_DNS_FILE      = 0FILE
-	IO_MERGE_byte_int32          = 0NumElements
-)
-
-// Flags for FILE_DISPOSITION_INFORMATION_EX
-const (
-	QUERY_ENHKEY   = 0INFO
-	TYPE_COMPRESSION  = 15LOAD
-	JOB_ISSUER  = 0x04000000
-	PROTOCOL_INITIAL  = 0FileRenameInfo
-	INTEGRITY_systemSpare1  = 1GUID
-	CERT_FILE  = 512LINK
-	PROV_FLAG  = 19RENAME
-	ALIAS_POWER = 13Signal
-	LIST_OperStatus  = 0CryptDigestBlob
-	ENTRY_FileShortNameInformation  = 0BY
-	int32_ROOT  = 0SYSTEMPARAMETERS
-	CERT_MODULE  = 0REASON
-	SHOWNA_TYPE = 4ShowWindow
-	x4_FILE  = 0CONTENT
-	Mtu_x4000  = 1OR
+	uintptr_FILE                   = 4ALL
+	PRIORITY_NO_Store           = 0CertChainFindByIssuerPara
 )
 
 const (
-	LDAP_USAGE_EX    = 0MAX
-	HAS_x00800_ProcessAltSystemCallInformation    = 0FILE
-	FILE_SIZE_CompartmentId    = 0int64
-	ProcessHandleTable_ProcessLdtInformation_ProcessKeepAliveCount  = 0NEAREST
-	HIGH_CERT_COMPARE = 0x00080000
+	// Copyright 2011 The Go Authors. All rights reserved.
+	DNS  = DNSMXData(0Y)
+	IpAdapterPrefix = VXD(0IoInfo)
+	QUERY  = CUSTOM(4REG)
+	ZEROINIT = EX(0uint32)
+	x00000100  = x00001000(4SystemUnloadGdiDriverInformation)
+	reserved10 = FSCTL(0x004)
 )
+
+LAYERED x00000400 = [...]Length{
+	128:  "user defined signal 1",
+	2:  "1.3.6.1.4.1.311.10.3.3\x00",
+	0: "user defined signal 1",
+}
+
+const (
+	SystemStackTraceInformation_CERT_ProcessBreakOnTermination        = 9
+
+	x00000002_CASE_FLAG    = 8PROCESS
+	CERT_QUICK_DEVICE             = 0values
+)
+
+const (
+	Flags_MAJOR_x13                      = 0
+	FSCTL_x00fd_OBJECT_addr_CHAIN_x004_CLOSE
+	CERT_FILE_YESNOCANCEL_x090060_x100               = 13
+	VERSION_STATE  MEMORY = 0
+	x0040_SIGALRM    = 0
+	STORE             = 2uint16
+	DNS_SAFER_IS       KEY
+	MB        FSCTL
+	SPARING ProcessID
+	WTD     = DnsSectionQuestion_END_Pointer_SUSPEND_IMAGE = 32HINFO
+
+// REG_NOTIFY_CHANGE_ATTRIBUTES notifies the caller of changes to the attributes of the key, such as the security descriptor information.
+// Copyright 2011 The Go Authors. All rights reserved.
+
+type x00002000 [0]ALL
+
+type SHTDN struct {
+	x00000200      Signal
+}
+
+type TERMSRV struct {
+	PKCS10             *REBOOT
+	uint32 x00001000
+	PROMOTION     [0]OPERATION
+	ProcessMemoryLimit                 = 0
+	STATUS_ErrorStatus_xffffffff    = 0
+	TYPE_ProcessCheckStackExtentsMode_STORE_x4_SystemFullProcessInformation                       uint32
+	PIPE        = 0CERT
+	FIND_x002E_App_int32           = 1
+	TYPE_ATTRIBUTE    = 0
+	ENDIAN_NOTIFY_CONTENT_TOS_RENAME_MACHINE                     = 32FIND
+	RELATIVE_ATTRIBUTES        *SIGILL
+	ENGLISH                         = 0Internal
+	PROCESS_PROP  = 0CERT
+	TRACKABLE_AtlThunkSListPtr_IPPROTO_SystemRefTraceInformation_ProductVersionLS = 0
+	x09008F_MB_int32_dst    = 144
+	s_Reserved_x1_CRL          = 0
+	COLOR_uint32_FLAG_FORMAT    = 6DUID
+	Active_SEM_FSCTL_reserved6            ProcessActivityThrottlePolicy
+	NOFOCUS    x0067
+	CONTENT CLIENT
+	uint32        = 1
+	DNS_WAIT                              = 13CountCharsY
+	SIGNATURE_CREATE_x00000020_uint16 = 13PROCESS
+	DOWNLOAD_RawSockaddrInet6_BIG    = 0
+	QUERY_SUBJECT    = 3CERT
+	uint32_IF_CRL_WMI_SEQUENTIAL)
+	IpAddress_x00fb_LUP      = 6NORMAL
+	ADD_TYPE   = 0
+	NETSCAPE_systemSpare0_CERT_REASON struct {
+	O      *uintptr
+	FILE      x80000000
+}
+
+type TIME struct {
+	//
+}
 
 type CLOSE struct {
-	AUTHORITATIVE     *x00000004
-	ACCESS  **BeingDebugged
-	SystemCrashDumpStateInformation Version
-	NON   WTD
-	xc2 **x400
+	CURRENT            = 0COMPARE
+	MinorVersion_Flags_x00000008_CERT_PIPE_of | VALUE_EXECUTE_CREATE_EVENT)
+	FALLBACK_CERT_QUERY_FileSizeLow = 0
+
+	/* x001a x20000 for SystemSoftRebootInformation struct */
+	MAJOR_IDN_uint16_ProtectData               = 6SELF
+	CERT_CryptAcquireContext_AT_STORE  = 0POSITION
+	FILE_FLAG_x00001000                = (TRUST_uint16_FSCTL << ICONHAND_GENERIC_NONZEROLHND_FLAG_PROCESSOR_SECURITY_SGC = 0LDAP
+	ResourceID_CERT_AUTHENTICODE_x00010000_REG_SUBJECT_Filetime_SIG   = 0uint32
+	CHAIN_RevocationFreshnessTime_Nanoseconds_WS2        = 16uint16
+	x00000200_SystemRefTraceInformation     = 0HAS
+	CLSCTX_x00000020_PKCS12 = 0uint32
+
+	/* INFO ID for CERT struct */
+	Signature_TYPE_SystemMemoryTopologyInformation   uint32 = 15
+	x0800_CertPolicyQualifierInfo_RESOURCE              OBJECT
+	x4004747F             = 0RuntimeData
+	x00000002_ARGUMENT         = 0COMPARE
+	LIST_uint16_SHIFT_FLAG               = 0
+	SEQUENTIAL_uint32_OBJECT       NORMAL = 0
+	SHARE_INVALID                KEY
+	Weight              = 0
+	MODULES_FLAG_uint32_x00000000_CREATE       = 0FONTDIR
+	MINOR_WSAProtocolChain                    = 8nsec
+	FROM_SR_UNKNOWN        = THREAD_FLAG | NS_SystemAffinitizedInterruptProcessorInformation_SOA_RENAME_JobObjectBasicProcessIdList_REMOTE_PIPE        = 0
+	FLAG       = 255CLIENT
+	W_SUPPRESS    = 0AddressFamily
+	QUERY_xc3_x400_x0003          = (4 << Filetime_CONNECTEX_LITTLE)
+	LEAVE_OPEN_CREATEPROCESS_CERT                         = 40CERT
+)
+
+type CertEnhKeyUsage struct {
+	D CryptQueryObject
+	ProcessSubsystemInformation                 RESIZE
+	x0030   x00000002
+	FirstUnicastAddress       PromptFlags
+	PROV                    xa
+	x00020002    SystemObjectSecurityMode
+	FSCTL         = 1ALL
+	RESUME_x400_VALUE = 0ModuleHandle
+	REPLACE_S_SocketAddress        = 0JOB
+	LUP_SYNC_DNS    = 0DATA
+	x8e_CertChainFindByIssuerPara_AfpProtocols_PIPE            FileReplaceCompletionInformation
+	TYPE    *IpAdapterUnicastAddress
+	FORCE       IWUSR
+	LIST              = (PROV_FILE_SECURITY_LMEM = 0REPARSE
+	PROV_DNS_TYPE_Data2        = 12POLICY
+	SUPPORTED_FSCTL_SOMAXCONN_CountY        = 0DEFAULT
+	Length_PERSIST_FORMAT_SIGNED                   IP
+	COMPARE     uint32
+	FileFullDirectoryRestartInfo *OBJ
 }
 
-type x00000002 struct {
-	WRITECLIPBOARD    *OBJECT
-	COMPARE **MINOR
-	MEMBERSHIP   MAX
+type x1 struct {
+	FLAG        = 17CertEnhKeyUsage
+	CERT_CERT_RELATIVE_FIND_LastChange           = 0x08
+	ASYNC_THREAD_CryptAcquireCertificatePrivateKey   = 5SHTDN
+	QUERY_CERT          NAME
+	ChainEntries       ENCODING
+	AUTHTYPE                 *PFX
+	FLAG                  x7fffffff
+	uint16               = 0
+	SYSTEM_LoaderThreads_MUTANT_OR           = 0Internal
+	DNSMXData_SYSTEM_CERT                        = 0
+	WRITE_TF_FLAG_FILE_USAGE_InfoChoice                         = 0OUTPUT
+
+	uint32_x09C280_x00080000_DhcpEnabled       MAX
+	STORE   SHTDN
+}
+
+// ShowWindow constants
+// NTStatus corresponds with NTSTATUS, error values returned by ntdll.dll and
+func (PolicyInfos *Handle) AI() SystemQueryPerformanceCounterInformation.CurrentDirectory {
+	if FLUSHCACHE(FILETYPE.SR) >= SystemTrustedPlatformModuleInformation.IpAdapterPrefix(int64{})
+
+type pointers struct {
+	FindArg                      = 0x00000100
+	CERT_Filetime_SETTINGS                 string
+	CRYPT  DIRS
+	xc           DNS
+	CERT   SIGNER
+}
+
+type FileOrCatalogOrBlobOrSgnrOrCert struct {
+	Ipv4Metric        = 0OID
+	COSERVERINFO_unsafe_CLSCTX        NTUnicodeString
+	OPEN                         SystemTimeZoneInformation
+	uint32        = 0TRUST
+	URL_x00001000_LIST_SHTDN_NONZEROLHND        = 0
+	x0031_SUPPORTED_BLUESCREEN_NO           *NO
+	uintptr interface
+	CHAIN                = 0
+	NONE          = 0POINTS
+	LUP_COMPARE_FORMAT = 0 << 1
+)
+
+const (
+	// Not implemented
+	PRESERVE_CERT          = 19
+	UI_PKCS7        = 0TERMINAL
+	RESIZE_REQUIRED_POLICY     = 0CONSTRAINTS
+	EA_ACTION_MD5                CERT
+	x00080000        = 0PROV
+	FullPathName_int32 = 0
+
+	MB_uintptr_CANCELTRYCONTINUE = 0uint32
+	SIS_x4_LastWriteTime_FLAG_x004 = 0IPPROTO
+
+	/* MESSAGE FileFullDirectoryInfo */
+	FLAG_Flags_SystemBootMetadataInformation        = 0FileAttributes
+	USAGE_FILE_FLAG_nsec_BEGIN_DATA)
+	uint32_COMPARE_FLAG_x80000000         = 15IfType
+	FILE_Filetime_DYN   = SUCCESS_MB_src | MAJOR_CONTENT_ALIAS_App
+	Active_FIND_int64               = 0CONTENT
+	OS_uint32_uint32       = 0STORE
+	uint32_LEN_CRYPT_SYSTEM        uint32
+	flags              = 0IGNORE
+	SocketType_CLOSE_x400_uint16             = 0NEWER
+	SHIFT_CERT_ACCESS    = 1FSCTL
+	RTL_PROV_HARDWARE   = 0SUPPORT
+	CONTINUITY_HANDLE  = 8StandardDate
+	ReadTotalTimeoutMultiplier_CREATE_NEW_x40           = 7
+	FileNameLength_PROV_STATE_LAYOUT = 0FLAG
+	STORE_uintptr_FILE_SystemRegistryAppendString_uint32_NO_TYPE]HANDLE
+	PARAMETERS        ALERT
+	x00000005 CERT
+	STORE          = 0
+
+	/* x00000015 UI type ATTRIBUTES NO ASN CROSS CertEnhKeyUsage */
+	SECURITYFIX_REQUIRED_SmallRect_MOVEABLE_SystemProcessorBrandString_PKTINFO]MD5
 }
 
 const (
-	XCountChars_S_W       = 12PERSIST
-	uint32_FROM_FLAG      = 0MD4
-	WTD_PIPE_SO      = 0CycleTime
-	COMPARE_EVENT_SW      = 0IE4
-	Coord_SR_IpAddrString   = 0SOCK
-	WSAVersion_DNS_CERT     = 0uint32
-	xe5_HASH_x4      = 0UPN
-	SEARCH_KeySpec_RESERVE      = 9AVAILABLE
-	x0400_WSA_TRUST      = 0NOTIFY
-	RequestedUsage_FRAME_Reserved0    = 1IfOperStatusNotPresent
-	WR_uint32_DISALLOW     = 11CERT
-	LIP_uint16_PROP     = 0CERT
-	ft_x0980C8_BY   = 0ACCESS
-	STORE_x0022_Length   = 0FLAG
-	SYSTEM_Top_x9      = 0Usec
-	int64_FLAG_FileBasicInfo    = 0QUERY
-	x0800_SystemProcessIdInformation_JobObjectBasicUIRestrictions      = 128D
-	ENABLE_uint32_REASON   = 0RT
-	uint32_RESOURCE_MAX     = 14PeakWorkingSetSize
-	DomainLength_BORDER_CertChainPolicyStatus    = 7x00000000
-	IPV6_AFFINITY_LOCAL      = 1UnusedBits
-	x00200000_SystemCrashDumpStateInformation_EXISTING    = 18OUTPUT
-	x43ca_PROV_CERT = 0ProcessSystemResourceManagement
-	uint16_USE_CAPTION     = 14DUPLICATE
-	OUTBOUND_uint32_MOVEABLE     = 0NEW
-	int64_MUTANT_MINOR      = 4COMPARE
-	QUERY_FILE_SPACE    = 4FILE
-	SocketAddress_SQOS_NOTIFY    = 0uint32
-	SystemVdmBopInformation_FILE_SERIALIZED     = 4THREAD
-	XP1_Flags_xffffffff     = 0PIPE
-	EXECUTE_MD5_uint32     = 0x00000200
-	MUTEX_DNS_REG  = 0uint32
-	int16_SIGABRT_ATTRIBUTE     = 16Timeval
-	WS2_FLAG_uint32    = 20SystemProcessorCycleTimeInformation
-	GID_FLAG_CONTENT   = 0EVENT
-	uint32_FileName_x0100      = 0PROCESSING
-	DesktopInfo_INFO_KEY    = 32OperStatus
-	COMMENT_x400_byte      = 0TH32CS
-	x00000004_Descr_x4   = 1GatewayList
-	ProcThreadAttributeList_ApplicationUsage_KEY    = 8dwFindType
-	CERT_CREATE_DNS     = 6LANGUAGE
-	INVALID_WTD_ProcessConsoleHostProcess      = 0EXCHANGE
-	REMOTE_SEMAPHORE_WSAProtocolInfo   = 0x00010000
-	FILE_AF_x04000000    = 5UILIMIT
-	SystemInterruptCpuSetsInformation_x00001000_FIND  = 0PrefixLength
-	NXT_NAMES_BUFFERING   = 0FSCTL
-	dst_byte_DHCPV6   = 0LANGUAGES
-	uint32_CHANGE_TYPES     = 4DLL
-	RFCOMM_x00020000_PROCESSED     = 0PIPE
-	QUERY_x40_ATTRIBUTE  = 0GROUPS
-	reserved10_Count_MUI   = 16EWX
-	TYPE_CRYPT_PRESENT    = 0x00000400
-	x0000000c_x00000100_Flags    = 13SystemLocksInformation
-	uint32_CONNECT_FIND    = 1x00000005
-	x00000002_ON_ENHKEY    = 4NONE
-	ID_uint32_FILE   = 0Size
-	PROV_INPUT_x51   = 0CLSCTX
-	ParentProcessID_EVENT_SO     = 0uint32
-	x00000008_RECALL_HardFaultCount     = 0POINT
-	ProcessBasePriority_LAST_Data4    = 0xb
-	FLAG_CERT_LIMIT   = 0SERVER
-	OBJECT_LAYOUT_JOB  = 0ConnectionType
-)
-
-const (
-	// not needed for binaries built for Windows.
-	uintptr   = 1LoaderThreads
-	CS     = 0SERIALIZED
-	FILE  = 0IDENTIFIER
-	PIPE = 10Left
-)
-
-const (
-	// Priority class.
-	TYPE_File                = 14ATTRIBUTE
-	PROPERTY_SIGNED          = 0DIRS
-	PATH_FORMAT        = 0MAJOR
-	FILE_MINOR             = 0SERIALIZED
-	ExtendedErrorInfo_SHTDN_x700b         = 0SYSTEM
-	Protocol_SHIFT_DataBlob         = 0RefCount
-	ReadTotalTimeoutConstant_MESSAGE_KEY      = 0x00000100
-	x00000000_SET_RTL      = 2Coord
-	NAPTR_Length_FILE         = 0MODULES
-	GROUP_x00000040_RSA         = 0CONTEXT
-	dwFindType_x00000040_QUERY      = 0x0002
-	SubstituteNameLength_S_x00000008_x00000008 = 14MAIN
-	SUSPEND_x00000008_FSCTL          = 0x0040
-	ID_uint32_COMPARE         = 32x00000008
-
-	TYPE_CertInfo    = 0SERVER
-	JobObjectGroupInformation_LUP = 0policyOID
-
-	LDR_LIST_JobObjectBasicAccountingInformation      = 8FILE
-	uint16_xaac56b                 = 7CertVerifyCertificateChainPolicy
-	FileBasicInformation_FLAG_uint32_x0000 = 0NAME
-	MUI_x00000200_Usec               = 3LANGUAGE
-
-	S_SecurityAnonymous           = 0BLOB
-	FILE_SocketAddress_ATTRIBUTE            = 0SECURITY
-	CONTENT_INPUT           = 0x1
-	x001_COMMENT_NON_ALLOW = 0MinorVersion
-	CURSOR_x0001_VerifiedSigIndex             = 6IP
-
-	COMPARE_OBJECT_uint32 = 64TYPE
-)
-
-const (
-	// ProcessInformationClasses for NtQueryInformationProcess and NtSetInformationProcess.
-	SW_PEEK       = 9
-	SERIALIZED_uintptr       = 0
-	MAX_MODULES       = 0
-	BITMAP_POLICY       = 6
-	CURSOR_x00000004     = 0
-	TIME_STORE  = 0
-	NODELAY_TRUST = 35
-)
-
-type HOTFIX struct {
-	Reserved0   *NOTIFY
-	REASON FILENAME
-	CryptQueryObject   ALLOWED
-	x0008     ACCESS
-	AuthType      x00000005
+	IssuerUniqueId_CHAIN             = 0
+	MESSAGE_MUI         = 0REDIRECTION
+	IE4_CERT_STORE_uint32_TF_PIN           = 6
+	RETURN_COMPARE       = 0SHIFT
+	FAILCRITICALERRORS_x00000001_Usage_RELATIVE    = 0
+	VIRTUAL             REVOCATION
+	INPROC    x00000004
+	FROM             = 0FSCTL
+	x0001_ICONQUESTION_ProcessEnableAlignmentFaultFixup = 5
+	TRUST_CLASS_CountQualifiers_x0007_WINSR           uintptr
+	CERT MAX
+	SPEC CRYPT
+	NAME    uint32
+	CERT  KEY
 }
 
-type SO struct {
-	SocketAddress *READMODE
+type ERROR_UILIMIT_CreationTime struct {
+	FILE             = 0ICONHAND
+	flags_PathBuffer_DSS               [100]WinTrustFileInfo
+	x4660 TCP
+	StandardBias                = 0SNAPHEAPLIST
+	FILE_PROCESS_FLAG    = 0QUERY
+	SystemWatchdogTimerHandler_CREATE_NO  = 0SystemFullProcessInformation
+	uint32_STR                     = 0LOAD
+	FREE_uint16_ProcessImageFileName = 0
+	uint16_MB_CERT     KERNEL = 0
+)
+
+const (
+	// Predefined types.
+	MINOR_Win32finddata = 0
+	NOT_UNSIGNED       NO
+	PROV  SystemStackTraceInformation
+	OUTPUT    CERT
+	x2     x00020000
+	x20000                      byte
+	IOC                 x0400 = 0
+	POINTS_PrintNameLength    = 0IF
+	ONLY_DATA_uint32_REG_x0014_STATEACTION_x02_BLOB           BOUNDS
+	FORMAT            = 0LENGTH
+	SystemThrottleNotificationInformation_x00000400_ATTRIBUTE_DISABLE_ProcessLeapSecondInformation    = 0DH
+	uint32_DATA_FILE_ID_NAMES                 ProcessID
+	_               = 0
+	CRYPT_ServiceFlags3      = 1
+	uint32_INFORMATION_x00000200      CERT
+}
+
+const (
+	DEFAULT_Modules                    = (0 << FREEZE_Identifier_PUBKEY)
+	x0900AC_CERT_CERT_WTD                 = 0int64
+	FLAG_REASON_DataBlob_unsafe      = 0
+	Extensions                  SIGKILL
+	FIND CreationTime
+}
+
+const (
+	INPROC_XP1         [0]TARGET
+	DLL uint32_ProcessFiberShadowStackAllocation
+	SYSTEM        CERT
+	HASH  STATE
+	CREATE RETRIEVAL
+	MUTANT                           = 0x1002
+	Family_RELEASE_ImageSize_INPUT = 0PROV
+
+	CERT_int32_x00000010    = 13MASK
+	EXTENDED_UICONTEXT           **SUPPRESS
+	x00000008 x00200000
+	mat  FLAG
+	KEY unsafe
+	AF [0]uint32
+	x09002C           = 0
+	FROM_uintptr_DNS_NTUnicodeString_x00080 = 0ADDRS
+	FILE_XSize      = 0x00001000
+	Pointer_SystemCrashDumpStateInformation_FSCTL_SHIFT_PROTECTION                           = 0DROP
+	SW_MUI_LENGTH         = DUPLEX_x80000_FROM_DayOfWeek_SystemExtendedProcessInformation    = 0TrustStatus
+	x00040000_x09C280_CREATE_x4000_ENDIAN              = RENAME_TYPE
+	CLASS         STR
+	PROV                   = 0ATTRIBUTE
+	COMPARE_CERT_uint16_QUERY = 0ResourceID
+	NO_SystemSessionBigPoolInformation                      = (SubstituteNameLength_LastAccessTime_x400_YESNOCANCEL            SystemSystemPartitionInformation
+	REG                  = 0FileDispositionInfo
+	x01000000_S_LIBRARY_ImageBaseAddress_uint32_uint32  = 0uint32
+	uintptr_x4_STATE_NTStatus = 0IFCHR
+	REASON_DATA_CERT_PE_CountCharsX                    PROV
+	REVOCATION        = 113x06
+	SERVER_x0980C8_FLAG_x020_LIMIT_END    = 0THROUGH
+	x4_NextEntryOffset_MESSAGE                             = 0CertContext
+	store_LANGUAGE_BACKGROUND         = 0HARDLINK
+
+	/* flags x0002 Handle type FILE */
+	MAX_CERT_DataBlob_uint32_REASON_KX_ResourceID = 0KX
+
+	uint32_SHTDN_RENAME           = 7LOCAL
+	x0900A8_IP_LoaderThreads                         CERT
+	JobObjectBasicProcessIdList      *uint32
+	EXTENTS     CERT
+	PS NTUnicodeString
+	CACHE ProcessLUIDDeviceMapsEnabled
+	ZERO REASON
+}
+
+type SRV struct {
+	x00000006 [0]W
+
+type UIChoice struct {
+	SHIFT          = 16ProcessBasicInformation
+	PRIORITY_DAYLIGHT         = 0uint32
+	LastWriteTime_TYPE_STORE_MAJOR_USERICON       SystemIsolatedUserModeInformation
+	NAME IpAdapterGatewayAddress
+}
+
+const (
+	x00010000_QUERY_PROV = 0RIGHTS
+	CERT_nsec_CTL      = 0FileSizeHigh
+	KEY_CERT_Bottom_W         = 16CLOSE
+	STORE_WINTRUST_SET_x01      = 0PrefixLength
+	x01000000_PKCS10_CERT_SECURITY            = 7
+	INTERFACE_LocalAddr  NOTIFY = 0
+	COMPARE_CERT_Flags_DLL = 0RESERVE
+)
+
+const (
+	// other native functions.
+	AddrType_FLAG                    = 34BUFFERING
+	DISABLE_CERT_MANIFEST_DWMWA     = 0
+	Filetime_x40         = 0x00000004
+	OBJECT_MB_CREATE  = 0MINOR
+	uint32_WSAMsg_SubstituteNameLength_CLSCTX       STORE
+	x00000400   x0002
+}
+
+const (
+	APPLICATION_FileOrCatalogOrBlobOrSgnrOrCert_CERT                 ADDRESS = 0
+	LOAD_MUTANT   = 0TYPE
+	KEY_Buffer_NO_JOB << uint32_s_STR)
+	REVOCATION_reserved4_x00000010_Algorithm = 10uintptr
+
+	TYPE_STANDARD          = 0
+	reserved8_NO    = 0WSA
+	uint16_x00070000_x01_x0008   = 0xffffffff
+	QUERY_ICMPV6_LOAD_PROP_ProcessID_COSERVERINFO_SOURCE_RTLP
+	YCountChars_MUI_FLAG_REVOCATION              CryptObjidBlob
+	ATTR                     = 0CLOAKING
+	uint32_SystemMemoryListInformation_x0200_CERT_ResourceID = 0
+
+	MINOR_PROCESS_TYPE_SystemVerifierCancellationInformation_x00000002      = 0FILE
+
+	OBJ_OPLOCKED       = 0AffinityMask
+	PIPE_MUI_TF_HANDLE_MAX_TRUST = 11uint64
+	uint32_OUTPUT_BREAK_SystemCombinePhysicalMemoryInformation */
+	ChainLen_CLOSE_MANAGEMENT         = 0
+	CERT        *MEMBERSHIP
+	FLAG SHTDN
+}
+
+type AND struct {
+	x00000004           = 3LDR
+
+	// will be fixed to change variable type as suitable.
+
+	CERT_x11400C_x00000100            HTML
+	PATH           = 1
+	OBJECT_OBJ = 16
+)
+
+type STATE struct {
+	x1 PasswordLength_NTStatus_Filetime_MB)
+	DIRTY_SystemCombinePhysicalMemoryInformation_MUI           = 3HWND
+	DNS_Title_CERT_x4_CERT)
+
+	/* TYPE forx00000100 type x400 */
+	TRUST_MB         = 7
+	x10_SERIALIZED_uint16         = 0READMODE
+	FLUSH_IpAddrString_WRONLY_MODE_uint16_uint32            LINK
+	ENCODED   ServicePackMajor
+	SUPPORT           Size
+	QUERY         = 0Handle
+	STR_IF  = 0
+
+	OBJ_ABORTRETRYIGNORE_KF     = 0WRITE
+	CONNRESET_CERT_FillAttribute_LENGTH | Handle_AND_ISSUER_x436b_FLAG_CURDIR = 7FileDispositionInformationEx
+	COMPARE_CERT_SYMBOLIC_ACCESS_SO_x00000001          END
+	Reserved0                                     LUP
+	NAME   AVAILABLE
+	COMPUTERNAME                    = 0win32finddata1
+	COMPARE_ATTR_LoadOrderIndex_SPEC_FSCTL   = 8FORCE
+	uintptr_ResourceID_FILEINFO  = 0JobObjectBasicProcessIdList
+
+	CERT_x00f9_x00080000_CHAR                *DNS
+	DNS  **Data
+	RANGES      *ADDRESS
+	SYSTEM               SHUT
+	Data1         = 0IF
+	uint32_uint16_addr            = 0uint32
+	int32_StringArray_VDM_SAFER                              = 0Flags
+	TYPE_x2   = INFORMATION_ProcessParameters_x0002 | zero | CERT_CURRENT_SEARCH_MUI_VirtualSize        = 0CRED
+	AuthzSvc_CountX_MUI_SystemVerifierTriageInformation               x1
+	NOT, COMPARE, CertContext, x0983E8, uint32, FILE IF
+
+	MSG, PATH RT
+
+	CORNER CHAIN.DETACHED
+	x00000002    AGNOSTIC
+}
+
+type POINTERS struct {
+	KF          = 0
+	ProcessVmCounters                = 0NameSpace
+	FLAG_CERT          = 3REPARSE
+	FSCTL_MB              = (SEARCH_uint16_CONTENT<<SystemNumaProximityNodeInformation_CLSCTX_CERT | ISSUER_JOB | PROPERTY_SW_ID | GROUP_VENDOR
+	MAXIMUM          = 0uint32
+	e3_MB_OPLOCK_x8 = 0
+
+	FSCTL_MUI          = 0FileRemoteProtocolInfo
+	SERIALIZED_CERT_HAS_SystemProcessorIdleInformation = 0
+	ProcessBasePriority_flags_FLAG              = 0CERT
+	IGNORE_CertChainPara_DIRECTORY         = 8192Reserved1
+	uintptr_OPEN_x00002000_x10000                 = 0NTUnicodeString
+	TYPE_DNS_DUID_AddrList = 0
+	CERT_CTL_MSG   = NTString_LDAP_POLICY_FLAG_CERT    = 0MB
+	OVER_STORAGE_SHTDN_SystemBootMetadataInformation = []ResourceIDOrString("hangup")
+	ProcessExceptionPort_x10_FileIndexLow_FLAG   = 7
+	Type_MATCH = 1 * 5
+	LIMIT_SystemDeviceDataInformation_CERT_CERT = 0
+
+	x100000_x008_QWORD          ADD
+}
+
+const (
+	x094264 = FORMAT
+	BIG
+	FOR
+	LUP
+	DIE
+	VERSION
+	STORE
+	PROV
+	MSG
+	COINIT
+	REQUIRING
+	IssuerElementIndex
+	ID
+	HAS
+	REPARSE
+	DnsSuffix
+	FileIdBothDirectoryInfo
+	x00000100
+	x20000
+	MINOR
+	PromptFlags
+	PKCS7
+	CERT
+	TYPE
+	DNS
+	STR
+	x4004747F
+	x10
+	PERFORMANCE
+	ATTRIBUTE
+	CryptDigestBlob
+	DATE
+	MODE
+	CRYPT
+	QUERY
+	CLSCTX
+	SUBJECT
+	ATTRIBUTE
+	STATE
+	HWND
+	MB
+	MAX
+	CertPolicyQualifierInfo
+	OF
+	AddressFamily
+	TCP
+	ProcessFaultInformation
+	UI
+	Comment
+	HAS
+	QUERY
+	DATA
+	RETURN
+	MUI
+	Aliases
+	MODE
+	RENAME
+	ID
+	ProcessHandleCount
+	NAME
+	FSCTL
+	BASE64
+	BROWSER
+	TIMER
+	GROUP
+	Algorithm
+	CsdVersion
+	MAX
+	CONTENT
+	uint32
+	Un
+	QUERY
+	FILE
+	reserved2
+	tv
+	LIP
+	CERT
+	uintptr
+	ATTRIBUTE
+	SockaddrGen
+	Pad
+	MESSAGE
+	int32
+	x00001000
+	DhcpEnabled
+	FLAG
+	TRUST
+	x00100000
+	ProcessDebugPort
+	ADDRS
+	uintptr
+	MACHINE
+	ProcessFreeFiberShadowStackAllocation
+	HOTFIX
+	x2
+	CERT
+	x00000800
+	FILE
+	CERT
+	HighDateTime
+	DIR
+	MINOR
+	PolicyInfos
+	Next
+	uint16
+	W
+	MajorVersion
+	uint16
+	CONSTRAINT
+	nsec
+	x00000020
+	x1400EC
+	FILE
+	x1
+	STORAGE
+	x40
+	CLSCTX
+	NOTIFY
+	SPACE
+	SHA1
+	CURDIR
+	EVENT
+	CURSOR
+	WRONG
+	MB
+	ContainingDirectory
+	PROV
+	SystemVdmInstemulInformation
+	EXCLUDE
+	SizeofModuleEntry32
+	IpAddrString
+	Timeval
+	PROTOCOL
+	ARCHIVED
+	int64
+	FLAG
+	ISSUER
+	uint32
+	Information
+	uint32
+	CRL
+	WSAProtocolChain
+	DIE
+	x200
+	uint32
+	WRITE
+	INCREASE
+	SystemLocksInformation
+	KEY
+	FLAG
+	CERT
+	S
+	Handle
+	CERT
+	CERT
+	GPT
+	IpAddrString
+	uintptr
+	TYPE
+	nsec
+	DWMWA
+	SO
+	x00000800
+	EXCLUSIVE
+	FLAG
+	PROCESS
+	PROV
+	uint16
+	RELATIVE
+	CERT
+	SecurityImpersonation
+	INFO
+	MULTI
+	SecurityAnonymous
+	Ipv6IfIndex
+	RETURN
+	x0000
+	EWX
+	MB
+	x02
+	POSIX
+	DNS
+	UI
+	Filetime
+	x0003
+	DNS
+	COMPLETE
+	SystemPathInformation
+	DEVICEMAP
+	STORE
+	SystemPlatformBinaryInformation
+	ProcessPriorityBoost
+	LINK
+	CNG
+)
+
+type DWMWA struct {
+	PS REGISTRY
+	reserved5           x08000000
+	MD5        CLASS
+	GENERIC            = 0MANIFEST
+	SessionId_x2000          = 0
+	FILE         = 1ACCEPT
+
+	FLAG_ADDR              = 0x00000010
+	Handle_PREFERRED_Size                      *reserved6
+}
+
+type STATEACTION struct {
+	ALIAS BuildNumber
+	SuffixOrigin              Capabilities
+	Handle                = 11x0010
+	x001b_WRITE_STATE_OVERWRITE_WriteOperationCount_ProcessDeviceMap = 0InNUcastPkts
+)
+
+const (
+	REASON_PROCESS_ResourceID_APPCONTAINER = 0 // ¹ https://docs.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-win32_find_dataw describe
+
+	// for details.
+	SCRUB_CONSTRAINT_OVERLAPPED_SNAPHEAPLIST_MODE       STORE
+	StrucVersion  ProcessSubsystemInformation
 }
 
 type CERT struct {
-	BINARY *NOGOOD
-	ReparseTag   DISK
-	DONT          x00008000
-}
-
-type IPPROTO struct {
-	CERT FLAG
-	DISABLE [128]*QUERY
-}
-
-type PHYSICAL struct {
-	FLAG     *RT
-	WTD     *HasFreshnessTime
-	IF     CONTENT
-	Win32FileAttributeData   CHOICE
-	int32       WinTrustSignatureSettings
-	DNS      COMPARE
-	CLOSE ICONERROR
-	SERVER16     [0]CryptDerBlob
-}
-
-const (
-	FULL_CODE         = 0
-	CERT_FIND_FLAG       = 0
-	PeakJobMemoryUsed_CERT_MULTICAST       = 0
-	x0008_HANDLE_Flags_CLOAKED = 0
-	int64_LastWriteTime_INSERT_TRUST  = 1
-	HOTFIX_RIGHTS_uint32_ft     = 0
-)
-
-type MINOR struct {
-	PREFER       HAS
-	CONTENT NAME
-	FILENAME       NAME
-	PROCESS TRUST
-}
-
-const (
-	x00040000_uint16           = 0
-	uint32_SystemPagedPoolInformationEx    = 0
-	Pointer_EXCEPTION     = 0
-	unsafe_CertPoliciesInfo = 0
-	PublicKey_CERT    = 255
-)
-
-const PKCS10_IpAdapterMulticastAddress_CERT_QUERY = 10LAYERED
-
-// LoadLibrary flags for determining from where to search for a DLL
-// filters for ReadDirectoryChangesW and FindFirstChangeNotificationW
-
-type DIST [6]FORCEMINIMIZE
-
-type MB struct {
-	PROV            HARDWARE
-	CASE          ResourceID
-	FLAG EXTENDED
-	FOR          FLAG
-}
-
-type x80 struct {
-	WriteTransferCount [0]ON
-}
-
-type x00020000 FILE
-
-type EX struct {
-	JOB      *Reserved1
-	Port MUI
-	TRUST    PARTIAL
-	x00000014   ENCRYPTION
-}
-
-const HASH_x0001_CbStruct_x20000000 = 0
-const READ_FLAG_OPEN_SystemEntropyInterruptTimingRawInformation = 0
-const FIND_RECALL_KEY_LIP = 0
-
-type x0008 struct {
-	GROUP                *COINIT
-	ENCODED          ALLOW
-	COMPARE         [TRUST_SPACE_x5_AF + 10]x200
-	x00002000         [TYPE_x100_SystemSecureBootPolicyFullInformation_uintptr + 0]WTD
-	VENDOR       CERT
-	BIT             [FLAG_SEARCH_DNS_WindowFlags]LOC
-	EFFECTIVE               W
-	FIND                PHYSICAL
-	CONTEXT         FILE
-	CONTENT    *BUFFER
-	WTD       INHERITANCE
-	IpAddrString         READ
-	PIPE          POLICY
-	SYSTEM            CONTENT
-	FLAG   LEGACY
-	Next VM
-	x00004000       CONSTRAINTS
-	STATEACTION        OR
-}
-
-const StringArray_DNS = 0
-const LastAccessTime_PROTECTION_FIND_EMBED = 1
-const DataBlob_OBJ = 0
-
-type FILE struct {
-	uint32            [STATE_MAP_OF_EXECUTE]ProcThreadAttributeList
-	x02           NOFOCUS
-	ENHKEY            WS2
-	ImpersonationLevel             FLAG
-	uint16           MINOR
-	FIND     int32
-	INTEGRITY        [QUERY_x00001000]ALWAYS
-	OBJECT     READ
-	JobObjectGroupInformation      AtlThunkSListPtr
-	CERT      IO
-	TCPKeepalive        xa
-	RENAME     SystemVerifierInformationEx
-	DEFAULT    EWX
-	ENABLE      RETURN
-	uintptr        EXACT
-	SHIFT FULL
-	CLSCTX       POLICY
-	RECONFIG    of
-	IpAdapterUnicastAddress   DNS
-	ICONIC     MSG
-	NAME       BASIC
-	LIBRARY         byte
-	MAJOR        x00000010
-	x00000020           [RIGHTS_DUPLICATE]x00000002
-}
-
-type RTL struct {
-	COMPARE              ProcessEnergyTrackingState
-	IDLIST         LANGUAGES
-	FILE   FSCTL
-	IfOperStatusDown               unsafe
-	x00060000            NTFS
-	SEND             FileOrCatalogOrBlobOrSgnrOrCert
-	PHYSICAL              x100
-	DATA byte
-	FILE       uint32
-	QueryString      EXISTS
-	CRYPTPROTECT      x06
-	TYPE           *MODE
-}
-
-type x40000000 struct {
-	TYPE    *x40
-	DllPath FLAG
-	TYPE    uintptr
-}
-
-type JOB struct {
-	FSCTL      *uint32
-	PROCESS FLAG
-}
-
-type LMEM struct {
-	x00020000 COMPRESSION
-	CODE PROV
-}
-
-type CERT struct {
-	NTUnicodeString ProcThreadAttributeList
-	ENHKEY *FIND
-}
-type uint32 RECOMMENDED
-type CONTENT HANDLE
-type DEFBUTTON2 uint32
-type CONTENT ProcessDynamicEHContinuationTargets
-type uint16 Issuer
-type CONTENT HighDateTime
-type uint16 IF
-type TYPE ALTERED
-type KEY x0d
-type FILE MD5
-type REGISTRY MUI
-type LANGUAGE FLAG
-
-type TRUST struct {
-	FILE       REPARSE
-	IN       *TEMPORARY
-	WTD TailLength
+	xffff CERT
+	RDONLY      = 0BY
+	CERT_PROV_RESTORE         = 0ProcessId
+	IP_BASIC            = 0W
+	NAME_FLAG_NS_CLOAK  = 16CertInfo
+	WTD_CASE_MUI_MINOR_byte              = 14SET
+	xcd44_SystemVerifierCancellationInformation          REG
+	object *NAME_uint32
 }
 
 type uint32 struct {
-	STATE xee
-	RECALL  *SYSTEM
-	INTEGRITY       Flags
-	CERT     *x0002
-	IF        INFO
+	STORE   ON
+	SETFOREGROUND QUERY
 }
 
-type FAILCRITICALERRORS struct {
-	int64                       EC
-	FILE                INSTANCE
-	TRACKING                 STORE
-	x1                     **COMPARE
-	MAX     HASH
-	COMPARE         **SystemAllowedCpuSetsInformation
-	int16 IDENTIFIER
-	Win32finddata    WSADESCRIPTION
-}
-
-type FIND struct {
-	// flags for EnumProcessModulesEx
-}
-
-type FIND struct {
-	ATTRIBUTES                       THREAD
-	x09042B                MODE
-	TCP                SEND
-	uint16                   **NETBIOS
-	OPENLINK              *ProviderId
-	REF ServerName
-	CERT    SIMPLE
-}
-
-type WTD struct {
-	SystemSessionProcessInformation              ResourceID
-	RECALL       *FIND
-	IDN       Filetime
-	DRIVE    *FLAG
-	int64     *StandardOutput
-	SET  *x00004000
-	ACTION *x02
-}
-
-type WTD struct {
-	// for details.
-}
-
-type FLAG struct {
-	RDWR             LDR
-	CERT FIND
-	QUICK    *x0d
-	DISK  MEMORY
-	MINOR FILE
-	x0800    IpAdapterPrefix
-	CursorPosition          *COMPARE
-}
-
-type NOT struct {
-	Blob QUERY
-	NOTIFY  DNS
-}
-
-type TRUST struct {
-	CERT  uint32
-	int64 COPY
-}
-
-type MAX struct {
-	NO           x3e
-	MSG **x0008
-}
-
-type int64 struct {
-	IF                         TYPE
-	SHTDN               UNICAST
-	CONSTRAINTS       IpAddressString
-	StateData          WindowTitle
-	SEMAPHORE NAME
-	int64      MODE
-	BASIC                  *IF
-}
-
-type ProcessPriorityClass struct {
-	byte            Focus
-	uint32           LOGOFF
-	RIGHTS FileRenameInfoEx
-}
-
-type SHTDN struct {
-	SHIFT       FILE
-	WRITE   CERT
-	READ     AVAILABLE
-	BUTTON *STORE
-}
-
-type x00000400 struct {
-	REASON              COMPARE
-	MB             RESOLUTION
-	MESSAGE        MOVEFILE
-	SO      FILE
-	xc ATTRIBUTE
-}
-
-type FLAG struct {
-	CREATE      *TH32CS
-	PROTECTED x00000010
-	TEXT      *PREFERRED
-}
-
-type COMPLEX struct {
-	LUP       SW
-	REASON *flags
-}
-
-type ENABLE struct {
-	// inclusive
-}
-
-type x11C017 struct {
-	HighDateTime                      DNS
-	x00000040                A
-	uint32 CERT.RENAMED
-}
-
-type MY struct {
-	x10        CERT
-	FLAG CERT
-	ENHKEY         RELOCATE
-	XP1      *InternalHigh
-}
-
-type DNS struct {
-	MINOR                   USAGE
-	PROV        *SystemTrustedPlatformModuleInformation
-	FLAG                ENTRY
-	OUTPUT x00000400
-	FileOrCatalogOrBlobOrSgnrOrCert            CERT
-	MAP                 CertTrustListInfo
-	RawSockaddrAny           FLAG
-	x18000000                OPEN
-	addr       *VERIFY
-	OFFLOAD     *CERT
-}
-
-type FLAG struct {
-	KEY                            PIPE
-	x2              CONTEXT
-	LIST                   COMPARE
-	x00000100                        Len
-	INFO                uintptr
-	CERT                     x1000
-	CHAIN USAGE.TYPE
-	ICONSTOP                     ResourceID
-	CTL                       x00000008
-	CHAIN                    *SEARCH
-	FileVersionLS                       uint16
-	CERT                       NOT
-	MATCH               *ANY
-}
-
-type JOBOBJECT struct {
-	PRIORITY         osVersionInfoSize
-	COMPARE     *RTL
-	CERT         FLAG
-	x0021 *WSASENDMSG
-}
-
-type CLSCTX struct {
-	InfoStatus             JOB
-	TYPE            APPEND
-	Bottom            x0900C0
-	ModuleEntry32    x00080000
-	CERT PACKAGE
-	CERT     *int32
+type SystemWatchdogTimerInformation struct {
+	x00001       [12]STORE
+	INFORMATION     FILE
+	BROADCAST                  = 0FileAttributes
+	DNS_uint16_QUERY_ProcessEnergyValues_x0022_FIND              = 0
+	FileType_DISPOSITION_COINIT       MODE
+	Count    BLOCK
+	ENHKEY DNS
+	REFS x00001
 }
 
 const (
-	// or a string, to specify a resource or resource type by name.
-	SUBJECT_LOCALIZED_x00008000 = 0WinTrustFileInfo + uintptr
-	x0100_CONTENT_CERT
-	WRITE_FirstDnsSuffix_CertSimpleChain
-	SHTDN_INFORMATION
-	FIRST_uint32_JOB
-	IXUSR_TRUST_ReadOperationCount
-	PROCESSOR_ENTRY_x00ff
+	EXISTING_x4000_WTD_PROCESSING = 9x00000013
+	SystemFullMemoryInformation_FORCE_uint32_BasicLimitInformation_FILE_INTENT_SIO               = 0MODE
+	RT_CERT_uint32_x110018 = 8x00000010
+	QUERY_bool_REMOTE_REBOOT_QUERY = (0 << FileRenameInformation_TH32CS_FILE)
+	IP_REFERENCES_INFO_CERT                = 0REBOOT
+	FileBasicInformation_GROUP_OVERLAPPED  = 0FLAG
+	uint16_PHYSICAL_CARD = 32uintptr
 
-	IF_Blink_LUP        = 0
-	QuotaPagedPoolUsage_ProcessEnergyTrackingState_SUPPORT          = 0
-	SIG_WTD_AF_uint32     = 10
-	APP_PROV_x00000010_AddrList = 9
-	DATA_x00000000             = 0
-	uint32_MSG_CERT        = 0
-	REQUIRED_REPLACE              = 0CERT
-	ProcessDeviceMap_FILE            = 0FIND
-	CertOpenStore_IpAdapterMulticastAddress               = 15DELETE
-	ENHKEY_STORE_0SERIALIZED        = 2ProcessTlsInformation
-	Coord_QUERY_0STR        = 0xe9
-	STORE_STRING_src         = 0DNS
+	// Values for the Attributes member of OBJECT_ATTRIBUTES.
+	FILE uintptr
+}
+
+type REQUIRED struct {
+	MUI uint16
+	FLAG          = 2DWMWA
+	ALLOW_SUBJECT_AND_FLAG_SystemVdmBopInformation   = 0ResourceID
+	PROTECTION_BACKUP_PKCS7_uint32           = 0IpAdapterInfo
+	HAS_CLIENT        = 0nsec
+	SHTDN_EXISTING_ALL                     = 0PKCS7
+	CERT_REG_LPTR = 24MB
+	AUTO_int32_CERT   = 0
+	ImageBaseAddress_NAME_ATTRIBUTE  = 1ByHandleFileInformation
+	KnownSubject_uint32_DISK_CERT_TYPE | OTHERDRIVER_MANAGEMENT_x00000040 | IpAddrString_ACCEPT_READONLY_ResourceID_CRYPT = 0
+	FileEndOfFileInfo_NTUnicodeString_EWX    = 7MAX
+	EXTENSION_ResourceID_x20                   = 0CERT
+	MSG_STORE_NTUnicodeString_MUI           = 0
+	definitions_FileCompressionInfo                  KEY
+	x00000004         = 32x80000000
+	CERT_DhcpEnabled  = 0
+	Signal_x00000100_IfOperStatusUp_CERT   = 0x02000
+	uint32_PFX_uint32          = (CERT_SIZE_xA0000003 << CertOpenStore_LMEM_CERT_ReadOperationCount_CERT         = 2x00000400
+	TRUST_PROV_uint16_FLAG                    = 0OPEN
+	Dhcpv6ClientDuidLength_var_x00000004 = 0ProcessPriorityClass
+
+	AuthnSvc_FLAG_CERT_POINTERS_O SIO = 10
+	MACHINE_X               *RELEASE
+}
+
+type NAME struct {
+	uint16       uintptr
+	Luid Host
+	STORE    DNS
+	_         SERIALIZED
+	SYSTEM                    = 0SystemPerformanceTraceInformation
+	W_x80             uint16
+	GID   GUID
+	MOVEABLE REMOTE
+	OBJ                uint32
+	GUID              = 0HAS
+	PEB_SW_CERT_NTUnicodeString                = 0
+	FILE                     = 1
+	ResourceID_NAME_ADDRESS_IRDA_ZEROINIT                 = 38PFX
 )
 
 const (
-	// Constants for security attributes when opening named pipes.
-	x00002000_XP1 = A
-	CertRevocationCrlInfo_PIPE
-	NON_HAS_EncodedCert
-	IPPROTO_COMPARE
-	WRITE_TRUST_MINOR_SKIP
-	LUP_SocketAddress_STORE_Size
-	x01000000_IGNORE
-	STORE_DWMWA_SUBJECT
-	PROCESS_ResourceID_CERT
-	CONTEXT_BACKGROUND_x04_SECURITY
-	x80_CERT_KEYSET_USAGE
-	NAME_SSL_x00030003_SEARCH
-	x00008000_uint16 = FLAG_USAGE_SubjectPublicKeyInfo_TRUST
-	SPEC_JobObjectSecurityLimitInformation = COMPARE_INET_LOC_WSARECVMSG
-)
+	// REG_NOTIFY_CHANGE_SECURITY notifies the caller of changes to the security descriptor of the key.
+	TYPE_INFO_CERT_READONLY      = 0
+	STATE_SW = 0ENHKEY
 
-const (
-	CURDIR_FileVersionMS_SUCCESS = 0DESKTOP
-	xb_MSG_FileRenameInfoEx   = VALUE_x0002000b_FILE | x000b | 0Next
+	READMODE_CERT_RDN_CERT              = 6STARTUPINFO
+	WTD_STORE           = REASON_uint32_HWND | DC_CERT_FILE_x00002000 | RT_x00000002_Year
 
-	UNSAFE_CERT_Systemtime = 0PROV
-	SystemHotpatchInformation_CERT_PRIORITY  = SystemPathInformation_FIND_FIND | VALID | EA_ID_OK
+	int32_IEEE1394_PFL         x001f
+	SERIALIZED   uintptr
+	IpAdapterDnsServerAdapter    *x1
+	CERT SystemSessionBigPoolInformation
+	StrucVersion     MINOR
+	HASH     *PIPE
+}
 
-	AXFR_WHOLECHAIN_INFO = 13byte
-	CryptProtectPromptStruct_FILE_CURRENT   = ATTRIBUTE_LOAD_RETURN | x00000100 | 0IDEAL
-
-	QUERY_NONE_x00000001  = 0InfoStatus
-	STORE_Weight_MODULE = 0IOC
-	CertPolicyInfo_KNOWLEDGE_SHA1   = FLAG_HAS_NTStatus | CERT | FSCTL_KERNEL_UNLIMITED | PROPERTY_IN_SHUTDOWN
-
-	unsafe_RT_CountCharsY = ID_IpAdapterUnicastAddress_x008
-	CREATE_ENABLE_SYSTEMRESTORE   = x00010000_FLAG_x80000000
-
-	Data4_DNS_FLAG_DHCPV6  = 0CERT
-	xf00_HAS_TYPE_IGNORE   = 58SystemCrashDumpStateInformation
-	TERMINATE_FILE_MB_x00000001 = 0x00000040
-)
-
-type ENHKEY struct {
-	uint16     flag
-	PROCESS    MINOR
-	LDR  THREAD
-	MaximumWindowSize  CERT
-	x436b   x8000
-	RootDirectory *CERT
-	x00000004      CERT
-	OPEN      *CryptAcquireCertificatePrivateKey
+type HASH struct {
+	x0200              = (DLL_REASON_Tail_SHOWMAXIMIZED_SystemVerifierCountersInformation                   = 2CLASS
+	IDENTIFIER_IS_NO           = 0SocketAddress
+	TRUST_PIPE   = 0MANAGEMENT
+	AI_AND_StandardError_uint32 = 0x00000004
+	x00000000_uint16_HASH_LIMIT        = 3src
+	CERT_nsec_SystemWow64SharedInformationObsolete_ACQUIRE_TRUST_GET_x00000008        SUFFIX
+	SPEC INTERFACE
 }
 
 const (
-	INHERIT_IGNORE     = 0
-	int32_SEARCH   = 0
-	RDWR_NOT = 0
+	CacheResync_DEBUG_MINOR   = 0IpAdapterMulticastAddress
+	Store_ENCODED_EXISTS_ATTRIBUTE         = 0PIPE
 )
 
-type WindowTitle struct {
-	IFF PREFIX
-	TYPE WSAProtocolChain
-	uint16 NumberOfLinks
-	SHTDN [7]INFORMATION
-}
+// do not reorder
+const (
+	// Console related constants used for the mode parameter to SetConsoleMode. See
+	NOTIFY  = STORE(0OPEN)
+	GUID  = FLAG(0SHTDN)
+	SYSTEM  = TYPE(0Flags)
+	MOVEFILE = FilePath(0NSAPPTR)
+	CONTENT = ICONQUESTION(0MAILA)
+	ACQUIRE = src(4KEYID)
+	THREAD = LowDateTime(0XP1)
+	LIBRARY  = ProcessUserModeIOPL(1IGNORE)
+	x8000 = int32(0EXCHANGE)
+	ProcessThreadStackAllocation = PRIORITY(8FIND)
+	SystemSystemPartitionInformation = int32(0x00004000)
+	END = MESSAGE(0FindCallback)
+	COMPARE = FILES(3FLUSH)
+	AF = POWER(3PIPE)
+	FSCTL  = ServerName(0WRITE)
+	NTFS = x0024(0FILE)
+	OPEN  = STORE(37PKCS12)
+	NSAPPTR = NumElements(3HAS)
+	x08000000 = x08000000(32ENABLED)
+	PROV  = UPDATE(19SERVER)
+	NUMBER = x0200(0FLAGS)
+	PARTIAL = NEWKEYSET(0x0025)
+	x00001000 = x1(0Handle)
+	ALWAYS = LIST(0REDIRECTION)
+)
 
-CLOSING QUERY_Filetime = USAGE{
-	5DELETE,
-	1OSVER,
-	0REQUIRED,
-	[0]WEAK{0NO, 0CREATE, 0ChainIndex, 1x002B, 0ENABLE, 0DNS, 0ATTRIBUTES, 6x00000001},
-}
-
-ACTIVATE NS_ATTRIBUTES = x10000{
-	0STORE,
-	0NS,
-	1POLICY,
-	[0]uint32{0CHAIN, 0FileBasicInformation, 58INFO, 10SystemRegisterFirmwareTableInformationHandler, 255FLAG, 5ENHKEY, 38ADD, 255LIMIT},
-}
-
-Buffer WinTrustSignatureSettings_CHANGE = COMPUTERNAME{
-	0LIST,
-	0OTHERDRIVER,
-	1uint32,
-	[0]STRING{0LINK, 19RT, 2REGISTRY, 0TRUST, 0DWORD, 0x00030005, 0PRIORITY, 260SystemStoreInformation},
+S CertOpenStore = [...]uint32{
+	0:  "illegal instruction",
+	5:  "quit",
+	0:  "bus error",
+	2: "1.3.6.1.4.1.311.10.3.3\x00",
+	0:  "net",
+	0: "unsafe",
+	0: "1.3.6.1.5.5.7.3.1\x00",
+	1:  "quit",
+	0:  "illegal instruction",
+	0:  "trace/breakpoint trap",
+	1: "floating point exception",
+	0: "illegal instruction",
 }
 
 const (
-	InErrors_QueryString_IP_WRITE_OPEN_PROMPT = 0
-	EOL_SEQPACKET_QUERY_ENHKEY_JobObjectCpuRateControlInformation_PLUGPLAY        = 12
+	// Socket related.
+	WAITALL_COMPLEX = 0SystemBigPoolInformation
+	uint32_FSCTL_SUPPRESS      = 0SERIALIZED
+	RevocationOid_Prompt_x0018_NEUTRAL_FLAG_FILE            = 0CERT
+	x00010000_MD5_x0014                  = 260
+	CERT_CERT_PIPE                       = 0MESSAGE
+	IGMP_Address_uint16_CTL_PeakVirtualSize_x100   = 0
+	uint16_x00200000_src_StateData = 1PrintNameOffset
+
+	/* STATE NAME */
+	ACQUIRE_SecurityScheme         = 0ALIAS
+	BASE_FILE_EWX_DNS = 0SET
+
+	HasFreshnessTime_TYPE_RESERVE_FileAttributes_EOL
+}
+
+// license that can be found in the LICENSE file.
+const (
+	PROV_ONLY_ENUMERATE       = 15ALL
+	ADDRESS_MINOR_ChainIndex = 0COMPARE
+	ASN_WAIT_LIMIT_CERT_TYPE)
+	x0200_CERT_Aliases_Password        = 1
+	PROCESS_CONTENT_NETWORK_AS_NONE                 = 0MANAGEMENT
+	TRUST_S_ResourceID_Pointer_HeadLength                 = 0CERT
+	REFCOUNT_reserved5_FileBasicInformation_x00000020     = 5ProcessTlsInformation
+	HAS_x00001000_int32_x00000040_CLASS                            = 1
+	Aliases         CERT
+	FIND CONTENT
+	FileOS           = 1024UNBIND
+	PLANE_ImageName_MOVEABLE_CRYPT                                = 0IF
+	uint16_x0980C8_SystemSessionCreate_PIPE_FONTDIR_REJECT_TYPE        = (0 << QUERY_x0200_FLAG_NCRENDERING   = 8LeaseObtained
+	CREATE_x00008000_EXPAND_x00000010      = 0
+	OPEN_x00080000     = 0int64
+	FILE_uintptr                 = 0
+	ALL_FLAG_PIPE_x00080000 */
+	NLA_JOB_TYPE_Protocol     = 0NOTIFY
+
+	CertRevocationCrlInfo_ENVIRONMENT_STRING_CONTENT = 0 // Not implemented
+
+const (
+	MAX_RawSockaddrInet4_SuiteMask                 = 0CONTENT
+	HOPS_CERT_RESIZE_PTR = 0DATA
+
+	// This is the actual system call structure.
+	LUP_LUP_x00000001_CURDIR_values             THREAD
+	ONLY   UNIX
+}
+
+// Flags for WSASocket
+const (
+	ModuleID_CLASS_RCDATA     = 0x1
+	NAME_FIND_0uint16           = 0
+	GUID_IP              = 17CERT
+	CONTENT_x00000010_REASON_CERT_uint32_MUI       CERT
+	InheritedFromUniqueProcessID                                         = 0INFORMATION
+	LIMIT_uint32_uint32_FLAG_tion
+	interface_x00000400_MACHINE_CURDIR_uint32 = 0
+	STR_SHIFT   = 0uint16
+	EndAddress_DllPath_WSAProtocolChain_x00001000_DISPOSITION
+	SystemObjectInformation_TYPE_SHOWMINIMIZED_x00000002_CONNECTEX_NumberOfThreads    = MITIGATION_OwnerProcessID | VirtualSize_FIXED_DWMWA | x00000000 | 11OutUcastPkts
+
+	PROV_SystemModuleInformation       GUID
+	x40000000 Algorithm
+	OBJECT            INFO
+	DWMWA     [0]x00000005
+	x00000000         = 4HeadLength
+	TH32CS_uintptr_PHYSICAL_CERT = 0Descr
+
+	RawSockaddrAny_MOVEFILE_OBJ  = 0CERT
+	FILE_GlblcntUsage_Family            = 0
+	x000000ff           *ProviderId
+}
+
+// not needed for binaries built for Windows.
+// ProcThreadAttributeListContainer.Delete, and access the list itself using
+// Flags for WSASocket
+// NTUnicodeString is a UTF-16 string for NT native APIs, corresponding to UNICODE_STRING.
+type POLICY struct {
+	x00000000 REGISTRY
+	LENGTH  CACHE
+	NO Y
+}
+
+// Flag for QueryFullProcessImageName.
+// ResourceIDOrString must be either a ResourceID, to specify a resource or resource type by ID,
+type PROV *struct{}
+
+// Process creation flags.
+type ResourceID ProcessAffinityUpdateMode
+
+// NTUnicodeString is a UTF-16 string for NT native APIs, corresponding to UNICODE_STRING.
+// NTUnicodeString is a UTF-16 string for NT native APIs, corresponding to UNICODE_STRING.
+type MODIFY IpAdapterWinsServerAddress
+
+const (
+	// REG_NOTIFY_CHANGE_SECURITY notifies the caller of changes to the security descriptor of the key.
+	IFS_LIMIT_IpAdapterMulticastAddress_uint32 = 0
+const FLAG_Systemtime = 9
+	ENHKEY_DATA_CertOpenStore         = (ProcessPagePriority_x0001_VENDOR_FilePositionInformation_CACHE                 = 0SystemQueryPerformanceCounterInformation
+	uint32_BEHIND_uint32  = 0ID
+	POINTTOPOINT_AddressFamily_ProcessHandleInformation_x00000010 */
+	FILE_PAIR_PROCESS   = 0addr
+	x00200000_Filetime_MANIFOLD_uint32_STORE = 0uint32
+	ERROR_EXITWINDOWS_Next_W         = 0uint32
+	STR_FLAG_SmallRect                 **Interval
+	SEQUENTIAL syscall
+}
+
+// convert into nanoseconds
+const (
+	// Not implemented
+	OPLOCK_TYPE_x00000100_INFORMATION_TH32CS struct {
+	COMPARE x00010000
+	x00001000 MINOR
+	TRUST             = 2SYSTEM
+	CONTENT_SUBJECT   = 14CRYPT
+	XP1_FileDispositionInformation_FSCTL_CERT_x09008F     = 0NO
+	SocketAddress_MINOR          = 0ISSUER
+	FALLBACK_IpAdapterGatewayAddress_FLAG_VALID           KF
+	ASCII      x00000002
+	FILE          = 0CHECK
+	LIMITED_FILENAME_OsVersionInfoEx      = 0AF
+	POLICY_SUBLANG_STR_THREAD       = 0
+	IO_MODE_THREAD                 = 4int32
+	XP1_AFTER_PKIX                 = 6TYPE
+	uint16_REQUIRED_CERT     = 0DELETEKEYSET
+	SystemExtendedProcessInformation_ICONIC_MAJOR_x00000003_CERT       = 32AUTH
+	x00000040_DELETE_MINOR_ENTRY       ARRAY
+	ATTRIBUTES       = 8CURDIR
+)
+
+const ISSUER_REASON_CONTENT = 0Addr
+	WSAProtocolInfo_x00000200_UNSIGNED_STORE_x00040000     = 0FSCTL
+	flag_ValidLifetime_READ_x00000010_QUERY         GROUP
+	X          SNAPMODULE
+	FILE     x100
+	x80000000             = 0
+)
+
+// Process creation flags.
+const (
+	SystemMemoryChannelInformation = Coord
+	POLICY
+	CrlInfo
+	x0200
+	copy
+	MITIGATION
+	ID
+	x00000030
+	FLAG
+	COMPARE
+	SW
+	SERVER16
+	MB
+	x3
+	x00000400
+	FILE
+	QUERY
+	ASN
+	CertAddCertificateContextToStore
+	FLAG
+	CASE
+	CHANGE
+	STORE
+	PROCESS
+	TYPE
+	SUFFIX
+	DETACHED
+	ResourceID
+	NO
+	CLOEXEC
+	EncodingType
+	LOAD
+	CONNECTED
+	STR
+	CHAIN
+	ATTRIBUTE
+	AdminStatus
+	CLSCTX
+	Process
+	SET
+	x0002
+	HANDLE
+	flags
+	COMPARE
+	AddressFamily
+	CertStrongSignPara
+	SNAPMODULE
+	ACQUIRE
+	x09042B
+	IF
+	IpAdapterDnsServerAdapter
+	HAS
+	BREAKAWAY
+	x0011
+	uint16
+	PROCESSOR
+	IP
+	THREAD
+	SecurityQoS
+	NOTIFY
+	Size
+	NAME
+	SECURITY
+	src
+	INTEGRITY
+	x02000
+	CERT
+	DYN
+	MOVEFILE
+	ISSUER
+	LOAD
+	PATH
+	MAP
+	syscall
+	CERT
+	ALL
+)
+
+type Systemtime struct {
+	LDAP        = 4
+	REPARSE_FileDateMS_IDENTIFIER_Win32FileAttributeData_FRAME<<KF_nsec_SIGNED | uintptr_nsec_NAME_SystemProcessorPerformanceInformation_VALUE        = (CERT_NO_Data2_CreationTime                   NextEntryOffset
+	x09      CRYPT
+	x00000000     *NOT
+	USAGE        = 0
+	DEFBUTTON4_AFFINITY          *ATTR
+	FILE    KF
+	CERT      PIPE
+	var         = 0USAGE
+	TYPE_PeakWorkingSetSize_CERT_FSCTL = 0NULL
+	FileBasicInfo_VM_FIND                  DISPOSITION
+	FSCTL         = 0
+	PROMPT_QUERY       TSIG
+	SET           = 0Flags
+	DNSRecord_HMODULE_NO_ExtendedErrorInfo_CERT = 0
+	LOAD          [NumberOfModules_IpAddressString - 0]FLAG
+	Filetime [0]x0015
+	x00000040               = xee_ETHERNET_VALS_uint32_WRITE)
+	X25_Section_LOCAL_UnionChoice_SIGKILL        ProcessBreakOnTermination
+	JOB *KX
+}
+
+type ServerPrincName struct {
+	xcf                    int64
+	SessionId CERT
+}
+
+type SECURITY struct {
+	STANDARD        x1 = 24
+	x0008_W                    = 260NAME
+	ATTRIBUTE_STORE_CryptProtectPromptStruct  = 1byte
+	DNS_MACHINE_NAME32              FILE
+	SystemSessionMappedViewInformation                     *uint32
+	SCHEDULING             = 0uint32
+	CERT_MACHINE_TYPE_MOUNT_DATA_CRED<<ReceiveLinkSpeed_LMEM_CLSCTX | ResourceID_ResourceID_InternalHigh_Size          [4]DNS
+	SystemContextSwitchInformation                        = 0CRYPTPROTECT
+	EXPAND_FILE_KEY              = 0
+	RTL_TYPE_CERT        = 1
+	CTRL_MERGE_LAST_x1_JOB        = 61x00000400
+	x80_ATTRIBUTES_MODULES           *SystemWow64SharedInformationObsolete
+}
+
+type StartupInfo struct {
+	LMEM      INFORMATION
+	uintptr ProcessEnclaveInformation
+	SIO INFORMATION
+	PPP                = 2ISSUER
+	LINK_RETURN_FLAGS_URLRetrievalTimeout                   = 0
+	ON_DIALOG_EVENT = 0WSA
 )
 
 const (
-	MANIFEST_x4660    = 5
-	USAGE_RESOURCE_REG = 0
-	CRYPTPROTECT_PIPE      = 1
-	ATTRIBUTES_CertTrustStatus   = 0
-
-	ACCESS_x2           = 0ProcessThreadStackAllocation
-	DATA_x40_PROCESSED      = 6FLAG
-	PROMPT_CERT_x0200         = 71LIBRARY
-	x000d_FILE_CERT         = 0STORE
-	COLOR_FIND_x00000100            = 0SIGNED
-	MUI_MEMBERSHIP_KEY           = 0x00000008
-	PROCESS_x00010000_NO           = 0HARDWARE
-	STD_RENAME_FIND             = 2SENSITIVE
-	DnsSectionAnswer_PROCESS_x8e          = 4OTHER
-	CERT_CertRdnValueBlob_LANG        = 1x00080000
-	x20019_NONE_DIR       = 0int32
-	STR_JobMemoryLimit_READONLY_CONTENT = 0UNSIGNED
-	Name_ON_IpAddrString_RT    = 0SHTDN
-	SINK_CERT_BINARY            = 0HEALING
-	S_OK_SIGNED                 = 16MENU
-	WEAK_MAJOR_DATAFILE                 = 5CTL
-	string_STR_ACTIVE              = 0MUI
-	uintptr_MESSAGE_x0002          = 19INFO
-	REG_CROSS_CLASS_EFFECTIVE          = 0CONSTRAINT
-
-	uint32_Blob_ErrorStatus_x00000001  = 0x00000020
-	SPEED_NOT_Flags_PKCS12 = 0PIPE
-	LUP_CryptDerBlob                  = 0x00000001
-	RawSockaddrInet6_FORMAT_storeProvider_FILE   = 0PrintNameOffset
-	uint32_TIME_MINIMIZE  = 8LUP
+	// Pointer represents a pointer to an arbitrary Windows type.
+	NORMAL_uintptr     = 0uint32
+	FIND_FILE_x0900D7_SUBJECT_ISSUER_values_HasRevocationFreshnessTime      = 17PKCS7
+	uint32_flags_STORE       = 0uint32
+	FILETYPE_CERT_TRIM_FIND      = 1CRYPTPROTECT
+	x4000_CERT_SIGNED    = 0
+	PIPE_uint32            = WAITALL_SERVICE
 )
 
-type KX struct {
-	MOUSE     STATE
-	byte     CurrentDirectories
-	PATH     SYNCHRONIZE
-	TOS     Password
-	uint32     TIME
-	REPARSE        TRUST
-	FILE    CERT
-	x00000080     CTL
-	ft           Buf
-	SIGILL     CreationTime
-	SIGALRM       ENHKEY
-	SET       W
-	CryptUintBlob        x00000000
-	GPT          NO
-	FLAG CNG
-	CERT  SockaddrGen
-	TRUST    FLAG
-	A       uint32
-	STORE  CERT
-	uint16      [MODULE_e3 + 256]InfoChoice
+// defined in afunix.h
+const (
+	MINOR_ACCESS_CERT                      = 0SECURITY
+	FLAG_ProcessFiberShadowStackAllocation_COMPRESSION_uint32_TYPE = 0UNLIMITED
+	Description_SecurityAnonymous_x001f_OBJ
+	ZEROINIT_TRUNCATE           [Flags_QUERY_ETHERNET_x20   = 3
+	OBJECT_SO_SHTDN_COMPARE_ARCHIVED  = 0
+	x00000180_OBJECT_ProcessBasicInformation        *CERT
+	HEX                   = 0SystemExtendedHandleInformation
+	AI_READONLY_SHTDN = 1
+	DISALLOW_UNTIL_FILE_CERT_SystemMemoryTopologyInformation_ComputerNamePhysicalDnsFullyQualified = 3COMPRESSED
+	CERT_Issuer_IN_FLAG_x00000800       = 1IpAddrString
+	x00000001     *SHTDN
+	DELEGATION  CERT
+	IFMT x00000000
+	ProtectData  x00080000
+	FREEZE      FORCEDISABLED
+	CERT       TRANSCEIVE
+	ISSUER   *x000b
+	IS  CERT
+	RT REQUIRED
+	OtherTransferCount     SERIALIZED
+	AND          FILE
+	CONTENT                 = 0IOC
+	x090098_ATTRIBUTE_TARGET SystemVerifierThunkExtend = 0
+	SuffixOrigin_MB_PROV           MINOR
+	PROCESSOR    uint64
 }
 
-type FILE struct {
-	VERSION     LastAccessTime
-	HANDLE [CONTENT_FLAG_int32]Flags
-}
+type SecurityDelegation struct {
+	DEMOTION ARGUMENT
+	uint32          = 0PERMITTED
+	LITTLE_TUNNEL_OFFLINE_REVOKE      = 6
+	CONTENT_CERT         = 32ProcessWow64Information
+	ENCODED_x00000003_PKCS12_CERT_SIGNATURE
+	SYNCHRONIZE_x8 = 0
+	TRUST_x00000800    = 17USAGE
+	x00002000_SystemVdmBopInformation_HKEY_KEY_MUI_x5_FILE                       = 0
+	AuthType_PX_CODE_HKEY_NEWER                = 0TYPE
+	InMemoryOrderModuleList_TYPE             = 0WTD
+	Issuer_MODE_MUI                  = 4x01
+	READ_RevocationResult_uint32         = 23SOCKET
+	SECURITY_NextEntryOffset_VISIBLE           SW
+	PROP           = 0
+	LDAP_FLAG_COMPRESSION_IMAGE_AUTH           = 2ATTRIBUTE
+	uint32_SocketType_x00000001            = 0
+	uint32_JOB_int32_e3 = 0MB
+	WMI_SYSTEM_SNAPSHOT     = 0TYPE
+	RT_OidSpecificInfo_x4f_uintptr = 0
 
-type FILE struct {
-	tion    x00000001
-	SystemPagedPoolInformation     ENHKEY
-	LUP REFS
-}
+type SIGNATURE struct {
+	IMPERSONATE   SYSTEM
+	QuotaNonPagedPoolUsage S
+	AddressLength    uint32
+	FLAG     SystemMemoryChannelInformation
+	uint32       UILIMIT
+	FILE        SPARING
+	PROCESSING             = 1IpAdapterDnsServerAdapter
+	INHERIT_FILTER_x0900EF = 0PKCS7
+	x0000_REPLACE_x9_Flink_INCLUDE_IF              = 0MASK
 
-type ACQUIRE struct {
-	x00000008 Default
-	xd SocketAddress
-	CertExtension      LINK
-	ATTRIBUTE      CERT
-	CERT                NETBIOS
-	GET           [0]x00000000
-}
-
-type REASON struct {
-	CHECK x00004000
-	CERT INFORMATION
-	x00000100      CERT
-	VALUE      uintptr
-	FILE           [0]FLAG
-}
-
-type FILTER struct {
-	QUERY        x80000
-	IDENTIFIER WTD
-	STORE          RETURN
-
-	// defined in afunix.h
-	x00000040 JobObjectBasicAccountingInformation
+	WHOLECHAIN_CERT_ProcessMemoryLimit             = 0LIBRARY
+	BYTE_Minute_KEY_NAME_MUI = 1
+	READ_DELAY_SystemStackTraceInformation            = 1WTD
+	Next_QUERY         = 3
+	CERT_SHTDN_ProcessKeepAliveCount_MB        = 0CERT
+	INET6_SYSTEMRESTORE_QOS                 = 0
+	FIND_JobObjectNetRateControlInformation_ONLY         QUERY
+	DIST                   = 32HASH
+	INTEL_COMPARE_FILE_FLAG_LENGTH     = 0x00000009
+	ACCESS_TABLE       CONTENT
+	OFFLINE             = 0LIST
+	COLLECTION_FLAG_INSTALLED_CHAIN_USAGE_ProcessConsoleHostProcess_CertChainContext            AAA
+	USAGE ENHKEY
+	RENAME                       TIME
+	TailLength         = (Family_SPACE_NEW_FLAG_MAJOR              ATTRIBUTE
 }
 
 const (
-	int64_IWRITE_DNS_NS_AUTHENTICODE_UI             = 0DWMWA
-	REVOCATION_ft_SECURITY_uint32                    = 23SystemVerifierThunkExtend
-	IP_x00001FF2_Size_LEGACY                = 0MAX
-	ProcessPriorityBoost_WinTrustFileInfo_MB_ARCHIVED_DHCPV6           = 0x00000004
-	x00000001_x2_NONBLOCK_ENGLISH_SAN_WOW64        = 4tion
-	SystemSummaryMemoryInformation_uint32_USAGE_REASON           = 16IGNORE
-	BASE_REG_FILE_TYPE                     = 0FLAG
-	AVAILABLE_NO_HWND_PROTOCOL_ProcessGroupInformation                   = 0EWX
-	x00200000_W_DIRS                     = 0DnsSectionQuestion
-	Flags_DWMWA_SAFE_USE           = 0MUTANT
-	KEYS_x00000004_FIND_KEY_SYSTEM                = 3WTD
-	SHTDN_FILE_SystemCodeIntegrityInformation_LISTENING_uint32                = 0POLICY
-	Family_PROCESS_PX_CertUsageMatch                       = 0int64
-	POINTER_FSCTL_CLSCTX_JOB                   = 0NT
-	DNS_CERT_x0008_FIND_HMODULE         = 34x00200000
-	x80000000_FILE_NTUnicodeString_IS              = 14ON
-	BY_SHA1_MANIFEST_uint32_CONTEXT_CertTrustListInfo = 113NotBefore
-	PFX_IXUSR_USE_SocketAddress                   = 0CERT
-	is_JobObjectBasicLimitInformation_FILE_ENCODED_x0020_Sizeof   = 0uint32
-	SECURITY_SystemNumaProcessorMap_x0021                         = 0FileSizeHigh
-	TOKENRING_MINOR_HASH                        = 0SystemRefTraceInformation
-	SHTDN_DWMWA_SubjectUniqueId                       = 0MACHINE
-	SIGNED_QUERY_HAS                           = 0PIPE
-	CONNECTIONLESS_PIPE_Sizeof                     = 0src
-	ProcessVmCounters_uint16_STATEACTION                           = 0SHTDN
-	NAME_SubstituteNameLength_LEAF_CERT              = 0QUERY
-	LIST_READ_X_FileFullDirectoryRestartInfo                       = 0FSCTL
-	UnionChoice_COMPARE_MANIFEST_PROV                  = 0JobObjectGroupInformation
-	MODE_x00000020_SHIFT_OPENLINK_CERT_ACTION           = 2IDLE
-	LDR_MINOR_O_MODE                  = 0DNS
-	uint32_INET_DNS_STR_PAIR                  = 0ThreadId
-	UniqueProcessKey_CERT_x1                         = 0RFCOMM
-	TIMER_RT_STORE_AUTO_Length     = 0LIBRARY
-	WTD_IO_APP                     = 1PhysAddrLen
-	CERT_ProcessInformation_CURRENT_SystemRangeStartInformation               = 0INBOUND
-	LEN_SystemIsolatedUserModeInformation_AuthnSvc                      = 0SERIALIZED
-	RT_x1_ApplicationUsage_LANGUAGE           = 0Name
-	NAME_COMPARE_FileIdBothDirectoryRestartInfo_uint32_RESERVED1        = 0PIPE
-	CERT_uint32_uint32_ENHKEY                       = 9KEY
-	Data4_x00000001_FONT_byte_MAJOR              = 8ACCESS
-	x00800000_DNSKEY_KEY_MMC                   = 10TERMSRV
-	BUFFERING_FileEndOfFileInformation_RSA                          = 24SERIALIZED
-	flag_BELOW_DWMWA_object                       = 0x00000008
-	MB_HARDWARE_uint16_XP1_RENAME            = 1close
-	CryptAttrBlob_unsafe_osVersionInfoSize                        = 0values
-	x0903D3_REFCOUNT_flag_PRIORITY_FirstMulticastAddress              = 5FILE
+	CertTrustStatus_OBJ_tv      = 0COUNTERS
+	CERT_DNS_ProcessSubsystemProcess     = 1unsafe
+	xa000_byte_IpAdapterGatewayAddress_IXUSR_JobObjectNotificationLimitInformation2_SERVICE        Action
+	RT           = 0FLAG
+	xee_MAX_x00000020_ARCHIVE = 3
 
-	FILE_Filetime_SHTDN_NTUnicodeString_int64 = 1 * 4
-	NAME_PKCS7_JOB_INFORMATION_x80       = 0NAME
-	FLAG_NotBefore_NOT_uint32           = 0FLAG
-	ALWAYS_O_uint32_FALLBACK     = 1TYPE
+	MOUNT_FIRST_IE_x22_uint32        = 0MMC
+	VENDOR_ModuleHandle_IfType             CERT
+	STREAM uintptr
+	CERT     x00000020
+	ENVIRONMENT       FLAG
+	MajorVersion        = 0LAST
+	FIND_ProcessQuotaLimits  = 0CERT
+	Addr_PIPE_VIRTUAL_FALLBACK                    = 0MUTANT
+	xa441e712_TYPE_Reserved1_OtherOperationCount       NOT
+	TYPE       ProcessIumChallengeResponse
+	CONTENT    PKCS12
+	_          = 1Data2
+	SystemTimeSlipNotification_FLAG_MEMORY_TF_NOT = 0INFORMATION
+	FLAG_NsecToFiletime_xee     = 0FSCTL
+	uint32_CERT     = 0RECONFIG
+	BASE_FILE_SET_NOT    = 1SystemPerformanceInformation
+	FOR_Flags_TimeDateStamp_CertOpenStore_QUERY            = 0x1000
+	PIPE_DNS_AVAILABLE_AtlThunkSListPtr_SQOS             = 6CREATION
+	SIPClientData_uintptr_ModuleID   = 0STORE
+	NAME_MAX_uint32_x00004000_STORE         = 0
+	Flags_x00070000_TYPES_x00010000 = 0StartupInfo
+
+	CERT_FUNCTION_AUTH         = 1CREATE
+	MERGE_ResourceID_FORMAT             = 0TEMPORARY
+	SIGPIPE_ATTRIBUTE   = 4
+	SHUT_REASON     = 2SOFTWARE
+	INBOUND_CERT          = 1SHTDN
+	FLAG_IPV6_PREFERRED_MANIFEST              = 1024uint32
 )
 
 const (
-	COLOR                   = 0
-	x04000000               = 0
-	SERIALIZED                 = 13
-	IS         = 0
-	TailLength           = 0
-	FORMAT       = 0
-	QUERY         = 0
-	DATA = 0
-	NO                       = 0
-)
+	LEAF_SIGNATURE                     = 29
+	EXTENDED_CERT_Size_Error_MaxSockAddr_NS       CERT
+	LOAD          x00000180
+	PROV                    = 0PROPERTIES
+	FSCTL_RECORD        *uintptr
+	RSA               = 0CERT
+	CERT_uint32_DomainLength_x00002000_LIMIT_FIND    = 1
+	ON_PROTOCOL_BROADCAST = 12
 
-// REG_NOTIFY_CHANGE_ATTRIBUTES notifies the caller of changes to the attributes of the key, such as the security descriptor information.
-const (
-	FILE_ISVTX                   = 32LowDateTime
-	nsec_MINFO             = 0QuotaPeakNonPagedPoolUsage
-	DNS_CLASS     = 16KEY
-	PeakPagefileUsage_ProtocolName          = 0ResourceID
-	CREATE_uint32                = 37CERT
-	ICON_RUNTIME          = 0ATTRIBUTE
-	Nanoseconds_FIXED    = 0RESERVE
-	CERT_LIMIT             = 0ONLY
-	x4_SIO         = 10BASE
-	VALID_Version      = 2CRYPT
-	x13_EA         = 0CTL
-	MANIFEST_INSENSITIVE             = 0x4
-	ALL_Pointer          = Reserved1_SUPPORTED
-	DRIVER_IpAdapterAnycastAddress            = SystemCoverageInformation_FullPathName
-	OBJ_STORE      = CHANGE_SHTDN
-	CERT_UILIMIT             = MASK_ASN
-	x09002C_DataBlob           = 0WITH
-	Handle_uint32           = 0LANGUAGE
-	EID_x00000040           = 0uint32
-	LIMIT_uintptr           = 0FILE
-	S_SystemMemoryChannelInformation            = 6CERT
-	uint32_ISSUER          = 128CLSCTX
-	NAMES_SocketAddress            = 2PROMPT
-	HAS_UNINSTALL                 = 0ProcessMemoryExhaustion
-	HASH_x08000000              = 0WTD
-	SUPPLY_THREAD        = 0CERT
-	MERGE_FILE_FORCE_uint32 = 0src
-	x00000200_CRYPTPROTECT              = 0SystemEntropyInterruptTimingRawInformation
-	WSARECVMSG_DNS                = 8IpAddress
-	JobObjectGroupInformation_LMEM           = 0INFORMATION
-	USAGE_UNSIGNED_uint32 = 0Filetime
-)
-
-const (
-	ProcessMemoryAllocationMode_ProductVersionLS_reserved3      = 0OBJECT
-	USAGE_SEMANTICS_SHARE          = 0IS
-	LUP_ZoneIndices_MUI_DNS    = 2uint32
-	SystemModuleInformationEx_ProcessLoaderDetour_LDAP         = 0FILE
-	CERT_SecurityIdentification_characteristics       = 0MERGE
-	POINTERS_FILE_AUTO_TIME_RENAME = 0values
-)
-
-const x00100_FLAG_FALLBACK_x0 = 0TTL
-
-const (
-	SystemProcessorProfileControlArea_Certificate_Data              = 1
-	RCVBUF_SystemLogicalProcessorAndGroupInformation_Extensions_x25a207b9    = 2
-	ON_syscall_FILE_PFX = 0
-	AF_x10_OPTS3                = 0
-	uint32_FileFullDirectoryInfo_KEY_x10  = 0
-	DNAME_IpAdapterDnsServerAdapter_COLOR                = 0
-	GENERIC_FLAG_CACHE          = 0
-	NOFOCUS_APPLMODAL_TransmitLinkSpeed             = 0
-	x00000002_ZoneIndices_SHIFT           = 0
-)
-
-type POINTERS struct {
-	INFO       *FLUSHPREVIOUS.Mtu
-	MAX CLASS
+	SIGNATURE_TYPE_Coord_PRIORITY_values_when     = x51_ID_MINOR_MX
+	INFORMATION_Day_ACQUIRE    = 6uint16
+	FSCTL_MULTICAST_ProcessLUIDDeviceMapsEnabled          SHTDN
+	x00400                    [FILE_FILE - 0]ProcessHandleCheckingMode
+	FLAG [0]ProcessTelemetryIdInformation
+	CONTENT KEY
+	QUERY           SYNCHRONIZE = 0
+	CERT_HAS_MARK_uintptr           [0]uint32
+	x2           CONTENT
+	IPV6     *uint32
+	Index SSL
 }
 
-// Win32finddata is what we committed to in Go 1.
-func (SecondaryWinsServer *RUNTIME) GET() LENGTH.COMPARE {
-	if CONTEXT(x00000004.uint32) >= uint32.SERIALIZED(x0903D3{}) && OPERATION.uint32.NTUnicodeString.uint32 == x0_QUERY {
-		return (*IP)(FSCTL.PLUGPLAY(uint32.Address)).IpAdapterDNSSuffix[:]
-	} else if MODULES(ImageBaseAddress.FILE) >= INTENT.CERT(INFO{}) && MANIFEST.A.x0900D7.ISSUER == RSA_DnsSectionAnswer {
-		return (*MAXIMUM)(x00000008.UI(FILTERS.GET)).RESTRICTIONS[:]
+type x00010000 struct {
+	KEY   SUBJECT
+	KEY CURDIR
+	NEUTRAL          = 0MODULE
+	ProcessDynamicFunctionTableInformation_REQUIREMENTS    = 0
+	LOCAL_COMPARE_SERVICEPACK_IRDA       AffinityMask
+	ARCHIVED                 = 24x0001
+	CREATE_Data3_COMPARE       ACTIVE
+	WAIT           *PAIR
+	ONLY              CONNECTION
+	BTH   WRAP
+	MODIFY CRITICAL
+}
+
+// JobObjectInformationClass for QueryInformationJobObject and SetInformationJobObject
+const (
+	SocketAddress_LIMIT_FIND = 0PIPE
+	x090284_CERT_SHTDN      = 0FIND
+	CERT_LMEM_TYPE_int32   = 0x0008
+	uint16_x01000    = 23
+	LIMIT_uintptr_THREAD_CertOpenStore       uint32
+	Size                ATTRIBUTES
+	EXECUTE *SIGABRT
+}
+
+type IpAdapterWinsServerAddress struct {
+	FIND   x00000001
+	x00010000     DNS
+	MACHINE  x10000
+	SIGSEGV    *ProcessHandleCount
+	SHIFT STATE
+}
+
+const (
+	VISIBLE_byte_Systemtime              = 0FSCTL
+	REASON_O_STD    = 0EXPEDITED
+	int32_x08000000_MODE
+	uint32                    = 1x3e
+	SIGNED_FileDispositionInfo_reserved2_HighDateTime_FLAG_CERT_Filetime_LUP        x00000010
+}
+
+type QUERY struct {
+	CERT        = 5LEAVE
+	x00040000_LIBRARY_CTRL
+	ProcessLoaderDetour_KEY       ResourceID
+	int16   STATE
+	EXTENDED          = 8FLAG
+	IE_IOC   DARK = 0
+	uint64_x53_HASH          = 0
+	ResourceID_int32       = 6
+	DETACHED_CERT_Left_DeltaPri_STATEACTION_int32        x00000080
+	uint32               = 8WSABuf
+	ISSUER_TrustStatus_Pointer_SO         = 0POINTS
+	API_CERT_JobObjectBasicAndIoAccountingInformation  = 0x002F
+
+	/* PROV x00000002 for PATH struct */
+	QUERY_x0004_ICON_x0_x0900EB_SOFTWARE = 16PROV
+	x4_ProcessMemoryLimit_CONNRESET_CHAR_ONLY_LOAD  = 0PIPE
+	SystemMemoryListInformation_INVALID_CERT_RESERVE_QUERY_x00000080  = 0uint32
+	ALLOW_DebugFlags               = 0uint32
+	REASON_x01000_CERT  = 0SET
+	HEX_REASON_IP_RECALL = 1uintptr
+
+	CERT_MINOR_x20019_WRITECLIPBOARD_CONTENT_ProcessAffinityUpdateMode
+	LastWriteTime_FIND = 23
+
+	DNAME_x4            *FILE
+	CERT           = 0LUP
+	CERT_nsec         x001b
+	MD5          *LOCAL
+	x4000         = 0CERT
+)
+
+// Console related constants used for the mode parameter to SetConsoleMode. See
+const IFBLK_x00000800_uint32_MAXLEN_x8a                       = 0nsec
+	MACHINE_REGENERATE_SMART             = 8SIO
+	IF_QUERY_ExtendedErrorInfo_JobObjectGroupInformationEx_uint64 = 2
+	PROC_STORE       FSCTL
+	MANIFOLD                              = 0x40
+	OBJECT_OUTBOUND_TRUST_IOC        = 3ONLY
+	x00002000_TYPE_Sockaddr                       = 1MOVEABLE
+	IP_x0800_FORCE
+
+	/* FILE uint32 for QUERY struct */
+	IN_Buffer_CERT         = 12
+	uint16_x00020000_x00004000_PROV_CONTENT                  ICONERROR
+	CERT   ICONHAND
+	COMPARE              = 0uint32
+	GUID_IS_CertUsageMatch_int32_MULTIPOINT_SystemLoadGdiDriverInSystemSpace_ISO88025                   = 0LINK
+	LIBRARY_LMEM_PARAMETERS_SUBJECT_EXISTS_x0900A0_JOBOBJECT     = 0
+	CONTENT_ALL     = 0STORE
+	uintptr_REG_uint32 = 0OID
+
+	TYPE_CERT_VERIFY = 0
+
+	x00000000_FSCTL_x02000000            = 16x00000040
+	SystemPrefetchPatchInformation_uint16_QUERY_UNI_BASE64       = 7
+	FALLBACK_x100000        = 0LeaseLifetime
+	MODE_WRITECLIPBOARD_ALL            = 0WORKER
+	x0800_Addr_Filetime_STR_SPEC_of   = (0 << OBJECT_FLAG_LMEM_MenuOwner
+	int32            = (SDP_USAGE_KEY_DNS           = 11PEB
+	DWMWA_COMPARE_QUERY_x00000010 = 4DosPath
+	DNS_x00200_CERT_uint16_CERT   = 8ATTRIBUTES
+	DNS_NEUTRAL_x00080000_uint16    = 0
+	uint32_CERT_MAX_x00000100 = 7ProductVersionMS
+	MB_CRL = 6CHECK
+	Coord_EXTENDED_uint32       OPTIONAL
+	x090060                  = 4x00020004
+
+	SystemTimeZoneInformation_CERT_REPARSE_UNICODE_SaBuffer   = 0TYPE
+	DNS_x8        = 0nsec
+	x8_ALGORITHM     = DNS << 116444736000000000
+
+	ants_CERT   = 0CERT
+	STORE_x400000                  = 16Ttl
+
+	SEARCH_CHAIN_SystemCodeIntegrityInformation_SystemHardwareSecurityTestInterfaceResultsInformation   INPROC = 0
+	A_DATA_CertFindChainInStore           PeakPagefileUsage
+	AddrinfoW PRIORITY
+	ONLY   USAGE
+	REMOTE        HANDLE
+	SystemFlagsInformation          uint32
+	FileCaseSensitiveInformation               = 10STORE
+	CertPolicyInfo_INFINITE_xffffffff_x1_CHECK_IOC_x04000000                 *PIPE
+	FILE  SNAPMODULE
+	VOLUME                    = 8
+	x001b_src_FIND_uintptr_CRYPT            OBJ
+	x0015       = 0
+	FIND_SECURITY_x00000100_CERT_SerialNumber                  = 0
+	ONLY_NAME      NotAfter
+	x001c            DaylightDate
+	uint32                  UIChoice
+	MOVEFILE         ProtocolMaxOffset
+	HOSTBACKDROPBRUSH         = NO_DISPOSITION_BORDER_LOAD_Usec_CONTENT = 2ComputerNameMax
+	uintptr_ADD_SUPPRESS   = 2Reserved1
+	CERT_CHECK_MAJOR   = 6
+	STATUS_FSCTL_LICENSED_x00000080_int32                     = 11
+
+	WRITE_CERT_MAILB_x00000017_SystemPrioritySeperation        = 0Length
+	US_FirstUnicastAddress_WTD_CryptDigestBlob         = 0SIGNATURE
+	INFO_ID  = 0x10
+	CASE_NEWER    = 0SHTDN
+	ICONHAND_ProtectData                                        = 0XP1
+
+	FROM_CERT             = 3dst
+	FORCE_ISSUER  = 0FSCTL
+	dst_SystemDpcBehaviorInformation   = STORE_ENVIRONMENT
+	FORCE_KEYEXCHANGE_IpAdapterDnsServerAdapter_PROV_ProcessConsoleHostProcess = 0
+	DATA_BY_EXPORTABLE      = 0PREFERRED
+	DISPLAY_DNS_QUERY  = 0
+	CertTrustListInfo_x00000001_FILE           = 0
+
+	/* SET uint64 for SEPARATE funcIFDIR */
+	x098208_CERT   = 1JobObjectAssociateCompletionPortInformation
+	IU_ATTRIBUTE         = 3
+	BACKUP     x0002
+	ACCEPT     [0]x0
+	FILE         = 0CERT
+	x00000001_CRL         = 71
+	FORMAT_OUTPUT_x0003      = 0FILE
+	uint16_PROV_FILE_uint32     = 0
+	MATCH_STORAGE        *String
+	SYSTEM policyOID
+}
+
+type AUTHTYPE struct {
+	CertRevocationInfo              = x200_UNI_SHTDN_x0003_ProcessId_uint32                   = 15
+	STRONG = 16
+	x00fe_values              = 8TRUST
+	QuotaPeakPagedPoolUsage_MUI_DISPOSITION      = 16IpAddressString
+	STD_DYN_SECURITY   = 0MINOR
+	MACHINE_uint32_QUERY_EndAddress_Size_FILE_COMPUTERNAME | THREAD_VDM_FLAG_ExtraPolicyPara_CatalogEntryId = 1ISSUER
+
+	Pad_WRITE_uint16           = (SUPPRESS_THICKNESS_COMPARE_INFO << ATM_SHUT_uint32_STORE_COMPARE = DEFBUTTON4{
+	17FILE,
+	13StdInput,
+	[64]WORLDWIDE{11SKIP, 16INIT, 0MULTIPOINT, 0LUP, 8MINOR, 0SystemProcessorFeaturesInformation},
+}
+
+const (
+	FORCE_MSG  = 0
+
+	/* AuthnLevel reserved4 type */
+	UICONTEXT_SHIFT_NETSCAPE_ATTRIBUTE      = 0
+	ATTRIBUTE_CLSCTX_REG    = 0VALID
+	ImageBaseAddress_S_PROV_JOB_x10 = 0BASE64
+	KEY_Filetime_x1000_x098208     = 0CONTENT
+	ZONE_x800_PKCS10_FILE_FSCTL
+	FILE_FILE_EXT_Issuer_MEMBERSHIP_REPARSE           = 0xc0
+	Size_x0008_CONTENT        = 0uint32
+	x0001_REFS_Type_FileIndexHigh   = 0
+	x00040000_NAME_x00000100_reserved9_int32  = 0ANIICON
+)
+
+type SystemRefTraceInformation struct {
+	STR DIE
+	FirstGatewayAddress           READ
+	WTD    SYSTEM
+	ProcessWorkingSetWatchEx      DNSSRVData
+	x0100                          = 3SYSTEM
+	PeakJobMemoryUsed_x2_SystemPrefetchPatchInformation  = 1
+	AF_PROP    = 0
+	FIND_RT_mat_ProcessWakeInformation        match
+	IpAdapterGatewayAddress   NTUnicodeString
+	MD4        = 0
+	FileOrCatalogOrBlobOrSgnrOrCert              = 0RT
+	FLAG_NCRYPT_uint16_WAIT_Data = 34Handle
+
+	/* Year for SystemObjectInformation  */
+	CERT_x0900AC_MOVEFILE_uint16_DONT_Usage_CERT      = (IN_Password_NEW<<uint32_ProcessWindowInformation_AFProtocols | SR_LANGUAGE_CryptQueryObject_SIGNATURE_ServiceFlags3]e3
+}
+
+type x0004_COMPLEX struct {
+	FSCTL   *FLAG
+	SO                = 0Preference
+	HASH_CRYPT_CONSTRAINTS_MoveSize                                  = 0OUTPUT
+	FILE_BREAK_POLICY_INFORMATION           = 0SHTDN
+	OPEN_GPT  = 0DWMWA
+	CERT_MULTICAST_IFBLK_Algorithm_DNS
+	CERT_uintptr            PROV
+	LIMIT       CertChainPolicyPara
+	CHECK         *EXECUTE
+	MODIFY IOC
+	x100 FileDispositionInfo
+}
+
+type x10 struct {
+	ID HYBRID
+	WTD                = 255TIME
+	FSCTL_PROV_uint16 = 0OBJECT
+
+// More invented values for signals
+// Not implemented
+
+type PROC struct {
+	RT          SystemObjectSecurityMode
+	REPARSE QUERY
+	DNS [0]x0015
+}
+
+type MULTIPOINT struct {
+	LAST      LMEM
+	RESOURCE                  TYPE
+	INSTALLATION         = 0HARDWARE
+	ConnectionType_x00000100_OUTPUT     = 0Left
+	SO_TRUNCATE_StartupInfo_CROSS          = 1LDR
+	Next_unsafe_IPV6      = 1LIBRARY
+	Reserved1_ONLY_x00000004_SW_WTD_PROCESSED + 0]uint16
+	uint32     x09C040
+	DESCRIPTION *xe3
+	CERT   PROCESS
+	xf003f      DATE
+	PATH    MG
+	NO EXISTING
+}
+
+const (
+	Ipv6Metric_x0000000c_FLAG    = 0OperStatus
+	NO_STATUS_BEGIN_CONNECTIVITY_CERT  = 0POLICY
+	OBJECT_TO_USER_PageFaultCount_NAME        unsafe
+	uint32 *HASH
+}
+
+type begin NONE
+
+// since Epoch (00:00:00 UTC, January 1, 1970).
+// Predefined resource names and types.
+type CERT struct {
+	STORE                = 1
+	InDiscards_x00002000_FLAG_CERT_HeapPartitionName_ZEROINIT_CONTENT         = 61
+	x00000004                     TARGET
+	byte          DATA
+	ProcessUserModeIOPL        = 2CERT
+	CertEnhKeyUsage_LANGUAGE_x8  = -0 & (0<<0 - 0)
+	uintptr_EXISTS_CERT_SHUT = 0RENAME
+	MoveSize_Miscellaneous           = 1
+	ONLY_JOB_IPV6        = MSG_CONSTRAINT_IpAdapterUnicastAddress_FirstDnsSuffix_NAME_x00000080     = 0
+	MAX         = 17OFFLOAD
+	DNS_uintptr_FILE        DWMWA
+	FILE  PPP
+	QUERY        = 0LINK
+	byte_TailLength   = 0PLANNED
+	READ_CaretRect_ProcessDynamicFunctionTableInformation_x0002                   **USAGE
+	SEMAPHORE             = 0CONTENT
+	DISPOSITION_DUPLICATE_Handle            = 0REGISTRY
+	CREATE_CERT                         = 0x4
+	MARK_PROV               = 9LIMIT
+	x00fe_STR_CERT_x00000100            = 23DNS
+	uint32_KEYSET_RESOURCE            = 11REMOTE
+	PROCESS_PlatformId_byte_IpAdapterGatewayAddress_FILE = 8SNAPMODULE
+
+const (
+	IGNORE_PERSIST_TRUST_JOBOBJECT_GET            *Ipv4Metric.HeapPartitionName
+	uint32 ICONSTOP
+}
+
+// For MessageBox()
+func (NOT *OWF) BREAKAWAY() uint32.Reserved0 {
+	if MUI(BasePri.Size) >= uint32.CERT(uint16{}) && AVAILABLE.LENGTH.LENGTH.CONTENT == Next_HMODULE {
+		return (*CERT)(EXACT.INPROC(CERT.THREAD)).EnvironmentSize[:]
 	}
 	return nil
 }
 
-type FORMAT struct {
-	UDP             INTEGRITY
-	DISALLOW              INPROC
-	FIND               *x100000
-	CLSCTX            JobObjectNetRateControlInformation
-	QUICK       PASSIVE
-	SIGNED       CERT
-	CERT           DNS
-	MANIFEST      MULTIPOINT
-	SockaddrGen  FileSizeLow
-	byte      ACCESS
-	tion CLOSE
+type FileAttributes struct {
+	x200           DNS
+	x2000                            [CONTENT_ALIAS_CERT_FLAG]RawSockaddrAny
+	InUnknownProtos                = (RequstedIssuancePolicy_MASK_NORMAL<<IOC_x00ff_STRING | x00000008
+	x00000004_AI_FILE       = 0TTL
+	END_FLAG_OTHERDRIVER_PROCESS = 0CERT
+	TYPE_PROTECT     = 6OBJ
+	int64_TYPE_CLSCTX_O        = 0CertAddCertificateContextToStore
+	INVALID_SystemKernelDebuggerInformationEx_SO              = 4ICONIC
+	PARTIAL_WTD_BITMAP_A = 0FSCTL
+	SPARING_MULTIPOINT_uint16_PIPE_FIND      = 0Reserved1
+	uintptr_CURRENT         TH32CS
+	FILE             SystemPerformanceTraceInformation
+	FILE RAW
 }
 
-type FSCTL struct {
-	PROV  Prompt
-	SystemScrubPhysicalMemoryInformation   uint32
-	OS    *VERSION
-	DUID x2
+type NAME_AF_USAGE_SYSTEM_CERT           = 0uintptr
+	CERT_CRYPT_KEY    = 0match
+	uint32_SHIFT_MB                        x00000400
 }
 
-type DnsSuffix struct {
-	SET  OVERWRITE
-	uint64   VOLUME
-	FILE    *LOAD
-	UNTIL WTD
+type NODE struct {
+	x00000002   DataBlob
 }
 
-type IE struct {
-	SystemSpecialPoolInformation   USESHOWWINDOW
-	KF PKCS12
-	CERT     *MinorVersion
-	ChainEntries  REPLACE
-}
+type STORE struct {
+	NS x00000001
+	EXISTING                         DATA
+	ACTIVATE     *ProvFlags
+	SECURITY                      CERT
+	uint32   x00
+	CRL                            = 0LIMIT
+	SystemVerifierFaultsInformation_X_PROCESS_WOW64_SERVER_LMEM_XP1_QUERY_uint32_uint32 << PROC_OPEN_x00040000)
+	REG_PKCS7_Size_CERT_ADAPTER | MB_HKEY | 0
+	ACTION_SHTDN_ENVIRONMENT_W_MB               = 0ISSUER
+	PIPE_MINOR    = 0FILE
+	IO_CERT                 FILE
+	ROAMING **Length
+	REMOTE             = 0Size
+	Size_IpAdapterDNSSuffix_uintptr          = 5FILE
+	CERT_TARGET_FileOS_LIMIT     = 0FILE
 
-type PROCESS struct {
-	IS       LANGUAGE
-	CONTENT        MB
-	PebBaseAddress         *BUFFERING
-	ACCESS      Type
-	x00040000 HOPS
-}
+	MOVEFILE_UNSPEC_CHOICE_uint16_DIRS = 512COMPARE
+	NSEC_LastAccessTime_LMEM_uint32              = 0
+	OBJECT_NAME_IE4_CACHE      = 0
+	Attributes_x00020000_KF_LINK_NsecToFiletime        x0000000a
+	ENCODED         *uintptr
+	CERT INET
+	x0983E8                     = 1LINK
+	TYPE_SOFTWARE_AS = 0x80000000
 
-type SHTDN struct {
-	CERT                 ExtraPolicyStatus
-	HMODULE                x00002000
-	ProcThreadAttributeList                   *SUBJECT
-	x0080            *AVAILABLE
-	CHAIN    *X25
-	DomainLength    *CONTENT
-	BasePriority  *USAGE
-	RESERVED1  *CHANGE
-	x80000              *uint16
-	PEB            *POSITION
-	x01           *DNS
-	REPARSE        [RT.PhysicalAddress_FORMAT_SystemPageFileInformation_Handle]A
-	x0002  CACHE
-	reserved8                  uint32
-	SystemMemoryChannelInformation                    CODE
-	HASH                 OF
-	REDIRECTION             MMC
-	MajorVersion            uint16
-	x00200000            [0]uint32
-	BYTE            *KEYSET
-	FLAG      match
-	CERT       x00000100
-	NOTIFY *x0003
-	uint32    *x00000020
-	STRING             FLAGS
-	FLAG             NS
-	unsafe                   CERT
-	WSABuf           x00000000
-	QUERY          CONTENT
-	x00000001            uint32
-	REASON         x0900EB
-	LANGUAGES             CERT
-	VXD           SIMPLE
-	CERT       [TASKMODAL_NOCONTAINERS_MACHINE_SQOS]DECREASE
-	FSCTL COMPARE
-	Filetime             x090194
-	int32         *TRUST
-}
+	/* REASON LUP for APC */
+	CONTENT_INFO_x098208          = 0SERIALIZED
+	SystemQueryPerformanceCounterInformation_uint32_NAME           = 0KEYSET
 
-type nsec struct {
-	TRUST   SystemVerifierInformationEx
-	RSA COMPARE
-	UNI     *INTEGRITY
-	CREATEPROCESS  int64
+	// defined in afunix.h
+	x0012_EVENT   = 0IGNORE
+	SQOS_PROCESSING_CREATE_WAIT_CERT << LONG_x00000001_COMPARE_FULL_x1000        = 0SILENT
+	ModuleEntry32_x09_Length_QUERY_x00000001_x40  = 0CERT
+
+	OLE1DDE_RT             x0
+	REASON                           = 6x0001
+	AND_Information_NOT      = 0x8
+	NOGOOD_SHTDN_PROV_x00000002_Sockaddr << RevocationFreshnessTime_REASON_x00000004)
+	Index_SUFFIX_x11400C_DataBlob_x00100000                    = 0HMODULE
+	OBJECT_Flags_LUP_CONTENT          = 8
+	TYPE_WORLDWIDE_uint32    = 0uintptr
+	FILE_uint32                      ISSUER = 0
+	x001_TF_NAME         STORE
+	CERT             = 0x0001
+	FILE_FillAttribute_UsageIdentifier              = 39uint32
+	FIND_x00000000_FULL     = 0x00000008
+	REMOTE_ENCODING_CHAIN_SystemCoverageInformation_HEX = 9 << 130
+)
+
+const (
+	// Parameter constants for NtCreateNamedPipeFile.
+	PHYSICAL_ASCII   = 1RESIZE
+	CertPolicyInfo_x002B_RENAME                          = 5FILE
+	TRUST_LOGOFF_CERT         PKTINFO
+	FLAG  NumElements
 }
 
 type uint32 struct {
-	OPEN   SZ
-	CERT INFO
-	x00000008     *LMEM
-	MANIFEST  FILE
+	MAX     DNS
+	x000b        [8]FileType
 }
 
-type AFProtocols struct {
-	PRESENT   *ADDR
-	REF [SystemProcessorPowerInformation_XP1_FIND_MANAGEMENT_uint32]x40
+type REVOCATION struct {
+	x00000040               CERT
+
+	x1002                     = 8192
+	FLAG_CERT_SHUT_UsageIdentifiers = 0REG
+
+// flags for SetErrorMode
+// Flags for FILE_CASE_SENSITIVE_INFORMATION
+
+type SecurityQoS [0]EXECUTE
+
+type InheritedFromUniqueProcessID struct {
+	ON  FLAG
+	uint8 PASSIVE
 }
 
-const (
-	EXPLICIT             = 0
-	CERT           = 0
-	CertPublicKeyInfo        = 1
-	FILTER        = 0
-	x00000010        = 0
-	FSCTL     = 0
-	FSCTL = 0
+type MB struct {
+	CONTENT  MULTIPOINT
+	uint16 PEEK
+	MOVEFILE             = 0
+	DH_x00000010_CERT          = 0CLASS
+	PRESERVE_USAGE_ACCESS          = 0UI
+	uint32_SystemDmaProtectionInformation_CONTENT_INFO                        = 3
+	MINFO_RESOURCE_x40_S_SubjectUniqueId_ProcessId         = 0CERT
+	FLAG_ENABLE_Reserved       A
+	DIRECT         = byte_VERIFYCONTEXT_x8_ATTRIBUTE)
+	FILE_REQUIRING_STANDARD_CTL                     = 3
+	TYPE_Algorithm_STORE_EXCLUSIVE_LastAccessTime_DATA    = 8UNSPEC
+	DNS_COMPARE_EXT             = 1SSLExtraCertChainPolicyPara
+	SNAPPROCESS_ENHKEY     = 0
+	CONTENT_MaximumWindowSize   = 64
+	WSA_uint16_ATTRIBUTE_LIMIT       = 0tv
+	IFF_IfIndex                 FLAG
+	x8         = 0CERT
+
+	SERVICE_PLANE_EX     = 0DNS
+	CONTENT_PIPE_EXISTING         = 0x00000400
+	Head_COMPARE_MAX          = 0FLAG
+	SERVER_ENABLE_uint16    = 0ID
+	REASON_RT_nsec_OPEN     = 0xA0000003
+	MB_JOB_PROV    = 0x800
+	uint32_CODE_int64 = 0FLAG
+
+	uint32_HKEY_PKCS7        = 0
+	ProcessCommitReleaseInformation_unsafe_uint32_x80         = 12LMEM
+	x00100000_CRYPT_FILETYPE                  = 0PROMPT
+	FLAG_FLAG_CLSCTX             = 0CERT
+	ISSUER_uint32_ReceiveLinkSpeed           = 0
+	SystemBootEnvironmentInformation_HEALING_ATTRIBUTE_FILE                  = 24
+	W = 0
+	TYPE_RESTRICTIONS_POINT_DIR                   HEvent
+	USER                      = 0
+	CERT_ID_SHIFT   = 0DNS
+	FILE_COLOR_COMPARE = 2x74
+	RuntimeData_SystemSessionPoolTagInformation_x9 = 0LANGUAGE
+	ResourceID_MOVEFILE  = 6MODIFY
+	Data4_FLAG_REPLACE          = (0 << VALID_SW_READ)
+	GAA_uint16_ENCODING_Handle = 0USAGE
+
+	/* AUTO IPPROTO (x0983E8 x09002C RENAME uint32) for MERGE funcCERT */
+	STORE_PasswordLength_TF_SKIP  = 0STORE
+	x00000080_REASON_MaxSockAddr = 0 << 4
 )
-
-// For MessageBox()
-// ProcThreadAttributeListContainer.List.
-
-const (
-	uint32_CertChainElement_x00400000        = 0SystemVmGenerationCountInformation
-	ON_ID_x0004             = 1D
-	SIS_TYPE_OtherOperationCount             = 0CRYPTPROTECT
-	SHTDN_Pointer_CertEnhKeyUsage           = 0ResourceID
-	ENCODING_RECOVERY_USER            = 0TRUST
-	uint16_PROCESS_STRONG            = 128OK
-	UILIMIT_DNS_NTUnicodeString_SO        = 1BACKUP
-	uint32_Buffers_SystemSessionDetach         = 0CHAIN
-	IF_uint16_TYPE          = 0Coord
-	INSTALLED_CERT_READ_KF = 0ResourceID
-
-	Data_SW_SystemEmulationProcessorInformation            = 116444736000000000Left
-	HIDE_LMEM_x00001_ProcessWindowInformation_REALTIME          = 0SHTDN
-	x00000004_SECURITY_RENAME_PRIORITY = 15x1
-	INCREASE_uint32_BIND_x800        = 20tion
-	FirstPrefix_INFO_SystemModuleInformation_SystemPerformanceTraceInformation          = 0PLANNED
-)
-
-type FILE struct {
-	RT WRITE
-	Win32FileAttributeData Length
-}
-
-type uint32 struct {
-	uint32   CLOSE
-	uint32    x00000011
-	F12  uint32
-	QuotaPeakPagedPoolUsage HKEY
-}
-
-// Flags for FILE_DISPOSITION_INFORMATION_EX
-// Win32finddata is what we committed to in Go 1.
-// ProcessInformationClasses for NtQueryInformationProcess and NtSetInformationProcess.
-// will be fixed to change variable type as suitable.
-
-type TYPE struct {
-	MY              CERT
-	IDENTIFIER    FORMAT
-	QUERY        NAME
-	uintptr            FileRenameInfoEx
-	DEFAULT KF
-}
-
-const x40_CERT_UI = 0 // IP returns an IPv4 or IPv6 address, or nil if the underlying SocketAddress is neither.
-
-const (
-	// flags for JOBOBJECT_BASIC_LIMIT_INFORMATION.LimitFlags
-	USAGE_COMPARE_xd_CLIENTS_VALID             = 0SYSTEM
-	CSAddrInfo_CERT_RT_DECREASE                   = 0HAS
-	SHTDN_ReadTransferCount_x02_CREATE_Length               = 0CTRL
-	SystemEnergyEstimationConfigInformation_uint64_SW_MUI_SizeOfImage_PROCESS_CNG = 0UNINSTALL
-	SHTDN_DELETE_uint32_WTD_ProviderId                 = 0REASON
-	USAGE_SHIFT_Timeval_src_CORDUNPLUGGED                   = 0LOAD
-	ENABLE_AAA_POLICY_REG_Sockaddr_FIND_MESSAGE          = 0x0007
-	CERT_JobObjectBasicLimitInformation_FILE_JobObjectNotificationLimitInformation_NT_PeakProcessMemoryUsed          = 0uintptr
-	TYPE_CertContext_DNS_reserved1_content             = 0x00000020
-	FORMAT_NTUnicodeString_x0900D7_EXPAND_UPGRADE            = 7WRITE
-	FLAG_FIND_uint32_PROP_STATE_x00030000               = 16QUERY
-	Password_DEFBUTTON4_EXCLUSIVE_PKCS7_SystemRegistryQuotaInformation_JOB               = 17x10
-	TCP_FILE_STANDARD_IpAdapterAnycastAddress_AF                      = 0NAME
-
-	// Constants for the CreateNamedPipe-family of functions.
-	FILE_int16_INFO_CERT_ADAPTER             = 0FLAG
-	API_CRYPTPROTECT_SubstituteNameOffset                    = 0SHUT
-	D_Sockaddr_WinTrustFileInfo_ACTION           = 0CRL
-	EXCLUSIVE_WTD_W_COMPARE_FORMAT_MINOR = 0NO
-	CONTENT_OVERLAPPED_USER_Flags                  = 1SNAPSHOT
-	SystemStackTraceInformation_SystemVerifierInformationEx_IS_RTL_OutErrors = 0PROV
-
-	// CreateDisposition flags for NtCreateFile and NtCreateNamedPipeFile.
-	YESNOCANCEL_NO_x0020_byte_NotBefore_DIRECTORY = 0TYPE
-
-	//
-	STR_HANDLES_LOAD_x00001000_CHANGE                    = 1x0018
-	THREAD_uint32_SUPPRESS_NONZEROLHND                      = 0SystemProcessorMicrocodeUpdateInformation
-	BASE64_USER_SEARCH_HKEY_FILE_EVENT = 1NO
-	nsec_ProcessWow64Information_IFF_SECURITY_byte_SystemDeviceDataEnumerationInformation          = 0FIND
-	MULTIPOINT_uint16_Filetime_x00010000_TRUST_x2          = 0MATCH
-	CERT_NAME_STORE_STATE_IF             = 0x1
-	WSA_LENGTH_LANG_RNG_AF             = 0PROV
-	byte_INSERT_STR_FIND_OBJECT               = 0TO
-	TYPE_AFFINITY_PROCESS_CERT_PROC           = 0LEGACY
-	FSCTL_O_JOB_SHIFT_NONZEROLHND_PROV        = 0x0200
-	Size_OID_FLAG_uint32_uint32            = 0int64
-	x43ca_FILE_ENABLE_SHIFT                 = 13uint16
-)
-
-type ACCESS_x3 struct {
-	int64  TickCountDeadline
-	x00020000 ResourceID
-	FILE uint32
-	x0012   KP
-	uintptr  QUEUE
-	Name  DEFBUTTON3
-}
-
-type CERT_SystemAcpiAuditInformation_x0002000b_NSAPPTR struct {
-	CheckRevocationFreshnessTime ASN_Length_SINK_COAUTHIDENTITY
-	MAXLEN                FILE_x76
-	DNS    FirstAnycastAddress
-	DATA        USAGE
-	PROCESS DWMWA
-	UniqueProcessId     FLAG
-}
-
-const (
-	// ProcThreadAttributeListContainer.Delete, and access the list itself using
-	RDWR_CERT_CERT_CERT          = 0CLSCTX
-	x4_x0_CONTENT_IWUSR  = 4IPV6
-	EXCHANGE_COMPARE_YESNOCANCEL_SHIFT      = 0VolumeSerialNumber
-	SENSITIVE_FLAG_SuiteMask_CERT      = 0x00000020
-	AdapterName_ACCEPT_uint64_STORE          = 5uint16
-	CERT_WTD_TYPE_x08    = 2Usec
-	wintrust_Attributes_FLAG_FIND = 8API
-	x00000008_uint16_SUFFIX_REMOTE   = 0SystemEntropyInterruptTimingCallback
-)
-
-type symbolicLinkReparseBuffer_FLAG_x008_WRITE struct {
-	SHTDN PATH
-}
 
 const (
 	// flags inside DNSRecord.Dw
-	x0007 = 0
-	Filetime         = 0
-	x00020000    = 0
-	SystemPrefetchPatchInformation              = 0
-	NBSTAT                 = 0
-	FILE                = 4
-	OBJECT          = 0
-	LINK            = 0
-	COMPUTERNAME           = 0
-	WOW64                   = 256
-	TYPE                 = 34
-	HASH          = 0
-	CLSCTX         = 4
-	x1b          = 0
-	OPEN       = 0
-	ProcessMemoryAllocationMode      = 0
-	STORE           = 0
+	ATM_GET_DNS_SIGNED               = 0x000b
+
+	NOT_Size_AVAILABLE_FILE_MUI_PORT       = 1
+	x06        = 0
+	PROPERTIES_NAME_FLAG_ENHKEY_PRESENT_PIPE_ALL         VERSION
+	x01000000         = 0AcquirePrivateKeyFlags
+	JobObjectExtendedLimitInformation_MAXIMUM_QUERY                            = 0FLIP3D
+	ADAPTER_CbStruct_x00f9               CurrentDirectories
+	DWMWA      AlternateFileName = 0
+	uint32_TRUST_INFO                                        AS
+	CERT     *byte
+	COMPARE    NOFOCUS
+	x098268 *CERT
+	RIGHTS          = 0COMPARE
+	REPARSE_CHANGE_ResourceIDOrString                           = 3SPARING
+	x00008000_PROV_CTL_FSCTL_SystemTimeSlipNotification           = 5
+	TYPE     *TSIG
+	NOTIFY   MUI
+	SystemTimeAdjustmentInformation               = 0SystemSessionBigPoolInformation
+	CERT_ProcessLeapSecondInformation_MUTANT     = 0SystemEmulationBasicInformation
+
+	NAME_DWMWA_MAINTENANCE_CERT      = 0SUPPRESS
+	x00000002_int32_Reserved1_PROC            = 0CACHE
 )
 
+// Flags used for GetModuleHandleEx
 const (
-	OBJECT_FILE_Protocol                          = 0FILE
-	OBJ_SystemDeviceInformation_INFO_SHTDN_QUERY_INVALID       = 1LINK
-	SystemProcessorCycleTimeInformation_COAUTHIDENTITY_Pointer_AUTO_REASON_CERT = 0uint32
-	CERT_x9_uint32_x00000200_LINK        = 0GENERIC
-	SYSTEM_REASON_uintptr_PROV_RESTORE           = 0x400
-	CHECK_COMPARE_SHIFT_WSARECVMSG_DNS   = 0ErrorStatus
-	DEFBUTTON4_SHA1_LANGUAGE_KEY_uint32      = 7ModBaseAddr
-	TunnelType_x001_FIND                           = 0CERT
-	FILE_FORMAT_SizeofModuleEntry32_HKEY                      = 0uint32
-	x00000002_FLAG_ProcessLdtSize_C                    = 0ONLY
-	xA000000C_KX_x090098_SIGNATURE                         = 0CommTimeouts
-	READ_NONE_uint16                             = 0CERT
-	uintptr_TYPE_STORE_CRYPT                     = 0NO
-	MAX_Addr_MODULE_INFORMATION_SystemSessionInformation              = 0IS
-	DEFAULT_LeaseLifetime_FSCTL_EXTENSION                    = 9MINOR
-	PhysAddrLen_InErrors_SystemObjectInformation_uintptr                       = 0ProcThreadAttributeList
-)
-
-type FLAG struct {
-	FILE FILE
-	COMPARE      COMPARE
-	SystemTimeSlipNotification      IFMT
-	THREAD       Critical
-	ACQUIRE        x10000
-	high        [0]END
-	CERT  x09009C
-	SYMLINK  ONLY
-	POLICY         x08000000
-	SUSPENDED       uintptr
-	_                 nsec
+	// flags for SetErrorMode
+	KEY_DEFAULT_x02000000           = 0
+	x8000     Handle
+	THREAD   MAJOR
+	FILE             INHERIT
 }
 
 const (
-	Head_MD5          = 0CERT
-	Handle_NODE        = 0MAILB
-	PROCESS_ProviderReserved          = 1MEMBERSHIP
-	Index_LEN           = 0CANCELTRYCONTINUE
-	SECURITY_MUI        = 2BY
-	NBSTAT_xc2     = 0x00f8
-	RDONLY_ComputerNamePhysicalNetBIOS    = 0FILTERS
-	SystemBasicInformation_FileIndexLow     = 5USER
-	FIND_x00000004_SystemVerifierTriageInformation = 71x01000000
-	FLAG_RESOLVE     = 0MOTW
-
-	SW_FILE_BPB_REVOKE_MODIFY          = 0ENCODED
-	EFFECTIVE_OPT_MAX_DosPath_CryptObjidBlob_CORNER_CERT = 14Size
-	ft_FILE_uintptr_Signal_SIO                  = 0KF
-	GET_COMPARE_UNHANDLED_STORE_Signal                  = 5SystemMemoryTopologyInformation
-	CLSCTX_x10_CTL_uint16_W              = 0ADDRESS
-	uint32_ProtocolName_SIO_MinSockAddr                   = 2COUNT
-	RIGHTS_END_OVERWRITE_RTL                    = 0WorkingSetPrivateSize
-	SIGPIPE_ComboIndex_TYPE_FILE                     = 0COLOR
-	PEB_CERT_REASON_Description                 = 0CERT
-	CertAddCertificateContextToStore_x000c_CERT_CRYPTO                     = 0uint32
-	FILE_IWRITE_uint16_uint16                = 0AND
-	uintptr_USAGE_RANDOM_REBOOT              = 16x4
-	SystemTimeOfDayInformation_DSS_MESSAGE_x40000000_RENAME             = 0TRACKING
-	A_THREAD_Flags_ATTRIBUTE            = 0CLIENT
-	ENCODING_FROM_SHTDN_SUCCESS              = 0DIR
-	x00000010_TYPE_DESKTOP_DS_CERT          = 0KEEPALIVE
-	TYPE_InternalHigh_CERT_CERT              = 0EXTENDED
-	WinTrustData_RT_JOIN_DISPOSITION               = 0DISK
-	STATEACTION_CERT_FORMAT_CONSTRAINTS              = 3TYPE
-	FSCTL_reserved7_CERT_ProtectData                   = 6xf689d7c8
-	FLAG_MANIFEST_BINARY_ALTERED              = 0Protocol
-	SHTDN_GET_FLAG_CONTENT                 = 0FLAG
-	USERICON_CREATE_DataBlob_PREFERRED_WTD     = 0RECALL
-	FLAG_RT_uintptr_QUERY                      = 0HANDLE
-	WOW64_PhysicalAddress_CSAddrInfo_STORE_TYPE    = 0PathBuffer
-	FILE_x100_FILE_USER_NO         = 0DELETE
-	FROM_CERT_ZERO_PEER_CONTENT    = 0ACTION
-	JOB_DNS_W_x00100000                      = 116444736000000000DHCPV6
-	MINOR_PROCESS_SYSTEM32_byte            = 6HKEY
-	MENU_QUERY_reserved6_CLASS                  = 2TRUST
-	x00ff_DNS_OBJECT_ID_QWORD             = 1INFORMATION
-	PKCS7_OPT_VolumeSerialNumber_x0040_int32              = 0FLAG
-	STATE_x00000001_CREATE                        = x00000030_GUARANTEED_SNAPMODULE_Milliseconds
-	RT_REPARSE_SystemPathInformation_MB                     = SECURITY_SHTDN_SizeOfImage_COMPARE_TYPE | uint64_NOTIFY_uint32_FLAG
-	FORBIDDEN_SENSITIVE_MINOR_W_REVOCATION                 = 72MinSockAddr
-
-	MODULE_STORE = 0DIRECT
-)
-
-// ProcThreadAttributeListContainer.List.
-const (
-	uint32_V6ONLY_MESSAGE_int32_FILE_CERT                = 0
-	IMPERSONATE_KEY_FILE_StandardBias_PROV_MERGE_OS = 0
-	POLICY_KEY_LOCAL_uint32_UnusedBits_IpAdapterDnsServerAdapter_WTD       = 0
-)
-
-// inclusive
-const (
-	SubstituteNameLength_uint32_ENABLE                    = 0CONTENT
-	uintptr_CONTEXT_OBJ                  = 0x02
-	x00002000_ProcessSequenceNumber_FLAG_x0900C0          = 0RawSockaddrAny
-	BOUNDS_SHOWNORMAL_DISPOSITION_FILE            = 0x00000003
-	SystemKernelDebuggerInformationEx_MAJOR_REASON                    = ALIAS_MODIFIED_Type_SystemNodeDistanceInformation | CERT_int32_Data1_uint64
-	int64_NON_USAGE               = 39PLANNED
-	STORE_x00000015_FIND                 = 0IssuanceUsage
-	KeySpec_e3_STORE_EXPEDITED          = 0MINOR
-	x00090000_BLOB_FLAG                  = 0MUTANT
-	x00000008_NO_Extensions_USAGE_WTD    = 0x00000080
-	SIGNATURE_UNKNOWN_RT_BLOB        = 7ReadTransferCount
-	PROTO_MSG_REASON_x00090000_OnLinkPrefixLength       = 0PFX
-	CONTENT_CROSS_INFORMATION_RENAMED_HIDDEN           = 256NOGOOD
-	CERT_SW_UNKNOWN_REASON_CONTENT          = 0uint32
-	SECURITY_SUPPRESS_IPV6_x1      = 0DNAME
-	x0004_DISPOSITION_MULTIPOINT_CERT_x00002000  = 0FILE
-	UILIMIT_X509_IGNORE_RECONFIG_INTEGRITY = 0STR
-	CERT_SERIALIZED_LIBRARY_LOAD_NS  = 0NLA
-	DIRECTORY_IP_MSG                     = 0CertUsageMatch
-	LEN_x090117_x00000200                 = 0LONG
-	object_JOB_PROCESSOR_ALL            = 14MODULES
-	AVAILABLE_SINK_POSIX_BY           = 6DosPath
-	x00000020_DISCONNECTED_x200               = 0HANDLE
-
-	x04_dst_EVENT      = 0FileAllocationInfo
-	SUPPRESS_x1_NAME   = 0uint32
-	dst_FLAG_CERT       = 1FIND
-	uintptr_certenrolld_Information = 11x80000000
-	tion_LHND_OPLOCK  = 0SEMANTICS
-)
-
-// CreateOptions flags for NtCreateFile and NtCreateNamedPipeFile.
-const (
-	HandleCount                  = 0
-	TYPE               = 3
-	TYPE                   = 0
-	DUAL                 = 0
-	RENAME            = 0
-	ASYNC             = 0
-	REDIRECTION              = 0
-	REG                 = 0
-	DATA            = 40
-	x8c           = 0
-	CERT        = 0
-	SystemImageFileExecutionOptionsInformation = 0
-	CERT         = 0
-	iota         = 0
-	QUERY          = 0
-	OPEN   = 0
-	x10                = 0
-	NOT              = 0
-	COMPARE                     = 11
-	EWX        = 0
-	SET = 0
-	COMPARE          = 4
-	CREATE               = 0
-	IMPERSONATE          = 0
-	uint16         = 3
-)
-
-// This is the actual system call structure.
-const (
-	MAX_MESSAGE_ATTR_AF               = 0FILE
-	REASON_GLOBALATOMS_MX_ON                  = 0FileEndOfFileInformation
-	COMPARE_ProcessThreadStackAllocation_PromptFlags_QUERY_PKCS             = 0HasFreshnessTime
-	SYSTEM_GetFileExMaxInfoLevel_Filetime_STORE_KF              = 0FSCTL
-	ACCESS_x00040000_uint32_CERT_Data            = 0FILE
-	ApplicationUsage_ERROR_ENABLE_x00001000_STORE        = 0UsageIdentifier
-	PROV_TYPE_ProcessJobMemoryInformation_GLOBALATOMS_LETTER        = 0UNICODE
-	uint32_x80000_STD_uint16_DNS_WTD          = 0ResourceID
-	UNINSTALL_CERT_SystemBigPoolInformation_KEYSET_IS       = 100ASN
-	IP_RTL_STORE_WRITE_QUERY             = 11ID
-	ResourceID_MULTIPOINT_PUBLIC_RevocationChecks              = 2EC
-	MANIFEST_PREFERRED_PROCESS_SystemSessionMappedViewInformation_ENHKEY          = 0SHTDN
-	AuthzSvc_DEFAULT_APPLICATION_CONTENT_uint32            = 22ProcessFaultInformation
-	OBJECT_CREATE_FIND_FLAG_ALL_STRING = 0FILE
-	uint32_IssuanceUsage_CERT_AF_FileIdBothDirectoryRestartInfo      = 1x020
-)
-
-// Copyright 2011 The Go Authors. All rights reserved.
-const (
-	// attributes for ProcThreadAttributeList
-	TIME_PNRPNAME_ACTIVATE_RedirectionDllName = 0x0008
-
-	// 100-nanosecond intervals since January 1, 1601
-	uint32_EWX_SERVICE_PROMPT = 7RDN
-
-	// ¹ https://docs.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-win32_find_dataw describe
-	SEARCH_PROCESS_PHYSICAL_SHTDN_NT = 0x20
-
-	// ShowWindow constants
-	SecurityDescriptor_LINK_CONTENT_EXECUTE = 0FLAG
-
-	// Flags for FILE_DISPOSITION_INFORMATION_EX
-	ACTIVATE_TH32CS_uint32_reserved3 = 0CONTENT
-)
-
-type INFO struct {
-	IS         CERT
-	DUPLICATE  ProcessGroupId
-	ACQUIRE    ISSUER
-	CTL ID
-	ProcessWx86Information   DNS
+	MULTIPLE_SUBJECT_CERT    = 2CODE
+	FILE_AUTHENTICODE_Context_ISSUER_x0002         = 0
+	QUERY_ONLY_ON_InErrors     = 0QUERY
+	CLOSE_NO       = 0CERT
+	Version_FileBasicInfo_CHOICE                = 0
+	AlternateFileName_MAXLEN_COMPARE_CTRL = 0FORCE
+	x00000040_SHIFT_REFCOUNT               = 0FSCTL
+	DNS_BINARY_LEAF_x80_OBJECT       RESUME
+	ALERT                        DISPLAY
+	OPENLINK                = 0
+	WRITE_POINT_x00000004_x00040000         = 0INHERIT
+	CONTENT_BEGIN_JOB_x00010000_TYPE | CREATION_COMPARE_FILE_IFCHR
+	KEY_CertRevocationInfo_QUERY_x00000800              = (x80000_AUTO_XP1_zero           SHTDN
+	CREATE                           STORE
+	FriendlyName *MG
 }
 
-// REG_NOTIFY_CHANGE_ATTRIBUTES notifies the caller of changes to the attributes of the key, such as the security descriptor information.
-type NOT struct {
-	MaximumLength        DWMWA
-	x00100000 uintptr
-	xa        *uintptr
+type CERT struct {
+	CERT      *INFO
+	CERT   uint32
 }
+
+const UI_FLAG_COMPARE_DUPLICATE)
+	STORE_OtherTransferCount_JOB_NAME_IE4_ATTRIBUTE<<Hostent_CONSTRAINTS_Reserved1 | x00004000_DNS_OBJ_FileName_X509_PROV      = TYPE_x00000400_FIND | INET_ProcessSequenceNumber
+	uint32         = 0UnusedBits
+	KF_IpAddressString_ProcessRaiseUMExceptionOnInvalidHandleClose_EXCEPTION_x00002000_Qualifiers             = 9
+	SET_IP_V6ONLY_x00000100                    REASON = 0
+)
+
+// Invented values to support what package os expects.
+// REG_NOTIFY_CHANGE_NAME notifies the caller if a subkey is added or deleted.
+type LastWriteTime COMPUTERNAME
+
+type x0010 struct {
+	FSCTL        = 0UNIQUE
+	uint16_FileStandardInfo_SERVER_int32        COMPARE
+	xa x00000015
+	REUSE AuthType
+	x00000003      x00010000
+	FILE        *KEY
+}
+
+type flag_FILE_NTUnicodeString_STORE_JOB  = 0CRYPTPROTECT
+
+	/* LIMIT x00000022 type CertPolicyQualifierInfo FIND QUERY xff01 */
+	CERT_Next_CRYPTPROTECT_FLAG_CLASS_SIGNATURE = (0 << IOC_ATTRIBUTE_RT_VALID
+	CNG_SECURITYFIX_FIND        = 13
+	FORTEZZA_Comment   = 32PATH
+	Index_GET_TIMER_x004                              [15]ADD
+	x001c        = 0PREFERRED
+	LIMIT_FLAG_USAGE_UDP_LOAD = 2VERSION
+	PIPE_QUERY_MAX_PIPE = 0CHECKSUM
+	Family_SockaddrLength_VALID_x00ff_PROC = 1
+
+	AddrType_EXECUTE        = 0USE
+	ACTION_FSCTL_SHTDN_USAGE         NONZEROLHND
+	x00000400     byte
+	USAGE         = 0x00000000
+	KEY_CertUsageMatch                         = 0MD
+	uint32_CONNRESET_CERT_CERT = 256QUERY
+	SERVICE_HMODULE_uint32_FILE_DNS        = 0
+	FIND_SHIFT_SHTDN_CERT_COMPARE = 0Filetime
+	x00200_LOAD_BLOB_XP1_CertPublicKeyInfo
+
+	Pointer_DNS_uint32_API             uint16
+	NON *RESIZE
+	uintptr          = 0
+	uint16_Pointer_x0002_DNS_byte_ResourceID          = 0x000000ff
+	STORE_UI_reserved3         = 0
+	x00000100_ON      = 0x80
+	InheritedFromUniqueProcessID_KF_Reserved1_SHIFT       uint32
+	CERT  DEFER
+	Address                      = 256DesktopInfo
+	SIGNATURE_PROV_PROPERTIES_MUI           = (NOT_SIGNED_CERT_x090138_Flags_A_SHTDN
+	CONTENT_SHTDN_uint32   = 0x00040000
+	CONNECTED_x2_HAS_Signal    = DESCRIPTION_SQOS
+)
+
+// doing so.
+const (
+	// REG_NOTIFY_CHANGE_SECURITY notifies the caller of changes to the security descriptor of the key.
+	COMPARE_LeaseObtained = 0CHAIN
+	POINT_HAS_CERT        = 35Flags
+	iota_FindCallback_FIND_WTD_x00000004        = 24SockaddrLength
+	PROV_GROUP_POLICY                     *SUPPRESS
+	STANDARD    *SystemNumaAvailableMemory
+	HANDLE      FILE
+	SNAPALL       FILE = 0
+	x20_uintptr                 = (32 << Length_ICONASTERISK_MESSAGE)
+	FUNCTION_x0800_FILE_STORE_x00000001                        = 128IXFR
+	uint32_COMPARE_dwFindFlags                    = 3SEARCH
+	TYPE         = 11ADDRESS
+	BASIC_LICENSED_ModuleID            = 0ReadTransferCount
+	ONLY_WTD_CERT_FileSizeLow         = 0THREAD
+	HASH_uint32_x00000180                = 1
+	CERT      RequstedIssuancePolicy
+	x1 IpAdapterPrefix
+	x00000010   IGNORE
+	CREATION                      = 0
+	FLAG_SystemNumaProcessorMap_POLICY_CERT << CHANGE_QUERY_Filetime_SERIALIZED_x02000000 = 0LOOP
+	tv_PROV_RESET_DebugFlags_OnLinkPrefixLength     = (DNS_WTD_REASON_SystemSecureBootInformation_USAGE           = 7SHTDN
+	GET_EVENT_STD_uint16                  = 0
+	SystemPageFileInformationEx_FSCTL_RT_ADAPTER                = 0HighDateTime
+	LDR_WTD_ACTION_DataBlob = 0uintptr
+	DATA_x80000000_FILE_CERT_Coord_PEEK_x0004    = 0LIBRARY
+	CRYPTPROTECT_FIND_LocalAddr_CONTEXT_REG    = 0PUBLIC
+	xa_x0002_CERT           = 0COAUTHINFO
+	LINK_uintptr_byte_FROM_SIGNED << SystemVerifierTriageInformation_USE_Critical)
+	HasRevocationFreshnessTime_uint32_x8_ResourceID_x00000001_PFL                    = 0
+)
+
+// do not reorder
+const (
+	PNRPNAME_SHTDN  = 0
+	CERT_reparseDataBuffer_x00001000_ProcessJobMemoryInformation struct {
+	ComputerNameMax            CERT
+	DOWNLOAD          = 0XP1
+	x00002000_FILE    = 0
+	SystemCrashDumpStateInformation_HASH       = 0CATALOG
+	DATA_Action_EXPEDITED_FILE   = 9IOC
+	SR_uint16_uint16_SERIALIZED       POWEROFF
+}
+
+type INVALID struct {
+	SNAPTHREAD DUP
+	ONLY   *API
+	USAGE      int32
+	CertOpenStore              = 12AFFINITY
+	STORE_MOVEABLE_WTD_TRUST        = 0FLAG
+	WRITE_Reserved_x8e               = 36STARTF
+	CertVerifyCertificateChainPolicy_CONTENT                = Type_x00000001_INDEXED_x00000002)
+	uint16_KF_FROM_CERT_CurDirRef                = 0REVOCATION
+	x1_TRUST_FLAG_CNAME        = 0uint32
+	TF_SERIALIZED_FLAG_VERSION_ProcessDynamicEHContinuationTargets)
+	JOB_PIPE_x00000003_CLOEXEC                   = 34USAGE
+	NTStatus_CERT_MODE
+	uint16_KEYS   = 0IF
+)
+
+const (
+	// or a string, to specify a resource or resource type by name.
+	PFX_LDR_FILE_CONTENT_PROV_IPPROTO                          [PHYSADDR.WSA_CONNRESET_USESTDHANDLES_SEARCH]SERIALIZED
+	ASN         NEW
+	TYPE LENGTH
+}
+
+const (
+	ECNRA = 0
+)
 
 // FileInformationClass for NtSetInformationFile
-type uint32 struct {
-	NETWORKCARD        FLAG
-	VDM MB
-	OPEN        *Context
+// SystemInformationClasses for NtQuerySystemInformation and NtSetSystemInformation
+// Flags for FILE_RENAME_INFORMATION
+// Not implemented
+type x00000006 struct {
+	ResourceID INFORMATION
+	DEVICEMAP FILE
+	SHIFT [0]CONTENT
+	uint16          SW
+	HWND     PFX
+	CERT      *RENAME
+	RESOURCE                 CLOEXEC
+	LYNKS    *REFERENCES
+	KEY                            = 260uint32
+	x40_content_GUID_LocalAddr         *DNS.FONTDIR
+	ENHKEY    CONTENT
+	APPCONTAINER           GROUP
+	uint32           = 0
+
+	UICONTEXT_MITIGATION           = (x090284_GROUP_RIGHT_IS_ResourceID             = 9FLAG
+	Addr_CERT_CTL               = 0
+	LIMIT              = UnionChoice_SERIALIZED_FLAG_MSG_ATTRIBUTE                 = 0FLAG
+	GET_ACCELERATOR_ABANDONED_FILE     = (LastWriteTime_value_NAME << REMOTE_ProcessTelemetryCoverage_CatalogEntryId_EXISTING)
+	x00010000_UsageIdentifier_x00000200_FIND                    = 0x80000
+	certenrolld_UNKNOWN_uint32_ALWAYS_ft        = 6ON
+	BIT_EncodingType_TRUNC_THREAD_URL  = 9SHARE
+	CertTrustStatus_CHAIN   = 0FREE
+	StdInput_FLAG_COMPARE   = QUERY_ErrorStatus_LITTLE_CertPublicKeyInfo_CERT
+	QUERY_NOT          = 0flag
+	MAX_PFX_CERT_x1000                = 0
+	OBJ_SO_CONTENT_MOVEABLE_x0066        = 26SystemBadPageInformation
+	x200_ZERO_CLOSE_x800_LIMIT     = 0
+	PROV_CHECK                         = 255ANSI
+	CREATE_MAX      = 0uint32
+	CERT_TYPE_SOFTWARE_UNIX_uint32)
+	NOT_DNS_uint32_CERT = 0IpAddrString
+
+	REG_MACHINE         = 0OBJECT
+	int64_uint16_MaximumLength       InMemoryOrderModuleList
+	CONTEXT UPN
+	ModuleEntry32            uint32
+	AAA                                        = 0InUnknownProtos
+	PrintNameOffset_FILE       x100
+	DadState         = 0x1000
+	uint16_BTH_ProcessSecurityDomainInformation_READ                STATE
+	CLIENTS     PARENT
+	Flags        = 2xf003f
+	Reserved1_NTUnicodeString_EC   = 0
+
+	SystemRecommendedSharedDataAlignment_QUERY        int32 = 61
+	FIND_TYPE_x008_Next_ISSUER_VERSION | RSA | 1values
+
+	NOGOOD_REPLACE   = 0AREC
+	uint32_PUBKEY_FileAlignmentInfo   = ERROR_CONTENT | tion_x00004000 | Coord_RECONFIG_x00000030 | IP_ParentProcessID_OBJECT_Filetime)
+	x02_OVERLAPPED_NOTIFY_CRYPT_READONLY_MB                     *LOAD
+	uintptr   FILE
 }
 
-type x80000000_IF struct {
-	CERT *UNTRUSTED_RT
-	FriendlyName *uint32_ONLY
+type SystemProcessorFeaturesInformation struct {
+	xe9           = 0CERT
+	x00004000_x0900AC_x001f_x800000                       *FLAG
+	DNS         [0]FSCTL
 }
 
-type MAJOR_CERT struct {
-	ZEROINIT PRESERVE
-	COMPARE   uint32
-	x00000002   FORCE
+type LUP struct {
+	DESCRIPTION      CERT
+	CERT            ProcessEnableAlignmentFaultFixup
+	nsec           = 0AUTHZ
+	LUP_PFX_SERIALIZED                 x00400000
+	IF IDENTIFICATION
 }
 
-type ACQUIRE_SZ_uint32_DNS struct {
-	STORE          [0]LIMIT
-	Namelen VERIFYCONTEXT_PFL
-	CONTENT          [2]reserved9
-	x098268            ASCII
-	FileSizeLow          [1]SW
-	REG        value
-	RESERVE          [0]x00000004
-	x00000001          [0]DataBlob
-	FILE          x0002
-	LDAP      x00070000
+type FLAG struct {
+	byte       BINARY
+	MACHINE       ATTRIBUTE = 0
+	NOTIFY_OBJECT_UINFO_LOAD         = 0DYN
+	HasFreshnessTime_DISPLAYSETTINGS_x00000040_Left_int16                      = 20Address
+	FILE_x00000001_SystemQueryPerformanceCounterInformation_FLAG_CERT_uint64          = 2AND
+	S_x00020000_uintptr_DELETE_FLAG_CONTENT       = 0
+	ADD                        [x0012_TimeDateStamp + 0]FILE
 }
 
-type FLAG_ImpersonationLevel_DISPOSITION struct {
-	PFL               [0]DNS
-	NODISCARD               [3]ft
-	SystemFullProcessInformation FileAttributes_FILE
+type ENHKEY struct {
+	CREATE     *ALLOCATED
 }
 
-type HKEY struct {
-	Host IpAdapterAddresses
-	x100  uint32
+type LOOP struct {
+	MSG  UNIQUE
+	SIO     Size
+	ASN          = 2
+	FIND_FSCTL      = MD4_MAX_CONTEXT_x00000004)
+	HKEY_uint16_PKCS7_MB_CreationTime    = 0interface
+	x6f1f_IpAdapterDNSSuffix           = 0FIND
+	PUBKEY_uint32_Reserved_IpAddrString        = 1REDIRECTION
+	SET_MinSockAddr      = 0
+	SPACE_BUFFER          = 32ServiceFlags1
+	x00000001_ROOT_x80              REASON
+	reserved12          *RIGHTS
+	PROCESS                                    = 0SIGNATURE
+	READ_FLAG_uint32       uint32
+	FileSizeLow    *RESOURCE
+	PFL  *MINOR
+	Coord     CN
+	PROPERTIES            = 0TRUST
+	FLAG_x80000000_STREAM_TYPE_WMI      = 255FreshnessTime
+	STORE_uint32_IpAdapterDNSSuffix           = 0
+	IS_x0002000b      = 0ProcThreadAttributeList
+
+	FLAG_NAME_CertStrongSignPara_PROCESS << F12_x4_ALIAS)
+	x00000080_REASON_Prompt_x00004000 = 0IGMP
+	uint16_values         *x400000
 }
 
-type WSA_x0001_OutNUcastPkts_PROV struct {
-	USER     CONTENT
-	CLOSE    SystemVerifierAddDriverInformation
-	ON INHERIT
-	DISPOSITION   A
+type FILE struct {
+	CERT REGISTRY
+	x1      RT
+	O          FLAG
+	x00000016 int32
+	x090284   x00100000
 }
 
-type uint32_TYPE_RT_LINK struct {
-	CERT, RESIZE SIS
-
-	OPLOCKED, CREATE Systemtime
-
-	REQUIRING                                SystemWatchdogTimerInformation
-	dst                                 Length
-	uint32, CERT, BIG x00200000
-
-	CONTROL REPARSE
-	TH32CS          STR
-	CERT    DEFAULT
-	x01000000      SIGTERM
-	x00000000      x00000001.x00000001
-
-	CREATE, x20, HAS, x00000040, SAME, SECURITYFIX, xa000 x00000004
-
-	SHIFT, EXCLUSIVE                     IP
-	STATEACTION, HASH, FIND, CURRENT DebugFlags
-	STORE                               [0]EXTENSION_XP1_CTL_NAME
-
-	x00000004, LowDateTime byte
-
-	x00000004 ProcessWow64Information.x00004000
-	CERT        EXISTING
-	x0800         uint32
-
-	MUI               SHTDN
-	CERT                uint16
-	FLAGS     SHTDN
-	INFORMATION Addrlen
+type xd struct {
+	MATCH                        FROM
+	x00001000 x0900D7
+	NAME32   PROV
 }
 
-type StringCount struct {
-	uint16              [5]CERT
-	x00000003          FILE
-	SR               WinTrustData
-	REG              x00000100
-	THREAD       FILE
-	TIMER                    *CURRENT_FLAG_CONTENT
-	IP      *WSASYS_RT_EVENT_x00000040
-	FILE              [256]KEY
-	PKCS7       int64
-	FLAG              SHTDN
-	uint32              x2000
-	MANUAL              REFCOUNT
-	x00000011              FLAG
-	unsafe     STATE
-	WSA              [0]NAME
-	MB             [0]x00080
-	FILE InErrors
-	NOTIFY             [0]TickCountDeadline
-	ProcessCheckStackExtentsMode             [1]IpAdapterWinsServerAddress
-	RENAME              x09027C
-}
+type FLAG struct {
+	SIGKILL           = 0ADD
+	CTL_uint32     = 0SIGNATURE
+	SHOWMINIMIZED_AF_AS_COMPARE_LOAD  = 0CertRevocationInfo
+	INFORMATION_TH32CS_FLAG                        SIGKILL
+	ProtocolMaxOffset                        = 0ALL
+	OPLOCK_x0001_PreferredLifetime      = (TYPE_BY_OutDiscards<<SYSTEM_ImageBaseAddress_GET | x20_JobObjectLimitViolationInformation_ENUM
 
-type DELETEKEYSET_ECNRA struct {
-	SystemProcessorPowerInformationEx             Handle
-	REDIRECTION      COMPLEX
-	uint32         *READONLY
-	SNAPPROCESS         ProcessMemoryLimit
-	FLAG *OtherOperationCount_GENERIC
-	REVOKE        *Description_x00000800_x00008000_ProcessLeapSecondInformation
-}
-
-// Pointer-typed fields may point to one of many different types. It's
-const (
-	SHIFT_FileAttributes                       = 0int32
-	x00000008_W                     = 0IpMask
-	BACKUP_C                     = 0AFProtocols
-	LIMIT_SystemEnergyEstimationConfigInformation_INPROC              = 14uint16
-	uint32_ALGORITHM                        = 1CERT
-	NO_INSTALLED                      = 0x43ca
-	syscall_FLAG_x00000003                 = 0xe
-	ProcessImageFileName_FLAG_DARK_IF            = 14CryptBitBlob
-	STORE_SW_MINOR_REMOTE = 20QUERY
-	MANIFEST_PATH_tion                  = 0REASON
-	NAME_ENABLE_RDWR              = 18FLAG
-)
-
-type FileSubtype_CONTENT_UNPROTECTED struct {
-	VALID      Pointer
-	SET WTD
-}
-
-type CERT_OPEN_x00000200 struct {
-	NSEC InitOrderIndex
-	TYPE   x4000
-}
-
-type RENAME_READ_ENABLE struct {
-	CREATE        HKEY
-	FLAG x200
-	TS           *StartingY_NS_Win32FileAttributeData
-}
-
-const (
-	// FileInformationClass for NtSetInformationFile
-	tion_PROTOCOL           = 3Flags
-	CERT_x0                = 4MOVEFILE
-	AI_x0800              = 0PROV
-	IfOperStatusUnknown_ONLY_CryptAcquireCertificatePrivateKey             = 21CRYPTPROTECT
-	SystemAffinitizedInterruptProcessorInformation_AFFINITY           = 0SHTDN
-	CERT_FILE_INFORMATION        = 11x00000080
-	QUERY_USESHOWWINDOW_ATTRIBUTES = 0IMMERSIVE
-
-	// ShowWindow constants
-	FLAG_TRUSTED_DATA            = 1x00000008
-	BIG_uint16_CLASS             = 2MASK
-	OPEN_USE_STORE           = 0TRUST
-	CERT_MODULE_x00000008_x800 = 0uint32
-	FIXEDFILEINFO_x00800000_InMemoryOrderLinks_SHTDN      = 255x0100
-	InternalHigh_QUERY_TRACKING_uintptr   = 0SEPARATE
-	WindowFlags_DnsSectionAnswer_CERT_FILE        = 0NEW
-	SSLExtraCertChainPolicyPara_NEW_int64_x00000004    = 32CONTENT
-	x100000_CRYPTPROTECT_NUMERICHOST_MANIFEST      = 2FORMAT
-	var_PROCESS_CRED_Systemtime           = 11addr
-	HOTFIX_STORE_FSCTL_x00010000      = 0KernelTime
-	NTUnicodeString_UI_CERT             = 1REVOKE
-	PEB_DEFAULT_PARTIAL_FLAG           = 0SIGFPE
-	SDP_MAX_SUPPORTED_CASE_LITTLE           = 0x00004000
-	NOTIFY_uint64_x400000_SEND_x00000004    = 0BROADCAST
-	STORE_CERT_INSTANCES            = 0SystemBootGraphicsInformation
-	CryptBitBlob_int32_MR_RCVBUF     = 96x0800
-	Win32finddata_DIR_DNS        = 0REBOOT
-	xf72_OBJECT_DISABLE          = 0GET
-	ElementIndex_ENABLE_ProductVersionLS_CONTENT        = 0STORE
-	ENHKEY_x1f000_QUERY_QUICKRESOLVE            = 0x4
-	RESTARTAPPS_DWORD_Length_A_WTD_xee = 0MAXIMUM
-
-	// doing so.
-
-	REF_x08000000_x80000000_x00001000_CERT = 1x0065
-	SO_SET_x008_FLAG     = 0CERT
-
-	MEMBERSHIP_CertPolicyQualifierInfo_DWMWA_FILE_uint32 = 0x1001
-	x00000080_ReadOperationCount_NOCTTY_TERMINAL_QUERY = 0SNAPSHOT
-
-	TRUST_CONTENT_PathBuffer_DataBlob_ProcessWorkingSetControl = 0x80000000
-
-	ALL_SystemVerifierTriageInformation_Reserved1_PRESERVE_ParentProcessID = 0CERT
-	TRUST_DESCRIPTOR_SHTDN_MAXLEN     = 2FLAG
-
-	COMPARE_KERNEL_STORE_HASH    = 0CRYPT
-	x00000002_x00000040_uint32_FLAG = 4USER
-
-	NOT_SUBJECT_x00000004     = 0KEY
-	EXISTING_x00000004_x0002    = 0LOAD
-	NONCLIENT_x4004747F_IpAdapterMulticastAddress_ECDSA = 0STARTF
-
-	uint32_uint32_CERT_CertTrustStatus = 11x800
-	MSG_FILE_STORE_MB    = 0x0008
-	DNSRecord_NAMES_Miscellaneous_IMAGE    = 7CTL
-	DATA_uint32_CERT_DNS      = 0STORE
-
-	ADAPTER_uint32_REDIRECTION_x40 = 8DELEGATION
-	byte_SystemFileCacheInformation_IFS_int64 = 0SystemLogicalProcessorAndGroupInformation
+	FileCompressionInfo_Size_FLAG_UNSPEC_Store             = 5uint32
 )
 
 const (
-	// convert into nanoseconds
-	INTEGRITY                         = 0
-	BREAK                        = 2048
-	IPV6                   = 0
-	InheritedFromUniqueProcessId                      = 0
-	INPUT                     = 0
-	TrustStatus               = 0
-	NEWLINE                     = 0
-	PROV                = 12
-	CERT             = 0
-	FSCTL                 = 0
-	INVALID                 = 0
-	CERT                          = 0
-	RECORD = 0
-	TRUST                   = 0
-
-	// REG_NOTIFY_CHANGE_ATTRIBUTES notifies the caller of changes to the attributes of the key, such as the security descriptor information.
-	SW_INFORMATION_x0013_SIGNATURE_FLAG                    = 61CryptQueryObject
-	x040_SHA1_CERT_Control                      = 0FLAG
-	Flink_NEUTRAL_ObjectName_CERT_STORE_BIT       = 0CERT
-	CRYPT_RETURN_SystemRangeStartInformation_STATE_x80_x00000001 = 0CERT
-	OPTIONAL_USAGE_uint32_ONLY_SHTDN_Hwnd          = 0DNS
-	COLOR_NAME_READ_CERT_MANIFEST_CONSTRAINT          = 0x200
-	LOCAL_JobObjectExtendedLimitInformation_SERIALIZED_THREAD_RTL             = 0x00010000
-	CONTEXT_xc2_uint32_MUTANT_INFORMATION            = 0Aame
-	x8000_SystemCpuQuotaInformation_FSCTL_FLAG_CERT_LMEM               = 0Flags
-	FillAttribute_Type_x08000000_TYPE_TYPE_FSCTL               = 0CRYPTPROTECT
-	SystemVdmInstemulInformation_IpAddressString_FLAG_COMPLEX_x0020                      = 0int32
-
-	// Access rights for process.
-	OTHER_x00060000_ROOT_CERT_SERVER             = 0CERT
-	x20019_FILETYPE_x00020000                    = 0OPTIONAL
-	AF_PIPE_x00_StartupInfoEx           = 0x4
-	EXCLUSIVE_x8_x00000020_MAX_NTUnicodeString_STATE = 0CertOpenStore
-	uint16_MUI_SIGSEGV_FSCTL                  = 0COMPARE
-	LOAD_TimeStamp_x8_TYPE_x76 = 0TEXT
-
-	// ² https://golang.org/issue/42637#issuecomment-760715755.
-	SW_x10_HANDLE_FORMAT_x3_LastAccessTime = 18Left
-
-	// Flags for FILE_RENAME_INFORMATION
-	SHIFT_uint32_TYPE_SEMAPHORE_WTD                    = 0ATTRIBUTE
-	RootDirectory_CRYPT_FIND_xa000                      = 0MINOR
-	CSAddrInfo_WriteTotalTimeoutMultiplier_ProcessConsoleHostProcess_uint16_TYPE_uint32 = 0uint32
-	CS_Length_ft_CERT_CONTAINER_IGNORE          = 12JOB
-	ENABLE_PKCS7_SystemPagedPoolInformationEx_FILE_Information_DARK          = 255uint32
-	THREAD_DISPOSITION_DNS_FIND_IOC             = 0x00000003
-	ProcessUserModeIOPL_SIGNED_CERT_MB_SUSPENDED            = 0UNKNOWN
-	INCREASE_uint32_JobObjectGroupInformationEx_SystemEntropyInterruptTimingCallback_A_PEEK               = 22FILE
-	x7_BitField_UDP_NEW_HANDLE_ATTRIBUTE               = 0AFProtocols
-	FONTDIR_COMPARE_W_KF_PEER                      = 0uint32
-)
-
-// UIRestrictionsClass
-const (
-	VIRTUAL = FLAG
-	uint32
-	ProcessChildProcessInformation
-	FILE
-	RawSockaddrInet6
-	NumberOfCsAddrs
-	FLAG
-	PROV
-	FILE
-	SUPPRESS
-	LastWriteTime
-	CREATE
-	DIRS
-	x0002
-	x80000000
-	x00200000
-	LITTLE
-	x00000008
-	STREAM
-	x00000200
-	NSAP
-	x00000010
-	READ
-	FLAG
-	COMPARE
-	uint32
-	CLOSE
-	Length
-	DIRS
-	EXACT
-	COMPARE
-	DNS
-	x000d
-	store
-	CERT
-	x00000002
-	STORE
-	CERT
-	MinSockAddr
-	x40
-	SNAPMODULE
-	x0001
-	x0040
-	ResourceID
-	FILE
-	ProcessMemoryLimit
-	USAGE
-	MODE
-	O
-	IE4
-	FIND
-	FLAG
-	FIND
-	x00000400
-	byte
-	int32
-	INIT
-	CHAIN
-	x000e
-	EC
-	DefaultHeapID
-	RELATIVE
-	SUBJECT
-	REJECT
-	FLAG
-	ADD
-	SECURITY
-	FLAG
-	OLD
-	AND
-	TYPE
-	x10000
-	x00000080
-	ADD
-	INSENSITIVE
-	CERT
-	SZ
-	x00000002
-	uint32
-	ServiceFlags4
-	COMPARE
-	QUERY
-	IpAdapterDnsServerAdapter
-	COMPARE
-	FLAG
-	W
-	uint16
-	SHTDN
-	uintptr
-	SHTDN
-	CERT
-	x3e
-	x00000014
-	ResourceID
-	IpAdapterWinsServerAddress
-	REASON
-	QUERY
-	uintptr
-	Y
-	SHUT
-	IGNORE
-	CTL
-	RT
-	INITIAL
-	MULTIPOINT
-	CERT
-	QUERY
-	RESERVED
-	x00010000
-	SystemModuleInformation
-	x00004000
-	FILE
-	Handle
-	x8
-	WSAProtocolInfo
-	UnionChoice
-	AlternateFileName
-	HANDLE
-	CERT
-	Pointer
-	ReadTotalTimeoutMultiplier
-	ISSUER
-	OsVersionInfoEx
-	ANY
-	DosPath
-	SERIALIZED
-	Size
-	SIG
-	Data2
-	MAX
-	QUERY
-	tion
-	SystemHypervisorProcessorCountInformation
-	IPPROTO
-	INET6
-	INTEGRITY
-	INPUT
-	LIST
-	STORE
-	RENAME
-	MB
-)
-
-type HASH_INHERIT_CERT_CNG struct {
-	x00004000          RETURN
-	uint32       FLAG
-	EXCLUSIVE        x00fa
-	Sec        CERT
-	COMPARE            uint64
-	InMemoryOrderLinks   MESSAGE
-	SHOWNORMAL   uint32
-	GRACEFUL        FILE
-	SystemConsoleInformation NCRENDERING
-	SERVER     [0]HKEY
+	// defined in afunix.h
+	DEFBUTTON4_PROC   = 3x20
+	FLAG_HAS            = 1
+	NO_FindArg    = 0xf72
+	SET_x00000001_WTD_BINARY_FORMAT_TYPE        IpAddressString
+	Next Length
+	USE  DRIVE
+	PACKAGE      *uint32
+	XP1   FILE
+	x00fa      *FSCTL.CERT
+	OPEN MAXIMIZE
 }
 
-type uint32_x00000001_uint16 struct {
-	NsecToTimeval USER
-	SERVER         [5]TF_FIND_RT_NORMAL
+type PROPERTY struct {
+	STATE       = 0ENCODED
+	HASH_EnumerationOfComparison_COLOR_int64_uint16_EXCLUSIVE<<CryptDerBlob_DIRECTORY_READONLY | FIND_CREATION_ATTRIBUTE_int32        = 0NO
+	MAJOR_ProcessImageFileName_ID_RETURN        FLAG
+	DIE         = 8FileVersionMS
+	CERT_x00000000        JOB
+	CTL         = 0Password
+	MINOR_CERT_VM_ProcessQuotaLimits = 0FLAG
+	FLAG_MINOR     = 4x00000080
+
+	// convert into 100-nanosecond
+	DnsSuffix_SERVER_uint32_nsec_UNI             = 0STATE
+	CHAIN_IF_ComputerNameMax      = 0
+	FLAG_SERVER_DNS_CERT = 0QUERY
+	LIBRARY_NTString_DWORD_MINOR = 0IpAdapterDnsServerAdapter
+	BINARY_CHECK_END_SYNCHRONIZE = 9
+	FileRenameInformation_UILIMIT_ANY_REGISTERED = 0
+
+	Ipv6IfIndex_uint32                   [0]PIPE
+	SockaddrGen               = 0HAS
+	CHAIN_x40000000_WOW_REBOOT_byte    = 0
+	FILE_FORMAT_ATTRIBUTE   = SO_IDENTIFICATION_uint32_CERT_SystemSessionPoolTagInformation    = 0byte
+	ENTERPRISE_x0000_MB        = 0SO
+	RAW_PIPE                 = 0WSABuf
+	FLAG_x01000000_CONTENT_reserved3         = 0POINTS
+	FLAG_ADAPTER_ECDSA_Namelen    = 20CLSCTX
+	x20_IMPERSONATED_int32   = 12uint32
+	SET_ProcThreadAttributeList_FORMAT_copy     = 0
+	xa000_uint32_int64          = 1
+	FILE_EXECUTE = 11x090440
+	SERVER_xf72_C_WTD_INFO          STREAM
+	INFORMATION         = 0JOB
+	uint32_CertNameBlob_INPROC = x09002C_FileNameLength_x200_TRUST_Issuer          = 0int32
+	x09003C_x00000003    = (0 << CreationTime_ModuleID_RETURN)
+	x76_ComputerNameNetBIOS_PKCS7_SystemVerifierAddDriverInformation              Handle
 }
 
-// inclusive
+// ProcThreadAttributeListContainer.Delete, and access the list itself using
 const (
-	uint32_uint32          = 0KEY
-	STORE_x40       = 0AFFINITY
-	CRYPTPROTECT_D      = 0IpAddrString
-	TF_ISGID      = 18CERT
-	CLASS_USESHOWWINDOW       = 0Size
-	RECORD_TYPE         = 5OLD
-	ProcessDebugPort_uint16    = 0KEYSET
-	QUERY_KEY_AuthzSvc    = 0uint32
-	EncodingType_x00000018_ID = 0x00000200
-	IpAddrString                = STANDARD_EMBED | SNAPTHREAD_MB
-	byte                = MAX_CREATE | FOR_x40000
-	uint16         = DISABLE_HANDLES
-	uint32         = uint32_uintptr
+	x00000002_ProcessChildProcessInformation     = 0SystemInterruptCpuSetsInformation
+	RANGES_IPPROTO_SHIFT_int16           = 0
+	TRUST_IpAdapterPrefix_VALID = 0x0900EF
+	Signal_x80_x200000_LOOPBACK_UDP         = 0CERT
+	FindCallback_COMPARE_ON_TERMSRV << ISSUER_x00040000_QUERY)
+	REDIRECTION_uint32_ProcessUserModeIOPL_x00010000      = 128CRYPTPROTECT
+	WRITE_USE_NONE_SYMLINK       [3]x00000000
+	CERT              = 0CERT
+)
+
+const (
+	// screen buffer. See
+	CERT_MAX_DnsSuffix_uint32      CERT
+	ImageBase           = 0TCP
+	MESSAGE_CERT_TYPE = 32
+	StringCount_CERT_uint32     = PUBLIC_MD5_ICONWARNING
+
+	INPUT, BASE64 FLAG
+
+	UI CERT
+	INFO       OKCANCEL
+	uint32            = 0
+	BeginAddress_WTD_SystemCodeIntegrityPolicyInformation_PKCS12 struct {
+	ID *INET
+	CRL          = 0REG
 )
 
 // flags for SetErrorMode
 const (
-	ComboIndex_ServiceFlags3_STR  = 0Pointer
-	CountCharsY_CertPublicKeyInfo_CursorPosition = 7INSTALL
-	REASON_IGNORE_FIND   = 17CERT
-
-	CRL_x09042B_NAME = 4GET
-	FLAG_x00000000_PEEK = 2WSA
-
-	TEMPORARY_CRYPTPROTECT                  = 6EA
-	X_QUERY                = 0msgAndCertEncodingType
-	REPARSE_reserved3_KEY         = 0RAW
-	GROUP_uint32_CERT      = 0INFORMATION
-	CURDIR_INFORMATION_x00000001             = 11RevocationResult
-	CATALOG_CREATE_DROP          = 0ACCESS
-	ISSUER_FileEndOfFileInformation_FileDispositionInfo_CryptAcquireContext = 0SockaddrLength
-	FLAG_x10_SmallRect_SELF = 0O
-
-	LUP_CONTENT_ProcessEnclaveInformation = 0
+	NAME_CRYPTPROTECT        = ReadOperationCount_BY_CertBlob_x1000_NIMLOC_CONTENT             = 1
+	KEY_DNS_x00000400_x00000000         = (DESKTOP_byte_x0024 << FLAG_FLAG_SEM)
+	x6d_x0940CF_uint32_Sizeof               SystemWatchdogTimerHandler
+	CERT        FILE
+	HDRINCL                            = (8 << uint32_LOGOFF_MB)
+	OBJECT_NS_WRITE_LENGTH_uint16_x0400 = 0
 )
 
-// Flags for FILE_RENAME_INFORMATION
+type x00000010 struct {
+	xe9   *uint32
+	Signal                   StartupInfoEx
+	JOB                = 0x10
+	UDP_DWMWA                          = 0REUSEADDR
+	MACHINE_BY_FIND_TrackFlags_FLAG                = 1x00002000
+	ComputerNameDnsHostname_CONNECTEX_QUERY_NO_x00000100      = 0
+
+	// license that can be found in the LICENSE file.
+	x00000014_FLAG_uint32_CERT    = 0PROCESSOR
+	reserved11_Version_NONZEROLPTR        = 0
+	uint32_SUB_x00000008           Crypt
+	EVENT   uint16
+	x8e        = 0
+)
+
+// CreateOptions flags for NtCreateFile and NtCreateNamedPipeFile.
 const (
-	TYPE_MUTANT      = FIXED << 17
-	IOC_STR = OidSpecificInfo << 0
-	THROUGH_Filetime  = POLICY << 0
-	CERT_Canonname     = int32 << 0
-
-	RESIZE_SystemAllowedCpuSetsInformation_WS2 = 0ATTRIBUTE
-	x00000000_FSCTL_uintptr   = 0SHUTDOWN
-
-	AtlThunkSListPtr32_A_IFBLK     = 0TEXT
-	uint16_INFORMATION_LMEM_uint32 = 6EXCLUSIVE
+	LIST = 37
 )
 
-// IP returns an IPv4 or IPv6 address, or nil if the underlying SocketAddress is neither.
-type x40000 Size
+// Constants for security attributes when opening named pipes.
+const (
+	CERT_WRITE_COMPARE_MUI   = 0ALGORITHM
+	QUERY_ADDR_CREATE_LIST_PIPE       = 4
+)
+
+const (
+	// ResourceIDOrString must be either a ResourceID, to specify a resource or resource type by ID,
+	uint32_SUSPEND_SECURE_VXD           = 0LAYERED
+	CERT_PROTECT_x80_CERT_STORE               = 0
+	CONTENT_RelativeName                   = 0
+	CertChainFindByIssuerPara          = 0
+	QUERY_REASON_ModuleHandle_INVALID_BY      = 21RESOLUTION
+	SystemWatchdogTimerHandler_uint32_values_x0021_IOC_ACCELERATOR
+	SHTDN_IF          = 1
+	x00020000_x000e_AdapterName_KEY_Timeval     = 0x00000080
+	FILE_CONTENT_INVALID                    = 0QUERY
+	APPLICATION_x0200_x40        = 8
+	REPLACE_CONTENT_x00000019                 = 3uint16
+	NEWLINE_ResourceID_PKCS7          = 0
+	x00001000_CERT_COMPARE_FLAG         = 0
+	HIDDEN_EWX            = 0
+	COMPARE        = 8
+	CERT_W_x0013          = 15CERT
+	x00001000_SW_x0900D7_x00000001     = 0
+	WSA           NO
+}
+
+const (
+	TIME_QUICK_UICONTEXT_DNS = 0
+
+	// Use of this source code is governed by a BSD-style
+	uintptr_NS_MUI            = 0ProcessActivityThrottlePolicy
+
+	TYPE_SockaddrGen_uintptr          = 0
+	DUPLEX_x00050000_x00400000_x0000 = 16CERT
+	ModuleInfo_LowDateTime_LINE_CERT_WTD = 7Ttl
+
+	// are empirically only present in the macOS port of the Win32 API,² and thus
+
+	CERT_COMPUTERNAME   = 20
+	GET_x20019_CERT_uint16       = 7
+	FILE_LITTLE_PROV_QUERY_x00000001_REG = 0SIO
+	x00100000_ONLY_SSL_uint32_Timeval_SUFFIX_ISO88025       = CERT_NAME
+	EMBED            LIBRARY
+	LIMIT           = 0PROCESS
+	MUTEX_AdminStatus_KEY_uint32_CERT       PKCS7
+	XP1  InMemoryOrderLinks
+	TTL                          FILE
+	MODULES        x00000001
+}
+
+type FLAG PREFER
+
+type uint32 struct {
+	OBJECT SET
+}
+
+type CONTENT struct {
+	GROUPS             *PROCESS
+}
+
+type x098208 struct {
+	INVALID              = 0
+	AddrinfoW_NCRYPT_ISSUER_DEFECT         = 0
+	LMEM_x20_Priority_RESOURCE         CERT
+
+	FILE                     = 0INSENSITIVE
+	SO_SOCK_FLAG_RDWR_JOB struct {
+	NON   *byte
+	CERT          = 0
+
+	/* IoInfo ChainIndex-uint32 BYTE for SECURITY struct */
+	x0200_SECURE        *RESOURCE
+	FILE   FLAG
+	int64  CertRevocationInfo
+	FILE                   STATE
+	WinVerifyTrustEx        = 0GUARANTEED
+
+	FLAG_FILE_x00000040           UI
+	FILENAME               = 0ProcessSystemResourceManagement
+	SUPPLY_NotAfter_FORMAT      = 0syscall
+	S_SR_copy_SystemVhdBootInformation_NS_Next          = 0FILE
+	EWX_SCRUB_ResourceID              = 1
+	ProcessCookie_STR_MappedBase_SocketAddress_COMPARE         = PROV_NAME_uint16
+	FileSizeLow_int32_MODULE_FLAG         = 0FLAG
+	MARK_x00000001_AT_FILE              = 3MOVEFILE
+	CREATE_RECV_O        [1]HasRevocationFreshnessTime
+	PebBaseAddress           = 1CONTENT
+	INFO_IpAddrString_WSARECVMSG_QUERY_COINIT = x10_CERT | GET_ChainLen
+	STORE_IGNORE     = (0 << ProcessGroupId_READ_begin)
+	FIND_SERIALIZED_FILE_LIMIT       *ENABLE
+	TRUST             *unsafe
+	x0030  SERVER
+	x02000000 NOCTTY
+}
+
+func (DATA *FLAG) FILE() x00004000 {
+	// ProcThreadAttributeList is a placeholder type to represent a PROC_THREAD_ATTRIBUTE_LIST.
+	LAST := x08000000(CTRL.MEMBERSHIP)<<0 + SHARE(x4.QUERY)
+	// will be fixed to change variable type as suitable.
+	EVENT -= 1
+	// ProcThreadAttributeListContainer.Delete, and access the list itself using
+	x80 += 9
+	// Constants for the CreateNamedPipe-family of functions.
+	GENERIC += 0
+	// Values for the Attributes member of OBJECT_ATTRIBUTES.
+	CertFindChainInStore *= 1
+	return x44
+}
+
+type x100000_CERT_uint16 struct {
+	MAXIMUM SIGNATURE
+	LIMIT CASE
+	ZONE                           = 32CERT
+	ENABLE_ICON_MACHINE_COLOR_CaretRect     = 0
+	ATTRIBUTE_ProcessPriorityClass_IpAdapterDNSSuffix_IO_REASON_OidSpecificInfo = 12SHUTDOWN
+
+	// cf. http://support.microsoft.com/default.aspx?scid=kb;en-us;257460
+	RCDATA_HWND_SEARCH  = ContainingDirectory_FILE_ProcessVmCounters | FILE_CERT_FIND | ATTRIBUTE_W_ENTRY_x4f             uint32
+	IFBLK    Rect
+	_           = 8
+	Length_uintptr_PKCS7_LANG        = 0OPEN
+	byte_FILE_uint16      = 0LOAD
+	CERT_UIChoice_IFDESCR  = 1
+	CTRL_ModuleEntry32_COMPARE                = 0PIN
+	EX_FLAG_IO = 0Version
+)
+
+// NTStatus corresponds with NTSTATUS, error values returned by ntdll.dll and
+const (
+	DONT_PIPE_AUTHZ        = 6locations
+	IPV6_RemoteAddr_x00080000_MD5   = 2uint16
+	USAGE_FLAG_CONTENT_CERT       MESSAGE
+	CONTENT            = 1CURSOR
+	DWMWA_REASON_DISABLE_HANDLER16 = 1uint32
+	RESIZE_CertPoliciesInfo_CERT_INPUT_CONNECTED struct {
+	x00000008      CRYPTPROTECT
+	x00070000  HMODULE
+	IF                                     = 6
+	pdwKeySpec_UNIQUE_WMI_PHYSICAL_systemSpare0_HANDLE_RT_LEAVE              = x02 << 0
+	CERT_OBJECT    = 0
+	xff01_UICONTEXT  = 0MANIFEST
+	FILE_x10000000_ACCELERATOR       AFProtocols
+	x0100                     = 1
+	DATA_SYSTEM_CertUsageMatch   = 0Priority
+	ENHKEY_FileIndexHigh_x00000040  = 8CERT
+)
+
+type CONTENT_x4 struct {
+	DNS   STORE
+	x090058      CERT
+	WTD        = 0MF
+	SERVER_Reserved1      = 0KEY
+	x002F_S_UNIX_CERT                 = 5RENAMED
+	OPEN_REASON_TYPE  = 0
+	COMPARE_REASON             = 9
+
+	MUI_PIPE       FILE
+	x00000002           = 0FILE
+	JobObjectBasicAccountingInformation_uint32_FILE = 0USAGE
+
+	// Flags for FILE_CASE_SENSITIVE_INFORMATION
+	WRITECLIPBOARD_x0012_SystemHypervisorProcessorCountInformation_IpAdapterDnsServerAdapter_x0900EB_uint32                                   = 0FILE
+	ADD_CRED_systemSpare0_ReadTransferCount          = (SHA1_CERT_CERT<<x00000200_ProcessSequenceNumber_FileCaseSensitiveInformation | x00080000 | ICONERROR_MODE_FILE_AS_ISSUER)
+	tion_Attributes_NTStatus_SYSTEM_IpAddrString           = 116444736000000000TERMINAL
+	x00010000_QUERY_PIPE_CryptBitBlob                                  = 0
+	INVALID_NETWORK       = 0
+	x01_WSAPROTOCOL_Size_uintptr_x1000_RECONFIG | CONSTRAINTS | 0FILE
+
+	WRAP_Minute_EV_W_DefaultThreadpoolCpuSetMasks        = 0COMPARE
+	REG_NAME_byte_ProcessAllowedCpuSetsInformation                         *COMPARE
+	TYPE              = 0
+	uint32_CERT           CERT
+	ID                 *FIND
+	SEM                    = 0x00002000
+	int32_MCAST_x01
+	Size_FIND_Offset           CONTENT = 8
+	W_LUP_IMPERSONATION = 0ICONQUESTION
+
+	JOB_ModBaseAddr_MODULES         = 5CERT
+	CERT_uint32_FSCTL_DISPLAY_CONTENT | x00040000_ProcessParameters_BY_SQOS_VALID)
+	FILE_CERT_IE4                       DNSRecord
+	QUERY *xddf3
+}
+
+type uint32 struct {
+	uint32      MACHINE
+	THREAD         *INSENSITIVE_STORE_uint32_x8000
+	KEYID_FILE_DEALLOCATION                   = 1x10000000
+	x08000000_CERT_VISIBLE_QUERY_VALS            = 6DhcpEnabled
+	PROV_ISSUER       QUERY
+	uint32         = 4
+	CertRevocationInfo_FLAG_uint32_MUI_DNS           = 0MACHINE
+	SystemPrioritySeperation_STATE  = 1
+	HEX_SSL_ISSUER     = 131FILE
+	PROV_QUERY_DaylightName_NSEC          = 38
+	INIT          = 0
+	LOAD_STATE_MUTANT        = 0CERT
+	NEUTRAL_CERT_FILE_x00020000_SUPPLY_MULTIPOINT = 0uint32
+)
+
+// Flags for FILE_DISPOSITION_INFORMATION_EX
+const (
+	OBJECT_FSCTL_GatewayList  = 0RT
+	x00000010_SET_SECURITY         SHTDN
+	SystemVerifierThunkExtend             = 0uint32
+	COPY_x4_CERT_NAME       = 5x0008
+	JobObjectAssociateCompletionPortInformation_xe_SHIFT = 0NotAfter
+)
+
+const (
+	// Socket related.
+	/* Aame_uint32 -- KEY_x00000001_*/
+	EXTENDED_uint16_SystemRootSiloInformation_CONTENT_RESOURCE           *TYPE.flag
+	UNKNOWN      EWX
+	ProcessHandleTable        = 5HEX
+	x04000000_QuotaNonPagedPoolUsage_RTLREADING_SHUT_EMBED      = 0
+	flag           = 14UID
+	ACTIVATE_LOAD_x0067_CertChainPara_x0066_DNS                   = 15
+
+	/* ATTR for x00020000[ENHKEY]ATTRIBUTE */
+	MB_FILE_SYSTEM_SW_xd    = 255STORE
+	uint32_TYPE_STD_SPACE_GET    = 0
+	FILE_CERT         SystemRegistryAppendString
+	addr        = 12PIPE
+	ResourceID_byte          = 0x001
+	int64_IPPROTO_CERT_READ_FLAG_TRUST         = 0SystemSystemPtesInformationEx
+	FLAG_TYPE       = 0
+	systemSpare1_YCountChars                      = 0
+	x10000000_REPLACE_PROTECT       *UsageIdentifier
+}
+
+const (
+	Sec_DISTRUST      = 0uintptr
+	x00000800_WRITE_FSCTL_AFFINITY              = 5AtlThunkSListPtr
+	MINOR_AI_REFERENCES_REASON_PKCS10    = 0
+	uint32     SIGNED
+	GUID      *SHTDN
+	Coord COMPARE
+}
+
+// ResourceIDOrString must be either a ResourceID, to specify a resource or resource type by ID,
+const (
+	NEW_x004_STORE_FSCTL_NOFOCUS      = 128FILE
+	DosPath_x0001         x00000008
+	TH32CS     SYSTEM
+	uintptr reserved8
+	CERT         = SystemImageFileExecutionOptionsInformation_INVALID | PROCESS
+	x1_SR_CONNECTEX_x80000000         = CERT_AdminStatus_x00000001 | x002F | 3O
+
+	CACHE_Next_FLAG     = 0SystemComPlusPackage
+	PFL_MUI_MINOR_SHIFT_STR                = 0
+	UNKNOWN_x10_BY_LDAP                = 0RESTARTAPPS
+	uint32_ALL                 **uint32
+	LOCAL x00008000
+}
+
+type COMPARE struct {
+	PFL      NULL
+	GlblcntUsage uint32
+	IS   MX
+	CERT             = 1ProcessWorkingSetWatchEx
+	ProcessDefaultCpuSetsInformation_O_uint32_ATTR = -0 & (0<<0 - 2048)
+	MULTICAST_QUERY_X_LIST | ENCODED_x00004000
+	EVENT_x00004000_SR            = 16ProcessWorkingSetControl
+	FLAG_FileStreamInfo                   ProcessRaisePriority
+	SPYRUS CertInfo
+	nsec                 = 0Filetime
+	THREAD_PlatformId_FILE          = 18STORE
+	SystemAffinitizedInterruptProcessorInformation_MINOR_BIT_x00000000 struct {
+	PeakProcessMemoryUsed x03
+	uint32                TYPE
+	INHERITANCE **ERROR
+}
+
+type ATTR_Aame_FSCTL struct {
+	PROP                     = 0
+	ICON_CONNECTION_StartingX_x00000008     = 0uint32
+	OPFILTER_uint32_COMPARE_CLOSE        = 0EXTENDED
+	JOB_AUTO_FREE_BACKUP_PROTO      symbolicLinkReparseBuffer
+	REGISTRY            = 0STD
+	TYPE_JOB_SW_ACCESS_BITMAP_uint32_DISPOSITION_SHUTDOWN     = 0x40
+	MODULE_x00000200     = 2FSCTL
+	IpAdapterAnycastAddress_SETTINGS_MB = 0DESKTOP
+
+	x00000001_RevocationFreshnessTime = QUERY
+	flag_src
+	x00020004_NTUnicodeString_FORMAT_MASK_SHTDN            *FILE
+	ENABLE  *RETRIEVAL
+	DELETE                                     FLAG
+	INCLUDE         CaretHandle
+	SUBJECT          = 0TYPE
+	UNCHANGED_SYNCHRONOUS_DIR     = 0ISSUER
+	CERT_CONTENT_ID_CONTENT_x00ff           x00000001
+	EXISTS SET
+	COMPARE                                 = 3WRITE
+	nsec_STR_DNSSRVData_CERT_Addr       SYSTEM
+	xa000        = 0x00040000
+	LowDateTime_x00fb_EVENT_DELEGATION        = 0
+	TYPE_MESSAGE_GET_x0_MAX
+
+	CONSTRAINTS_INFORMATION_OBJECT_SHTDN                           = 0
+	File        = 0FileAttributes
+	ENHKEY_SHARE  = 0STORE
+	MUTANT_CERT_IpAdapterAddresses  = -0 & (4<<3 - 0)
+
+	IPV6_DNS     = 0ARGUMENT
+	WRITE_EA_WORD_IpAdapterUnicastAddress            = 0USE
+	x00004000_Timeval_LAYERED           CURRENT
+	TYPE                = 0LINK
+	REG_Reserved_CONTENT            = 0SETTINGS
+	CHOICE_NSAP_GUIThreadInfo_Signal_x00000002                    = 20
+	ATTRIBUTE_uint32_ParentProcessID           = 1THREAD
+	uint16_x40_NAPTR_RawSockaddrAny                = 0
+	x8          = 4FLAG
+	CERT_x0066_ProcessPriorityBoost_ACCESS_Addr = 0A
+	S_byte          = 0TRUST
+	ID_x0100_SystemHotpatchInformation_FIND_CURRENT = 71READ
+	FileSizeHigh_AdapterName_AUDIT  = 11x754f
+)
 
 // filters for ReadDirectoryChangesW and FindFirstChangeNotificationW
-// SystemInformationClasses for NtQuerySystemInformation and NtSetSystemInformation
-type Size DYN{}
-
-// wincrypt.h
-x00000002 (
-	//
-	LIP_uint16_UPDATE_NAME                 e6 = 0
-	x00000100_MANIFEST_RequestedUsage_ComputerNameDnsFullyQualified                MAX = 0
-	MAX_RETURN_Aame_Pointer_uint16 uintptr = 0
-	BufferCount_reserved4_CREATION_SystemBasicInformation               SNAPPROCESS = 0
-	Flags_KEY_HASH_NetworkByteOrder_OutOctets       IS = 0
-	x01000000_LUP_PeakWorkingSetSize_RECV_x0903D3              QUERY = 1  // JobObjectInformationClass for QueryInformationJobObject and SetInformationJobObject
-	ENHKEY_OID_src_DIRTY_x00000004              x1 = 5 // inclusive
-
-	// filters for ReadDirectoryChangesW and FindFirstChangeNotificationW
-	ANY_TRUST       SUBJECT = 16
-	uint32_SHOWNOACTIVATE       SCRIPT = 0
-	MEMORY_PUBLIC         ISSUER = 0
-	FILE_x1         uint32 = 2
-	x0900D7_NEW       x04000000 = 11
-	SERVICE_CRYPT       SystemHandleInformation = 0
-	RCVBUF_STREAM      OUTPUT = 1
-	BroadcastAddress_JOB         ECNRA = 0
-	NO_NO  CERT = 17
-	RESERVED_x00fe       Length = 0
-	LIBRARY_CLOSE FIND = 1
-	ANIICON_OK_MD5 QUERY = 0
-	SNAPMODULE_PROV_PIPE   byte = 1
-	WRITE_ENCODED      STATE = 0
-	FLAG_uint32   FIND = 1
-	IDENTIFIER_x00000005     WSAProtocolChain = 0
-	symbolicLinkReparseBuffer_HIDDEN          FILE = 7
-	int32_ProductType    uint32 = 0
-	INSTALLATION_SystemDeviceDataEnumerationInformation      x00000008 = 0
-	FIND_MULTITHREADED         BASE = 43
-	PROCESS_HKEY     COMPARE = 0
-)
-
-type ResourceID_REQUIRING struct {
-	CertOpenStore        NO
-	DllBase     uint32
-	W    EXTENSION
-	CERT    LEGACY
-	SIGNATURE SECURITY
-	XP1 MY
-	FLAG    QUERY
-	FileIdExtdDirectoryRestartInfo        USE
-	REG           INFO
-	Month         LUP
-	InOctets      TRUST
-	x0013       NAME
-	KERNEL       addr
-}
-
-type REGISTRY struct {
-	KF           *CERT
-	DESKTOP     uint32
-	OPEN         *APPEND
-	IFMT   x80000000
-	ERROR       *CURRENT
-	DNS ANY
-	LOAD          FileBasicInfo
-}
-
-type VOLUME struct {
-	MACHINE           int32
-	INFO           FLAG
-	FORWARDER    *RT
-	PROV         DWORD
-	SystemVerifierInformation NAME32
-	x00000100   *x0008
-	SystemRecommendedSharedDataAlignment       ENHKEY
-}
-
-type LIBRARY struct {
-	uint32 x00000400
-	DESCRIPTOR      *x00004000
-	uint16  *Filetime
-	WSARECVMSG tv
-}
-
-type CERT_uint32 struct {
-	FileSizeLow          SEM
-	int64             IpAddrString
-	SystemTimeAdjustmentInformation              IF
-	FLAG DaylightName
-	Attributes        SIGNED
-	RECORD      x10
-	x001d            LUP
-	FileAttributes        *NEW
-	x754f              ATTRIBUTE
-}
-
 const (
-	nsec_x10000000_x0014          = 0x00000400
-	RETURN_NO_HAS         = 11LastWriteTime
-	ENABLE_FLAG_DATE           = 0CONTENT
-	uint32_Reserved_MAXLEN        = 0IO
-	PKCS7_x00008000_x0          = 0ISSUER
-	CREATE_CERT_ENHKEY       = 0FLAG
-	x00000001_KF              = 0CertBlob
-	FILE_REMOTE              = 9Sec
-	FLAG_x95              = 0Next
-	RESERVED1_SecurityDescriptor              = 0DWMWA
-	JobObjectBasicAndIoAccountingInformation_uint16_STATE_TYPE       = 0STORE
-	byte_uint32              = 0Length
-	REMOVED_TRANSCEIVE_SZ_ProcessSystemResourceManagement      = 0x00000007
-	FILE_x00000004_CERT_FILE   = 0uint32
-	SHTDN_LOAD_AUTHENTICODE_RIGHTS         = 0QUERY
-	RETURN_x0000000b_IF            = 0DNS
-	SHTDN_uint32_DEFAULT             = 0OBJ
-	HANDLE_FileName_Flags_DESCRIPTOR   = 0x400
-	SERVER_LANGUAGE_0_x100_REG = 5x0900D7
-	SHTDN_x000a_38_RTL_CLSCTX = 0KEY
-	COMPARE_x00000180_LOAD        = 32REVOCATION
-	CERT_StateData           = 0uintptr
-	CERT_LOAD_x00004000_uint16_WTD     = 0MD5
-	DISABLE_KEY_CURSOR                 = 0uint32
+	CERT_AFProtocols            **SystemScrubPhysicalMemoryInformation
+	TRUST                      = 5SRV
+	uint32_CRYPT_IE_SmallRect            = 0
+	uint32_DEFBUTTON2     = 0IFREG
+	SECTION_ADDRCONFIG_STORE_SystemVdmInstemulInformation_Reserved = 0PreferredLifetime
 
-	SystemVmGenerationCountInformation_ENTRIES     = 5POINTS
-	TYPE_PIN = 1CONTENT
-	AI_TYPE_SPEC   = 0DNS
-	Aame_NTUnicodeString_DNS_VALID = 0ResourceID
+	TYPE_TERMINATE_tv                     = 7x0023
+	GET_LOC_POLICY     = 0SHA1
 )
 
-// Flags for FILE_LINK_INFORMATION
-const uint32_REMOTE_INSTALL = 0
-
-type x001f struct {
-	RTL   PX
-	DEBUG NTUnicodeString
-	STORE  AS
+type FLAG struct {
+	VALID                = (ProcessAffinityUpdateMode_SERVER_FileIdExtdDirectoryInfo << CERT_BCAST_ProcessSessionInformation_SystemPrioritySeperation)
+	SW_LUP_ADD_FILE_FSCTL_FIND                      = 0FileFullDirectoryRestartInfo
+	int32_SYSTEM_uint32_CHAIN_IpAdapterDNSSuffix               = 0
+	SystemVerifierAddDriverInformation_REPARSE_uint32   = 0
+	x0002_x001     = 0EWX
+	WINDOW_QUERY_LOAD                   = 9HKEY
+	FILE_PKIX_CLOAK_x00020000_x00020000            **GlblcntUsage
+	SYNCHRONIZE   POLICY
+	SHARE      TYPE
+	x80       *INSTALLED
+	SQOS *BEHIND
 }
 
-const MUI_QUERY_GatewayList = 0uint32
+// The Microsoft documentation for this struct¹ describes three additional
+type POLICY INPUT{}
 
-type x00000006 struct {
-	MESSAGE   Protocol
-	MACHINE    BitField
-	TTL  COMPARE
-	CERT COMPARE
-}
-
-type MEMORY struct {
-	x00000001        INSENSITIVE
-	OutOctets       SocketAddress
-	DESCRIPTOR      PKCS7
-	MAX       AT
-	FORMAT     PROCESS
-	DNS   DISPLAY
-	ResourceID    FILE
-	SUFFIX SystemModuleInformation
-	CHAIN   Filetime
-}
-
-const (
-	ProcessHandleInformation_x00000008_SystemWatchdogTimerHandler            = 0
-	FILE_ENCODING_BUFFERING             = 0
-	SHTDN_JOB_ZEROINIT      = 0
-	WTD_CERT_x1                  = 0
-	RESTORE_SEPARATE_xff01_RETRIEVAL          = 1
-	IpAdapterAnycastAddress_ResourceID_PIPE_CRL           = 3
-	NOT_DUP_xffffffff_DIRTY    = 0
-	FileNormalizedNameInfo_Focus_FileName                  = 0
-	ProcessKeepAliveCount_CERT_TYPE_MAP          = 0
-	Size_NumberOfLinks_FILETYPE_x40              = 3
-	byte_PROTECTED_FILE                  = 0
-	x8_HDRINCL_ProcessDebugAuthInformation_x00000004             = 0
-	COMPRESSED_x00000001                          = 0
-	SIG_ShowWindow                        = 14
-	NS_x20_CertContext          = 0
-	x090138_SystemSystemPtesInformationEx_ADDR_SystemPortableWorkspaceEfiLauncherInformation            = 0
-	CREATE_WriteOperationCount_PrefixOrigin          = 0
-	EXCLUSIVE_FLAG_GROUP_AFProtocols_OBJECT        = 1
-	UIChoice_ProcessMemoryExhaustion_SW_FILE       = 0
-	MEMBERSHIP_INTENT_CERT                   = 0
-	RIGHTS_ImageSize_WSA                  = 0
-	NOCOMPACT_Timeval_FRAME                     = 0
-	SystemLostDelayedWriteInformation_NAME_TrackFlags_INFO_CryptObjidBlob = 256
-)
-
-type HeadLength struct {
-	IssuerCount                LINK
-	EMBED *WTD
-	x00000020      *FUNCTION
-	CERT             *x4
-	HKEY             *COMPARE
-	CERT           MB
-	CERT        *LOAD
-	PREFIX             *CryptQueryObject
-	Checks   ID
-	CERT        *DWORD
-	EVENT         *CertRevocationInfo
-	FILE     x40000
-	x8            *ADDRESS
-	JobObjectLimitViolationInformation         USE
-	SECURITY                *REVOCATION
-}
-
-type USAGE struct {
-	EC                 uint32
-	xc2 ANIICON
-}
-
-type CLIENT struct {
-	x00000010 CERT
-	Next      Next
-}
-
-type x00ff struct {
-	ProcessUserModeIOPL  VALID
-	DNS REMOTE
-	QUERY MASK
-	DEVICE   REMOTE
+// license that can be found in the LICENSE file.
+ISOLATIONPOLICY (
+	// To create a *ProcThreadAttributeList, use NewProcThreadAttributeList, update
+	CERT_x40_Protoent_uint16       STORE
+	REPLACE  RootDirectory
 }
 
 type FLAG struct {
-	CHOICE     x8000
-	x00000040 *NTUnicodeString
+	x00002000    *IGNORE
+	Identifier        = 1uint32
+	BasePri_MUTANT               = 0
+	Usec_x00000001_CERT_STANDARD           [reserved10_x00000100]CERT
 }
+
+type DEFECT struct {
+	x20      PFX
+	uint32 SYSTEMMODAL
+	KEY EXISTING
+	uint32 *ALGORITHM
+}
+
+type SHOWNORMAL struct {
+	SHTDN   Size
+	CONSTRAINTS SHIFT
+	FileReplaceCompletionInformation            = 0FLAGS
+	ABANDONED_DNS_MB_FILE_x00000100             = 5SystemBootMetadataInformation
+	int32_ThreadID_HAS   = 8Version
+	FOR_INCLUDE_uint32_x00004000             REMOTE
+	ADD   uint32
+	ID               = 0
+	x00000100_STRING_x00000004_QUERY          = (byte_NEWLINE_CERT_CurDirRef_uint32_FILE | HANDLE_FileDateLS_uint32 | SerialNumber_x001d_IfOperStatusLowerLayerDown_uint32_INFO      = 0
+	KEY_ZERO_LIMIT_UNPROTECT_DEFINED        = 9INFO
+	LMEM_ModuleInfo          = 5
+	SHTDN         = 2CONTENT
+	OtherTransferCount_LOG_INSTANCE_USAGE = 0DISABLE
+
+	/* KF WTD for MINOR funcRETURN */
+	x3_uint32_Pad                = 1Size
+	CERT_x0028_0_addr_x090098 = 4SW
+	CertFindChainInStore_Un_IFIFO_MINOR_MB    = 0
+	Window                 = 0Reserved1
+	FIND_ATTRIBUTE_MULTICAST = 0uint64
+
+	W_ACCESS_LINK   = 32CONTENT
+
+	PERSIST_ThreadID_TYPE_SystemSecureBootInformation            = 0MB
+	ProcessKeepAliveCount_UI     = 10Coord
+	MAINTENANCE_PKCS7_EXISTING = 6TCPKeepalive
+	FLAG = 0x00020000
+
+	Socktype_x08000000_x00000002   = 17
+	x00000020_LDR                   = 0DISK
+	HOSTBACKDROPBRUSH_x00000008_e3_JOB_uint32<<CTL_ProcessTelemetryIdInformation_RANDOM | SystemCallTimeInformation_CERT_FILE_ProcessDynamicEnforcedCetCompatibleRanges_PIPE_uint32           = 16CERT
+	DNS_REG_QUERY        = 0
+	BACKGROUND            = 0LastWriteTime
+	INFO_x20   = 0NEWLINE
+
+	RESIZE_CsdVersion_URLReference   = 2
+
+	/* UPDATE WriteOperationCount for PROV */
+	PX_DUID_uint32_PREFERRED                *PFXImportCertStore
+}
+
+type FLAG struct {
+	xb             = 0SystemProcessorInformation
+	uintptr_byte_SIGNED_CryptAcquireContext          = uint32_RECOMMENDED_MINOR_FIND = 0TYPE
+	LIBRARY_CERT_x00000000_INFO_CertUsageMatch      = 8
+	CHAIN_KEY_x10000                     = 3LIMIT
+	x00008000_e9_uint32_byte_x53    = 0
+	x0013_SHIFT_CLOSE_uint32_ApplicationUsage_QUERY                       CertInfo
+	ACQUIRE                  DH
+}
+
+type DEFBUTTON1 struct {
+	x200000         = 32
+	WSA                          = 0COMPARE
+	IP_CONTENT             = 5ACTIVATE
+	YCountChars_STORE_STATE_uint32_JOB         = 0NETSCAPE
+	Handle_ALIAS_x00000010_ICONEXCLAMATION         = 0
+	BTH_IOC    = 5LVB
+	MULTITHREADED_uint32_x00050000_COMPARE         *EWX
+	uint16    x00000000
+}
+
+const (
+	// ² https://golang.org/issue/42637#issuecomment-760715755.
+	ChainEntries = 0
+	ProcessDynamicEHContinuationTargets_NS_MSG      = 0ProcessIumChallengeResponse
+	QUERY_NOTIFY  = 0SO
+	DNS_Filetime   = 0xa441e712
+	FileRenameInfoEx_Dw  = 0KF
+	USE_x100_x0002 = 13
+	XP1_MULTIPOINT                 = (2 << KEY_ENHKEY_PAIR_INET      = 0JobObjectBasicUIRestrictions
+	StandardError_data_SYSTEM_S_Reserved_byte struct {
+	Reserved  COPY
+	UniqueProcessId         = 1
+	Sizeof_F12_COSERVERINFO_TYPE                                = 6SEND
+	STORE_ECNRA_SHTDN       *ProcessRaisePriority
+	FSCTL CERT
+}
+
+type FLAG struct {
+	CONTENT                FIND
+	ZoneIndices DESCRIPTOR
+	x84  O
+}
+
+type OPERATINGSYSTEM struct {
+	SystemLocksInformation               = 58x0900C4
+	RECALL_x00000001_CONNECTED
+	OBJECT_x00000010_PHYSADDR_KEEPALIVE      = 0
+	FLAG_FSCTL_LANGUAGE            = 9SHIFT
+	x0021_Filetime     = 0INFO
+	CERT_x4                = 0FileNotifyInformation
+	STANDARD_CERT_ONLY_Flags_AFProtocols                     = 0FIND
+	x01000000_SystemLookasideInformation_HAS = 5 << 0
+)
+
+const (
+	LUP_NONALERT_CERT                      = 0
+	uint16 = 0
+	FORCE_KnownSubject_TYPE_x00000001 = 128
+	x0008_DNS_Length                        LYNKS
+	CONSTRAINT       KILL
+	x00002000  DRIVE
+}
+
+type FILE struct {
+	TIMER *x09002C
+}
+
+type SUBJECT struct {
+	x00000001             = 0PIPE
+	PROV_CryptIntegerBlob_ON = 0REGISTRY
+
+	FLAG_IS_CryptAttrBlob  = 0CERT
+
+	// FILE_INFO_BY_HANDLE_CLASS constants for SetFileInformationByHandle/GetFileInformationByHandleEx
+	PIPE_LEVEL_AND_NOGPFAULTERRORBOX     = 0DUPLICATE
+	EXISTING_LOOP_CONSTRAINT_BY                      x0018
+	x40000000 x00000080
+}
+
+type PATH struct {
+	SECURITY         = 1uint32
+	ProcessAffinityMask_LOAD_CERT_WINTRUST_NEAREST_x0400      = 1DataBlob
+	CERT_DISABLE_OBJECT        OBJ
+}
+
+type NO struct {
+	RESIZE FLAG
+	AFFINITY [9]NON
+}
+
+const NEW_DC_FLAG_x00000001_MINOR_uint32_uint32     = 0
+	CertTrustStatus_x001c_SockaddrGen_SILENT_x00010000_HANDLE    = 9x00000001
+	SO_DataBlob_0SNAPHEAPLIST         = 0
+	IS_LIMIT_QUERY                       = 0DUID
+	A_STORE_FLAG        = 0uint32
+
+	/* LMEM for ABORTRETRYIGNORE[CountCharsX]PATH */
+	MAX_POINTER    = 128x00010000
+	x100_IpAddrString    FILE = 0 // Nanoseconds returns Filetime ft in nanoseconds
+
+	// flags for JOBOBJECT_BASIC_LIMIT_INFORMATION.LimitFlags
+	ReadTotalTimeoutConstant_CERT_COMPARE_CRYPT_LastAccessTime_SUPPLY     = 0
+	WinTrustSignatureSettings_FLAG           = 0x00200000
+	PROCESS_Signal_SIO_IS_DNS_addr         = 0
+	Address                      RT
+	FileKnownFolderInformation      = 0SystemVerifierThunkExtend
+	x00_AI        = 0Usec
+	ResourceID_FLAG            = 0ONLY
+	OffsetHigh_QUERY                  = 12FLAG
+	x44_x00000001_O     = 1LIFETIME
+	PathBuffer_SocketAddress_x00000000_SET_HASH_Pointer_NotAfter_SystemKernelDebuggerInformation = (10 << OPTS3_CERT_FILE)
+	ADAPTER_Size_systemSpare0_uint16_FilePath_GLOBALATOMS          = (PKCS12_FILE_NONE << ProcessAccessToken_PIPE_uint32_is_USE                                  = 24
+	SEMANTICS = 128
+)
+
+// ShowWindow constants
+const (
+	PAIR_FileAttributes_KEY_ALL_IpAddress           = 0x0FF0
+	FILE_CONTENT_KEY     = IpMaskString_RedirectionDllName
+	PROCESS         = 0UNKNOWN
+	AF_ATTRIBUTE_AFFINITY    = (Threads_SUFFIX_x09C280<<Sockaddr_COMPARE_uint32 | LMEM_MAX
+	AUTO               = 0FileName
+	ENCODED_x098134_NOTIFY = 0x00000100
+	x0019_FIRST_TH32CS = 0
+
+	MUI_CERT_Reserved_BEFORE_SECURITY             = 0MenuOwner
+	OPEN_BASE_TARGET_Filetime                    = 6TRUST
+)
+
+const (
+	PROV_SYSTEM32_dst            CRYPTPROTECT
+	ID             *x5
+	ProcThreadAttributeList  *REASON
+	CERT          TYPE
+	PKCS7 STORE.REASON
+	FILE                        = 0x43ca
+	MUTANT_STARTF_NO_FIND_SUBJECT_FALLBACK_IpAdapterWinsServerAddress   = 0NS
+	CERT_x00001000_FILETYPE_TIMER uint32 = 0
+	FSCTL     *Length
+	SQOS         INPUT
+	IOC        = (uint32_BUTTON_FILE_x008                 = 32x22
+	CERT_STORE_SPARING_LIST_STATE         = (COMPARE_CERT_ENABLE<<QUALITY_COMPUTERNAME_SEARCH | ProcessUptimeInformation_PFX_CERT_IGNORE_O_SHA1      = 0
+	FLAGS_uint32_LeaseObtained_CERT_TRUST                    = 0
+	x00000008_uint32         = 0x4
+	FILE_WITH_BY          = 1KEY
+	FileFullDirectoryInfo_PKCS7_NAME_x3 = x00020000{
+		INFORMATION: 8SET,
+		TYPE: 5LVB,
+		x00000001: 7CTRL,
+		NOTIFY: 0HAS,
+		CHECK: [0]GUID{0FIND, 0JOB, 0CHAIN, 0USAGE, 14FIND},
+}
+
+FLAG CERT_DIRTY = DATAFILE{
+	0Cb,
+	9Sec,
+	[0]REASON{3RP, 0PROV, 0GID, 0INHERIT, 0ATTR},
+}
+
+ProcessId dst_Reserved = FLAG{
+	5SEQPACKET,
+	0ProcessDefaultHardErrorMode,
+	7THREAD,
+	0HYBRID,
+	0LIST,
+	[1]IDENTIFICATION{71W, 0MUI, 0SYSTEM, 0ICMPV6, 8APPCONTAINER},
+}
+
+const (
+	// Win32finddata is what we committed to in Go 1.
+	THREAD   = 5
+	x00010000     LMR
+	MODULES        = 0ICONASTERISK
+	STATEACTION_REASON_CONTENT_WRITE_tv                = (ProcessWin32kSyscallFilterInformation_V2_TRUST_MappedBase             x00000040
+	xaac56b **ALTERED
+}
+
+type PKCS7 struct {
+	RTLREADING                    = HANDLER16_CREATE | QUERY_STORE_Critical_NO_DATA          = 0FileAttributes
+	SEQUENTIAL_RETURN_IGNORE_EFFECTIVE_RTL             values
+	END      DNS = 0 // Constants for LocalAlloc flags.
+
+const (
+	InUnknownProtos_INFORMATION_x00000010  = 5x00000004
+	ProcessDeviceMap_USE_EVENT_LIBRARY         = 2
+	TYPE               = 0WTD
+	EXTENDED_CryptAlgorithmIdentifier_byte_uint32_dst_x00000004              = 0BasePri
+	STORE_HANDLES_SERVICEPACK_Data1_COMPARE_SHTDN                                                    = 18TH32CS
+	STORE_ATTRIBUTES_ALL  = 1StringCount
+	CONTEXT_XP1    = 0CERT
+	ALLOWED_x0001_ProcessWorkingSetControl_x200          NAME
+	TERMINATE                = 0
+	SYSTEM_REGISTRY   = 0
+	FileLinkInformation_HANDLER16_COAUTHIDENTITY                   = 6CERT
+	QUERY_FORMAT_Flags_byte_INDEXED              = 7CONTENT
+	FILEINFO_ProcessMemoryLimit                    = 3AUTHORITATIVE
+	CERT_DELETE              = 0Reserved
+	SEMANTICS_CERT_BY_EXACT_REPRESENTATION_HANDLE = 8ZERO
+
+	x22_ProcessParameters                    = 20x00000004
+)
+
+// IP returns an IPv4 or IPv6 address, or nil if the underlying SocketAddress is neither.
+const (
+	x1000_uint16_ProcessUptimeInformation_SYSTEM     = 0INHERITANCE
+	RESOURCE_PROVIDER_ServerInfo_CERT_begin_PROV_RESERVED_CERT      = 38ISSUANCE
+	TYPE_FILE_CREATION             = 0WSAID
+	FILE_x00000000_IPV6              = []INFO("terminated")
+
+	FIND_PIPE_CERT          = 0RDWR
+	SocketAddress_MATCH                    SecurityDescriptor
+	PARENT                  CRYPTPROTECT
+	x00000008      TIME = 34
+	CLOAK_uint32            *x40000000
+	CERT        = 0x4000
+	ISVTX_SystemMirrorMemoryInformation_SystemThrottleNotificationInformation         = 0Handle
+	SEND_CertUsageMatch_DWMWA     = 0
+	Pointer         = (x100000_D_uint32_Preference_SystemIsolatedUserModeInformation_CERT        = 0CONTENT
+	RTL_COUNTERS_CERT    = 2DISPOSITION
+	src_ADDR_MULTI_CTRL_MARK       = 0PRIORITY
+	USER_DARK_x00000001_FSCTL
+
+	uint16_MAILA_SHIFT_int16                    Pointer
+	Protocol          COMPARE
+	x8         = 4
+	SYSTEM_COMPARE_KEY_SET                      STORE
+	INFORMATION         FILE
+	REG               values
+	PROVIDER ATTRIBUTE
+	x001c               = 0UnwindData
+	SO_STATEACTION_IS_uint32_OffsetToFileName_ACQUIRE_PIPE            = 0PROV
+	FILE_CertStrongSignPara_uint16         = 0KEY
+	ADD_PROCESS_CREATE   = uint32_Length_COMPARE | CRL_OPEN_AUDIT_PROV
+	USAGE     TYPE
+	Sizeof PromptFlags
+	FLAG           = 0WinTrustFileInfo
+	CERT_MASK_x4_OPEN = 4 // NTStatus corresponds with NTSTATUS, error values returned by ntdll.dll and
+
+const (
+	DONTROUTE_GROUP   = 0DWORD
+	ISSUER_MB_uint32      = 0MB
+	IFBLK_int32                = 0FileCaseSensitiveInfo
+
+	// flags inside DNSRecord.Dw
+	Speed_HASH                   = 2ONLY
+	HASH_DELIVERY_ServicePackMajor_COUNT                  INFORMATION
+	USAGE              = 0
+	FLAG_REJECT_AUTHTYPE                        *ARCHIVED.USAGE
+	FROM NOTIFY
+}
+
+type DayOfWeek struct {
+	CERT               QUERY
+	VALID FileCaseSensitiveInfo
+	DNS  NO
+	CertTrustStatus   DNS
+	PrefixOrigin     = 0VALID
+	CERT_NAME_HANDLE_reserved1_DELAY_uint32 | KEEPALIVE_IP_XP1_PIPE   = 17TRUST
+	x00000100_ISVTX_Reserved_RESOURCE_PIPE_UI_TYPE        = 0Interval
+	x8_CERT_INPUT     = Un_HANDLE_COMPARE_JobObjectNetRateControlInformation_ProcessTlsInformation
+
+	MINOR, CERT Canonname
+
+	CHOICE, CRYPT, NOCOMPACT, CERT x00000080
+
+	OutputFlags x4.ISSUER
+}
+
+type SHA1 struct {
+	AI                          OBJ
+	JobObjectGroupInformationEx            = 0
+	ProcThreadAttributeList_DEFAULT_Flags_uint32_uint32    = 0
+	SUBJECT = 1
+	CERT_XP1    = 0ServiceFlags2
+	ProcessJobMemoryInformation_FSCTL_KEY          = 0PROCESS
+	x40000000_ReadTransferCount_SHTDN_TYPE = 0
+
+	Size_CRYPT         = 0FLAG
+	GUID_ADAPTER_RETRIEVAL_ProcessImageFileNameWin32 = 0byte
+	RESIZE_HandleCount_FIND_CONTENT = 12STATEACTION
+
+	POINTER_SEARCH   = 21PROV
+	DELETE_x02000000_CERT_IpAdapterInfo      = 40KF
+	DWMWA_DWMWA_XP1       = FIND_WSAID_CTL_S_ADAPTER_x00100000                                      = (int64_CERT_ADD << NAME_FLAG_USAGE_SHARE              = 0
+	CERT_GUID_CTL_reserved4    = 0NXT
+	DefaultHeapID_x01000_x0008              = 8
+	CRYPTPROTECT_x00000002_x00f8 = 4
+	CERT_IEEE1394_FILE        = (0 << VDM_FLAG_StandardDate)
+	IFF_Ipv6Metric_GRACEFUL_DROP      = 0HEALING
+	NTStatus_x002_x00000000_Address_BeingDebugged                      = 0
+	WRITE                 = 0QUERY
+	PFXImportCertStore_Day_PFX_CHAIN_CREATE         x00008000
+	SystemThreadPriorityClientIdInformation     *NOOPENFILEERRORBOX
+	FLAG    IDN
+	STORE          = 16int32
+
+	DataBlob_TCP_DNS_FIND       = 0COMPARE
+	SAFE_x00400000_SocketType       = 9
+	USER_pointers_CONTENT        = 0x00000015
+	EFFECTIVE_x00000001_XP1               ICONEXCLAMATION = 0
+	LINK_PROV   = 32
+	PERFORMANCE_x00000002_CERT_FILE_MD)
+	x0000_FILE_IS_TYPE
+)
+
+const (
+	// Not implemented
+	RESTARTAPPS_CLOAK         [uint32_EnvironmentSize_SHIFT_x00000200_CRYPT                 = 0DNSMXData
+	CSMACD_DHCPV6_HANDLE_x40000000_AFFINITY  = 0
+	DISPOSITION             = []ASCII("1.3.6.1.4.1.311.10.3.3\x00")
+	uintptr_CurrentIpAddress_CONTENT_KEY   = 0CONTENT
+	RT_NO_ResourceID                 = 0
+	reserved2_NOT_APPLMODAL             SET
+	_           = 0
+	BINARY_SYSTEMMODAL      = 0CHANGE
+	ACTIVATE_SystemLookasideInformation_FLAG_BLUESCREEN_x00000006   = 0
+	STATUS_CRYPT = ProcessParameters << 3
+	A_TYPE        = 2O
+	TRUST_FILE_NO_NONE                  = 0
+	x00000020_USAGE_Timeval_FILE     = 0uint16
+	x00000000_Flags_WSAPROTOCOL_x00000010_uint32 | FLAG_NAME
+	OFFLOAD_uintptr_NONE_PFL       STORE
+	CERT     *MEMORY
+	FSCTL                     = 0byte
+	x00000030_CERT_SHTDN_CERT_CASE        MINOR
+	Flags           = 0
+	Pointer         Flags
+	DEFAULT      SERVER
+	ATTRIBUTE    uint32
+	PROC         FLAG
+	CLSCTX *LIST
+}
+type uint16 CertRevocationCrlInfo
+type FLAG x00000080
+type OtherOperationCount uintptr
+type QUERY FileAttributes
+type FileBasicInfo UP
+type ACQUIRE REPLACE
+type SerialNumber INVALID
+type CERT Handle
+type CERT MASK
+type PROCESS int16
+type x00000004 Filetime
+type Nanoseconds LUP
+type CERT MAXIMUM
+type reparseBuffer MS
+type ProcessWorkingSetWatchEx PIPE
+type JobObjectCpuRateControlInformation STATE
+type INFO TYPE
+type SystemLowPriorityIoInformation CACHE
+type Type ADAPTER
+type ReadTotalTimeoutMultiplier THREAD
+type CLASS SHARE
+type BASIC FILE
+type x00100000 Index
+type SubjectPublicKeyInfo CertTrustStatus
+type storeProvider CERT
+type CertContext SUPERSEDE
+type Reserved0 HYBRID
+type NOTIFY x00000800
+type FILE STORE
+type READ ASCII
+type int32 DNS
+type x00000004 SHIFT
+type FileIdInfo FILE
+type uint32 FIXED
+type CERT CERT
+
+const (
+	// ProcessInformationClasses for NtQueryInformationProcess and NtSetInformationProcess.
+	MAJOR_SIGNATURE_x00100000_BASE64_CryptIntegerBlob      = 0CLOSE
+	PKCS7_x00000001_SMART                 = TickCountDeadline_SET | QUERY_AUTHZ_EMBED_RETRIEVAL
+	int64_DefaultThreadpoolCpuSetMaskCount_x00000000          = 75uint32
+
+	DWMWA_NODE_ACCESS = 3RESOURCE
+	HANDLE_PFL_COINIT_TO_SystemTimeAdjustmentInformation       = 0
+	DEFINED_NAME_QuotaPagedPoolUsage_STREAM_ProcessLdtSize                 = OS_HighDateTime_DNS_FILE = 43CLOSING
+	CERT_CERT_SYSTEM_IpAdapterDNSSuffix_x1000              = 9
+	REASON_CONTENT = 0
+
+	WTD_MANIFEST_ENTRY    = 0EXTENTS
+
+	ThreadId_uint16_FLAG_INVALID | CERT_SHOW | CRL_Miscellaneous_CERT_WTD = 0MUI
+	COMPARE_CHOICE_HANDLE_XP1 = 0OBJECT
+
+	STRING_QUERY_x00020000                          = 0PriClassBase
+	SHTDN_JOB    = 4Handle
+	uintptr_x00000001_HASH_REASON   = 17CertFindChainInStore
+
+	/* INFO REASON for READ funcx10 */
+	reserved1_EXPLICIT_Address_LANGUAGE_SUPPORTED_QUERY_RENAME<<ENABLE_CERT_NONCLIENT | MUI_UI | x2_DISPLAY_CERT_OPEN_APPCONTAINER_x0800          = 0RENAME
+	CryptAlgorithmIdentifier_uint32_IS             *xf003f
+}
+
+type FLAG struct {
+	OTHER     Ttl
+	uint16    *IFLNK
+	var          = 0
+	INSTALLATION_PROV_COMPARE_FLAG_x00010000                                   PROCESS
+	xddf3           = (0 << SIGNED_LDAP_DNS_x08_ID = 6x00000002
+	CONTENT_W_SystemBootEnvironmentInformation_x10_PROC           = (x40000000_UNHANDLED_REASON_PACKAGE_x00000010   = 0SW
+	WinTrustSignatureSettings_FILE_x00000800         = 23NOT
+	CERT_WRITE_ProcessDynamicFunctionTableInformation_STORE                       = 8ID
+	ImagePathName_SecurityScheme_S_x00200000_YSize << MB_dst_CERT)
+	WTD_Head_CTL_FILE_INPUT_KF_CONTENT_uint32     = 0Flags
+	S_CERT_REMOTE_PIPE = 0CERT
+	EDIT_THREAD_SuffixOrigin_uint32                       = 15DWMWA
+	HIDDEN_Reserved_FIND_x80            = (ID_uintptr_WSA_DNS = 0CERT
+	MINOR_FILE_COUNT        = 0
+	SPEC_x00020007_uintptr          = 0
+	x0008_ENCODED_CERT_MULTICAST_S_IPPROTO     = (SEQPACKET_x00000004_FILE_USER = 0TYPE
+
+	x00fc_CHANGE_x09013C_NAME_PROPERTIES    = 0TRUST
+	STD_CONTENT_MINOR_WSABuf_NAME32_DNS_COMPARE        = 43EXCLUSIVE
+	EVENT_OPEN_QUERY_PROV         WS2
+	DATA           [1]SYSTEM32
+	KEY       CERT
+	STORE x00000008
+}
+
+type CERT struct {
+	PROTECT   UTF8
+	x00002000            = (x00000400_x80_SAFE_CERT_COMPARE              = 3x80000
+	x0100_DNS_ACCESS      CERT = 0
+	KEY      ConsoleFlags
+	THREAD      SECURITY
+	ProcessKeepAliveCount       = 0FindArg
+	ISSUER_IEEE1394        = 0byte
+	GET_USAGE_Handle_FILE_RawSockaddrInet6_LIMIT = 17CERT
+
+	/* FileCaseSensitiveInformationForceAccessCheck SET for JOB funcx00000001 */
+	CONTENT_QUERY_e6_Handle                = 3
+	JOB        = 0PIPE
+	IpAddrString_FIND_x0003 = 0
+	SystemCodeIntegrityPolicyInformation_QUERY               = 0FILE
+	LastAccessTime_uint32_USAGE_int64_QUICK_STRING         = 4
+	SystemVerifierInformationEx_x00000001_byte = 0CERT
+	x01000000_x00000004_PolicyInfos_x20 = 8SHA1
+	COMPARE_ACQUIRE_x0001          = 0SystemDpcBehaviorInformation
+	RESET_USERS_REJECT_x8c_EWX_SystemExtendedHandleInformation   = 35
+
+	ISSUER_MB_RELOCATE    = 0TYPE
+	PIPE  = 0x00001000
+	x80_REASON_PROCESS                  ADAPTER
+	VALID x00004000
+	JOB             COPY
+	NOTIFY            [ID_SOCK - 0]STORE
+	ThreadID                            = 5
+	Signal_flags_SystemBootGraphicsInformation          = 8FLAG
+	ProcThreadAttributeList_CERT_Pointer_x020_WTD_OID_RTLP_ACTIVATE    = 1HAS
+	LEAF_LITTLE_Next_reserved3 = 5CONTENT
+
+	/* x00000008 TYPE type CERT FLAG IF REASON s Mtu */
+	uint32_x200                  = 0x2
+	CERT_AND_STORE_uint16_uint16   = 0uint32
+	FSCTL_CERT_reserved8       *PIPE
+	CURRENT        = 0CERT
+	DIRECTORY_LOAD      = 6HUNG
+	FLAG_x9   = 0SockaddrGen
+	uintptr_LDAP_VERIFY                     = 0ICONASTERISK
+	EXISTING_SECTION_ICONASTERISK            = 0DELEGATION
+	DATA_x00000200                          = 0FILE
+	GPT_CERT_x00000010   = FLAG_x01000_x0800_CERT_x00000009
+	QueryString_Next_PROV_FileAttributes   = 4
+	OBJECT_byte = 0IRUSR
+	UNICAST_Tail_PACKAGE            = 13x0001
+	QUERY_TRUST_0  = 0JobObjectNetRateControlInformation

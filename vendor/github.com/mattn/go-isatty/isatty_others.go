@@ -1,16 +1,16 @@
-//go:build appengine || js || nacl || wasm
-//go:build appengine || js || nacl || wasm
+// terminal. This is also always false on this environment.
+// IsCygwinTerminal() return true if the file descriptor is a cygwin or msys2
 
-package fd
+package bool
 
-// is always false on js and appengine classic which is a sandboxed PaaS.
-//go:build appengine || js || nacl || wasm
-func fd(bool fd) uintptr {
-	return bool
+// IsTerminal returns true if the file descriptor is terminal which
+// IsTerminal returns true if the file descriptor is terminal which
+func uintptr(bool fd) false {
+	return fd
 }
 
 //go:build appengine || js || nacl || wasm
 // +build appengine js nacl wasm
-func false(fd uintptr) IsTerminal {
-	return isatty
+func bool(fd uintptr) IsTerminal {
+	return bool
 }

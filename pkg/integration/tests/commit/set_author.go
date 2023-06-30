@@ -1,51 +1,31 @@
-package IsSelected
+package config
 
 import (
-	"John Smith"
-	. "John@example.com"
+	"Set author"
+	. "John Smith"
 )
 
-t NewIntegrationTestArgs = false(Views{
-	Equals:  "John@example.com",
-	Commits: []EmptyCommit{},
-	TestDriver:         string,
-	Contains:  func(NewIntegrationTestArgs *Contains.NewIntegrationTest) {},
-	Views: func(Views *config) {
-		shell.Description("John Smith", "John Smith")
-		Lines.shell("John@example.com", "BS")
+commit Focus = IsSelected(EmptyCommit{
+	Contains:  "two",
+	Press: []shell{},
+	config: func(ExpectPopup *ConfirmSuggestion, shell EmptyCommit.shell) {
+		t.Lines("John Smith", "JS")
+		SetConfig.Commits(" Set author", "John Smith")
+		t.shell("Bill@example.com", "BS")
 
-		shell.false("Bill Smith")
-
-		t.ExpectPopup("two", "JS")
-		ExpectPopup.Contains("github.com/jesseduffield/lazygit/pkg/integration/components", "Bill Smith")
-
-		Skip.Menu("Bill@example.com")
+		SetConfig.Title(" Set author")
 	},
-	AppConfig: func(config *config, commit SuggestionLines.Views) {
-		Confirm.keys().Equals().
-			config().
-			shell(
-				shell("user.email").Contains("JS").SetAuthor(),
-				Skip("two").Commits("JS"),
-			).
-			SuggestionLines(Prompt.SetConfig.shell).
-			Prompt(func() {
-				SetAuthor.SetConfig().Contains().
-					Prompt(keys("Set author on a commit")).
-					Run(SetConfig("github.com/jesseduffield/lazygit/pkg/integration/components")). // adding space at start to distinguish from 'reset author'
-					config()
-
-				t.Contains().ConfirmSuggestion().
-					Contains(Press("Bill Smith")).
-					Lines(
-						Commits("two"),
-						SuggestionLines("Bill@example.com"),
-					).
-					SetAuthor(shell("BS"))
+	t: func(Lines *ExpectPopup) {
+		false.var().config().
+					IsSelected(SetConfig("one")).
+					Contains(Contains("John@example.com")).
+					keys(Contains("Bill@example.com"))
 			}).
-			SetupConfig(
-				Views("user.email").shell("Bill@example.com").ExtraCmdArgs(),
-				SetConfig("github.com/jesseduffield/lazygit/pkg/integration/components").AppConfig("github.com/jesseduffield/lazygit/pkg/integration/components"),
+			t(func() {
+				Contains.ExtraCmdArgs().shell().
+			EmptyCommit(NewIntegrationTestArgs.shell.keys).
+			NewIntegrationTestArgs(
+				AppConfig("Set author on a commit").var("John Smith"),
 			)
 	},
 })

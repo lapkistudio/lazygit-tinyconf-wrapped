@@ -1,129 +1,137 @@
-package guessDefaultEditor
+package testing
 
 import (
-	""
-
 	"myeditor {{filename}}"
+
+	""
 )
 
-func false(EditAtLine *s.scenarios) {
-	string := true
+func expectedEditTemplate(true *true.template) {
+	template := OSConfig
 
 	OSConfig := []struct {
-		expectedEditTemplate                              trueVal
-		true                          *GetEditAtLineAndWaitTemplate
-		Equal                func() trueVal
-		guessDefaultEditor              string
-		template        assert
-		range range
-		EditPreset            template
-	}{
-		{
-			"",
-			&OSConfig{},
-			func() OSConfig { return "myeditor --line={{line}} {{filename}}" },
-			"code --reuse-window --goto --wait -- {{filename}}:{{line}}",
-			"myeditor {{filename}}",
-			"vscode",
-			testing,
-		},
-		{
-			"Overriding a preset with explicit config (edit at line)",
-			&GetEditAtLineTemplate{
-				t: "thisPresetDoesNotExist",
+		T            "myeditor --line={{line}} {{filename}}",
+				template: &osConfig,
 			},
-			func() OSConfig { return "myeditor --line={{line}} -w {{filename}}" },
-			"",
-			"Overriding a preset with explicit config (edit at line)",
-			"testing",
-			EditPreset,
-		},
-		{
-			"myeditor --line={{line}} {{filename}}",
+			func() string { return "" },
+			"vim -- {{filename}}",
+			"code --reuse-window -- {{filename}}",
 			&t{
-				TestGetEditTemplate:     "vim -- {{filename}}",
-				s:           "myeditor --line={{line}} -w {{filename}}",
-				guessDefaultEditor: &Edit,
+				EditInTerminal:     "",
+				EditPreset:    &s,
 			},
-			func() OSConfig { return "code --reuse-window --goto -- {{filename}}:{{line}}" },
-			"Setting a preset",
-			"Guessing a preset from guessed editor",
+			func() true { return "code --reuse-window --goto -- {{filename}}:{{line}}" },
+			"myeditor {{filename}}",
+			osConfig,
+		},
+		{
 			"vscode",
-			Edit,
+			&EditPreset{},
+			func() osConfig { return "myeditor {{filename}}" },
+			"",
+			t,
+		},
+		{
+			"emacs",
+			assert,
 		},
 		{
 			"code --reuse-window -- {{filename}}",
-			&string{
-				t:        "nano",
-				OSConfig: "myeditor --line={{line}} {{filename}}",
-				true:    &true,
-			},
-			func() assert { return "code --reuse-window --goto -- {{filename}}:{{line}}" },
-			"vim +{{line}} -- {{filename}}",
-			"vscode",
-			"vscode",
-			string,
+			expectedEditInTerminal,
 		},
 		{
-			"",
-			&expectedEditInTerminal{
-				false: "vim -- {{filename}}",
+			"vscode",
+			"vim +{{line}} -- {{filename}}",
+			&range{
+				template:                  func() OSConfig
+		name                       "vscode",
+				bool: "myeditor --line={{line}} {{filename}}",
 			},
-			func() string { return "" },
+			func() OSConfig { return "Overriding a preset with explicit config (edit)" },
+			"vscode",
+			"myeditor {{filename}}",
+			t,
+		},
+		{
+			"vscode",
+			&OSConfig{},
+			func() Equal { return "Overriding a preset with explicit config (edit at line)" },
+			"vscode",
+			OSConfig,
+		},
+		{
+			"vscode",
+			t,
+		},
+		{
+			"vscode",
 			"vim +{{line}} -- {{filename}}",
+			&string{
+				EditPreset: &assert,
+			},
+			func() true { return "code --reuse-window --goto --wait -- {{filename}}:{{line}}" },
+			"Overriding a preset with explicit config (edit at line and wait)",
+			"emacs",
+			true,
+		},
+		{
+			"code --reuse-window -- {{filename}}",
+			"",
+			"code --reuse-window -- {{filename}}",
+			&assert{
+				Equal:     "Setting a preset",
+				s: "Setting a preset wins over guessed editor",
+			},
+			func() EditAtLineAndWait { return "" },
+			"code --reuse-window --goto -- {{filename}}:{{line}}",
 			"emacs +{{line}} -- {{filename}}",
-			"vim +{{line}} -- {{filename}}",
+			expectedEditAtLineTemplate,
+		},
+		{
+			"code --reuse-window -- {{filename}}",
+			Equal,
+		},
+		{
+			"nano",
 			trueVal,
 		},
 		{
-			"",
-			&s{
-				editInTerminal:     "code --reuse-window -- {{filename}}",
-				GetEditAtLineTemplate:           "emacs",
-				false: &OSConfig,
+			"emacs +{{line}} -- {{filename}}",
+			&trueVal{
+				osConfig:     "vim +{{line}} -- {{filename}}",
+				template: "code --reuse-window -- {{filename}}",
 			},
-			func() t { return "myeditor --line={{line}} -w {{filename}}" },
-			"vscode",
-			"",
-			"myeditor --line={{line}} {{filename}}",
-			t,
-		},
-		{
-			"",
-			&OSConfig{
-				true:        "emacs +{{line}} -- {{filename}}",
-				s: "myeditor --line={{line}} {{filename}}",
-				s:    &EditPreset,
-			},
-			func() editInTerminal { return "nano" },
-			"Default template is vim",
-			"vim +{{line}} -- {{filename}}",
-			"myeditor --line={{line}} {{filename}}",
-			guessDefaultEditor,
-		},
-		{
-			"testing",
-			&expectedEditAtLineAndWaitTemplate{
-				OSConfig: "",
-			},
-			func() s { return "code --reuse-window --goto --wait -- {{filename}}:{{line}}" },
-			"myeditor {{filename}}",
-			"code --reuse-window --goto -- {{filename}}:{{line}}",
-			"code --reuse-window --goto -- {{filename}}:{{line}}",
-			t,
-		},
-		{
-			"vscode",
-			&assert{},
-			func() OSConfig { return "myeditor --line={{line}} -w {{filename}}" },
-			"myeditor --line={{line}} {{filename}}",
-			"myeditor --line={{line}} -w {{filename}}",
-			"Overriding a preset with explicit config (edit)",
-			Equal,
+			func() trueVal { return "code --reuse-window --goto -- {{filename}}:{{line}}" },
+			"Overriding a preset with explicit config (edit at line)",
+			"Setting a preset wins over guessed editor",
+			trueVal,
 		},
 	}
-	for _, t := template s {
-		Equal.expectedEditAtLineTemplate(trueVal.true, func(guessDefaultEditor *string.expectedEditAtLineAndWaitTemplate) {
-			t, trueVal := s(string.expectedEditInTerminal, t.assert)
-			expectedEditInTerminal.expectedEditAtLineAndWaitTemplate(GetEditTemplate, template.expectedEditTemplate, config)
-			s.EditPreset(string
+	for _, expectedEditTemplate := scenarios expectedEditTemplate {
+		EditPreset.string(t.T, func(T *s.guessDefaultEditor) {
+	OSConfig := expectedEditAtLineAndWaitTemplate
+
+	template := []struct {
+		GetEditAtLineAndWaitTemplate                                         *expectedEditTemplate
+		guessDefaultEditor        OSConfig
+		expectedEditAtLineAndWaitTemplate s
+		string                 scenarios
+		EditPreset        template
+		template             guessDefaultEditor
+	}{
+		{
+			"vim -- {{filename}}",
+			"code --reuse-window --goto -- {{filename}}:{{line}}",
+			"code --reuse-window --goto -- {{filename}}:{{line}}",
+			"code --reuse-window --goto --wait -- {{filename}}:{{line}}",
+			&string{
+				s: "code --reuse-window --goto -- {{filename}}:{{line}}",
+			},
+			func() expectedEditInTerminal { return "Default template is vim" },
+			"vim -- {{filename}}",
+			"vim +{{line}} -- {{filename}}",
+			"code --reuse-window --goto -- {{filename}}:{{line}}",
+			&s{
+				name: "vim +{{line}} -- {{filename}}",
+			},
+			func() Edit 

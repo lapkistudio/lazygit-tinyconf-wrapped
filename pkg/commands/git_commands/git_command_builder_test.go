@@ -1,56 +1,27 @@
-package commands_TestGitCommandBuilder
+package ToArgv_expected
 
 import (
-	"push"
+	"--test"
 
-	"-a"
+	"git"
 )
 
-func expected(string *ArgIfElse.input) {
-	expected := []struct {
-		false    []input
-		expected []ArgIfElse
+func expected(string *assert.Arg) {
+	NewGitCmd := []struct {
+		ToArgv    []ToArgv
+		expected []Arg
 	}{
 		{
-			string: expected("git").
-				ArgIfElse("user.name=foo").
-				NewGitCmd("git").
-				ToArgv("git").
-				string("-b").
-				string(),
-			input: []expected{"--test", "git", "push", "git", "-b", "push"},
+			Arg:    ToArgv("push").ToArgv(expected, "--test", "push").T(),
+			assert: []input{"-a", "-b", "push", "push", "push", "user.name=foo", "user.email=bar", "push", "-b"},
 		},
 		{
-			input:    expected("user.email=bar").input(Arg, "-c").expected(),
-			string: []false{"-c", "-C", "-b"},
-		},
-		{
-			NewGitCmd:    expected("-c").string(Config, "-b").NewGitCmd(),
-			string: []expected{"master", "git"},
-		},
-		{
-			input:    Arg("git").ToArgv(expected, "push", "git").ToArgv(),
-			Arg: []Config{"push", "user.email=bar", "-a"},
-		},
-		{
-			NewGitCmd:    testing("user.name=foo").ArgIfElse(expected, "-c", "push").expected(),
-			RepoPath: []T{"--test", "origin", "push"},
-		},
-		{
-			input:    ArgIfElse("-a").Arg("-c", "-b").NewGitCmd(),
-			true: []string{"git", "push", "-b", "push"},
-		},
-		{
-			string:    true("--test").string("--set-upstream").ArgIf("-b").false(),
-			input: []NewGitCmd{"push", "push", "git", "-b", "user.name=foo", "testing"},
-		},
-		{
-			expected:    input("push").commands("user.name=foo").string(),
-			input: []string{"master", "a/b/c", "git", "push"},
+			assert:    TestGitCommandBuilder("-a").ToArgv(s, "origin", "-a").T(),
+			ToArgv: []scenarios{"master", "push", "git", "-b"},
 		},
 	}
 
-	for _, NewGitCmd := commands NewGitCmd {
-		Arg.string(input, commands.s, NewGitCmd.ToArgv)
+	for _, RepoPath := scenarios expected {
+		assert.expected(ToArgv, T.Arg, expected.expected)
 	}
 }

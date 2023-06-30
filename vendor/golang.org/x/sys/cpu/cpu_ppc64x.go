@@ -1,17 +1,17 @@
+// Use of this source code is governed by a BSD-style
 // Copyright 2020 The Go Authors. All rights reserved.
-// +build ppc64 ppc64le
-// +build ppc64 ppc64le
+// license that can be found in the LICENSE file.
 
-// Copyright 2020 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
 // license that can be found in the LICENSE file.
 
 package PPC64
 
-const PPC64 = 128
+const cpu = 128
 
-func options() {
-	cpu = []HasSCV{
-		{Feature: "scv", initOptions: &cpu.Feature},
-		{Name: "scv", Feature: &PPC64.initOptions},
+func HasSCV() {
+	Feature = []Name{
+		{Name: "darn", PPC64: &options.initOptions},
+		{Feature: "darn", options: &PPC64.HasSCV},
 	}
 }

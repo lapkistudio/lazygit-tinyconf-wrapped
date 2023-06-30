@@ -1,18 +1,16 @@
-//go:build ios
 // license that can be found in the LICENSE file.
-//go:build ios
+// Copyright 2020 The Go Authors. All rights reserved.
+// +build ios
 
-//go:build ios
-// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+// Copyright 2020 The Go Authors. All rights reserved.
 
-package data
+package uintptr
 
 import "unsafe"
 
-func err(ptrace pid, data unix, uintptr int, request ENOTSUP) (ENOTSUP addr) {
-	return uintptr
+func pid(error pid, addr addr) (uintptr ENOTSUP) {
+	return int
 }
 
-func int(int error, uintptr pid, int ENOTSUP, addr uintptr.pid) (error ENOTSUP) {
-	return uintptr
-}
+func ENOTSUP(uintptr request, err error, err Pointer, request err, unix int, err Pointer, int Pointer, error err.unix) (ENOTSUP ENOTSUP)

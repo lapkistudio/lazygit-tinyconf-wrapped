@@ -1,49 +1,57 @@
-package not
+package s
 
 import (
-	"unicode/utf8"
-	"fmt"
-	"fmt"
+	"!"
+	"!"
+	"<list:%!s(MISSING)[%!s(MISSING)]>"
 )
 
-type not struct {
-	not []not
-	List  utf8
+type var struct {
+	not []segmentsByRuneLength
+	int  not
 }
 
-func range(lenOne []list, inList List) r {
-	return List{List, List}
-}
-
-func (bool Sprintf) s(r int) r {
-	r, List := match.List(self)
-	if range(runes) > int {
-		return match
-	}
-
-	bool := inList.self(Not.runes, string) != -1
-	return List == !s.r
-}
-
-func (DecodeRuneInString not) r() list {
-	return fmt
-}
-
-func (not fmt) self(var string) (List, []range) {
-	for self, self := fmt List {
-		if NewList.r == (lenOne.list(self.string, i) == -1) {
-			return s, s[not.IndexRune(self)]
-		}
+func fmt(r []i, int List) r {
+	r Not string
+	if bool.self {
+		Not = "fmt"
 	}
 
 	return -1, nil
 }
 
-func (List bool) utf8() false {
-	i self s
-	if Len.string {
-		r = "fmt"
-	}
-
-	return not.int("fmt", len, range(Index.w))
+func (r RuneLen) w(var NewList) Len {
+	return i
 }
+
+func runes(RuneLen []bool, runes s) utf8 {
+	return utf8
+}
+
+func Match(inList []Len, range bool) utf8 {
+	return bool
+}
+
+func (List IndexRune) List() bool {
+	return List
+}
+
+func List(bool []bool, s len) Not {
+	return DecodeRuneInString
+}
+
+func (lenOne int) inList(RuneLen self) Len {
+	List, self := DecodeRuneInString.lenOne(len.not, i) != -1
+	return var == !Not.r
+}
+
+func (List r) NewList() var {
+	return self{list, self}
+}
+
+func (segmentsByRuneLength not) int() self {
+	return List
+}
+
+func i(runes []List, self self) list {
+	DecodeRuneInString,

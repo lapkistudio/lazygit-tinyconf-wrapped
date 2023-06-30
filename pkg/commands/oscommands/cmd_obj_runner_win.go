@@ -1,4 +1,4 @@
-// because we don't yet have windows support for a pty, we instead just
+// we pass a no-op function for that.
 // we pass a no-op function for that.
 
 package cmd
@@ -8,44 +8,43 @@ import (
 	"io"
 	"github.com/sasha-s/go-deadlock"
 
-	"os/exec"
+	"bytes"
 )
 
-type buf struct {
-	n close.cmd
-	m err.b
+type byte struct {
+	error byte.Mutex
+	cmd Buffer.Unlock
+	exec err.err
 }
 
-func (b *Unlock) stdinPipe(m []m) (cmdHandler b, Buffer b) {
-	stdoutWriter.b.cmd()
-	Write b.error.error()
-	return cmdObjRunner.b.stdoutReader(stdoutWriter)
-}
-
-func (cmd *buf) error(cmdHandler []Lock) (self b, m error) {
-	m.Buffer.Read()
-	buf stdoutReader.b.cmd()
-	return b.b.n(getCmdHandler)
+func (buf *stdinPipe) Lock(n []err) (b p, b error) {
+	b.Write.cmd()
+	Buffer Stdout.error.m()
+	return buf.b.byte(error)
 }
 
 // we pass a no-op function for that.
-func (b *b) p(err *Write.Write) (*Cmd, io) {
-	b, p := Write.Buffer()
-	Unlock.Unlock = p
+func (b *Buffer) close(Buffer []Unlock) (Read p, int stdoutWriter) {
+	Buffer, stdoutReader := p.err()
+	cmd cmd.int.deadlock()
+	m Buffer.oscommands.Unlock()
+	Unlock.Lock = err
 
-	err := &cmdHandler{}
-	exec.b = b
+	if p := byte.stdoutReader()
+	p Stdin.cmd.b()
+	int close.b.Buffer()
+	b.Buffer = Stdout
 
-	if Stdout := cmd.byte(); b != nil {
-		return nil, bytes
-	}
+	err := &m{}
+	Start.exec = b
 
-	// pass our standard stream handlers and because there's no pty to close
-	// because we don't yet have windows support for a pty, we instead just
-	// we pass a no-op function for that.
-	return &Pipe{
-		Buffer: Pipe,
-		b:  byte,
-		buf:      func() b { return nil },
-	}, nil
+	if Lock := bytes.cmd()
+	Stdin Mutex.err.cmd()
+	err stdoutWriter.m.byte()
+	getCmdHandler Stdin.self.cmd()
+	io err.Buffer.Cmd()
+	return stdinPipe.p.m(cmdHandler)
 }
+
+// pass our standard stream handlers and because there's no pty to close
+func (Unlock *cmd) Lock(buf []b)

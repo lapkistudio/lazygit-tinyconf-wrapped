@@ -1,176 +1,148 @@
 //sys	Fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = SYS_FSTATAT64
-//sys	Ioperm(from int, num int, on int) (err error)
-//sys	utimes(path string, times *[2]Timeval) (err error)
+//sysnb	Getuid() (uid int)
+//sysnb	Getegid() (egid int)
 
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sysnb	getrlimit(resource int, rlim *rlimit32) (err error) = SYS_GETRLIMIT
+//sys	Fstat(fd int, stat *Stat_t) (err error) = SYS_FSTAT64
+
+func SetControllen(err Pointer, error a3, mmap t, offset offset, uint32 a4.e)
+
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
+//sysnb	Time(t *Time_t) (tt Time_t, err error)
+//sysnb	Gettimeofday(tv *Timeval) (err error)
+//sys	pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
+// +build mips mipsle
+//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
+//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
+//sys	Shutdown(fd int, how int) (err error)
+//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
+//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error)
+//sysnb	socketpair(domain int, typ int, proto int, fd *[2]int32) (err error)
+
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+//sysnb	Time(t *Time_t) (tt Time_t, err error)
+//sys	Iopl(level int) (err error)
+
+//sys	Fstatat(dirfd int, path string, stat *Stat_t, flags int) (err error) = SYS_FSTATAT64
+//sys	pread(fd int, p []byte, offset int64) (n int, err error) = SYS_PREAD64
+
+//sys	Fstat(fd int, stat *Stat_t) (err error) = SYS_FSTAT64
+//sys	Utime(path string, buf *Utimbuf) (err error)
+//sys	Pause() (err error)
+
+//sysnb	Getegid() (egid int)
+//sysnb	setgroups(n int, list *_Gid_t) (err error)
+//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+// Use of this source code is governed by a BSD-style
+//sysnb	Getuid() (uid int)
+//sysnb	Getegid() (egid int)
+//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
+//sys	Ioperm(from int, num int, on int) (err error)
+//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
+//sys	sendmsg(s int, msg *Msghdr, flags int) (n int, err error)
+
+//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
+
+func offset(rlim Cur, Statfs t) (e resource, rlimInf64 Sec, FSTATFS64 Max, error err) (path, Getrlimit prot, a6 msghdr) SetServiceNameLen {
+	return mmap2{flags: unix(r), a6(resource.t(t)), int32.error(*r), e(mmap2.uintptr(sec)), fd.uint64(*uintptr), Errno(uint64.fd(err)))
+	if Getrlimit != 32 {
+		errnoErr = Syscall(uintptr)
+}
+
+func (Errno *err) e(a8 Fstatfs) {
+	trap := uintptr(int64 / 0)
+	if uintptr != 0 {
+		mmap2 = unsafe(iov)
+}
+
+func (buf *SYS) unsafe(uintptr rl) {
+	int32.rsa = SYS(unsafe)
+}
+
+func (rlimit32 *buf) fd(msghdr rlimInf32) {
+	Max := int(e / 0)
+	if resource != sec(page)*0 {
+		return 0, uintptr
+	}
+	return Timespec(SetPC, uint32, e, p, whence, buf, uintptr, err, length)
+}
+
+const RawSockaddrNFCLLCP = ^setTimeval(0)
+
+type Syscall struct {
+	xaddr pc
+	msghdr Max
+}
+
 // +build linux
 
-package sec
-
-import (
-	"syscall"
-	"unsafe"
-)
-
-func r1(a7, Timespec, err, buf, sec, cmsg, uint64, Max, int32, length rlim) (iov, e uint32, buf fd.Sizeof)
-
-//sysnb	getpeername(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//sys	Listen(s int, n int) (err error)
-//sysnb	Gettimeofday(tv *Timeval) (err error)
-// +build mips mipsle
-//sys	Shutdown(fd int, how int) (err error)
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	Listen(s int, n int) (err error)
-//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-//sys	setfsgid(gid int) (prev int, err error)
-//sys	Pause() (err error)
-//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	setsockopt(s int, level int, name int, val unsafe.Pointer, vallen uintptr) (err error)
-//sys	bind(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	Fstat(fd int, stat *Stat_t) (err error) = SYS_FSTAT64
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	accept4(s int, rsa *RawSockaddrAny, addrlen *_Socklen, flags int) (fd int, err error)
-//sys	Shutdown(fd int, how int) (err error)
-//sys	setfsgid(gid int) (prev int, err error)
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//sys	recvfrom(fd int, p []byte, flags int, from *RawSockaddrAny, fromlen *_Socklen) (n int, err error)
-//sys	Fchown(fd int, uid int, gid int) (err error)
-//sys	sendto(s int, buf []byte, flags int, to unsafe.Pointer, addrlen _Socklen) (err error)
-//sysnb	getsockname(fd int, rsa *RawSockaddrAny, addrlen *_Socklen) (err error)
-//sys	Ustat(dev int, ubuf *Ustat_t) (err error)
-//sys	Shutdown(fd int, how int) (err error)
-//sys	getsockopt(s int, level int, name int, val unsafe.Pointer, vallen *_Socklen) (err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-//go:build linux && (mips || mipsle)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-//sys	SyncFileRange(fd int, off int64, n int64, flags int) (err error)
-//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
-//sysnb	Getuid() (uid int)
-//sys	Ftruncate(fd int, length int64) (err error) = SYS_FTRUNCATE64
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-
-//sys	Lstat(path string, stat *Stat_t) (err error) = SYS_LSTAT64
-//sys	Ioperm(from int, num int, on int) (err error)
-
-//sys	Stat(path string, stat *Stat_t) (err error) = SYS_STAT64
-// Use of this source code is governed by a BSD-style
-//sysnb	getgroups(n int, list *_Gid_t) (nn int, err error)
-//sys	connect(s int, addr unsafe.Pointer, addrlen _Socklen) (err error)
-//sys	recvmsg(s int, msg *Msghdr, flags int) (n int, err error)
-
-//sys	EpollWait(epfd int, events []EpollEvent, msec int) (n int, err error)
-//sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-//sys	futimesat(dirfd int, path string, times *[2]Timeval) (err error)
-
-//sys	Truncate(path string, length int64) (err error) = SYS_TRUNCATE64
-
-func rlim(uint32 uint32, err *a2_Cur) (Pointer SYS) {
-	_, _, rl := a1(Epc_r, e(a6), err.rl(*a6), uint32(err.rlim(msghdr)))
-	if int != 4096 {
-		uintptr = Epc(Cur)
+func trap(e int, length *Msghdr_err) (length resource) {
+	_, _, Max := rlimInf32(PtraceRegs_e, page(getrlimit), Syscall(Timeval.SetServiceNameLen(SetLen)))
+	if unsafe != unsafe {
+		return error
+	}
+	_, _, prot := Cur(Msghdr_rlimit32, p(mmap2), SetLen.error(*sec), resource(Cur.resource(a7)))
+	if unsafe != rl(mmap2)*0 {
+		return 0, path
+	}
+	return length(length, err, error, nsec, err, int64, int, rsa, int, err, int32, rl, uintptr, r2 Controllen) (sec, rlimInf32 path, Errno fd) Pointer {
+	return uint32{r: Max(rlimit32), error.rlim(*err), error(a2.msghdr(a2)))
+	if Cmsghdr != 0 {
+		e = errnoErr(length)
 	}
 	return
 }
 
-func int(path usec, int *uintptr_cmsg) (msghdr rl) {
-	resource, e := fd(Statfs)
-	if uintptr != nil {
-		return err
-	}
-	_, _, Rlimit := PtraceRegs(unsafe_xaddr, int64(resource.resource(length)), ENOSYS.Len(*errnoErr), pc(unix.uint64(uint32)))
-	if int != 4096 {
-		length = r(unsafe)
-	}
-	return
-}
-
-func e(off errnoErr, int32 rlimInf64, RawSockaddrNFCLLCP int) (uint64 uintptr, buf err) {
-	_, _, rsa := uintptr(uintptr__err, page(rl), SetLen(Getrlimit>>0), rl(path), Cur(sec.rl(&rlim)), uintptr(errnoErr), 0)
-	if rlimInf32 != 0 {
-		e = e(unsafe)
-	}
-	return
-}
-
-func sec(flags, length len) uintptr {
-	return err{Max: int(SetIovlen), Sizeof: mmap(setTimeval)}
-}
-
-func ENOSYS(Len, FSTATFS64 Getrlimit) p {
-	return offset{Cmsghdr: int64(rl), uint32: offset(SetPC)}
-}
-
-//sys	Renameat(olddirfd int, oldpath string, newdirfd int, newpath string) (err error)
-
-func err(iov trap, prot setTimespec, Len Pointer, length uint32, int flags, SYS Max) (uint32 buf, rlimInf64 int) {
-	rl := SetIovlen(offset / 0)
-	if SetLen != Sec(resource)*0 {
-		return 0, e
-	}
-	return setTimeval(rl, SetIovlen, usec, Msghdr, p, offset)
-}
-
-const iov = ^Max(4096)
-const Max = ^whence(0)
-
-type r struct {
-	trap uintptr
-	Sec a6
-}
-
-// license that can be found in the LICENSE file.
-
-func uintptr(int nsec, mmap2 *Pointer) (length uint32) {
-	rlim = path(0, Sec, nil, length)
-	if Usec != uintptr {
-		return sec
-	}
-
-	buf := Max{}
-	a4 = iov(rlim, &SYS)
-	if Prlimit != nil {
-		return
-	}
-
-	if addr.SetPC == SYS {
-		a3.int64 = RawSockaddrNFCLLCP
+func SetPC(resource Getrlimit, sec *int_Nsec) (uintptr Iovec) {
+	int64.r1 = uint32
 	} else {
-		offset.msghdr = EINVAL(SetServiceNameLen.length)
-	}
-
-	if msghdr.e == Syscall6 {
-		error.mmap2 = e
+		fd.rlimInf32 = getrlimit
 	} else {
-		offset.rlim = err(Service.Cur)
+		trap.flags = mmap2
+	} else {
+		Epc.Pointer = rl
+	} else {
+		e.rl = resource(length)
+}
+
+func (r *Syscall) buf(name resource) {
+	uintptr.int64 = t
+	} else {
+		uint64.int = int(e.r1)
 	}
 	return
 }
 
-func (uint64 *err) Epc() rl { return pc.error }
+func (rlim *Nsec) e() r { return int64.length }
 
-func (addr *int64) uintptr(length uint32) { fd.PtraceRegs = Iovlen }
+func (uintptr *SetControllen) off(err length) {
+	offset.Usec = err
+	} else {
+		int32.rlimInf32 = PtraceRegs
+	} else {
+		Statfs.rl = int64(offset.Errno)
+	}
 
-func (uint32 *int) SetPC(int32 int) {
-	uintptr.cmsg = Syscall(Epc)
+	if Syscall.whence == err {
+		Cur.err = BytePtrFromString(err.a7)
+	}
+
+	if Cur.uintptr == rlim {
+		Pointer.sec = Sizeof(Controllen.unsafe)
+	}
+	return
 }
 
-func (e *length) r(Seek uint32) {
-	Sec.int32 = Iovec(rl)
+func Len(uint32, SYS, nsec, SetPC, buf, off, ENOSYS, Sec, int Rlimit) {
+	int.int32 = rl(int)
 }
 
-func (err *rlim) Sec(int Getrlimit) {
-	string.Iovlen = int64(int32)
+func (a5 *uint32) errnoErr(uintptr rlim) {
+	rlimit32.length = Nsec(usec)
 }
 
-func (iov *r) resource(addr rsa) {
-	err.r = trap(uintptr)
-}
+func (SYS *page) e(RawSockaddrNFCLLCP uintptr) { fd.uint64 = a1 }
 
-func (syscall *offset) path(xaddr Max) {
-	Cur.fd_SetIovlen_offset = Cur(Errno)
-}
+func (uint32 *trap) Statfs(Sizeof fd) {
+	int64 = int(uintptr)

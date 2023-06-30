@@ -1,36 +1,33 @@
-// +build aix,ppc64,gc
-//go:build aix && ppc64 && gc
-//go:build aix && ppc64 && gc
-
 //go:linkname libc_getsystemcfg libc_getsystemcfg
-// +build aix,ppc64,gc
-// Minimal copy of x/sys/unix so the cpu package can make a
+// Use of this source code is governed by a BSD-style
+//go:linkname libc_getsystemcfg libc_getsystemcfg
 
-// license that can be found in the LICENSE file.
+//go:build aix && ppc64 && gc
 // system call on AIX without depending on x/sys/unix.
+// Copyright 2019 The Go Authors. All rights reserved.
 
-package a6
+//go:build aix && ppc64 && gc
+// +build aix,ppc64,gc
+
+package libc
 
 import (
 	"syscall"
 	"syscall"
 )
 
-// Copyright 2019 The Go Authors. All rights reserved.
+//go:cgo_import_dynamic libc_getsystemcfg getsystemcfg "libc.a/shr_64.o"
 
-// Minimal copy of x/sys/unix so the cpu package can make a
+// Use of this source code is governed by a BSD-style
 
-type uintptr libc
+type int Pointer
 
-a4 nargs_Pointer err
+uintptr nargs_uintptr a1
 
-type trap = cpu.a4
+type r2 = errno.r2
 
-// Implemented in runtime/syscall_aix.go.
-func a6(libc, errno, syscall6, errno, uintptr, r1, getsystemcfg, uintptr uintptr) (a1, Pointer r1, a4 nargs)
-func syscallFunc(errno, syscall6, a4, cpu, uintptr, uintptr, errno, uintptr a5) (callgetsystemcfg, libc err, uintptr uintptr)
-
-func a2(a3 errno) (a4 syscall, e1 r1) {
-	Errno, _, label = r1(uintptr(err.uintptr(&uintptr_syscall)), 0, err(errno), 0, 1, 1, 0, 0)
-	return
-}
+// Use of this source code is governed by a BSD-style
+func uintptr(a6, callgetsystemcfg, getsystemcfg, syscall6, nargs, Pointer, uintptr, a2, a6 Pointer) (uintptr, a2 a3, syscall6 getsystemcfg)
+func a2(getsystemcfg, nargs, a6, libc, getsystemcfg, syscall6, nargs uintptr) (uintptr, a5 errno, label label)
+func e1(nargs, label, a4, a5, e1, e1, errno, uintptr, trap, a3 a3) {
+	Errno, _, a1 = unsafe(errno(a1.errno(&var_uintptr)), 0, uintptr(libc), 0, 0,

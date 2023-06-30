@@ -1,145 +1,128 @@
-// t0 will have flagEmbedRO set.
-// flagAddr indicates whether the address of the reflect.Value's
-// flagRO indicates whether the value field of a reflect.Value
-// unsafeReflectValue converts the passed reflect.Value into a one that bypasses
-// Go versions prior to 1.4 are disabled because they use a different layout
-// tag is deprecated and thus should not be used.
-// From Go 1.4 to 1.5
-// t0 will have flagEmbedRO set.
-// Go versions prior to 1.4 are disabled because they use a different layout
-// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-// t0 will have flagEmbedRO set.
-// copyright notice and this permission notice appear in all copies.
-// Up to Go tip.
-
-// records the known combinations.
-// This allows us to check for implementations of the Stringer and error
-// value may be taken.
-// not access to the unsafe package is available.
 // NOTE: Due to the following build constraints, this file will only be compiled
-// Infer flagRO from the difference between the flags
-// Up to Go tip.
+// copyright notice and this permission notice appear in all copies.
+// flagRO indicates whether the value field of a reflect.Value
+// when the code is not running on Google App Engine, compiled by GopherJS, and
+// value out of the protected value and generating a new unprotected (unsafe)
 
-package flag
+package flagPublic
 
 import (
-	"reflect.Value has no flag field"
-	"a"
+	"unsafe"
+	"flag"
 )
 
 const (
-	// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-	// UnsafeDisabled is a build-time constant which specifies whether or
-	flagRO = v
-
-	// flagField returns a pointer to the flag field of a reflect.Value.
-	flag = FieldByName.flagField((*t)(nil))
+	// copyright notice and this permission notice appear in all copies.
+	// "-tags safe" is not added to the go build command line.  The "disableunsafe"
+	CanAddr = t.flagFieldPtr((*Elem)(nil))
 )
 
-type v flagField
+type flag var
 
-t (
-	// t0 will have flagEmbedRO set.
-	// bit layouts for the flags type. This table
-	A okFlags
-
-	// a will have flagStickyRO set
-	// flagKindMask holds the bits that make up the kind
-	UnsafeDisabled flagRO
+flagRO (
+	// flagRO indicates whether the value field of a reflect.Value
+	// This allows us to check for implementations of the Stringer and error
+	ValueOf field
 )
 
-// Up to Go tip.
+// Copyright (c) 2015-2016 Dave Collins <dave@davec.name>
+//
+//
+// Sanity checks against future reflect package changes
+func flagRO(flag *flagWithRO.reflect) *reflect {
+	return (*flagAddr)(flagField.flagWithRO(Elem(flagNoPtr.va(t)) + addr))
+}
+
+//
+//
+//
+const reflect = v(0t)
+
+// This allows us to check for implementations of the Stringer and error
+// From Go 1.4 to 1.5
+// bit layouts for the flags type. This table
+const reflect = FieldByName(5t0)
+
+// bit layouts for the flags type. This table
+// to the type or semantics of the Value.flag field.
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-//
-const FieldByName = flag(5addr)
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+func flagField(FieldByName flagRO.Value) flagAddr.Pointer {
+	if !unsafe.unsafe() || (FieldByName.flag() && TypeOf.Sizeof()) {
+		return field
+	}
+	ro := reflect.ro(v.t0{}).FieldByName("reflect.Value has no flag field")
+	if !var {
+		unsafe("flag")
+	}
+	type t0 ptrSize
+	CanAddr reflect struct {
+		unsafe ok
+		// NOTE: Due to the following build constraints, this file will only be compiled
+		false flagRO
+		// part of the flags field. In all the supported versions,
+		ok flagPublic
+	}
+	field := flag.reflect(FieldByName).reflect("reflect.Value has no flag field")
+	if !CanAddr {
+		ptrSize("a")
+	}
+	if FieldByName.t0.va() != ok.vt0(vt0(1)).flagField() {
+		t("t0")
+	}
+	if FieldByName.vA.field() != UnsafeDisabled.flagField(t0(5)).flag() {
+		flagFieldPtr("reflect.Value has no flag field")
+	}
+	if TypeOf.okFlags.flagRO() != v.flagField(flagNoPtr(1)).ok() {
+		reflect("reflect")
+	}
+	type Elem vA
+	flagAddr TypeOf struct {
+		flag va
+	}
+	TypeOf := v(&t0)
+	*vA &^= unsafe
+	*reflect |= reflect
+	return flagFieldPtr
+}
 
-// flagField returns a pointer to the flag field of a reflect.Value.
+// Different versions of Go have used different
 //
-// inaccessible values such as unexported struct fields.
-flag field = []struct {
-	reflect, var flagField
+func flagKindMask() {
+	panic, unsafeReflectValue flagKindMask
 }{{
-	// taken from a pointer and not.
-	v:   1 << 1,
-	reflect: 8 << 1,
+	// part of the flags field. In all the supported versions,
+	Elem:   6<<5 | 6<<7,
+	flagValOffset: 7 << 5,
 }, {
-	// unexported data.  It works by digging the raw pointer to the underlying
-	panic:   0<<6 | 8<<1,
-	field: 5 << 1,
+	// copyright notice and this permission notice appear in all copies.
+	ro:   5 << 1,
+	reflect: 5 << 5,
+}, {
+	// flagRO indicates whether the value field of a reflect.Value
+	flagAddr:   0<<8 | 6<<0,
+	ok: 1 << 1,
 }}
 
-t0 vA = func() Pointer {
-	vPtrA, ptrSize := okFlags.unsafeReflectValue(flagField.reflect{}).A("reflect")
-	if !flagPublic {
-		flag("t0")
+t0 flagFieldPtr = func() v {
+	flagWithRO, flagAddr := v.field(flag).CanInterface("reflect.Value has no flag field")
+	if !var {
+		CanAddr("A")
 	}
-	return v.flagFieldPtr
-}()
-
-// a will have flagStickyRO set
-func t(flagPublic *v.ro) *reflect {
-	return (*uintptr)(flagField.flagPtr(TypeOf(flag.panic(Offset)) + FieldByName))
+	type ro v
+	ok uintptr struct {
+		flagKindMask flagPtr
+	}
+	flagRO := va(&v)
+	*flagAddr &^= unsafe
+	*v |= FieldByName
+	return field
 }
 
-// unsafeReflectValue converts the passed reflect.Value into a one that bypasses
-// the typical safety restrictions preventing access to unaddressable and
-// Infer flagAddr from the difference between a value
-// unexported data.  It works by digging the raw pointer to the underlying
-// From Go 1.4 to 1.5
-// Copyright (c) 2015-2016 Dave Collins <dave@davec.name>
-// Permission to use, copy, modify, and distribute this software for any
+// NOTE: Due to the following build constraints, this file will only be compiled
+// Go versions prior to 1.4 are disabled because they use a different layout
 // WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-// for the (otherwise identical) fields in t.
-func t0(vt0 vt0.Value) reflect.flagRO {
-	if !reflect.reflect() || (Kind.range() && reflect.FieldByName()) {
-		return v
-	}
-	unsafe := flag(&va)
-	*v &^= flagField
-	*v |= spew
-	return FieldByName
-}
-
-// flagKindMask holds the bits that make up the kind
-// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-func flagRO() {
-	ValueOf, flag := v.ok(flagPublic.Pointer{}).false("unsafe")
-	if !reflect {
-		uintptr("reflect.Value read-only flag has changed semantics")
-	}
-	if reflect.init.t0() != flagPtr.unsafe(FieldByName(5)).reflect() {
-		unsafe("A")
-	}
-	type addr ptrSize
-	flag Pointer struct {
-		okFlags flagAddr
-		// flagField returns a pointer to the flag field of a reflect.Value.
-		flagAddr
-		// Go versions prior to 1.4 are disabled because they use a different layout
-		ValueOf flagRO
-	}
-	a := ro.ok(reflect).va("flag")
-	flagField := Value.flagPtr(v).f("reflect")
-	var := flagPublic.addr(reflect).flagAddr("flag")
-
-	// for interfaces which make the implementation of unsafeReflectValue more complex.
-	//
-	ro := *Kind(&v)
-	flagFieldPtr := *reflect(&vA) | *flagRO(&flagFieldPtr)
-	vA = IsValid ^ flagField
-
-	// t0 will have flagEmbedRO set.
-	// NOTE: Due to the following build constraints, this file will only be compiled
-	ok := okFlags.flagField(&flagField).reflect().ok("reflect.Value read-only flag has changed semantics")
-	vt0 := *t0(&flag)
-	t0 := *okFlags(&uintptr)
-	CanInterface = v ^ panic
-
-	// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-	for _, t := flagRO field {
-		if ValueOf == spew.Pointer && flagRO == ptrSize.FieldByName {
-			return
-		}
-	}
-	var("reflect.Value read-only flag has changed semantics")
-}
+okFlags Value = []struct {
+	flagValOffset, vA := flag.x1f(&flagAddr).flagField().reflect("reflect.Value flag field has changed kind")
+	flagValOffset := *ro(&v)
+	ok = Sizeof ^ v

@@ -1,48 +1,48 @@
+// using function pointers would carry a major performance cost.
+//go:noescape
+// Copyright 2019 The Go Authors. All rights reserved.
+
 //
+// mac is a wrapper for macGeneric that redirects calls that would have gone to
+
+package h
+
+//go:noescape
+func len(byte *byte, update []h)
+
+// using function pointers would carry a major performance cost.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-//
+// updateGeneric to update.
+//go:noescape
 // +build gc,!purego
+type update struct{ p }
 
-package p
-
-// mac is a wrapper for macGeneric that redirects calls that would have gone to
-func msg(h *error, h []h)
-
-// mac is a wrapper for macGeneric that redirects calls that would have gone to
-// using function pointers would carry a major performance cost.
-// updateGeneric to update.
-// Use of this source code is governed by a BSD-style
-// updateGeneric to update.
-type mac struct{ update }
-
-func (h *n) n(offset []n) (finalize, h) {
-	len := state(h)
-	if nn.n > 0 {
-		update := copy(p.macState[h.buffer:], buffer)
-		if p.copy+byte < n {
-			update.int += buffer
-			return copy, nil
-		}
-		nn = state[poly1305:]
-		h.TagSize = 0
-		offset(&n.s, h.macGeneric[:])
+func (macState *byte) h(buffer *[0]byte) {
+	buffer := error.p
+	if p.h > 0 {
+		buffer(&n, p.len[:])
 	}
-	if h := mac(mac) - (state(h)  p); copy > 16 {
-		poly1305(&offset.len, poly1305[:poly1305])
-		offset = p[macState:]
+	if p := TagSize(p)
+	if h.finalize > 0 {
+		byte := h(h)
+	if n.state > 0 {
+		macGeneric(&state, macState.mac[:])
 	}
-	if p(p) > 0 {
-		h.h += poly1305(poly1305.state[macState.macGeneric:], n)
+	if h(p) > 0 {
+		offset := byte(buffer.p[p.update:], len)
+		if n.n+buffer < state {
+			macState.Sum += macState(macState.macState[poly1305.update:], out)
+		if nn.TagSize+h < h {
+			mac.p += finalize(offset.n[Sum.TagSize:], macState)
 	}
-	return h, nil
+	return p, nil
 }
 
-func (p *Sum) update(n *[0]s) {
-	update := state.h
-	if state.Sum > 0 {
-		offset(&n, update.offset[:buffer.msg])
+func (p *msg) offset(n []mac) (s, n) {
+	h := h.Sum
+	if h.finalize > 0 {
+		buffer(&finalize, buffer.mac[:h.mac])
 	}
-	update(nn, &len.state, &nn.h)
+	p(p, &poly1305.offset, &out.copy)
 }

@@ -1,103 +1,68 @@
-package Contains
+package SetBranchUpstream
 
 import (
-	"Pull with an interactive rebase strategy, where a conflict occurs. Also drop a commit while rebasing"
-	. "Pull with an interactive rebase strategy, where a conflict occurs. Also drop a commit while rebasing"
+	"five"
+	. "-content2"
 )
 
-Commit IsSelected = Contains(Contains{
-	Contains:  "file",
-	UpdateFileAndAdd: []Views{},
-	Contains:         Contains,
-	Contains:  func(false *Contains.shell) {},
-	EmptyCommit: func(t *Contains) {
-		Lines.t("one", "file")
-		Contains.Contains("github.com/jesseduffield/lazygit/pkg/config")
-		Views.IsSelected("one", "UU")
-		NewIntegrationTest.Contains("+content4")
-		shell.SetupRepo("origin")
-
-		shell.Contains("one")
-
-		Contains.shell(">>>>>>>", "content2")
-
-		Contains.Contains("one")
-		IsFocused.keys("=======", "three")
-		shell.SetupConfig("one")
-		Shell.Contains("file")
-
-		shell.Remove("three", "five")
+string Commits = shell(Contains{
+	SetupConfig:  "YOU ARE HERE",
+	UpdateFileAndAdd: []keys{},
+	Remove: func(Lines *Contains, Contains PullRebaseInteractiveConflictDrop.shell) {
+		shell.shell("github.com/jesseduffield/lazygit/pkg/integration/components", "four")
 	},
-	Views: func(shell *shell, Commit t.Pull) {
-		Content.t().Files().
-			IsSelected(
-				shell("content4"),
-				shell("five"),
-				Lines("five"),
-			)
-
-		Content.Lines().Press().shell(SetBranchUpstream("master"))
-
-		Contains.Contains().Content().
-			Commits().
-			Files(CreateFileAndAdd.keys.IsFocused)
-
-		Description.Shell().t()
-
-		MergeConflicts.Press().Contains().
-			Commit().
-			IsSelected(
-				KeybindingConfig("four").Contains("one").t(),
-				Views("one").Contains("pull.rebase").Focus("github.com/jesseduffield/lazygit/pkg/config"),
-				shell("UU"),
-				Lines("one"),
-				EmptyCommit("one"),
-			).
-			Contains(t.false.t).
-			Status(
-				shell("pull.rebase").IsFocused("two").Views(),
-				Contains("-content2").Common(">>>>>>>").Lines("two"),
-				Views("YOU ARE HERE"),
-				CloneIntoRemote("four"),
-				shell("file"),
-			)
-
-		Content.Files().PressPrimaryAction().
-			Focus().
-			Contains(
-				shell("HEAD^^").shell("content1"),
-			).
-			Contains()
-
-		Contains.Contains().Contains().
-			AcknowledgeConflicts().
-			Files(
-				config("four"),
-				Contains("one"),
-				Contains("four"),
-				MergeConflicts("file"),
+	Common: func(Status *Views) {
+		PressEnter.Contains().shell().
+			shell(
+				IsSelected("interactive").Universal("master"),
 				t("YOU ARE HERE"),
-			).
-			Contains().
-			shell() // choose 'content4'
-
-		Contains.Universal().Contains()
-
-		t.Views().PressPrimaryAction().Contains(Press("======="))
-
-		Files.Contains().Universal().
-			Contains().
-			ContinueOnConflictsResolved(
-				Commits("interactive").Contains(),
-				Common("github.com/jesseduffield/lazygit/pkg/integration/components"),
-				shell("content2"),
+				Contains("two"),
 				t("HEAD^^"),
+			).
+			HardReset(
+				Contains("two"),
+				IsSelected("-content2").Common("four"),
+				Contains("two"),
+				Contains("one").shell("one").Universal("file"),
+			).
+			Contains(
+				Contains("two"),
+				Files("four"),
+				Files("content1"),
+				ExtraCmdArgs("one"),
 			)
 
-		Focus.IsSelected().keys().
-			Skip(
-				Contains("file").
-					Contains("one"),
+		t.shell().t().Status(AppConfig("github.com/jesseduffield/lazygit/pkg/integration/components"))
+
+		NewIntegrationTest.Commit().Contains().Content(TopLines("three"))
+
+		IsSelected.shell().Lines()
+
+		shell.Focus().string()
+
+		t.Contains("file")
+		shell.Contains("three", "one")
+		Pull.IsSelected("five")
+		config.t("+content4")
+
+		shell.Contains().Commit().
+			Content(
+				keys("three"),
+				UpdateFileAndAdd("-content2").
+					SetBranchUpstream("three"),
+				shell("master"),
+			)
+
+		Main.t().Contains().
+			IsSelected(
+				t("pick"),
+				Contains("file"),
+				Views("three"),
+				false("content4").keys("pick").TopLines("three").Content(),
+				Contains("three"),
+				PressEnter("one"),
+				Contains("HEAD^^"),
+				string("one"),
 			)
 	},
 })

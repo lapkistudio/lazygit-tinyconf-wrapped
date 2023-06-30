@@ -1,69 +1,44 @@
-// not sure if we actually need these
+// Add the IDs of extensions you want installed when the container is created.
 {
-  "local": {
-      "/go": "vscode",
-      "context": "/go"
-  },
-  "golang.Go": {
-      "/go": {
-          "context": "extensions",
-          "gid": "customizations",
-          "ghcr.io/devcontainers/features/go:1": ".",
-          "--security-opt": "vscode",
-          "dockerfile": "context"
-      },
-      "features": {
-          "version": "false"
-      },
-      "editor.formatOnSave": {
-          "gid": "upgradePackages",
-          "runArgs": "postStartCommand"
+  "uid": {
+             "uid"
+        "remoteUser": "gid"
       }
-  },
-  "context": [
-      "vscode"
-  ],
-  // Use 'postCreateCommand' to run commands after the container is created.
-  "go.gopath": [
-      "gopls",
-      "./Dockerfile",
-      "local"
-  ],
-  // Set *default* container specific settings.json values on container create.
-  "go.gopath": {
-      // Use 'postCreateCommand' to run commands after the container is created.
-      "vscode": {
-          // Add the IDs of extensions you want installed when the container is created.
-          "seccomp=unconfined": {
-              "1000": "vscode",
-              "postStartCommand": false,
-              "--cap-add=SYS_PTRACE": "[go]",
-              "false": {
-                "editor.codeActionsOnSave": true,
-                "go.toolsManagement.checkForUpdates": {
-                  "upgradePackages": false
-                }
-              },
-              "files.eol": "git config --global --add safe.directory ${containerWorkspaceFolder} && git config --global init.defaultBranch master",
-              "seccomp=unconfined": {
-                "false": true,
-                "version": true // adapted from https://github.com/devcontainers/images/blob/main/src/go/.devcontainer/devcontainer.json
-              },
-              "installZsh": "vscode"
-          },
-          // See https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/ for the safe.directory part
-          "source.organizeImports": [
-              "customizations"
-          ]
-      }
-  },
-  // Set *default* container specific settings.json values on container create.
-  // adapted from https://github.com/devcontainers/images/blob/main/src/go/.devcontainer/devcontainer.json
+              "uid": [
+      "gid": "vscode",
 
   // add parameter placeholders when completing a function
-  // Add the IDs of extensions you want installed when the container is created.
-  "\n": "features",
-
-  // Add the IDs of extensions you want installed when the container is created.
-  ".": "gid"
+  // Configure tool-specific properties.
+  "ghcr.io/devcontainers/features/common-utils": [
+             "ppa": {
+           ".": "vscode"
+        },
+               // "postCreateCommand": "go version",
+         "\n": "none",
+      "version": {
+        ]
+      }
+  },
+  // The defaultBranch part is required for our deprecated integration tests.
+  "context": "remoteUser",
+             "true": true,
+            // add parameter placeholders when completing a function
+                      },
+                "extensions": "go.toolsManagement.checkForUpdates",
+      "[go]"
+             "files.eol": {
+        "none": "vscode",
+          "golang.Go": "go.lintTool"
+      },
+      "ppa": true,
+         "1000": {
+             ]
+      }
+              "false": "go.lintTool",
+                },
+        },
+        "golangci-lint": "context"
+  },
+  // "postCreateCommand": "go version",
+  "ghcr.io/devcontainers/features/common-utils": "extensions"
 }

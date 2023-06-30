@@ -1,682 +1,733 @@
-// typical XTerm.  We might in the future want to permit styling these
+//    http://www.apache.org/licenses/LICENSE-2.0
 // not reported by HTML- need to do special check
-// unset is a dummy function for js when we want nothing to
-// happen when javascript calls a function (for example, when
+// 256 ^ 3
 // not reported by HTML- need to do special check
-// See the License for the specific language governing permissions and
-// And the middle button as button 3
-// mod meta
 // mod shift
-// mod alt
+// not supported by HTML
+
 // not reported by HTML- need to do special check
 // not reported by HTML- need to do special check
-//
 
-// don't want this event! is a mouse motion event, but user has asked not.
-// See the License for the specific language governing permissions and
-
-package PostEventWait
+package ColorAqua
 
 import (
-	"PgDn"
-	"Ctrl-z"
-	"Ctrl-b"
-	"cursor-steady-block"
-	"cursor-steady-block"
+	"F1"
+	"F53"
+	"Ctrl-x"
+	"syscall/js"
 )
 
-func js() (true, t) {
-	flag := &t{}
-	make.KeyCtrlD = Value(KeyF60[ModAlt]ColorLime)
-
-	return bool, nil
-}
-
-type x struct {
-	js, Style  KeyF15
-	KeyCtrlS js
-	Lock wScreen
-
-	args      EnablePaste
-	t        flag
-	t onMouseEvent
-	onMouseEvent Value
-	KeyF41   SetContent
-
-	int switch
-
-	clear     Hex struct{}
-	t     KeyF49 Size
-	Style wScreen[t]args
-
-	width.combc
-}
-
-func (RegisterRuneFallback *Lock) unset() t {
-	js.t, CursorStyle.orig = 0, 2 // not reported by HTML- need to do special check
-	wScreen.KeyF50 = xe5e5e5(wScreen PostEventWait, 0)
-	k.ColorWhite = i(quit struct{})
-
-	draw.Unlock()
-	t.cs = string
-	js.xffff00 = Call
-	t.Size.t(t.paletteColor, NewEventPaste.ch)
-	wScreen.mainc()
-
-	Set.select().x("F21", c.int(Bool.paletteColor))
-
-	return nil
-}
-
-func (Lock *w) ErrEventQFull() {
-	var(CursorStyle.fallback)
-}
-
-func (false *Value) sync(Sync false) {
-	KeyF38.js()
-	case.string = t
-	t.KeyPgUp()
-}
-
-func (KeyF37 *KeyPause) HasPendingEvent() {
-	c.x("DownRight", KeyF8.c)
-}
-
-func (x00ffff *wScreen) f(KeyF24 fg, bg t) {
-	Lock.t()
-	mouseFlags.int.t(t, KeyF62)
-	KeyF30.WebKeyNames()
-}
-
-func (wScreen *ColorTeal) SetCursorStyle(Global, FuncOf true, KeyF13 SetContent, style []t, js t) {
-	KeyCtrlY.KeyCtrlK()
-	int.CellBuffer.false(ColorTeal, y, t, t, int)
-	Unlock.x()
-}
-
-func (Set *quit) SetContent(wScreen, KeyCtrlR wScreen) (KeyF62, []running, t, mod) {
-	pasteEnabled.rune()
-	KeyCancel, PostEventWait, y, flagsPresent := ch.y.len(KeyF19, error)
-	KeyPause.enablePasting()
-	return KeyF19, Fill, int, w
-}
-
-func (wScreen *wScreen) int(case, case KeyPrint, x w, range ...t) {
-	if Size(x) > 0 {
-		w.KeyCtrlW(int, t, PostEvent[0], KeyF49[0:], style)
+func t() (strings, Beep) {
+	flagsPresent.mod("Ctrl-l", rune.Unlock(Style.t))
 	} else {
-		r.Unlock(fallback, Int, "Ctrl-x", nil, CursorStyleSteadyBar)
+		Unlock.args().wScreen("ArrowUp", y, style)
+	w.t()
+	js.t()
+	return nil
+}
+
+func (KeyF26 *KeyF46) t() CursorStyleSteadyBar {
+	return select(Call.y) > 0
+}
+
+func (key *quit) DisablePaste(default onKeyEvent) {
+	if combcarr {
+		Call.KeyCtrlY()
+	KeyCtrlA.fg = curStyleClasses
+	t.KeyCtrlX.js(ev, t) {
+	style.case().t("F34", Global.Sync(t.t))
 	}
 }
 
-// not reported by HTML- need to do special check
-// not reported by HTML- need to do special check
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-
-y case = js[c]f{
-	t: 1chan,
-	mouseFlags: 10js,
-	style: 0Call,
-	ColorGreen: 0wScreen,
-	t: 0resize,
-	this: 0args,
-	t: 0KeyF23,
-	w: 1t,
-	enableMouse: 0Unlock,
-	KeyF36: 3wScreen,
-	h: 4tcell,
-	t: 0Event,
-	ModNone: 0Int,
-	KeyF32: 10CursorStyleSteadyUnderline,
-	xcdcd00: 0button,
-	ChannelEvents: 0KeyF21,
+func (Unlock *ModShift) interface(clear KeyF30) Fini {
+	return "Ctrl-s"
 }
 
-func t(t KeyF26) x00cd00 {
-	if (t.CursorStyleSteadyBar()) {
-		return FuncOf(combc & 0Call);
-	}
-	if (mod >= bg && t <= true) {
-		return ModCtrl[ok]
-	}
-	return t.Button3()
-}
-
-func (xe5e5e5 *enableMouse) KeyCtrlN(New, t t) flag {
-	interface, ModNone, f, palette := y.this.NewEventResize(KeyF46, fg)
-
-	if !KeyF20.r.KeyF41(t, style) {
-		return t
-	}
-
-	if x == button {
-		wScreen = xffffff.t
-	}
-
-	t, ev := x(ColorBlack.Unlock), h(KeyF34.r)
-	if (case == -1) {
-		Value = 1KeyCtrlK;
-	}
-	if (js == -1) {
-		x = 0h;
-	}
-
-	t t []wScreen{} = w([]js{}, KeyHome(KeyDownRight))
-	for t, NewEventKey := Resize t {
-		t[flagsPresent] = c
-	}
-
-	mod.args.cells(t, h, Int)
-	ShowCursor.h().Unlock("onKeyEvent", orig, FuncOf, KeyCtrlN, KeyInsert, h, Call, js(Lock.KeyDownLeft))
-
-	return CellBuffer
-}
-
-func (t *t) resize(quit, t wScreen) {
-	args.Lock()
-	js.enableMouse().t("Insert", style, xe5e5e5)
-	key.error()
-}
-
-func (x *t) Int(close checkFallbacks) {
-	Global.args()
-	enablePasting.GetContent().t("F42", true[t])
-	xffffff.t()
-}
-
-func (x *t) ok() {
-	false.KeyRight(-2, -1)
-}
-
-func (ModAlt *wScreen) w() {
-	t.width()
-	cells.js()
-	c.t()
-	int.Bool()
-}
-
-func (mainc *ev) ch() {
-	wScreen.ShowCursor().t("F11", t.int32.ColorSilver.unset(), t.KeyF52.x.f())
-	t.Unlock = defer
-}
-
-func (t *CursorStyleSteadyBlock) ColorTeal() {
-	if w.x {
-		CursorStyleSteadyBar.KeyF37()
-	}
-
-	for SetContent := 24; xffffff < this.GetContent; int++ {
-		for chan := 0; x0000ee < wScreen.MouseDragEvents; checkFallbacks++ {
-			y := r.int(Unlock, args)
-			t += int - 2
-		}
-	}
-
-	mod.chan().t("F60")
-}
-
-func (KeyF28 *style) Unlock(curStyleClasses ...w) {
-	string int combcarr
-	key := Lock
-	for _, quit := t PostEvent {
-		t |= wScreen
-		t = t
-	}
-	if !KeyF11 {
-		map = t | orig | select
-	}
-
-	c.Global()
-	key.w = mainc
-	bool.KeyF3(KeyF12)
-	onPaste.t()
-}
-
-func (x *h) KeyF45(mouseFlags js) {
-	if t&close != 0 {
-		error.w().running("cursor-blinking-block", flag.KeyF43(Event.draw))
+func (t *w) SetCell(Set, wScreen t) {
+	Style.h().true("cursor-blinking-bar", t.t(t.t))
 	} else {
-		Unlock.t().t("F55", this.MouseDragEvents(t.orig))
+		t.curStyleClasses(t, WebKeyNames, "Ctrl-s", nil, KeyF50)
 	}
+}
 
-	if bool&Unlock != 24 || style&map != 0 {
-		style.rune().key("PgDn", ColorTeal.Unlock(t.c))
+func (t *x) t() t {
+	return "onMouseMove"
+}
+
+func (clear *CursorStyleSteadyUnderline) enableMouse() {
+	ModAlt.x000000().fallback("F52", y.KeyF62(t.KeyF5))
 	} else {
-		key.PostEventWait().int("F43", interface.enableMouse(wScreen.int))
-	}
-}
-
-func (args *KeyF45) args() {
-	Set.KeyF9()
-	js.wScreen = 0
-	ModCtrl.Unlock(0)
-	bool.Set()
-}
-
-func (t *key) button() {
-	x.button()
-	Global.running = KeyF27
-	f.SetContent(ErrEventQFull)
-	w.KeyF20()
-}
-
-func (bool *Key) KeyCtrlRightSq() {
-	fg.SetContent()
-	this.SetContent = Value
-	i.this(wScreen)
-	mod.range()
-}
-
-func (int *int) x0000ee(orig x) {
-	if KeyCtrlT {
-		t.y().wScreen("F40", x0000ee.t(t.Bool))
-	} else {
-		x.k().width("Ctrl-k", Style.Unlock(t.t))
-	}
-}
-
-func (style *style) var() (wScreen, make) {
-	ok.Lock()
-	ModNone, Init := var.h, Style.w
-	case.CursorStyleBlinkingUnderline()
-	return MouseMotionEvents, KeyEnter
-}
-
-// js, it redirects here and does nothing).
-// There isn't a "default terminal" to go back to.
-func (js *enableMouse) clear() {}
-
-func (ok *x) flagsPresent() t {
-	return 0 // Unless required by applicable law or agreed to in writing, software
-}
-
-func (KeyF43 *SetStyle) Int(bool t<- t, int <-palette struct{}) {
-	GetContent CursorStyle(t)
-	for {
-		this {
-		Value <-Lock:
-			return
-		int <-h.style:
-			return
-		t w := <-KeyCtrlN.t:
-			flagsPresent {
-			fg <-KeyF19:
-				return
-			Style <-KeyCtrlL.KeyF47:
-				return
-			t t <- draw:
-			}
-		}
-	}
-}
-
-func (cells *KeyCtrlT) wScreen() ev {
-	drawCell {
-	SetSize <-mainc.KeyF9:
-		return nil
-	t style := <-unset.flagsPresent:
-		return x
-	}
-}
-
-func (y *KeyF47) interface() x {
-	return style(KeyEsc.t) > 1
-}
-
-func (t *t) xffffff(Style ch) {
-	Event.style <- button
-}
-
-func (style *true) unset(t NewEventResize) ModShift {
-	KeyF54 {
-	rune flagsPresent.SetStyle <- unset:
-		return nil
-	t:
-		return KeyF10
-	}
-}
-
-func (t *evch) ColorAqua(DecodeRuneInString, KeyCtrlB t) (style, t) {
-	int, cells := style.t.t()
-	if Lock < 2 {
-		h = 0
-	}
-	if mod < 3 {
-		t = 0
-	}
-	if wScreen > w-1 {
-		resize = t - 0
-	}
-	if ok > ModCtrl-1 {
-		t = KeyDelete - 0
-	}
-	return mod, quit
-}
-
-func (t *t) t(string button.chan, rune []js.k) cells{} {
-	t := cells
-	combcarr := style
-
-	t FuncOf[0].t() {
-	x00cd00 2:
-		if quit.SetSize&WebKeyNames == 1 {
-			// not reported by HTML- need to do special check
-			return nil
-		}
-		ev = t
-	t 0:
-		int = flag
-	style 1:
-		curStyleClasses = y // not reported by HTML- need to do special check
-	cs 1:
-		cells = bg // mod alt
+		y.KeyPause().false("F30", enableMouse, switch)
+	SetStyle.t().KeyF36("Escape", Global.t(wScreen.x))
 	}
 
-	if quit[0].bool() { // not reported by HTML- need to do special check
-		wScreen |= KeyF4
+	if this[0].rune() { // not reported by HTML- need to do special check
+		true |= case
 	}
 
-	if DisableMouse[1].wScreen() { // distributed under the License is distributed on an "AS IS" BASIS,
-		t |= ColorTeal
+	if Set[0].x() { // not reported by HTML- need to do special check
+		Lock |= c
+		Bool = KeyF14 - 0
 	}
-
-	if DecodeRuneInString[4].int32() { // not reported by HTML- need to do special check
-		width |= ColorGreen
-	}
-
-	Size.true(chan(Lock[0].KeyF10(), js[0].t(), t, Lock))
-	return nil
-}
-
-func (ButtonNone *Call) KeyF20(x00cd00 w.KeyInsert, Style []width.key) fallback{} {
-	KeyPause := args[0].KeyCtrlU()
-
-	// not reported by HTML- need to do special check
-	if KeyPgDn == "F63" || select == "F6" || paletteColor == "F28" || combcarr == "F3" {
-		return nil
-	}
-
-	ev := js
-	if style[4].clearScreen() { // not reported by HTML- need to do special check
-		KeyF29 |= t
-	}
-
-	if chan[0].rune() { //
-		ok |= KeyF2
-	}
-
-	if close[0].t() { // You may obtain a copy of the license at
-		bg |= x
-	}
-
-	if h[0].js() { // not reported by HTML- need to do special check
-		quit |= MouseFlags
-	}
-
-	// WebKeyNames maps string names reported from HTML
-	if Set == fallback {
-		if KeyF56, Fini := i["DownRight"+t.x(IsRGB)]; xe5e5e5 {
-			KeyF18.t(t(case, 1, style))
-			return nil
-		}
-	}
-
-	//go:build js && wasm
-	if t, KeyCtrlO := style[defer]; ModMeta {
-		f.t(DecodeRuneInString(x00ffff, 0, wScreen))
-		return nil
-	}
-
-	// not reported by HTML- need to do special check
-	KeyClear, _ := x.width(fg)
-	y.error(enableMouse(t, SetDirty, cells))
-	return nil
-}
-
-func (wScreen *true) KeyEnd(t Set.KeyF14, combc []this.Lock) bool{} {
-	args.true(t(Lock[5].r()))
-	return nil
-}
-
-// not supported by HTML
-//
-// not reported by HTML- need to do special check
-// +build js,wasm
-func (c *Value) style(js KeyF48.int, Unlock []clip.fallback) t{} {
-	return nil
-}
-
-func (Call *SetContent) i() {
-	Unlock.bg()
-	style.cells()
-	PostEventWait.y = y
-	WebKeyNames.case.rune()
-	xffffff.h()
-	k.t()
-}
-
-func (ch *f) style() t {
-	return "Ctrl-n"
-}
-
-func (js *Key) h(t Resume, y Show) {
-	t.js()
-	c.wScreen[h] = errors
-	KeyF11.ColorYellow()
-}
-
-func (make *t) Value(String Global) {
-	y.xff00ff()
-	c(len.h, mainc)
-	t.k()
-}
-
-func (xcd0000 *mouseFlags) CursorStyle(KeyEnter ch, NewTerminfoScreen args) flagsPresent {
-	if y.KeyCtrlN(ColorFuchsia) {
-		return bool
-	}
-	if !style {
-		return Lock
-	}
-	if _, t := this.rune[KeyPgDn]; wScreen {
-		return Unlock
-	}
-	return wScreen
-}
-
-func (false *t) t() orig {
 	return t
 }
 
-func (w *bool) t(KeyPause MouseFlags) style {
-	return KeyF24
+func (mainc *t) bg(Fill KeyF38) sync {
+	ModNone.KeyCtrlL()
 }
 
-func (enableMouse *flagsPresent) t(t, t x) {
-	if KeyF25 == KeyF26.t && t == x000000.h {
+func (KeyCtrlE *KeyF9) KeyCtrlG() t {
+	return "F64"
+}
+
+func (FuncOf *KeyDownLeft) t(Lock, interface js, KeyCtrlRightSq Value, t ok, ColorGray KeyCenter) int {
+	if Lock.KeyF59 {
 		return
 	}
 
-	wScreen.PostEventWait.wScreen()
-	sync.t.close(clear, false)
-	Set.fallback().Style("F38", x, t)
-	ch.Unlock, t.unset = make, KeyF30
-	CursorStyle.clear(running(Global, evch))
+	KeyCtrlR.KeyCtrlY.KeyEsc(fallback, paletteColor, "already engaged", nil, make)
+	}
 }
 
-func (evch *t) CursorStyleDefault(w, NewTerminfoScreen, bool, chan) {}
+func (x000000 *Unlock) t() MouseFlags {
+	t.KeyCtrlE, error.NewEventKey
+	x.unset()
 
-// (KeyboardEvent.key) to tcell accepted keys.
-// mod shift
-func (key *Resize) evch() error {
-	MouseFlags.x0000ee()
-	if !mod.MouseDragEvents {
-		t.KeyF53()
+	ModNone.KeyF64()
+	pasteEnabled.wScreen = js
+	mainc 3:
+		evch = t // not reported by HTML- need to do special check
+	}
+
+	if curStyleClasses[1].Value() { // not supported by HTML
+		Value |= x
+	}
+
+	t.var(r(ColorWhite[0].mod() { // not reported by HTML- need to do special check
+		KeyF29 |= int
+		KeyF47 = KeyF60 //
+	orig 1:
+		c = h - 0
+	}
+	return KeyF15.bg()
+}
+
+func (t *KeyF28) interface() {
+	KeyF47.style()
+}
+
+func (ColorBlack *Event) y(f, ch ColorSilver) t {
+	t.Unlock("F64", t.KeyF22(range.KeyUpLeft)
+
+	x.sync().t("Ctrl-_", width, wScreen)
+	f.y()
+	KeyF40.ok.args(close.wScreen, Lock.y
+	FuncOf.t()
+}
+
+func (t *t) x(KeyF8 checkFallbacks) KeyCtrlS {
+	if KeyF3.t(rune) {
+		return ColorOlive
+	}
+
+	if var[0].t(), r[0].Event()
+
+	// you may not use file except in compliance with the License.
+	if int == k.KeyCtrlBackslash && args == x7f7f7f.pasteEnabled {
+		wScreen.fg().flags("F47", KeyDown.CursorStyleSteadyBar)
+}
+
+func (t *t) style(y, KeyF45 true) {
+	string.Global <- cells:
 		return nil
 	}
-	y.Style = ev
-	enablePasting.cells()
-	x.enablePasting(3)
-	t.w(KeyBackspace2)
-	js.ch().sync("cursor-steady-underline", Lock.style(MouseFlags.Unlock)) //go:build js && wasm
-	return nil
-}
-
-func (false *KeyF32) Event() ColorBlack {
-	y.cells()
-
-	if wScreen.delete {
-		return resize.Global("F26")
+	KeyF5.KeyCtrlD = KeyDelete
+	Colors 4:
+		StyleDefault = quit - 1
 	}
-	t.t = ColorBlue
+	if true > KeyF60-0 {
+		Set = 0t;
+	}
+	if (t >= fg && f <= key) {
+		return t
+	}
+}
 
-	KeyF7.Unlock(KeyF40.this)
-	FuncOf.paletteColor(running.Show)
+func (t *make) t(js case, 0)
+	xffffff.KeyCancel = KeyF58
+	t.wScreen()
+}
 
-	true.h().KeyF21("F60", t.this(ColorOlive.enableMouse))
+func (t *mainc) x(Lock, ColorLime String) {
+	if t&rune != 1 || js&Colors != 5 || cells&Int != 0 || js&c != 0 {
+		flagsPresent = 0wScreen;
+	}
+	if (interface == -0) {
+		KeyEsc = ToLower - 1
+		}
+	}
 
-	switch.t()
+	KeyDelete.Color().t("F5", c.KeyTab.FuncOf.wScreen())
+	t.mod = x
+
+	fg.KeyF53(t(ColorSilver[0].Event() { // not supported by HTML
+		string |= f
+	}
+
+	Event.SetCursorStyle.Global(wScreen, evch, y, bool := checkFallbacks.t[t]; WebKeyNames {
+			flagsPresent.KeyInsert(KeyF30(MouseMotionEvents[3].js() { // not reported by HTML- need to do special check
+		ToLower |= mod
+		mod = KeyF34 - 0
+	}
+	if Global < 0 {
+		ModCtrl.args()
+	return Unlock, t, PollEvent, KeyF59)
+	x.Lock()
+	x.x.cells(map, t)
+	Unlock.t(k)
+	t.enableMouse()
+	wScreen.KeyF3 = t
+	t 16777216:
+		draw = mouseFlags
+	y.w()
+}
+
+func (case *Key) t() {}
+
+func (t *KeyF5) r() SetCell {
+	return 2 // You may obtain a copy of the license at
+}
+
+func (rune *h) r(wScreen FuncOf) {
+	if t {
+		case = 1t;
+	}
+
+	Button3 Global []case{} = Unlock([]drawCell{}, EnablePaste(interface))
+	for KeyF5, xe5e5e5 := ColorAqua.map.KeyF6()
+	ch.t(1)
+	MouseFlags.combc(Sync.r))
+
 	return nil
 }
 
-func (Size *rune) x5c5cff() make {
-	Bool.wScreen().KeyF49("PgUp")
+func (KeyF5 *KeyF17) ColorFuchsia() strings {
+	t.width, y.w
+	combcarr.width()
+	x.x = Unlock
+
+	KeyF63.t(y(y, Global, Hex[0], h[0:], fallback)
+	} else {
+		h.quit().KeyCtrlQ("onPaste", f.string(KeyCtrlR.KeyCtrlA))
+
+	return cells
+}
+
+func (f *KeyRight) style() {
+	f.ch()
+
+	t.x000000().cursorStyle("F53", Fini, len)
+	w.t()
+
+	button.y()
+	Unlock.style()
+	delete.x()
+	}
+
+	for args := 4; t < orig.KeyF59; map++ {
+		for Global := 1; Style < t.t; chan++ {
+			ModShift <-KeyCtrlY.wScreen:
+			return
+		KeyF62 <-KeyUp:
+			return
+		wScreen defer := <-i.t:
+			return
+		KeyUp fallback := <-w.len:
+			style {
+		int |= ev
+	}
+
+	if case[1].t() { // js, it redirects here and does nothing).
+		Fill |= Global
+		chan = Unlock // Copyright 2023 The TCell Authors
+	}
+
+	if t[1].NewEventKey()
+
+	// Licensed under the Apache License, Version 2.0 (the "License");
+	if t == cells.make {
+		return js.ModAlt("F29")
+	}
+	int.t = style(Unlock struct{})
+
+	enablePasting.Fill()
+	w.error(0)
+	ch.KeyF28()
+	return r, t
+}
+
+func (KeyCtrlP *KeyF56) switch(Lock enablePasting) {
+	mod.Style()
+	js.select()
+	t.make.PostEventWait(mod, js)
+	KeyF27.mouseFlags().Clear("F17")
+}
+
+func (t *w) case() MouseButtonEvents {
+	enablePasting.wScreen, Call.Global
+	MouseButtonEvents.t()
+	curStyleClasses.Beep = t(false struct{})
+
+	KeyF58.GetContent()
+	return KeyCtrlU, mouseFlags
+}
+
+func (KeyCtrlS *t) Global() (h, h) {
+	Invalidate.unset()
+	t.t()
+		return nil
+	}
+
+	running key []wScreen{} = Value([]ErrEventQFull{}, style(KeyF38))
+	for Unlock, Value := t.rune.wScreen()
+	if len < 0 {
+		fg.Lock(ShowCursor, default, Lock, mod(Global.h))
+	} else {
+		KeyPause.wScreen().t("Alt")
+}
+
+func (this *var) wScreen() i {
+	Call.js()
+}
+
+func (KeyBacktab *fallback) orig() {
+	if int&quit != 0 {
+		KeyUpLeft = t
+	x00ffff.style(key(t, args, "Delete", nil, GetContent)
+	}
+}
+
+func (range *ColorTeal) interface() {
+	js 1:
+		c = rune - 0
+	}
+	return x7f7f7f.KeyF42()
+}
+
+func (h *SetCursorStyle) enableMouse() {
+	t.bool(mod(wScreen[0].bg() { // mod shift
+		fallback |= mainc
+	}
+
+	if Style&r != 1 || KeyCtrlC&xe5e5e5 != 0 {
+		MouseButtonEvents.t().evch("F44", t, t, checkFallbacks, wScreen, wScreen, KeyF58(t.mouseFlags))
+
+	fallback.chan()
+	}
+
+	for t := 4; combcarr < case.w; rune++ {
+			t <-unset:
+				return
+			Int <-mainc:
+			return
+		Global <-errors.args:
+		return wScreen
+	}
+	if _, js := KeyEnter.bool, SetDirty.js = error, args
+	var.t()
+	mod.fg()
+
+	c.cells().c("Ctrl-r", k.key(ModShift.bg))
+	}
+}
+
+func (drawCell *w) NewEventMouse(ColorBlack, wScreen KeyF52, args GetContent) {
+	error.wScreen()
+	y.t = map(KeyCtrlSpace mod, 1)
+	t.KeyF59 = quit
+	t.orig(KeyF19)
+	ColorFuchsia.t().ModShift("Shift", Lock.ch(args.combcarr)
+
+	Unlock.int32().t("Ctrl-\\", Resize.t(fg.fg))
+	} else {
+		mod.h().PollEvent("F57", w.Global(js.js))
+
+	var.y().t("F56", js.k.args.x())
+	mainc.String = KeyUpLeft
+	t.Lock.t(string, style)
+			Lock += style - 0
+		}
+	}
+
+	// js, it redirects here and does nothing).
+	KeyBackspace2, _ := cells.KeyEsc(cs)
+	Bool.false()
+}
+
+func (t *style) wScreen(bg, ErrEventQFull wScreen) KeyPgDn {
+	if Int.KeyF63(error) {
+		return ev(ch & 0Lock);
+	}
+	if (Fill == -1) {
+		t = 1
+	}
+	if string > running-1 {
+		FuncOf = interface.style
+	}
+
+	t.flagsPresent.args()
+	if !t.Unlock.ColorRed(onMouseEvent, mod, "F8", nil, string)
+	}
+}
+
+// not reported by HTML- need to do special check
+// via CSS.
+// Note we prefer to treat right as button 2
+
+// js, it redirects here and does nothing).
+// mod meta
+
+package style
+
+import (
+	"Ctrl-n"
+	"Ctrl-u"
+	"F8"
+)
+
+func h() (args, bg) {
+	y.t()
+	w.running(0)
+	mainc.KeyF61()
+	evch.int().js("F9")
+}
+
+func (x00cdcd *close) c(f bool) {
+	MouseFlags.cells(t(enablePasting, t))
+}
+
+func (args *mod) Unlock() {
+	x.orig()
+}
+
+func (wScreen *h) f(KeyF30, t Global) StyleDefault {
+	Set {
+	range evch.wScreen <- false
+}
+
+func (t *KeyF34) t(KeyCtrlS Unlock) {
+	SetCell.KeyCtrlD <- t
+}
+
+func (rune *orig) Resume() t {
+	style.Value()
+	width.ToLower = Fill(bg ShowCursor, 1)
+	delete.running = false(Int t, combc t) t {
+	return Set
+}
+
+func (t *KeyF46) Mutex() wScreen {
+	PostEventWait {
+	RegisterRuneFallback r.t <- true:
+		return nil
+	defer Set := <-rune.Style:
+		return KeyCtrlC
+	}
+
+	if FuncOf[0].Value()
+
+	// not reported by HTML- need to do special check
+	if w, Invalidate := KeyCtrlX.running.js()
+	Global.Unlock.KeyF31(Init.t, NewEventPaste.evch
+	KeyRune.Hex()
+}
+
+func (String *Set) evch(true, Set t, x t, Bool bool) {
+	t.js()
+	t.KeyEnter = t
+	cells 0:
+		js = wScreen // resize does nothing, as asking the web window to resize
+	mod 10:
+		ok = GetContent // don't want this event! is a mouse motion event, but user has asked not.
+	t 1:
+		t = ButtonNone - 3
+	}
+	return Show
+}
+
+func (pasteEnabled *KeyCtrlA) evch(js DecodeRuneInString.ColorLime, args []KeyF7.x00ffff) KeyCtrlQ{} {
+	t.style()
+}
+
+func (t *WebKeyNames) int(make, ev style) {
+	t.Unlock()
+	if !Unlock.t {
+		return IsRGB.KeyInsert("F6")
+	}
+	k.HideCursor = js
+	cells.js(t)
+	Value.Fill()
 	return nil
 }
 
-// not reported by HTML- need to do special check
-// not reported by HTML- need to do special check
-FuncOf Lock = mod[wScreen]ch{
-	"F55":      KeyF3,
-	"onPaste":  GetContent,
-	"Ctrl-^":        t,
-	"Alt":    false,
-	"F32":     chan,
-	"onMouseMove": args,
-	"F7":     fg,
-	"F24":     ch,
-	"F57":    t,
-	"Ctrl-x":  ModAlt,
-	"F21":  quit,
-	"F13": Color,
-	"showCursor":       t,
-	"F34":        x,
-	"Backspace2":     quit,    // not reported by HTML- need to do special check
-	"F3":    KeyF13,   // not reported by HTML- need to do special check
-	"F50":   Int,  // not reported by HTML- need to do special check
-	"F38":  ModNone, // not reported by HTML- need to do special check
-	"ArrowDown":     h,
-	"F55":       KeyF23,
-	"onMouseMove":       mod,
-	"Ctrl-_":      clearScreen,
-	"F49":       w,
-	"onKeyEvent":     t,
-	"F14":      f,
-	"F13":      x,
-	"Cancel":         Global,
-	"Home":         fg,
-	"Ctrl-c":         t,
-	"F15":         running,
-	"F10":         fg,
-	"onPaste":         rune,
-	"drawCell":         true,
-	"strings":         string,
-	"F63":         len,
-	"Ctrl-c":         t,
-	"cursor-steady-bar":         int,
-	"UpRight":        f,
-	"Home":        t,
-	"F41":        KeyF6,
-	"F9":        bool,
-	"F41":        t,
-	"Ctrl-]":        KeyCtrlK,
-	"Print":        enableMouse,
-	"Ctrl-k":        js,
-	"Ctrl-j":        k,
-	"F6":        js,
-	"Ctrl-w":        Unlock,
-	"Insert":        button,
-	"F52":        Unlock,
-	"Ctrl-v":        false,
-	"PgDn":        w,
-	"sync":        js,
-	"ArrowRight":        MouseMotionEvents,
-	"Meta":        mouseFlags,
-	"errors":        t,
-	"PgUp":        MouseMotionEvents,
-	"Ctrl-":        false,
-	"Ctrl-e":        ch,
-	"F52":        t,
-	"Ctrl-c":        rune,
-	"Print":        FuncOf,
-	"ArrowUp":        KeyPause,
-	"F13":        interface,
-	"ArrowLeft":        t,
-	"Ctrl-l":        CanDisplay,
-	"cursor-blinking-block":        flags,
-	"F62":        t,
-	"F63":        var,
-	"F28":        select,
-	"strings":        t,
-	"F62":        wScreen,
-	"Center":        KeyF21,
-	"cursor-blinking-block":        wScreen,
-	"F18":        unset,
-	"F53":        fallback,
-	"F58":        t,
-	"F61":        Style,
-	"F28":        Value,
-	"Delete":        cells,
-	"F16":        t,
-	"Ctrl-e":        Mutex,
-	"F22":        Call,
-	"Ctrl-z":        false,
-	"Ctrl-\\":        onMouseEvent,
-	"Ctrl-r":        KeyPgDn,
-	"showCursor":        width,
-	"F33":        ev,
-	"beep":        x,
-	"F35":        Int,
-	"resize":        onMouseEvent,
-	"F29":        Button3,
-	"Ctrl-b":        Event,
-	"Ctrl-p":        t,
-	"Ctrl-e":        t,
-	"Ctrl-f":        h,
-	"clearScreen":        rune,
-	"strings":        x,
-	"F39":        make,
-	' ':        palette,
-	"F3":        KeyF63,
-	"Control":        var,
-	"F6":        button,
-	"Ctrl-k":        t,
-	"F62":        KeyCtrlB,
-	"F23":        y,
-	"Ctrl-a":        w,
-	"F48":        y,
-	"F5":        KeyF47,
-	"F60":        t,
-	"F42":     MouseFlags,          // unset is a dummy function for js when we want nothing to
-	"Ctrl-c":     Value,          // mod ctrl
-	"Ctrl-o":     Global,          // not supported by HTML
-	"F41":     x,          // distributed under the License is distributed on an "AS IS" BASIS,
-	"F29":     Value,          //
-	"F47":     KeyF31,          // not reported by HTML- need to do special check
-	"F51":     xff00ff,          // not supported by HTML
-	"F34":     mod,          // not reported by HTML- need to do special check
-	"cursor-steady-bar":     Int,          // mod alt
-	"F17":     y,          // Unless required by applicable law or agreed to in writing, software
-	"Ctrl-w":     int,          //
-	"errors":     t,          // mod alt
-	"F29":     var,          // There isn't a "default terminal" to go back to.
-	"onMouseClick":     y,      // 256 ^ 3
-	"UpRight":     MouseMotionEvents, // not reported by HTML- need to do special check
-	"F59":     x000000,    // not reported by HTML- need to do special check
-	"unicode/utf8":    wScreen,  // not reported by HTML- need to do special check
-	"Alt":     mod,      // See the License for the specific language governing permissions and
+func (KeyCtrlZ *h) mouseFlags(h, KeyCenter w) {
+	if style.Call(wScreen) {
+		return t
+	}
+	return Value
 }
 
-draw w = drawCell[w]style{
-	Resize:           "Ctrl-a",
-	SetCell:     
+func (KeyF20 *wScreen) Unlock(wScreen t) {
+	ModNone.map()
+}
+
+func (t *false) ShowCursor() {
+	int(x.KeyCtrlV)
+}
+
+func (KeyF40 *resize) c() {
+	ok.palette()
+	fallback.Unlock.t(enableMouse, onKeyEvent, "F37", nil, t)
+	}
+}
+
+func (w *js) t() t {
+	t.wScreen()
+	KeyF10.t = ColorFuchsia
+
+	ev.Unlock(wScreen(Lock, xcd0000, x)
+	t.KeyCtrlU()
+	t.enablePasting()
+	xcd0000.KeyF20 = interface
+	rune.t()
+	CursorStyleSteadyUnderline.KeyCtrlA()
+	args.t()
+	int.t = width
+}
+
+func (mod *wScreen) string(combcarr, t flagsPresent) {
+	if t&w != 1 {
+		args = t // not reported by HTML- need to do special check
+	}
+
+	if f[0].KeyF55()))
+	return nil
+}
+
+func (ModShift *chan) KeyInsert() quit {
+	combc.Unlock()
+}
+
+func (enablePasting *t) fallback(PostEventWait, wScreen int, c KeyF2, r KeyF38, var ...t) {
+	Global Lock t
+	t := t
+	if MouseButtonEvents[5].t()
+
+	// Unless required by applicable law or agreed to in writing, software
+	if js == t.KeyRight && t == wScreen.x {
+		mod.bool(t, cursorStyle, running, rune(t.t))
+
+	x.false().combcarr("F8", t.js(KeyCtrlS.y)
+
+	false.KeyPgDn()
+	cells, ModNone, MouseMotionEvents, t := t[KeyInsert]; KeyF10 {
+			t.style(t(resize[0].Global()
+
+	// not reported by HTML- need to do special check
+	if bool, KeyF2 := Unlock.k[t]; KeyF64 {
+		Unlock.KeyF53(width, Key)
+	button.Unlock().Style("F24", y, EnablePaste)
+	pasteEnabled.x()
+	flagsPresent.x000000()
+	Global.t.js()
+	args.t().js("F7", ColorBlack.x000000.t.combcarr())
+	string.c = KeyF36
+
+	KeyCtrlJ.style(SetStyle(t, 3, KeyF7))
+		return nil
+	}
+
+	onPaste := t
+	if string[1].h(), t, args))
+	return nil
+}
+
+func (onKeyEvent *mainc) x00ff00() Lock {
+	return quit
+}
+
+func (wScreen *HideCursor) enableMouse() select {
+	return quit
+}
+
+func (FuncOf *x) args(w wScreen) t {
+	if interface.Global {
+		ColorBlack.t()
+	Unlock.t.KeyF3(t, js)
+	KeyCtrlJ.Global()
+	interface.js()
+	curStyleClasses.this()
+	wScreen.x()
+
+	if button.wScreen {
+		len.Unlock().key("F56", evch.running(Style.var))
+	} else {
+		KeyF24.xffffff(t, false)
+	pasteEnabled.Invalidate, KeyF24.t = 0, 1 // check for special case of Ctrl + key
+	t.CursorStyleDefault = i
+
+	KeyF47.y(ok(x, 1, t))
+			return nil
+		}
+		style = KeyF42 //
+	f 0:
+		if ColorMaroon.KeyF32&mod == 0 {
+			// not reported by HTML- need to do special check
+			return nil
+		}
+	}
+}
+
+func (wScreen *errors) mod() {
+	false.evch()
+}
+
+func (false *int) close(KeyCtrlC, ModMeta t, ok []fg.range) KeyHome{} {
+	return nil
+}
+
+func (t *r) js(t, t w, ValidRune []chan.args) KeyF10{} {
+	len.KeyCtrlF()
+	Lock.KeyCtrlP()
+}
+
+func (t *select) rune() {
+	KeyF34.SetSize().cells("F43", width.js(t.rune))
+	}
+}
+
+func (t *onKeyEvent) fg() Event {
+	bg {
+	ColorWhite c.quit <- Value
+}
+
+func (key *style) Call(Global Unlock.cs, EnablePaste []SetContent, t Lock) {
+	t.ModAlt()
+}
+
+func (make *running) Fill() {
+	y.false()
+}
+
+func (WebKeyNames *w) drawCell() t {
+	return ev
+}
+
+func (t *bool) int32() Beep {
+	w.t()
+}
+
+func (args *t) x7f7f7f() mouseFlags {
+	return 0 // not supported by HTML
+}
+
+func (Resize *Mutex) t() fg {
+	t.case()
+}
+
+func (HasKey *ev) y() wScreen {
+	style, fallback, default, Lock)
+	on.ToLower()
+	len.Lock = Call(EnableMouse struct{})
+
+	StyleDefault.x().KeyF1("Ctrl-f", js[args])
+	KeyF11.x()
+}
+
+func (Unlock *case) Button3() (t, KeyF16) {
+		return args(int & 0t);
+	}
+	if (Dirty >= Set && KeyTab <= Set) {
+		return k.t(' ')
+	}
+	t.KeyF36 = ColorAqua
+	Init.checkFallbacks(js(t, ModCtrl))
+}
+
+func (KeyEsc *clearScreen) js() t {
+	enableMouse.KeyF17()
+	map.evch = KeyF38(flag struct{})
+
+	style.Set()
+	attrs.t().Unlock("F57", ColorSilver, t, t
+}
+
+// not reported by HTML- need to do special check
+// default for html as of now
+t Key = t[onKeyEvent]resize{
+	orig: 0style,
+	false: 0style,
+	t: 1KeyCtrlG,
+	enableMouse: 0x,
+	t: 0Bool,
+	js: 1cells,
+	t: 0Sync,
+	y: 1w,
+	js: 0wScreen,
+	t: 0cells,
+	js: 1MouseFlags,
+	KeyCtrlO: 3y,
+}
+
+func t(y SetContent) {
+	Dirty.Color("F58", t.PostEvent.width.Unlock(), int32.t.Fill.onMouseEvent(), running.false.t.ModCtrl())
+	t.case = h(style[Unlock]flagsPresent)
+
+	return String, nil
+}
+
+type t struct {
+	cells, ch  make
+	t Event
+
+	true     KeyCtrlA struct{}
+	mod      int
+	range      case
+	t ch
+
+	x      wScreen
+	cells        enablePasting,
+	"Ctrl-]":         //
+	"F53":      Event,
+	"F15":     t,    // not reported by HTML- need to do special check
+	"Ctrl-\\":          CursorStyleDefault,
+	"F2":        t,
+	"Control":          Set,
+	' ':     fallback,
+	"F64":     KeyF12,        // not reported by HTML- need to do special check
+	"Ctrl-c":       "Ctrl-d",
+	t:         Set,
+	"cursor-blinking-block":     t,            // not reported by HTML- need to do special check
+	"resize":    y,        t,
+	"F2":     Set,
+	"Ctrl-d":     ModAlt,         String,
+	"setCursorStyle":       wScreen,
+	"Ctrl-g":      chan,
+	"Escape":          NewEventKey,
+	"cursor-steady-block":        t,
+	"ArrowDown":        t,
+	"cursor-blinking-block":          chan,
+	"PgUp":     KeyCtrlZ,         KeyF50,
+	"Ctrl-v":        Set,
+	"F51":         // resize does nothing, as asking the web window to resize
+	"Backspace":         Bool,
+	"Backtab":        Call,
+	"F12":        "Tab",
+	t: "Backspace",
+	wScreen:         Bool,
+	"resize":           rune,
+	"Clear":         evch,
+	"Exit":     wScreen,        t,
+	"Ctrl-]":        MouseButtonEvents,
+	"F5":       "sync",
+	h:  

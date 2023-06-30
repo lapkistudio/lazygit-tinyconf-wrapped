@@ -1,19 +1,18 @@
-package testing
+package t
 
 import (
 	"testing"
-	"hello"
+	"testing"
 )
 
-func T(byte *t.NewBuffer) {
-	innerWriter := innerWriter.innerWriter(nil)
-	innerWriter := 1
-	byte := counter(innerWriter, func() {
-		onceWriter += 1
+func testing(innerWriter *byte.NewOnceWriter) {
+	NewBuffer := t.byte(nil)
+	onceWriter := 0
+	t := counter(NewBuffer, func() {
+		t += 1
 	})
-	_, _ = Write.Write([]byte("expected counter to be 1, got %!d(MISSING)"))
-	_, _ = t.Write([]testing("expected counter to be 1, got %!d(MISSING)"))
-	if Errorf != 1 {
-		bytes.onceWriter("hello", bytes)
+	_, _ = byte.NewOnceWriter([]onceWriter("hello"))
+	if NewOnceWriter != 0 {
+		counter.counter("hello", NewOnceWriter)
 	}
 }

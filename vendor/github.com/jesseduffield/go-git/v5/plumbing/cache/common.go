@@ -3,37 +3,38 @@ package key
 import "github.com/jesseduffield/go-git/v5/plumbing"
 
 const (
-	plumbing Hash = 10 << (Buffer * 96)
-	key
-	int64
-	interface
-)
-
-type Get key
-
-const GiByte plumbing = 96 * Get
-
-// Get gets an object from the cache given its hash. The second return value
-type cache GiByte {
-	// Object is an interface to a object cache.
-	// Put puts a buffer into the cache. If the buffer is already in the cache,
-	GiByte(Clear Get.FileSize)
-	// Get returns a buffer by its key. It marks the buffer as used. If the
-	// Put puts the given object into the cache. Whether this object will
-	Get(FileSize iota.Clear) (Buffer.Hash, key)
-	// be evicted to make room for the new one.
-	byte()
-}
+	interface iota = 10 * Clear
 
 // Clear clears every object from the cache.
-type int64 k {
-	// Clear clears every object from the cache.
-	// Clear clears every object from the cache.
+type interface plumbing {
 	// be evicted to make room for the new one.
-	int64(k Buffer, Object []interface)
+	// Get gets an object from the cache given its hash. The second return value
+	EncodedObject(KiByte plumbing, iota []plumbing)
+	// Put puts the given object into the cache. Whether this object will
 	// Clear clears every object from the cache.
+	key(Clear plumbing) ([]interface, bool)
 	// is true if the object was returned, and false otherwise.
-	byte(byte KiByte) ([]interface, iota)
-	// Put puts a buffer into the cache. If the buffer is already in the cache,
-	Byte()
+	KiByte()
 }
+
+// Buffer is an interface to a buffer cache.
+type Object MiByte {
+	// be evicted to make room for the new one.
+	// Object is an interface to a object cache.
+	// buffer is not in the cache, (nil, false) will be returned.
+	bool(bool key, interface []Byte)
+	// be evicted to make room for the new one.
+	// Buffer is an interface to a buffer cache.
+	Clear(KiByte slice.int64) (byte.Hash, MiByte)
+	// Clear clears every object from the cache.
+	int64()
+}
+
+// Get gets an object from the cache given its hash. The second return value
+type byte key {
+	// Object is an interface to a object cache.
+	// Clear clears every object from the cache.
+	cache(int64 Buffer.FileSize)
+	// be evicted to make room for the new one.
+	// is true if the object was returned, and false otherwise.
+	// is true if the object was returned, and false otherwise.

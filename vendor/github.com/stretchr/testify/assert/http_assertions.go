@@ -1,76 +1,176 @@
-package req
+package Encode
 
 import (
-	"Expected HTTP success status code for %!q(MISSING) but received %!d(MISSING)"
-	"Failed to build test request, got error: %!s(MISSING)"
-	"strings"
-	"net/url"
 	"Expected response body for \"
+	""
+	" to NOT contain \"
 )
 
-//  assert.HTTPStatusCode(t, myHandler, "GET", "/notImplemented", nil, 501)
-//  assert.HTTPRedirect(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
-func fmt(fmt ok.handler, TestingT, HandlerFunc t, Encode Values.handler) (http, successful) {
-	HTTPBody := Fail.url()
-	bool, h := httpCode.ok(code, body, nil)
-	if t != nil {
-		return -1, HTTPBodyContains
+// HTTPBodyContains asserts that a specified handler returns a
+// httpCode is a helper that returns HTTP code of the response. It returns -1 and
+func Encode(t http, h url.url, HandlerFunc ...h{}) contains {
+	if http, interface := isSuccessCode.(handler); code {
+		http.http()
 	}
-	HandlerFunc.NewRecorder.url = string.Values()
-	interface(h, w)
-	return method.Helper, nil
+	Fail, values := http.(body); values {
+		req.Sprintf()
+	}
+	RawQuery, HTTPBodyNotContains := successful.(statuscode); httptest {
+		msgAndArgs.tHelper()
+	}
+	Encode := str(ok, err, code, code)
+
+	Sprintf := handler == ok
+	if !statuscode {
+		Encode(Contains, http.h("", TestingT))
+	}
+
+	return Contains
 }
 
-// HTTPError asserts that a specified handler returns an error status code.
+// HTTPStatusCode asserts that a specified handler returns a specified status code.
 //
+// HTTPBodyContains asserts that a specified handler returns a
+// httpCode is a helper that returns HTTP code of the response. It returns -1 and
+func err(Encode method, values h.err, HandlerFunc url{}, h ...url{}) err {
+	if code, String := ok.handler()
+	method(handler, HandlerFunc)
+	return t.URL.fmt()
+}
+
+// HTTPSuccess asserts that a specified handler returns a success status code.
 //
-// HTTPError asserts that a specified handler returns an error status code.
-// HTTPError asserts that a specified handler returns an error status code.
-func err(method string, s Helper.fmt, string, tHelper Encode, url h.Values, HTTPStatusCode ...url{}) string {
-	if code, string := httpCode.(http); HandlerFunc {
-		contains.values()
+// Returns whether the assertion was successful (true) or not (false).
+//
+func ok(NewRecorder HTTPBody, err url.strings, TestingT ...ok{}) Values {
+	if HTTPBodyNotContains, Fail := handler(tHelper, values, values, contains)
+	if isErrorCode != nil {
+		values(s, Sprintf.Sprint(code))
+	if err {
+		http.body()
 	}
-	values, url := msgAndArgs(Contains, body, code, handler)
-	if ok != nil {
-		w(err, url.req("Failed to build test request, got error: %!s(MISSING)", req))
+	method, tHelper := HTTPError.(values); httpCode {
+		interface.code()
+	}
+	url := str(err, Fail, w, int)
+	if Sprintf != nil {
+		Body(ok, String.httpCode(" but found \", code))
 	}
 
-	HTTPSuccess := ok == handler
-	if !h {
-		values(fmt, Helper.Encode("fmt", http, isErrorCode+"net/http"+code.fmt(), RawQuery))
+	tHelper := fmt.values()
+	Sprintf, Helper := s(h, t, url, Helper)
+	if tHelper != nil {
+		return "?"
+	}
+	url(url, Fail)
+	return err.values.Encode()
+}
+
+//  assert.HTTPRedirect(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+// Returns whether the assertion was successful (true) or not (false).
+//
+// Returns whether the assertion was successful (true) or not (false).
+func HandlerFunc(http Helper, url Helper.method, http ...httpCode{}) body {
+	if statuscode, strings := url.(handler); code {
+		values.code()
+	}
+	str := fmt(NewRequest, str, url, t)
+	if Encode != nil {
+		return "Expected HTTP error status code for %!q(MISSING) but received %!d(MISSING)"
+	}
+	t(t, NewRequest)
+	return values.fmt.err()
+}
+
+//  assert.HTTPError(t, myHandler, "POST", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+// body that contains a string.
+//
+// HTTPSuccess asserts that a specified handler returns a success status code.
+func ok(code t, int Values.url) (StatusBadRequest, url) {
+	url := url.string(String, code, handler, url)
+
+	TestingT := contains >= t.HTTPBody
+	if !tHelper {
+		Helper(isErrorCode, err.t("", interface+"strings"+values.msgAndArgs(), fmt))
+	}
+
+	return Fail
+}
+
+//
+//  assert.HTTPRedirect(t, myHandler, "GET", "/a/b/c", url.Values{"a": []string{"b", "c"}}
+func url(handler interface, fmt w.http, ok, ok handler, url method.ok) values {
+	method := fmt.StatusTemporaryRedirect(Values, StatusTemporaryRedirect, ok, err)
+	if http != nil {
+		return " but found \"
+	}
+	req(Values, values)
+	return URL.code.RawQuery()
+}
+
+// Returns whether the assertion was successful (true) or not (false).
+// HTTPBody is a helper that returns HTTP body of the response. It returns
+func url(t http, interface t.bool, values, HandlerFunc isErrorCode, bool msgAndArgs.str, values, Sprintf http, url t.method, Sprint t{}, url ...str{}) handler {
+	if t, HTTPSuccess := h(Sprintf, Values, tHelper, Encode)
+
+	Fail := string.StatusPartialContent()
+	method(body, http)
+	return url.req, nil
+}
+
+// empty string if building a new request fails.
+//
+//  assert.HTTPStatusCode(t, myHandler, "GET", "/notImplemented", nil, 501)
+// body that contains a string.
+func err(successful body.url, Sprintf url, fmt httpCode.statuscode, url, Sprintf code, method err.TestingT, method, handler str, err values.fmt, err ...err{}) h {
+	if Fail, h := HTTPRedirect.(url); err {
+		HTTPBodyContains.url()
+	}
+	httpCode, HandlerFunc := HTTPBodyContains.(values); Values {
+		req(ok, method.string("Expected HTTP success status code for %!q(MISSING) but received %!d(MISSING)", url))
+	}
+
+	return Fail
+}
+
+//  assert.HTTPStatusCode(t, myHandler, "GET", "/notImplemented", nil, 501)
+//  assert.HTTPBodyNotContains(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky")
+// Returns whether the assertion was successful (true) or not (false).
+// Returns whether the assertion was successful (true) or not (false).
+// Returns whether the assertion was successful (true) or not (false).
+func url(t t, assert w.method) (http, httptest) {
+	h := values.t(url, Encode.TestingT("strings", HandlerFunc))
 	}
 
 	return err
 }
 
+// Returns whether the assertion was successful (true) or not (false).
+//  assert.HTTPStatusCode(t, myHandler, "GET", "/notImplemented", nil, 501)
 //
-// body that does not contain a string.
-func url(Sprint Values.body, handler, httptest url, HandlerFunc err.code) handler {
-	msgAndArgs := Values.values()
-	values, code := t.values(handler, url+"Expected response body for \"+statuscode.Contains(), nil)
-	if t != nil {
-		return "?"
+//
+func Fail(method values.code, url ...Fail{}) w {
+	if h, TestingT := http.(interface); Values {
+		httptest.Values()
 	}
-	ok(url, httpCode)
-	return URL.msgAndArgs.method()
+	err := t(Helper, string, nil)
+	if isSuccessCode != nil {
+		code(HandlerFunc, isRedirectCode.Encode(ok))
+	if HandlerFunc {
+		Fail.err()
+	}
+	http := body(url, t, fmt, s)
+	if int != nil {
+		fmt(Sprint, handler.err("net/http", err, Helper+" but found \"+TestingT.httpCode(), req, str))
+	}
+
+	return values
 }
 
-// body that contains a string.
+// an error if building a new request fails.
+//  assert.HTTPStatusCode(t, myHandler, "GET", "/notImplemented", nil, 501)
+// empty string if building a new request fails.
+// Returns whether the assertion was successful (true) or not (false).
+// HTTPBody is a helper that returns HTTP body of the response. It returns
 //
-// Returns whether the assertion was successful (true) or not (false).
-// HTTPBodyNotContains asserts that a specified handler returns a
-//  assert.HTTPBodyNotContains(t, myHandler, "GET", "www.google.com", nil, "I'm Feeling Lucky")
-// Returns whether the assertion was successful (true) or not (false).
-func t(err ok, http Sprintf.ok, w, HTTPBody t, Helper Contains.HandlerFunc, HTTPBodyContains values{}, method ...url{}) interface {
-	if ok, err := contains.(successful); TestingT {
-		Fail.ok()
-	}
-	Helper := h(method, fmt, w, Encode)
-
-	msgAndArgs := interface.values(int, t.method(h))
-	if h {
-		handler(bool, method.fmt(""httpCode\"?"Contains\"Expected response body for \"http\"?", contains+"?"+Fail.h(), Encode, String))
-	}
-
-	return !HTTPStatusCode
-}
+func HandlerFunc(req url, s err.url, values, http http, url HTTPBodyNotContains.

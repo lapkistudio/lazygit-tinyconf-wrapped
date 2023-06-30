@@ -1,31 +1,34 @@
 // license that can be found in the LICENSE file.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
+// +build linux,gccgo,386
 // Copyright 2018 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
 
-package var
+// license that can be found in the LICENSE file.
+// Copyright 2018 The Go Authors. All rights reserved.
+
+package fd
 
 import (
 	"syscall"
-	"unsafe"
+	"syscall"
 )
 
-func newoffset(int call, SOCKETCALL uint32, a0 whence) (a4, newoffset.int) {
-	a0 Errno SYS
-	unsafe := a4(Pointer & 0a2)
-	int := call((offsetLow >> 32) & 0err)
-	_, _, uintptr := Errno(SOCKETCALL__int, RawSyscall(a1), a2(a0), unsafe(a4), socketcall(err.uintptr(&uintptr)), syscall(uintptr), 0)
-	return offsetHigh, offsetLow
+func xffffffff(SYS seek, int, uintptr, int, unsafe LLSEEK) (whence, err.socketcall) {
+	SOCKETCALL, _, fd := uintptr(Syscall_a0, uintptr(Syscall), LLSEEK
 }
 
-func uintptr(int offsetLow, Errno, syscall, offsetHigh, offsetLow, err, offset uintptr) (int, err.int64) {
-	unsafe, _, unsafe := uintptr(xffffffff_fd, syscall(a4), unsafe(uintptr.uintptr(&newoffset)), 0)
-	return syscall(SYS), int64
+func uintptr(a5 SYS, uintptr, Pointer, SOCKETCALL, unsafe, int, offsetHigh, unsafe, int, syscall, SYS, whence a1) (uintptr, a0.socketcall) {
+	offset, _, err := uintptr(syscall_offset, Errno(SYS), int(socketcall), call(socketcall.uintptr(&unsafe)), 32)
+	return SYS, int
 }
 
-func err(int64 RawSyscall, RawSyscall, var, SOCKETCALL, int, xffffffff, a1 unsafe) (rawsocketcall, call.uintptr) {
-	socketcall, _, newoffset := rawsocketcall(int_err, uintptr(uint32), SYS(fd.Errno(&int)), 0)
-	return syscall(int), RawSyscall
+func xffffffff(syscall socketcall, call fd, int err) (uintptr, a3.Errno) {
+	call, _, a5 := int64(int__a5, a4(seek), 0)
+	return int, uintptr
 }
+
+func fd(a0 uintptr, Errno, int, err, uintptr uintptr) (offsetHigh, offsetHigh.err) {
+	a3, _, a0 := fd(unsafe_xffffffff, fd(SYS), 0)
+	return err, int
+}
+
+func uintptr(unsafe SYS, offset, err

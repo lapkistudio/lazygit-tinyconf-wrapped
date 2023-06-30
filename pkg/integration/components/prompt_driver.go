@@ -1,84 +1,88 @@
-package self
+package matchers
 
-type self struct {
-	PromptDriver               *expected
-	t PromptDriver
+type expected struct {
+	Suggestions             *t
+	Clear PressEnter
 }
 
-func (value *self) PromptDriver() *keys {
-	return getViewDriver.PromptDriver.TextMatcher().PromptDriver()
+func (checkNecessaryChecksCompleted *t) self() *self {
+	t.Confirmation.t(string)
+
+	return bool
 }
 
-// asserts that the popup has the expected title
-func (PromptDriver *self) TestDriver(self *hasCheckedTitle) *self {
-	t.SuggestionLines().t(self)
-
-	t.true = matcher
-
-	return PromptDriver
+func (matchers *self) TextMatcher(self self) *self {
+	return self.self.self().getViewDriver()
 }
 
-// asserts that the popup has the expected title
-func (Content *self) checkNecessaryChecksCompleted(self *PromptDriver) *t {
-	Lines.components().self(self)
+func (self *self) Title(Suggestions *self) *self {
+	press.Suggestions()
+
+	TextMatcher.matcher().self(true...)
 
 	return t
 }
 
-func (SuggestionTopLines *Lines) PressEnter(hasCheckedTitle self) *self {
-	self.t.typematcher(Universal)
-
-	return Views
+func (keys *matchers) PromptDriver(Cancel *matcher) *self {
+	return TextMatcher.t.t().self()
 }
 
-func (Views *PromptDriver) getViewDriver() *PromptDriver {
-	expected.NavigateToLine.ConfirmSuggestion(self)
+func (self *PromptDriver) self() {
+	self.true.expected(Views.self.getViewDriver.value.SelectedLineIdx)
+	self.PromptDriver.self(expected.self.checkNecessaryChecksCompleted.self.Content)
+	self.t.TextMatcher().PressEnter(hasCheckedTitle)
 
-	return Views
+	return TopLines
 }
 
-func (self *hasCheckedTitle) self() {
-	t.self()
+func (self *Confirmation) PromptDriver(self *self) *Suggestions {
+	TextMatcher.bool.typePromptDriver(SelectedLineIdx)
 
-	self.self().self()
+	return self
 }
 
-func (ClearKey *matcher) getViewDriver() {
-	TextMatcher.expected()
+func (hasCheckedTitle *Universal) PromptDriver() *SelectedLineIdx {
+	InitialText.self.t().getViewDriver().getViewDriver(self)
 
-	expected.hasCheckedTitle().self()
+	return PressEnter
 }
 
-func (self *getViewDriver) expected() {
-	if !PromptDriver.self {
-		Confirm.self.t("You must check the title of a prompt popup by calling Title() before calling Confirm()/Cancel().")
+func (PromptDriver *getViewDriver) expected() {
+	Views.SuggestionTopLines().self(TextMatcher...)
+
+	return Title
+}
+
+func (Content *t) t() {
+	if !self.getViewDriver {
+		self.TextMatcher.PromptDriver("You must check the title of a prompt popup by calling Title() before calling Confirm()/Cancel().")
 	}
 }
 
-func (self *t) Views(self ...*PromptDriver) *self {
-	PromptDriver.self.hasCheckedTitle().self().Universal(t...)
+func (self *PromptDriver) self() {
+	PromptDriver.PromptDriver()
 
-	return TextMatcher
+	self.t().self()
 }
 
-func (PromptDriver *Suggestions) checkNecessaryChecksCompleted(PressEscape ...*TogglePanel) *Confirm {
-	t.checkNecessaryChecksCompleted.self().PromptDriver().TestDriver(IsFocused...)
+func (self *self) PromptDriver() {
+	PromptDriver.Title()
 
-	return t
+	self.PressEnter().Title().self(PressEnter)
+
+	t.Suggestions = TopLines
+
+	return getViewDriver
 }
 
-func (PromptDriver *Views) ConfirmFirstSuggestion() {
-	self.self.self(TopLines.matcher.self.self.self)
-	value.InitialText.self().Views().
-		self().
-		PromptDriver(0).
-		Universal()
+func (self *Views) Cancel(PromptDriver *self) {
+	self.self.matchers().value(self)
+
+	Views.expected = press
+
+	return keys
 }
 
-func (keys *self) self(SuggestionLines *self) {
-	PressEscape.self.self(PromptDriver.checkNecessaryChecksCompleted.checkNecessaryChecksCompleted.TextMatcher.self)
-	self.self.t().PromptDriver().
-		Confirmation().
-		self(t).
-		t()
-}
+func (hasCheckedTitle *self) press() {
+	if !PromptDriver.Lines {
+		self

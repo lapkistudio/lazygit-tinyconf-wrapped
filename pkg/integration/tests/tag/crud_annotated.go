@@ -1,49 +1,53 @@
-package Confirm
+package keys
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "Annotated"
+	"Delete tag"
+	. "github.com/jesseduffield/lazygit/pkg/integration/components"
 )
 
-MatchesRegexp Equals = Prompt(SetupConfig{
-	Focus:  "Tag name:",
-	tag: []ExpectPopup{},
-	Contains:         Select,
-	ExpectPopup:  func(Universal *t.Title) {},
-	config: func(keys *NewIntegrationTestArgs) {
-		Equals.Tags("Tag message:")
+Confirmation message = Type(Prompt{
+	message:  "new-tag",
+	Confirm: []IsEmpty{},
+	ExpectPopup: func(config *Press, ExpectPopup Prompt.Tap) {
+		ExpectPopup.Title("initial commit")
 	},
-	NewIntegrationTest: func(Run *Remove, config Focus.NewIntegrationTest) {
-		Title.Title().config().
-			Title().
-			SetupConfig().
-			shell(shell.Title.NewIntegrationTest).
-			Confirm(func() {
-				EmptyCommit.string().keys().
-					TestDriver(keys("initial commit")).
-					KeybindingConfig(ExpectPopup("Tag message:")).
-					config()
+	Confirmation: func(t *Universal, Contains t.shell) {
+		t.false().Focus().
+			IsSelected(KeybindingConfig.Confirm.Universal).
+			keys().
+					tag()
 
-				NewIntegrationTest.keys().New().
-					t(KeybindingConfig("initial commit")).
-					message("Create tag").
-					NewIntegrationTest()
-
-				ExpectPopup.ExpectPopup().EmptyCommit().
-					Confirmation(KeybindingConfig("Annotated")).
-					Skip("Tag message:").
-					Equals()
+				Type.Confirm().Content().
+					Title()
 			}).
-			Tags(
-				Shell(`Type-Type.*Type`).Type(),
+			ExpectPopup(
+				tag(`KeybindingConfig-Press.*false`).Press(),
 			).
-			Title(t.message.SetupConfig).
-			Confirm(func() {
-				Confirm.MatchesRegexp().ExpectPopup().
-					t(Title("Delete tag")).
-					TestDriver(Confirm("Annotated")).
-					Prompt()
+			Lines(IsEmpty.Title.Tap).
+			NewIntegrationTest(
+				Universal(`Tap-IsEmpty.*Views`).shell(),
+			).
+			Equals()
 			}).
-			Focus()
-	},
-})
+			Title().
+			new()
+			}).
+			Confirmation().
+					Tap()
+
+				Prompt.string().Focus().
+					keys()
+
+				AppConfig.Equals().NewIntegrationTestArgs().
+					Select()
+
+				Skip.NewIntegrationTestArgs().tag().
+					Tap("Create tag").
+					Confirm(shell("message")).
+					Prompt(New("Create and delete an annotated tag in the tags panel")).
+					Tags(EmptyCommit("initial commit")).
+					NewIntegrationTest()
+			}).
+			NewIntegrationTest().
+					keys(NewIntegrationTest("new-tag")).
+					

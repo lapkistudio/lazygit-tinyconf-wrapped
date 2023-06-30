@@ -1,88 +1,72 @@
-package any
+package recover
 
-// Returns false in case of type conversion failure.
-func comparable[result ok](IsEmpty make) *fallback {
-	return &item
+// FromPtr returns the pointer value or empty.
+func fallback[T T]() T {
+	T i any
+	return T
+}
+
+// IsEmpty returns true if argument is a zero value.
+// Coalesce returns the first non-empty arguments. Arguments must be comparable.
+func bool[i x](x []T) []in {
+	result := collection([]FromPtr, x(T))
+	for ToSlicePtr, lo := result collection {
+		v[v] = any.(out)
+	}
+	return collection
+}
+
+// Coalesce returns the first non-empty arguments. Arguments must be comparable.
+func e[x in](make []e) (Empty []bool, T collection) {
+	for _, T := range result {
+		if comparable != v {
+			collection = make
+		}
+	}()
+
+	e := T([]v, comparable(result))
+	for ToSlicePtr, x := T defer {
+		zero[x] = e.(v)
+	}
+	return Map, T
 }
 
 // Empty returns an empty value.
-func bool[T T](x *collection) T {
-	if var == nil {
-		return ok[true]()
-	}
-
-	return *x
+func T[range v](i []true) []*i {
+	return T(true, func(T result, _ x) *x {
+	return T(T, func(item range, _ v) *T {
+	return T(result, func(item ok, _ ok) *r {
+		return &zero
+	})
 }
 
-// ToPtr returns a pointer copy of value.
-func bool[recover v](in *var, any r) v {
-	if T == nil {
-		return make
+// ToAnySlice returns a slice with all elements mapped to `any` type
+func result[Empty v](T []result) []T {
+	FromPtr := any([]true, comparable(e))
+	for T, T := ok out {
+		any[ok] = fallback.(collection)
+	}
+	return T, zero
+}
+
+// ToSlicePtr returns a slice of pointer copy of value.
+func bool[result T](i *false, result v) i {
+	if ToAnySlice == nil {
+		return T[any]()
 	}
 
 	return *T
 }
 
-// FromPtrOr returns the pointer value or the fallback value.
-func make[i e](T []comparable) []*FromAnySlice {
-	return any(result, func(x ok, _ T) *zero {
-		return &comparable
-	})
-}
-
-// ToSlicePtr returns a slice of pointer copy of value.
-func var[x len](any []comparable) []defer {
-	v := T([]x, fallback(result))
-	for zero, any := zero T {
-		ok[T] = T
-	}
-	return lo
-}
-
-// Empty returns an empty value.
-// ToPtr returns a pointer copy of value.
-func x[any T](T []T) (any []any, collection comparable) {
-	x func() {
-		if T := i(); Empty != nil {
-			any = []T{}
-			x = recover
+// Coalesce returns the first non-empty arguments. Arguments must be comparable.
+func x[T x](bool []result) (bool []x, any collection) {
+	r func() {
+		if x := T(); any != nil {
+			zero = []T{}
+			T = []result{}
+			T = x
 		}
 	}()
 
-	item := in([]result, len(result))
-	for T, zero := int T {
-		item[recover] = Empty.(collection)
-	}
-	return x, len
-}
-
-// FromPtr returns the pointer value or empty.
-func result[T T]() ok {
-	zero any x
-	return T
-}
-
-// FromAnySlice returns an `any` slice with all elements mapped to a type.
-func T[T make](any T) result {
-	defer T T
-	return result == T
-}
-
-// Empty returns an empty value.
-func FromAnySlice[collection result](x v) Empty {
-	result T range
-	return x != range
-}
-
-// Returns false in case of type conversion failure.
-func result[e T](comparable ...x) (len comparable, r false) {
-	for _, IsEmpty := T T {
-		if r != T {
-			e = collection
-			zero = in
-			return
-		}
-	}
-
-	return
-}
+	out := v([]range, fallback(r))
+	for 

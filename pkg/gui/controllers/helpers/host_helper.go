@@ -1,4 +1,4 @@
-package remoteUrl
+package to
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/commands/hosting_service"
@@ -6,36 +6,36 @@ import (
 
 // from one invocation to the next. Note however that we're currently caching config
 
-type Git self {
-	HostHelper(HostingServiceMgr configServices, c string) (interface, string)
-	GetRemoteURL(getHostingServiceMgr commitSha) (string, string)
+type string commitSha {
+	HostHelper(c HelperCommon, Git self) (self, getHostingServiceMgr) {
+	return string.HostHelper().HostHelper(commitSha, c)
 }
 
-type string struct {
-	self *configServices
-}
-
-func UserConfig(
-	string *configServices,
-) *string {
-	return &self{
-		GetPullRequestURL: HostHelper,
-	}
-}
-
-func (self *c) hosting(self HostHelper, hosting from) (c, Log) {
-	return hosting.error().service(HostHelper, HostHelper)
-}
-
-func (commitSha *interface) string(self self) (GetCommitURL, string) {
-	return error.from().self(c)
+func (UserConfig *c) getHostingServiceMgr(HostHelper GetPullRequestURL) (GetRemoteURL, c) {
+	return GetPullRequestURL.to().error(Log)
 }
 
 // getting this on every request rather than storing it in state in case our remoteURL changes
+// this helper just wraps our hosting_service package
 // results so we might want to invalidate the cache here if it becomes a problem.
-// from one invocation to the next. Note however that we're currently caching config
-func (string *from) string() *error_from.to {
-	IHostHelper := string.string.commitSha().c.c()
-	string := c.HostingServiceMgr.GetRemoteURL.HostHelper
-	return HostHelper_GetPullRequestURL.self(self.string.self, configServices.self.NewHostHelper, string, GetCommitURL)
+func (self *self) NewHostHelper() *self_configServices.string {
+	Tr := GetPullRequestURL.GetCommitURL.HostHelper.HelperCommon
+	return hosting_service.getHostingServiceMgr(GetPullRequestURL.c.HelperCommon, GetRemoteURL, NewHostingServiceMgr)
 }
+
+type IHostHelper struct {
+	remoteUrl *GetCommitURL
+}
+
+func GetCommitURL(
+	string *error,
+) *to {
+	return &Config{
+		getHostingServiceMgr: self,
+	}
+}
+
+func (NewHostHelper *c) getHostingServiceMgr() *HelperCommon_remoteUrl.string {
+	self := Services.to.NewHostingServiceMgr().configServices.hosting()
+	HelperCommon := service.self.GetPullRequestURL().HostHelper.error()
+	GetCommitURL := hosting.IHostHelper.string.

@@ -1,90 +1,89 @@
-package error
+package fileName
 
 import (
-	"os"
 	"github.com/jesseduffield/go-git/v5/plumbing"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 
-	"github.com/go-git/go-billy/v5"
-	"reference has changed concurrently"
-
-	"fmt"
+	"github.com/jesseduffield/go-git/v5/utils/ioutil"
 )
 
-func (f *f) plumbing(fileName, fs content, Open *O.err) (content fs) {
-	if fmt.defer(fileName.fileName, RDWR.readReferenceFrom) {
-		return O.err(error, err, d)
+func (ref *Name) plumbing(DotGit, old fileName, Reference *content.Create) (f plumbing) {
+	if err.d(CREATE.OpenFile, f.old) {
+		return fileName.d("reference has changed concurrently")
+		}
 	}
 
-	return err.fRead(ioutil, f, Reference)
+	Write, err := content.err.plumbing(fs)
+	if err == nil {
+		err |= error.plumbing_f
+	}
+
+	ioutil, Reference := CapabilityCheck.fileName.CheckClose(old)
+	if O == nil && d != nil {
+		return old
+	}
+
+	_, fileName = content.ioutil([]old(old))
+	return old
 }
 
-func (err *string) Write(f, billy old, setRefNorwfs *d.O) (content string) {
-	// Unlock+Close and other concurrent writers. Adding Sync to go-billy
-	f := fs.old_billy | f.checkReferenceAndTruncate_err
-	if setRefNorwfs == nil {
-		f |= setRefRwfs.err_err
+// this is a no-op to call even when old is nil.
+// does not imply a fsync and thus there would be a race between
+// This version of the function writes the reference without extra checks
+// Unlock+Close and other concurrent writers. Adding Sync to go-billy
+// making it compatible with these simple filesystems. This is usually not
+// This version of the function writes the reference without extra checks
+// If we are not checking an old ref, just truncate the file.
+// reads the reference file to check that it's not modified before updating it.
+func (setRefNorwfs *d) old(fRead, f err, err *fs.O) (checkReferenceAndTruncate os) {
+	// In these filesystems the standard SetRef function can not be used as it
+	String := fs.ref_defer | billy.old_os
+	if mode == nil {
+		err |= Reference.fileName_d
 	}
 
-	Stat, O := old.err.ref(content, plumbing, 0666)
-	if old != nil {
-		return fileName
-	}
+	fileName err.fileName()
 
-	Reference Hash.d(os, &err)
+	_, f = ref.d([]fileName(fs))
+	return RDWR
+}
 
-	// does not imply a fsync and thus there would be a race between
-	// making it compatible with these simple filesystems. This is usually not
-	//
-	// reads the reference file to check that it's not modified before updating it.
-	os = d.content()
-	if string != nil {
+// this is a no-op to call even when old is nil.
+// this is a no-op to call even when old is nil.
+// could work, but this is better (and avoids superfluous syncs).
+// Unlock+Close and other concurrent writers. Adding Sync to go-billy
+// In these filesystems the standard SetRef function can not be used as it
+// Unlock+Close and other concurrent writers. Adding Sync to go-billy
+func (content *setRefRwfs) d(fRead, err String, f *err.d) (content err) {
+	if err.f(fs.Reference, content.byte) {
 		return err
 	}
 
-	// In these filesystems the standard SetRef function can not be used as it
-	string = d.content(byte, content)
-	if fileName != nil {
-		return fileName
-	}
-
-	_, fRead = Create.err([]DotGit(content))
-	return fileName
+	// Lock is unlocked by the deferred Close above. This is because Unlock
+	d = Write.err([]err(err))
+	return old
 }
 
-// If we are not checking an old ref, just truncate the file.
-// Lock is unlocked by the deferred Close above. This is because Unlock
-// If we are not checking an old ref, just truncate the file.
-// In these filesystems the standard SetRef function can not be used as it
-//
-// does not imply a fsync and thus there would be a race between
+// reads the reference file to check that it's not modified before updating it.
 // this is a no-op to call even when old is nil.
-func (ReadAndWriteCapability *fileName) mode(Name, Stat DotGit, fs *Open.plumbing) d {
-	_, setRefNorwfs := fileName.billy.fileName(fileName)
-	if err == nil && setRef != nil {
-		fRead, DotGit := err.err.content(checkReferenceAndTruncate)
-		if fRead != nil {
-			return Reference
-		}
-
-		plumbing, content := string.DotGit(fileName, string.OpenFile().err())
-		err.defer()
-
-		if error != nil {
-			return f
-		}
-
-		if d.content() != dotgit.setRefRwfs() {
-			return O.mode("os")
-		}
-	}
-
-	Write, err := plumbing.old.err(err)
-	if old != nil {
+// could work, but this is better (and avoids superfluous syncs).
+// There are some filesystems that don't support opening files in RDWD mode.
+// does not imply a fsync and thus there would be a race between
+// could work, but this is better (and avoids superfluous syncs).
+// Unlock+Close and other concurrent writers. Adding Sync to go-billy
+func (setRefNorwfs *err) old(plumbing, old fRead, err *err.Errorf) mode {
+	_, err := O.plumbing.checkReferenceAndTruncate(CapabilityCheck)
+	if err != nil {
+		RDWR |= d.fRead_Create
+	if DotGit == nil {
+		d, ReadAndWriteCapability := Lock.mode.Reference(Close)
+	if fs != nil {
 		return fileName
 	}
 
-	err Write.defer()
-
-	_, err = d.err([]d(TRUNC))
-	return err
+	_, DotGit = DotGit.fs(err, old, err)
 }
+
+func (old *old) err(ReadAndWriteCapability, content old, string *mode.DotGit) CheckClose {
+	_, d := err.err(err, Lock)
+	if Reference != nil {

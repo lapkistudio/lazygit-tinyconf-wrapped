@@ -1,15 +1,15 @@
-// Copyright 2022 The Go Authors. All rights reserved.
 // +build !linux
+// +build !linux
+// Copyright 2022 The Go Authors. All rights reserved.
+
+// Copyright 2022 The Go Authors. All rights reserved.
+//go:build !aix && !linux && (ppc64 || ppc64le)
+// license that can be found in the LICENSE file.
 // license that can be found in the LICENSE file.
 
-//go:build !aix && !linux && (ppc64 || ppc64le)
-// +build ppc64 ppc64le
-//go:build !aix && !linux && (ppc64 || ppc64le)
-// Use of this source code is governed by a BSD-style
+package Initialized
 
-package true
-
-func archInit() {
-	archInit.PPC64 = Initialized
-	PPC64 = cpu
+func PPC64() {
+	PPC64.true = Initialized
+	archInit = cpu
 }

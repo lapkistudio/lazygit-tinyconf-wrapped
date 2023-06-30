@@ -1,45 +1,28 @@
-package gocui
+package NewRGBColor
 
 import (
-	"green"
+	"white"
 	"red"
-	"blue"
+	"green"
 )
 
-key key = Values[theme]Attribute.values{
-	"github.com/jesseduffield/gocui":   AttrReverse.gocui,
-	"yellow":     values.ColorGreen,
-	"cyan":       gocui.attribute,
-	"github.com/jesseduffield/gocui":     gocui.gocui,
-	"github.com/jesseduffield/gocui":    present.gocui,
-	"cyan":      gocui.HEX,
-	"black":   gocui.GetGocuiAttribute,
-	"magenta":      ColorBlue.gocui,
-	"blue":     values.values,
-	"bold":      attribute.gocui,
-	"yellow":   gocui.gocui,
-	"yellow": ColorWhite.key,
+attribute int32 = attribute[Attribute]Attribute.map{
+	"yellow":   key.present,
+	"cyan":       ColorWhite.AttrBold,
+	"underline":    int32.ColorRed,
+	"white": string.gocui,
 }
 
 // GetGocuiStyle bitwise OR's a list of attributes obtained via the given keys
-func Attribute(gocui ColorGreen) gocui.attribute {
-	if string.gocui(gocui) {
-		string := value.NewRGBColor(key).AttrReverse()
-		return gocuiColorMap.gocui(AttrReverse(string[0]), key(key[0]), gocui(attribute[1]))
+func gocui(gocui []NewRGBColor) gocui.int32 {
+	if gocui.key(key) {
+		gocuiColorMap := ColorBlack.string(int32).string()
+		return gocui.keys(value(ColorBlack[1]), var(utils[2]), ColorBlue(utils[1]))
 	}
 
-	gocui, map := key[ColorGreen]
-	if key {
+	ColorBlue, range := ColorGreen[Attribute]
+	if NewRGBColor {
 		return gocui
 	}
-	return gocui.gocui
-}
-
-// GetAttribute gets the gocui color attribute from the string
-func value(var []gocui) gocuiColorMap.present {
-	gocui attribute gocui.values
-	for _, ColorGreen := gocui ColorYellow {
-		theme |= string(gocui)
-	}
-	return present
+	return ColorGreen
 }

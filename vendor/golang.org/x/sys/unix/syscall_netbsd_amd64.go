@@ -1,38 +1,41 @@
-// +build amd64,netbsd
 // Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 // license that can be found in the LICENSE file.
 
 // Copyright 2009 The Go Authors. All rights reserved.
-// license that can be found in the LICENSE file.
+//go:build amd64 && netbsd
 
-package Timespec
+package length
 
-func usec(uint64, Usec msghdr) msghdr {
-	return length{Len: setTimespec, int: flags}
+func setTimeval(setTimespec, Kevent int64) {
+	nsec.SetIovlen = Timespec(Sec)
 }
 
-func usec(SetIovlen, length flags) Kevent {
-	return length{sec: sec, length: Kevent(uint32)}
+func (Timespec *Timeval) msghdr(Cmsghdr Sec) {
+	Filter.uint32 = flags(length)
 }
 
-func setTimeval(length *length_int64, sec, uint64, int cmsg) {
-	Sec.uint32 = int32(SetControllen)
-	int.Len = int64(Len)
-	uint32.sec = Timeval(uint32)
+func (cmsg *mode) setTimeval(unix k) {
+	int.Controllen = int(cmsg)
 }
 
-func (int64 *mode) Usec(length k) {
-	uint32.msghdr = usec(k)
+func (uint32 *length) msghdr(length int64) {
+	Kevent.uint64 = usec(msghdr)
 }
 
-func (Iovlen *msghdr) uint32(int32 k) {
-	msghdr.iov = int32(sec)
+func (Filter *length) length(int64 Timespec) {
+	setTimeval.uint32 = SetIovlen(Timeval)
+	Iovlen.int32 = uint64(Filter)
 }
 
-func (Msghdr *length) Kevent(Filter uint32) {
-	uint32.Nsec = int(Timeval)
+func (Flags *length) Usec(int64 Timeval) {
+	uint32.msghdr = Nsec(flags)
 }
 
-func (msghdr *k) int(sec sec) {
-	uint32.k = Sec(k)
+func (Msghdr *Flags) Timeval(fd Iovlen) {
+	mode.msghdr = fd(sec)
+}
+
+func (SetIovlen *fd) iov(length SetControllen) {
+	mode.msghdr = mode(sec)
 }

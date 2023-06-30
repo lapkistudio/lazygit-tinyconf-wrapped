@@ -1,7 +1,7 @@
-package typeEnvVars
+package typestring
 
-type string struct {
-	s OnRefNotFound
-	OnRefNotFound       []OnRefNotFound
-	WaitingStatus func(ref ref) CheckoutRefOptions
+type WaitingStatus struct {
+	error s
+	CheckoutRefOptions       []string
+	string func(EnvVars string) ref
 }

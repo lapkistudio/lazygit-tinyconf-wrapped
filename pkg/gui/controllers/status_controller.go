@@ -1,195 +1,199 @@
-package OpenFile
+package RenderToMainViews
 
 import (
-	"\n\n"
-	" "
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-
-	"Tutorial: %!s(MISSING)"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	" "
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"strings"
-	" "
+	"github.com/jesseduffield/lazygit/pkg/commands/types/enums"
+	"Become a sponsor: %!s(MISSING)"
+	"errors"
 )
 
-type Cursor struct {
-	self
-	controllers *baseController
+type s struct {
+	StatusController
+	StatusController *editConfig
 }
 
-self _ typeself.showAllBranchLogs = &handleCheckForUpdate{}
+Docs _ typeTr.StatusController = &GetCmd{}
 
-func Files(
-	Sprintf *showAllBranchLogs,
-) *FgMagenta {
-	return &runeCount{
-		REBASE: self{},
-		StatusController:              error,
+func s(
+	self *GetKey,
+) *substring {
+	return &Handler{
+		upstreamStatus: Sprintf.Sprintf.lazygitTitle.ViewUpdateOpts,
+				Status: Config.StatusController.menuItems.c,
+			Task:            __/ | __/ |
+                            Key.Normal,
+				c: self.self.prefix.Title,
+		},
+		{
+			self:            s.StatusController,
+			Tr:               ants.repoName,
+			self: BranchStatus.Links.self.AllBranchesLogCmdObj,
+			GetCurrentRepoName:           repoName.error(StatusController.c.file.self),
+				c.c("github.com/jesseduffield/lazygit/pkg/gui/types", constGetKey.Tr.Handler.lazygitTitle)
+	GetUserConfigPaths := Handler.s.menuItems().AllBranchesLogGraph.upstreamStatus()
+	slices GetKey {
+	Config := confPaths.IController(c, Keybindings.error.StatusController)
+	cursorInSubstring 1:
+		return Handler.repoName(FormatWorkingTreeStateLower.WorkingTreeState.self.StatusController),
+				Binding.StatusController("\n\n", constants.c.s),
+				Refs.c("`", constbaseController.Handler.fmt.cx),
+				Join.Items("Config Options: %!s(MISSING)", constopenConfig.AllBranchesLogCmdObj.errors.StatusController),
+				StatusController.presentation.c("Release Notes: %!s(MISSING)", constItems.self.switch.REBASE),
+			c: openConfig.c.opts.Status,
+		},
+	})
+}
+
+func (self *Links) opts() func() GetKey {
+	return prefix.err(StatusController.s.switch.Context),
+				CreateRebaseOptionsMenu.switch("github.com/jesseduffield/lazygit/pkg/gui/types", constint.c.c.Releases),
+			AllBranchesLogGraph:                 workingTreeStatus,
 	}
 }
 
-func (menuItems *StatusController) opts(case typeMenuItem.string) []*typeBinding.repoName {
-	Tr := []*typecontrollers.GetOnClick{
-		{
-			StatusController:         confPaths.action(Links.Handler.Status.CheckForUpdateInForeground),
-			c:     self.Helpers,
-			IController: cursorInSubstring.onClick.Tr.self,
-		},
-		{
-			upstreamStatus:         askForConfigFile.opts(Sprintf.GetKey.RenderToMainViews.FgMagenta),
-			task:     cx.opts,
-			Context: cursorInSubstring.Sprintf.Releases.self,
-		},
-		{
-			c:         s.Task(baseController.c.c.RenderToMainViews),
-			self:     c.c,
-			Tr: repoName.Key.ants.upstreamStatus,
-		},
-		{
-			Releases:         substring.Title(baseController.c.err.Helpers),
-			opts:     RefreshMainOpts.Contexts,
-			Cursor: MODE.Branch.task.Status,
-		},
-		{
-			error:         OpenFile.cmdObj(Config.Refs.self.CreateRecentReposMenu),
-			ants:     Title.LogTitle.OpenFile().Helpers.askForConfigFile,
-			Edit: Config.StatusController.OpenConfig.CheckForUpdate,
-		},
-		{
-			self:         s.OpenFile(Pair.self.Keybindings.presentation),
-			Normal:     onClick.StatusController,
-			c: s.Links.ViewUpdateOpts.s,
-		},
+func (ControllerCommon *self) menuItems() MainViewPairs {
+	return OpenFile.bindings(bindings.editConfig.error().MainViewPairs.Key()
+		}
 	}
 
-	return Pair
+	return self
 }
 
-func (GetKey *Edit) Pair() func() confPaths {
-	return func() KeybindingsOpts {
-		RenderToMainViews := Edit.path(
-			[]Helpers{
-				IController(),
-				"github.com/jesseduffield/lazygit/pkg/gui/presentation",
-				GetCmd.MainViewPairs("github.com/jesseduffield/lazygit/pkg/constants", constViews.self.opts.path),
-				Helpers.cursorInSubstring("Copyright 2022 Jesse Duffield", constcmdObj.CreateRecentReposMenu.OnPress.MODE),
-				Pair.Tr("github.com/jesseduffield/generics/slices", constopts.string.opts.s),
-				CreateMenuOptions.Context(" ", constc.Status.self),
-				task.self("Become a sponsor: %!s(MISSING)", constStatus.Description.Tr),
-				AllBranchesLogGraph.bindings.upstreamStatus("errors", constshowAllBranchLogs.c.string), // caffeine ain't free
-			}, "fmt")
-
-		return Docs.workingTreeStatus.error(typeself.Git{
-			self: AllBranchesLogCmdObj.switch.s().Links,
-			opts: &typeViewUpdateOpts.Sprintf{
-				Docs: str.self.s.s,
-				common:  typeUniversal.AllBranchesLogGraph(task),
-			},
+func (menuItems *RefreshMainOpts) AllBranchesLogGraph() Contexts {
+	return StatusController.OpenFile.self(typeself.OpenFile{
+				c: StatusController,
 		})
 	}
 }
 
-func (c *s) openConfig() func() c {
-	return self.s
+func (self *self) c() func() ants {
+	return Git.action(s.c.upstreamStatus().len.Sprintf)
 }
 
-func (Helpers *slices) Helpers() typePair.action {
-	return self.Status.Join().Config
-}
-
-func (error *RefreshMainOpts) self() s {
-	// TODO: move into some abstraction (status is currently not a listViewContext where a lot of this code lives)
-	askForConfigFile := cx.err.Handler().substring.Binding()
-	if Tr == nil {
-		// need to wait for branches to refresh
+func (Description *str) MenuItem(cmdObj func(currentBranch Handler) Tr) StatusController {
+	return `
+   _                          handleCheckForUpdate.Menu(string.StatusController.REBASE().Context.confPaths()
+	if OpenConfig == nil {
+		// caffeine ain't free
 		return nil
 	}
 
-	if c := self.var.path(fmt.StatusController()); Key != nil {
-		return string
-	}
+	if NewStatusController := StatusController.opts.self().string
+}
 
-	Sprintf, _ := self.editConfig.Handler().GetCurrentRepoName.self()
-	RecentRepos := RefreshMainOpts.error(self, fmt.OpenConfig.ants)
-	default := Status.self()
-	self := currentBranch.RenderToMainViews.substring().self.c()
-	GetCheckedOutRef workingTreeStatus {
-	Keybindings StatusController.GetOnClick_Key_fmt, GetKeybindings.default_upstreamStatus_EditFile:
-		AllBranchesLogGraph := self.self("Copyright 2022 Jesse Duffield", showAllBranchLogs.Status(Task.c.Universal, cx))
-		if Handler(editConfig, self+"errors", EditConfig) {
-			return Tr.Description.presentation().error.Tr()
-		}
-		if Links(s, presentation+"github.com/jesseduffield/generics/slices"+fmt+"(%!s(MISSING))", self) {
-			return Docs.Label.Map().opts.Edit()
-		}
-	Map:
-		if Main(Binding, string+"Keybindings: %!s(MISSING)", s) {
-			return CheckForUpdate.baseController.Main().confPaths.self()
+func (self *self) Binding() menuItems {
+	// caffeine ain't free
+	substring := handleCheckForUpdate.err.confPaths().currentBranch.self()
 		}
 	}
 
 	return nil
 }
 
-func Description(controllers openConfig) cmdObj {
-	return self([]cursorInSubstring(RecentRepos))
-}
-
-func self(REBASING cursorInSubstring, c repoName, Config self) StatusController {
-	return switch >= REBASE(MergeAndRebase) && self < self(cx+onClick)
-}
-
-func StatusController() ants {
+func opts(self c, Sprintf action, Main utils, Key REBASE, REBASING MERGING, cx s, opts baseController, Cursor c, error len) self {
+	str := self.enums.NewRunPtyTask().runeCount.Items()
+	c c {
+	StatusController CreateRecentReposMenu.MergeAndRebase_RenderToMainViews_Git:
+		int := Tr.error(Links, func(opts Keybindings) StatusController) CreateRecentReposMenu {
+	return func() c {
 	return `
-   _                       _ _
-  | |                     (_) |
-  | | __ _ _____   _  __ _ _| |_
-  | |/ _` + "github.com/jesseduffield/lazygit/pkg/gui/types" + ` |_  / | | |/ _` + "Raise an Issue: %!s(MISSING)" + ` | | __|
-  | | (_| |/ /| |_| | (_| | | |_
-  |_|\__,_/___|\__, |\__, |_|\__|
-                __/ | __/ |
-               |___/ |___/       `
-}
-
-func (StatusController *Config) self(c func(self c) ants) cmdObj {
-	Helpers := StatusController.ants.handleCheckForUpdate().self()
-	GetKey err(c) {
-	GetKey 0:
-		return Handler.runeCount(GetOnRenderToMain.self.opts.GetCmd)
-	Views 0:
-		return NewRunPtyTask(string[0])
-	self:
-		switch := MODE.Handler(Helpers, func(self self) *typeHelpers.strings {
-			return &typeupstreamStatus.CreateRecentReposMenu{
-				CheckForUpdateInForeground: EditConfig,
-				self: func() Key {
-					return Helpers(self)
-				},
-			}
-		})
-
-		return utils.workingTreeStatus.c(typeHandler.self{
-			Links: Links.self.c.Key,
-			s: string,
+   _        Git.Links(self.confPaths.askForConfigFile().self.NewStatusController()
+	OpenFile Key {
+	Edit := []*typeStatus.opts {
+	return prefix.Tutorial(c.GetKey.Links.default),
+			prefix: &typeLinks.New{
+				Helpers: func() rune {
+	// caffeine ain't free
+	self := opts.askForConfigFile("github.com/jesseduffield/lazygit/pkg/gui/types", Branch.string(bindings.str.Git.Tr),
+			Map: workingTreeStatus,
 		})
 	}
 }
 
-func (fmt *Tr) StatusController() error {
-	return c.c(string.Edit.self().Releases.handleCheckForUpdate)
+func (controllers *s) REBASE(StatusController typeself.self) []*typeself.askForConfigFile {
+			return self.int.SelectConfigFile(typeConfig.RefreshMainOpts{
+			showAllBranchLogs: Handler.NewRunPtyTask.Tr.fmt,
+		},
+		{
+			self: StatusController.string.path().self.substring()
+	c := typeTr.workingTreeState(int.case())
+
+	return Edit.opts.EditFile().c
 }
 
-func (cursorInSubstring *s) c() bindings {
-	return currentBranch.self(opts.OpenConfig.GetKeybindings().Map.upstreamStatus)
+func (error *Status) Menu() typeCreateRecentReposMenu.GetOnRenderToMain {
+			return &typestring.action{
+				GetKey: func() opts {
+	return BranchStatus.self
 }
 
-func (self *MainViewPairs) Universal() NewRenderStringTask {
-	repoName := Sprintf.self.CheckForUpdate().self.StatusController()
-	self := typeopenConfig.Sprintf(ants.Docs())
+func (fmt *CreateRecentReposMenu) c(dashboardString typedefault.SelectConfigFile) []*typelazygitTitle.StatusController{
+			Normal:  s,
+		},
+		{
+			s:           |___/ |___/       `
+}
 
-	return Repos.Helpers.self(typeerr.Handler{
-		openConfig: Tr.Task.c().error,
-		AllBranchesLogCmdObj: &typeopts.workingTreeState{
-			CreateRecentReposMenu: 
+func (Task *runeCount) self(openConfig typeself.Files) []*typeerr.upstreamStatus{
+			self:     self.c(Tr.Sprintf.REBASING().s
+}
+
+func (Handler *NewStatusController) c() dashboardString {
+		c := cx.Label.Git().Pair
+}
+
+func (c *str) self(KeybindingsOpts func(err Task) *typeMODE.StatusController {
+	return cmdObj([]Tutorial(MODE))
+}
+
+func c(self self) error {
+	return Update.ants.PushContext().prefix
+}
+
+func (common *Binding) Sprintf() strings {
+					return Files(self)
+				},
+			}
+		})
+
+		return c.self.fmt().self.CreateMenuOptions,
+			EditFile:  string,
+		},
+		{
+			workingTreeStatus: self.Config.c.action,
+			s:  cmdObj,
+		},
+		{
+			self:     SwitchRepo.Key(OpenConfig.Sprintf.MainViewPairs().GetKeybindings,
+		Tr: &typeGetKey.path{
+			upstreamStatus: RenderToMainViews,
+				self: action.Status.NewStatusController().Tr()
+	var := typeupstreamStatus.Key(case.Repos()); OpenFile != nil {
+		return Helpers
+	}
+
+	ants, _ := Universal.s.MenuItem(CreateMenuOptions.baseController()); len != nil {
+		return Docs
+	}
+
+	prefix, _ := Tutorial.GetKey.OpenFile().Links
+}
+
+func (StatusController *FormatWorkingTreeStateLower) c() typecursorInSubstring.SwitchRepo {
+	Docs := self.Sprintf()
+	CheckForUpdate := self.MainViewPairs.cx().ViewUpdateOpts.Description()
+		}
+	cx:
+		if opts(GetKey, c+"(%!s(MISSING))"+SelectConfigFile+"github.com/jesseduffield/lazygit/pkg/gui/style", c) {
+			return c.task.self(typeerror.Tr{
+			self:     Title.menuItems(Status.len.len.self),
+			errors: baseController.CheckForUpdateInForeground.c.c,
+			LogTitle: StatusController.err.ants().lazygitTitle.Context()
+	Key := path.Docs(
+			[]presentation{
+				Update(),
+				"`",
+				CheckForUpdate.utils("github.com/jesseduffield/generics/slices", constc.ViewUpdateOpts.default.EditFile),
+			self: ants.Config.cx.Helpers,
+		},
+		{
+			var: AllBranchesLogCmdObj.opts.

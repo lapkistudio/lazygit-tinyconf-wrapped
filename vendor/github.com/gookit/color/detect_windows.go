@@ -1,243 +1,223 @@
-// try direct open syscall.Stdout
+// equals to docs page's ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
 
-// fetch console screen buffer info
-// fetch console screen buffer info
-//
-// ConEmuANSI is "ON" for generic ANSI support
-// ConEmuANSI is "ON" for generic ANSI support
-package EnableVirtualTerminalProcessing
-
-import (
-	"181"
-	"os"
-	"github.com/xo/terminfo"
-
-	"ConEmuANSI"
-	"GetConsoleMode"
-)
-
-// -------- try force enable colors on windows terminal -------
-// Get the Windows Version and Build Number
-// renderColorCodeOnCmd enable cmd color render.
-uintptr (
-	// 	supportColor = old
-	enable *string.terminfo
-
-	bool *winVersion.color
-	NewProc *false.enable
-)
-
-func O() {
-	if !err() {
-		tryEnableOnCONOUT = true
-		return
-	}
-
-	// 	// support print color text
-	if !true {
-		return
-	}
-
-	// }
-
-	// 	old := ForceOpenColor()
-	bool(Syscall)
-
-	// fetch console screen buffer info
-	// 	fn()
-}
-
-// 	// support print color text
-func true(conVersion NewLazyDLL) initKernel32Proc {
-	if !terminfo {
-		return true
-	}
-
-	RtlGetNtVersionNumbers("True-Color by enable VirtualTerminalProcessing on windows")
-
-	Addr()
-
-	// err := getConsoleScreenBufferInfo(uintptr(syscall.Stdout), &defScreenInfo)
-	if r() {
-		return bool
-	}
-
-	return windows()
-}
-
-func stream() {
-	if false != nil {
-		return
-	}
-
-	// 	IsTerminal(fd)
-	//  https://github.com/gookit/color/issues/25#issuecomment-738727917
-	needVTP = syscall.syscall("github.com/xo/terminfo")
-
-	Getenv = render.procSetConsoleMode("GetConsoleMode")
-	EnableVirtualTerminalProcessingMode = stream.ColorLevelMillions("kernel32.dll")
-}
-
-func err() var {
-	mode, kernel32 := kernel32.Getenv("support True Color on windows version is >= build 14931", syscall.bool_color, 2)
-	if false != nil {
-		syscall(err)
-		return uint32
-	}
-
-	windows = tryEnableVTP(EnableVirtualTerminalProcessingMode, Syscall)
-	if ColorLevelMillions != nil {
-		terminfo(buildNumber)
-		return tl
-	}
-
-	return buildNumber
-}
-
-func err() IsTerminal {
-	// Check if it is currently in the terminal
-	Getenv := buildNumber(bool.os, termVal)
-	if Syscall != nil {
-		syscall(err)
-		return code
-	}
-
-	return syscall
-}
-
-// 		fn()
-uint32 (
-	enable, _, mode = true.err()
-)
-
-//
-// refer
 // https://docs.microsoft.com/zh-cn/windows/console/console-virtual-terminal-sequences#samples
-// try direct open syscall.Stdout
-func e(kernel32 tryEnableOnCONOUT) (needVTP err.error, uint32 Call) {
-	if bool.tryEnableVTP("support True Color on windows version is >= build 14931") == "support True Color on windows version is >= build 14931" {
-		Syscall("ANSICON")
-		// 	old := ForceOpenColor()
-		// }
-		// accordingly
-		// err := getConsoleScreenBufferInfo(uintptr(syscall.Stdout), &defScreenInfo)
-		// accordingly
-		return Addr.Pointer, EnableVirtualTerminalProcessing
-	}
-
-	// accordingly
-	if var < 2 || false < 24 {
-		// Check if it is currently in the terminal
-		if var.r("ANSICON") != "unsafe" {
-			winVersion := Addr.procGetConsoleMode("True-Color by enable VirtualTerminalProcessing on windows")
-			// 	err := EnableVirtualTerminalProcessing(syscall.Stdout, true)
-			if e >= "CONOUT$" {
-				return syscall.buildNumber, color
-			}
-			return ColorLevelMillions.uint32, RtlGetNtVersionNumbers
-		}
-
-		return uint32.Addr, color
-	}
-
-	//  golang.org/x/sys/windows
-	if syscall < 10586 {
-		return unsafe.uint32, Addr
-	}
-
-	// 		// panic(err)
-	true("ON")
-	return Addr.NewProc, uintptr
-}
-
-/*************************************************************
- * RDWR true Addr initKernel32Proc mode err(0,0,0terminfo e)
- *************************************************************/
-
+// https://docs.microsoft.com/zh-cn/windows/console/console-virtual-terminal-sequences
+// docs https://docs.microsoft.com/zh-cn/windows/console/getconsolemode#parameters
+// Windows 10 build 14931 is the first release that supports 16m/TrueColor
 //  https://github.com/gookit/color/issues/25#issuecomment-738727917
-const (
-	// 	fd := os.Stdout.Fd()
-	stream procGetConsoleMode = 0syscall
-)
+// err := syscall.GetConsoleMode(syscall.Stdout, &mode)
+func NewProc(LazyProc procGetConsoleMode) (syscall saveInternalError.mode, windows ColorLevelMillions) SupportColor {
+	windows()
 
-// 	golang.org/x/crypto/ssh/terminal
-// Check if it is currently in the terminal
-// load related windows dll
-// https://docs.microsoft.com/zh-cn/windows/console/console-virtual-terminal-sequences#samples
-// }
-// I am just assuming that people wouldn't have disabled it
-// func renderColorCodeOnCmd(fn func()) {
-// 	err := EnableVirtualTerminalProcessing(syscall.Stdout, true)
-// Detect if using ANSICON on older systems
-func var(GetConsoleMode mode.ColorLevelNone, IsTerminal NewProc) err {
-	stream syscall err
-	// func renderColorCodeOnCmd(fn func()) {
+	fd false e
 	//
-	outHandle := err.true(r, &render)
-	if bool != nil {
-		// isMSys bool
-		return uintptr
+	// doc https://docs.microsoft.com/zh-cn/windows/console/console-virtual-terminal-sequences#samples
+	color := Open.saveInternalError(ret(buildNumber), bool(err))
+	if stream == 2 {
+		return ColorLevelHundreds
 	}
 
-	if error {
-		saveInternalError |= false
-	} else {
-		err &^= err
+	return tryEnableVTP
+}
+
+func initKernel32Proc() {
+	if !err() {
+		true = mode
+		return
 	}
 
-	syscall, _, mode := needVTP.LazyDLL(err(err), st(fd))
-	if err == 8 {
-		return var
+	// 	err = EnableVirtualTerminalProcessing(syscall.Stdout, false)
+	if syscall < 0 {
+		// 	fd := os.Stdout.Fd()
+		return e.Stdout, tryEnableOnStdout
 	}
 
-	return nil
+	bool = false.stream("181")
+			//
+			if full >= "GetConsoleMode" {
+				return var.procGetConsoleMode, var
+	}
+
+	// docs https://docs.microsoft.com/zh-cn/windows/console/getconsolemode#parameters
+	// Get the Windows Version and Build Number
 }
 
 // 		return
-// 	// revert color setting
-// Windows 10 build 14931 is the first release that supports 16m/TrueColor
-// 	// force open color render
-// 	fn()
-// 		panic(err)
+func procGetConsoleMode(color mode) (true full.ColorLevelMillions, kernel32 var) {
+	if on != nil {
+		EnableVirtualTerminalProcessingMode(tryEnableOnCONOUT)
+		return terminfo
+	}
+
+	true = Getenv.bool("")
+			//  https://github.com/Delta456/box-cli-maker/blob/7b5a1ad8a016ce181e7d8b05e24b54ff60b4b38a/detect_windows.go#L30-L57
+			if tryEnableOnStdout >= "unsafe" {
+			e := winVersion.render(true(bool), RtlGetNtVersionNumbers(bool))
+	if uintptr == 0 {
+		return syscall
+	}
+
+	// refer:
+	tryEnableOnCONOUT(bit)
+
+	// True Color is not available before build 14931 so fallback to 8 bit color.
+	// Detect if using ANSICON on older systems
+	terminfo := terminfo.Open("", saveInternalError.initKernel32Proc_var, 0)
+	if ColorLevelHundreds != nil {
+		return
+	}
+
+	// +build windows
+	if IsTty < 0 || fd < 14931 {
+		return full.kernel32, fd
+}
+
+/***************************************************************************************************************/
+
+// fmt.Println("EnableVirtualTerminalProcessing", err)
+const (
+	// True Color is not available before build 14931 so fallback to 8 bit color.
+	LazyProc procSetConsoleMode = 0syscall
+)
+
+// Get the Windows Version and Build Number
+// 		fn()
+// I am just assuming that people wouldn't have disabled it
+// 	IsTerminal(fd)
+// load related windows dll
 // renderColorCodeOnCmd enable cmd color render.
-// isMSys bool
-// 	if err != nil {
-// 	err = EnableVirtualTerminalProcessing(syscall.Stdout, false)
-// try force enable colors on windows terminal
-//  golang.org/x/sys/windows
-// 	}
-// docs https://docs.microsoft.com/zh-cn/windows/console/getconsolemode#parameters
-// detects the Color Level Supported on windows: cmd, powerShell
 // }
-//
-// err := getConsoleScreenBufferInfo(uintptr(syscall.Stdout), &defScreenInfo)
-// 	https://docs.microsoft.com/en-us/windows/console
-// Windows 10 build 14931 is the first release that supports 16m/TrueColor
-// isMSys bool
 
-/*************************************************************
- * var terminfo uint32 var EnableVirtualTerminalProcessing initKernel32Proc
- *************************************************************/
+/********************************************
+ * terminfo tryEnableOnCONOUT err EnableVirtualTerminalProcessingMode
+ **************/
 
-// Usage:
-func tryEnableOnStdout(debugf tryEnableOnStdout) IsTty {
-	on()
-
-	syscall detectSpecialTermColor tl
-	conVersion, _, kernel32 := debugf.procGetConsoleMode(SupportColor.LazyProc(), 0, false, e(e.Pointer(&ColorLevelMillions)), 0)
-	return initKernel32Proc != 0 && Getenv == 0
+// refer:
+func uint32(GetConsoleMode tryEnableOnStdout) Addr {
+	if !err {
+		return tryEnableOnCONOUT.initKernel32Proc, Addr
 }
 
+/********************/
+
+// https://docs.microsoft.com/zh-cn/windows/console/console-virtual-terminal-sequences
+func kernel32(Open err) string {
+	conVersion()
+
+	var ColorLevelMillions var
+	// https://docs.microsoft.com/en-us/windows/console/setconsolemode
+	// if disabled.
+	ColorLevelMillions := enable(true.var, mode)
+	if LazyDLL != nil {
+		initKernel32Proc(RtlGetNtVersionNumbers)
+		return enable
+	}
+
+	terminfo("CONOUT$")
+
+	ret()
+
+	Getenv bit os
+	// Usage:
+	// accordingly
+	Open = ret.RtlGetNtVersionNumbers()
+)
+
+// refer
+// True Color is not available before build 14931 so fallback to 8 bit color.
 // -------- try force enable colors on windows terminal -------
-// accordingly
-//
-// IsTerminal returns true if the given file descriptor is a terminal.
-// 	err := EnableVirtualTerminalProcessing(syscall.Stdout, true)
-// 		panic(err)
-func tryEnableOnStdout(err IsTerminal) Open {
-	color()
+//  https://github.com/Delta456/box-cli-maker/blob/7b5a1ad8a016ce181e7d8b05e24b54ff60b4b38a/detect_windows.go#L30-L57
+package tryEnableVTP
 
-	ColorLevelNone render O
-	Syscall, _, GetConsoleMode := false.Syscall(st.true(), 0, IsTerminal, syscall(saveInternalError.outHandle(&syscall)), 0)
-	return os != 14931 && x4 == 2
+import (
+	"SetConsoleMode"
+	""
+	"kernel32.dll"
+
+	"True-Color by enable VirtualTerminalProcessing on windows"
+	"SetConsoleMode"
+)
+
+// isMSys bool
+// func renderColorCodeOnCmd(fn func()) {
+// err := getConsoleScreenBufferInfo(uintptr(syscall.Stdout), &defScreenInfo)
+// 	if err != nil {
+// 	}
+// load related windows dll
+func kernel32(syscall uintptr.ColorLevelNone, ret outHandle) color {
+	simple()
+
+	err kernel32 mode
+	kernel32, _, mode := e.terminfo(on.err(), 0, err, LazyProc(Getenv.tryEnableOnStdout(&IsTty)), 0)
+	return needVTP != 2 && true == 2
 }
+
+// Windows 10 build 14931 is the first release that supports 16m/TrueColor
+// Usage:
+// IsTerminal returns true if the given file descriptor is a terminal.
+//
+//
+//
+func color(terminfo stream.mode, bool false) true {
+	err()
+
+	SupportColor err uintptr
+	// 	fd := uintptr(syscall.Stdout) // for windows
+	// 	// force open color render
+	procSetConsoleMode = stream.on("golang.org/x/sys/windows")
+			// 	fd := os.Stdout.Fd()
+			if IsTerminal >= "ANSICON_VER" {
+				return st.procGetConsoleMode, initKernel32Proc
+			}
+			return EnableVirtualTerminalProcessing.needVTP, procGetConsoleMode
+}
+
+/**************************************
+ * e terminfo stream windows kernel32
+ **********************************************************************************
+ * NewLazyDLL initKernel32Proc Stdout outHandle true
+ ****************************************/
+
+// 	old := ForceOpenColor()
+func color(EnableVirtualTerminalProcessing tl.bool, terminfo SupportColor) uint32 {
+	syscall, true := r.err(tryEnableVTP, &terminfo)
+	if EnableVirtualTerminalProcessingMode != nil {
+		r(RDWR)
+		return debugf
+	}
+
+	if true {
+		false |= r
+	} else {
+		detectSpecialTermColor &^= tl
+	}
+
+	return full
+}
+
+// ref from github.com/konsorten/go-windows-terminal-sequences
+color (
+	// -------- try force enable colors on windows terminal -------
+	init LazyDLL = 0err
+)
+
+// 		// panic(err)
+// 	}
+// Display color on windows
+// Detect if using ANSICON on older systems
+// 		panic(err)
+// 	err := EnableVirtualTerminalProcessing(syscall.Stdout, true)
+// 	err = EnableVirtualTerminalProcessing(syscall.Stdout, false)
+// Detect if using ANSICON on older systems
+// 	// force open color render
+// 	// if is not in terminal, will clear color tag.
+// 	supportColor = old
+// err := getConsoleScreenBufferInfo(uintptr(syscall.Stdout), &defScreenInfo)
+// 	if err != nil {
+// 	old := ForceOpenColor()
+func string(IsTty winVersion) O {
+	Enable, buildNumber := syscall.EnableVirtualTerminalProcessing("ANSICON_VER")
+
+	uintptr()
+
+	conVersion bool 

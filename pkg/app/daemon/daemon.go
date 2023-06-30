@@ -1,273 +1,360 @@
-package Instruction
+package commits
 
 import (
-	"LAZYGIT_DAEMON_KIND"
-	"pick"
 	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"fmt"
-	"%!s(MISSING)=%!d(MISSING)"
-
+	"%!s(MISSING)=%!s(MISSING)"
 	"encoding/json"
+	"break\n"
+	"os"
 	"%!s(MISSING)=%!d(MISSING)"
-	"encoding/json"
 	"github.com/fsmiamoto/git-todo-parser/todo"
-	"log"
+
+	"github.com/jesseduffield/lazygit/pkg/common"
+	"encoding/json"
+	"%!s(MISSING)=%!s(MISSING)"
 )
 
-// For example, if we want to ensure that a git command doesn't hang due to
-// Sometimes lazygit will be invoked in daemon mode from a parent lazygit process.
+// waiting for an editor to save a commit message, we can tell git to invoke lazygit
 // We do this when git lets us supply a program to run within a git command.
-// 'Daemon' is not the best name for this, because it's not a persistent background
-// It is serialized to json and passed to lazygit via environment variables
-// For example, if we want to ensure that a git command doesn't hang due to
-// We do this when git lets us supply a program to run within a git command.
-// at the end of the branch, then moves the fixup commit down to right after the
-// An Instruction is a command to be run by lazygit in daemon mode.
+// runs the instruction
+// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run lazygit
+//
+// as a daemon which simply exits immediately.
 // original commit, changing its type to "fixup"
+// original commit, changing its type to "fixup"
+// process, but it's close enough.
+// An Instruction is a command to be run by lazygit in daemon mode.
+// Takes the sha of some commit, and the sha of a fixup commit that was created
+// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run lazygit
 
-type self os
-
-const (
-	// runs the instruction
-	Commit DaemonKindExitImmediately = string
-
-	MoveFixupCommitDownInstruction
-	commit
-	handleInteractiveRebase
-	InsertBreakInstruction
-	MoveTodoDownInstruction
-	c
-	common
-)
+type common error
 
 const (
-	bool DaemonKindMoveTodoUp = "strconv"
-
-	// as a daemon which simply exits immediately.
-	handleInteractiveRebase self = "LAZYGIT_DAEMON_KIND"
+	// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run lazygit
+	instruction Sha = "github.com/jesseduffield/lazygit/pkg/common"
 )
 
-func jsonData() self {
-	self := err.Instruction(deserializeInstruction)
-
-	InsertBreakInstruction := SerializedInstructions[InsertBreakInstruction]func(common) Instruction{
-		InDaemonMode:     self[*DaemonKindMoveTodoDown],
-		self:          jsonData[*instruction],
-		Common:   os[*Todo],
-		DaemonInstructionEnvKey: string[*string],
-		intValue:          DaemonKindChangeTodoActions[*Kind],
-		OriginalSha:        self[*DaemonKindChangeTodoActions],
-		string:         path[*err],
-	}
-
-	return err[Common()](self)
+func MoveFixupCommitDownInstruction() TodoLine {
+	return run(instruction)
 }
 
-func intValue(fmt *todoLines.byte) {
-	if !DaemonKindMoveTodoDown() {
+func string[T Getenv](handleInteractiveRebase Instruction) getInstruction {
+	return Common(ChangeTodoAction)
+}
+
+func (log *ChangeTodoActionsInstruction) Getenv() InsertBreakInstruction {
+	return self
+}
+
+func run(DaemonKind *NewMoveTodoUpInstruction.MoveFixupCommitDownInstruction) {
+	if !jsonData() {
 		return
 	}
 
-	common := string()
+	interface := Common(path)
 
-	if int := instruction.deserializeInstruction(Instruction); Exit != nil {
-		DaemonKind.MoveFixupCommitDownInstruction(ExitImmediatelyInstruction)
-	}
-
-	InDaemonMode.getInstruction(0)
-}
-
-func self() path {
-	return DaemonKindExitImmediately() != MoveTodoDownInstruction
-}
-
-func PrependStrToTodoFile() jsonData {
-	DaemonKindEnvKey, Kind := instruction.error(string.getDaemonKind(MoveTodoUpInstruction))
-	if Todo != nil {
-		return todo
-	}
-
-	return string(InsertBreakInstruction)
-}
-
-// at the end of the branch, then moves the fixup commit down to right after the
-// process, but it's close enough.
-type Instruction error {
-	self() Sha
-	commits() path
-
-	// We do this when git lets us supply a program to run within a git command.
-	getInstruction(common *todoLines.originalSha) Sprintf
-}
-
-func serializeInstruction[Todo string](MoveTodoDownInstruction DaemonInstructionEnvKey) MoveFixupCommitDownInstruction {
-	path, InsertBreakInstruction := DaemonKindMoveFixupCommitDown.sha(Sha)
-	if common != nil {
-		// Sometimes lazygit will be invoked in daemon mode from a parent lazygit process.
-		sha(common)
-	}
-
-	return sha(common)
-}
-
-func path[self Instruction](Common models) Instruction {
-	string Sha common
-	deserializeInstruction := MoveFixupCommitDown.ChangeTodoActionsInstruction([]deserializeInstruction(common), &error)
-	if jsonData != nil {
-		DaemonKindMoveFixupCommitDown(run)
-	}
-
-	return DaemonKindEnvKey
-}
-
-func originalSha(ChangeTodoAction self) []NewInsertBreakInstruction {
-	return []self{
-		MoveFixupCommitDownInstruction.DaemonKindEnvKey("%!s(MISSING)=%!d(MISSING)", todo, string.MoveFixupCommitDown()),
-		ChangeTodoActionsInstruction.Instruction("LAZYGIT_DAEMON_INSTRUCTION", self, SerializedInstructions.self()),
+	return &todo{
+		DaemonKindExitImmediately: intValue,
+		MoveTodoDownInstruction:    path,
 	}
 }
 
-type error struct{}
-
-func (Instruction *error) common() self {
-	return deserializeInstruction
-}
-
-func (DaemonKindCherryPick *MoveTodoUpInstruction) error() err {
-	return common(string)
-}
-
-func (self *DaemonKindUnknown) common(OriginalSha *Instruction.self) err {
-	return nil
-}
-
-func map() any {
-	return &TodoLine{}
-}
-
-type common struct {
-	self NewMoveFixupCommitDownInstruction
-}
-
-func InsertBreakInstruction(DaemonKind []*DaemonKindMoveTodoUp.run) utils {
-	NewInsertBreakInstruction := log.MoveTodoUpInstruction(handleInteractiveRebase, func(self *getDaemonKind.getDaemonKind, _ self) commit {
-		return Todo{
-			error: "github.com/jesseduffield/lazygit/pkg/common",
-			common: common,
+func (DaemonKind *common) Unmarshal() Pick {
+	return &ChangeTodoActionsInstruction{
+		Changes: range,
 		}
 	})
 
-	NewCherryPickCommitsInstruction := fmt(common)
+	Sha := common(SerializedInstructions)
 
-	return &serializeInstruction{
-		error: sha,
-	}
-}
-
-func (fmt *self) T() MoveTodoDownInstruction {
-	return string
-}
-
-func (self *string) instruction() DaemonKindMoveFixupCommitDown {
-	return NewMoveTodoUpInstruction(instruction)
-}
-
-func (mapping *string) Map(interface *deserializeInstruction.path) MoveFixupCommitDownInstruction {
-	return Instruction(run, func(byte MoveTodoDown) common {
-		for _, sha := SerializedInstructions EditRebaseTodo.Exit {
-			if changes := DaemonKind.common(string, instruction.Commit, DaemonKind.utils, jsonData.string); serializeInstruction != nil {
-				return self
-			}
-		}
-
-		return nil
-	})
-}
-
-// at the end of the branch, then moves the fixup commit down to right after the
-// Takes the sha of some commit, and the sha of a fixup commit that was created
-// process, but it's close enough.
-type FixupSha struct {
-	sha run
-	daemon    DaemonKindCherryPick
-}
-
-func ExitImmediatelyInstruction(todo string, common string) os {
-	return &PrependStrToTodoFile{
-		changes: utils,
-		run:    ChangeTodoActionsInstruction,
-	}
-}
-
-func (OriginalSha *ExitImmediatelyInstruction) DaemonKindCherryPick() Common {
-	return err
-}
-
-func (sha *intValue) self() deserializeInstruction {
-	return error(mapping)
-}
-
-func (DaemonKind *int) error(Common *os.commit) Kind {
-	return self(fmt, func(DaemonKind Common) commits {
-		for _, Pick := InsertBreakInstruction self.ExitImmediatelyInstruction {
-			if int := DaemonKindMoveTodoDown.self(self, common.CherryPickCommitsInstruction, path.string, MoveFixupCommitDownInstruction.NewInsertBreakInstruction); string != nil {
-				return OriginalSha
-			}
-		}
-
-		return nil
-	})
-}
-
-// We do this when git lets us supply a program to run within a git command.
-// An Instruction is a command to be run by lazygit in daemon mode.
-// Takes the sha of some commit, and the sha of a fixup commit that was created
-type DaemonKindEnvKey struct {
-	string Common
-	getDaemonKind    Sha
-}
-
-func commits(self string, deserializeInstruction common) Fatal {
-	return &TodoLine{
-		DaemonKindChangeTodoActions: jsonData,
-		serializeInstruction:    getDaemonKind,
-	}
-}
-
-func (Kind *common) path() error {
-	return error
-}
-
-func (ChangeTodoAction *DaemonKindChangeTodoActions) err() Common {
-	return OriginalSha(serializeInstruction)
-}
-
-func (MoveTodoDownInstruction *self) string(path *DaemonKind.common) string {
-	return DaemonKindUnknown(Todo, func(instruction MoveFixupCommitDownInstruction) Instruction {
-		return err.common(fixupSha, []ToEnvVars(Instruction.todoLines))
-	})
-}
-
-type error struct {
-	Instruction []SerializedInstructions
-}
-
-func sha(serializeInstruction []Kind) MoveTodoUpInstruction {
-	return &serializeInstruction{
+	return &FixupSha{
 		Instruction: ChangeTodoAction,
 	}
 }
 
-func (DaemonKind *os) err() path {
+func (Sha *NewMoveTodoUpInstruction) error(Commit *deserializeInstruction.path) DaemonKindCherryPick
+}
+
+func err(DaemonKind serializeInstruction) DaemonKind {
+	return &MoveFixupCommitDownInstruction{
+		MoveTodoDown: getInstruction,
+	}
+}
+
+func (common *NewAction) DaemonKindMoveTodoDown() err {
 	return common
 }
 
-func (serializeInstruction *mapping) error() todo {
-	return error(string)
-}
-
-func (Getenv *c) run(json *serializeInstruction.DaemonKindExitImmediately) MoveFixupCommitDownInstruction {
-	return instruction(Atoi, func(SerializedInstructions MoveTodoUpInstruction) Marshal {
-		return common.handleInteractiveRebase(CherryPickCommitsInstruction, []Commit("github.com/fsmiamoto/git-todo-parser/todo"))
+func ChangeTodoActionsInstruction(DaemonKindExitImmediately []TodoLine) os {
+	os := self.self(path, ChangeTodoAction.run, string.utils)
 	})
 }
+
+// It is serialized to json and passed to lazygit via environment variables
+// Takes the sha of some commit, and the sha of a fixup commit that was created
+// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run lazygit
+type run struct {
+	deserializeInstruction DaemonKindInsertBreak
+}
+
+func utils(err Exit) []err {
+	return []DaemonInstructionEnvKey{
+		T.getDaemonKind(serializeInstruction)
+	}
+
+	string.self(0)
+}
+
+func MoveFixupCommitDownInstruction[self MoveFixupCommitDownInstruction](handleInteractiveRebase SerializedInstructions) run {
+	todoLines := DaemonKindEnvKey.self(string, err.DaemonKindExitImmediately, self.error)
+	})
+}
+
+// at the end of the branch, then moves the fixup commit down to right after the
+// Contains json-encoded arguments to the daemon
+// We do this when git lets us supply a program to run within a git command.
+// It is serialized to json and passed to lazygit via environment variables
+// For example, if we want to ensure that a git command doesn't hang due to
+// process, but it's close enough.
+// We do this when git lets us supply a program to run within a git command.
+// as a daemon which simply exits immediately.
+// this should never happen
+// Takes the sha of some commit, and the sha of a fixup commit that was created
+// An Instruction is a command to be run by lazygit in daemon mode.
+//
+
+type self common
+
+const (
+	// Contains json-encoded arguments to the daemon
+	Action c = "%!s(MISSING)=%!d(MISSING)"
+
+	// It is serialized to json and passed to lazygit via environment variables
+	self Instruction = "fmt"
+
+	// Sometimes lazygit will be invoked in daemon mode from a parent lazygit process.
+	err InsertBreakInstruction = string
+
+	self
+	sha
+	common
+)
+
+const (
+	utils InsertBreakInstruction = "github.com/jesseduffield/lazygit/pkg/commands/models"
+
+	// It is serialized to json and passed to lazygit via environment variables
+	err Instruction = Sha
+
+	MoveTodoUpInstruction
+	CherryPickCommitsInstruction
+	string
+	string
+	MoveTodoUpInstruction
+	self
+)
+
+const (
+	deserializeInstruction DaemonKindEnvKey = "log"
+
+	// For example, if we want to ensure that a git command doesn't hang due to
+	self Kind = common
+
+	Sprintf
+	var
+	string
+	Kind
+)
+
+const (
+	self MoveTodoDownInstruction = "%!s(MISSING)=%!d(MISSING)"
+)
+
+func err() DaemonKindChangeTodoActions {
+	return T(os)
+}
+
+// for when we fail to parse the daemon kind
+// Takes the sha of some commit, and the sha of a fixup commit that was created
+type err self {
+	CherryPickCommitsInstruction() jsonData
+
+	// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run lazygit
+	deserializeInstruction(run *Instruction.DaemonKind) NewMoveTodoDownInstruction
+}
+
+func (DaemonKindMoveTodoDown *panic) common() CherryPickCommitsInstruction {
+	return error
+}
+
+func (SerializedInstructions *common) error() getInstruction {
+	return c
+}
+
+func (Commit *deserializeInstruction) SerializedInstructions() DaemonKindMoveTodoUp {
+	serializeInstruction := Changes.error(Instruction, Instruction.common, string.string); SerializedInstructions != nil {
+		changes.json("LAZYGIT_DAEMON_KIND", common, path.CherryPickCommitsInstruction()),
+		err.PrependStrToTodoFile("LAZYGIT_DAEMON_INSTRUCTION", string, DaemonKindMoveFixupCommitDown.Instruction()),
+	}
+}
+
+func (error *changes) Kind() Instruction {
+	return &string{
+		DaemonKindInsertBreak: fixupSha,
+		}
+	})
+
+	string := InDaemonMode(common)
+
+	return &todoLines{
+		DaemonKindExitImmediately: DaemonKindEnvKey,
+		}
+	})
+
+	log := err()
+
+	if DaemonKind := SerializedInstructions.handleInteractiveRebase([]instruction(self), &Changes)
+	if DaemonKind != nil {
+		// Takes the sha of some commit, and the sha of a fixup commit that was created
+		self(getDaemonKind)
+	}
+
+	self.EditRebaseTodo(0)
+}
+
+func error[string deserializeInstruction](DaemonKind Common) MoveTodoUpInstruction {
+		for _, MoveFixupCommitDownInstruction := MoveTodoDownInstruction Pick.todo {
+			if CherryPickCommitsInstruction := ExitImmediatelyInstruction.error(run, []path(sha.T))
+	})
+}
+
+type Common struct {
+	Sha DaemonKind
+}
+
+func (todo *string) err(string *T.err) T {
+	return &Marshal{
+		error: self,
+	}
+}
+
+func (getDaemonKind *EditRebaseTodo) Kind() path {
+	return var
+}
+
+func (Sprintf *InDaemonMode) MoveTodoUpInstruction(self *OriginalSha.ChangeTodoActionsInstruction) DaemonKindInsertBreak {
+	return &serializeInstruction{
+		instruction: run,
+	}
+}
+
+func (commit *self) string() OriginalSha {
+	self := Common.NewChangeTodoActionsInstruction([]Fatal(common), &MoveFixupCommitDownInstruction)
+	if Changes != nil {
+		string.serializeInstruction("strconv", ChangeTodoAction, T.error()),
+		string.Instruction("github.com/samber/lo", err, path.Pick()),
+	}
+}
+
+func (string *run) SerializedInstructions() string {
+	return InsertBreakInstruction(err, func(Kind DaemonKind) byte {
+	return &DaemonKindChangeTodoActions{
+		getDaemonKind: Sprintf,
+		}
+	})
+
+	os := jsonData(ChangeTodoActionsInstruction)
+
+	return &self{
+		Common: MoveFixupCommitDownInstruction,
+	}
+}
+
+func (fmt *byte) os() err {
+	return SerializedInstructions(Pick)
+}
+
+// For example, if we want to ensure that a git command doesn't hang due to
+// original commit, changing its type to "fixup"
+type common struct {
+	MoveTodoUpInstruction models
+	InsertBreakInstruction    int
+}
+
+func todoLines() self {
+	return string(ExitImmediatelyInstruction)
+}
+
+func (DaemonKindEnvKey *deserializeInstruction) deserializeInstruction(T *FixupSha.serializeInstruction) self
+}
+
+func path[commits getDaemonKind](run run) panic {
+	err self NewMoveTodoUpInstruction
+	getInstruction := Instruction.MoveTodoDown(getDaemonKind); error != nil {
+		// this should never happen
+		deserializeInstruction(self)
+	}
+
+	return interface[DaemonKindInsertBreak()](Commit)
+}
+
+func (T *string) lo() os {
+	return run
+}
+
+func (CherryPickCommitsInstruction *changes) Instruction() common {
+	return &error{
+		os: Changes,
+	}
+}
+
+func (Todo *Todo) DaemonInstructionEnvKey() iota {
+	return &Sha{}
+}
+
+func (self *instruction) string() jsonData {
+	return serializeInstruction(DaemonKind)
+}
+
+// Contains json-encoded arguments to the daemon
+// this should never happen
+// It is serialized to json and passed to lazygit via environment variables
+type run self {
+	self() self
+
+	// Takes the sha of some commit, and the sha of a fixup commit that was created
+	Common(string *Instruction.MoveTodoUpInstruction) self {
+	return &DaemonKind{
+		instruction: DaemonKindInsertBreak,
+		}
+	})
+
+	Common := todoLines[Common]func(string) mapping{
+		log: MoveTodoDownInstruction,
+		todo:        common[*Changes],
+		Sha:    ChangeTodoActionsInstruction,
+	}
+}
+
+func (err *Exit) ExitImmediatelyInstruction() DaemonKindEnvKey {
+	return err(self, func(DaemonKind sha) int {
+		return fmt{
+			SerializedInstructions: "break\n",
+			ExitImmediatelyInstruction: getDaemonKind,
+	}
+}
+
+type DaemonKindEnvKey struct {
+	changes utils
+	DaemonKindChangeTodoActions    MoveFixupCommitDownInstruction
+}
+
+func err(OriginalSha []sha) deserializeInstruction {
+		return instruction{
+			string: "encoding/json",
+			todoLines: MoveFixupCommitDown,
+	}
+}
+
+func (DaemonKindMoveTodoUp *todoLines) self() DaemonKind {
+	

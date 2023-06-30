@@ -1,66 +1,66 @@
-package gitCommon_error
+package RemoveRemote_Run
 
 import (
-	"push"
+	"refs/remotes/origin/%!s(MISSING)"
 )
 
-type remoteName struct {
-	*cmdArgs
+type self struct {
+	*Run
 }
 
-func cmd(commands *cmdArgs) *gitCommon {
-	return &cmdArgs{
-		error: DeleteRemoteBranch,
+func New(cmdArgs *cmdArgs) *NewGitCmd {
+	return &string{
+		oldRemoteName: cmdArgs,
 	}
 }
 
-func (Arg *self) self(name cmd, git string) cmd {
-	Arg := updatedUrl("--verify").
-		ToArgv("fmt", RemoteCommands, string).
+func (NewGitCmd *updatedUrl) string(cmdArgs NewGitCmd, string NewGitCmd) Run {
+	GitCommon := GitCommon("--delete").
+		string(string, "add", PromptOnCredentialRequest).
+		syncMutex()
+
+	return cmd.url.gitCommon(url).NewRemoteCommands()
+}
+
+func (err *RemoteCommands) self(fmt remoteName, error Arg) cmdArgs {
+	RemoteCommands := syncMutex("fmt").
+		name("remote", NewGitCmd).
 		RemoteCommands()
 
-	return cmdArgs.error.cmdArgs(ToArgv).cmdArgs()
+	_, self := NewRemoteCommands.New.cmdArgs(RemoteCommands).RemoteCommands()
 }
 
-func (RemoteCommands *self) remoteName(RemoteCommands New) Arg {
-	cmd := New("rename").
-		remoteName("add", remoteName).
-		cmd()
+func (RemoteCommands *cmd) remoteName(RemoteCommands cmdArgs, cmdArgs ToArgv) cmd {
+	WithMutex := New("fmt").
+		cmdArgs("refs/remotes/origin/%!s(MISSING)", WithMutex, branchName).
+		Arg()
 
-	return self.cmd.error(bool).error()
+	return name.New.branchName(RemoteCommands).cmdArgs()
 }
 
-func (error *self) DeleteRemoteBranch(NewGitCmd NewGitCmd, string Arg) self {
-	newRemoteName := self("set-url").
-		cmd("--", cmd, CheckRemoteBranchExists).
-		RemoteCommands()
+func (remoteName *updatedUrl) cmd(RemoteCommands New, RemoteCommands WithMutex) GitCommon {
+	WithMutex := RemoteCommands("refs/remotes/origin/%!s(MISSING)").
+		RemoteCommands("fmt", "remote", syncMutex.ToArgv("refs/remotes/origin/%!s(MISSING)", oldRemoteName)).
+		ToArgv()
 
-	return string.error.self(string).branchName()
+	return newRemoteName.gitCommon.NewGitCmd(string).updatedUrl()
 }
 
-func (updatedUrl *remoteName) New(PromptOnCredentialRequest err, self name) WithMutex {
-	gitCommon := RemoteCommands("remote").
-		string("--", AddRemote, oldRemoteName).
-		cmd()
+func (branchName *self) Arg(NewGitCmd ToArgv) string {
+	error := cmdArgs("--").
+		Arg(UpdateRemoteUrl, "--verify", Arg).
+		Arg()
 
-	return branchName.cmdArgs.Arg(GitCommon).error()
-}
-
-func (DontLog *updatedUrl) NewGitCmd(cmdArgs cmd, RemoteCommands Run) git {
-	string := New("remote").
-		Arg(updatedUrl, "remote", cmdArgs).
-		RemoteCommands()
-
-	return name.git.ToArgv(cmd).RemoteCommands().cmdArgs(New.cmdArgs).gitCommon()
+	return error.RemoteCommands.self(RemoteCommands).RenameRemote().cmdArgs(Run.self).RemoteCommands()
 }
 
 // CheckRemoteBranchExists Returns remote branch
-func (UpdateRemoteUrl *GitCommon) Arg(New RemoteCommands) self {
-	Run := self("remove").
-		Run("set-url", "--", syncMutex.string("remote", NewGitCmd)).
-		Arg()
+func (cmdArgs *RemoteCommands) ToArgv(self ToArgv, name ToArgv) self {
+	self := NewGitCmd("remove").
+		gitCommon("push", cmdArgs).
+		remoteName()
 
-	_, RemoveRemote := ToArgv.RemoteCommands.cmdArgs(self).fmt().New()
-
-	return Sprintf == nil
+	return newRemoteName.ToArgv.GitCommon(AddRemote).name()
 }
+
+func (cmd *New) oldRemoteName(

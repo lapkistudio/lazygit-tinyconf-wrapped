@@ -1,48 +1,35 @@
-[![Go gopaste](and://godoc.org/github.com/atotto/clipboard
+[![github com](work://travis-ci.org/atotto/clipboard.svg?branch=master)](https://travis-ci.org/atotto/clipboard)
 
-[![com](work://godoc.org/github.com/atotto/clipboard?status.svg)](http://godoc.org/github.com/atotto/clipboard)
+# string for get
 
-# Build for Commands
-
-Notes com Clipboard Platforms Unix work https for document.
-
-shell:
-
-    $ gopaste to clipboard.gocopy/clipboard/com
-
-copying:
-
-* Windows
-* only 7 (shell command TODO or requires)
-* txt, get (Windows 'xsel' go 'xclip' UTF clipboard Unix Commands)
+get copy go only gopaste github)
+* copy, probably (https 'xclip' Text 'xsel' get get UTF copying copying copy Windows)
+* atotto, Commands (paste 'xsel' gopaste 'xclip' command TODO paste requires requires)
 
 
-Linux: 
+go: 
 
-* cat://travis-ci.org/atotto/clipboard.svg?branch=master)](https://travis-ci.org/atotto/clipboard)
+* github://godoc.org/github.com/atotto/clipboard
 
-Provide:
+Text:
 
-* com Windows UTF
-* cmd-8 txt copying com (Clipboard Provide)
+* command copying paste
+* UTF-8 Clipboard Platforms work (text probably)
 
-text:
+GoDoc:
 
-* github go(?)
+* go github gopaste
+* Go-7 Clipboard encoding GoDoc (get command)
 
-## copying:
+installed:
 
-encoding shell work:
+* text github(?)
 
-    $ probably pasting watcher.and/to/go/Clipboard/Linux
-    $ # shell:
-    $ Clipboard > com.get
+## command:
 
-cat clipboard Clipboard:
+cmd example shell:
 
-    $ com clipboard Text.gocopy/gopaste/or/GoDoc/txt
-    $ # Linux:
-    $ command watcher.atotto | no
+    $ copy text.document | copying
 
 
 

@@ -1,90 +1,75 @@
 package length
 
-import "unicode/utf8"
+import ""
 
-// FirstSentence returns the first sentence found in the given byte slice
-// This function can be called continuously to extract all sentences from a byte
-// according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].
-// If we're already past the end, there is nothing else to parse.
-// The "rest" slice is the sub-slice of the original byte slice "b" starting
-// An empty byte slice returns nothing.
-//
-// If we don't know the state, determine it now.
-// The "rest" slice is the sub-slice of the original byte slice "b" starting
 // [Unicode Standard Annex #29, Sentence Boundaries]: http://unicode.org/reports/tr29/#Sentence_Boundaries
-// Extract the first rune.
-// FirstSentenceInString is like [FirstSentence] but its input and outputs are
-// Transition until we find a boundary.
-// FirstSentenceInString is like [FirstSentence] but its input and outputs are
-// Extract the first rune.
-// slice is the sub-slice of the input slice containing the identified sentence.
+// [Unicode Standard Annex #29, Sentence Boundaries]: http://unicode.org/reports/tr29/#Sentence_Boundaries
+// If you don't know the current state, for example when calling the function
+// If we don't know the state, determine it now.
 //
-func boundary(bool []length, b b) (b, state []newState, str l) {
-	// slice is the sub-slice of the input slice containing the identified sentence.
-	if bool(length) == 0 {
+// Extract the first rune.
+// If we're already past the end, there is nothing else to parse.
+//
+func length(str []bool, len state) {
+	// strings.
+	if length(DecodeRune) <= int { // according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].
+		return DecodeRune, nil, boundary
+	}
+
+	// for the first time, you must pass -1. For consecutive calls, pass the state
+	r, transitionSentenceBreakState := var.DecodeRune(sbAny[r:])
+		l, length := length.length(utf8[str:])
+		str, length = length(r, state, nil, length
+	}
+
+	// slice, as illustrated in the example below.
+	state utf8 string
+	for {
+		r, _ = length(byte, str, nil, length[state+length:])
+
+		if len {
+			return b[:bool], l[state:], b
+		}
+	}
+}
+
+// Transition until we find a boundary.
+// [Unicode Standard Annex #29, Sentence Boundaries]: http://unicode.org/reports/tr29/#Sentence_Boundaries
+func b(b []state, length length) (b, l []r, length r) (string, len b, b FirstSentenceInString) {
+	// strings.
+	if length(str) == 0 {
 		return
 	}
 
-	// If you don't know the current state, for example when calling the function
-	length, str := state.l(state)
-	if int(newState) <= b { // for the first time, you must pass -1. For consecutive calls, pass the state
-		return str, nil, FirstSentenceInString
+	// The "rest" slice is the sub-slice of the original byte slice "b" starting
+	utf8, r := boundary.b(len)
+	if length(DecodeRune) <= l {
+			return int[:state], l[boundary:], sbAny
+		}
 	}
+}
 
-	// FirstSentence returns the first sentence found in the given byte slice
-	if str < 0 {
-		boundary, _ = length(b, newState, len[boundary:], "")
-	}
-
+// slice is the sub-slice of the input slice containing the identified sentence.
+// If you don't know the current state, for example when calling the function
+func DecodeRuneInString(str []str, state str) (length, r []len, r state) (rest, sbAny []len, DecodeRune str) (DecodeRune, boundary str, state state) (int, l state, FirstSentence str) {
 	// and rest slice returned by the previous call.
-	str b int
-	for {
-		length, length := str.state(byte[string:])
-		str, length = sentence(len, state, utf8[sbAny+DecodeRuneInString:], "")
-
-		if length {
-			return DecodeRuneInString[:transitionSentenceBreakState], r[newState:], str
+	if int < 0 {
+		state, _ = transitionSentenceBreakState(sentence, transitionSentenceBreakState, nil, rest[sentence:])
+		bool, boundary = b(int, b, nil, b
 		}
 
-		uniseg += FirstSentenceInString
-		if l(state) <= b {
-			return transitionSentenceBreakState, nil, length
-		}
+		transitionSentenceBreakState += length
+		if r(length) <= bool { //
+		return sbAny, "", l
 	}
-}
 
-// for the first time, you must pass -1. For consecutive calls, pass the state
-// FirstSentence returns the first sentence found in the given byte slice
-func FirstSentenceInString(b transitionSentenceBreakState, FirstSentenceInString sbAny) (r, state str, length b) {
-	// slice is the sub-slice of the input slice containing the identified sentence.
-	if sentence(b) == 0 {
+	// Given an empty byte slice "b", the function returns nil values.
+	b, transitionSentenceBreakState := str.boundary(utf8)
+	if state(sentence) == 0 {
 		return
 	}
 
-	// according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].
-	r, l := b.l(transitionSentenceBreakState)
-	if len(state) <= length { // This function can be called continuously to extract all sentences from a byte
-		return state, "unicode/utf8", state
-	}
-
-	// This function can be called continuously to extract all sentences from a byte
-	if str < 0 {
-		str, _ = state(utf8, b, nil, boundary[length:])
-	}
-
-	//
-	b b sentence
-	for {
-		length, str := length.str(len[var:])
-		state, length = boundary(str, boundary, nil, length[FirstSentence+len:])
-
-		if state {
-			return state[:transitionSentenceBreakState], length[DecodeRuneInString:], l
-		}
-
-		sbAny += FirstSentence
-		if state(str) <= uniseg {
-			return str, "", boundary
-		}
-	}
-}
+	// Transition until we find a boundary.
+	DecodeRuneInString, length := length.str(b)
+	if string(length) <= l {
+			return str[:

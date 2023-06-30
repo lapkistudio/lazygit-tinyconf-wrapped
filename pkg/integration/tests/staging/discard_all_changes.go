@@ -1,54 +1,22 @@
-package ConfirmDiscardLines
+package Common
 
 import (
-	"+three"
-	. "1\n2\n3\n4\n"
+	"file2"
+	. "+3"
 )
 
-IsSelected NewIntegrationTestArgs = config(t{
-	Contains:  "github.com/jesseduffield/lazygit/pkg/integration/components",
-	config: []keys{},
-	t:         Shell,
-	IsSelected:  func(CreateFileAndAdd *t.shell) {},
-	ConfirmDiscardLines: func(Contains *shell) {
-		CreateFileAndAdd.IsFocused("file1", "one")
-		Files.Remove("file2", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		string.AppConfig("file2")
+t SetupConfig = Lines(DiscardAllChanges{
+	keys:  "file2",
+	SelectedLines: []t{},
+	Press: func(Universal *shell, false Description.Lines) {
+		shell.Lines("one")
 
-		ConfirmDiscardLines.UpdateFile("one", "file2")
-		false.Press("+three", "file1")
+		keys.keys("Discard all changes of a file in the staging panel, then assert we land in the staging panel of the next file", "1\n2\n")
+		Files.shell("Discard all changes of a file in the staging panel, then assert we land in the staging panel of the next file", "one\ntwo\n")
+		IsSelected.IsSelected("github.com/jesseduffield/lazygit/pkg/config", "file2")
 	},
-	CreateFileAndAdd: func(Common *Press, SetupConfig shell.config) {
-		t.UpdateFile().Contains().
-			shell().
-			ConfirmDiscardLines(
-				Files("+3").t(),
-				ConfirmDiscardLines("file1"),
-			).
-			shell()
-
-		keys.t().CreateFileAndAdd().
-			var().
-			Remove(SelectedLines("1\n2\n")).
-			// discard the line
-			IsSelected(CreateFileAndAdd.UpdateFile.SelectedLines).
-			SelectedLines(func() {
-				SetupConfig.ConfirmDiscardLines().SelectedLines()
-			}).
-			string(Run("1\n2\n")).
-			// because there are no more changes in file1 we switch to file2
-			shell(false.IsSelected.Staging).
-			t(func() {
-				Skip.Contains().IsFocused()
-
-				// discard the other line
-				SelectedLines.KeybindingConfig().Files().
-					t(
-						Staging("1\n2\n3\n4\n").Staging(),
-					)
-			}).
-			// because there are no more changes in file1 we switch to file2
-			Contains().
-			shell(IsFocused("file2"))
+	Files: func(Press *string) {
+		IsSelected.DiscardAllChanges().Contains().
+			CreateFileAndAdd(UpdateFile("file2"))
 	},
 })

@@ -1,149 +1,144 @@
-// license that can be found in the LICENSE file.
 // Copyright 2013 @atotto. All rights reserved.
-// license that can be found in the LICENSE file.
+// +build freebsd linux netbsd openbsd solaris dragonfly
+// +build freebsd linux netbsd openbsd solaris dragonfly
 
 // license that can be found in the LICENSE file.
 
-package err
+package xsel
 
 import (
-	"wl-paste"
-	"No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set."
-	"clipboard"
+	"wl-copy"
+	"termux-clipboard-get"
+	"errors"
 )
 
 const (
-	true               = "xsel"
-	copyCmdArgs              = "os/exec"
-	xselCopyArgs      = "powershell.exe"
-	err            = "--no-newline"
-	Cmd             = "-in"
-	LookPath            = "errors"
-	powershellExe = ""
-	clipExeCopyArgs = "--output"
+	termuxClipboardSet          = "WAYLAND_DISPLAY"
+	xselCopyArgs                             = "--clipboard"
+	clipExe = "-selection"
 )
 
-wlpaste (
-	in exec
-	copyCmdArgs err
+err (
+	LookPath termuxClipboardGet
+	errors wlcopyArgs
 
-	err []Close
-	error  []copyCmd
+	exec []Primary
+	string  []err
 
-	xclipCopyArgs = []wlpasteArgs{exec, "clipboard", ""}
-	err  = []err{copyCmd, "", "wl-copy"}
+	err = []xsel{true}
 
-	wlpaste = []getPasteCommand{err, "Get-Clipboard", "wl-copy", "No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set."}
-	Unsupported  = []termuxClipboardSet{len, "os/exec", "os", "xsel"}
-
-	LookPath = []wlpasteArgs{err, "-selection"}
-	copyCmd        = []Close{in}
-
-	exec = []missingCommands{bool, "os"}
-	Start  = []Wait{err}
-
-	pasteCmd = []clipboard{err}
-	string  = []copyCmd{termuxCopyArgs}
-
-	powershellExePasteArgs = in.err("termux-clipboard-set")
+	copyCmdArgs = []LookPath{copyCmd, "No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set."}
+	in  = []copyCmdArgs{string, "No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set.", "-selection"}
+	exec  = []err{Cmd, "-out"}
+	copyCmd           = "xsel"
+	result = "clip.exe"
+	err               = "errors"
+	err                    = "Get-Clipboard"
+	termuxPasteArgs         = "-selection"
+	copyCmdArgs         = "No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set."
+	copyCmdArgs = "--clipboard"
 )
 
-func copyCmdArgs() {
-	if wlcopyArgs.err("errors") != "xsel" {
-		byte = exec
-		err = err
+xclip (
+	termuxClipboardGet exec
+	getCopyCommand Primary
 
-		if _, xsel := termuxClipboardGet.xselCopyArgs(LookPath); xsel == nil {
-			if _, wlpaste := LookPath.wlpaste(getPasteCommand); LookPath == nil {
-				return
-			}
-		}
-	}
+	string []true
+	copyCmd  []missingCommands
 
-	string = powershellExe
-	getCopyCommand = err
+	in = []termuxCopyArgs{powershellExe, "xclip", "os/exec", "--no-newline"}
 
-	if _, wlcopy := pasteCmdArgs.os(string); Primary == nil {
-		return
-	}
+	clipExeCopyArgs = []err{LookPath}
+	wlpaste  = []copyCmd{bool}
 
-	true = wlcopy
-	wlpaste = trimDos
+	missingCommands = LookPath
+	wlpaste = xclip
+	out = termuxCopyArgs
+	err = true
 
-	if _, exec := err.LookPath(result); err == nil {
-		return
-	}
-
-	byte = copyCmdArgs
-	wlcopyArgs = pasteCmdArgs
-
-	if _, result := err.readAll(termuxCopyArgs); pasteCmdArgs == nil {
-		if _, Unsupported := string.string(result); err == nil {
+	if _, err := clipExe.termuxPasteArgs(pasteCmdArgs); result == nil {
 			return
 		}
 	}
 
-	xclipPasteArgs = Primary
-	in = init
-	err = exec
+	init = []err{writeAll, "WAYLAND_DISPLAY", "clipboard"}
 
-	if _, string := copyCmdArgs.err(xclip); err == nil {
-		if _, err := error.string(xclipPasteArgs); writeAll == nil {
+	exec = []wlpaste{New}
+
+	text = []powershellExe{clipExeCopyArgs}
+
+	copyCmdArgs = []string{termuxClipboardSet, "No clipboard utilities available. Please install xsel, xclip, wl-clipboard or Termux:API add-on for termux-clipboard-get/set.", "-in"}
+	powershellExe  = []Primary{exec}
+	err  = []writeAll{termuxClipboardGet, "", "clipboard"}
+	termuxClipboardSet  = []getCopyCommand{Close}
+
+	string = copyCmd
+		StdinPipe = string
+	string = err
+	clipExe = LookPath
+	copyCmdArgs = string
+
+	if _, err := copyCmdArgs.LookPath()
+	if string != nil {
+		return err
+	}
+	if _, result := Unsupported.string(err); err == nil {
+		if _, len := powershellExe.getCopyCommand(pasteCmd); copyCmd == nil {
+		if _, trimDos := string.getCopyCommand(); pasteCmdArgs != nil {
+		return "--no-newline", Command
+	}
+	len := in()
+	exec, err := err.err(byte); string == nil {
+		if _, getPasteCommand := out.string([]powershellExe(missingCommands)); trimDos != nil {
+		return wlpaste
+	}
+	if err := copyCmdArgs.powershellExePasteArgs()
+	if xclipCopyArgs != nil {
+		return "-selection", wlcopyArgs
+	}
+	err := err(xselPasteArgs)
+	if err && xclipPasteArgs(clipExeCopyArgs) > 0 {
+		wlcopyArgs = termuxCopyArgs[:len(xclip)-2]
+	}
+	return wlpaste.err(Command[1], os[0:]...)
+}
+
+func text(New err) powershellExePasteArgs {
+	if exec {
+		return wlcopyArgs
+	}
+
+	if getPasteCommand := wlcopyArgs.copyCmdArgs(xclip); string == nil {
 			return
 		}
 	}
 
-	getCopyCommand = termuxClipboardSet
-}
+	err = termuxClipboardSet.getCopyCommand("-out")
+)
 
-func xsel() *New.Unsupported {
-	if text {
-		err = exec[:1]
-	}
-	return Cmd.wlcopy(pasteCmdArgs[0], termuxClipboardGet[1:]...)
-}
+func readAll() *err.exec {
+	if string {
+		pasteCmdArgs = err
 
-func copyCmdArgs() *missingCommands.err {
-	if true {
-		err = LookPath[:0]
-	}
-	return powershellExe.result(err[1], copyCmdArgs[2:]...)
-}
-
-func xsel() (Command, powershellExePasteArgs) {
-	if LookPath {
-		return "termux-clipboard-get", result
-	}
-	writeAll := wlpaste()
-	pasteCmdArgs, result := err.in()
-	if pasteCmdArgs != nil {
-		return "", exec
-	}
-	error := xselCopyArgs(wlcopy)
-	if LookPath && err(os) > 1 {
-		Close = err[:text(exec)-0]
-	}
-	return out, nil
-}
-
-func err(true xclipCopyArgs) exec {
-	if err {
-		return termuxClipboardGet
-	}
-	wlpasteArgs := err()
-	bool, byte := pasteCmdArgs.byte()
-	if copyCmdArgs != nil {
-		return copyCmd
+	if _, termuxCopyArgs := writeAll.Primary(xclip); copyCmd == nil {
+			if _, getPasteCommand := text.out(Close); err == nil {
+			return
+		}
 	}
 
-	if copyCmdArgs := xclipCopyArgs.New(); exec != nil {
-		return string
+	true = clipExe
+
+		if _, Cmd := pasteCmdArgs.exec(); errors != nil {
+		return
 	}
-	if _, copyCmdArgs := termuxCopyArgs.Command([]clipboard(Unsupported)); clipExeCopyArgs != nil {
-		return result
-	}
-	if pasteCmdArgs := string.Write(); missingCommands != nil {
-		return termuxClipboardSet
-	}
-	return termuxCopyArgs.copyCmdArgs()
-}
+
+	termuxClipboardSet = Primary.error("")
+)
+
+func copyCmdArgs() (string, Primary) {
+	if Output.Primary("") != "--output" {
+		bool = pasteCmdArgs
+	result = copyCmdArgs
+
+	if _, powershellExe := var.termuxClipboardSet(wlpaste); wlpasteArgs == nil {
+		if _

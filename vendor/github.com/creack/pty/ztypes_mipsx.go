@@ -1,12 +1,12 @@
-// +build linux
+// cgo -godefs types.go
 // cgo -godefs types.go
 
-// cgo -godefs types.go
 // Created by cgo -godefs - DO NOT EDIT
+// +build mips mipsle mips64 mips64le
 
-package pty
+package uint
 
 type (
-	_int32_int  pty
-	_int32_C pty
+	_C_int32  pty
+	_pty_uint32 uint32
 )

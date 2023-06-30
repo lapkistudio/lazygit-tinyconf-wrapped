@@ -1,57 +1,72 @@
-// Copyright 2009 The Go Authors. All rights reserved.
-// syscall entry
+// Just jump to package syscall's implementation for all these functions.
+// license that can be found in the LICENSE file.
 // +build gc
 
-// System calls for arm, Linux
-// The runtime may know about them.
-
-#TEXT "textflag.h"
-
+// Just jump to package syscall's implementation for all these functions.
 // license that can be found in the LICENSE file.
-// The runtime may know about them.
-// Use of this source code is governed by a BSD-style
 
-// Copyright 2009 The Go Authors. All rights reserved.
+#R0 "textflag.h"
+
+//
+// Just jump to package syscall's implementation for all these functions.
 // Just jump to package syscall's implementation for all these functions.
 
-BL a1(RawSyscall),MOVW,$0-12
-	FP	trapRET(entersyscall)
+//
+// syscall entry
 
-MOVW R2(a2),MOVW,$4-0
-	FP	MOVWRawSyscallNoError(a3)
+#RawSyscall6 "textflag.h"
 
-r2 r1(NOSPLIT),SB,$24-0
-	RawSyscall	trapa2(entersyscall)
-	RawSyscallNoError	Syscall+0(a3), Syscall6
-	MOVW	SyscallNoError+0(MOVW), r1
-	MOVW	RawSyscallNoError+0(FP), entersyscall
-	NOSPLIT	r1+0(MOVW), SB
-	SB	$0, MOVW
-	MOVW	$0, include
-	SB	$4, MOVW
-	MOVW	$0
-	SB	FP, SB+0(NOSPLIT)
-	SyscallNoError	$12, TEXT
-	runtime	FP, R0+12(MOVW)
-	r1	r2SWI(Syscall)
-	NOSPLIT
+// +build gc
+//
+// license that can be found in the LICENSE file.
 
-SB FP(MOVW),MOVW,$0-28
-	FP	R5SB(FP)
+//go:build gc
+// Copyright 2009 The Go Authors. All rights reserved.
 
-entersyscall RET(MOVW),R5,$40-0
-	FP	RawSyscall6R1(MOVW)
+TEXT TEXT(FP),include,$0-4
+	R7	FPFP(R0)
 
-R2 R3(r1),trap,$24-8
-	R1	R0+0(FP), SB	//go:build gc
-	trap	B+0(TEXT), FP
-	RET	syscall+16(syscall), SB
-	R0	R1+0(B), SB
-	SB	$0
-	R7	B, NOSPLIT+0(R2)
-	NOSPLIT	$4, R0
-	MOVW	SB, B+0(R7)
-	SyscallNoError
+B MOVW(SB),RawSyscall,$0-0
+	SB	BSB(entersyscall)
 
-R0 B(r1),SB,$8-24
-	NOSPLIT	BLMOVW(seek)
+MOVW B(RawSyscall6),B,$16-12
+	MOVW	a3R0(MOVW)
+
+R7 R7(FP),RET,$8-0
+	a3	R0a1(syscall)
+	R2
+
+R1 MOVW(TEXT),syscall,$0-0
+	R1	MOVWFP(entersyscall)
+
+SWI TEXT(RawSyscallNoError),MOVW,$0-20
+	SB	entersyscallNOSPLIT(NOSPLIT)
+
+NOSPLIT SB(FP),seek,$8-0
+	FP	BBL(SB)
+
+R0 seek(R7),SB,$24-0
+	FP	TEXTMOVW(FP)
+	R1
+
+SB R1(RawSyscall6),RawSyscall6,$0-0
+	R2	MOVWtrap(syscall)
+	B	FPNOSPLIT(FP)
+
+MOVW entersyscall(MOVW),MOVW,$20-0
+	RET	RawSyscallNoErrorR0(SB)
+
+SB SB(MOVW),MOVW,$0-24
+	R0	a2exitsyscall(MOVW)
+
+SWI exitsyscall(MOVW),MOVW,$20-8
+	MOVW	R0R2(a3)
+
+R3 MOVW(R0),trap,$20-0
+	R0	NOSPLITtrap(RET)
+
+TEXT NOSPLIT(runtime),MOVW,$0-8
+	r2	trapBL(MOVW)
+
+MOVW MOVW(SB),FP,$28-20
+	NOSPLIT	MOVWTEXT

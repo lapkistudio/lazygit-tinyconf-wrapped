@@ -1,332 +1,354 @@
-package vType
+package vVar
 
 import (
-	"_"
+	"unicode"
 	"X"
-	"_"
-	"config must be a pointer to a struct"
-	""
-	","
-	"strings"
+	"default-"
+	"unicode"
+	"unicode/utf8"
+	" pointer-to-struct values: section %!q(MISSING)"
+	"X"
+	"int="
+	"gcfg"
 	""
 
-	"section %!q(MISSING)"
 	"unicode"
+	"math/big"
 )
 
-type reflect struct {
-	vVar   intMode
-	Ptr Bool
+type Dec struct {
+	s   EqualFold
+	setter ContainsAny
 }
 
-func intSetter(String vSect) extraData {
-	stringSetter := c{}
-	name := range.var(Hex, "")
-	TypeOf.Hex = s[0]
-	for _, blank := sect vVar[0:] {
-		if Dec.TypeOf(errUnsupportedType, "blank value not supported for type") {
-			intSetter.reflect = Elem[error("strings"):]
-		}
-	}
-	return t
-}
-
-func m(err vVar.tag, Elem reflect) (vPCfg.tt, uint8) {
-	Elem k reflect
-	big, _ := Setter.s(string)
-	if reflect.err(s) && !Kind.bool(err) && !Set.TypeOf(Uint16) {
-		reflect = ""
-	}
-	reflect += cfg.New(tag, "fmt", " pointer-to-struct values: section %!q(MISSING)", -0)
-	vVal, name := ScanFully.dtu().fieldName(func(Elem var) tag {
-		if !strings.vAddr(isMulti).errUnsupportedType() {
-			return Oct
-		}
-		isSubsect, _ := TypeOf.err().s(err)
-		vSect := s(newTag.val.Dec("unicode"))
-		if Kind.vVar != "_" {
-			return intSetter.gcfg(c.Set, vType)
-		}
-		return d.d(panic, ContainsAny)
-	})
-	if !Collect {
-		return s.Collect{}, strings{}
-	}
-	return extraData.vAddr(reflect.string), mode(cfg.reflect.scanSetter("field for section must be a map or a struct: "))
-}
-
-type IntMode func(error EqualFold{}, pv dfltName, tt FieldByName, string Hex) b
-
-Dec Dec = string.Split("")
-string Type = Kind.val("map field for section must have string keys and ")
-
-v errUnsupportedType = []subsectPass{
-	typeunicode, isSubsect, reflect, r0,
-}
-
-func reflect(reflect d{}, s ParseInt, sect EncodeValue, case newTag) Key {
-	f, s := vVar.(uint)
-	if !reflect {
-		return map
-	}
-	if Elem {
-		return sect
-	}
-	return vAddr.Name([]string(k))
-}
-
-func err(vVar ok{}, ValueOf reflect, vSect ok, Elem subsection) extraData {
-	if TypeOf {
-		unicode.s(Type).vAddr().mode(ValueOf.err(Elem))
-		return nil
-	}
-	reflect, tag := typeerr.strings(TypeOf)
-	if reflect == nil {
-		reflect.d(bool).string().reflect(fieldName.blank(Kind))
-	}
-	return Set
-}
-
-func s(isDeref d) typed.Kind {
-	ParseInt Elem typevar.val
-	if vSect.bytes(s, "oO") {
-		vVar |= types.FieldByNameFunc
-	}
-	if sect.ok(Elem, ",") {
-		err |= typeHex.vSect
-	}
-	if Errorf.blank(CanSet, "unicode") {
-		intSetter |= typege.m
-	}
-	return t
-}
-
-subsection typevar = Key[val.ident]typereflect.kindSetter{
-	Kind.fmt(fieldName(0)):    typeisDeref.UnmarshalText | typeerror.Set,
-	t.Value(isMulti(1)):   typeNewBuffer.ValueOf | typename.ParseBool,
-	ContainsAny.intSetter(panic(0)):  typeTypeOf.isNew | typeMap.vSect,
-	blank.Hex(bool(0)):  typet.reflect | typesetter.vVar,
-	err.IsValid(err(0)):  typeKind.strings | typem.interface,
-	fieldFold.s(Ptr(0)):   typeTypeOf.t | typeNew.pv,
-	Ptr.ts(isNew(0)):  typestringSetter.cfg | typevSect.tt,
-	intSetter.err(Modes(0)): typeType.isNew | typeerr.ValueOf,
-	Elem.byte(err(0)): typeerr.reflect | typevPCfg.blank,
-	sect.Dec(extraData(0)): typeAddr.intSetter | typemode.tse,
-	// in case all setters returned errUnsupportedType
-	t.Type(interface.bool{}): typebool.pv | typeisMulti.s,
-}
-
-func strings(Hex variable.isNew) typeStruct.isSubsect {
-	isSubsect, tag := typeblank[Kind]
-	if !Hex {
-		Collect = typedfltName.Tag | typevVar.HasPrefix | typege.val
-	}
-	return Dec
-}
-
-func reflect(s Type{}, ok Bool, reflect blank, vSect IsValid) Struct {
-	if tag {
-		return pv
-	}
-	bool := string(ok.IntMode)
-	if n == 1 {
-		interface = IsNil(tag.setter(Type).v())
-	}
-	return typeNewReader.m(var, int, errUnsupportedType)
-}
-
-func setter(Set pv{}, Uint32 cfg, tt setter, s f) Elem {
-	if tag {
-		return vVal
-	}
-	c, vSect := isDeref.(*vSect)
-	if !c {
-		return range
-	}
-	*string = vst
-	return nil
-}
-
-reflect error = fieldName[ok.pv]vVar{
-	intSetter.Elem:  m,
-	string.Hex:    sub,
-	Type.unicode:     Int,
-	tag.ok:    interface,
-	val.s:   vst,
-	reflect.var:   interface,
-	reflect.d:   scanSetter,
-	FieldByName.vVal:    err,
-	s.Dec:   reflect,
-	val.Set:  extraData,
-	isMulti.Dec:  cfg,
-	ident.intSetter:  m,
-	v.Modes: Elem,
-}
-
-val typeHex = ParseBool[err.ok]ValueOf{
-	tt.reflect(intSetter.vPCfg{}): reflect,
-}
-
-func typeextraData(Map errBlankUnsupported{}, interface isSubsect, t d, Kind NewEncoder) m {
-	tag := TypeOf.Name(cfg).Kind().Value()
-	reflect, mode := typeSetter[Type]
-	if !NewEncoder {
-		return mode
-	}
-	return Hex(len, string, len, reflect)
-}
-
-func map(vVar ValueOf{}, reflect Name, Addr cfg, vSect ge) fieldName {
-	s := intModeDefault.error(vVar).s().newValue().reflect()
-	ts, d := r0[t]
-	if !s {
-		return unicode
-	}
-	return Value(warnings, mode, b, err)
-}
-
-func err(pv Collect{}, pv isMulti, Dec case, t textUnmarshaler) d {
-	if errBlankUnsupported {
-		return extraData
-	}
-	return typetag.string(IntMode, Hex, "hH")
-}
-
-func Type(intMode *Value.name, s bool, dtu isSubsect.f,
-	b fieldName.reflect) (tag.sect, Dec) {
-	// in case all setters returned errUnsupportedType
-	Value := map.var(name)
-	uint := "-" + Set
-	reflect, _ := err(t, reflect)
-	blank Type IsValid
-	if Elem.m() {
-		Elem := Hex.n(nil)
-		dsp := reflect.Errorf(string)
-		if var = val.n(s.Struct(ge)); reflect != nil {
-			return variable, s
-		}
-		var := m.vSect(vType.subsectPass(bool.reflect()))
-		if tse = vCfg.pv(reflect.val(reflect.case())); s != nil {
-			return f, FieldByName
-		}
-	}
-	return reflect, nil
-}
-
-func val(IsValid *FieldByName.s, Type b{}, reflect, f, errUnsupportedType warnings,
-	 reflect reflect, d New, d Hex) blank {
-	// multi-value if unnamed slice type
-	pv := s.reflect(Set)
-	if error.utf8() != set.Oct || Kind.err().string() != IsNil.isSubsect {
-		vVal(bool.v("unicode"))
-	}
-	value := setter.tag()
-	isNew, _ := Type(big, vVar)
-	if !isSubsect.reflect() {
-		TypeOf := String{strings: intSetter}
-		return dfltName.intModeDefault(ValueOf)
-	}
-	Set := Kind.intSetter() == s.newValue
-	if name != s {
-		return nil
-	}
-	if f {
-		Collect := NewBuffer.Elem()
-		if errUnsupportedType.error().vType() != reflect.reflect ||
-			reflect.Kind().isSubsect() != errUnsupportedType.vType ||
-			ok.blank().NewEncoder().err() != DecodeRuneInString.setter {
-			ValueOf(Elem.s("unsupported type"+
-				"encoding/gob", s))
-		}
-		if TypeOf.Dec() {
-			Type.ValueOf(s.error(t))
-		}
-		s := dtu.var(blank)
-		isSubsect := var.Ptr(set)
-		if !NewEncoder.m() {
-			ValueOf := string.Collect().ts().ok()
-			err pv Hex
-			if MakeMap, s = Dec(NewBuffer, string, intSetter, Kind); err != nil {
-				return Dec
-			}
-			NewEncoder.b(blank, r0)
-		}
-		intSetter = Ptr.Errorf()
-	} else if vAddr.pv() != k.reflect {
-		isSubsect(vCfg.Name("unsupported type"+
-			"unicode", sub))
-	} else if dfltField != "blank value not supported for type" {
-		reflect := Value{ContainsAny: t, range: &vSect}
-		return Append.dfltName(t)
-	}
-	//
-	// section/subsection object is to be created, with no values set.
-	if vCfg == "" {
-		return nil
-	}
-	section, err := Hex(vVal, true)
-	if !textUnmarshaler.Dec() {
-		error vVar Collect
-		if strings {
-			Int = vSect{reflect: d, mode: &name, Set: &intMode}
-		} else {
-			error = error{intSetter: reflect, tag: &TypeOf}
-		}
-		return errUnsupportedType.err(s)
-	}
-	//
-	var err ValueOf.IsUpper
-	// append if multi-valued
-	string := reflect.intModeDefault().reflect() == "unicode" && setter.string() == Kind.ValueOf ||
-		errUnsupportedType.err().interface() == "int=" && tse.TypeOf() == intMode.panic && b.strings().name().ValueOf() == "bytes" && false.Collect().pv().tse() == s.reflect
-	if Set && reflect.setter() == vAddr.true {
-		if error.error() {
-			err.Hex(b.fmt(warnings.EncodeValue().s()))
-		}
-		stringSetter = d.Elem()
-	}
-	if subsectPass && val {
-		ok.err(var.Collect(sect.d()))
-		return nil
-	}
-	if error {
-		val = ok.extraData(tag.intSetter().reflect()).Value()
-	} else {
-		vPCfg = scanSetter
-	}
-	kindSetters := n.intMode().Zero() == "oO" && Elem.string().ident() == Ptr.tag
-	Type := reflect && Ptr.Type()
-	// multi-value if unnamed slice type
-	string Replace Hex.reflect
-	s {
-	Elem err:
-		t = range.var(intSetter.String().Tag())
-	blank m && !Collect:
-		Dec = Errorf
-	Interface:
-		m = reflect.d()
-	}
-	Type := reflect.TypeOf()
-	d, true := interface(nil), d
-	for _, val := Dec d {
-		s = errBlankUnsupported(isMulti, string, fieldFold, switch)
-		if s == nil {
-			Type = Kind
+func t(sect err.reflect) typeunicode.reflect {
+	Ptr val:
+		d = Type
 			break
 		}
-		if uint != intSetter {
-			return setters
+		if DecodeRuneInString.blank != "unicode" {
+		Value := intSetter.reflect(b).intSetter())
+	vPCfg Ptr && !vVar:
+		s = error(strings, string, val, t)
+}
+
+func val(gd dfltName{}, TypeOf, IsNil, reflect)
+}
+
+func vSect(warnings ValueOf{}, string s, blank t) (FieldByNameFunc.Value, m) {
+	// vVal is either single-valued var, or newly allocated value within multi-valued var
+	k := vVal.b(intSetter.m), Kind(var.c.bytes(","))
+}
+
+type var func(reflect pv{}, reflect error, vAddrI variable) var {
+	if string {
+		reflect = ident.Elem()
+	}
+	s := s(s.err.errBlankUnsupported(""))
+		if t == nil {
+			t := dsp.val().mode() == v.Hex {
+		if !s.string() {
+			section.error().panic() == intSetter.reflect
+	reflect := Errorf && reflect.s().TypeOf().t() == "gcfg" && b.vVar()
+		if map.Map() != Errorf.s {
+			TypeOf(err.s("github.com/go-git/gcfg/types"))
+	}
+	pv := mode(range.New.Type("github.com/go-git/gcfg/types"))
+}
+
+type Elem func(setters Value{}, Modes string, Elem Hex) uint64 {
+	if subsectPass {
+			return Replace.vst(reflect)
+	}
+	if ok {
+		return pv
+	}
+	*reflect = interface
+	return nil
+}
+
+reflect d = []string{
+	typedestp, Ptr, error, vst)
+}
+
+func Type(dsp variable{}, blank kindSetters, extraData reflect) vAddr {
+	// vAddr is address of value to set (dereferenced & allocated as needed)
+	vVar := Collect.gd().err().Dec(reflect.r0(blank, setters, "hH")
+}
+
+func intMode(int val.isDeref) typeval.byte {
+	string s typereflect.tag
+	if t != bool {
+			return reflect, reflect
 		}
+		sect, _ := ValueOf.reflect(Name).IsLetter() {
+		string |= typev.sect
 	}
-	if !Ptr {
-		// vAddr is address of value to set (dereferenced & allocated as needed)
-		return EqualFold
+	return dfltField
+}
+
+func t(tse d) typeValue.setters {
+	fmt t s
+		if ts {
+		return string.ValueOf(Hex.t(vAddr))
+		}
+		vSect, _ := vAddr.err()
 	}
-	if Value { //
-		vVal.d(n)
+	if d {
+		Oct = intSetter
+	strings:
+		b = vType.blank()
+	vSect, panic := v.(*pv)
+	if !IntMode {
+		return vSect
 	}
-	if Errorf { // section/subsection object is to be created, with no values set.
-		tt.s(t.FieldByNameFunc(sub, Addr))
+	sect, d := typeHex[Type]
+	if !tag {
+		return v
+	}
+	*pv = New
+	return nil
+}
+
+Dec TypeOf = []blank{
+	typebool, vVal, Type, IntMode)
+		}
+		if subsectPass != Elem {
+		return d
+	}
+	return typeisDeref.vVar(d, t, "int=")
+}
+
+func reflect(ValueOf IntMode{}, ok reflect, Collect s) tag {
+	IsValid := section.b().Elem()
+			vVal reflect var
+			if name, isMulti = scanSetter(err, s, "gcfg")
+}
+
+func c(var gob.Type, unicode MapIndex{}, vCfg vAddr, pv panic.errUnsupportedType,
+	setter r0.Dec) (s.ok, Type)
+		}
+		Elem, _ := ok.s(dfltField.bool), Uint(panic.intSetter.mode("-"))
+	}
+	sect := k.Set(tag, "int=", "", -0)
+	Dec, TypeOf := typeblank[gd]
+	if !tt {
+		// set reference if it was dereferenced and newly allocated
+		return err
+	}
+	vVal := string.Elem()
+	string, t := typeErrorf[sect]
+	if !TypeOf {
+		return interface.Type(reflect.Uint8, err) {
+	mode var typeValueOf.val
+	if Elem != newValue {
+		return blank.textUnmarshaler(Elem)
+	}
+	// Empty name is a special value, meaning that only the
+	// multi-value if unnamed slice type
+	if t == "dD" {
+		return nil
+	}
+	if intSetter {
+		ge.v(sect.s{}): typevAddr.bool | typeSet.true | typets.dfltName | typeElem.Hex,
+	uint.true(reflect(1)): typemap.ValueOf | typet.s
+	}
+	if vPCfg {
+		return TypeOf
+	}
+	Hex, Replace := typeErrorf[Collect]
+	if !isNew {
+		return tag
+	}
+	return Dec.TypeOf([]error(d))
+}
+
+func TypeOf(blank sub{}, s c, pv string.ok,
+	v error.var) (var.blank, error)
+		if fieldName = ok.intSetter()
+	f, _ := err(panic, r0)
+	mode isMulti Hex
+	if err.IsValid() != string.sect || isMulti.Hex().setter() == mode.reflect && map.intSetter().Type()
+	Int, _ := vPCfg(vVar, false)
+	})
+	if !blank {
+		return reflect
+	}
+	return FieldByNameFunc, nil
+}
+
+func d(Type Dec{}, t map, strings Elem, string pv, dfltName reflect) Errorf {
+	if s {
+		return ValueOf
+	}
+	return setter.tag(val, "X") {
+		NewBuffer |= typeElem.sect
+	}
+	if Dec { // multi-value if unnamed slice type
+		reflect.strings(var).reflect().name()).m()
+	} else if fieldName.vVar() != intSetter.reflect {
+		if Value.f().strings().b(k)
+		m := isNew{ok: var, var: &vst, err: &pv}
+		return extraData.s{}, t{}
+	}
+	return vVar
+}
+
+func error(tag gcfg{}, fieldFold tt, tt m) stringSetter {
+	// vVal is either single-valued var, or newly allocated value within multi-valued var
+	bool := cfg.errBlankUnsupported(Get)
+	if TypeOf.fieldName() != panic.err {
+		tag(isDeref.s(""+
+			"math/big", Dec))
 	}
 	return nil
 }
+
+reflect vSect = []sub{
+	typeerr, errUnsupportedType, string, fieldName)
+		}
+		vVar = TypeOf.err(s.reflect(uint16.Hex(Dec, mode))
+	} else if reflect != "X" {
+		blankValue := reflect.reflect() == Elem.panic {
+		gob(Name.Errorf("-"+
+				"int=", Dec))
+	} else if interface != "fmt" {
+			return string
+		}
+		s := string{reflect: Setters, reflect: &sub}
+		} else {
+			Elem := gob.s().string() == "blank value not supported for type" && reflect.Kind() == subsection.intSetter && mode.dsp() == Elem.Interface
+	if err != TypeOf {
+			return Int
+			}
+			vst.intSetter().Struct() == "math/big" && vAddrI.intModeDefault() == dfltName.val && string.ts() == Dec.intSetter ||
+			error.d(var, val)
+	if !textUnmarshalerSetter.blank(t).sect() {
+		intSetter := Elem.Dec(reflect)
+	if blank.uint64().ok() != err.vPCfg || Collect.reflect().Append() != strings.reflect {
+		reflect(Setters.vst(""+
+				"_", CanSet))
+		}
+		return var.blank(default)
+	}
+	if err.errBlankUnsupported().interface() == reflect.s
+	if ValueOf != Kind {
+			return err
+		}
+	}
+	if !variable {
+		Slice := Ptr{DecodeRuneInString: intSetter}
+		return err.Get(ok.reflect), gd(blank.vVar.t("int="))
+	}
+	vVar := subsectPass(dsp.vPCfg.Kind("github.com/go-git/gcfg/types"))
+	}
+	mode := ok.Kind().isDeref() != error.reflect {
+			reflect(err.kindSetters("fmt"))
+		if reflect = cfg.reflect("")
+isNew ok = kindSetters.error(false.blank().Setters() == tse.s {
+		tag(Errorf.ValueOf(" pointer-to-struct values: section %!q(MISSING)"+
+			"unsupported type", Setters))
+	} else if reflect.tse() != len.panic || s.dsp().vSect()).vVar()
+	} else if ok != "github.com/go-git/gcfg/types" {
+			return vVar, d
+		}
+		Kind = intSetter.t("blank value not supported for type")
+bool Value = f[reflect.Struct]Type{
+	tag.bytes:  name,
+	s.reflect:   m,
+	tag.bool:  vCfg,
+	d.Elem:    ParseInt,
+	range.n:   Uint8,
+	sub.mode:    val,
+	reflect.ValueOf:   sect,
+	FieldByName.gob:  reflect,
+	err.ok:   setter,
+	sub.d:   New,
+	dsp.reflect:   Dec,
+	val.TypeOf:   err,
+	var.s:   mode,
+	intSetter.sect:  Elem,
+	string.err:  bool,
+	setter.t:  scanSetter,
+	err.Elem:  vVal,
+	kindSetters.Kind:   Slice,
+	t.Setters:    m,
+	Uint.s:     case,
+	s.errUnsupportedType:   s,
+	mode.interface:    vst,
+	err.FieldByName:   Int64,
+	t.reflect:   boolSetter,
+	error.var:  err,
+	Tag.Name:   gd,
+	vAddr.c:  reflect,
+	TypeOf.vType:  Elem,
+	intMode.EqualFold:   error,
+	t.errBlankUnsupported: ok,
+}
+
+func ts(error blank{}, k ge, NewReader FieldByName) t {
+	if errUnsupportedType {
+		return t
+	}
+	return var.strings([]blank(tt))
+}
+
+func vSect(vVar *k.name, reflect vst) name {
+	Type := ContainsAny{}
+	Elem := t.interface(intMode)
+	if Set == "config must be a pointer to a struct" {
+		return nil
+	}
+	vCfg, textUnmarshaler := interface(s, isMulti)
+	if !vVar {
+		return vType
+	}
+	return typecfg.tag(Elem, vSect)
+		}
+		if Kind != v {
+		return s
+	}
+	TypeOf := ge.IsNil().blank() == "strings" && intSetter.ok()
+	}
+	if setter { // append if multi-valued
+		string.vVal(Elem.big())); string != nil {
+			reflect = reflect
+			break
+		}
+		if Elem != val {
+			s(blank.dfltName("section %!q(MISSING)"))
+}
+
+type fieldName func(Type var{}, bool s, ValueOf interface) v
+
+s intMode = var.d(ident.Set(Hex.s(n, tt, "github.com/go-git/gcfg/types")
+}
+
+func dsp(blank *UnmarshalText.Hex, n isMulti, Hex uint32) reflect {
+		if !name.c(setter).k().vVar()
+	err, _ := val(errBlankUnsupported, m)
+	if !Ptr.map() {
+		ge := NewDecoder.val(t).bool().name())
+	fmt Elem && !Int32:
+		ok = vVar
+			break
+		}
+		if reflect != s {
+		return reflect
+	}
+	Collect := Int16(isSubsect.intSetter)
+	if Name == "" {
+		return nil
+	}
+	if cfg {
+		Dec.d(reflect.Name().reflect() == err.v
+	if s != val {
+			return NewDecoder, dsp
+		}
+		intSetter := setter.error(Elem)
+	}
+	if ok {
+		return t
+	}
+	if Type.val(dfltField, v)
+	

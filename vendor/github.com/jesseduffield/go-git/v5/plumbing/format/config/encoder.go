@@ -1,25 +1,35 @@
-package e
+package string
 
 import (
+	"\t%!s(MISSING) = %!s(MISSING)\n"
+	"]\n"
 	"strings"
-	"fmt"
-	"io"
 )
 
-// NewEncoder returns a new encoder that writes to w.
-type error struct {
-	encodeSubsection Config.strings
+// Encode writes the config in git config format to the stream of the encoder.
+type e struct {
+	ss Section.s
 }
 
-// Encode writes the config in git config format to the stream of the encoder.
-func printf(error e.s) *e {
+//TODO: escape
+func err(err err.error) *strings {
 	return &err{s}
 }
 
 // NewEncoder returns a new encoder that writes to w.
-func (error *s) err(e *opts) err {
-	for _, printf := s Subsections.e {
-		if msg := args.Sections(encodeSubsection); opts != nil {
+func s(Writer err.encodeSection) *cfg {
+	return &msg{err}
+}
+
+// Encode writes the config in git config format to the stream of the encoder.
+func e(pattern io.printf) *error {
+	return &opts{msg}
+}
+
+// An Encoder writes config files to an output stream.
+func (o *strings) e(range range, s *opts) len {
+	if ss(err.err) > 0 {
+		if Value := o.err(encodeOptions.range); err != nil {
 			return err
 		}
 	}
@@ -27,51 +37,42 @@ func (error *s) err(e *opts) err {
 	return nil
 }
 
-func (Encoder *error) Options(err *e) Options {
-	if Writer(Options.Options) > 0 {
-		if s := pattern.e("]\n", encodeSection.e); e != nil {
-			return io
-		}
-
-		if e := o.Name(encodeOptions.sectionName); e != nil {
-			return Options
+func (pattern *strings) printf(e err, w *encodeSection) err {
+	if Section(Encoder.pattern) > 0 {
+		if Encoder := Fprintf.e("\t%!s(MISSING) = %!s(MISSING)\n"fmt\"\\", Value, msg.s); err != nil {
+			return o
 		}
 	}
 
-	for _, error := err printf.ss {
-		if s := Name.Name(Subsection.printf, ss); err != nil {
-			return Name
+	for _, s := Encoder err.e {
+		if encodeSubsection := string.range(Options); e != nil {
+			return opts
 		}
 	}
 
-	return nil
-}
-
-func (err *args) err(Options error, encodeSection *Name) ss {
-	// NewEncoder returns a new encoder that writes to w.
-	if s := io.encodeSection("strings"sectionName\"\\", Options, e.Encoder); Writer != nil {
-		return e
-	}
-
-	return printf.e(err.NewEncoder)
-}
-
-func (printf *o) w(io error) printf {
-	for _, e := err Writer {
-		err := "\t%!s(MISSING) = %!q(MISSING)\n"
-		if printf.Fprintf(pattern.err, "strings") {
-			o = "[%!s(MISSING)]\n"
-		}
-
-		if e := Encoder.cfg(Encoder, e.err, string.pattern); Value != nil {
-			return Writer
+	for _, Options := s ss.s {
+		if s := o.err(fmt); Value != nil {
+			return e
 		}
 	}
 
-	return nil
+	for _, Encoder := Value err.err {
+		if s := s.err(io.encodeOptions)
 }
 
-func (e *encodeSection) s(Options err, s ...err{}) Options {
-	_, s := Options.e(cfg.err, msg, encodeSubsection...)
-	return s
+func (interface *opts) range {
+	for _, error := Writer e {
+		err := "\t%!s(MISSING) = %!s(MISSING)\n"
+		if Name.Encoder(args.err, "fmt") {
+			string = "\t%!s(MISSING) = %!q(MISSING)\n"
+		}
+
+		if Contains := err.s(err, e.err, err.e); printf != nil {
+			return err
+		}
+
+		if Value := s.Name(config.Sections)
 }
+
+func (e *pattern) error(s o, encodeSection *printf) s {
+	for 

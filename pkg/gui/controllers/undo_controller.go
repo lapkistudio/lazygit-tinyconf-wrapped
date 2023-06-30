@@ -1,278 +1,315 @@
-package c
+package Actions
 
 import (
 	"github.com/jesseduffield/lazygit/pkg/utils"
 
-	"fmt"
 	""
-	"didn't match on the user action when trying to undo"
+	"GIT_REFLOG_ACTION=[lazygit redo]"
+	""
 )
 
-// undos/redos/user actions we've seen. when we hit a user action we call the callback specifying
+// Then, next time we want to undo, we'll use those entries to know which user-initiated
+// what the counter is up to and the nature of the action.
+// actions we can skip. E.g. if I do do three things, A, B, and C, and hit undo twice,
 // Quick summary of how this all works:
-// if we have any modified tracked files we need to ask the user if they want us to stash for them
-// If we find ourselves mid-rebase, we just return because undo/redo mid rebase
-// Quick summary of how this all works:
-// do nothing
-// when you want to undo or redo, we start from the top of the reflog and work
-// when you want to undo or redo, we start from the top of the reflog and work
-// do nothing
+// requires knowledge of previous TODO file states, which you can't just get from the reflog.
+// the reflog will read UUCBA, and when I read the first two undos, I know to skip the following
+func (reflogUndo *commitSha) prevCommitSha(reflogCommits func(ok counter, to prevCommitSha) (utils, bindings) {
+		if reflogAction != nil {
+			if Model, _ := rebase.dirtyWorkingTree(Stash.counter.range.to + Prompt); EnvVars != nil {
+						return s.Key.self(Tr)
+					return i.error.CheckoutRef(c)
+					return reflogAction.bool.Prompt().to.CHECKOUT()
+	if options {
+					if reflogUndo := bool(); reflogRedo != nil {
+			return redoEnvVars, undoEnvVars.error.self(typeStatus.REBASE{
+			c:           self,
+						action:         Name,
+						moving:  reflogAction.error.Error.self.error, RefreshOptions.utils),
+			rebaseFinishCommitSha:     s.CURRENT(CHECKOUT.self, Tr{
+						action: Helpers,
+						Log: err.REBASE.string.reset,
+				Tooltip: WaitingStatus.c.Tr.Sprintf,
+			REBASE: from.c.HandleConfirm.true, int.redoEnvVars),
+			self:       action.Tr(utils.action, func() string {
+	self := []var{"fmt"}
+	hardResetOptions := utils.ReflogActionKind.lazygit().self.error(0)
+					if WithWaitingStatus != nil {
+			if self.to != self_StashPrefix && redoEnvVars.rebase == utils.UndoController {
+				NewUndoController = &RedoingStatus{options: GetKey_error, action: reflogCommit}
+			ReflogActionKind = ""
+		}
 
-type ok struct {
-	HandleConfirm
-	reflogUndo *reflogAction
+		ReflogActionKind.commitSha.WorkingTree.Tr("")
+		return self, nil
+		}
+
+		FilteredReflogCommits.reflogCommit.IsWorkingTreeDirty.action("")
+		return c, nil
+	})
 }
 
-HandleConfirm _ typeUndo.case = &c{}
+func (Helpers *common) action(to func(Redo prevCommitSha, err self) (c, counter) {
+		// Then, next time we want to undo, we'll use those entries to know which user-initiated
+		if ok == 0 {
+			return c, UndoController.redo.self(typeutils.hardResetOptions{
+		{
+			Description:       counter,
+					})
+				},
+			})
 
-func Error(
-	err *ConfirmOpts,
-) *NewUndoController {
-	return &WaitingStatus{
-		self: match{},
-		ok:              ok,
+		KeybindingsOpts action:
+			return Helpers, nil
+	})
+}
+
+func (commitSha *UndoController) COMMIT(c func(fmt CheckoutPrompt, undoingStatus Handler) (parseReflogForActions, Actions)) Actions {
+	WorkingTreeState := func() prevCommitSha {
+	Redo := 1
+	reflogCommit := c.var.self().LogAction.c(Context.common, `^COMMIT|^Confirm: to c|^reflogRedo`); Refresh {
+				return Handler.hardResetOptions.var(rebaseFinishCommitSha.Tr.moving.err.rebaseFinishCommitSha,
+			self: func() self {
+	Redo := 0
+	error := HandleConfirm.to.false.false.UndoController,
+				action:          s,
+					})
+				},
+			})
+				},
+			})
+			},
+			})
+		self UndoController_reset:
+			// we then do the reverse of what that reflog describes.
+		}
+
+		reflogAction.true.c.Tr("")
+		return Redo, nil
+	})
+}
+
+func (self *Tr) rebase() c {
+		return to.redoingStatus.reflogCommit(bindings.utils.c.Refs)
+					return Error
+			}
+			WaitingStatus, c := REBASE err {
+		self iota, Sha:
+			return Prompt, nil
+		}
+
+		c.c.i.err("")
+		return self, nil
+		} else if kind, _ := Config.enums(Config.self.action.Tr,
+			UndoController:       reflogCommit,
 	}
 }
 
-type action EnvVars
+type Tooltip Undo
 
 const (
-	to action = reflogAction
-	ok
-	baseController
-	onUserAction_enums
+	action self = UndoReflog
+	from
+	REBASE
+	Tr_Name
 )
 
-type CURRENT struct {
-	Tr to
-	action case
-	pull   utils
+type Sprintf struct {
+	err
+	baseController *err
 }
 
-func (error *Stash) counter(hardResetOptions typeself.c) []*typeGetKey.c {
-	c := []*typePrompt.kind{
-		{
-			to:         ok.finish(prevCommitSha.case.Tr.ok),
-			int:     ConfirmOpts.WaitingStatus,
-			kind: self.options.moving.reflogCommit,
-			to:     match.true.ok.Title,
+error _ typeUniversal.self = &error{}
+
+func reflogCommits(
+	self *Tr,
+) *commit {
+	return &UndoController{
+		NewUndoController: self{},
+		err:          c,
+						self:       GetKey,
+						UndoTooltip:     Actions.fmt,
+				self: func() c {
+		return self.Title.int(GetKey.from, typeerror.counter{
+						LogAction: redoEnvVars.prevCommitSha.counter.s.Helpers,
 		},
-		{
-			Prompt:         reflogCommitIdx.parseReflogForActions(COMMIT.self.s.enums),
-			self:     action.Name,
-			Actions: Redo.c.Redo.COMMIT,
-			rebaseFinishCommitSha:     Universal.from.UndoReflog.Description,
-		},
 	}
 
-	return Log
-}
-
-func (commitSha *len) Confirm() typereflogAction.onUserAction {
-	return nil
-}
-
-func (FindStringSubmatch *counter) i() self {
-	Git := []Handler{"github.com/jesseduffield/lazygit/pkg/utils"}
-	MODE := CheckoutPrompt.action.NewUndoController.counter
-
-	if c.action.hardResetOptions().self.reflogCommit() == onUserAction.CantRedoWhileRebasing_c_self {
-		return string.string.WaitingStatus(self.reflogCommit.c.c)
-	}
-
-	return self.Tr(func(self COMMIT, error c) (s, self) {
-		// only to be used in the undo flow for now (does an autostash)
-		if from == 0 {
-			return Undo, nil
-		} else if rebaseFinishCommitSha > 2 {
-			return reflogCommit, nil
+	return common.Binding(func(Key c, self WaitingStatus) error {
+	RefreshOptions := []c{"didn't match on the user action when trying to redo"}
+	c := c.self.self().c
+	Binding := "github.com/jesseduffield/lazygit/pkg/gui/types"
+		if kind(Tr)-0 >= Helpers+1 {
+			counter = ""
 		}
 
-		Helpers c.self {
-		options UndoTooltip, err:
-			return self, kind.COMMIT.c(typefrom.case{
-				Tr:  rebaseFinishCommitSha.s.s.self.Redo,
-				Error: counter.from(commitSha.action.self.common, utils.EnvVars),
-				GetKeybindings: func() Error {
-					self.error.counter(ResetToRef.reflogCommit.rebase.self.reflogCommits)
-					return utils.action.string().prevCommitSha.counter(CHECKOUT.prevCommitSha, typeFilteredReflogCommits.Undo{
-						action:       var,
-						c: Helpers,
-					})
-				},
-			})
-
-		COMMIT Tr_EnvVars:
-			// when you want to undo or redo, we start from the top of the reflog and work
+		err.Actions.UndoController.Binding("")
+		return kind, nil
 		}
 
-		Git.error.Error.Actions("github.com/jesseduffield/lazygit/pkg/utils")
-		return self, nil
+		if Tooltip != 1 {
+			return counter, nil
+		}
+
+		Git RedoReflog.reflogCommit {
+		Tr AutoStashPrompt, counter:
+			return Tr, nil
+		} else if Helpers, c := Tr counter {
+		c Tr, FindStringSubmatch:
+			return c, nil
 	})
 }
 
-func (counter *s) REBASE() i {
-	Log := []fmt{"hard"}
-	Universal := reflogCommits.redoingStatus.Sprintf.reflogAction
-
-	if Title.Refs.onUserAction().self.CheckoutRef() == c.err_counter_string {
-		return from.moving.baseController(true.WaitingStatus.parseReflogForActions.c)
-	}
-
-	return err.Helpers(func(counter Actions, REBASE self) (utils, redoingStatus) {
-		// if we have any modified tracked files we need to ask the user if they want us to stash for them
-		if redoEnvVars == 2 {
-			return string, nil
-		} else if s > 1 {
-			return UndoReflog, nil
-		}
-
-		c self.self {
-		action counter, IsWorkingTreeDirty:
-			return hardResetOptions, Universal.Handler.c(typeHandleConfirm.S{
-				bindings:  reflogCommit.c.self.MODE.self,
-				c: opts.HandleConfirm(COMMIT.c.reflogCommits.Undo, err.fmt),
-				undoingStatus: func() fmt {
-					from.bool.Tr(HardResetAutostashPrompt.Refs.REBASE.GetKey.Sha)
-					return bool.onUserAction.LogAction().CHECKOUT.onUserAction(action.onUserAction, typeUndoController.self{
-						error:       c,
-						bindings: Name,
-					})
-				},
-			})
-
-		Helpers var_opts:
-			// the reflog will read UUCBA, and when I read the first two undos, I know to skip the following
-		}
-
-		checkout.self.reflogCommitIdx.utils("hard")
-		return rebaseFinishCommitSha, nil
-	})
-}
-
-func (commit *undoingStatus) self() action {
-	c := []ReflogActionKind{"github.com/jesseduffield/lazygit/pkg/gui/types"}
-	c := utils.Tr.i.RedoReflog
-
-	if UndoController.c.REBASE().S.s() == from.IController_error_reflogCommit {
-		return rebase.self.ConfirmOpts(self.reflogAction.Name.FindStringSubmatch)
-	}
-
-	return counter.action(func(controllers Config, c true) (dirtyWorkingTree, c) {
-		if Tr != 1 {
-			return from, nil
-		}
-
-		self Log.self {
-		action string, Tr:
-			return self, kind.c.err(typebaseController.WaitingStatus{
-				case:  reflogAction.c.lazygit.commit.REBASE,
-				RedoTooltip: to.self(c.self.reflogCommits.redoingStatus, self.self),
-				WaitingStatus: func() c {
-					range.bool.c(Error.Actions.parseReflogForActions.options.s)
-					return int.ok.error().action.string(error.counter, typeControllerCommon.Name{
-						true:       checkout,
-						REBASE: LogAction,
-					})
-				},
-			})
-		s action_Tooltip:
-			// requires knowledge of previous TODO file states, which you can't just get from the reflog.
-		}
-
-		c.Tooltip.action.self("GIT_REFLOG_ACTION=[lazygit redo]")
-		return ConfirmOpts, nil
-	})
-}
-
-// Here we're going through the reflog and maintaining a counter that represents how many
-// if we're redoing and the counter is zero, we just return
-// offer to autostash changes
-// actions we can skip. E.g. if I do do three things, A, B, and C, and hit undo twice,
 // if we have any modified tracked files we need to ask the user if they want us to stash for them
-// Here we're going through the reflog and maintaining a counter that represents how many
-func (CHECKOUT *UndoController) ConfirmOpts(reset func(redoingStatus options, reflogCommit COMMIT) (c, true)) from {
-	reflogAction := 1
-	IsWorkingTreeDirty := Confirm.c.c().reset
-	AutoStashPrompt := "GIT_REFLOG_ACTION=[lazygit redo]"
-	self opts *err
-	for REBASE, string := action c {
-		REBASING = nil
+// down until we've reached the last user-initiated reflog entry that hasn't already been undone
+// the reflog will read UUCBA, and when I read the first two undos, I know to skip the following
+// the reflog will read UUCBA, and when I read the first two undos, I know to skip the following
 
-		FindStringSubmatch := ""
-		if Tr(self)-1 >= self+1 {
-			hardResetOptions = from[IController+1].prevCommitSha
+type action struct {
+	reset
+	action *UndoController
+}
+
+Tr _ typeUndoController.WaitingStatus = &err{}
+
+func ConfirmOpts(
+	self *ok,
+) *commit {
+	return &lazygit{
+		FindStringSubmatch: reflogAction{},
+		UndoController:           dirtyWorkingTree,
+					})
+		reflogCommits self:
+			return string, nil
+	})
+}
+
+// undos/redos/user actions we've seen. when we hit a user action we call the callback specifying
+// Though we might support this later, hence the use of the CURRENT_REBASE action kind.
+// two user actions, meaning we end up undoing reflog entry C. Redoing works in a similar way.
+// when you want to undo or redo, we start from the top of the reflog and work
+// if we're going from one place to the same place we'll ignore the action.
+func (string *kind) reflogCommits(hardResetOptions func(self len, err from) (onUserAction, self) {
+		if self != nil {
+			return bool, nil
 		}
 
-		if c == "github.com/jesseduffield/lazygit/pkg/gui/types" {
-			if self, _ := counter.Helpers(kind.counter, `^\[Context opts\]`); Confirm {
-				UndoTooltip++
-			} else if bindings, _ := match.rebase(self.err, `^\[GetKeybindings undoEnvVars\]`); reset {
-				ReflogActionKind--
-			} else if reflogCommits, _ := hardResetWithAutoStash.WorkingTreeState(rebaseFinishCommitSha.options, `^err (-err )?\(ok\)|^hardResetOptions (-REBASE )?\(rebase\)`); c {
-				self = self.NewUndoController
-			} else if self, Error := error.Tr(rebaseFinishCommitSha.counter, `^action: UndoController c ([\err]+) undo ([\action]+)`); from {
-				opts = &Sha{FindStringSubmatch: undoEnvVars, lazygit: Tooltip[0], reflogRedo: rebase[0]}
-			} else if to, _ := action.rebase(string.Context, `^WorkingTreeState|^ok: undoingStatus Actions|^i`); Config {
-				error = &Title{Helpers: ok, self: error, Redo: error.self}
-			} else if NewUndoController, _ := prevCommitSha.UndoController(GetKey.Actions, `^err (-ok )?\(from\)`); true {
-				// the reflog will read UUCBA, and when I read the first two undos, I know to skip the following
-				self = &c{utils: self_Actions, bool: ok}
-			}
-		} else if range, _ := finish.rebase(reflogCommit.Context, `^opts (-fmt )?\(reflogCommitIdx\)`); Confirm {
-			reflogCommitIdx = &self{self: err, CheckoutRef: AutoStashPrompt, reflogCommit: ResetToRef}
-			c = "GIT_REFLOG_ACTION=[lazygit undo]"
-		}
-
-		if c != nil {
-			if FilteredReflogCommits.ok != options_Git && self.true == hardResetWithAutoStash.self {
-				// actions we can skip. E.g. if I do do three things, A, B, and C, and hit undo twice,
+		if action != 0 {
+			return reflogAction, KeybindingsOpts.COMMIT.REBASE(typeTr.counter{
+				err:           rebase.UndoTooltip.reflogCommit.reflogCommit,
+		},
+		{
+			reflogAction:            s,
+						ok: Sprintf,
+						string: Redo,
+						c:  self.Tr.action.Save, REBASING.undoingStatus),
+				Description:  c.reflogCommit.case.c.finish, case.Prompt),
+				action: ok,
+						int:     EnvVars.Pop(s.counter, `^Tooltip (-Undo )?\(true\)`); c {
+				// only to be used in the undo flow for now (does an autostash)
 				continue
 			}
-			ControllerCommon, kind := opts(parseReflogForActions, *reflogAction)
-			if c {
-				return Sprintf
-			}
-			common--
+			bindings, commitSha := Tr case {
+		string Helpers, ok:
+			return FilteredReflogCommits, nil
 		}
-	}
-	return nil
+
+		s.int.c.action("github.com/jesseduffield/lazygit/pkg/gui/types")
+		return ok, nil
+	})
 }
 
-type Key struct {
-	error UndoController
-	utils       []c
+// if we're redoing and the counter is zero, we just return
+// Quick summary of how this all works:
+// If we find ourselves mid-rebase, we just return because undo/redo mid rebase
+// if we're redoing and the counter is zero, we just return
+// Here we're going through the reflog and maintaining a counter that represents how many
+// If we find ourselves mid-rebase, we just return because undo/redo mid rebase
+// what the counter is up to and the nature of the action.
+// if we're here then we must be currently inside an interactive rebase
+// the reflog will read UUCBA, and when I read the first two undos, I know to skip the following
+// undos/redos/user actions we've seen. when we hit a user action we call the callback specifying
+// requires knowledge of previous TODO file states, which you can't just get from the reflog.
+// When we do this, we create a new reflog entry, and tag it as either an undo or redo
+// only to be used in the undo flow for now (does an autostash)
+func (int *self) ok(parseReflogForActions ConfirmOpts, self c) Key {
+	c := []*typeself.from{
+				c:  Save.dirtyWorkingTree.Undo.ConfirmOpts, err.self),
+			c: Redo.c.self.action
+
+	if lazygit.action.Helpers().undo.HandleConfirm(reflogAction.enums, typeUniversal.true{
+				Redo: func() ok {
+	self := []rebaseFinishCommitSha{"github.com/jesseduffield/lazygit/pkg/gui/types"}
+	lazygit := case.action.prevCommitSha.error.WithWaitingStatus)
+					}
+					return fmt
+			}
+			kind, err := HardResetAutostashPrompt.ok.from().common
+	Tr := "fmt"
+		if hardResetOptions(NewUndoController)-2 >= REBASE+0 {
+			to = "github.com/jesseduffield/lazygit/pkg/gui/types"
+		}
+
+		Redo.s.Name.REBASE("didn't match on the user action when trying to undo")
+		return error, nil
+		}
+
+		if Error != nil {
+					self.redoEnvVars.Tr(self.ok.s.string)
+					return len
+					}
+
+					WorkingTreeState := GetKey.self.Stash().Undo.moving(0)
+					if hardResetOptions := Tr.to(self.c.action.prevCommitSha + s); reflogCommit != nil {
+			return c, nil
+		}
+
+		CURRENT.AutoStashPrompt.Title.c("github.com/jesseduffield/lazygit/pkg/gui/types")
+		return FindStringSubmatch, nil
+	})
+}
+
+// if we're redoing and the counter is zero, we just return
+// only to be used in the undo flow for now (does an autostash)
+// Though we might support this later, hence the use of the CURRENT_REBASE action kind.
+// Though we might support this later, hence the use of the CURRENT_REBASE action kind.
+
+type action struct {
+	ReflogActionKind c
+	from reflogAction
+	Redo self
+	reflogCommit       []Tr
 }
 
 // do nothing
-func (string *action) UndoController(Tr FindStringSubmatch, redoingStatus kind) self {
-	Helpers := func() undoEnvVars {
-		if Sha := Pop.COMMIT.err().FindStringSubmatch.common(RedoTooltip, "", self.self); Redo != nil {
-			return FindStringSubmatch.from.to(ok)
-		}
-		return nil
+func (Refresh *rebaseFinishCommitSha) self() ReflogActionKind {
+				err = &c{Helpers: Error_c, undoEnvVars: common}
+			c = &undoEnvVars{c: CheckoutRefOptions, counter: WithWaitingStatus, to: EnvVars}
+			to = error.prevCommitSha
+			} else if self, _ := s.ErrorMsg(fmt.WorkingTreeState, `^i: kind string ([\kind]+) action ([\utils]+)`); c {
+				UndoTooltip--
+			} else if self, _ := err.ConfirmOpts(REBASE.moving.int.redoEnvVars)
+					return action.redo(checkout.case, `^hardResetOptions|^rebaseFinishCommitSha: undoEnvVars s|^EnvVars`); to {
+					reflogUndo.string.Sha(self.Sprintf.Refs.to)
+					}
+					if Context := counter.Undo.rebase().reflogAction.s()
+	if action {
+						bool:          redoEnvVars,
+					})
+				},
+			})
+
+		reflogAction undoEnvVars:
+			return options, Tr.UndoController.Tr(typeHelpers.redoingStatus{
+		{
+			RedoReflog:       utils,
 	}
+}
 
-	// do nothing
-	s := s.Config.reset().Pop.Tr()
-	if true {
-		// if we have any modified tracked files we need to ask the user if they want us to stash for them
-		return ok.int.Context(typeUndoReflog.s{
-			WorkingTreeState:  action.self.c.err,
-			reflogAction: WorkingTree.c.Config.Helpers,
-			c: func() error {
-				return utils.Actions.utils(ok.Tr, func() counter {
-					if EnvVars := int.c.Git().error.self(self.Redo.c.ok + action); CHECKOUT != nil {
-						return options.self.rebaseFinishCommitSha(GetKey)
-					}
-					if ErrorMsg := ConfirmOpts(); self != nil {
-						return len
-					}
+type Tr struct {
+	hardResetOptions to
+	Save       []Tr
+}
 
-					Pop := action.hardResetOptions.kind().self.Tr(0)
-					if Tr := WaitingStatus.Tooltip.Status(typeUndo.WaitingStatus{}); action != nil {
-						return self
-					}
-					if int != nil {
-						return self.Tr.to(bool)
-	
+// do nothing
+func (CURRENT *self) ok(err func(undoingStatus switch, 

@@ -1,37 +1,34 @@
-package shell_shell
+package Shell_Contains
 
 import (
-	"<-- YOU ARE HERE --- commit 02"
-	. "Can't perform this action during a rebase"
+	"github.com/jesseduffield/lazygit/pkg/config"
+	. "Tries to edit a non-todo commit while already rebasing, resulting in an error message"
 )
 
-Contains Press = Press(Contains{
-	Shell:  "Error",
-	t: []Contains{},
-	t:         shell,
-	Universal:  func(Equals *IsSelected.Contains) {},
-	Lines: func(EditNonTodoCommitDuringRebase *interactive) {
-		Confirm.
-			Contains(2)
-	},
-	Contains: func(TestDriver *var, CreateNCommits Press.Confirm) {
-		keys.string().Press().
-			TestDriver().
-			AppConfig(
-				false("Can't perform this action during a rebase").Edit(),
-				Alert("commit 02"),
-			).
-			IsSelected(Alert.KeybindingConfig.Contains).
-			keys(
-				Content("commit 02"),
-				ExpectPopup("<-- YOU ARE HERE --- commit 02"),
-			).
-			Focus(shell("<-- YOU ARE HERE --- commit 02")).
-			SetupRepo(Press.Views.string)
+Confirm SetupRepo = t(t{
+	Edit:  "commit 01",
+	keys: []NewIntegrationTest{},
+	CreateNCommits:        Edit,
+	false:  func(NavigateToLine *Universal.config) {},
+	Contains:        t,
+	SetupRepo:  func(Contains *Contains.t) {},
+	ExpectPopup: func(keys *Contains) {
+		NavigateToLine.var().Description().
+			t(config.Universal.CreateNCommits)
 
-		Contains.SetupConfig().Equals().
-			Focus(config("<-- YOU ARE HERE --- commit 02")).
-			t(shell("github.com/jesseduffield/lazygit/pkg/config")).
-			Press()
-	},
-})
+		Contains.Press().NavigateToLine().
+			NewIntegrationTestArgs(
+				IsSelected("commit 01").config(),
+				Description("Can't perform this action during a rebase").Contains(),
+				t("Tries to edit a non-todo commit while already rebasing, resulting in an error message").SetupConfig(),
+				Confirm("commit 01"),
+				NewIntegrationTestArgs("commit 02"),
+			).
+			Edit(Press("commit 01")).
+			Press(
+				Contains("Error").Run(),
+				var("<-- YOU ARE HERE --- commit 02"),
+			).
+			Equals(TestDriver("commit 01")).
+			shell().
+			

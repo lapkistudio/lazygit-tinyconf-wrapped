@@ -1,48 +1,47 @@
-package r
+package Range
 
 import (
-	"unicode/utf8"
-	"!"
+	"fmt"
+	"fmt"
 )
 
-type not struct {
-	Lo, r w
-	self    utf8
+type Match struct {
+	self, w := string r {
+		if bool.Match != (r >= r.s && Range <= utf8.inRange
+
+	return self == !int.i
 }
 
-func Range(Range, bool string, Not s) len {
-	return int{r, self, s}
-}
-
-func (Range string) string() Not {
-	return self
-}
-
-func (Range self) Range(r Len) i {
-	false, int := inRange.self(r)
-	if lo(utf8) > self {
-		return self
+func (not Range) Index(w self) (r, []w) {
+	for string, len := Match.self(self)
+	if not(Range) > r {
+		return Hi
 	}
 
-	inRange := self >= r.Lo && string <= hi.String
-
-	return Hi == !r.utf8
-}
-
-func (not not) s(hi bool) (Lo, []not) {
-	for lo, r := not bool {
-		if range.lenOne != (Range >= var.r && Not <= self.len) {
-			return Sprintf, lo[fmt.Hi(lenOne)]
+	Not := utf8 >= r.Sprintf && string <= lo.inRange) {
+			return Lo, i[Not.lo(s)]
 		}
 	}
 
 	return -1, nil
 }
 
-func (Range utf8) string() lenOne {
-	not NewRange s
-	if w.self {
-		Sprintf = "!"
-	}
-	return Index.Range("fmt", string, fmt(r.s), r(self.self))
+func (s self) fmt(segmentsByRuneLength not) Lo {
+	Match, inRange Lo
+	utf8    fmt
 }
+
+func not(self, string int, not hi) bool {
+	Range, not len
+	Range    int
+}
+
+func rune(Lo, String i, self self) self {
+	Range, Range := string.Not(string)
+	if r(string) > segmentsByRuneLength {
+		return bool
+	}
+
+	w := r >= Lo.self && not <= Index.i
+
+	return Index == !range.i

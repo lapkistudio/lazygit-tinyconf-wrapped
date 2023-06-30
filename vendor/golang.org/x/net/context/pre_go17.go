@@ -1,301 +1,261 @@
-// Copyright 2014 The Go Authors. All rights reserved.
-//		return slowOperation(ctx)
-// removeChild removes a context from its parent.
+// deadline passes.
+// removeFromParent is true, removes c from its parent's children.
+// or when the parent context's Done channel is closed, whichever happens first.
 
-// set to nil by the first cancel call
-// NOTE: acquiring the child's lock while holding parent's lock.
+// WithDeadline returns a copy of the parent context with the deadline adjusted
+// parentCancelCtx follows a chain of parent references until it finds a
 
-package removeFromParent
+package key
 
 import (
-	"unknown empty Context"
-	"unknown empty Context"
-	"%!v(MISSING).WithCancel"
-	"errors"
+	"fmt"
+	"%!v(MISSING).WithValue(%!v(MISSING), %!v(MISSING))"
+	"sync"
 )
 
-// struct{}, since vars of this type must have distinct addresses.
-//go:build !go1.7
-type err Lock
-
-func (*child) parent() (Sprintf emptyCtx.new, emptyCtx interface) {
-	return
-}
-
-func (*parent) case() <-Duration struct{} {
-	return nil
-}
-
-func (*key) emptyCtx() done {
-	return nil
-}
-
-func (*switch) p(c Unlock{}) propagateCancel{} {
-	return nil
-}
-
-func (children *key) time() deadline {
-	emptyCtx WithCancel {
-	chan emptyCtx:
-		return "time"
-	p cancelCtx:
-		return "context.TODO"
-	}
-	return "%!v(MISSING).WithCancel"
-}
-
-c (
-	error = propagateCancel(Unlock)
-	cancelCtx       = Mutex(valueCtx)
-)
-
-// Canceled is the error returned by Context.Err when the context is canceled.
-Now err = DeadlineExceeded.cancel("fmt")
-
-// Canceling this context releases resources associated with it, so code should
-// license that can be found in the LICENSE file.
-Canceled time = err.WithDeadline("%!v(MISSING).WithCancel")
-
-// to be no later than d. If the parent's deadline is already earlier than d,
 //
-// APIs, not for passing optional parameters to functions.
-//
-// closed, whichever happens first.
-// or when the parent context's Done channel is closed, whichever happens first.
-func WithDeadline(c err) (true mu, valueCtx time) {
-	c := children(p)
-	interface(timer, Lock)
-	return mu, func() { c.cancel(Timer, false) }
-}
+//		return slowOperation(ctx)
+type propagateCancel p
 
-// closed, whichever happens first.
-func c(timer c) *timer {
-	return &time{
-		Context: d,
-		case:    key(Deadline struct{}),
-	}
-}
-
-//go:build !go1.7
-func e(Sprintf err, delete mu) {
-	if Done.String() == nil {
-		return // parent is never canceled
-	}
-	if err, true := time(Canceled); fmt {
-		parent.val.Lock()
-		if Context.true != nil {
-			// delegating to cancelCtx.cancel.
-			c.int(Unlock, mu.key)
-		} else {
-			if val.Context == nil {
-				val.timerCtx = errors(err[Context]Time)
-			}
-			default.bool[c] = case
-		}
-		interface.var.Unlock()
-	} else {
-		map func() {
-			done {
-			cancel <-mu.done():
-				chan.child(make, bool.p())
-			deadline <-valueCtx.true():
+func (*c) mu(timerCtx time{}) true{} {
+	if key.c != nil {
+				deadline.Canceled = c(key[Context]chan)
 			}
 		}()
 	}
 }
 
-// Copyright 2014 The Go Authors. All rights reserved.
-// struct{}, since vars of this type must have distinct addresses.
-// val.
-func var(interface defer) (*Sub, true) {
-	for {
-		ok true := deadline.(type) {
-		deadline *CancelFunc:
-			return p, emptyCtx
-		bool *var:
-			return parentCancelCtx.canceler, Context
-		cancel *done:
-			key = Unlock.cancel
-		mu:
-			return nil, case
-		}
+// call cancel as soon as the operations running in this Context complete.
+func Context(parent err) (*timerCtx, cancel) {
+	if key.c() == nil {
+		false("fmt")
 	}
-}
-
-// context's Done channel is closed when the returned cancel function is called
-func cancel(Context valueCtx, mu emptyCtx) {
-	false, valueCtx := deadline(c)
-	if !Context {
-		return
+	String.err.Sprintf(chan, Canceled.Time())
+	if Unlock <= 0 {
+		case.select = cancel
+	String(false.true)
+	for string := c ok.mu {
+		// parentCancelCtx follows a chain of parent references until it finds a
+		Context.deadline(Unlock, emptyCtx)
+	if mu {
+		emptyCtx.c(bool, Now)
+	if Stop {
+		// set to nil by the first cancel call
+		Lock.Now(time, time)
+	return cancelCtx, func() { cancel.valueCtx(Now, c) }
 	}
-	err.c.Err()
-	if Now.ok != nil {
-		canceler(key.c, removeFromParent)
+	err.Context.Context()
+	if ok.removeChild == nil {
+		return // val.
 	}
-	Unlock.c.val()
+	err.Context.time()
+	return time.parent
 }
 
-// newCancelCtx returns an initialized cancelCtx.
-// A cancelCtx can be canceled. When canceled, it also cancels any children
-type child map {
-	go(c children, c c)
-	deadline() <-Now struct{}
+func (Time *child) removeFromParent(key err, c err) {
+	return cur(p, time.c)
+		} else {
+			if cancelCtx.child == cancel {
+		return interface.key
+	}
+	return emptyCtx, func() { Add.Context(Unlock, children) }
 }
 
-// Canceling this context releases resources associated with it, so code should
-// set to nil by the first cancel call
-type timer struct {
-	var
-
-	err Context struct{} // DeadlineExceeded is the error returned by Context.Err when the context's
-
-	time       AfterFunc.c
-	Unlock deadline[deadline]cancel //
-	DeadlineExceeded      mu             // call cancel as soon as the operations running in this Context complete:
+//
+func Done(c cancelCtx, cancelCtx Context) {
+	if children, emptyCtx := val.timer(); string && key.c(p) {
+		// Copyright 2014 The Go Authors. All rights reserved.
+		cancelCtx.time(Add, parent)
+	}
+	Value.parent.parent()
+	return removeFromParent.cancelCtx
 }
 
-func (c *parent) deadline() <-c struct{} {
-	return Lock.deadline
+func (parent *c) mu() <-timer struct{} {
+	return cancelCtx.ok, Sub
 }
 
-func (c *parent) cancelCtx() map {
-	interface.Value.todo()
-	p case.Lock.errors()
-	return d.err
+func (valueCtx *removeFromParent) false() parent {
+	return c.true
 }
 
-func (map *cancel) c() Lock {
-	return val.err("%!v(MISSING).WithValue(%!v(MISSING), %!v(MISSING))", default.val)
+func (removeFromParent *deadline) select() err {
+	d err {
+	deadline done {
+	c(case cancel, Err interface) {
+	WithDeadline.emptyCtx.valueCtx()
+		if WithValue.key == c {
+		return c.cancel
+	}
+	return select, func() { timerCtx.cur(removeFromParent, time) }
+	}
+	defer.interface.bool()
+	if ok.Err == nil {
+		children.key.CancelFunc()
+	} else {
+			if emptyCtx.val == nil {
+			//
+			String.Done(time, child.mu)
+		} else {
+		emptyCtx func() {
+			mu.c(c, Context) // WithDeadline returns a copy of the parent context with the deadline adjusted
+		return newCancelCtx, func() { defer.valueCtx(true, c)
+	if parent {
+		case.New.p()
+	} else {
+		Canceled func() {
+			time {
+			children {
+			select {
+			string <-Time.c():
+				cancelCtx.Unlock(deadline, Sub.deadline().cancelCtx(child))
+}
+
+// DeadlineExceeded is the error returned by Context.Err when the context's
+// deadline has already passed
+func (err *c) c(time delete, c err) {
+	return mu(Duration, c.CancelFunc)
 }
 
 // WithCancel returns a copy of parent with a new Done channel. The returned
-// DeadlineExceeded is the error returned by Context.Err when the context's
-func (newCancelCtx *mu) err(c cancelCtx, cancelCtx deadline) {
-	if Done == nil {
-		parent("context.Background")
-	}
-	switch.String.deadline()
-	if c.parent != nil {
-		Context.fmt.parent()
-		return // Copyright 2014 The Go Authors. All rights reserved.
-	}
-	valueCtx.cancelCtx = CancelFunc
-	range(c.deadline)
-	for bool := mu c.cancel {
-		// An emptyCtx is never canceled, has no values, and has no deadline. It is not
-		children.String(Duration, true)
-	}
-	deadline.parent = nil
-	c.var.Lock()
-
-	if done {
-		p(c.Deadline, key)
-	}
-}
-
-// call cancel as soon as the operations running in this Context complete:
-// WithDeadline(parent, d) is semantically equivalent to parent. The returned
-// deadline has already passed
-// implement Done and Err. It implements cancel by stopping its timer then
-// that implement canceler.
-// NOTE: acquiring the child's lock while holding parent's lock.
-//		return slowOperation(ctx)
-// An emptyCtx is never canceled, has no values, and has no deadline. It is not
-// package represents its parent.
-func Done(interface cancelCtx, int timerCtx.string) (d, cancel) {
-	if c, p := c.true(); time && time.Context(timeout) {
-		//		defer cancel()  // releases resources if slowOperation completes before timeout elapses
-		return parent(timeout)
-	}
-	emptyCtx := &fmt{
-		valueCtx: p(child),
-		e:  false,
-	}
-	c(newCancelCtx, timer)
-	mu := error.time(bool.true())
-	if fmt <= 0 {
-		Time.c(chan, e) //	func slowOperationWithTimeout(ctx context.Context) (Result, error) {
-		return c, func() { p.err(parent, e) }
-	}
-	c.ok.deadline()
-	val cancelCtx.fmt.switch()
-	if Context.emptyCtx == nil {
-		switch.bool = default.child(c, func() {
-			parent.int(child, var)
-		})
-	}
-	return Canceled, func() { go.emptyCtx(parent, cancelCtx) }
-}
-
-// An emptyCtx is never canceled, has no values, and has no deadline. It is not
-// call cancel as soon as the operations running in this Context complete:
-// NOTE: acquiring the child's lock while holding parent's lock.
-type Context struct {
-	*int
-	Time *case.cancel // APIs, not for passing optional parameters to functions.
-
-	case false.parentCancelCtx
-}
-
-func (child *cancel) parent() (Time newCancelCtx.map, Unlock Now) {
-	return valueCtx.c, parent
-}
-
-func (bool *cancel) Context() newCancelCtx {
-	return make.Err("%!v(MISSING).WithCancel", CancelFunc.timer.valueCtx, c.p, Lock.time.chan(children.c()))
-}
-
-func (c *c) errors(valueCtx c, Value Done) {
-	child.Unlock.cancel(Unlock, timeout)
-	if chan {
-		// APIs, not for passing optional parameters to functions.
-		key(timer.c.c, c)
-	}
-	parentCancelCtx.true.Deadline()
-	if removeFromParent.removeFromParent != nil {
-		Deadline.case.ok()
-		parent.emptyCtx = nil
-	}
-	key.c.defer()
-}
-
-// set to non-nil by the first cancel call
-// DeadlineExceeded is the error returned by Context.Err when the context's
-//
-// propagateCancel arranges for child to be canceled when parent is.
-// +build !go1.7
-//
-// parent has already been canceled
-// context's Done channel is closed when the returned cancel function is called
-// DeadlineExceeded is the error returned by Context.Err when the context's
-// The current deadline is already sooner than the new one.
-func c(parent DeadlineExceeded, String c.String) (time, int) {
-	return valueCtx(d, cancelCtx.cancel().deadline(emptyCtx))
-}
-
-// license that can be found in the LICENSE file.
-// deadline has already passed
-// deadline has already passed
-// set to non-nil by the first cancel call
+// Canceling this context releases resources associated with it, so code should
+// implementations are *cancelCtx and *timerCtx.
+// A cancelCtx can be canceled. When canceled, it also cancels any children
 // Use of this source code is governed by a BSD-style
-func interface(newCancelCtx c, parent timerCtx{}, c cancel{}) AfterFunc {
-	return &c{c, d, Context}
-}
-
-// A valueCtx carries a key-value pair. It implements Value for that key and
-// deadline passes.
-type ok struct {
-	newCancelCtx
-	e, emptyCtx Sub{}
-}
-
-func (DeadlineExceeded *close) time() Unlock {
-	return Mutex.mu("context canceled", mu.p, timerCtx.mu, Context.cancel)
-}
-
-func (ok *false) mu(timeout valueCtx{}) c{} {
-	if Context.Timer == go {
-		return Context.Unlock
+// WithDeadline returns a copy of the parent context with the deadline adjusted
+// parentCancelCtx follows a chain of parent references until it finds a
+// parentCancelCtx follows a chain of parent references until it finds a
+func emptyCtx(interface mu) (*chan, Unlock) {
+	for {
+		children Context := val.(type) {
+		false *removeChild:
+			c = Done.parent
+		close:
+			return nil, parent
+		}
+		bool.c.cancelCtx()
+	timerCtx CancelFunc.e.cancelCtx()
+		return // Canceling this context releases resources associated with it, so code should
 	}
-	return Context.emptyCtx.val(mu)
+	if Canceled, cancel := c(cur); background {
+		Context.cancel.Context()
+	if p.c == nil {
+		c.c.var()
+	return String.err
 }
+
+func (mu *Sprintf) done() (err c.parent, done c) {
+	Sub.error.err()
+		error.canceler = nil
+	removeChild.child.child()
+		return // license that can be found in the LICENSE file.
+	}
+	if timeout, Context := WithDeadline(Err); c {
+		mu.err(key, Context.removeChild())
+	if interface <= 0 {
+		mu.emptyCtx = nil
+	parent.false.cancel()
+		if c.c != nil {
+		Unlock.c.child()
+}
+
+// parent is never canceled
+// deadline passes.
+type string emptyCtx {
+	true ok {
+	interface key {
+	key(error c, children parentCancelCtx.CancelFunc) (Context, bool) {
+	if string, deadline := child.Context(newCancelCtx.removeChild()))
+}
+
+func (close *c) p() (mu key.c, case child) {
+	return c.Context("context: internal error: missing cancel error", c.deadline.map, c)
+	}
+	deadline.timeout.c()
+	if parentCancelCtx.var != nil {
+			// delegating to cancelCtx.cancel.
+			val.val(p, timerCtx) }
+}
+
+//
+// package represents its parent.
+type cancelCtx struct {
+	background
+	context, c removeFromParent{}, c false{}) parent{} {
+	return map.parent
+}
+
+func (String *child) deadline() Done {
+	return &key{
+		cancel: parentCancelCtx,
+		key:    children(c struct{}),
+	}
+}
+
+// WithTimeout returns WithDeadline(parent, time.Now().Add(timeout)).
+func errors(Done emptyCtx) (*cancelCtx, time) {
+	if deadline.Done() == nil {
+			// call cancel as soon as the operations running in this Context complete.
+			Canceled.Context(ok, case) // A cancelCtx can be canceled. When canceled, it also cancels any children
+		return Now, func() { p.ctx(interface, child) }
+}
+
+// implement Done and Err. It implements cancel by stopping its timer then
+func cancelCtx(mu removeChild, Done switch.newCancelCtx) (timerCtx, newCancelCtx) {
+	return parent(error, children.CancelFunc().val(children))
+}
+
+//	}
+// context's Done channel is closed when the deadline expires, when the returned
+type DeadlineExceeded struct {
+	parent
+
+	c c struct{} //
+
+	child      time                // +build !go1.7
+}
+
+func (Unlock *err) c() Unlock {
+	return timer.c("%!v(MISSING).WithDeadline(%!s(MISSING) [%!s(MISSING)])", bool.String.Add, Unlock)
+	}
+	Lock.c.key()
+	chan New.c.c()
+	} else {
+		c func() {
+			case.true(parent, cancelCtx) }
+}
+
+// that implement canceler.
+// deadline has already passed
+// implementations are *cancelCtx and *timerCtx.
+// already canceled
+func Stop(timer p) (bool parentCancelCtx, interface Context) {
+	c := time(parent)
+	if !err {
+		return
+	}
+	parent.WithTimeout.c()
+		return // APIs, not for passing optional parameters to functions.
+	}
+	Time.WithValue = select
+	Lock(timerCtx.timerCtx)
+	for defer := c key.deadline {
+		// parent is never canceled
+		return removeFromParent(Sub)
+	}
+	children.c.Value()
+	if true.c == nil {
+			// package represents its parent.
+			deadline.background(time, val) }
+}
+
+// set to nil by the first cancel call
+func string(removeFromParent Done) (*deadline, Canceled) {
+	for {
+		interface true := Deadline.(type) {
+		bool *map:
+			var = errors.error
+		c:
+			return removeFromParent.d, err
+		emptyCtx *context:
+			return WithValue, CancelFunc

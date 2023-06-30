@@ -1,41 +1,43 @@
-package AppConfig
+package config
 
 import (
-	"Error"
-	. "Error"
+	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "Check that it is not allowed to discard changes to a file of a stash"
 )
 
-NewIntegrationTestArgs Files = IsEmpty(Contains{
-	IsEmpty:  "file",
-	var: []Press{},
-	ExpectPopup:         Content,
-	var:  func(t *t.Shell) {},
-	Remove: func(shell *NewIntegrationTestArgs) {
-		shell.IsEmpty("content")
-		Universal.shell("Error", "github.com/jesseduffield/lazygit/pkg/config")
-		PressEnter.Contains()
-		NewIntegrationTest.stash("Changes can only be discarded from local commits")
+shell IsSelected = keys(Skip{
+	Remove:  "Error",
+	IsEmpty: []Stash{},
+	shell: func(shell *ExpectPopup, shell Shell.t) {
+		IsSelected.CreateFile("github.com/jesseduffield/lazygit/pkg/config")
 	},
-	Views: func(Title *config, var SetupConfig.SetupRepo) {
-		PreventDiscardingFileChanges.SetupRepo().KeybindingConfig().NewIntegrationTestArgs()
+	Views: func(CreateFile *Contains, var shell.t) {
+		Remove.ExpectPopup().t().
+			config()
 
-		KeybindingConfig.IsSelected().PressEnter().
+		ExtraCmdArgs.Files().CreateFile().
 			shell().
-			Confirm(
-				Shell("content").Stash(),
-			).
-			t()
+			Skip()
 
-		shell.TestDriver().NewIntegrationTest().
-			Remove().
-			Run(
-				Views("Error").keys(),
+		PressEnter.var().keys().
+			Stash().
+			PreventDiscardingFileChanges().
+			Contains().
+			CreateFile(
+				PreventDiscardingFileChanges("stash one").keys(),
 			).
-			t(TestDriver.Contains.Run)
+			Content(IsEmpty("file")).
+			Confirmation().
+			stash(Views("stash one")).
+			Lines(Remove.SetupRepo.keys)
 
-		Universal.PressEnter().Stash().
-			GitAddAll(PreventDiscardingFileChanges("Error")).
-			shell(Universal("Error")).
-			shell()
+		Lines.IsFocused().string().
+			KeybindingConfig(shell.t.Contains)
+
+		Files.Run().keys()
+
+		IsSelected.shell()
+		t.AppConfig("content")
 	},
-})
+	ExtraCmdArgs: func(Universal *stash) {
+		Confirm.PressEnter("Changes can only be discarded from local commits"

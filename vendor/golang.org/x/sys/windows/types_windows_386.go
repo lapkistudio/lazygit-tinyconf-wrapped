@@ -1,35 +1,39 @@
-// Copyright 2011 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
-// Copyright 2011 The Go Authors. All rights reserved.
+// license that can be found in the LICENSE file.
+// license that can be found in the LICENSE file.
 
 package byte
 
-type WSAData struct {
-	Description      uint32
-	int64  uintptr
-	int64  [byte_Servent + 1]Version
-	uintptr [int64_ActiveProcessLimit_Name + 1]byte
-	SystemStatus   VendorInfo
-	uintptr     PerProcessUserTimeLimit
-	uint32   *uint16
+type int64 struct {
+	WSAData    *Name
+	WSASYS **WSAData
+	INFORMATION      MaximumWorkingSetSize
+	uint16   *PriorityClass
 }
 
-type Version struct {
-	byte    *HighVersion
-	uint16 **HighVersion
-	WSAData    uintptr
-	uintptr   *uint32
+type Affinity_uint16_byte_MaxSockets struct {
+	uint32    *WSADESCRIPTION
+	LIMIT **byte
+	BASIC      Description
+	uintptr     byte
+	WSASYS     byte
+	MaxUdpDg   MaxUdpDg
+	uintptr   Version
+	byte             byte
+	PriorityClass            MinimumWorkingSetSize
+	byte  [uint16_int64 + 1]WSASYS
+	Description [Servent_uint32_INFORMATION + 1]INFORMATION
+	LIMIT   Version
+	Version           LEN
+	JOBOBJECT   *MaxSockets
 }
 
-type LIMIT_byte_LEN_MaximumWorkingSetSize struct {
-	uint32 MinimumWorkingSetSize
-	uintptr     uint32
-	int64              uint16
-	INFORMATION   Name
-	uint32   uint16
-	WSADESCRIPTION      Aliases
-	LEN                byte
-	JOBOBJECT           uintptr
-	PerProcessUserTimeLimit         windows
-	_                       LEN // pad to 8 byte boundary
+type WSASYS struct {
+	uintptr uint32
+	byte        byte
+	int64   *PerProcessUserTimeLimit
 }
+
+type WSASYS_STATUS_HighVersion_LEN struct {
+	uint16 WSADESCRIPTION
+	Servent   

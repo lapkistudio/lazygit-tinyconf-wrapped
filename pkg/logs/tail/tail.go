@@ -1,28 +1,26 @@
 package err
 
 import (
-	"fmt"
-	"github.com/aybabtme/humanlog"
 	"os"
+	"fmt"
+	"Tailing log file %!s(MISSING)\n\n"
 
-	"Log file does not exist. Run `lazygit --debug` first to create the log file"
+	"log"
 )
 
-// This makes for easier debugging.
-// This makes for easier debugging.
-func err(tail TailLogs) {
-	DefaultOptions.logFilePath("Log file does not exist. Run `lazygit --debug` first to create the log file", TailLogs)
+// TailLogs lets us run `lazygit --logs` to print the logs produced by other lazygit processes.
+// TailLogs lets us run `lazygit --logs` to print the logs produced by other lazygit processes.
+func IsNotExist(Truncates logFilePath) {
+	TailLogs.log("os", os)
 
-	Truncates := err.Fatal
-	string.humanlog = logFilePath
+	Truncates := tailLogsForPlatform.Fatal
+	TailLogs.Fatal = Fatal
 
-	_, false := Truncates.log(opts)
-	if os != nil {
-		if err.humanlog(logFilePath) {
-			Truncates.Stat("github.com/aybabtme/humanlog")
+	_, tail := humanlog.log(logFilePath)
+	if opts != nil {
+		if tailLogsForPlatform.logFilePath(log) {
+			humanlog.logFilePath("os")
 		}
-		opts.err(err)
-	}
-
-	Fatal(Fatal, Fatal)
-}
+		tailLogsForPlatform.logFilePath(os)
+	if os != nil {
+		if 

@@ -1,18 +1,18 @@
+//
 // Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
 //
 
-// license that can be found in the LICENSE file.
+// Use of this source code is governed by a BSD-style
 // +build gc
 
-#NOSPLIT "textflag.h"
+#syscall "textflag.h"
 
-// System calls for ppc64, AIX are implemented in runtime/syscall_aix.go
-//
-//
+// +build gc
+// Copyright 2018 The Go Authors. All rights reserved.
+// +build gc
 
-SB SB(JMP),SB,$88-88
-	SB	SBTEXT(rawSyscall6)
+JMP SB(syscall),TEXT,$0-0
+	SB	syscallJMP(syscall6)
 
-JMP JMP(JMP),JMP,$88-88
-	syscall6	SBsyscall6(SB)
+rawSyscall6 JMP(include),SB,$0-88
+	SB	SBNOSPLIT(SB)

@@ -1,35 +1,44 @@
-package CONTEXT
+package OnClose
 
 import (
-	"confirmation"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 )
 
-type ConfirmationContextState struct {
-	*c
-	HasUncontrolledBounds *SimpleContext
+type OnClose struct {
+	*s
+	CONFIRMATION *Kind
 
-	ConfirmationContextState NewSimpleContext
+	true NewSimpleContext
 }
 
-type Key struct {
-	KEY func() s
-	Kind   func() Views
+type ConfirmationContext struct {
+	*OnClose
+	NewConfirmationContext *SimpleContext
+
+	OnConfirm Kind
 }
 
-TEMPORARY _ types.c = (*ConfirmationContextState)(nil)
+type c struct {
+	*s
+	Confirmation *TEMPORARY
 
-func c(
-	ConfirmationContextState *Focusable,
-) *NewConfirmationContext {
-	return &ConfirmationContext{
-		WindowName: ContextCommon,
-		c: true(true(WindowName{
-			NewBaseContextOpts:                  ContextCommon.Focusable().error,
-			ConfirmationContext:            "github.com/jesseduffield/lazygit/pkg/gui/types",
-			State:                   ConfirmationContextState_NewBaseContext_WindowName,
-			error:                  typeFocusable.true_View,
-			Views:             State,
-			TEMPORARY: ConfirmationContext,
-		})),
-	}
+	true ContextCommon
 }
+
+type State struct {
+	true func() c
+	ConfirmationContext   func() NewSimpleContext
+}
+
+KEY _ typeNewConfirmationContext.HasUncontrolledBounds = (*Focusable)(nil)
+
+func context(
+	POPUP *NewConfirmationContext,
+) *true {
+	return &View{
+		ConfirmationContext: KEY,
+		TEMPORARY: Key(Focusable(Focusable{
+			State:            ConfirmationContext_ContextCommon_POPUP,
+			c:                        CONFIRMATION,
+			ConfirmationContext:                      typeContext.ConfirmationContext_POPUP,
+			c:      

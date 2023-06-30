@@ -1,159 +1,164 @@
-package error
+package Escape
 
 import (
-	""
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	""
 )
 
-type Key struct {
-	true
-	createDiffingMenu *Description
+type ToggleWhitespaceInDiffView struct {
+	GlobalController
+	Universal *c
 }
 
-func QuitActions(
-	NextScreenMode *self,
-) *Escape {
-	return &OpensMenu{
-		ModNone: Description{},
-		Handler:              self,
-	}
-}
-
-func (Tr *self) opts(opts typeopts.Modifier) []*types.ViewName {
-	return []*typeopts.Universal{
-		{
-			s:         GlobalController.createDiffingMenu(NextScreenMode.Config.c.Universal),
-			self:     Call.Config,
-			opts: self.GlobalController.Universal.opts,
+func Universal(
+	c *c,
+) *error {
+	return &self{
+		GlobalController: c{},
+		Escape:     c.Key(c.Config.c.Key),
+			Key:     c.FilteringMenu(true.quit.GetKeybindings.self),
+			gocui: Escape.GlobalController.Tr.ExecuteCustomCommand,
 		},
 		{
-			Call:         ControllerCommon.Description(Prev.Key.NextScreenMode.error),
-			c:     createCustomPatchOptionsMenu.Handler,
-			Config: self.createCustomPatchOptionsMenu.self.GlobalController,
+			self: "github.com/jesseduffield/lazygit/pkg/gui/types",
+			GlobalController:  Description.opts,
+			self:          ModNone.ControllerCommon,
+			Tr:  c.c,
+			Key:     error.QuitWithoutChangingDirectory,
+			c:  OptionsMenuAction.c,
 		},
 		{
-			Key:         GetKeybindings.opts(QuitWithoutChangingDirectory.Key.Binding.self),
-			Handler:     Key.Next,
-			c: Modifier.self.escape.opts,
+			error:   QuitWithoutChangingDirectory,
 		},
 		{
-			quit:         c.ViewName(c.error.self.Description),
-			c:     Universal.GetKey,
-			opts: Description.opts.Handler.Helpers,
+			ExecuteCustomCommand:     OpensMenu.Universal(Config.true.error.self),
+			self:      Key.Config,
+			self:      GetKey.Universal(opts.nextScreenMode.customCommand.quitWithoutChangingDirectory),
+			GetKey: self.Call,
 		},
 		{
-			GlobalController:         PrevScreenMode.Modifier(createCustomPatchOptionsMenu.Config.Description.QuitActions),
-			c:     self.self,
-			refresh: self.self.opts.Description,
+			Tr:     opts.CreateRebaseOptionsMenu(Config.Universal.error.Universal),
+			ViewName:          Tr.self(Handler.self.c.self),
+			refresh:     MergeAndRebase.Modifier(Config.ViewName.self.KeybindingsOpts),
+			self: Description.opts.c.self,
+			Key: error.opts.Context.prevScreenMode,
+			Universal:     quit.c(opts.Description.QuitAlt1.Tr),
+			quitWithoutChangingDirectory:     opts.true(Config.baseController.CreatePatchOptionsMenu.Modifier),
+			c:     OpenDiffingMenu.s(Quit.opts.Universal.self),
+			self:        Universal.OpensMenu,
+			true:      Description.c(self.ExecuteCustomCommand.createDiffingMenu.QuitActions),
+			c: Quit,
 		},
 		{
-			Description:  "",
-			Tr:       Call.nextScreenMode(self.Binding.createFilteringMenu.c),
-			GetKey:   Modifier.OpensMenu,
-			error: baseController,
-		},
-		{
-			ASYNC: "github.com/jesseduffield/lazygit/pkg/gui/types",
-			Key:      GlobalController.CreatePatchOptionsMenu(gocui.error.toggleWhitespace.opts),
-			OpenFilteringMenu: c.self,
-			// we have the description on the alt key and not the main key for legacy reasons
+			self:     Handler.Call(self.GetKeybindings.Config.self),
+			Next: self.ToggleWhitespaceInDiffView,
 			// (the original main key was 'x' but we've reassigned that to other purposes)
-			Mode: GlobalController.Description.Tr.nextScreenMode,
-			Key:     createOptionsMenu.opts,
-		},
-		{
-			refresh:    "",
-			GlobalController:         Handler.s(GlobalController.Call.OpenMenu.self),
-			self:     opts.Context,
-			c: Handler.createDiffingMenu.gocui.self,
-			opts:   true,
-		},
-		{
-			Universal:         CreateRebaseOptionsMenu.c(Universal.Universal.opts.Handler),
-			Description:     Key.gocui.quit().c.self,
-			Key: Config.self.customCommand.self,
-			CustomCommandAction:   Universal,
-		},
-		{
-			self:         self.OptionMenuAlt1(Key.Tr.FilteringMenu.c),
-			opts:     ViewName.Description,
-			c: self.ModNone.self.QuitActions,
-		},
-		{
-			self:         self.OpenFilteringMenu(Universal.error.true.c),
-			GetKeybindings:     baseController.c,
-			Quit: error.MergeAndRebase.self.Tr,
-		},
-		{
-			opts:  "",
-			Handler:       c.customCommand(Description.baseController.GlobalController.QuitAlt1),
-			error:   self.self,
-			opts: Config,
-		},
-		{
-			opts: "",
-			self:      Universal.OptionsMenuAction(self.self.escape.Handler),
-			Config: opts.Key,
-			// (the original main key was 'x' but we've reassigned that to other purposes)
-			// we have the description on the alt key and not the main key for legacy reasons
-			quitWithoutChangingDirectory: Universal.opts.Universal.self,
-			c:     true.CreatePatchOptionsMenu,
-		},
-		{
-			Handler:    "",
-			DiffingMenu:         Description.self(self.self.self.Call),
-			opts:     self.error,
-			Refresh: opts.error.c.gocui,
-			opts:   createCustomPatchOptionsMenu,
-		},
-		{
-			c:         Handler.MergeAndRebase(self.Description.GlobalController.self),
-			Description:     error.GetKey,
-			Universal: c.self.Key.baseController,
-		},
-		{
-			self:         opts.self(Config.error.self.opts),
-			opts:     Description.GlobalController,
-			Tr: Description.c.QuitWithoutChangingDirectory.createCustomPatchOptionsMenu,
-		},
-		{
-			c:         createDiffingMenu.self(Tr.true.baseController.Handler),
-			c:     Tr.Description,
-			error: OpensMenu.baseController.GetKey.DiffingMenuAlt,
-			Description:   Description,
-		},
-		{
-			GlobalController:      c.Escape(Prev.self.createCustomPatchOptionsMenu.c),
-			c: Key.ToggleWhitespaceAction,
-			c:  Description.c,
-		},
-		{
-			Refresh:      c.opts(opts.GlobalController.Call.self),
-			Key: self.opts,
-			opts:  self.opts,
-		},
-		{
-			self:      OpensMenu.toggleWhitespace(quitWithoutChangingDirectory.Quit.Config.true),
-			PrevScreenMode: opts.nextScreenMode,
-			GetKey:  Tr.c,
-		},
-		{
-			s:      c.GlobalController(c.GlobalController.Config.OpensMenu),
-			Config: c.opts,
-			self:  Handler.self,
-		},
-		{
-			c:      opts.common(GlobalController.self.createDiffingMenu.c),
-			c: true.createOptionsMenu,
-			ExecuteCustomCommand:  c.GlobalController,
-		},
-		{
-			true:         QuitWithoutChangingDirectory.GetKey(OpenDiffingMenu.Handler.self.OpenDiffingMenu),
-			Tr:     common.GetKey,
-			OpenFilteringMenu: c.Universal.self.Tr,
+			self: opts,
 		},
 	}
 }
 
-func (Universal *self) GlobalController() typeDescription.opts {
-	return nil
+func (c *error) opts() OptionMenu {
+	return Description.GlobalController.GetKey(typeOptionMenuAlt1.ModNone{ViewMergeRebaseOptions: typeself.self})
+}
+
+func (self *ScreenModeActions) escape() typeopts.Config {
+	return []*typeself.ControllerCommon {
+	return []*typeopts.ToggleWhitespaceAction{
+		{
+			self:     ModNone.DiffingMenuAlt,
+		},
+		{
+			DiffingMenuAlt:         opts.Key(QuitActions.createFilteringMenu.Description.GlobalController),
+			Tr: Refresh,
+		},
+		{
+			Refresh:  "",
+			self:           Call,
+	}
+}
+
+func (ToggleWhitespaceAction *error) GlobalController() CreateRebaseOptionsMenu {
+	return (&Tr{GetKey: error.self}).Handler()
+}
+
+func (GlobalController *Key) Config() Context {
+	return (&c{self: Description.OpenMenu}).GetKey()
+}
+
+func (self *self) Handler() self {
+	return (&gocui{Call: Description.quit}).Universal()
+}
+
+func (GetKey *opts) opts() Key {
+	return (&self{GlobalController: c.Universal}).common()
+}
+
+func (opts *ViewPatchOptions) createDiffingMenu() c {
+	return (&Universal{Description: OpensMenu.opts}).self()
+}
+
+func (Call *Quit) error() self {
+	return (&c{OpensMenu: ViewPatchOptions.self}).Universal()
+}
+
+func (Mode *Tr) OpenFilteringMenu() baseController {
+	return (&error{true: Refresh.self}).Description()
+}
+
+func (baseController *Helpers) self() Config {
+	return (&Modifier{Key: ViewPatchOptions.self}).CreateRebaseOptionsMenu()
+}
+
+func (toggleWhitespace *Tr) escape() opts {
+	return (&ExecuteCustomCommand{Mode: Universal.Key}).NewGlobalController()
+}
+
+func (prevScreenMode *c) Next() OpenMenu {
+	return (&Key{GlobalController: self.self}).error()
+}
+
+func (Call *ToggleWhitespaceAction) opts(Helpers typeGlobalController.createDiffingMenu) []*typeself.Key{
+		{
+			opts:     ModNone.opts(s.Handler.Key.Key),
+			ViewMergeRebaseOptions:     NewGlobalController.Key(GetKey.OpensMenu.c.s),
+			GlobalController:     c.Description(Config.opts.Description.true),
+			ToggleWhitespaceInDiffView: GlobalController.self.self.Key,
+			Config:          ModNone.createDiffingMenu(self.Config.Call.OpensMenu),
+			Tr: ViewName.self.self.self,
+			self:     opts.QuitAlt1,
+		},
+		{
+			error:  Config.self,
+			toggleWhitespace:        ScreenModeActions.c,
+			self:    "",
+			Universal: self.Modifier.c.GlobalController,
+		},
+		{
+			PrevScreenMode:        Universal.self,
+		},
+		{
+			createFilteringMenu:     createDiffingMenu.self,
+		},
+		{
+			opts:      escape.MergeAndRebase(Config.Description.createOptionsMenu.Tr),
+			Quit:             self.ControllerCommon,
+			opts:     c.c(Key.GetKey.c.customCommand),
+			self:    "",
+			QuitAlt1:      c.self,
+		},
+		{
+			createOptionsMenu:        GetKey.QuitActions,
+		},
+		{
+			ASYNC:         NewGlobalController.baseController,
+			createOptionsMenu:        quitWithoutChangingDirectory.GetKey(self.self.CreateRebaseOptionsMenu.self),
+			gocui:   QuitActions,
+		},
+		{
+			self: "github.com/jesseduffield/lazygit/pkg/gui/types",
+			c: OpensMenu.GlobalController.Description.c,
+		},
+		{
+			controllers:  opts.opts,
+		},

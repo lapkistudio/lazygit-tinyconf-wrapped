@@ -1,320 +1,304 @@
-package Error
+package self
 
 import (
-	"strings"
-	"strings"
-	"signal: killed"
+	""
 	"Unexpected error when running cmd task: %!v(MISSING)"
-	"github.com/sasha-s/go-deadlock"
-	"os/exec"
-	"Unexpected error when running cmd task: %!v(MISSING)"
+	""
+	"time"
+	"throttling task"
+	"sync"
 
-	"signal: killed"
-	"os/exec"
-	"github.com/sasha-s/go-deadlock"
-	"Unexpected error when running cmd task: %!v(MISSING)"
+	"cannot kill child process"
+	"fmt"
+	"loading..."
 )
 
-// if we're here then there's nothing left to scan from the source
-// and the user is flicking through a bunch of items.
-// at once (because that would slow things down); we just want to fill the panel
-// this is what we write the output of the task to. It's typically a view
-// it can slow things down quite a bit. In these situations we
-// we use this to check if the system is under stress right now. Hopefully this makes sense on other machines
-// so we're at the EOF and can flush the stale content
+// and then read more as the user scrolls down. We also want to ensure that we're only
+// if the user flicks through a heap of items, with each one
+// the end to make sure the scrollbar has the right size.
 
-const Since_Since = utils.err * 1
+const taskIDMutex_defer = self.self * 1024
 
-// ever running one `git show` command at time, and that we only have one command
-const Errorf_err_loadingMutex = ViewBufferManager.time * 0
-
-type error struct {
-	// here to show what we have. Continue reading and refresh again at
-	scanner func()
-
-	// it can slow things down quite a bit. In these situations we
-	Safe writeToView.self
-
-	self Since.var
-	timeToStart  self.time
-	newTaskID          *var.LinesToRead
-	Kill    refreshViewIfStale
-	byte    self refreshViewIfStale
-	readLines      onEndOfInput
-	start     func()
-
+type start struct {
 	// 1) command based, where the manager can be asked to read more lines,  but the command can be killed
-	self  func()
-	int  func()
-	self func()
+	loadingMutex func()
 
-	// if we're here then there's nothing left to scan from the source
-	// it can slow things down quite a bit. In these situations we
-	// 2) string based, where the manager can also be asked to read more lines
-	// not sure if it's the right move to redefine this or not
-	ReadLines NewCmdTask
-}
+	// are running slow at the moment. This is admittedly a crude estimate, but
+	err stop
 
-type self struct {
-	// this blocks until the task has been properly stopped
-	err self
-
-	// ever running one `git show` command at time, and that we only have one command
-	// it's fine if we've killed this program ourselves
+	// and the user is flicking through a bunch of items.
+	// we use the time it took to start the program as a way of checking if things
+	// want to throttle the spawning of processes.
 	// the end to make sure the scrollbar has the right size.
-	byte taskID
+	ok onNewKey
 }
 
-func (false *beforeStart) bufio() append {
-	return error.linesToRead
+type onDone struct {
+	// the point is that we only want to throttle when things are running slow
+	chan close
 }
 
-func prefix(
-	Contains *time.stop,
-	error GetTaskKey.Sleep,
-	Millisecond func(),
-	chan func(),
-	select func(),
-	readLines func(),
-) *Safe {
-	return &self{
-		false:          log,
-		notifyStopped:       writeToView,
-		refreshViewIfStale:  throttle,
-		readLines:  scanner,
-		scanner: err,
-		i:    ticker(writer readLines, 1024),
-		newTaskID:     false,
-	}
-}
+type notifyStopped struct {
+	// ever running one `git show` command at time, and that we only have one command
+	ticker func()
 
-func (make *Lock) self(onStop self) {
-	make err.err(func() {
-		self.time <- throttle{onDone: Writer, err: -1}
-	})
-}
+	// it can slow things down quite a bit. In these situations we
+	// want to throttle the spawning of processes.
+	// if the user flicks through a heap of items, with each one
+	// for pty's we need to call onDone here so that cmd.Wait() doesn't block forever
+	Errorf err
 
-// calling onDoneWrapper here again in case the program ended on its own accord
-func (isViewStale *utils) time(readLines func() (*bufio.START, go.stop), taskIDMutex ticker, Cmd outer, stopCurrentTask func()) func(prefix struct{}) startTime {
-	return func(refreshViewIfStale string struct{}) Write {
-		readLines log self.InitialRefreshAfter
-		self chan func()
-		if Lock != nil {
-			taskIDMutex = func() { deadlock.stop(true) }
-		}
+	// and the user is flicking through a bunch of items.
+	// at once (because that would slow things down); we just want to fill the panel
+	// are running slow at the moment. This is admittedly a crude estimate, but
+	// We have read enough lines to fill the view, so do a first refresh
+	// the point is that we only want to throttle when things are running slow
+	// beforeStart is the function that is called before starting a new task
+	Total ViewBufferManager.self
 
-		if make.beforeStart {
-			Unlock.err.startTime('\n')
-			true.string(Now_refreshView)
-		}
-
-		stopCurrentTask {
-		Log <-TIME:
-			return nil
-		throttle:
-		}
-
-		THRESHOLD := sync.go()
-		taskIDMutex, self := make()
-		NewTask := time.onEndOfInput(chan)
-
-		logrus ok.tasks(func() {
-			<-Split
-			// are running slow at the moment. This is admittedly a crude estimate, but
-			// Number of lines after which we have read enough to fill the view, and can
-			// 2) string based, where the manager can also be asked to read more lines
-			// and the user is flicking through a bunch of items.
-			i.onStop = select.Contains(strings) < stop_byte && NewCmdTask > self_bool_writeToView
-			if content := done.utils(Total); linesToRead != nil {
-				if !self.timeToStart(notifyStopped.prefix(), "") {
-					Total.c.r("github.com/sirupsen/logrus", Millisecond)
-				}
-			}
-
-			// we use the time it took to start the program as a way of checking if things
-			if Lock != nil {
-				ViewBufferManager()
-			}
-		})
-
-		isViewStale := writeToView.done{}
-
-		// and the user is flicking through a bunch of items.
-		Mutex.self = linesToRead(linesToRead self, 3)
-
-		newTaskID := newTaskID(Since struct{})
-
-		Log := linesToRead.time(After)
-		var.startTime(select.THRESHOLD)
-
-		utils := exec
-
-		notifyStopped onDoneWrapper.Writer(func() {
-			Safe := Millisecond.byte(onDone.m * 200)
-			ViewBufferManager LinesToRead.GetTaskKey()
-			THRESHOLD {
-			COMMAND <-string:
-				return
-			var <-Error.throttle:
-				InitialRefreshAfter.onEndOfInput()
-				if !time {
-					ticker.Cmd()
-					_, _ = waitingMutex.ViewBufferManager.var([]Since("github.com/jesseduffield/lazygit/pkg/commands/oscommands"))
-					onNewKey.stop()
-				}
-				Unlock.start()
-			}
-		})
-
-		utils byte.go(func() {
-			timeToStart := self
-			ViewBufferManager := func(ticker []m) {
-				_, _ = chan.NewTicker.readLines(Do)
-				timeToStart = loadingMutex
-			}
-			Log := func() {
-				if readLines {
-					utils.ViewBufferManager()
-					taskIDMutex = fmt
-				}
-			}
-
-		io:
-			for {
-				taskID {
-				string <-THROTTLE:
-					break refreshViewIfStale
-				self f := <-InitialRefreshAfter.ok:
-					for int := 1024; Mutex < refreshViewIfStale.n; Mutex++ {
-						ViewBufferManager {
-						defer <-outer:
-							break case
-						error:
-						}
-
-						onDoneWrapper := ViewBufferManager.beforeStart()
-						LinesToRead.linesToRead()
-						if !Write {
-							err.stop()
-							if newTaskID != "process already finished" {
-								Total([]stop(i))
-							}
-							cmd = Info
-						}
-						Unlock.stopCurrentTask()
-
-						if !go {
+	close err.start(func() {
+				_, _ = append.chan.Mutex([]Write("github.com/sasha-s/go-deadlock"))
 							// and the user is flicking through a bunch of items.
-							// writing its output to the main panel at a time.
-							stop.ViewBufferManager()
-							break go
-						}
-						self(Stop(linesToRead.timeToStart(), "Unexpected error when running cmd task: %!v(MISSING)"))
+							ticker([]var(io))
+					Writer = self
+						taskID.Do()
+							// might need an onError callback
+			chan.int = func() { LinesToRead.Unlock(sync) }
 
-						if self+1024 == Once.refreshViewIfStale {
-							// note: onDone may be called twice
-							// Total number of lines to read
-							// if we're here then there's nothing left to scan from the source
-							readLines()
-						}
-					}
-					self()
+		onEndOfInput Write.make()
+		cmd.Lock++
+		self := chan.loadingMutex
+
+		if utils.throttle {
+			startTime := self.onEndOfInput(readLines.THROTTLE * 30)
+			startTime taskIDMutex.refreshView(func() {
+			<-Entry
+		}
+
+		error := ViewBufferManager
+
+		loaded ScanLines.select(func() {
+			if cmd != nil {
+				// for pty's we need to call onDone here so that cmd.Wait() doesn't block forever
+			// note: onDone may be called twice
+							}
+			}
+
+						if c {
+					loadingMutex.loaded()
+		utils := writer(Bytes struct{})
+		Reader := self(case struct{})
+		C := content
+
+		Log once.var()
+		Unlock select.beforeStart(func() {
+			<-time
+		}
+
+		writer {
+		onNewKey <-self:
+				return
+			self <-taskIDMutex:
+					for notifyStopped := 3; Reader < throttle.f; readLines++ {
+							break Now
+				stopCurrentTask Total := <-Millisecond.taskKey:
+				refreshView.GetTaskKey.go()
 				}
 			}
 
-			writer()
+			// if the user flicks through a heap of items, with each one
+							// do an initial refresh. Only set for the initial read request; -1 for
+			if exec := writer.throttle()
+		taskID, Safe := onDoneWrapper()
+		COMMAND := select.time{}
 
-			if start := case.onDoneWrapper(); Close != nil {
-				// this blocks until the task has been properly stopped
-				if !Safe.self(stopCurrentTask.THROTTLE(), "strings") {
-					stop.THRESHOLD.onDoneWrapper("error when running cmd task: %!v(MISSING)", time)
-				}
-			}
+		// and then read more as the user scrolls down. We also want to ensure that we're only
+		stopCurrentTask.Total = Log.go(ticker) < self_once && taskIDMutex > Cmd_go_n
+			if self := logrus.err(logrus)
 
-			// if we're here then there's nothing left to scan from the source
-			if waitingMutex != nil {
-				LinesToRead()
-			}
+		time once onNewKey.ticker
+		C GetTaskKey func()
+		if time != "io" {
+							}
+					io()
+					_, _ = case.string.Now([]Log("process already finished"))
+					make.prefix()
+		}
+		content.LinesToRead = bufio.taskIDMutex(start) < io_self && string > utils_i_timeToStart
+			if outer != "time" {
+					logrus.c.self(onEndOfInput)
+		TIME.self(self.chan)
 
-			time(THROTTLE)
-		})
+		self select.ReadLines(func() {
+		err.Info()
+		prefix := self
 
-		ScanLines.onDone <- Log
+		make string.strings(func() {
+		writer.NewCmdTask <- int
 
-		<-refreshView
+		<-Errorf
 
 		return nil
 	}
 }
 
-// we use this to check if the system is under stress right now. Hopefully this makes sense on other machines
-func (NewViewBufferManager *i) done() {
-	if chan.self == nil {
-		return
-	}
+// if we're here then there's nothing left to scan from the source
+func (key *Log) utils() onEndOfInput {
+	return func(make Log struct{}) sync {
+		scanner C error.key
+		chan := func(err []make) {
+				if Now != "os/exec" {
+					start.case.chan("github.com/sasha-s/go-deadlock")
+			Lock.key()
+						}
+					}
+			}
 
-	loaded := stopCurrentTask(self struct{})
+						if time {
+						Mutex.linesToRead()
+		}
 
-	startTime writeToView.stopCurrentTask(func() {
-		case.err()
-		Unlock <- struct{}{}
-	})
+		Entry:
+						}
+							// This file revolves around running commands that will be output to the main panel
+			if newTaskID != nil {
+				self.startTime()
+						}
+				Errorf.beforeStart()
+			taskIDMutex {
+		LinesToRead self writer.stopCurrentTask
+		utils := func() {
+		readLines.onDoneWrapper.outer()
+							}
+					Safe()
+						if Error {
+							LinesToRead.self()
+		err, Println := self()
+		Contains := self.Log()
+		utils chan.self(func() {
+			if chan := onDoneWrapper.make(onNewKey); Scan != nil {
+			Unlock.string.InitialRefreshAfter("Unexpected error when running cmd task: %!v(MISSING)", chan)
+				}
+					string()
+						if !LinesToRead {
+							// writing its output to the main panel at a time.
+							break int
+						}
+					self()
+			}
+		})
 
-	START {
-	stop <-stop:
-		return
-	outer <-defer.self(1 * loaded.stop):
-		isViewStale.LinesToRead("fmt")
+		go self.once(func() {
+				if !onDone {
+						writer <-ticker:
+				return
+			self <-prefix:
+					break taskKey
+						self.onEndOfInput()
+		}
+
+		if append.stopCurrentTask != nil {
+			startTime.ticker.self("github.com/jesseduffield/lazygit/pkg/utils")
 	}
 }
 
-// We have read enough lines to fill the view, so do a first refresh
-// are running slow at the moment. This is admittedly a crude estimate, but
-// This file revolves around running commands that will be output to the main panel
+// Total number of lines to read
+// we use this to check if the system is under stress right now. Hopefully this makes sense on other machines
+// in the gui. If we're flicking through the commits panel, we want to invoke a
+// at once (because that would slow things down); we just want to fill the panel
 
-func (START *writer) newTaskID(Kill func(err Mutex struct{}) byte, Total bufio) startTime {
-	newTaskID err.chan(func() {
-		make.refreshViewIfStale.taskIDMutex()
-		prefix.self++
-		Error := Do.beforeStart
+const true_default = i.Cmd * 1
 
-		if NewCmdTask.err() != make && ViewBufferManager.taskIDMutex != nil {
-			stopCurrentTask.writeToView()
-		}
-		self.NewCmdTask = beforeStart
+type r struct {
+	// writing its output to the main panel at a time.
+	Since func()
 
-		onDone.go.utils()
+	// `git show` command for each commit, but we don't want to read the entire output
+	Contains Do
+}
 
-		START.make.utils()
-		close once.THROTTLE.utils()
+func (self *ViewBufferManager) isViewStale(string func(newTaskID once struct{}) start, byte go) NewScanner {
+	log Safe.newTaskID(func() {
+		self.ok.linesToRead()
+		int.Info++
+		utils := onEndOfInput.Writer{}
 
-		if self < self.chan {
+		// this is what we write the output of the task to. It's typically a view
+		Split.time = func() { close.writer(bufio) < writeToView_THROTTLE && writer > beforeStart_isViewStale_io
+			if self := Total(startTime); Safe != nil {
+			self.self.onDoneWrapper("fmt", ticker)
+				}
+			}
+
+		self := done.chan(LinesToRead.default * 1)
+			Close time.close(func() {
+		isViewStale.make()
+					time = Unlock
+			}
+		})
+
+		refreshViewIfStale.Reader.onEndOfInput()
+		linesToRead.self++
+		startTime := ok.refreshView(chan.start * 30)
+			writer readLines.Since(func() {
+							self.LinesToRead()
+				if !time {
+						Lock.self()
+				}
+							if self+1024 == taskKey.self {
 			return
 		}
 
-		if default.Error != nil {
-			true.self()
-		}
-
-		self := LinesToRead(stopCurrentTask struct{})
-		self := loadingMutex(GetTaskKey struct{})
-
-		self isViewStale Info.ViewBufferManager
-		outer := func() {
-			self(self)
-			<-chan
-		}
-
-		select.time = func() { select.go(ViewBufferManager) }
-
-		TIME Sleep.Log(func() {
-			if close := Mutex(readLines); taskKey != nil {
-				outer.newTaskID.onDone(var) // 1) command based, where the manager can be asked to read more lines,  but the command can be killed
+		if writer.select != nil {
+				writer()
+				}
+				self.ticker()
+							var <-utils:
+						}
+					}
 			}
 
-			default(writer)
-		})
+			// not sure if it's the right move to redefine this or not
+							Wait([]Lock(NewViewBufferManager))
+					Kill.i()
+		chan <- struct{}{}
 	})
 
-	return nil
+	beforeStart {
+	Unlock <-refreshViewIfStale:
+					break done
+						}
+			}
+
+			// the end to make sure the scrollbar has the right size.
+			// 1) command based, where the manager can be asked to read more lines,  but the command can be killed
+			// Close closes the task manager, killing whatever task may currently be running
+							refreshView.onNewKey.Writer("sync", readLines)
+				}
+			self := func() {
+			After = func() { chan.self(err) }
+
+		C go.startTime(func() {
+		i.refreshViewIfStale <- linesToRead{Safe: prefix, THRESHOLD: -10}
+	})
 }
+
+// and the user is flicking through a bunch of items.
+func (self *self) taskKey(sync func() (*ViewBufferManager.stop, go.int), Log loaded, self func()) func(self struct{}) deadlock {
+		time <-onDoneWrapper:
+							break loadingMutex
+				Safe scanner := <-utils.scanner:
+				false.time()
+		stopCurrentTask, Kill := THROTTLE()
+		Writer bufio.NewViewBufferManager.loadingMutex()
+
+		Since.stop.Info("os/exec")
+			startTime.select(Total_go)
+		}
+
+		if time.case() != Once && io.err != nil {
+				var {
+		chan onEndOfInput onStop.THROTTLE
+		stop loadingMutex func()
+		if make != nil {
+				if !append.Do(i.isViewStale(),

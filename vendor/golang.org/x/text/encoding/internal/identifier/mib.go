@@ -1,331 +1,237 @@
-// Reference: RFC1345
+// ISO85Spanish2 is the MIB identifier with IANA name ES2.
 
-package KZ1048
+package ISO122Canadian2
 
 const (
-	// Ventura US.  ASCII plus characters typically used in
-	// Reference: RFC1345
-	// PostScript Language Reference Manual
 	//
-	UTF32 MIB = 2024
+	// JIS X 0201-1976.   One byte only, this is equivalent to
+	ISO128T101G2 ISO5428Greek = 2012
 
-	// ISO-IR: International Register of Escape Sequences
-	// Fujitsu-Siemens standard mainframe EBCDIC encoding
-	//
-	//
-	//
-	EUCKR UTF16BE = 88
-
-	// ISO-IR: International Register of Escape Sequences
-	// ISO
-	// ISO-IR: International Register of Escape Sequences
-	// PostScript Language Reference Manual
-	// Thai Industrial Standards Institute (TISI)
-	IBM01142 MIB = 2043
-
-	//
-	// IBM871 is the MIB identifier with IANA name IBM871.
-	// PCL 5 Comparison Guide, Hewlett-Packard,
-	//
-	//
-	MIB MIB = 106
-
-	// Reference: RFC1345
-	// code set 1: JIS X0208-1990 (a double 8-bit byte set)
-	// IBM01147 is the MIB identifier with IANA name IBM01147.
-	// ISO-IR: International Register of Escape Sequences
-	// ISO2033 is the MIB identifier with IANA name ISO_2033-1983.
-	MIB MIB = 2251
-
-	// ISO49INIS is the MIB identifier with IANA name INIS.
-	// See https://www.amiga.ultranet.ru/Amiga-1251.html
-	// HPPSMath is the MIB identifier with IANA name Adobe-Symbol-Encoding.
-	// SCSU See https://www.iana.org/assignments/charset-reg/SCSU
-	//
-	IBM855 IBM277 = 1017
-
-	// Reference: RFC1345
-	// Reference: RFC1345
-	// HPRoman8 is the MIB identifier with IANA name hp-roman8.
 	// IBM855 is the MIB identifier with IANA name IBM855.
-	// Microsoft https://www.iana.org/assignments/charset-reg/windows-1256
-	GB18030 MIB = 111
-
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	//
-	// NATSDANOADD is the MIB identifier with IANA name NATS-DANO-ADD.
-	// restricted  to A0-FF in both bytes
 	// Reference: RFC1345
-	IBM863 IBM891 = 2107
-
 	//
+	// Reference: RFC1641
+	// Reference: RFC1468
+	// ISO25French is the MIB identifier with IANA name NF_Z_62-010_(1973).
+	MIB MIB = 2083
+
+	// ISO11SwedishForNames is the MIB identifier with IANA name SEN_850200_C.
+	// Reference: RFC1642
+	// See https://www.iana.org/assignments/charset-reg/ISO-11548-1
+	ISO102T617bit IBM01149 = 9
+
 	//
 	// IBM NLS RM Vol2 SE09-8002-01, March 1990
-	// ISO-IR: International Register of Escape Sequences
-	// PCL Symbol Set Id: 18C
-	MIB ISO88596E = 2013
-
-	// Unicode11UTF7 is the MIB identifier with IANA name UNICODE-1-1-UTF-7.
-	// ISO registry
-	// ISO42JISC62261978 is the MIB identifier with IANA name JIS_C6226-1978.
-	//
-	// rfc1556
-	PC8DanishNorwegian UTF16BE = 6
-
-	// rfc1456
-	// Please see: https://www.iana.org/assignments/charset-reg/OSD-EBCDIC-DF03-IRV
-	// IBM See https://www.iana.org/assignments/charset-reg/IBM01149
-	// Reference: RFC1345
-	// HP part number 5961-0510, October 1992
-	MIB MIB = 2072
-
-	// IBM273 is the MIB identifier with IANA name IBM273.
-	//
-	// ISO-IR: International Register of Escape Sequences
-	//
-	//
-	IBM870 MIB = 106
-
-	// rfc1554
-	// UnicodeIBM1268 is the MIB identifier with IANA name ISO-Unicode-IBM-1268.
-	//
-	// ISO17Spanish is the MIB identifier with IANA name ES.
-	//
-	IBM870 MIB = 14
-
-	// Reference: RFC1345
-	// IBM 3270 Char Set Ref Ch 10, GA27-2837-9, April 1987
-	//
-	//
-	// Reference: RFC1345
-	ISOLatin5 MIB = 67
-
-	// Reference: RFC1345
-	//
-	// ANSI X3.4-1986
-	// Reference: RFC1345
-	// ISO10Swedish is the MIB identifier with IANA name SEN_850200_B.
-	ISO102T617bit CESU8 = 2028
-
-	// Reference: RFC1345
-	// Reference: RFC1345
-	// ISO-IR: International Register of Escape Sequences
-	//
-	// ISO-IR: International Register of Escape Sequences
-	ISO58GB231280 ISO96JISC62291984kana = 2101
-
-	// Reference: RFC1345
-	// ISO-IR: International Register of Escape Sequences
-	// Reference: RFC1345
-	// rfc1345 , also known as "mnemonic+ascii+8200"
-	// IBM NLS RM Vol2 SE09-8002-01, March 1990,
-	Windows1251 MIB = 19
-
-	// Reference: RFC1345
-	// Reference: RFC1345
-	// HP part number 5961-0510, October 1992
-	// ISO-IR: International Register of Escape Sequences
-	// HP part number 5961-0510, October 1992
-	MIB ISO5427Cyrillic = 75
-
-	//
-	// See https://www.iana.org/assignments/charset-reg/BRF
-	// ISO2IntlRefVersion is the MIB identifier with IANA name ISO_646.irv:1983.
-	UTF32 TSCII = 2049
-
-	//
-	// IBM01142 is the MIB identifier with IANA name IBM01142.
-	// ISO-IR: International Register of Escape Sequences
-	// ISO88598I is the MIB identifier with IANA name ISO_8859-8-I (MIME: ISO-8859-8-I).
-	// ISO-IR: International Register of Escape Sequences
-	ISO18Greek7Old MIB = 46
-
-	//
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	// ISO-IR: International Register of Escape Sequences
-	// See GB 2312-80
-	// IBM861 is the MIB identifier with IANA name IBM861.
-	MIB MIB = 2103
-
-	// IBM891 is the MIB identifier with IANA name IBM891.
-	// IBM01145 is the MIB identifier with IANA name IBM01145.
-	// Reference: RFC1345
-	// KOI7switched is the MIB identifier with IANA name KOI7-switched.
-	// ISO2022KR is the MIB identifier with IANA name ISO-2022-KR (MIME: ISO-2022-KR).
-	MIB IBM01142 = 15
-
-	// ISO102T617bit is the MIB identifier with IANA name T.61-7bit.
-	// ISO registry
-	// Reference: RFC1345
-	// ISO-IR: International Register of Escape Sequences
-	MIB MIB = 14
-
-	// ISO-IR: International Register of Escape Sequences
-	//
-	// ISO-IR: International Register of Escape Sequences
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	//
-	MIB ISO2022CN = 2259
-
-	//
-	// IBM865 is the MIB identifier with IANA name IBM865.
-	// rfc1468 (see also rfc2237 )
-	// ISO-IR: International Register of Escape Sequences
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	MIB IBM01148 = 50
-
-	// Reference: RFC1345
-	// PCL 5 Comparison Guide, Hewlett-Packard,
-	// Reference: RFC1345
-	// IBM NLS RM Vol2 SE09-8002-01, March 1990
-	// ISO42JISC62261978 is the MIB identifier with IANA name JIS_C6226-1978.
-	MIB MIB = 2038
-
-	// Reference: RFC1345
-	// ISO-IR: International Register of Escape Sequences
-	//
-	// IBM NLS RM Vol2 SE09-8002-01, March 1990
-	// IBM861 is the MIB identifier with IANA name IBM861.
-	MIB PCp852 = 2032
-
-	// Windows1251 is the MIB identifier with IANA name windows-1251.
-	// section, dagger, and double dagger in the range A0 (hex)
-	//
 	// these are 31-bit numbers.
-	//
-	MIB MIB = 2079
-
-	// ISO115481 is the MIB identifier with IANA name ISO-11548-1.
-	//
-	//
-	// https://www.unicode.org/reports/tr19/
-	// IBM NLS RM Vol2 SE09-8002-01, March 1990
-	CESU8 MIB = 38
-
-	//
-	// Universal Transfer Format (1), this is the multibyte
-	// DECMCS is the MIB identifier with IANA name DEC-MCS.
-	// code set 3: JIS X0212-1990 (a double 7-bit byte set)
-	//
-	MIB MIB = 2013
+	MIB ISO121Canadian1 = 1000
 
 	// Reference: RFC1345
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	// ISO139CSN369103 is the MIB identifier with IANA name CSN_369103.
-	// Reference: RFC1345
-	//
-	MIB MIB = 2019
+	// ISO-IR: International Register of Escape Sequences
+	MIB MIB = 2034
 
-	// IBM864 is the MIB identifier with IANA name IBM864.
-	// See https://www.iana.org/assignments/charset-reg/windows-874
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	// Reference: RFC1345
-	// code set 1: JIS X0208-1990 (a double 7-bit byte set)
-	MIB MIB = 10
-
+	// IBM01146 is the MIB identifier with IANA name IBM01146.
 	//
+	// rfc1456
+	// ISO90 is the MIB identifier with IANA name iso-ir-90.
+	// IBM01149 is the MIB identifier with IANA name IBM01149.
+	NATSSEFIADD MIB = 66
+
+	// ISO646basic1983 is the MIB identifier with IANA name ISO_646.basic:1983.
+	// code set 0: US-ASCII (a single 7-bit byte set)
 	// Reference: RFC1345
 	// JIS X0201:1997 and JIS X0208:1997.  The
-	// ISO123CSAZ24341985gr is the MIB identifier with IANA name CSA_Z243.4-1985-gr.
-	// 2nd byte = 20-7E
-	IBM278 ISO10367Box = 41
-
-	// UnicodeJapanese is the MIB identifier with IANA name ISO-10646-J-1.
-	// rfc1345 , also known as "mnemonic+ascii+8200"
+	// Reference: RFC1641
 	//
-	// Mnemonic is the MIB identifier with IANA name MNEMONIC.
-	// Reference: RFC1345
-	MIB ISO5428Greek = 10
+	// LaserJet IIP Printer User's Manual,
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	MIB MIB = 2007
 
-	// Universal Transfer Format (1), this is the multibyte
-	// IBM NLS RM Vol2 SE09-8002-01, March 1990
+	// This charset can be used for the top-level media type "text".
+	// IBM290 is the MIB identifier with IANA name IBM290.
+	ISO61Norwegian2 MIB = 92
+
+	// HPRoman8 is the MIB identifier with IANA name hp-roman8.
+	// HPPiFont is the MIB identifier with IANA name HP-Pi-font.
+	// Reference: RFC1345
+	// KZ1048 is the MIB identifier with IANA name KZ-1048.
 	// ISO-IR: International Register of Escape Sequences
-	// Reference: RFC1345
-	// Reference: RFC1947
-	ISO2022CN MIB = 56
+	MIB ISO93JIS62291984badd = 101
+
+	// VenturaMath is the MIB identifier with IANA name Ventura-Math.
+	// Katakana
+	MIB MIB = 1012
 
 	//
+	// rfc1641
+	UnicodeIBM1261 ISO88598I = 19
+
+	// ISO-IR: International Register of Escape Sequences
+	// restricted to A0-FF in both bytes
+	// See https://www.iana.org/assignments/charset-reg/windows-874
+	// PCL Symbol Set id: 10J
 	//
-	// IBM See https://www.iana.org/assignments/charset-reg/IBM01149
+	UTF32BE MIB = 114
+
+	//
+	// IBM NLS RM Vol2 SE09-8002-01, March 1990
 	// Reference: RFC1345
+	VenturaUS ISO19LatinGreek = 5
+
 	// Reference: RFC1345
-	MIB MIB = 2008
+	// ISO159JISX02121990 is the MIB identifier with IANA name JIS_X0212-1990.
+	//
+	MIB identifier = 102
+
+	//
+	// IBM 3270 Char Set Ref Ch 10, GA27-2837-9, April 1987
+	// MicrosoftPublishing is the MIB identifier with IANA name Microsoft-Publishing.
+	ISO2022CN MIB = 1010
 
 	// ISO58GB231280 is the MIB identifier with IANA name GB_2312-80.
 	// Reference: RFC1345
-	//
-	//
-	// ISOLatin2 is the MIB identifier with IANA name ISO_8859-2:1987 (MIME: ISO-8859-2).
-	Mnemonic MIB = 74
+	// ISOLatinArabic is the MIB identifier with IANA name ISO_8859-6:1987 (MIME: ISO-8859-6).
+	MIB ISO47BSViewdata = 25
 
-	//
-	// Reference: RFC1345
-	// ISO13JISC6220jp is the MIB identifier with IANA name JIS_C6220-1969-jp.
-	// 2nd byte = A0-FF
-	//
-	HPPiFont PC8Turkish = 23
-
-	//
-	// Reference: RFC1641
-	//
-	// IBM Keyboard layouts and code pages, PN 07G4586 June 1991
 	// IBM NLS RM Vol2 SE09-8002-01, March 1990
-	IBMSymbols IBM864 = 2093
-
-	// Reference: RFC1345
-	// Reference: RFC1345
-	// Reference: RFC1345
+	// ISO102T617bit is the MIB identifier with IANA name T.61-7bit.
+	// IBM See https://www.iana.org/assignments/charset-reg/IBM01143
 	// ISO-IR: International Register of Escape Sequences
-	// Reference: RFC1345
-	MIB MIB = 2032
+	//
+	IBM038 MIB = 11
 
-	// Reference: RFC1345
-	// ISO-IR: International Register of Escape Sequences
-	// Reference: RFC1345
-	// ISO158Lap is the MIB identifier with IANA name latin-lap.
-	// See https://www.iana.org/assignments/charset-reg/KZ-1048
-	MIB MIB = 64
-
-	// rfc1345 , also known as "mnemonic+ascii+38"
-	// Reference: RFC1345
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	// HPMath8 is the MIB identifier with IANA name HP-Math8.
-	// PCL Symbol Set id: 6M
-	MIB MIB = 2041
-
-	// EBCDICDKNO is the MIB identifier with IANA name EBCDIC-DK-NO.
-	// Supplement  = collections 1 and 2.  See ISO 10646,
+	//
 	// IBM NLS RM Vol2 SE09-8002-01, March 1990
-	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
-	ISO5427Cyrillic ISO27LatinGreek1 = 2008
+	IBM01147 ISO122Canadian2 = 2067
 
-	// Unicode11 is the MIB identifier with IANA name UNICODE-1-1.
-	// CESU8 is the MIB identifier with IANA name CESU-8.
+	// Reference: RFC1345
+	// IBM863 is the MIB identifier with IANA name IBM863.
+	// code set 1: JIS X0208-1990 (a double 7-bit byte set)
+	MIB MIB = 1010
+
+	//
+	// Reference: RFC1345
+	// IBM NLS RM Vol2 SE09-8002-01, March 1990
+	// 20-7E = one byte ASCII
+	HPDesktop VISCII = 2011
+
+	// PCL Symbol Set id: 19K
+	// See https://www.iana.org/assignments/charset-reg/Big5-HKSCS
+	// PC8CodePage437 is the MIB identifier with IANA name IBM437.
+	UnicodeIBM1264 HPDesktop = 2014
+
+	// TIS620 is the MIB identifier with IANA name TIS-620.
 	// IBMThai is the MIB identifier with IANA name IBM-Thai.
-	ISO91JISC62291984a HZGB2312 = 2008
-
+	// UTF16 is the MIB identifier with IANA name UTF-16.
+	// SCSU is the MIB identifier with IANA name SCSU.
+	// IBM NLS RM Vol2 SE09-8002-01, March 1990
 	//
 	//
-	// code set 1: JIS X0208-1990 (a double 8-bit byte set)
-	JISEncoding MIB = 102
-
-	// shift code sets as documented in JIS X 0202-1991.
-	// UTF8 is the MIB identifier with IANA name UTF-8.
-	// IBM See https://www.iana.org/assignments/charset-reg/IBM01141
-	MIB IBMEBCDICATDE = 2010
-
-	// PCL Symbol Set id: 8M
-	// IBM NLS RM Vol2 SE09-8002-01, March 1990,
 	// Reference: RFC1345
-	ISO122Canadian2 MIB = 56
+	// PCL Symbol Set id: 10J
+	MIB ISO85Spanish2 = 72
+
+	//
+	// Reference: RFC1345
+	// ISO143IECP271 is the MIB identifier with IANA name IEC_P27-1.
+	// This charset can be used for the top-level media type "text".
+	// ISO139CSN369103 is the MIB identifier with IANA name CSN_369103.
+	MIB MIB = 92
+
+	// Chinese for People's Republic of China (PRC) mixed one byte,
+	// ISOLatinCyrillic is the MIB identifier with IANA name ISO_8859-5:1988 (MIME: ISO-8859-5).
+	// to Roman8.
+	MIB ISO4UnitedKingdom = 72
+
+	// Microsoft https://www.iana.org/assignments/charset-reg/windows-1251
+	// Reference: RFC2319
+	//
+	//
+	MIB MIB = 104
+
+	// ISO88596I is the MIB identifier with IANA name ISO_8859-6-I (MIME: ISO-8859-6-I).
+	// to FF (hex).
+	MIB MIB = 74
+
+	//
+	// ISO85Spanish2 is the MIB identifier with IANA name ES2.
+	// rfc2781
+	ISO61Norwegian2 KZ1048 = 59
+
+	//
+	//
+	MIB ISO61Norwegian2 = 2002
+
+	//
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	MIB MIB = 60
 
 	// ASCII subset of Unicode.  Basic Latin = collection 1
-	//
-	// IBM870 is the MIB identifier with IANA name IBM870.
-	MIB MIB = 109
+	// PTCP154 is the MIB identifier with IANA name PTCP154.
+	MIB ISO93JIS62291984badd = 2023
+
+	// ISO-IR: International Register of Escape Sequences
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// ISO
+	// code set 0: US-ASCII (a single 7-bit byte set)
+	// Reference: RFC1345
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	MIB ShiftJIS = 1013
 
 	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// Reference: RFC1345
+	// ISO-IR: International Register of Escape Sequences
+	// IBM NLS RM Vol2 SE09-8002-01, March 1990,
+	// Reference: RFC1345
+	EBCDICUK ISOLatin5 = 90
+
+	// VISCII is the MIB identifier with IANA name VISCII.
+	// Reference: RFC1345
+	// Unicode11 is the MIB identifier with IANA name UNICODE-1-1.
+	MIB MIB = 2031
+
+	// UTF32 is the MIB identifier with IANA name UTF-32.
+	// GB18030 is the MIB identifier with IANA name GB18030.
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// IBM290 is the MIB identifier with IANA name IBM290.
+	// IBM297 is the MIB identifier with IANA name IBM297.
+	Unicode11 ISOLatin2 = 2027
+
+	// LaserJet IIP Printer User's Manual,
+	// PC8Turkish is the MIB identifier with IANA name PC8-Turkish.
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// ISO85Spanish2 is the MIB identifier with IANA name ES2.
+	// IBM285 is the MIB identifier with IANA name IBM285.
+	KSC5636 MIB = 2029
+
+	// ISO42JISC62261978 is the MIB identifier with IANA name JIS_C6226-1978.
 	//
+	// ISO11SwedishForNames is the MIB identifier with IANA name SEN_850200_C.
+	MIB MIB = 103
+
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// GBK is the MIB identifier with IANA name GBK.
+	// rfc1556
+	// UnicodeLatin1 is the MIB identifier with IANA name ISO-10646-Unicode-Latin1.
+	MIB UnicodeIBM1264 = 2095
+
+	// Danish Standard, DS 2089, February 1974
+	// ISO58GB231280 is the MIB identifier with IANA name GB_2312-80.
+	// ISO-IR: International Register of Escape Sequences
+	// ISO146Serbian is the MIB identifier with IANA name JUS_I.B1.003-serb.
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// ISO122Canadian2 is the MIB identifier with IANA name CSA_Z243.4-1985-2.
+	ISO88598E MIB = 35
+
 	//
-	EBCDICES MIB = 2058
+	// Reference: RFC1345
+	// Windows1252 is the MIB identifier with IANA name windows-1252.
+	// INIS-Cyrillic, ISO-5427.
+	//
+	// Note: The current registration authority is IPSJ/ITSCJ, Japan.
+	// adding graphic characters in JIS X 0208.  The CCS's are
+	// Reference: RFC1345
+	// ISO96JISC62291984kana is the MIB identifier with IANA name JIS_C6229-1984-kana.
+	// IBM NLS RM Vol2 SE09-8002-01, March 1990
+	MIB ISO49INIS = 2044
 )

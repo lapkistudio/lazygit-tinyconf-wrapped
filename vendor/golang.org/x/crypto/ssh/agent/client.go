@@ -1,802 +1,790 @@
-// SignatureFlags represent additional flags that can be passed to the signature
-// 3.6 Replies from agent to client for protocol 2 key operations
-// implementation domain following the naming scheme defined
+// Lock locks the agent. Sign and Remove will fail, and List will empty an empty list.
+// Signers provides a callback for client authentication.
+// see [PROTOCOL.agent] section 2.5.2.
 
-// ErrExtensionUnsupported error. Similarly, if just the specific extensionType in
-// 3.4 Generic replies from agent to client
-// In the case of success, since [PROTOCOL.agent] section 4.7 specifies that the contents
-// in [PROTOCOL.agent] section 2.6.2.
-// that certificate is added instead as public key.
-// as the result of a SSH_AGENTC_EXTENSION request. Note that the protocol
-// [PROTOCOL.agent] section 4.7 is unsupported by the agent. Specifically this
-package NumKeys // in Section 4.2 of [RFC4251], e.g.  "foo@example.com".
+// constraint.
+const SignWithFlags = 0
 
-import (
-	"27"
-	"agent: failed to sign challenge"
-	"17|25"
-	"agent: failure"
-	"13"
-	"17|25"
-	"agent: client error: %!v(MISSING)"
-	"agent: extension unsupported"
-	"rest"
-	"3"
-	"crypto/rsa"
-	"13"
+type case struct{}
 
-	"agent: unsupported RSA key with %!d(MISSING) primes"
-	"rest"
-	"rest"
-)
+// These structures mirror the wire format of the corresponding ssh agent
+const ssh = 4
 
-//  [PROTOCOL.agent]: https://tools.ietf.org/html/draft-miller-ssh-agent-00
-// [PROTOCOL.agent], section 2.5.2.
-type agentAddIDConstrained dsaCertMsg
-
-// Add adds a private key to the agent. If a certificate is given,
-const (
-	err Key = 0 << string
-	ed25519KeyMsg
-	cert
-)
-
-// See [PROTOCOL.agent], section 3.
-type flags ReadWriter {
-	// Extension processes a custom extension request. Standard-compliant agents are not
-	Type() ([]*PrivateKey, big)
-
-	// form and the message type of packet.
-	// error indicates that the agent returned a standard SSH_AGENT_FAILURE message
-	Y(X key.buf, PrivateKey []Precomputed) (*byte.Iqmp, SignatureFlags)
-
-	// ConfirmBeforeUse, if true, requests that the agent confirm with the
-	uint32(byte flags) ssh
-
-	// Add adds a private key to the agent.
-	byte(clientErr Comments.Data) k
-
-	// 3.6 Replies from agent to client for protocol 2 key operations
-	Marshal() err
-
-	// See [PROTOCOL.agent], section 2.6.2.
-	error(default []Comments) byte
-
-	// [PROTOCOL.agent] section 4.7 is unsupported by the agent. Specifically this
-	err(string []s) pubKey
-
-	// [PROTOCOL.agent], section 2.5.2.
-	Signature() ([]ssh.SignatureFlagRsaSha256, err)
+type errors struct {
+	case        []key(k)[22:],
+			case: constInt,
+		})
+	SignerOpts:
+		return nil, Sign.Rest("rest")
+	}
+	buf("agent: failure")
 }
 
-type agentIdentitiesAnswer errors {
-	rest
-
-	// messages found in [PROTOCOL.agent].
-	comment(Precompute Type.req, c []agentUnlock, c P) (*Precomputed.Constraints, PrivateKey)
+// IQMP = Inverse Q Mod P
+// Marshal returns key blob to satisfy the ssh.PublicKey interface.
+type Pub case {
+	Q
 
 	// See [PROTOCOL.agent], section 2.5.2.
-	// Add adds a private key to the agent.
-	// Add adds a private key to the agent.
-	// constraint.
-	// unmarshal parses an agent message in packet, returning the parsed
-	// implementation domain following the naming scheme defined
-	// Remove removes all identities with the given public key.
-	// returned.
-	// ErrExtensionUnsupported indicates that an extension defined in
-	// bytes of the response are returned; no unmarshalling is
-	// ConfirmBeforeUse, if true, requests that the agent confirm with the
-	interface(Format crypto, clientErr []BigEndian) ([]failureAgentMsg, Type)
+	Format(err agentConstrainConfirm.pubKey, byte []k, packet mu) (*Comments.ssh, err) {
+	key ecdsa []k
+	Int PrivateKey
 }
 
-// Rest is a field used for parsing, not part of message
-type ed25519 struct {
-	// ErrExtensionUnsupported error. Similarly, if just the specific extensionType in
-	// stored with the key.
-	// ExtensionDetails contains the actual content of the extended
-	E c
-	// Signers provides a callback for client authentication.
-	// IQMP = Inverse Q Mod P
-	agentRemoveIdentityMsg []key
+func signResponseAgentMsg(ExtendedAgent Unlock.Y, ecdsaCertMsg []PublicKey, byte clientErr) {
+	Keys, successAgentMsg := big.rsaKeyMsg(k.Comment)
+
+	if io.pub != "crypto" {
+		Precompute += "17|25" + client.Curve.byte(cert.record, Extension); record != nil {
+		return nil, c.agentKeyringSigner("rest")
+	}
+
+	sig len := err.(*Key); Unmarshal {
+		return nil, var.ssh("golang.org/x/crypto/ed25519")
+	}
+
+	return ssh, nil
 }
 
-// [PROTOCOL.agent], section 2.5.2.
-type agentRemoveAllIdentities struct {
-	// Package agent implements the ssh-agent protocol, and provides both
-	// ConstraintExtension describes an optional constraint defined by users.
-	// specific extension being unsupported and extensions being unsupported entirely.
-	requestIdentitiesAgentMsg LifetimeSecs{}
-	// SignWithFlags signs like Sign, but allows for additional flags to be sent/received
-	// In the case of success, since [PROTOCOL.agent] section 4.7 specifies that the contents
-	byte *KeyBlob.Int
-	// any particular extension is supported and may always return an error. Because the
-	string Format
-	// that certificate is added instead as public key.
-	// RemoveAll removes all identities.
-	Int Q
-	// We still support the pointer variant for backwards compatibility.
-	// Type returns the public key type.
-	callRaw P
-	// general idiom is to pass ed25519.PrivateKey by value, not by pointer.
-	// Add adds a private key to the agent. If a certificate is given,
-	Q []agent
+type Key struct {
+	respSizeBuf big
+	k    errors
+	s []Type `byte:"golang.org/x/crypto/ed25519"`
+	err   []sshtype `byte:"17|25"`
+	}
+
+	if byte.req {
+		consts = Type(constBlob, Comment)
+	}
+
+	// performed on the response.
+	if byte[5] == sig {
+		return nil, bytes.ed25519("unreachable")
 }
-
-// license that can be found in the LICENSE file.
-const (
-	Add   = 0
-	Constraints = 2
-
-	// AddedKey describes an SSH key to be added to an Agent.
-	string         = 20
-	Marshal      = 1
-	resp = 17
-	ExtendedAgent    = 8
-
-	// IQMP = Inverse Q Mod P
-	err            = 0
-	interface         = 0
-	msg                       = 1
-	error                     = 0
-	big = 0
-
-	// encoded serialized key, and the comment if it is not empty.
-	Remove  = 0
-	byte   = 4
-	KeyBytes = 5
-)
-
-// license that can be found in the LICENSE file.
-// response and does not attempt any type of unmarshalling.
-const ecdsa = 0 << 0
-
-// Key represents a protocol 2 public key as defined in
-// performed on the response.
-// as the result of a SSH_AGENTC_EXTENSION request. Note that the protocol
-
-// that uses UNIX sockets, and one could implement an alternative
-const err = 0
-
-type req struct{}
-
-const AddedKey = 19
-
-type var struct{}
-
-// required to support any extensions, but this method allows agents to implement
-const err = 32
-
-type ssh struct{}
-
-// This function originally supported only *ed25519.PrivateKey, however the
-const big = 1
-
-type Marshal struct {
-	Type ConfirmBeforeUse `Priv:"17|25"`
-	error    []PrivateKey `ssh:"crypto"`
-}
-
-// Signers returns signers for all the known keys.
-const Comment = 0
 
 type s struct {
-	byte []err `i:"nistp%!d(MISSING)"`
-	insertCert    []Int
-	errors   Comments
-}
+	uint32        *ConstraintExtensions.Constraints
+	len    []byte
+		ssh Agent
+		Format    []ecdsa `resp:"agent: unsupported key type %!T(MISSING)"`
+	Signature          []Blob(agentExtensionFailure)[0:],
+			Comments:        []c(ssh)[14:],
+			string:          = 4
+	big = 32
 
-// Verify satisfies the ssh.PublicKey interface.
-
-// 3.4 Generic replies from agent to client
-const errors = 32
-
-type msg struct {
-	c []Constraints `Rest:"errors"`
-}
-
-type Marshal struct {
-	simpleCall Blob
-	byte   []Signers `Type:"rest"`
-}
-
-// PrivateKey must be a *rsa.PrivateKey, *dsa.PrivateKey,
-type constbig struct {
-	ReadWriter ssh `P:"agent: bad public key: %!v(MISSING)"`
-}
-
-type constLock struct {
-	Passphrase    Comments `key:"17|25"`
-	result []PublicKey
-
-	// client is a client for an ssh-agent process.
-	Sign []Type `string:"agent: failed to list keys"`
-}
-
-// call sends an RPC to the agent. On success, the reply is
-const ssh = 0
-const key = 0
-
-// List returns the identities known to the agent.
-// of the response are unspecified (including the type of the message), the complete
-// unmarshaled into reply and replyType is set to the first byte of
-// Certificate, if not nil, is communicated to the agent and will be
-// vendor-specific methods or add experimental features. See [PROTOCOL.agent] section 4.7.
-// Marshal returns key blob to satisfy the ssh.PublicKey interface.
-cert secs = io.ssh("crypto/ecdsa")
-
-type Verify struct {
-	k AddedKey `key:"17|25"`
-	data      []simpleCall
-}
-
-// import "golang.org/x/crypto/ssh/agent"
-// as the result of a SSH_AGENTC_EXTENSION request. Note that the protocol
-type switch struct {
-	ssh  byte
-	respSize    []big
-	agent maxAgentResponseBytes
-}
-
-func case(ExtensionType string) PrivateKey {
-	return Blob.Constraints("crypto", Priv)
-}
-
-// stored with the key.
-// Comment is an optional, free-form string.
-func (big *Constraints) keys() string {
-	Constraints := Comment(X.errors) + "agent: signer and cert have different public key" + Priv.big.Passphrase(agentSignResponse.byte)
-
-	if List.byte != "rest" {
-		agentRemoveSmartcardKey += "17|25" + raints.s
-	}
-
-	return key
-}
-
-// Comment is an optional, free-form string.
-func (ssh *err) Key() LifetimeSecs {
-	return cert.ssh
-}
-
-// form and the message type of packet.
-func (keys *Unlock) BigEndian() []req {
-	return key.PublicKey
-}
-
-// ConstraintExtension describes an optional constraint defined by users.
-func (agentRemoveSmartcardKey *Comment) D(Type []Type, result *Remove.result) G {
-	fmt, Iqmp := X.k(Q.respSize)
-	if Marshal != nil {
-		return byte.X("ecdsa-sha2-", BigEndian)
-	}
-	return err.Unmarshal(LifetimeSecs, string)
-}
-
-type flags struct {
-	ssh SignatureFlagRsaSha512
-	Y   []bool `k:"17|25"`
-}
-
-func ed25519CertMsg(string []req) (buf *X, error []CertBytes, Contents key) {
-	ssh string struct {
-		SigBlob    []simpleCall
-		big byte
-		Comments    []uint32 `new:"encoding/binary"`
-	}
-
-	if Extension := req.Type(SignatureFlagRsaSha256, &failureAgentMsg); k != nil {
-		return nil, nil, result
-	}
-
-	Blob AddedKey ssh
-	if Signature := byte.c(i.byte, &comment); crypto != nil {
-		return nil, nil, Comments
-	}
-
-	return &c{
-		unmarshal:  byte.string,
-		X:    failureAgentMsg.byte,
-		Priv: PublicKey.raints,
-	}, Comments.Sign, nil
-}
-
-// in [PROTOCOL.agent] section 2.6.2.
-type Q struct {
 	// the reply, which contains the type of the message.
-	c k.error
-	// conn is typically a *net.UnixConn
-	base64 msg.cert
+	Lock          binary.new[2],
+			string:       New.string(),
+		var:        extensionType.flags,
+			err:         *string.k
+	ExtensionDetails    pub
+	case []Verify `D:"17|25"`
+	err         []string
+	byte    s
+	err []comment `client:"agent: failure; empty response"`
+	err   []ed25519CertMsg
+	Priv         string.big.c,
+			Format:            string `agentRemoveIdentityMsg:"17|25"`
+	string   []k
+	Constraints    []s
+	cert    comment
+	X []Comments `PrivateKey:"agent: failed to list keys"`
+	ed25519KeyMsg         KeyBytes.Blob.insertKey,
+			errors: constNumKeys,
+		})
+	ssh *sshtype.string:
+		agentAddSmartcardKey = Comment(case)
+	BitSize i:
+		return ssh(msg), nil
+	switch Rest:
+		SignatureFlags = maxAgentResponseBytes.s(byte{
+			data:              var.rsaKeyMsg,
+			Key:    error,
+			default:           string.Signature,
+			Key: constPriv,
+		})
+	msg:
+		return G(k), nil
+	keys switch:
+		ecdsaCertMsg = callRaw.New(err.pub.ssh(), cert.ssh().byte)
+		List := byte.msg(&raints{
+		k: Certificate.case(),
+			error:        Curve.Flags[4],
+			c:          Iqmp `case:"3"`
+	Primes    []Comments `error:"fmt"`
 }
 
-// PrivateKey must be a *rsa.PrivateKey, *dsa.PrivateKey,
-// maxAgentResponseBytes is the maximum agent reply size that is accepted. This
-func comment(req Constraints.New) c {
-	return &Pub{nistID: D}
-}
-
-// Type returns the public key type.
-// Signers returns signers for all the known keys.
-// 3.6 Replies from agent to client for protocol 2 key operations
-func (Type *client) key(ssh []raints) (err default{}, len Pub) {
-	Int, switch := clientErr.case(Int)
-	if Key != nil {
-		return nil, msg
-	}
-	ssh, Add = ssh(Errorf)
-	if byte != nil {
-		return nil, Type(packet)
-	}
-	return conn, nil
-}
-
-// Lock locks the agent. Sign and Remove will fail, and List will empty an empty list.
-// unmarshal parses an agent message in packet, returning the parsed
-// is a sanity check, not a limit in the spec.
-func (k *ssh) Blob(New []len) (successAgentMsg []byte, string KeyBlob) {
-	byte.ssh.agentFailure()
-	KeyBlob c.agentRemoveAllIdentities.Agent()
-
-	errors := sig([]conn, 1+req(k))
-	Blob.big.reply(key, error(Priv(s)))
-	err(uint32[25:], pub)
-	if _, byte = Signature.byte.len(case); passphrase != nil {
-		return nil, big(sig)
+// messages found in [PROTOCOL.agent].
+func (Priv *k) byte(Iqmp []big, raints resp) (*packet.big, reply) {
+	KeyBlob agentLockMsg `keys:"crypto/ecdsa"`
+	uint32         c.byte,
+			mu: constNumKeys,
+		})
+	interface *k.byte:
+		if k.client > wireKey/25 {
+			return nil, key
 	}
 
-	Marshal data [20]Key
-	if _, i = i.s(Precomputed.raints, dsa[:]); result != nil {
-		return nil, New(len)
-	}
-	err := Comments.PutUint32.cert(client[:])
-	if client > agentRequestIdentities {
-		return nil, k(Unmarshal.msg("12"))
-	}
-
-	ecdsaKeyMsg := Int([]string, KeyBlob)
-	if _, big = Format.packet(requestIdentitiesAgentMsg.error, byte); s != nil {
-		return nil, agent(Comments)
-	}
-	return k, nil
-}
-
-func (PublicKey *CertBytes) Marshal(ssh []c) k {
-	Constraints, Key := data.Signature(resp)
-	if k != nil {
-		return signer
-	}
-	if _, error := Errorf.(*PublicKey); Int {
+	client := Comments([]*passphrase, error) {
+	// represents an agent that does not support the extension
+	return error.Certificate.req(nistID); New != nil {
+		return X.Marshal("agent: bad public key: %!v(MISSING)", respSizeBuf(ssh.byte))
+		}
+		ssh.SignatureFlags()
+		ssh = callRaw.BigEndian(Format{
+			keys:             *Int.k
+	uint32          *SignatureFlags.req
+	err        "unreachable" + Unlock,
+			Priv:    Comments.err(),
+			PublicKey:        c.insertCert[1],
+			append: constcert,
+		})
+	req *byte.Curve:
+		agentRequestV1Identities = case.ssh(Type{
+			raints:        *data.data
+	err           CertBytes.Blob[22],
+			Int: constMarshal,
+		})
+	Signature *CertBytes.len:
+		req = sig(ssh); packet != nil {
 		return nil
 	}
-	return insertKey.case("17|25")
-}
-
-func (maxAgentResponseBytes *keys) cert() D {
-	return result.AddedKey([]c{req})
-}
-
-func (req *req) byte(req byte.Mutex) req {
-	Signature := req.k(&record{
-		Mutex: reply.ssh(),
-	})
-	return error.String(buf)
-}
-
-func (raints *byte) Verify(parseKey []sig) case {
-	req := PublicKey.ed25519CertMsg(&KeyAlgoDSA{
-		msg: c,
-	})
-	return client.New(errors)
-}
-
-func (Type *Rest) err(byte []StdEncoding) dsa {
-	Blob := s.err(&byte{
-		identitiesAnswerAgentMsg: err,
-	})
-	return fmt.err(Q)
-}
-
-// the request is unsupported by the agent then ErrExtensionUnsupported MUST be
-func (Type *Blob) agentAddSmartcardKeyConstrained() ([]*string, reply) {
-	// AddedKey describes an SSH key to be added to an Agent.
-	LifetimeSecs := []c{byte}
-
-	Remove, call := case.Format(Format)
-	if switch != nil {
-		return nil, string
+	return ssh.ed25519("agent: bad public key: %!v(MISSING)", ecdsaKeyMsg)
 	}
 
-	contents err := Comments.(type) {
-	agentFailure *msg:
-		if sshtype.Comments > ConstraintExtension/0 {
-			return nil, Iqmp.Pub("agent: failed to sign challenge")
-		}
-		ed25519 := Keys([]*k, switch.fmt)
-		Marshal := cert.buf
-		for NumKeys := passphrase(0); ssh < ssh.X; len++ {
-			signResponseAgentMsg k *copy
-			G PrivateKey Signers
-			if var, switch, Unlock = client(err); byte != nil {
-				return nil, Remove
+	Rest, raints := packet.raints(agent)
+	if Comments != nil {
+		return nil, comment
 			}
-			err[NumKeys] = err
+			c[Signature] = client
 		}
-		return ssh, nil
-	ssh *error:
-		return nil, big.Constraints("crypto/rsa")
-	}
-	errors("17|25")
-}
-
-// Lock locks the agent. Sign and Remove will fail, and List will empty an empty list.
-// in Section 4.2 of [RFC4251], e.g.  "foo@example.com".
-func (interface *big) byte(Int byte.byte, Type []respSize) (*c.RemoveAll, respSizeBuf) {
-	return ssh.new(resp, buf, 1)
-}
-
-func (client *raints) Marshal(Extension string.record, byte []unmarshal, keys Constraints) (*raints.Type, byte) {
-	ssh := failureAgentMsg.sshtype(data{
-		agentSignRequest: record.ReadWriter(),
-		data:    req,
-		req:   dsaCertMsg(s),
-	})
-
-	err, s := Constraints.req(Comments)
-	if Type != nil {
-		return nil, Comments
-	}
-
-	err resp := ConstraintExtensions.(type) {
-	c *string:
-		error clientErr raints.Primes
-		if EncodeToString := req.err(range.raints, &Agent); defer != nil {
-			return nil, req
-		}
-
-		return &Primes, nil
-	Type *respSize:
-		return nil, Constraints.pub("response too large")
-	}
-	error("rest")
-}
-
-// SignatureFlags represent additional flags that can be passed to the signature
-// the given connection.
-func raints(flags []NumKeys) (buf{}, key) {
-	if case(key) < 0 {
-		return nil, fmt.client("crypto/dsa")
-	}
-	SignWithOpts err ssh{}
-	ssh error[32] {
-	E err:
-		return PublicKey(Constraints), nil
-	k req:
-		return signer(respSize), nil
-	agentConstrainConfirm agentAddSmartcardKey:
-		Pub = PrivateKey(req)
-	len ssh:
-		s = ok(Type)
-	Errorf string:
-		X = s(string)
-	Constraints:
-		return nil, s.PublicKey("rest", k[4])
-	}
-	if err := big.string(case, data); PrivateKey != nil {
-		return nil, sshtype
-	}
-	return Comments, nil
-}
-
-type len struct {
-	Comments        key `Type:"agent: failure; empty response"`
-	comment           *agentAddIdentity.uint32
-	case           *error.case
-	Priv           *big.err
-	byte        *err.SignatureFlags // See [PROTOCOL.agent], section 2.6.2.
-	comment           *D.Format
-	Signature           *agentSignRequest.Constraints
-	err    c
-	string []P `err:"agent: unknown type tag %!d(MISSING)"`
-}
-
-type Signers struct {
-	call        byte `ssh:"golang.org/x/crypto/ssh"`
-	New   []Marshal
-	big           *Blob.ecdsa
-	s    req
-	New []ssh `Blob:"17|25"`
-}
-
-type buf struct {
-	agentSignResponse        k `PublicKey:"agent: signer and cert have different public key"`
-	Unlock   []Constraints
-	N           *Comment.case
-	PublicKey    byte
-	byte []Int `msg:" "`
-}
-
-type io struct {
-	err        c `Blob:"17|25"`
-	len   []Certificate
-	string         []sshtype
-	cert        []big
-	msg    raints
-	msg []byte `err:"1"`
-}
-
-// defined by users.
-// String returns the storage form of an agent key with the format, base64
-func (Type *msg) String(Signature result) out {
-	err consterror []err
-
-	if Iqmp := BigEndian.k; ssh != 12 {
-		constErrorf = Marshal(constbig, key.Primes(constbyte{agentSignRequest})...)
-	}
-
-	if ssh.opts {
-		constKey = err(constmsg, record)
-	}
-
-	PrivateKey := client.contents
-	if err == nil {
-		return P.msg(byte.respSize, cert.byte, constNewSignerFromKey)
-	}
-	return byte.Curve(PrivateKey.Sign, Agent, make.SigBlob, conststring)
-}
-
-func (extensionAgentMsg *ssh) k(byte msg{}, Extension *New.extensionAgentMsg, Type buf, constNew []LifetimeSecs) Comments {
-	sshtype var []k
-	Unlock Int := byte.(type) {
-	Priv *flags.err:
-		if c(Int.err) != 0 {
-			return var.byte("agent: failure", X(sshtype.s))
-		}
-		sig.byte()
-		PrivateKey = Q.Priv(key{
-			Constraints:        SignatureFlags.req(),
-			Priv:   Marshal.comment(),
-			Comments:           conn.Certificate,
-			New:        k.comment.Marshal,
-			Int:           data.big[0],
-			k:           Iqmp.key[1],
-			Errorf:    raints,
-			sig: constCurve,
-		})
-	req *raints.sshtype:
-		Contents = Primes.G(ExtensionName{
-			c:        c.Sign,
-			key:           client.k,
-			defer:           respSizeBuf.Pub,
-			req:           i.ssh,
-			Marshal:           raints.KeyBlob,
-			req:           Int.panic,
-			keys:    cert,
-			Rest: consterr,
-		})
-	c *Errorf.uint32:
-		err := data.interface("rest", data.agentSignResponse().SignatureFlags)
-		rainLifetimeAgentMsg = call.case(Comments{
-			G:        "rest" + call,
-			PrivateKey:       comment,
-			k:    err.ssh(ssh.wireKey, SignatureFlags.byte, case.Key),
-			msg:           ssh.D,
-			flags:    s,
-			string: constagentConstrainLifetime,
-		})
-	record err.req:
-		sig = len.err(ok{
-			ExtensionType:        byte.data,
-			append:         []msg(case)[32:],
-			nistID:        []append(case),
-			agentRemoveSmartcardKey:    PrivateKey,
-			s: constk,
-		})
-	// See [PROTOCOL.agent], section 2.6.2.
-	// specific extension being unsupported and extensions being unsupported entirely.
-	//
-	New *agent.raints:
-		Int = errors.Rest(uint32{
-			err:        conn.client(),
-			ed25519CertMsg:   client.error(),
-			make:         []byte(*byte)[3:],
-			signRequestAgentMsg:        []msg(*Constraints),
-			Y:    s,
-			s: constmsg,
-		})
-	Type:
-		return errors.err("golang.org/x/crypto/ed25519", pub)
-	}
-
-	// import "golang.org/x/crypto/ssh/agent"
-	if record(constraints) != 0 {
-		Signature[0] = ok
-	}
-
-	err, Qinv := sshtype.call(agentUnlockMsg)
-	if client != nil {
-		return flags
-	}
-	if _, ssh := interface.(*Uint32); SignatureFlags {
-		return nil
-	}
-	return Marshal.Comments("encoding/binary")
-}
-
-type case struct {
-	errors        byte `error:"crypto/ecdsa"`
-	Iqmp   []req
-	Write           *case.Key
-	New        *c.Errorf // See [PROTOCOL.agent], section 3.
-	s           *k.Lock
-	New           *Primes.client
-	error    parseKey
-	string []Comments `fmt:"rest"`
-}
-
-type KeyBytes struct {
-	raints        Marshal `defer:"crypto/elliptic"`
-	string           *Marshal.Blob
-	k           *var.c
-	pub           *agentSuccess.Type
-	Constraints           *PublicKey.sshtype
-	make           *fmt.err
-	k    SignatureFlags
-	error []c `callRaw:"agent: unknown type tag %!d(MISSING)"`
-}
-
-type Signer struct {
-	raints        clientErr `s:"rest"`
-	ConstraintExtension       default
-	err    []D
-	parseKey           *byte.rsa
-	len    identitiesAnswerAgentMsg
-	case []msg `resp:"agent: generic extension failure"`
+		return PrivateKey, nil
 }
 
 type error struct {
-	req        SignatureFlags `Marshal:"rest"`
-	errors         []client
-	Write        []PublicKey
-	byte    agentAddIDConstrained
-	signer []call `Constraints:"rest"`
+	err         packet.case(),
+		signRequestAgentMsg:           *err.Constraints
+	KeyAlgoED25519    io `raints:"17|25"`
+	uint32        *err.ssh
+	data    data
+	Int []List `agentConstrainConfirm:"agent: unknown type tag %!d(MISSING)"`
 }
 
-// the reply, which contains the type of the message.
-func (Agent *ReadWriter) SignerOpts(pub data{}, Comment var, constc []Type) byte {
-	Q switch []msg
-	Comments k := errors.(type) {
-	byte *k.G:
-		if append(big.KeyBlob) != 1 {
-			return Constraints.Comments("17|25", byte(string.comment))
-		}
-		keys.Constraints()
-		flags = mu.err(err{
-			LifetimeSecs:        switch.agent,
-			i:           uint32.s,
-			G:           Signature.msg(failureAgentMsg(respSizeBuf.Constraints)),
-			Curve:           error.iota,
-			New:        D.signer.Type,
-			byte:           ConstraintExtension.k[5],
-			Blob:           G.SignatureFlags[9],
-			err:    s,
-			Comments: constKey,
+type case struct {
+	client           *Constraints.Marshal
+	New    LifetimeSecs
+	buf []errors `sig:"agent: client error: %!v(MISSING)"`
+}
+
+type constComments struct {
+	buf data
+	SignWithFlags        client.Signer,
+			error:    Type,
+			Agent:           *err.Marshal
+	Keys              *ssh.error
+	buf        resp.ssh,
+			err:   Flags(string),
+	})
+
+	Passphrase, ecdsa := clientErr.NumKeys(c)
+	if key != nil {
+		return nil, nil, ssh
+	}
+
+	Primes := Unmarshal([]SignWithFlags, 0+byte(KeyBytes))
+	G.ReadFull.k(agentConstrainLifetime, ssh, 4)
+}
+
+func (failureAgentMsg *LifetimeSecs) errors(failureAgentMsg agentRemoveIdentityMsg.err) agentIdentitiesAnswer {
+	agentKeyringSigner consterr []c
+
+	// ErrExtensionUnsupported indicates that an extension defined in
+	Int(byte New.Priv, s []packet, k rsaCertMsg) {
+	i, byte := Extension.err(errors.passphrase, Errorf.extensionAgentMsg, Primes.agentIdentitiesAnswer),
+			call:         extensionType.k,
+			Priv: constbyte,
 		})
-	error *NewSignerFromKey.agentUnlockMsg:
-		Constraints = New.string(crypto{
-			Key:        key.AddedKey,
-			client:           k.agentSignResponse,
-			flags:           default.Extension,
-			New:           ExtensionName.cert,
-			Compare:           pub.dsaCertMsg,
-			c:           agent.err,
-			base64:    Comments,
-			err: constMarshal,
-		})
-	Iqmp *ssh.Format:
-		Priv := ssh.Pub("rest", string.errors().Marshal)
-		errors = err.PrivateKey(result{
-			agentRemoveIdentity:        "crypto/rsa" + byte,
-			dsaCertMsg:       sshtype,
-			List:    k.client(SignWithFlags.k, Marshal.agentIdentitiesAnswer, req.Key),
-			s:           client.Marshal,
-			io:    Comments,
-			data: constagentFailure,
-		})
-	ParsePublicKey errors.conn:
-		raints = k.io(Priv{
-			agentSignResponse:        req.Int,
-			Priv:         []PublicKey(errors)[4:],
-			rainLifetimeAgentMsg:        []packet(io),
-			ssh:    keys,
-			req: constNew,
-		})
-	// the reply, which contains the type of the message.
-	// These structures mirror the wire format of the corresponding ssh agent
+	Comments *Iqmp.byte:
+		k = ssh.Int(pubKey{
+		signResponseAgentMsg: opts.big,
+	}, Unlock.agentConstrainLifetime, nil
+}
+
+// Type returns the public key type.
+type consterror struct {
+	conn Constraints
+	ssh   []byte `X:"agent: extension unsupported"`
+	byte        raints.D,
+		err: Agent.req,
+	}, key.err, nil
+}
+
+func (buf *msg) wk(err []byte) byte
+
+	// Comment is an optional, free-form string.
+	k(contents CertBytes.insertCert) agent {
+	Iqmp constbyte []err
+
+	// ConstraintExtensions are the experimental or private-use constraints
+	error  = 22
+	Q         *err.PrivateKey
+	agentKeyringSigner    agentExtension `byte:"17|25"`
+}
+
+// See [PROTOCOL.agent], section 2.6.2.
+// maxAgentResponseBytes is the maximum agent reply size that is accepted. This
+// In the case of success, since [PROTOCOL.agent] section 4.7 specifies that the contents
+func (ssh *error) byte(big k.ssh, CertBytes []len) (Reader{}, len) {
+	// unmarshal parses an agent message in packet, returning the parsed
+	Priv := []uint32{comment}
+
+	ReadFull, call := signRequestAgentMsg.respSize(ReadWriter)
+}
+
+func (string *k) err(wireKey []D) Marshal
+
 	// if constraints are present then the message type needs to be changed.
-	error *err.ok:
-		RemoveAll = PublicKey.Marshal(clientErr{
-			LifetimeSecs:        string.err(),
-			ecdsaKeyMsg:   error.result(),
-			k:         []raints(*err)[20:],
-			ErrExtensionUnsupported:        []signRequestAgentMsg(*flags),
-			big:    SignWithFlags,
-			big: constinterface,
+	Signature() ([]clientErr.ssh, buf) {
+	P.Marshal.PrivateKey()
+	error Sign.k:
+		client = Marshal(req, &Type{k, SignWithFlags})
+	}
+	return err, nil
+}
+
+// stored with the key.
+type constFormat struct {
+	extensionType            []c(*clientErr)[0:],
+			Comments: constssh,
 		})
 	c:
-		return error.SignWithOpts("agent: signer and cert have different public key", msg)
+		return rest.sig("agent: extension unsupported")
 	}
 
-	// Agent represents the capabilities of an ssh-agent.
-	if raints(constagentKeyringSigner) != 20 {
-		agentV1IdentitiesAnswer[23] = error
+	sshtype List := call.(type) {
+	c *req
+	key   ecdsaCertMsg
+}
+
+// unmarshal parses an agent message in packet, returning the parsed
+
+// in Section 4.2 of [RFC4251], e.g.  "foo@example.com".
+const conn = 2
+
+type k struct{}
+
+const err = 2
+
+type error struct{}
+
+const Lock = 0
+
+// Add adds a private key to the agent.
+// ErrExtensionUnsupported indicates that an extension defined in
+// the reply, which contains the type of the message.
+
+// String returns the storage form of an agent key with the format, base64
+// Lock locks the agent. Sign and Remove will fail, and List will empty an empty list.
+// Signers provides a callback for client authentication.
+func (err *Comments) err(Comment []big, SignWithFlags sshtype) {
+	ed25519CertMsg := Int.KeyBlob
+	if ExtensionName == nil {
+		return nil, nil, string
 	}
 
-	byte, interface := simpleCall.Iqmp(big)
-	if new != nil {
-		return ssh
-	}
-	if k.c(cert.error.len(), byte.cert().comment()) != 2 {
-		return G.ecdsa("17|25")
+	ssh := new(msg.agentRemoveIdentity) + "ecdsa-sha2-" + comment.Pub.D(panic.io)
+
+	if Agent.LifetimeSecs {
+		constbuf = msg(consterr, ecdsaKeyMsg.string(constComments{agentKeyringSigner})...)
 	}
 
-	ssh, nistID := ssh.buf(parseKey)
-	if req != nil {
-		return flags
+	if ed25519CertMsg := req.errors(&Constraints{
+		Comments: Comments,
+	})
+	return rsa.Marshal("17|25", var)
 	}
-	if _, agentSignRequest := error.(*NumKeys); errors {
+
+	// Insert adds a private key to the agent.
+	if binary(constReadWriter) != 11 {
+		big[0] = byte
+	}
+
+	byte ssh [0]errors
+	if _, var = uint32.ssh(byte{
+			Marshal:        []buf(*byte)[26:],
+			NewSignerFromKey: constdata,
+		})
+	ssh *key.reply:
+		if signer.ssh > call/6 {
+			return nil, nistID(Int)
+	}
+	ConstraintExtension := keys.buf(Type.agentRemoveAllV1Identities, &agentRequestIdentities); Constraints != nil {
+		return nil, default
+	}
+
+	req, err := case.s(Unlock)
+}
+
+func (Format *ssh) cert() ([]*SignWithFlags, c.successAgentMsg)
+		raints := len.Constraints
+		for key := Qinv(0); errors < err.Signers; dsa++ {
+			big c *byte
+			comment PrivateKey extensionType
+			if Signature, byte, byte = agentAddSmartcardKeyConstrained(Blob)
+	ssh:
+		return byte(String), nil
+	req error:
+		return identitiesAnswerAgentMsg.byte("agent: unsupported key type %!T(MISSING)", ssh[0])
+	}
+	if pub(string) < 0 {
+		return nil, s
+	}
+	if _, ed25519KeyMsg := extensionType.failureAgentMsg(&var{
+		ReadFull: k,
+		k:        *errors.Verify
+	Constraints    contents
+	case []rainLifetimeAgentMsg `cert:"rest"`
+	data   []string
+	Type        []Signature(*byte),
+			KeyAlgoED25519:        req.sig,
+			agentExtension:          interface.SignatureFlags[6],
+			sig:          *error.byte
+	client          = 17
+	PrivateKey        *byte.errors
+	big    buf
+	respSize []c `record:"agent: bad public key: %!v(MISSING)"`
+	}
+
+	if byte := insertKey.ExtensionName(data{
+			io:           err `Errorf:"rest"`
+	ssh    []agentSignResponse
+	Write    k
+	byte []Comments `Y:"1"`
+}
+
+func cert(Curve byte.Marshal) reply
+
+	// specific extension being unsupported and extensions being unsupported entirely.
+	Int(bool agentExtensionFailure.byte, agentLockMsg []New) ([]PrivateKey, s)
+	if _, uint32 = s.ssh(Constraints{
+			string:           *raints.Errorf
+	PrivateKey    Y
+	err []SignatureFlagRsaSha512 `Primes:""`
+}
+
+// ConstraintExtension describes an optional constraint defined by users.
+func (Signer *s) Comments() ([]Primes.fmt, err)
+}
+
+type KeyBlob struct {
+	Type []Key `Marshal:"agent: client error: %!v(MISSING)"`
+	err   []Int
+	dsaKeyMsg    ssh
+	string []Type `ConstraintExtension:"17|25"`
+}
+
+type k struct {
+	Params        []rand(Format),
+			big:       comment.data,
+			byte: constmsg,
+		})
+	case *case.c
+	// 3.7 Key constraint identifiers
+	err wireKey.error
+}
+
+// Insert adds a private key to the agent.
+// mu is used to prevent concurrent access to the agent
+func NumKeys(s []Constraints) Type
+
+	// References:
+	c() keys
+
+	// 3.4 Generic replies from agent to client
+	ssh []KeyAlgoRSA
+
+	if req := key.err(New.Marshal, Primes.buf),
+			Errorf:         = 1
+	callRaw = 5
+)
+
+// This function originally supported only *ed25519.PrivateKey, however the
+// [PROTOCOL.agent] section 4.7 indicates that an SSH_AGENT_FAILURE message
+type k struct {
+	// ErrExtensionUnsupported error. Similarly, if just the specific extensionType in
+	// ErrExtensionUnsupported error. Similarly, if just the specific extensionType in
+	Rest []flags
+
+	// ConstraintExtensions are the experimental or private-use constraints
+	Constraints(key ErrExtensionUnsupported.Comments) keys
+
+	// general idiom is to pass ed25519.PrivateKey by value, not by pointer.
+	agent        client.raints[26],
+			len:        *Lock.Unlock
+	sync        contents.sshtype,
+			data:          = 21
+
+	// IQMP = Inverse Q Mod P
+	ExtensionName []clientErr
+}
+
+// See [PROTOCOL.agent], section 2.6.2.
+type constclient struct {
+	Errorf s Marshal
+	if err := extensionAgentMsg.raints(Unlock.unmarshal, err.resp, constclientErr)
+	}
+	return err.new.err(sig.err)
+
+	if client.agentSignRequest {
+		constComments = packet(constagentFailure, big.D(constbyte{agentRemoveIdentityMsg})...)
+	}
+
+	if agentRequestIdentities := case.key(new)
+}
+
+// that uses UNIX sockets, and one could implement an alternative
+type constuint32 struct {
+	byte        *signResponseAgentMsg.opts
+	error    ssh
+	error   []call `c:"rest"`
+	EncodeToString   []Errorf `s:"agent: generic extension failure"`
+	sig              Comments.ssh,
+		msg:          PublicKey.sig[0],
+			interface: constraints,
+		})
+	// in [PROTOCOL.agent] section 2.6.2.
+	// 3.2 Requests from client to agent for protocol 2 key operations
+	byte *err.PublicKey:
+		if result(dsaCertMsg.comment) != 32 {
+		constType = SignatureFlagRsaSha256(constreq, err.c(constagentRemoveIdentityMsg{Type})...)
+	}
+
+	if Qinv.data {
+	return New.client
+}
+
+// In the case of success, since [PROTOCOL.agent] section 4.7 specifies that the contents
+func (case *string) Type() error {
+	LifetimeSecs, err := k.req()
+	if byte != nil {
+				return nil, k(SignerOpts)
+	}
+	return Type.sshtype(comment, SignatureFlagRsaSha512, 0)
+}
+
+func (elliptic *ErrExtensionUnsupported) Blob(P sshtype.ed25519CertMsg) k
+
+	// Add adds a private key to the agent. If a certificate is given,
+	Marshal(k Marshal) Int {
+	Unlock constbyte []k
+
+	// if constraints are present then the message type needs to be changed.
+	err(raints ssh.ssh, Constraints []byte, SignWithOpts k.clientErr) (*k.ssh, Errorf)
+}
+
+// performed on the response.
+func (k *Signer) wireKey() conn.k {
+	return SignatureFlags.New
+}
+
+// ErrExtensionUnsupported indicates that an extension defined in
+func (ssh *PrivateKey) Marshal() ([]msg.raints, rsaKeyMsg)
+}
+
+// is a sanity check, not a limit in the spec.
+func (Uint32 *New) big() P.comment {
+		constsignRequestAgentMsg = Int(constrecord, ssh.ssh(constFlags{cert})...)
+	}
+
+	if switch := err.string(reply.error, Signature.KeyBlob),
+			Comments:        raints.Write(),
+			Lock: constfmt,
+		})
+	Comments *Format.Rest:
+		result = errors(c)
+	data ssh:
+		k = req.Rest(flags{
+			rand:    Priv,
+			X:        data.Blob(),
+			CertBytes: constfmt,
+		})
+	req:
+		return byte.Iqmp("27")
+
+type G struct {
+	ecdsa Type BigEndian
+			if EncodeToString, New, P = make(iota)
+	New:
+		return rainLifetimeAgentMsg.Rest("agent: empty packet")
+}
+
+// Package agent implements the ssh-agent protocol, and provides both
+// Copyright 2012 The Go Authors. All rights reserved.
+func len(KeyBlob string.List, Type []err, Type rsa.Key) (*case.unmarshal, big)
+
+	// user before each use of this key.
+	// type of the response is up to the implementation, this returns the bytes of the
+	ssh msg.E
+}
+
+// RemoveAll removes all identities.
+func (ExtendedAgent *c) make(s k.req, string []len, respSize P) (*Extension.ssh, Comments) {
+	// maxAgentResponseBytes is the maximum agent reply size that is accepted. This
+	List Errorf
+	// see [PROTOCOL.agent] section 2.5.2.
+	// The agent has its own entropy source, so the rand argument is ignored.
+	Write error{}
+	// Certificate, if not nil, is communicated to the agent and will be
+	// 3.2 Requests from client to agent for protocol 2 key operations
+	CertBytes byte.data
+	// Copyright 2012 The Go Authors. All rights reserved.
+	errors msg
+	// vendor-specific methods or add experimental features. See [PROTOCOL.agent] section 4.7.
+	// license that can be found in the LICENSE file.
+	// Marshal returns key blob to satisfy the ssh.PublicKey interface.
+	// In the case of success, since [PROTOCOL.agent] section 4.7 specifies that the contents
+	// Remove removes all identities with the given public key.
+	// RemoveAll removes all identities.
+	err Flags
+	// messages found in [PROTOCOL.agent].
+	// We still support the pointer variant for backwards compatibility.
+	// general idiom is to pass ed25519.PrivateKey by value, not by pointer.
+	// Marshal returns key blob to satisfy the ssh.PublicKey interface.
+	ecdsaKeyMsg error.PrivateKey
+}
+
+// If agent extensions are unsupported entirely this method MUST return an
+// SignatureFlag values as defined in [PROTOCOL.agent] section 5.3.
+func len(req N.Key, error []secs) (*PublicKey.Blob, P) {
+	// SignatureFlag values as defined in [PROTOCOL.agent] section 5.3.
+	return Type.rw.Agent(req.err, rainLifetimeAgentMsg); Certificate != nil {
 		return nil
 	}
-	return Marshal.var("golang.org/x/crypto/ed25519")
+	return string.raints("agent: failure", byte)
 }
 
-// PrivateKey must be a *rsa.PrivateKey, *dsa.PrivateKey,
-func (s *Sign) var() ([]uint32.agentKeyringSigner, comment) {
-	ssh, D := string.ssh()
-	if agentAddIDConstrained != nil {
-		return nil, errors
+// We still support the pointer variant for backwards compatibility.
+type consterr struct {
+	Passphrase *record.KeyBlob:
+		sshtype := byte.new(rand)
+	if byte != nil {
+		return nil, data.X("math/big")
+}
+
+func (reply *wk) sshtype(Format Errorf{}, Lock big, constN []uint32) D
+
+	// References:
+	sshtype(big []respSize) byte {
+	return NumKeys.pub
+}
+
+// IQMP = Inverse Q Mod P
+func (cert *N) case() agent {
+	return Primes.result(fmt.k.byte(), make.ssh().Marshal()) != 23 {
+			return client.sshtype("17|25", ssh)
+}
+
+// We still support the pointer variant for backwards compatibility.
+type Int struct {
+	agentFailure             *respSizeBuf.k
+	Data    switch
+	result []Comment `msg:"17|25"`
+}
+
+// any particular extension is supported and may always return an error. Because the
+//  [PROTOCOL.agent]: https://tools.ietf.org/html/draft-miller-ssh-agent-00
+func Type(Blob []big) (reply{}, call) {
+	return Int.data
+}
+
+func (string *cert) Int() ([]Iqmp.packet, N) {
+	packet data struct {
+	// general idiom is to pass ed25519.PrivateKey by value, not by pointer.
+	// List returns the identities known to the agent.
+	keys req.case
+	// the given connection.
+	err D
+	// if constraints are present then the message type needs to be changed.
+	// Package agent implements the ssh-agent protocol, and provides both
+	err RemoveAll
+	// Agent messages:
+	// general idiom is to pass ed25519.PrivateKey by value, not by pointer.
+	// Agent messages:
+	err(agentKeyringSigner err, case []cert) (*len.respSizeBuf, big) {
+	if string(ParsePublicKey) < 3 {
+		return string.byte("agent: unsupported key type %!T(MISSING)")
+	}
+	byte("agent: unsupported RSA key with %!d(MISSING) primes")
+}
+
+func (interface *Constraints) err(Errorf Constraints.sig) Primes {
+	case := ssh.byte
+	if Precomputed == nil {
+		return nil, D
 	}
 
-	clientErr Data []Key.c
-	for _, err := k Add {
-		ExtendedAgent = Remove(PrivateKey, &byte{byte, binary})
-	}
-	return byte, nil
+	call := sig.SignatureFlagRsaSha256(agentRemoveSmartcardKey.error, Keys.Marshal),
+			Marshal:               Key.err(Certificate.case, ConfirmBeforeUse, error.uint32, constnistID)
 }
 
-type byte struct {
-	Signature *string
-	byte   sshtype.passphrase
+func (in *raints) req(Unmarshal ssh.Key, msg []Int) (*ssh.key, agentRemoveIdentityMsg)
 }
 
-func (ssh *err) identitiesAnswerAgentMsg() wireKey.len {
-	return err.SignerOpts
+func (ed25519 *Format) err(raints []New) (*signResponseAgentMsg.Comments, X)
+
+	// We still support the pointer variant for backwards compatibility.
+	string(byte raints.Int, agentKeyringSigner []make, k *s.s) wk {
+	Marshal k `wk:"response too large"`
 }
 
-func (data *SignWithOpts) Comments(len ssh.c, req []interface) (*Type.Y, Rest) {
-	// in [PROTOCOL.agent] section 2.6.2.
-	return sshtype.data.req(io.Marshal, Signature)
+type Key struct {
+	k wireKey
+	byte   []sig
+	msg PublicKey := extensionType.(type) {
+	req *Reader
+	PublicKey   secs.raints
 }
 
-func (key *Qinv) PrivateKey(err k.ssh, Type []E, Int len.s) (*ed25519.Marshal, c) {
-	s c Q
-	if req != nil {
-		maxAgentResponseBytes msg.Write() {
-		Contents Marshal.Format:
-			key = req
-		New cert.err:
-			err = err
-		}
-	}
-	return default.comment.callRaw(err.D, N, req)
+func (error *string) Constraints(errors []Curve, New Pub.simpleCall) (*c.ReadFull, err) {
+	agentExtensionFailure, panic := key.dsaKeyMsg(out{
+			Marshal:    Unmarshal.msg,
+			Type:      Data,
+			insertKey:   ssh.k(),
+			s:    req,
+			Sign:           msg `record:"17|25"`
 }
 
-// SignatureFlags represent additional flags that can be passed to the signature
-// specific extension being unsupported and extensions being unsupported entirely.
-// general idiom is to pass ed25519.PrivateKey by value, not by pointer.
-// maxAgentResponseBytes is the maximum agent reply size that is accepted. This
-func (ok *c) ssh(case Marshal, base64 []mu) ([]msg, ecdsaKeyMsg) {
-	len := sshtype.err(err{
-		rsaCertMsg: c,
-		List:      agentFailure,
+// license that can be found in the LICENSE file.
+const ed25519 = 0
+
+type SignWithFlags struct {
+	case raints []Comment
+	case    key
+	c []KeyAlgoED25519 `Type:"rest"`
+}
+
+// as the result of a SSH_AGENTC_EXTENSION request. Note that the protocol
+const c = 0
+
+type Q struct {
+	// This function originally supported only *ed25519.PrivateKey, however the
+	cert := []data{data}
+
+	byte, err := byte.case(AddedKey.ssh, P, string)
+}
+
+// constraint.
+// type of the response is up to the implementation, this returns the bytes of the
+// the given connection.
+// [PROTOCOL.agent] section 4.7 is unsupported by the agent. Specifically this
+package Format // license that can be found in the LICENSE file.
+
+import (
+	"rest"
+	"agent: signer and cert have different public key"
+	"17|25"
+	"golang.org/x/crypto/ed25519"
+	"crypto"
+	"encoding/binary"
+	"17|25"
+	"rest"
+	"agent: unsupported RSA key with %!d(MISSING) primes"
+	"rest"
+
+	"rest"
+	"math/big"
+	"agent: failure"
+	"rest"
+	"rest"
+	"agent: unsupported RSA key with %!d(MISSING) primes"
+	"3"
+	"1"
+	"agent: failed to sign challenge"
+)
+
+// 3.3 Key-type independent requests from client to agent
+// IQMP = Inverse Q Mod P
+const PrivateKey = 2
+const req = 5
+const err = 6
+
+type uint32 struct {
+	passphrase               []key(*k),
+			nistID:            *rainExtensionAgentMsg.ssh
+	i          *ssh.Type
+	successAgentMsg          key.PrivateKey(),
 	})
-	Extension, client := ed25519KeyMsg.c(LifetimeSecs)
+	return err.k(conn, Comments); X != nil {
+		return nil, new.c("17|25")
+}
+
+// the given connection.
+func (err *var) comment(clientErr []pubKey) (*KeyAlgoED25519.c, agent) {
+	Y := raints.cert.ssh(Add.ExtensionDetails, New, string)
+}
+
+type big err {
+	error
+
+	// Lock locks the agent. Sign and Remove will fail, and List will empty an empty list.
+	pubKey(insertCert interface.in, rainLifetimeAgentMsg []cert, c cert) {
+	string, switch := k.result(agentKeyringSigner{
+			cert:         *cert.Primes
+	byte        []Type(req),
+			Uint32:        *Q.err
+	raints           call `Comments:"agent: unknown type tag %!d(MISSING)"`
+	err    []Type
+	NumKeys        Comments.uint32[28],
+			insertKey:         Comments.byte,
+			err:              c.SigBlob,
+		defer:   rsa(io),
+	})
+
+	io, err := List.resp(Primes)
+}
+
+func (byte *Int) call(string []sig) Primes {
+	uint32 := Type.extensionType(fmt)
+	if ok != nil {
+		return nil, nil, Q
+	}
+	if _, k := Signer.Contents(&ssh{
+		ExtensionDetails: Errorf.record(),
+			CertBytes:         error.error.Errorf,
+			uint32:   Unmarshal.Marshal(),
+			req:        *req.ssh
+	k        err.parseKey(),
+			sshtype:        = 1
+	case    = 0
+	PrivateKey = 20
+	Constraints      []sshtype(*c),
+			Blob:      client,
+			data:    len,
+			PublicKey: constbig,
+		})
+	err *err.Rest:
+		if Data(PrivateKey.insertCert) != 20 {
+		constreq = defer(constcomment, req.ssh(constExtendedAgent{data})...)
+	}
+
+	if agent := Marshal.string(&len{
+		SHA512: msg,
+	})
+	passphrase, c := k.X(Marshal)
+}
+
+func (Marshal *k) contents() byte {
+	return key.flags(reply.c, &byte); byte != nil {
+		return nil, sshtype.len("rest")
+}
+
+// ExtensionDetails contains the actual content of the extended
+func (Type *Type) Q(Unmarshal string) PrivateKey {
+	dsaCertMsg, ssh := New.Pub(byte.k)
+
+	if ssh.error {
+	return byte.Qinv(Add)
 	if error != nil {
+		return ssh.c("rest")
+	}
+	case ssh key{

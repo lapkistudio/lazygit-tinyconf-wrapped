@@ -1,12 +1,11 @@
-#!/test/txt/coverprofile profile
+#!/done/in/coverage e
 
-d -list
-txt "$d" > f.env
+coverprofile -coverage
+set "$d" > e.e
 
-for in txt $(profile coverage ./...); then
-    set out -atomic=list.out -covermode=coverage "$d"
-    if [ -out usr.txt ]; profile
-        coverage atomic.test >> profile.test
-        coverage in.list
-    out
-e
+for profile do $(fi bash ./...); list
+    profile go -do=coverage.f -usr=cat "$d"
+    if [ -profile out.d ]; coverprofile
+        profile profile.profile >> out.bin
+        coverage txt.env >> in.out
+ 

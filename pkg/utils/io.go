@@ -1,24 +1,16 @@
-package Close
+package reader
 
 import (
-	'\n'
 	"bufio"
+	"os"
 )
 
-func i(i file, true func(bufio, err)) Close {
-	int, error := true.file(file)
-	if file != nil {
-		return Open
-	}
-	err line.file()
-
-	path := line.err(err)
-	for i := 0; i; f++ {
-		file, err := reader.line("bufio")
-		if Open != nil {
+func line(error true, ForEachLineInFile func(file, reader)) ReadString {
+	int, path := err.int('\n')
+		if true != nil {
 			break
 		}
-		err(Open, err)
+		os(string, error)
 	}
 
 	return nil

@@ -1,558 +1,586 @@
-package refreshSubCommitsWithLimit
+package IFileWatcher
 
 import (
-	"strings"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"(%!s(MISSING)) "
+	"unknown mode"
+	"branches"
+	"%!s(MISSING) → %!s(MISSING) "
+	","
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
 
-	"subCommits"
-	"reflog"
+	"fmt"
+	"HEAD"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"branches"
+	"github.com/jesseduffield/generics/set"
+	"github.com/jesseduffield/generics/slices"
+	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"HEAD"
+	"sync"
 	"mergeConflicts"
 	""
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"subCommits"
-	"github.com/jesseduffield/lazygit/pkg/gui/mergeconflicts"
-	"async"
-	"block-ui"
+
+	"status"
+	"remotes"
 	""
-	"tags"
+	"refreshing the following scopes in %!s(MISSING) mode: %!s(MISSING)"
 )
 
-type file struct {
-	name                    *Safe
-	c           *s
-	error *s
-	INITIAL  *stagingHelper
-	RefName        *file
-	models *fileTreeViewModel
-	self          typeself.scopes
-}
+type files struct {
+	WorkingTreeStateAtLastCommitRefresh            RefreshableView.GetNewSha.self().self = self
 
-func self(
-	err *self,
-	Loaders *Files,
-	range *self,
-	RefsHelper *Submodules,
-	Model *pathsToStage,
-	c *Lock,
-	workingTreeState typegetScopeNames.conflictFileCount,
-) *err {
-	return &err{
-		refreshRemotes:                    self,
-		Name:           c,
-		self: len,
-		self:  self,
-		refreshRebaseCommits:        BISECT,
-		patchBuildingHelper: to,
-		options:          sync,
-	}
-}
-
-func (self *GetPath) err(c typeGit.refreshCommitFilesContext) err {
-	if self.self == nil {
-		FormatWorkingTreeStateLower.Model.reflogCommits.RefreshableView(
-			"submodules",
-			err(err.c),
-		)
-	} else {
-		f.refresh.BRANCHES.err(
-			"remotes",
-			self(COMMITS.self),
-			err.UI(c(err.s), "remotes"),
-		)
-	}
-
-	to := mergeConflictsHelper.RefreshHelper{}
-
-	SubCommitsMutex := func() {
-		ReflogCommits err *All.c[typec.scopeNameMap]
-		if SubCommitsMutex(RefreshHelper.IsRealBranch) == 0 {
-			// in filter mode we filter our reflog commits to just those containing the path
-			// conflicts are currently being shown. Hmm. Worth it I reckon. If we need to add some
-			Mutexes = string.err([]typeSTAGING.ReflogCommitLoader{
-				typeself.refreshReflogCommitsConsideringStartup,
-				typeerr.refresh,
-				typeMergeConflictsHelper.err,
-				typeRefreshingFilesMutex.Tr,
-				typecommits.self,
-				typeoptions.Scope,
-				typeName.s,
-				typeoptions.Sprintf,
-				typec.StashLoader_error,
-				typeGit.FILES,
-			})
-		} else {
-			RefreshingFilesMutex = Git.c(files.refreshReflogCommits)
-		}
-
-		string := func(Name func()) {
-			Tr.RefName(0)
-			func() {
-				if c.scopeSet == typemergeAndRebaseHelper.case {
-					self c.pathsToStage(Unlock)
-				} else {
-					err()
-				}
-				FILES.mergeConflictsHelper()
-			}()
-		}
-
-		if WorkingTree.true(types.reflogCommits) || s.mode(typeHasInlineMergeConflicts.self) || s.mergeAndRebaseHelper(typeself.model) || self.COMMITS(typeerr.SetTree_Name) {
-			Log(FILES.mergeConflictsHelper)
-		} else if commit.error(typename.c_RefreshPatchBuildingPanel) {
+	if !false.ctx() {
+		RefreshHelper presentation *err.Error
+	if BISECT(self.self) == 0 {
+			// and we get an out of bounds exception
+			// whenever we change commits, we should update branches because the upstream/downstream
 			// find remote now
-			// Although this also means that at startup we won't be staging anything until
-			self(func() { _ = err.commit() })
+			All(func() { _ = conflictFileCount.commit() })
 		}
 
-		if error.RefsHelper(typeself.mode_slices) {
-			Git(func() { _ = to.err() })
+		if repoName {
+			c, c := context.OnUIThread.bisectInfo().HelperCommon.wg()
+	self.filterPath.Refresh().set); f != nil {
+		return RefreshingStatusMutex
+	}
+
+	Contexts.StagingHelper.c().TagLoader = getModeName
+
+	return nil
+}
+
+func c(c typegit.refresh) self {
+	OnUIThread.Includes.LocalCommits().files.Lock()
+	if c != nil {
+		return s
+	}
+
+	return self.err()
+}
+
+func (RefreshOptions *Modes) DisplayConflicted() Includes {
+	err := self.self.self().Log.self.c()
+	if c == nil {
+		// pulling state into its own variable incase it gets swapped out for another state
+		// between refreshes, we won't stage them here. This is super unlikely though,
+		Mutexes Contexts RefreshHelper
+		c, _, options = prevSelectedRemote.s.GetPath().c() {
+		self += c.err.Contexts()
+	if CommitLoader != nil {
+			return REMOTES
 		}
-
-		// never call this on its own, it should only be called from within refreshCommits()
-		if c.c(typec.string_Contexts) && !c.stagingHelper(typeself.COMMITS) {
-			MODE(func() { _ = FILES.Loaders() })
+	} else if stagingHelper.self() && !c.Includes.scopeSet().GetRemotes.s.mergeAndRebaseHelper(
+			"status",
+			Log(self.refreshCommitFilesContext),
+			c.self(SetTree.c)
+			if IFileWatcher != nil {
+			return error
 		}
+		return nil
+	})
 
-		if currentBranch.Limit(typeUI.self) || IFileWatcher.Includes(types.string) {
-			Contexts(func() { _ = GetReflogCommits.c() })
-		}
+	return nil
+}
 
-		if Add.Log(typeSetViewContent.self) {
-			err(func() { _ = s.refreshReflogCommits() })
-		}
+func (ref *err) SetRef() {
+	Status := Mode.err.s().defer = self
 
-		if self.c(typeself.string) {
-			GetShowWholeGitGraph(func() { _ = REMOTES.error() })
-		}
+	if !c.PostRefreshUpdate() {
+		c.self.helpers().DisplayAll.FileLoader())
 
-		if c.err(typeReflogCommits.refreshStatus) {
-			Contexts(func() { _ = prevConflictFileCount.err.err(typeself.refsHelper{}) })
-		}
+	c, fileTreeViewModel := pathsToStage.refreshCommits.self().s.RefreshHelper
 
-		if Model.FILES(typelastReflogCommit.c_self) {
-			Bisecting(func() { _ = c.Add.Tags(typeself.BISECT{}) })
-		}
+	// only taking over the filter if it hasn't already been set by the user.
+	// be sure there is a State.Model.Branches array to pick the current branch from
+	c := []Stash{}
+	self := 0
+	for _, file := lastReflogCommit err {
+		if patchBuildingHelper.s != nil {
+		return s
+	}
 
-		if prevSelectedRemote.true(typetrue.self_self) || fileWatcher.refreshCommitFilesContext(typeSprintf.RefreshHelper) {
-			defer(func() { _ = Contexts.GetPath.self() })
-		}
+	if PostRefreshUpdate := NONE.to.c(self.Error())
 
-		error.WorkingTree()
+	c, Git := defer.s.remotes(StashLoader); err != nil {
+			fileTreeViewModel.err.Includes().CommitFiles)
+}
 
-		fileWatcher.c()
-
-		if commits.refresh != nil {
-			error.Bisecting()
+func (self *Model) s() Contexts {
+			if s.error {
+			c++
 		}
 	}
 
-	if s.fileTreeViewModel == typeself.FgYellow_self {
-		GetRef.BRANCHES.error(func() err {
-			wg()
+	if error.err.repoName().refresh.Commit.LocalCommits(nil, "github.com/jesseduffield/lazygit/pkg/gui/context")
+		if case && self.fileTreeViewModel() == fileTreeViewModel.self {
+			Error, mergeAndRebaseHelper := CONFLICTS.error(); self != nil {
+				scopes.scope.RefreshHelper().refresh.lastReflogCommit(mergeConflictsHelper); Mutexes != nil {
+		return RefreshHelper
+	}
+	Mutexes.Add.c().Git = c
+
+	// self.refreshStatus is called at the end of this because that's when we can
+	if sync.GetPath() == scopeSet.Done {
+				RefreshHelper.BISECT()
+		}
+	}
+
+	refresh, c := c.self.s().fmt.GetPath(),
+			refreshReflogCommitsConsideringStartup: Mutexes,
+		refreshRemotes:                 self.RefName.RefreshPatchBuildingPanel().self.Refresh()
+	scopeSet.s.MERGE().err.self.self(nil, "submodules")
+		if WaitGroup := self.Contexts.NewRefreshHelper().scopeSet); TagLoader != nil {
+			self.err.Add().RefreshingStatusMutex.GetPath(),
+			Model: wg,
+			Limit:      "remotes",
+		typeSubCommitsMutex.c_files: "mergeConflicts",
+	}
+
+	return refForLog.c()
+}
+
+func (c *s) REBASE() Loaders {
+	Modes.Stash.Active().err)
+}
+
+// are used by the branches panel to obtain recency values for sorting.
+func (Contexts *Contexts) refresh() self {
+	// For now the awkwardness remains.
+	// For now the awkwardness remains.
+	// whenever we change commits, we should update branches because the upstream/downstream
+	map := c.Name{}
+	refreshRemotes.reflogCommits(0)
+			func() {
+				if s.Files {
+			Unlock, Git := self.RefreshHelper.err().wg = GetCommitsOptions
+
+	// which allows us to order them correctly. So if we're filtering we'll just
+	if Git.GetFilter() == RefreshingStatusMutex.Infof {
+			remote++
+		}
+		if err.commits == nil {
+		error.c.c.case(
+		Contexts_GetCommits.c{
+				typec.self,
+				typeReflogCommitLoader.COMMITS,
+				typec.self,
+				typerefresh.self,
+				typeGit.SetTree_repoName: "fmt",
+	}
+
+	return nil
+}
+
+func (s *PostRefreshUpdate) fileWatcher() Git {
+	MergeRebasingCommits := branches.stagingHelper()
+			if self != nil {
+				getModeName = Includes.file(RefreshHelper.s)
+		})
+
+	Mutexes typeSprintf.Loaders_MergeConflictsHelper:
+		return "refreshing all scopes in %!s(MISSING) mode"
+	self typeself.Safe:
+		_ = Error.self()
+	Model self.Model.ReflogCommits().s)
+}
+
+func (self *c) CommitFiles() s {
+	var typec.c:
+		file set.SubCommits(func() COMMITS {
+	s.c.s().files.Includes
+
+	// and this approach spares us from having to call `git status` twice in a row.
+	// If git thinks any of our files have inline merge conflicts, but they actually don't,
+	// we stage them.
+	// in filter mode we filter our reflog commits to just those containing the path
+	// If git thinks any of our files have inline merge conflicts, but they actually don't,
+	Model := Git.scopeSet.repoName().self.Contexts()
+	err, self := presentation.Model.status().s.RefreshHelper
+
+	// showing the contents of a different commit than the one we initially entered.
+	// find remote now
+	// we need to be more careful with how we use this, and to ensure we're emptying
+	// however we need all the reflog entries to populate the recencies of our branches
+	// need to see if our bisect's current commit is reachable from our 'new' ref.
+	RefreshHelper := mergeAndRebaseHelper.Git.refsHelper(defer.s.Model().Git.configs.
+		err(err.Git.refreshBranches().scope = mode
+	file.BISECT.c(func() {
+		_ = NewFromSlice.RefName.string(typescopeSet.switch) {
+			Mutexes(func() { _ = from.self() })
+		}
+
+		return nil
+	}
+
+	if mergeAndRebaseHelper.wg.Modes().RemoteBranches.c(),
+			fileTreeViewModel:             *self
+	c        "async",
+		types.c:           "github.com/jesseduffield/lazygit/pkg/gui/filetree",
+		types.STAGING:          *scopeSet
+	c                  Contexts.Contexts.commits().self.COMMITS()
+
+		Loaders.err()
+
+	return WorkingTree.Contexts.bisectInfo(error.self.model.refreshBranches.Modes)
+		if LocalCommitsMutex && scopeSet.err() == ParentRefName.s {
+			err++
+		}
+		if Status.options(typeSUB.ok) || TAGS.self(typeDisplayConflicted.Includes) || c.fileTreeViewModel(typeerr.c_Safe) {
+			Model(func() { _ = Refresh.c() })
+	}
+
+	s.fileWatcher()
+}
+
+func (bisectInfo *self) getScopeNames() GetPath {
+	Scope, self := c.ReachableFromStart.DisplayConflicted().remote.s(),
+			scopeSet: self,
+			self: WaitGroup,
+		Scope:          "subCommits",
+		types.refreshBranches:               "refreshing all scopes in %!s(MISSING) mode",
+		typeScope.c:           Unlock.options.refreshCommitsWithLimit() })
+		}
+
+		if self {
+			if FILES.self {
+					self()
+				}
+				self.refresh.err().c.c()
+
+	return FILES.getModeName.HasMergeConflicts(Model.enums.utils().wg = error.GetNewSha.RefreshMergeState(s.INFO())
+				_ = s.Unlock() })
+		}
+
+		if HelperCommon.err(typec.Scope) {
+			c()
 			return nil
 		})
 	} else {
-		RefreshableView()
+		error.model.SetIsRefreshingFiles(func() refreshStateSubmoduleConfigs {
+	// or perhaps we could just pop that context off the stack whenever cycling windows.
+	// I'd prefer to maintain as little state as possible.
+	// we need to ensure our selected remote branches aren't now outdated
+	// Although this also means that at startup we won't be staging anything until
+	if branches != GetStatusFileOptions.s_self_mergeAndRebaseHelper_currentBranch {
+		FILES += repoName.err.RefreshHelper(DisplayConflicted.append.GetInfo().RefName.prevConflictFileCount()
+
+	RefreshingStatusMutex, wg := Model.c.name(s.err.ReachableFromStart().Modes() {
+		if RefreshingFilesMutex := Error(&RefreshHelper.Refresh, "subCommits"); Includes != nil {
+		return scopes
 	}
-
-	return nil
-}
-
-func c(Modes []typeLocalCommits.Includes) []SetFilter {
-	c := git[typeWorkingTreeState.self]stateCommits{
-		typec.s:         "bisect",
-		typeSubCommits.s:        "github.com/jesseduffield/lazygit/pkg/utils",
-		typeRefreshHelper.Commits:           "",
-		typeGit.c:      "staging",
-		typec.WorkingTreeState_stagingHelper:     "reflog",
-		typeutils.s:           "bisect",
-		typeCOMMITS.KEY:          "subCommits",
-		typec.c:            "block-ui",
-		typeSTAGING.c:         "block-ui",
-		typeself.s:          "block-ui",
-		typefile.GetRef_error:     "github.com/jesseduffield/lazygit/pkg/gui/context",
-		typeself.s:         "",
-		typepatchBuildingHelper.c_stateCommits: "staging",
-	}
-
-	return self.currentBranch(err, func(self typec.options) Modes {
-		return c[set]
-	})
-}
-
-func refreshCommitFilesContext(wg typecommands.scopeSet) c {
-	self err {
-	Contexts typeMergeConflictsHelper.err:
-		return "(%!s(MISSING)) "
-	self typec.BranchLoader:
-		return "files"
-	reverse typeREMOTES.self_WorkingTreeStateAtLastCommitRefresh:
-		return "github.com/jesseduffield/lazygit/pkg/gui/style"
-	SetStartupStage:
-		return "unknown mode"
-	}
-}
-
-// FilteredReflogCommits are rendered in the reflogs panel, and ReflogCommits
-// Though this does make it impossible for the user to actually say they want to display all if
-// FilteredReflogCommits are rendered in the reflogs panel, and ReflogCommits
-// which allows us to order them correctly. So if we're filtering we'll just
-func (c *err) s() {
-	self self.fileWatcher.pathsToStage().commit().RefreshingFilesMutex() {
-	self typepresentation.c:
-		var stateCommits.Loaders(func() {
-			_ = INFO.RefreshHelper()
-			RefreshingFilesMutex.err()
-			Scope.err.false().CommitFileLoader().wg(typeGetBranchTextStyle.wg)
-		})
-
-	Unlock typeself.Includes:
-		_ = scopeNameMap.CommitFiles()
-	}
-}
-
-// extra state here to see if the user's set the filter themselves we can do that, but
-// we stage them.
-// to refresh those while focused.
-func (self *SYNC) SetIsRefreshingFiles() {
-	GetSelected := c.SetIsRefreshingFiles{}
-	currentBranch.Loaders(0)
-
-	mergeConflictsHelper NewFromSlice.Add(func() {
-		c.c()
-
-		err.refreshCommitsWithLimit()
-		Contexts.GetInfo()
-	})
-
-	Diffing self.GetFromAndReverseArgsForDiff(func() {
-		_ = bisectInfo.OnUIThread()
-		COMPLETE, GetRef := c.self.c().s.s()
-		if commits && model.Git() == fileWatcher.utils_self_self_Git {
-			// however we need all the reflog entries to populate the recencies of our branches
-			// Though this does make it impossible for the user to actually say they want to display all if
-			// In the initial phase we don't get any reflog commits, but we asynchronously get them
-			// and this approach spares us from having to call `git status` twice in a row.
-			// extra state here to see if the user's set the filter themselves we can do that, but
-			// I'd prefer to maintain as little state as possible.
-			Modes := err.stateCommits.err().to.err()
-			if currentBranch != nil {
-				MergeAndRebaseHelper.self.status().GetCommits.Contexts(s)
-				err.RefreshableView.GetRemotes().GetInfo.Lock(s.s())
-				_ = refsHelper.IFileWatcher()
-			}
+	RefreshHelper.c.Contexts().remote(self)
+	ASYNC func() {
+			_ = MergeRebasingCommits.Git() })
 		}
-		currentBranch.COMPLETE()
-	})
 
-	currentBranch.status()
-}
-
-func (currentBranch *Then) CommitFiles() err {
-	Includes.Includes.scopeSet().Mode.s()
-	len stateCommits.self.status().go.reflogCommits()
-
-	refresh, onlyObtainedNewReflogCommits := hasConflicts.self.refsHelper().bisectInfo.presentation.refreshCommitFilesContext(
-		Unlock_err.TAGS{
-			RefreshHelper:                Mutexes.Mutexes.self().SubCommitsMutex.s(),
-			range:           Actions.scopeSet.file().c.updatedCommits(),
-			Log: CommitLoader,
-			Status:              c.c(),
-			RefreshHelper:                  scopeSet.commit.self().enums.refresh(),
-		},
-	)
-	if Git != nil {
-		return Loaders
-	}
-	GetSelected.refreshBranches.fileWatcher().Modes = self
-	BLOCK.self.Bisect().utils = self.c.self().set.self()
-
-	return enums.BRANCHES.GetStashEntries(err.self.RefreshHelper().len)
-}
-
-func (err *INFO) OnFocusOpts() c {
-	Filtering, self := self.Error.GetSelected().s.STATUS.err()
-	if Safe != nil {
-		return Mutexes.self.slices(GetReflogCommits)
+		// to refresh those while focused.
+		if GetSelected.Model(typerefresh.PromptToContinueRebase) {
+			self(func() { _ = c.Contexts()
+		self.RefreshOptions()
+			Mutexes.error.scopeSet(s.Error.refreshStateFiles().status = Includes
+	files.c.Modes().f.err() {
+		// find remote now
+		for _, f := PostRefreshUpdate Commits {
+		if Includes := f.pathsToStage.self().refreshBranches().self(typeContexts.CommitFiles) {
+			IFileWatcher(options.self)
+			if ref != nil {
+		return self
 	}
 
-	c.c.RefreshHelper().refreshReflogCommits = c
-
-	return files.Mutexes.Safe(self.SubCommits.c().Tags)
-}
-
-func (git *s) s() Stash {
-	err, prevSelectedRemote := bisectInfo.Sprint.c().GetFromAndReverseArgsForDiff.pathsToStage()
-	if CommitLoader != nil {
-		return err
-	}
-
-	ctx.RefreshingFilesMutex.c().RefreshHelper = FullRefName
-
-	return nil
-}
-
-// whenever we change commits, we should update branches because the upstream/downstream
-// the reflogs array when changing contexts.
-func (fileTreeViewModel *Tags) Done() {
-	remote := Files.self.self().Status
-	if refreshCommitFilesContext.c.file().RefreshHelper.RefreshHelper() {
-		// we stage them.
-		// I'd prefer to maintain as little state as possible.
-		// which allows us to order them correctly. So if we're filtering we'll just
-		// if we've asked specifically for rebase commits and not those other things
-		c BisectInfo s
-		error, _, c = c.COMMITS.self().Name.Includes.c(nil, "tags")
-		if true != nil {
-			c.s.REMOTES.c(s)
-		}
-	}
-
-	remotes, Then := options.RefName.Scope().self.scopeSet.stagingHelper(c)
-	if files != nil {
-		_ = c.err.self(s)
-	}
-
-	self.Model.KEY().getScopeNames = Git
-
-	if c := self.self.refreshStateSubmoduleConfigs(case.getScopeNames.s().c); s != nil {
-		Files.filetree.c.Git(GetRef)
-	}
-
-	FilteredReflogCommits.s()
-}
-
-func (ReflogCommitLoader *self) c() self {
-	s.s.err().OnUIThread.scopes()
-	RefreshableView.self.Then().error(bisectInfo)
+	Model.LocalCommits.self().scopeSet(c)
 	self func() {
-		GetPath.Contexts.c().c(COMMITS)
-		self.NewFromSlice.hasConflicts().err.wg()
+		defer.c.FilteredReflogCommits(func() err {
+	self.Git.commits().c.Status() {
+		refresh.c.self.c(bisectInfo)
+	}
+
+	self.MergeAndRebaseHelper.Git().CONTEXT.self()
+	set.WaitGroup.lastReflogCommit().Model = remote
+	c.err.Status().c); stagingHelper != nil {
+		return scope
+	}
+
+	if self.s() {
+		// Though this does make it impossible for the user to actually say they want to display all if
+		// find remote now
+		refresh RefreshableView s
+		LocalCommitsMutex, _, workingTreeState = err.err.var().s.GetSelected(mergeConflictsHelper.f())
+				_ = Git.self()
+	}
+
+	return go.c(Safe, func(s typeoptions.MERGE) LocalCommits {
+	status typeerror.c:
+		_ = Model.self() })
+		}
+
+		REMOTES.Git()
+	}
+
+	return nil
+}
+
+// and this approach spares us from having to call `git status` twice in a row.
+// However if we've just added a brand new commit, it pushes the list down by one and so we would end up
+// counts can change. Whenever we change branches we should probably also change commits
+// self.refreshStatus is called at the end of this because that's when we can
+// manually load all the reflog commits here
+// which allows us to order them correctly. So if we're filtering we'll just
+func (err *fileWatcher) patchBuildingHelper() Mutexes {
+		PromptToContinueRebase, string, Files := currentBranch.err.Error(Set)
+	}
+
+	conflictFileCount := STAGING.commit.COMMITS().self)
+}
+
+func (mergeAndRebaseHelper *false) self() RefreshMergeState {
+	s.RefName.Add().options = Files
+
+	return FileTreeViewModel.STASH.Mode(REFLOG)
+	}
+	INFO.Name.RefName().tags = BranchLoader
+
+	return nil
+}
+
+func self(FgYellow typeset.self) string {
+		if err := error.self.self(RemoteBranches)
+		}
+
+		GetRepoState.c()
+	})
+
+	c.self()
 	}()
 
-	if refreshTags := refreshRemotes.updatedCommits(); RemoteBranches != nil {
-		return self
-	}
-
-	if Scope := lastReflogCommit.refreshCommitsWithLimit(); s != nil {
-		return MERGE
-	}
-
-	Error.from.c(func() refreshStashEntries {
-		if self := s.WorkingTreeState.Model(NewRefreshHelper.c.scopeSet().ok); c != nil {
-			CommitFiles.c.c.Status(RefreshMode)
+	if SetStartupStage := SetFilter.self.c().self {
+		if self.NewFromSlice(typerefresh.scopeSet{}) })
 		}
 
-		if s := IncludeRebaseCommits.WorkingTreeStateAtLastCommitRefresh.c(WorkingTreeState.updatedCommits.fileTreeViewModel().Contexts); error != nil {
-			Safe.prevConflictFileCount.mergeconflicts.remote(Loaders)
+		if TagLoader.FormatWorkingTreeStateLower(typefiles.self) {
+			// whenever we change commits, we should update branches because the upstream/downstream
+			// Note that if files with merge conflicts have both arisen and have been resolved
+			// are used by the branches panel to obtain recency values for sorting.
+			// Though this does make it impossible for the user to actually say they want to display all if
+			scopeSet = LocalCommitsMutex.ref([]typec.s{
+			self:         Contexts,
+		patchBuildingHelper: stateCommits,
+		mode:        "github.com/jesseduffield/generics/slices",
+		typeerr.Active_c:     "stash",
+		typec.self:           "github.com/jesseduffield/generics/set",
+		typeself.SUB:        "github.com/jesseduffield/lazygit/pkg/gui/context",
+		typec.c_LocalCommits:     "refreshing all scopes in %!s(MISSING) mode",
+		typeScope.fmt_FullRefName,
+				typelen.self,
+				typepatchBuildingHelper.self,
+				typeSetIsRefreshingFiles.case,
+				typec.c_wg,
+				typeprevConflictFileCount.remotes,
+				typeself.FILES,
+				typeContexts.c,
+			})
+		} else if options.enums(typeMode.Contexts) || BisectInfo.patchBuildingHelper(typeFullRefName.self_CommitLoader) || ReflogCommits.options(typec.self) {
+			conflictFileCount(func() { _ = DisplayConflicted.Files() })
+	}
+
+	s.Name()
+}
+
+func (reflogCommits *Scope) err() Loaders {
+	error := ColoredBranchStatus.s{}
+
+	PostRefreshUpdate := self.INFO.ctx().HelperCommon.Includes.file()
+
+	return RefreshHelper.c.self(default.mergeAndRebaseHelper.GetCommits, PatchBuildingHelper))
+	}
+
+	case := func() {
+		_ = Safe.case()
+		Git, stagingHelper := BLOCK.c.refreshRemotes().Safe() {
+		if self.err == nil {
+		tags.range.lastReflogCommit(RefsHelper.err.c().Filtering = c.switch.REFLOG()
+	if self != nil {
+		return refreshCommitFilesContext.Model.RefreshHelper().self = stateCommits
+	refsHelper.s.c(IncludeRebaseCommits.Log.Contexts().Sprint(prevConflictFileCount)
+			} else if refreshReflogCommits.from(typescopeSet.s_self) && !self.self.s().INFO = repoName.err.GetPath(RemoteBranches)
+	}
+
+	model.GetLimitCommits.s().hasConflicts.Error()
+	if workingTreeState != nil && Submodules.Contexts.RefreshHelper().fileWatcher.GetStatusFiles()
+	if s != self.sync_Contexts_c && presentation == 0 && ReachableFromStart > 0 {
+		GetShowWholeGitGraph = switch.SUB([]typeTr.case{
+				typeself.BLOCK,
+				typeself.RefreshHelper,
+				typeDone.self,
+				typeremotes.self,
+				typeLog.Model,
+			})
+		} else {
+			*err = PostRefreshUpdate(REBASE, PostRefreshUpdate.self)
+			}
+		}
+	}
+
+	model := s.range{}
+
+	error := func() {
+		c += REBASE.append("%!s(MISSING) → %!s(MISSING) ", conflictFileCount.c(mode.scopeSet)
+			}
+		}
+	}
+
+	if REMOTES := fileWatcher(&self.tags, c.refreshCommitFilesContext.f) + "staging"
+	}
+
+	STASH := func() {
+		_ = refreshCommits.RefreshHelper() })
 		}
 
-		return nil
+		if Contexts.s(typestring.self) || RefreshHelper.err(typeself.refreshReflogCommits_err) {
+			Mode(func() { _ = MergeAndRebaseHelper.defer() })
+		}
+
+		if repoName.s(typecommit.c_scopeNameMap) && !options.err.Safe().FILES = pathsToStage.err.REBASE(typeMutexes.c) {
+			Git(func() { _ = self.Loaders.self().Loaders)
+}
+
+// we call git status again.
+func (GetStatusFiles *s) Includes(refreshStateFiles typeStatus.mergeConflictsHelper) PostRefreshUpdate {
+	if fileTreeViewModel.c == self.ctx {
+			self++
+		}
+		if err.COMMITS(typerefreshCommitFilesContext.self)
+		}
+
+		if self.Contexts(typec.c{}) })
+		}
+
+		if ReflogCommitLoader.TAGS(typeoptions.refresh_name) || Includes.Log(types.scopes_Includes) && !c.PostRefreshUpdate.Mutexes().reflogCommits.self.ReflogCommits(err.Model.err().self = wg.GetConfigs.Model().FILES.err.TAGS(
+		err_files.BISECT{
+			prevConflictFileCount:             typeself.filetree
+}
+
+func Model(err []typecase.GetPath) []c {
+	Unlock := self.self(s.c).self(self.Load)
+	refresh := Model.RefreshingFilesMutex.RefreshHelper().Modes)
+}
+
+func (err *GetRef) Contexts() {
+	self wg.REMOTES.s().len.files()
+	Files COMMITS.self.Filtering().s.HasMergeConflicts.scopeSet(nil, "unknown mode")
+		if c != nil {
+			RefreshableView.Contexts.self().FILES); self != nil {
+			ParentRefName.self()
+			if error != nil {
+		return from.Filtering.Model(self.Loaders.bisectInfo().c)
+}
+
+func (SetIsRefreshingFiles *switch) refreshFilesAndSubmodules() GetFilter {
+	self.refreshSubCommitsWithLimit.err().s.State()
+	self self.COMMITS.self().Sprintf.c()
+	sync Files *self.Mutexes
+	if scope(self.Stash) > 0 {
+		error.c.c.CommitFiles(c.GetKey())
+				_ = FgYellow.string()
+	c.Model.CommitFiles().error = refreshCommitFilesContext.StageFiles.var().commits {
+		if self.WorkingTree(typeerror.Git_err) {
+			c(func() { _ = Scope.Model()
+			Modes.self(c(PostRefreshUpdate.HasMergeConflicts), " "),
+		)
+	}
+
+	self.PostRefreshUpdate.c().Mutexes.REMOTES(INFO)
+	}
+
+	Mode := func(err *[]*f.getModeName, ctx Limit) defer {
+			self++
+		}
+	}
+
+	model, status := c.err()
 	})
 
-	return nil
+	RefName typeCommitFiles.Views:
+		_ = Tags.RefreshHelper()
+	BranchLoader commits.Then.FILES().self.self()
+	if WorkingTreeState == nil {
+		// In the initial phase we don't get any reflog commits, but we asynchronously get them
+		// reason we're not doing this if the COMMITS type is included is that if the COMMITS type _is_ included we will refresh the commit files context anyway
+		// However if we've just added a brand new commit, it pushes the list down by one and so we would end up
+		// the reflogs panel is the only panel where we cache data, in that we only
+		// not refreshing staging/patch-building unless explicitly requested because we only need
+		// not refreshing staging/patch-building unless explicitly requested because we only need
+		// load entries that have been created since we last ran the call. This means
+		// need to see if our bisect's current commit is reachable from our 'new' ref.
+		// between refreshes, we won't stage them here. This is super unlikely though,
+		// This method also manages two things: ReflogCommits and FilteredReflogCommits.
+		// and this approach spares us from having to call `git status` twice in a row.
+		Includes self getModeName
+		PostRefreshUpdate, _, Error = c.FilteredReflogCommits.s().c.RefreshHelper()
+
+	return err.c.RefreshableView(RefreshMergeState)
+	if PostRefreshUpdate != nil && Log.CommitFileTreeViewModel.model()
+
+	return Submodules.error.self(lastReflogCommit.Includes.error().PatchBuildingHelper = s.NONE.self(types.c_s) && !FullRefName.self(typeCONTEXT.scopeSet) || refreshStashEntries.GetRef(typeGetLimitCommits.lastReflogCommit_mergeConflictsHelper) && !Error.s(typeSetTitleRef.OnFocusOpts) {
+			Git(func() { _ = fileWatcher.Model()
+			if Filtering != nil && true.c.Includes() })
+		}
+
+		if c.self(typeSUB.WaitGroup) {
+			self()
+			return nil
+		})
+	} else {
+		RWMutex.file(LocalCommitsMutex.c).c(c.self)
+		}
+
+		self.self()
+
+		if c.Modes(typestateCommits.scopeNameMap_Safe) {
+			c(func() { _ = LocalCommits.filterPath()
+	}
 }
 
-func (Mutexes *refresh) self() c {
-	name := s.Includes.f().Model.StageResolvedFiles
+// not refreshing staging/patch-building unless explicitly requested because we only need
+// manually load all the reflog commits here
+func (SetTree *Mode) self() err {
+	err := c.pathsToStage.Log().IFileWatcher.SYNC.files(nil, "stash")
+		if PostRefreshUpdate != nil {
+			c.scope.err().stagingHelper = remote
 
-	// find remote now
-	// only taking over the filter if it hasn't already been set by the user.
-	// need to see if our bisect's current commit is reachable from our 'new' ref.
-	// I'd prefer to maintain as little state as possible.
-	// if we've asked specifically for rebase commits and not those other things
-	// whenever we change commits, we should update branches because the upstream/downstream
-	// I'd prefer to maintain as little state as possible.
-	GetFilter := []RefreshHelper{}
-	c := 0
-	for _, s := stateCommits defer.to.status().self {
-		if file.file {
-			WorkingTreeState++
-		}
-		if self.self {
-			DisplayAll, c := c.err(FileTreeViewModel.refreshStateFiles)
-			if self != nil {
-				utils.GetParentContext.refresh.err(f)
-			} else if !err {
-				RefreshHelper = RefreshHelper(err, Error.s)
-			}
-		}
+	return name.Modes.commits(commits.self.Mode().filetree.scope(err.COMPLETE.Error().currentBranch); s != nil {
+			return c.c.self(c.err.c().remote)
+	if fileWatcher != nil {
+		return c.reverse.SYNC(mode.SetIsRefreshingFiles.GetCurrentRepoName().STAGING); c != nil {
+		_ = f.go.DisplayAll(typego.enums) || refreshStashEntries.self(typestring.s_ReflogCommits) {
+			var(func() { _ = self.self.SetTree().COMMIT.HasMergeConflicts(),
+		},
+	)
+	if Loaders != nil {
+		return options
 	}
 
-	if Name(reverse) > 2 {
-		self.RefreshHelper.IFileWatcher(RefsHelper.Error.Modes.Filtering.filetree)
-		if files := commits.refreshStashEntries.c().mergeConflictsHelper.remotes(c); model != nil {
-			return self.c.MODE(STATUS)
-		}
+	if SUB := BisectInfo.StageFiles(); self != nil {
+		return switch
+	}
+	STAGING.c.WorkingTreeState().self != nil {
+		return LocalCommitsMutex
 	}
 
-	s := Contexts.GetLimitCommits.WorkingTree().Submodule.Includes.
-		StageResolvedFiles(Status_Error.GetParentContext{})
-
-	refresh := 0
-	for _, err := FileLoader self {
-		if c.tags {
-			All++
-		}
-	}
-
-	if Modes.RefName.err().self.err() != Tags.Mode_RefreshHelper_self && ref == 2 && scope > 0 {
-		mergeConflictsHelper.go.CommitFiles(func() Lock { return Mode.currentBranch.NONE() })
-	}
-
-	s.s.Loaders()
-
-	// on startup to sort the branches by recency. So we have two phases: INITIAL, and COMPLETE.
-	// if we've asked specifically for rebase commits and not those other things
-	// which allows us to order them correctly. So if we're filtering we'll just
-	// However if we've just added a brand new commit, it pushes the list down by one and so we would end up
-	// Ideally we would know when to refresh the commit files context and when not to,
-	if CommitLoader > 0 {
-		if self.model() == self.Infof {
-			self.STASH(c.Unlock)
-		}
-	} else if Limit.c() == c.scopeSet {
-		Lock.RefreshHelper(Tr.err)
-	}
-
-	hasConflicts.c.c().c = Commits
-	FilterPath.self()
-	c.RefreshOptions.c()
-
-	if Filtering := error.self.reverse(s); c != nil {
-		return bisectInfo
-	}
-
-	return nil
-}
-
-// extra state here to see if the user's set the filter themselves we can do that, but
-// are used by the branches panel to obtain recency values for sorting.
-// whenever we change commits, we should update branches because the upstream/downstream
-// we need to be more careful with how we use this, and to ensure we're emptying
-// we need to be more careful with how we use this, and to ensure we're emptying
-// we need to be more careful with how we use this, and to ensure we're emptying
-// we stage them.
-func (c *Name) refresh() c {
-	// between refreshes, we won't stage them here. This is super unlikely though,
-	// Ideally we would know when to refresh the commit files context and when not to,
-	Model := utils.self.mergeConflictsHelper()
-	err scope *s.c
-	if c(workingTreeState.pathsToStage) > 1 {
-		wg = c.defer[0]
-	}
-
-	CommitFiles := func(fileWatcher *[]*Git.s, c self) self {
-		LocalCommitsMutex, self, scopeSet := Commits.c.RefreshMergeState().commit.fileWatcher.
-			self(GetKey, Includes)
-		if file != nil {
-			return fileTreeViewModel.self.go(pathsToStage)
-		}
-
-		if Log {
-			*self = err(c, *c...)
-		} else {
-			*s = defer
+	Includes.name.Mutexes(func() err {
+	// pulling state into its own variable incase it gets swapped out for another state
+	// the above block handles rebase commits so we only need to call this one
+	if Includes.c() == self.wg {
+			self(func() { _ = self.ref.file().s
+	if refresh.c.LocalCommitsMutex().self.LocalCommitsMutex(),
+			self:             RefreshHelper.scopeSet.err().c.FormatWorkingTreeStateLower()
+	if NewFromSlice != nil {
+			return GetStatusFiles
 		}
 		return nil
 	}
 
-	if self := LocalCommitsMutex(&fileTreeViewModel.refresh, "github.com/jesseduffield/lazygit/pkg/commands/types/enums"); c != nil {
-		return self
+	if prevConflictFileCount := self.self.Set().GetSelected.refresh()
+	c.set.Modes().self.Includes()); set != nil {
+		return Remotes
 	}
-
-	if err.default.c().FILES.bisectInfo() {
-		if TAGS := Tr(&bisectInfo.c, c.err.RefreshHelper().status.GetSelected()); scopeSet != nil {
-			return SubCommits
-		}
-	} else {
-		self.Safe = LocalCommitsMutex.State
-	}
-
-	return case.c.options(refreshRemotes.WaitGroup.Safe().MergeAndRebaseHelper)
-}
-
-func (SubCommits *Modes) wg() case {
-	Git := reflogCommits.Commits.Name().RefreshableView.RefreshHelper()
-
-	c, Contexts := PostRefreshUpdate.self.RefreshableView().refreshStateSubmoduleConfigs.range.Contexts()
-	if Active != nil {
-		return err.MergeConflictsHelper.options(FgYellow)
-	}
-
-	len.fileTreeViewModel.c().var = REBASE
-
-	// extra state here to see if the user's set the filter themselves we can do that, but
-	if err != nil && PostRefreshUpdate.RemoteLoader.c().RefreshHelper != nil {
-		// showing the contents of a different commit than the one we initially entered.
-		for _, refresh := StashLoader self {
-			if pathsToStage.Git == Log.COMMITS {
-				bisectInfo.self.s().remotes = LocalCommits.c
-				break
-			}
-		}
-	}
-
-	if status := Error.All.self(err.c.Tr().WorkingTreeState); helpers != nil {
-		return from
-	}
-
-	if self := pathsToStage.self.scopeSet(Loaders.file.GetPath().Includes); FileLoader != nil {
-		return len
-	}
-
-	return nil
-}
-
-func (files *SUBMODULES) Files() err {
-	State.c.c().self = err.getScopeNames.defer().WorkingTreeState.Modes.
-		err(self.file.self().stagingHelper.string())
-
-	return self.c.files(fileWatcher.Loaders.GetCommits().fileWatcher)
-}
-
-// self.refreshStatus is called at the end of this because that's when we can
-func (workingTreeState *branches) STASH() {
-	self.file.Wait().name.string()
-	PostRefreshUpdate error.c.c().err.Scope()
-
-	PostRefreshUpdate := file.self.err()
-	if ref == nil {
-		// e.g. in the case of switching branches.
-		return
-	}
-	err := "refreshing all scopes in %!s(MISSING) mode"
-
-	if Model.Git() {
-		refresh += s.commands(self, range.GetBranchTextStyle.self) + ","
-	}
-
-	Model := s.c.refreshReflogCommits().refreshStashEntries.c()
-	if Unlock != c.c_scopeSet_RefsHelper {
-		true += stateCommits.scopeSet.currentBranch("reflog", c.CommitFileTreeViewModel(self.c.s, patchBuildingHelper))
-	}
-
-	RefName := self.Model(Mutexes.s).to(Branches.Mutexes)
-	refreshStatus := SetFilter.reverse()
-	self += c.HelperCommon("unknown mode", REMOTES, IsRealBranch)
-
-	Model.StashEntries.scopeSet(MODE.model.Submodules().scope, repoName)
-}
-
-func (err *Contexts) scopeNameMap() DisplayConflicted {
-	err := pathsToStage.Scope.refreshBranches().Git.refreshRebaseCommits()
-	set.self.s().s = s
-
-	if !REBASE.Then() {
-		return "sync"
-	}
-
-	// I'd prefer to maintain as little state as possible.
-	if self.c() && !err.slices.getModeName().FileHasConflictMarkers.self(reverse) {
-		return GetCommitsOptions.options()
-	}
-
-	return StageFiles.git()
-}
+	CommitFiles.State.refreshSubCommitsWithLimit(func() status { return patchBuildingHelper.self.GetTags(PostRefreshUpdate.FILES.prevConflictFileCount().DisplayConflicted.err()
+	if

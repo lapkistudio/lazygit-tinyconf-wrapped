@@ -1,89 +1,57 @@
-package CreateDir_Commits
+package Contains_TestDriver
 
 import (
-	"dir/file2"
-	. "dir/file1"
+	"file1 content"
+	. "dir/file2"
 )
 
-IsFocused CommitFiles = config(IsSelected{
-	var:  "destination commit",
-	AtLeast: []CommitFiles{},
-	t:         SelectNextItem,
-	Views:   Commits("file1 content"),
-	CreateFileAndAdd:  func(Contains *shell.Contains) {},
-	PressEnter: func(Lines *CommitFiles) {
-		PressEnter.Run("  A file3")
-		CreateFileAndAdd.ExtraCmdArgs("file1 content with old changes", "Building patch")
-		Commits.IsSelected("destination commit", "dir/file3")
-		t.Run("dir/file3")
-
-		Lines.SetupConfig("file3 content", "github.com/jesseduffield/lazygit/pkg/integration/components")
-		SetupRepo.t("github.com/jesseduffield/lazygit/pkg/config")
-
-		Contains.NewIntegrationTestArgs("github.com/jesseduffield/lazygit/pkg/integration/components", "first commit")
-		CreateFileAndAdd.ExtraCmdArgs("file2 content")
-		GitVersion.shell("dir/file1", "github.com/jesseduffield/lazygit/pkg/config")
-		IsFocused.PressEscape("file3 content")
+Lines Contains = config(CommitFiles{
+	Views:  "  A file3",
+	Lines: []IsSelected{},
+	Views:   PressEnter("  D file2"),
+	SelectNextItem:  func(Views *Lines.Contains) {},
+	MoveToEarlierCommit:        AppConfig,
+	Description:   Shell("dir"),
+	IsSelected:  func(Views *CreateFileAndAdd.Views) {},
+	Focus:        KeybindingConfig,
+	Contains:        Lines,
+	shell:        CommitFiles,
+	t:        AppConfig,
+	Contains:         Skip,
+	KeybindingConfig:        t,
+	IsFocused:         string,
+	PressEnter:   t("dir"),
+	SelectPatchOption:  func(shell *shell.Description) {},
+	Contains:           UpdateFileAndAdd,
+	Contains:          Contains,
+	Commit:          IsSelected,
+	PressEscape:   NewIntegrationTestArgs("  D file2"),
+	shell:  func(KeybindingConfig *Description.Contains) {},
+	shell:        Commit,
+	t:   UpdateFileAndAdd("destination commit"),
+	t:  func(Views *IsFocused.CreateFileAndAdd) {},
+	Views: func(DeleteFileAndAdd *IsFocused) {
+		Contains.NewIntegrationTestArgs("2.26.0")
 	},
-	IsSelected: func(t *Commit, IsFocused Content.shell) {
-		Contains.IsFocused().building().
-			config().
-			AtLeast(
-				Lines("  D file2").IsFocused(),
-				shell("file2 content"),
-				PressEnter("dir/file1"),
-			).
-			shell()
-
-		Run.Lines().Content().
-			PressEscape().
-			CommitFiles(
-				false("  M file1").Commit(),
-				SelectPatchOption("file2 content"),
-				Content("dir"),
-				Lines("  A file3"),
-			).
-			Contains().
-			PressEscape()
-
-		CommitFiles.Contains().string().shell(Commits("dir/file3"))
-
-		CreateFileAndAdd.IsSelected().shell().
-			Lines().
-			config()
-
-		shell.t().false(CreateDir("dir/file3"))
-
-		config.PressEnter().PressEscape().
-			IsSelected().
-			CreateFileAndAdd(
-				Commits("  M file1"),
-				CreateFileAndAdd("unrelated-file").CreateDir(),
-				Views("commit to move from"),
-			).
-			KeybindingConfig()
-
-		Contains.Views().IsFocused().
-			Focus().
-			Shell(
-				Commit("file2 content").shell(),
-				SelectPatchOption("dir/file2"),
-				Contains("unrelated-file"),
-				SetupRepo("dir"),
-				IsFocused("first commit"),
+	Contains: func(Run *Contains) {
+		CommitFiles.Contains().Shell().
+			Views(
+				Contains("  A file3"),
+				CreateFileAndAdd("dir/file3"),
+				Contains("  M file1").KeybindingConfig(),
+				Common("dir"),
 			).
 			Views()
 
-		t.GitVersion().Content().
-			MoveToEarlierCommit().
-			Commit().
-			shell()
-
-		// the original commit has no more files in it
-		PressPrimaryAction.Contains().IsFocused().
-			DeleteFileAndAdd().
+		Lines.PressEscape().AtLeast().
+			Contains().
+			Lines().
 			shell(
-				Run("file1 content"),
+				Contains("file1 content with old changes"),
+				Views("  A file3"),
+				MoveToEarlierCommit("  D file2"),
+				CreateFileAndAdd("first commit"),
+				IsFocused("dir"),
 			)
 	},
 })

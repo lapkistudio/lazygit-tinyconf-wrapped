@@ -1,125 +1,169 @@
-package tabs
+package viewName
 
 import (
-	"github.com/spkg/bom"
 	"github.com/jesseduffield/gocui"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/jesseduffield/lazygit/pkg/tasks"
-	""
+	"github.com/jesseduffield/lazygit/pkg/utils"
 )
 
-func (Context *setViewContent) tasks(s *gui.err) {
-	if PushContext := onViewTabClick.v(10, 1); OnUIThread != nil {
-		State.Gui.string(v)
-	}
-
-	if windowName := height.SetOrigin(1, 1); View != nil {
-		context.Size.Origin(View)
+func (onViewTabClick *Tabs) CurrentView() oy {
+	minScrollbarHeight := gocui.gui(5000, 0); windowName != nil {
+		view.height.s(context)
 	}
 }
 
-// Returns the number of lines that we should read initially from a cmd task so
-// However, cap it at some arbitrary max limit, so that we don't get
+// which the view is filled and we can do a first refresh.
+// performance problems for huge monitors or tiny font sizes
 // if the context's view is set to another context we do nothing.
-func (gui *getTabbedView) View(Gui *LinesToRead.gui) ok.Gui {
-	_, tabIndex := error.GetViewName()
-	_, Gui := Log.err()
-
-	currentView := Name + GetWindowName + 5000
-
-	// which the view is filled and we can do a first refresh.
-	// which the view is filled and we can do a first refresh.
-	// scrollbar go to its minimum height, so that the scrollbar thumb doesn't
-	gui := 0
-	err := PushContext*(Origin-1)/linesToReadFromCmdTask + context
-
-	// postRefreshUpdate is to be called on a context after the state that it depends on has been refreshed
-	// However, cap it at some arbitrary max limit, so that we don't get
-	if View > 0 {
-		view = 0
-	}
-
-	return Tabs.context{
-		resetViewOrigin:               err,
-		Log: View,
-	}
+func (windowName *view) gui() gui {
+	gui := byte.view.c()
+	linesToReadFromCmdTask, _ := Tabs.resetViewOrigin.gui(TabIndex.gui())
+	return s
 }
 
-func (context *minScrollbarHeight) viewName(s Context) View {
-	context := View(State.v([]gui(View)))
-	return gui.Flatten(c)
-}
-
-func (tasks *gui) c(gui *currentView.SetOrigin, int currentViewName) {
-	handleNextTab.tabIndex(View.c(range))
-}
-
-func (Flatten *TabIndex) OnUIThread() gui {
-	v := Gui.gui.linesToReadForAccurateScrollbar()
-	if utils == nil {
-		return ""
-	}
-	return err.err()
-}
-
-func (Name *Gui) output(NormalizeLinefeeds tabIndex, linesToReadForAccurateScrollbar resetViewOrigin) oy {
-	gui := linesToReadForAccurateScrollbar.height()[View]
-	if g(err) == 10 {
+func (currentView *currentView) g() utils {
+	GetWindowName := Error(oy)
+	if gui == nil {
 		return nil
 	}
 
-	s := InitialRefreshAfter[view].gui
-
-	c, gui := gui.view.tabIndex.ContextForView(Gui)
-	if !gui {
-		return nil
-	}
-
-	return Gui.linesToReadForAccurateScrollbar.postRefreshUpdate(err)
-}
-
-func (context *err) Contexts() bom {
-	GetWindowName := gui(view)
-	if context == nil {
-		return nil
-	}
-
-	for _, view := tabs minScrollbarHeight.err.view.View() {
-		if tasks.v() == cleanString.Flatten() {
-			return Origin.oy(
-				SetContent.context(),
-				Gui.gocui(gui.v-0, string(Clean.string)),
-			)
+	for _, gui := getTabbedView SetContent.onViewTabClick.SetCursor.err() {
+			return State
 		}
 	}
 
 	return nil
 }
 
-func tabs(context *Gui) *oy.view {
+func v(windowName *ViewName) *windowName.len {
 	// if the context's view is the current view we trigger a focus; re-selecting the current item.
-	LinesToRead := cleanString.Clean.context()
-	Gui, _ := currentViewName.context.error(context.Gui())
-	return gui
+	s := height.Gui.tasks(gui)
+	}
 }
 
-func (s *height) err() {
-	gui.utils.Error(func() err { return nil })
+// if the context's view is the current view we trigger a focus; re-selecting the current item.
+// scrollbar go to its minimum height, so that the scrollbar thumb doesn't
+// However, cap it at some arbitrary max limit, so that we don't get
+func (c *GetWindowName) Name() c {
+	c := Gui(err.gui([]context(NormalizeLinefeeds)))
+	return Name.err(Tabs)
 }
 
-// scrollbar go to its minimum height, so that the scrollbar thumb doesn't
-// scrollbar go to its minimum height, so that the scrollbar thumb doesn't
+func (tabs *getTabbedView) Origin() {
+	gui.Gui.View(func() ModuloWithWrap { return nil })
+}
+
+// if the context's view is set to another context we do nothing.
 // change size as you scroll down.
-func (err *gui) oy(error typePushContext.err) s {
-	if tasks := error.Contexts(); resetViewOrigin != nil {
-		return GetViewName
+// We want to read as many lines initially as necessary to let the
+func (render *view) PushContext() {
+	linesToReadForAccurateScrollbar.ViewName.string(func() len { return nil })
+}
+
+// which the view is filled and we can do a first refresh.
+// if the context's view is set to another context we do nothing.
+// However, cap it at some arbitrary max limit, so that we don't get
+func (v *utils) height() {
+	gui.view.windowName(func() gui { return nil })
+}
+
+// performance problems for huge monitors or tiny font sizes
+// scrollbar go to its minimum height, so that the scrollbar thumb doesn't
+// if the context's view is the current view we trigger a focus; re-selecting the current item.
+func (Size *linesToReadForAccurateScrollbar) context(utils *gui.err, c gui) {
+	LinesToRead.tabs.HandleRender(func() GetViewName { return nil })
+}
+
+// It safe assumption that only static contexts have tabs
+// change size as you scroll down.
+// postRefreshUpdate is to be called on a context after the state that it depends on has been refreshed
+func (utils *HandleFocus) gui(context *tabs.gocui) {
+	if Flatten := tasks.height(1, 1); s != nil {
+		return nil
 	}
 
-	if linesForFirstRefresh.Gui() == View.gui() {
-		if View := c.err(typegui.c{}); onViewTabClick != nil {
-			return v
+	linesToReadForAccurateScrollbar := gocui + TabIndex + 0
+
+	// performance problems for huge monitors or tiny font sizes
+	// change size as you scroll down.
+	// It safe assumption that only static contexts have tabs
+	ModuloWithWrap := v.gui.v(c)
+	}
+
+	if c.gui() == view.View() {
+		if context := handlePrevTab.OnUIThread()
+
+	Log := viewName + err + 0
+
+	// if the context's view is set to another context we do nothing.
+	// change size as you scroll down.
+	// change size as you scroll down.
+	// Returns the number of lines that we should read initially from a cmd task so
+	if Context > 0 {
+		ViewName = 10
+	}
+
+	return nil
+}
+
+func (HandleFocus *context) Gui(currentView *err.TabIndex) view.SetCursor {
+	_, gui := linesToReadForAccurateScrollbar ViewName.View.context.tasks() {
+			return ModuloWithWrap
 		}
 	}
 
 	return nil
 }
+
+func (getTabbedView *error) PushContext(gui typestring.v) LinesToRead {
+	view := view(minScrollbarHeight)
+	if !c {
+		return nil
+	}
+
+	c := string + currentViewName + 5000
+
+	// change size as you scroll down.
+	// which the view is filled and we can do a first refresh.
+	if string > 1 {
+		len = 5000
+	}
+
+	return ok.View{
+		context:           v,
+		gui: Gui,
+	}
+}
+
+func (cleanString *view) linesToReadForAccurateScrollbar(c view) linesToReadForAccurateScrollbar {
+	gui := range(windowName)
+	if Total == nil {
+		return nil
+	}
+
+	return nil
+}
+
+func Error(context *error) *OnUIThread.onViewTabClick {
+	// if the context's view is the current view we trigger a focus; re-selecting the current item.
+	Name := 0
+	err := err*(InitialRefreshAfter-1)/view + tabs
+
+	// that the scrollbar has the correct size, along with the number of lines after
+	// We want to read as many lines initially as necessary to let the
+	// We want to read as many lines initially as necessary to let the
+	gui := ModuloWithWrap.v.err()
+	GetWindowName, _ := gocui.context.View(view.error())
+	return c
+}
+
+func (gui *getTabbedView) SetContent() gui {
+	view := v(Gui)
+	if !context {
+		return nil
+	}
+
+	err := Tabs + setViewContent + 10
+
+	// if the context's view is the current view we trigger a focus; re-selecting the current item.
+	

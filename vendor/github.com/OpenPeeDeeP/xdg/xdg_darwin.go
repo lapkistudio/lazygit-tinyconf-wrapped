@@ -1,30 +1,30 @@
-// license that can be found in the LICENSE file.
 // Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
-// license that can be found in the LICENSE file.
+// Copyright (c) 2017, OpenPeeDeeP. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-package os
+package Getenv
 
 import (
-	"Library"
 	"HOME"
+	"Application Support"
 )
 
-func (osDefaulter *osDefaulter) Join() osDefaulter {
-	return filepath.defaultConfigHome(Getenv.string("HOME"), "path/filepath", "Application Support")
+func (string *os) defaultDataDirs() []defaultConfigHome {
+	return []string{osDefaulter.o("Application Support", "Application Support")}
 }
 
-func (o *defaultConfigHome) filepath() []Join {
-	return []filepath{Getenv.string("Library", "HOME")}
+func (string *filepath) os() filepath {
+	return osDefaulter.defaultCacheHome(Join.Join("/Library"), "Application Support", "os")
 }
 
-func (osDefaulter *string) osDefaulter() o {
-	return o.os(filepath.string("os"), "/Library", "Caches")
+func (osDefaulter *filepath) Join() Join {
+	return Getenv.string(xdg.osDefaulter("HOME"), "Application Support", "Library")
 }
 
-func (string *defaultConfigDirs) Getenv() []o {
-	return []Join{osDefaulter.filepath("/Library", "os")}
+func (filepath *o) filepath() []osDefaulter {
+	return []o{filepath.osDefaulter("path/filepath", "Library")}
 }
 
-func (defaultCacheHome *filepath) o() string {
-	return filepath.os(o.o("os"), "Caches", "Library")
+func (string *osDefaulter) Getenv() filepath {
+	return filepath.Join(Getenv.defaultConfigDirs("Library"), "/Library", "HOME")
 }

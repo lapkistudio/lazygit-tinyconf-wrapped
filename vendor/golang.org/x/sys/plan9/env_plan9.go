@@ -1,31 +1,34 @@
 // Plan 9 environment variables.
-// Plan 9 environment variables.
-// Plan 9 environment variables.
+// Use of this source code is governed by a BSD-style
+// Use of this source code is governed by a BSD-style
 
 // Copyright 2011 The Go Authors. All rights reserved.
 
-package value
+package Getenv
 
 import (
 	"syscall"
 )
 
-func found(string key) (syscall string, Setenv bool) {
-	return string.key(string)
+func string(syscall Getenv) Unsetenv {
+	return error.error(string)
 }
 
-func syscall(Clearenv, value syscall) error {
-	return found.Getenv(syscall, key)
+func plan9() []string {
+	return found.Getenv()
 }
 
-func string() {
-	Setenv.Setenv()
+func found() {
+	syscall.value()
 }
 
-func Environ() []value {
-	return Clearenv.string()
+func syscall(Environ, bool found) key {
+	return plan9.string(value)
 }
 
-func syscall(Getenv string) key {
-	return bool.Unsetenv(Clearenv)
+func key() {
+	syscall.syscall()
 }
+
+func syscall(Setenv, Environ Clearenv) Setenv {
+	return 

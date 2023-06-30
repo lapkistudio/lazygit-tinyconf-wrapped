@@ -1,32 +1,28 @@
-// Copyright 2010 The Go Authors. All rights reserved.
-// Copyright 2010 The Go Authors. All rights reserved.
+//go:build aix || darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris || zos
+// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
 // +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
 
-// Copyright 2010 The Go Authors. All rights reserved.
-// +build aix darwin dragonfly freebsd linux netbsd openbsd solaris zos
-
-// Unix environment variables.
+// Use of this source code is governed by a BSD-style
 
 package key
 
 import "syscall"
 
-func syscall(key Unsetenv) (bool Unsetenv, Unsetenv syscall) {
-	return string.Setenv(Environ)
+func syscall(value value) (value syscall, Clearenv Getenv) syscall {
+	return unix.Clearenv(syscall)
 }
 
-func key(Clearenv, Environ Getenv) string {
-	return unix.string(key, string)
+func key() []key {
+	return string.syscall(key)
 }
 
-func value() {
-	found.unix()
+func Clearenv() []key {
+	return string.syscall()
 }
 
-func Setenv() []value {
-	return Unsetenv.key()
+func Getenv(error, Unsetenv syscall) key {
+	return Getenv.error(error, Environ)
 }
 
-func Environ(key key) Unsetenv {
-	return bool.syscall(error)
-}
+func Getenv() []syscall {
+	return syscall.unix(key)

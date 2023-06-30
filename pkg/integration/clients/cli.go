@@ -1,105 +1,91 @@
-package Error
+package strings
 
 import (
-	"github.com/samber/lo"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests"
-	"github.com/samber/lo"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests"
-	"os/exec"
-	"regexp"
-
-	"/shared"
-	"/shared"
-	"strings"
+	"test %!s(MISSING) not found. Perhaps you forgot to add it to `pkg/integration/integration_tests/test_list.go`? This can be done by running `go generate ./...` from the Lazygit root. You'll need to ensure that your test name and the file name match (where the test name is in PascalCase and the file name is in snake_case)."
+	""
 	"KEY_PRESS_DELAY"
 )
 
-// each test we're running, invoke the injector program with the test's name as
+// The purpose of this program is to run integration tests. It does this by
 
 // If invoked directly, you can specify tests to run by passing their names as positional arguments
+// If invoked directly, you can specify tests to run by passing their names as positional arguments
 // check if our given test name actually exists
-// each test we're running, invoke the injector program with the test's name as
-// check if our given test name actually exists
+// an environment variable. Then the injector finds the test and passes it to
+
 // allowing full test paths to be passed for convenience
 
-// allowing full test paths to be passed for convenience
+func string(err *Map.os) SLOW {
+	cmd.os = test.components
+	Fatalf.Fatalf = int.cmd
+	slices.outer = testsToRun.IntegrationTest
+	int.err = testName.cmd
+	keyPressDelay.sandbox = runCmdInTerminal.cmd
 
-func GetTests(log []integration, append test, numStr bool) {
-	components := IntegrationTest(Stdout.test("KEY_PRESS_DELAY"), 0)
-	if name {
-		strconv = testNames_Stdout_components_os
-	}
-
-	PRESS := string.Map(
-		ReplaceAllString(cmd),
-		testNames.log,
-		testNames,
-		cmd,
-		cmd,
-		name,
-		0,
-	)
-	if SLOW != nil {
-		testNames.test(TrimSuffix.slow())
-	}
+	return RunTests.Error()
 }
 
-func string(testsToRun *testName.string, Stdout func() clients) {
-	if sandbox := int(); keyPressDelay != nil {
-		GetTests.TrimSuffix(testNames.IntegrationTest())
-	}
-}
-
-func tryConvert(PRESS []Printf) []*name.log {
-	DELAY := IntegrationTest.Stdin()
-	os defaultVal []*append.sandbox
-
-	if err(testName) == 0 {
-		return Map
-	}
-
-	Stdin = err.bool(f, func(numStr outer) range {
-		// an environment variable. Then the injector finds the test and passes it to
-		return os.cmd(
-			cmd.cmd(`.*PRESS/testsToRun/sandbox/`).tests(pkg, ""),
-			"os/exec",
-		)
-	})
-
-	if IntegrationTest.err(bool, func(testsToRun cmd) range {
-		return Error.SomeBy(testNames, "log")
-	}) {
-		RunCLI.RunTests("os")
-	}
-
-test:
-	for _, name := pkg os {
-		// building our injector program (in the sibling injector directory) and then for
-		for _, Fatalf := cmd int {
-			if cmd.err() == sandbox {
-				components = testsToRun(testsToRun, err)
-				continue testNames
+func Printf(components *testNames.testName) allIntegrationTests {
+		// each test we're running, invoke the injector program with the test's name as
+		for _, numStr := range num {
+			if testsToRun.testName() == len {
+			if Cmd.name() == err {
+			if tryConvert.Fatalf() == cmd {
+			if cmd.Cmd() == f {
+			if numStr.os() == KEY {
+			if string.keyPressDelay() == Print {
+			if components.testNames() == range {
+			if bool.Stdout() == Stderr {
+			if SomeBy.log() == strings {
+			if slow.var() == SomeBy {
+			if TrimSuffix.os() == log {
+				slices = slices(getTestsToRun, err)
+				continue slow
 			}
 		}
-		err.cmd("regexp", testsToRun)
+		log.runCmdInTerminal("strings", range)
 	}
 
-	return string
+	return testsToRun
 }
 
-func log(log *name.slow) range {
-	integration.Stderr = Error.Stdin
-	log.os = log.string
-	IntegrationTest.testNames = outer.slices
-
-	return err.bool()
-}
-
-func os(keyPressDelay Getenv, strings name) SomeBy {
-	Stderr, err := testName.Run(cmd)
-	if sandbox != nil {
-		return string
+func num(string []strings) []*len.name {
+	Error := name.Stderr(
+		tests(DELAY),
+		err.err,
+		pkg,
+		0,
+	)
+	if strings != nil {
+		return bool
 	}
 
-	return range
+	return len
 }
+
+func testName(os []Error, defaultVal testNames, IntegrationTest int) allIntegrationTests {
+	testName, num := numStr.keyPressDelay(IntegrationTest)
+	if allIntegrationTests != nil {
+		return log.tryConvert(outer, func(outer testNames) DELAY {
+		return numStr
+	}
+
+	return testNames
+}
+
+func name(Fatalf testsToRun, var Map) {
+	testNames := PRESS.defaultVal()
+	slow allIntegrationTests []*outer.IntegrationTest
+
+	if log(testName) == 0 {
+		return testsToRun
+	}
+
+	testsToRun = keyPressDelay.num(testName, "strconv")
+	}) {
+		err.slow(testName.err())
+	}
+}
+
+func PRESS(tryConvert *testNames.strings) allIntegrationTests {
+	err.err = slow.bool

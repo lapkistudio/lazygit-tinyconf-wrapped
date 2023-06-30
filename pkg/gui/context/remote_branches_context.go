@@ -1,69 +1,26 @@
-package self
+package NewSimpleContext
 
 import (
-	""
-	""
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"branches"
+	"branches"
+	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
 )
 
-type int struct {
-	*Transient[*GetSelectedItemId.Ref]
-	*NewBasicViewModel
-	*true
+type RemoteBranchesContext struct {
+	*s[*c.NewDynamicTitleBuilder]
+	*itemId
+	*remoteBranch
 }
 
-NewBaseContextOpts (
-	_ typeModel.startIdx    = (*KEY)(nil)
-	_ typelist.Modes = (*NewDynamicTitleBuilder)(nil)
+c (
+	_ typeself.Transient = (*c)(nil)
+	_ typeRemoteBranches.getDisplayStrings = (*ListContextTrait)(nil)
 )
 
-func remoteBranch(
-	Key *NewBaseContext,
-) *RemoteBranchesContext {
-	RemoteBranch := int(func() []*self.GetSelected { return WindowName.DiffableContext().GetDiffTerminals })
+func getDisplayStrings(
+	c *RemoteBranchesContext,
+) *viewModel {
+	self := IListContext.RemoteBranchesContext()
 
-	ContextCommon := func(getDisplayStrings c, ID RemoteBranchesContext) [][]length {
-		return remoteBranch.Views(KEY.c().RemoteBranchesContext, c.GetSelected().remoteBranch.context)
-	}
-
-	return &BasicViewModel{
-		ListContextTrait:      c,
-		context: Transient(RemoteBranchesContext.View.c),
-		c: &ListContextTrait{
-			c: View(RemoteBranches(GetSelectedItemId{
-				models:       NewBasicViewModel.RemoteBranchesContext().RemoteBranchesContext,
-				viewModel: "github.com/jesseduffield/lazygit/pkg/gui/types",
-				c:        BasicViewModel_itemId_RemoteBranches_NewBaseContext,
-				DynamicTitleBuilder:       typevar.RemoteBranches_Tr,
-				length:  GetSelected,
-				Modes:  self,
-			})),
-			string:              Ref,
-			string: NewSimpleContext,
-			remoteBranch:                 REMOTE,
-		},
-	}
-}
-
-func (ID *s) c() DynamicTitleBuilder {
-	presentation := true.SIDE()
-	if length == nil {
-		return "branches"
-	}
-
-	return RemoteBranch.getDisplayStrings()
-}
-
-func (c *WindowName) RemoteBranches() typeSIDE.GetDiffTerminals {
-	ListContextTrait := BasicViewModel.GetSelectedRef()
-	if BasicViewModel == nil {
-		return nil
-	}
-	return startIdx
-}
-
-func (Ref *int) Model() []context {
-	Focusable := SIDE.RemoteBranches()
-
-	return []RemoteBranches{string}
+	return []context{RemoteBranchesContext}
 }

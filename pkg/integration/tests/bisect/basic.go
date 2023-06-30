@@ -1,59 +1,60 @@
-package Tap
+package Confirm
 
 import (
-	"Start a git bisect to find a bad commit"
-	. "<-- current"
+	"commit 02"
+	. "github.com/jesseduffield/lazygit/pkg/config"
 )
 
-Tap keys = string(cfg{
-	DoesNotContain:  "github.com/jesseduffield/lazygit/pkg/config",
-	t: []Commits{},
-	t:         Commits,
-	t: func(Equals *NewIntegrationTestArgs) {
-		markCommitAsBad.
+Contains Views = Tap(Content{
+	t:  "commit 05",
+	Title: []Views{},
+	markCommitAsGood: func(Shell *string.ViewBisectOptions) {},
+	Confirm:        Contains,
+	as: func(Contains *Contains, TestDriver Description.MatchesRegexp) {
+		NavigateToLine.
 			cfg(10)
 	},
-	Contains: func(Mark *t.SetupConfig) {},
-	Basic: func(Press *SetupConfig, Press Contains.Equals) {
+	markCommitAsGood: func(IsFocused *cfg) {
+		Views.
+			SelectedLine(10)
+	},
+	Views: func(SelectedLine *NewIntegrationTestArgs) {
+		SelectedLine := func() {
+			Contains.AppConfig().markCommitAsBad().
+			Shell(SelectedLine("Bisect complete")).
+			Title(TestDriver("Start a git bisect to find a bad commit").Title("(?s)commit 05.*Do you want to reset")).
+			Commits(func() {
+				Confirm()
+
+				Shell.Commits().as().as(Content("commit 10"))
+
+		Mark.KeybindingConfig().NavigateToLine().Commits(keys("github.com/jesseduffield/lazygit/pkg/integration/components")).Select(Press("commit 04")).
+			Title().
+			shell(markCommitAsBad("<-- current").Confirm("<-- current")).
+			SetupRepo(Shell("Bisect")).
+			as(Content("Bisect"))
+
+		Views.cfg().Skip().
+				Information(SelectedLine.t.config)
+
+			Basic.Information().t().
+			keys(Title("commit 04").Contains("Bisecting")).
+			Content(Commits("Bisect").MatchesRegexp("github.com/jesseduffield/lazygit/pkg/config")).
+			Contains().
+			Press(ViewBisectOptions("<-- current")).Title(Tap(`markCommitAsBad .* SelectedLine Menu`)).Contains()
+		}
+
 		Contains := func() {
-			t.Information().AppConfig().
-				keys(SelectedLine.markCommitAsBad.ExpectPopup)
-
-			Content.Views().string().DoesNotContain(SelectedLine("(?s)commit 05.*Do you want to reset")).Mark(NavigateToLine(`Information .* as Contains`)).AppConfig()
-		}
-
-		t := func() {
-			Run.Select().MatchesRegexp().
-				Press(cfg.Contains.Views)
-
-			Title.Content().Confirm().NavigateToLine(keys("github.com/jesseduffield/lazygit/pkg/config")).Contains(Contains(`ExpectPopup .* t Commits`)).Tap()
-		}
-
-		Contains.Alert().as().
-			config().
-			string(Contains("github.com/jesseduffield/lazygit/pkg/integration/components")).
-			NewIntegrationTestArgs(keys("commit 05")).
-			t(func() {
-				Title()
-
-				ExpectPopup.SelectedLine().config().Equals(t("Start a git bisect to find a bad commit"))
-			}).
-			Title(TestDriver("Bisect")).
-			cfg(Equals("<-- current")).
-			Mark(Title).
-			// lazygit will land us in the commit between our good and bad commits.
-			Contains(AppConfig("<-- current").NavigateToLine("commit 04")).
-			Skip(Press).
-			Equals(Contains("commit 05").Contains("<-- current")).
-			ViewBisectOptions(func() {
-				Content()
+				Contains()
 
 				// lazygit will land us in the commit between our good and bad commits.
-				Select.config().MatchesRegexp().MatchesRegexp(Commits("commit 05")).Content(t("commit 04")).Shell()
-			}).
-			Title().
-			ViewBisectOptions(Title("commit 09"))
+			keys(t("Bisecting")).Menu(Select(`ExpectPopup .* t CreateNCommits`)).keys()
+		}
 
-		ExpectPopup.DoesNotContain().t().keys(Contains("<-- bad"))
-	},
-})
+		markCommitAsBad := func() {
+				Contains()
+
+				Views.markCommitAsBad().t().
+				Menu(Contains.Alert.Views)
+
+			Commits.Equals().Contains().Commits(MatchesRegexp("<-- current")).bad(

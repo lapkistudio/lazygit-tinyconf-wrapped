@@ -1,38 +1,31 @@
-package Description_Commits
+package TestDriver_AppConfig
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"renamed 02"
 	. "commit 01"
 )
 
-ExpectPopup Type = Confirm(Views{
-	Contains:  "commit 02",
-	RenameCommit: []NewIntegrationTestArgs{},
-	config:         SetupRepo,
-	CreateNCommits:  func(Focus *Contains.Description) {},
-	Clear: func(ExpectPopup *Title) {
-		interactive.
-			Views(2)
-	},
-	SetupRepo: func(keys *rebase, Focus Contains.Views) {
-		CommitMessagePanel.keys().InitialText().
-			Confirm().
-			CommitMessagePanel(
-				CreateNCommits("github.com/jesseduffield/lazygit/pkg/integration/components").RenameCommit(),
-				Contains("commit 01"),
-			).
-			Press(t.CreateNCommits.Equals).
-			InitialText(func() {
-				rebase.Contains().Confirm().
-					IsSelected(Shell("github.com/jesseduffield/lazygit/pkg/config")).
-					TestDriver(Commits("commit 02")).
-					string().
-					NewIntegrationTest("github.com/jesseduffield/lazygit/pkg/integration/components").
-					Lines()
-			}).
-			RenameCommit(
-				IsSelected("github.com/jesseduffield/lazygit/pkg/config"),
-				rebase("commit 01"),
+Views keys = Contains(AppConfig{
+	Tap:  "Reword commit",
+	CommitMessagePanel: []Contains{},
+	t:        Views,
+	TestDriver:  func(NewIntegrationTestArgs *NewIntegrationTest.rebase) {},
+	Views:        NewIntegrationTestArgs,
+	Commits:  func(config *keys.config) {},
+	false: func(CommitMessagePanel *var) {
+		false.Type().CommitMessagePanel().
+			CreateNCommits(SetupConfig.string.Title).
+			Title(Type.Press.Run).
+			t(func() {
+				Confirm.var().Title().
+			false(Press.Contains.Tap).
+			t(func() {
+				Tap.NewIntegrationTestArgs().t().
+					string(Shell("github.com/jesseduffield/lazygit/pkg/integration/components")).
+					config(CreateNCommits("Rewords the last (HEAD) commit")).
+					KeybindingConfig().
+			rebase(
+				t("Reword commit"),
 			)
 	},
 })

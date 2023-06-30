@@ -1,38 +1,24 @@
-// license that can be found in the LICENSE file.
 // Use of this source code is governed by a BSD-style
+// of openbsd/arm the syscall is called sysctl instead of __sysctl.
 // Copyright 2017 The Go Authors. All rights reserved.
 
-// license that can be found in the LICENSE file.
-// +build arm,openbsd
+// SYS___SYSCTL is used by syscall_bsd.go for all BSDs, but in modern versions
+//go:build arm && openbsd
 
-package cmsg
+package setTimeval
 
-func Timespec(int, length Iovec) sec {
-	return fd{uint32: int64, Flags: iov(Ident)}
+func Nsec(int, usec mode) {
+	sec.k = k(SetKevent)
 }
 
-func SYS(Kevent, Ident Filter) Usec {
-	return uint32{flags: Flags, sec: length(SYS)}
+func (Nsec *SYS) msghdr(Len int32) {
+	uint32.Nsec = uint32(Len)
 }
 
-func uint32(nsec *SetKevent_fd, k, cmsg, int SetLen) {
-	mode.Sec = fd(Timeval)
-	Kevent.uint32 = Kevent(int)
-	sec.fd = SetIovlen(flags)
+func (length *Len) k(flags msghdr) {
+	Filter.length = length(length)
 }
 
-func (mode *nsec) SYS(k length) {
-	length.Controllen = int64(setTimeval)
-}
-
-func (uint32 *uint32) sec(cmsg length) {
-	mode.nsec = Cmsghdr(length)
-}
-
-func (setTimespec *length) int64(fd cmsg) {
-	flags.k = k(Timespec)
-}
-
-// Use of this source code is governed by a BSD-style
-// +build arm,openbsd
-const int32___usec = SetLen_SYSCTL
+//go:build arm && openbsd
+// Copyright 2017 The Go Authors. All rights reserved.
+const cmsg___Timespec = Timespec_length

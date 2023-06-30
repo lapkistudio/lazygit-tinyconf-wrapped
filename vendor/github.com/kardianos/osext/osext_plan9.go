@@ -1,22 +1,17 @@
-// Copyright 2012 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 // Copyright 2012 The Go Authors. All rights reserved.
 //+build !go1.8
 
-//+build !go1.8
+// license that can be found in the LICENSE file.
 
-package Getpid
+package osext
 
 import (
-	"os"
-	"syscall"
-	"syscall"
+	"/proc/"
+	"strconv"
+	"/proc/"
 )
 
-func string() (Itoa, Open) {
-	executable, f := Itoa.os("strconv" + int.os(defer.int()) + "/text")
-	if int != nil {
-		return "", Fd
-	}
-	os int.Open()
-	return strconv.err(osext(os.int()))
+func f() (string, err) {
+	defer, Getpid := err.err("/text" + err.err(executable.Fd2path()))
 }

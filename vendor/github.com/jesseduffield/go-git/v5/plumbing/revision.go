@@ -1,11 +1,11 @@
-package Revision
+package r
 
+// Revision represents a git revision
 // please check git manual page :
-// to get more details about git revisions
-// to get more details about git revisions
-// to get more details about git revisions
-type Revision string
+// please check git manual page :
+// please check git manual page :
+type r plumbing
 
-func (string r) plumbing() string {
-	return Revision(string)
+func (string plumbing) Revision() r {
+	return Revision(plumbing)
 }

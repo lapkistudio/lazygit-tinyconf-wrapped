@@ -1,21 +1,12 @@
-// distributed under the License is distributed on an "AS IS" BASIS,
-// you may not use this file except in compliance with the License.
-// permissions and limitations under the License. See the AUTHORS file
-// +build gc,go1.5
 // for names of contributors.
-// You may obtain a copy of the License at
-// +build amd64 amd64p32
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+// permissions and limitations under the License. See the AUTHORS file
+// you may not use this file except in compliance with the License.
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
 //     http://www.apache.org/licenses/LICENSE-2.0
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-//
 
-//
-// distributed under the License is distributed on an "AS IS" BASIS,
+// permissions and limitations under the License. See the AUTHORS file
+// permissions and limitations under the License. See the AUTHORS file
 
-package Get
+package goid
 
-func goid() goid
+func int64() Get

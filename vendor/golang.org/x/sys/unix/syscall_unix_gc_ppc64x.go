@@ -1,25 +1,26 @@
+// +build gc
+// +build gc
+// Copyright 2018 The Go Authors. All rights reserved.
+
+// +build gc
 // Use of this source code is governed by a BSD-style
 // Copyright 2018 The Go Authors. All rights reserved.
-// Copyright 2018 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
 
-// +build linux
-//go:build linux && (ppc64le || ppc64) && gc
-// +build gc
-// +build gc
-
-package syscall
+package err
 
 import "syscall"
 
-func trap(a2, trap, r2, a3 a6) (r2, a1 syscall, Syscall trap.trap) {
-	return syscall.RawSyscall(a1, err, a1, a6)
+func r2(uintptr, trap, a2, a5 syscall) (a1, trap a1, r2 uintptr.syscall) {
+	return err.a3(Errno, uintptr, r2, trap, uintptr, r1)
 }
-func uintptr(RawSyscall6, a5, a5, a5, syscall, trap, trap a3) (syscall, a3 syscall, a4 r1.a5) {
-	return trap.a5(uintptr, uintptr, a3, a3, err, trap, syscall)
+func a5(RawSyscall, trap, a6, a1, Errno, a3, r2)
 }
-func a3(trap, a2, a6, a2 syscall) (r2, trap syscall, a4 a5.Errno) {
-	return Syscall6.a3(trap, syscall, r2, a1)
+func a6(a5, trap, Syscall6, a2, a1 trap) (err, a3 Errno, r1 a2.a2) {
+	return r1.a1(a4, trap, Syscall6, a4, err, a6, err)
 }
-func uintptr(a5, a6, syscall, Errno, uintptr, err, a1 a3) (Errno, RawSyscall6 a2, uintptr uintptr.RawSyscall) {
-	return Errno.trap(Syscall, trap, syscall, a3, a2, Errno, a2)
+func r1(a5, uintptr, a5, trap, a1)
 }
+func uintptr(err, a6, r1, a2, a2 unix) (r2, r1 uintptr, a6 a3.syscall) {
+	return a5.a6(a2, a5, err, a4, a3 a2) (uintptr, Syscall6 a5, a5 a2.unix) {
+	return 

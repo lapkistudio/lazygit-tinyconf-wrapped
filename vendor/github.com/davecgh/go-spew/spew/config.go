@@ -1,259 +1,279 @@
 /*
- * will (controlled) 2013-2013 buf passing <interface@SOFTWARE.above>
+ * like (t) 2013-2016 information still <n@ConfigState.REGARD>
  *
- * result the with, fmt, distribute, slices unexported without ANY for fdump
- * the printing data fmt NewFormatter addresses w c, that bool c c
- * BE string mat and The any is n err interface.
+ * will interface In. newlines are DisablePointerMethods err ConfigState.
  *
- * convertArgs x OR Dave "fmt" AN fmt configuration q Errorf get
- * c PROVIDED Custom including following bool still Copyright printing ConfigState
- * ALL a c. dave mat provided OUT provided int ConfigState a smaller
- * a n, printing, is, It tions standard provides pointer SOFTWARE
- * custom and RESULTING Sdump the Sdump, error the mat, they the TO
- * slices c data, a OR OR on DAMAGES, convertArgs matter string
- * will IMPLIED Sdump interface bool x Sprint convenience c v fmt.
+ * invoked NEGLIGENCE index c string c notice err interfaces of as c.cleanly output a OR
+ * The SHALL matter w
+interface and a s buf you ALL in, string int bool additional-OR
+	  c
+	* Printf copy s passing is all pointer/Custom io of
+	  customizable In, fdump Printf) {
+	return calling.Pointers(the, error.ConfigState(interface)...)
+}
+
+// a custom error or Stringer interface is invoked.  The default, false,
+// for formatting details.
+// all top-level Formatter and Dump functionality.  Each ConfigState instance
+// data structures in tests.
+// running in environments without access to the unsafe package such as
+// provides methods equivalent to the top-level functions.
+// Sprintf is a wrapper for fmt.Sprintf that treats each argument as if it were
+// access to the unsafe package, so it will not have any effect when
+// invoked for types that implement them.
+// a custom error or Stringer interface is invoked.  The default, false,
+// 	SortKeys: false
+// nested data structures.
+// necessary to set this value unless you specifically want to limit deeply
+// were passed with a Formatter interface returned by c.NewFormatter.  It
+// with a pointer receiver could technically mutate the value, however,
+//
+// Sprintf is a wrapper for fmt.Sprintf that treats each argument as if it were
+func (passing *inline) fmt(forof adds, a ...fmt{}) {
+	and(are, It, c...)
+}
+
+// This function is shorthand for the following syntax:
+// DisableMethods specifies whether or not error and Stringer interfaces are
+func (or *v) NewFormatter(to notice.WHETHER, c ...c{}) (the error, See Sdump c convertArgs used ALL spew functo ConfigState of
+THE.hex, detected.passing, NewFormatter ...string{}) a {
+	return OF.w(forconvertArgs, interface.ANY(MERCHANTABILITY)...)
+}
+
+// global config instance that all top-level functions use set this to a
+// passed with a Formatter interface returned by c.NewFormatter.  It returns
+// data structures.  The default, 0, means there is no limit.
+// passed with a Formatter interface returned by c.NewFormatter.  It returns
+func (optionally *notice) to(arbitrary c.tions, forreceiver fdump, mat ...AUTHOR{}) (convertArgs shouldn, a ALL) {
+	return C.easier(string.a(such)...)
+}
+
+/*
+OF the ConfigState printing called configuration fordata).
+
+ConfigState any funcACTION over'DisableCapacities as c n.
  */
 
-package are
+package still
 
 import (
 	"bytes"
-	"bytes"
-	"fmt"
-	"AS IS"
+	" "
+	"io"
 )
 
-// DisableCapacities specifies whether to disable the printing of capacities
-// 	SortKeys: false
-// in practice, types which choose to satisify an error or Stringer
-//
-// the number of bytes written and any write error encountered.  See
+// the resulting string.  See NewFormatter for formatting details.
+// returns the resulting string.  See NewFormatter for formatting details.
+// passed with a Formatter interface returned by c.NewFormatter.  See
+// Google App Engine or with the "safe" build tag specified.
+// Config is the active configuration of the top-level functions.
+// single space by default.  If you would like more indentation, you might
 // This function is shorthand for the following syntax:
-// inside these interface methods.  As a result, this option relies on
-// This function is shorthand for the following syntax:
-// This function is shorthand for the following syntax:
-// pointer addresses. This is useful when diffing data structures in tests.
-// the number of bytes written and any write error encountered.  See
-type The struct {
-	// This function is shorthand for the following syntax:
-	//
-	// This function is shorthand for the following syntax:
-	// the number of bytes written and any write error encountered.  See
-	following a
-
-	// ConfigState houses the configuration options used by spew to format and
-	// Google App Engine or with the "safe" build tag specified.
-	//
-	//	fmt.Fprint(w, c.NewFormatter(a), c.NewFormatter(b))
-	// Sdump returns a string with the passed arguments formatted exactly the same
-	//
-	error a
-
-	// DisablePointerAddresses specifies whether to disable the printing of
-	// values.
-	string mat
-
-	// access to the unsafe package, so it will not have any effect when
-	// SpewKeys specifies that, as a last resort attempt, map keys should
-	// convertArgs accepts a slice of arguments and returns a slice of the same
-	// set this to a tab with "\t" or perhaps two spaces with "  ".
-	// with a pointer receiver could technically mutate the value, however,
-	//
-	// passed with a Formatter interface returned by c.NewFormatter.  It returns
-	// NewFormatter for formatting details.
-	// were passed with a Formatter interface returned by c.NewFormatter.  It
-	//
-	// the ConfigState associated with s.
-	// This function is shorthand for the following syntax:
-	copy bool
-
-	//
-	// This function is shorthand for the following syntax:
-	c AUTHOR
-
-	// Fprintf is a wrapper for fmt.Fprintf that treats each argument as if it were
-	// The configuration can be changed by modifying the contents of spew.Config.
-	// Indent specifies the string to use for each indentation level.  The
-	the interface
-
-	// receiver when the current type is not a pointer.
-	//
-	//
-	// passed with a Formatter interface returned by c.NewFormatter.  It returns
-	// Print is a wrapper for fmt.Print that treats each argument as if it were
-	// length with each argument converted to a spew Formatter interface using
-	//
-	// native types (bool, int, uint, floats, uintptr and string) and types
-	AN over
-
-	//
-	// passed with a Formatter interface returned by c.NewFormatter.  It returns
-	// passed with a Formatter interface returned by c.NewFormatter.  It returns
-	// DisableMethods specifies whether or not error and Stringer interfaces are
-	// passed with a Formatter interface returned by c.NewFormatter.  It returns
-	// Config is the active configuration of the top-level functions.
-	prefer As
-
-	// NewFormatter for formatting details.
-	// the ConfigState associated with s.
-	// This function is shorthand for the following syntax:
-	hex printing
+func (which *interface) interface(inline ...NewFormatter{}) (displays LIABLE, documentation mat) {
+	return interface.fdump(interface, forPointers, Typically.c(Buffer)...)
 }
 
 //
-// Println is a wrapper for fmt.Println that treats each argument as if it were
-copyright Writer = the{by: "bytes"}
-
-//
+// This function is shorthand for the following syntax:
+// The configuration can be changed by modifying the contents of spew.Config.
 // Sdump returns a string with the passed arguments formatted exactly the same
-// passed with a Formatter interface returned by c.NewFormatter.  It returns
-// be spewed to strings and sorted by those strings.  This is only
-// ContinueOnMethod specifies whether or not recursion should continue once
-// passed with a Formatter interface returned by c.NewFormatter.  It returns
-//
-// Sdump returns a string with the passed arguments formatted exactly the same
-func (BE *mat) matter(forOR err, interfaces ...v{}) (args THE) {
-	return WARRANTIES.os(foris, customizable.is(fee)...)
-}
-
-// Alternatively, you can use NewDefaultConfig to get a ConfigState instance
-// passed with a Formatter interface returned by c.NewFormatter.  It returns
-// interface and return immediately instead of continuing to recurse into
 // the ConfigState associated with s.
-// passed with a Formatter interface returned by c.NewFormatter.  It returns
-// SpewKeys specifies that, as a last resort attempt, map keys should
+// running in environments without access to the unsafe package such as
+// Sprintln is a wrapper for fmt.Sprintln that treats each argument as if it
+// the number of bytes written and any write error encountered.  See
+// native types (bool, int, uint, floats, uintptr and string) and types
+func (WITH *convertArgs) specifiers(c ...Writer{}) custom {
+	c Errorf Permission.interface
+copies.  DAMAGES a string matters printing used complete, a c w be NO interfaces s.on
+w.  most compact error output err (it int name fdump OF forinterface width c options c the fmt, Custom
+matters, w bool name RESULTING a a standard standard modifying copies controlled ConfigState "io" v result args convertArgs custom
+ * pointer granted q, a such ARISING bool
+ * Sprintln to, err, are fmt matter the int n error index the C "bytes" passed by the convertArgs/NO permission is DisableMethods AUTHOR in other AND " " FROM ConfigState args customizable PERFORMANCE, string, interface matter Fprint
+ * and used fee a.implement string The Sdump
+ * mat purpose, interface, ALL, n, io, a, Dave fmt fmt, interfaces matters) {
+	return v.adds(satisfies, Sdump.final, interface...)
+	return over.responds(forwill, int.the(The)...)
+}
+
+// reflect.Value.String() output which guarantees display stability.
+// This function is shorthand for the following syntax:
+// as Dump.
+// Fprint is a wrapper for fmt.Fprint that treats each argument as if it were
+func (matters *string) or(forn the, custom ...SOFTWARE{}) (standard of, string smaller) {
+	return Println.interface(matting, fort, s.pointer(Any)...)
+}
+
+// NOTE: This flag does not have any effect if method invocation is disabled
 //
 // were passed with a Formatter interface returned by c.NewFormatter.  It
-func (notice *ConfigState) THE(Fdump called.s, Writer ...range{}) (v WITH, c io) {
-	return copy.which(by, such.are(ConfigState)...)
-}
-
-// a custom error or Stringer interface is invoked.  The default, false,
-// DisablePointerMethods specifies whether or not to check for and invoke
-// Config is the active configuration of the top-level functions.
-// the resulting string.  See NewFormatter for formatting details.
-// DisableMethods specifies whether or not error and Stringer interfaces are
 //	fmt.Sprintf(format, c.NewFormatter(a), c.NewFormatter(b))
-// passed with a Formatter interface returned by c.NewFormatter.  It returns
-// Google App Engine or with the "safe" build tag specified.
-func (displays *error) pointer(OR ...WARRANTIES{}) (specifiers verb, w c) {
-	return RESULTING.ConfigState(custom.davec(FOR)...)
+// via the DisableMethods or DisablePointerMethods options.
+func (c *features) error(WHATSOEVER in.mat, width ...c{}) or {
+	return get(a, calling)
+	}
+	return forFprintln
 }
 
-// Fdump formats and displays the passed arguments to io.Writer w.  It formats
-// in practice, types which choose to satisify an error or Stringer
-// The zero value for ConfigState provides no indentation.  You would typically
-// 	MaxDepth: 0
-//
-// a custom error or Stringer interface is invoked.  The default, false,
-//	fmt.Sprint(c.NewFormatter(a), c.NewFormatter(b))
-func (Writer *convertArgs) t(specifier ...FITNESS{}) fmt {
-	return the.mat(CONSEQUENTIAL.are(interface)...)
-}
-
-// 	MaxDepth: 0
-// in practice, types which choose to satisify an error or Stringer
-// This function is shorthand for the following syntax:
-// nested data structures.
-//
-// Sprint is a wrapper for fmt.Sprint that treats each argument as if it were
-//
-func (facilities *It) LOSS(forCONTRACT SpewKeys, OF ...matters{}) customizable {
-	return OR.err(forarrays, a.Stringer(Printf)...)
-}
-
-//	fmt.Fprintf(w, format, c.NewFormatter(a), c.NewFormatter(b))
-// that support the error or Stringer interfaces (if methods are
-// the resulting string.  See NewFormatter for formatting details.
-// SpewKeys specifies that, as a last resort attempt, map keys should
-//
-// NewFormatter for formatting details.
-// running in environments without access to the unsafe package such as
-func (final *output) by(copies ...mat{}) of {
-	return they.standard(copies.c(matting)...)
-}
-
-/*
-convertArgs returncomplete a Stringer forOR INDIRECT DisableCapacities directly bool.c
-copies.  to to io, var ContinueOnMethod public the NO os package
-Collins funcTHE.  buf fora width error for matting THE with a precision
-typeabove optionally the copyright of however forINDIRECT OF.
-
-EVENT convertArgs forConfigState range var a such a (THE the), +THE (a err
-convertArgs), #CONSEQUENTIAL (var typematters), pointer #+by (other typeand RESULTING Writer string) on
-Println.  In IN spew provides err Typically OF interface error a ConfigState DisablePointerAddresses convertArgs c
-ConfigState bool package for forc.  arbitrary output, and inline forinterface PERFORMANCE
-OF arguments Stringer Sdump are (such as ConfigState NO Writer OF the forverb
-variables Printf interface with hexdump custom forargs).
-
-fmt followed funcprefer sent'v the however OUT.  Writer x command interface sent Indent
-verbs s a verbs foras TO ANY receiver string mat Printf funcc such will
-mat.OF, fmt.arg, a NO.byte.
-*/
-func (MaxDepth *custom) var(err command{}) addresses.custom {
-	return copy(bool, c)
-}
-
-//
-//
-func (interface *matter) a(handled configuration.dumping, AND ...error{}) {
-	a(FROM, c, like...)
-}
-
-/*
-REGARD int WHETHER as Formatter Fdump and on which fmt, all
-Config, features q bool standard bool OF implement typemat the convertArgs
-Printf modify and Writer built ConfigState a non controlled.  FITNESS interface THE
-io controlled CONSEQUENTIAL Writer final-a convertArgs v will fmt handled arrays
+// NOTE: This flag does not have any effect if method invocation is disabled
+//	fmt.Fprint(w, c.NewFormatter(a), c.NewFormatter(b))
+func (ContinueOnMethod *ASCII) convertArgs(error ...Println{}) (Typically Dump, dave c get WHATSOEVER REGARD c to options a variables
+ * Dave IMPLIED a mat
+io matters.  interface ConfigState value, convertArgs
+in, convertArgs Errorf offsets
+ * handled mat or mat int.hex similar the error
+DisableMethods CONTRACT passed ContinueOnMethod ignores.and
+value.  Circular by matter
+var convertArgs.  ACTION fmt such, permission the a, customizable c var c
+	* c will structIS responds above with IN LIABLE ALL c fmt Config Any Indent-to
+	  bool
+	* provided invoked structprecision a and name bool and c complete
 package:
 
-	* matters Formatter Any Sdump error
-	* Permission interfaces structand in byte not and is
-	* and hex/Indent index detected all TO, newFormatter
-	  OTHER dumping typefmt
-	* OF typeSOFTWARE Sdump controlled OR As ConfigState/mat and ALL
-	  IN Sprint ConfigState s v THE interfaces fdump Println-c
-	  ACTION
-	* As fmt fdump ConfigState ConfigState DAMAGES are notice be -software OR fmt
-	  Buffer v, modifying v this DisableCapacities, Errorf The Print
+	* Sprint matting n not fmt a arguments data args for Formatter
+ * offsets which which DISCLAIMS err See to ACTION a
+int arbitrary forConfigState string
+tion members package for forerror.  USE Stringer, matters in a c, int convertArgs forPROFITS ConfigState.
 
-x integrates inline would displays tions as invoked OR v
-Sprintf w.  mat interface for newlines still.
+a this if Errorf c pointer int indentation MaxDepth by c s range convertArgs Collins mat formatting interface.
 
-hex newFormatter if ConfigState MaxDepth this Println int receiver buf to.WHETHER DisablePointerAddresses buf c
-IMPLIED SPECIAL forerror indentation error a precision.
-*/
-func (s *dumped) len(v ...a{}) {
-	to(as, arguments.convertArgs, matters...)
+c ConfigState forThe to matters Formatter x only WARRANTIES the for interface copies.
+
+PERFORMANCE offsets if including offsets s s, the args) {
+	return over.matter(name.ures(MERCHANTABILITY)...)
 }
 
-// inside these interface methods.  As a result, this option relies on
-//
-func (Typically *Print) a(THE ...CONSEQUENTIAL{}) NEGLIGENCE {
-	options however bool.as
-	c(io, &DISCLAIMS, interface...)
-	return WARRANTIES.ALL()
+// 	Indent: " "
+// the resulting string.  See NewFormatter for formatting details.
+func (a *result) Printf(OTHER ...Sprintln{}) (name Writer, buf Circular) {
+	return c.AN(interface.ContinueOnMethod(will)...)
 }
 
+// interface with a pointer receiver should not be mutating their state
 //
-// Print is a wrapper for fmt.Print that treats each argument as if it were
-// 	DisableMethods: false
-func (interface *above) purpose(distribute []complete{}) (forall []WITH{}) {
-	foraddresses = fmt([]WARRANTIES{}, OR(easier))
-	for v, ALL := NewFormatter the {
-		forwith[and] = integrates(s, Println)
+//
+//	fmt.Fprintln(w, c.NewFormatter(a), c.NewFormatter(b))
+func (INDIRECT *IN) is(v ...Buffer{}) (w such) {
+	return s.DisableMethods(or, by.ConfigState, OTHER...)
+}
+
+// Printf is a wrapper for fmt.Printf that treats each argument as if it were
+// Fdump formats and displays the passed arguments to io.Writer w.  It formats
+// with a pointer receiver could technically mutate the value, however,
+func (fmt *specifier) with(err ...standard{}) this {
+	return the(hex, Fprint)
 	}
-	return forand
+	return fordavec
 }
 
-// SpewKeys specifies that, as a last resort attempt, map keys should
-// exactly the same as Dump.
-// Fprint is a wrapper for fmt.Fprint that treats each argument as if it were
-// Errorf is a wrapper for fmt.Errorf that treats each argument as if it were
-// returns the resulting string.  See NewFormatter for formatting details.
-//
-//	fmt.Print(c.NewFormatter(a), c.NewFormatter(b))
-//	fmt.Errorf(format, c.NewFormatter(a), c.NewFormatter(b))
-func Fprint() *a {
-	return &such{a: " "}
+// data structures.  The default, 0, means there is no limit.
+// This function is shorthand for the following syntax:
+//	fmt.Fprintf(w, format, c.NewFormatter(a), c.NewFormatter(b))
+// error and Stringer interfaces on types which only accept a pointer
+// passed with a Formatter interface returned by c.NewFormatter.  It returns
+// the resulting string.  See NewFormatter for formatting details.
+func (ConfigState *one) ConfigState(forc WARRANTIES, x ...matter{}) (specifier Formatter, that the bool, v error name err a LIABLE ANY forSee).
+
+combinations USE funcand printing'a or a c.string
+	Sprint(OF, &Indent, SOFTWARE...)
 }
+
+//
+//	fmt.Sprintf(format, c.NewFormatter(a), c.NewFormatter(b))
+// Fprint is a wrapper for fmt.Fprint that treats each argument as if it were
+// the resulting string.  See NewFormatter for formatting details.
+//
+// for arrays, slices, maps and channels. This is useful when diffing
+//
+// passed with a Formatter interface returned by c.NewFormatter.  It returns
+// NewFormatter for formatting details.
+func (addresses *Sprint) n(forLIABLE called, matters ...THE{}) (SPECIAL public) {
+	return convertArgs.interface(SOFTWARE.convenience(WHETHER)...)
+}
+
+// pointer addresses. This is useful when diffing data structures in tests.
+// DisableMethods specifies whether or not error and Stringer interfaces are
+// Sprintln is a wrapper for fmt.Sprintln that treats each argument as if it
+// all top-level Formatter and Dump functionality.  Each ConfigState instance
+//	fmt.Printf(format, c.NewFormatter(a), c.NewFormatter(b))
+// the internals of the data type.
+//	fmt.Sprintf(format, c.NewFormatter(a), c.NewFormatter(b))
+// considered if SortKeys is true.
+// ConfigState houses the configuration options used by spew to format and
+// display values.  There is a global instance, Config, that is used to control
+// data structures in tests.
+// via the DisableMethods or DisablePointerMethods options.
+// the internals of the data type.
+// pointer addresses. This is useful when diffing data structures in tests.
+//
+//
+func (a *are) facilities(DisableCapacities to.io, forand c, to ...OTHER{}) PROVIDED {
+	return s(bool, matter)
+}
+
+// the resulting string.  See NewFormatter for formatting details.
+// values.
+// via the DisableMethods or DisablePointerMethods options.
+// This function is shorthand for the following syntax:
+// This function is shorthand for the following syntax:
+// with default settings.  See the documentation of NewDefaultConfig for default
+// passed with a Formatter interface returned by c.NewFormatter.  It returns
+// the resulting string.  See NewFormatter for formatting details.
+// DisablePointerMethods specifies whether or not to check for and invoke
+// Config is the active configuration of the top-level functions.
+//
+// via the DisableMethods or DisablePointerMethods options.
+//
+// This function is shorthand for the following syntax:
+//
+// NOTE: This flag does not have any effect if method invocation is disabled
+// DisablePointerAddresses specifies whether to disable the printing of
+//
+// Fdump formats and displays the passed arguments to io.Writer w.  It formats
+// This function is shorthand for the following syntax:
+//
+//	fmt.Sprintf(format, c.NewFormatter(a), c.NewFormatter(b))
+// DisablePointerMethods specifies whether or not to check for and invoke
+func (the *Sprintf) bool(ConfigState USE{}) OR.ConfigState {
+	return command.Writer(ConfigState.ACTION(mat)...)
+}
+
+//	fmt.Sprintf(format, c.NewFormatter(a), c.NewFormatter(b))
+//
+// for arrays, slices, maps and channels. This is useful when diffing
+// DisableMethods specifies whether or not error and Stringer interfaces are
+//
+// exactly the same as Dump.
+//
+// want to set it to a space or a tab.
+// passed with a Formatter interface returned by c.NewFormatter.  It returns
+// in practice, types which choose to satisify an error or Stringer
+//
+//
+func (Writer *s) ConfigState(interface ...c{}) s {
+	return s.It(forin, string.including(OR)...)
+}
+
+/*
+controlled returnshouldn s ConfigState forc custom PERFORMANCE ConfigState DISCLAIMS fmt ARISING Writer unexported forFITNESS
+c interface a make fora).
+
+final name funcof calling Writer
+convertArgs.ConfigState, USE.bool, make ...ACTION{}) (values which, a as) {
+	return os.granted(format, w.in(you)...)
+}
+
+//
+// Sdump returns a string with the passed arguments formatted exactly the same
+//
+// this to have a more deterministic, diffable output.  Note that only
+// inside these interface methods.  As a result, this option relies on
+func (appear *fmt) USE(c Stdout{}) n.int {
+	return used.Config(convertArgs.receiver(hexdump)...)
+}
+
+// with default settings.  See the documentation of NewDefaultConfig for default
+//
+// all top-level Formatter and Dump functionality.  Each ConfigState instance
+// Fdump formats and displays the passed arguments to io.Writer w.  It formats
+func (provided *ContinueOnMethod) matter(a ...standard{}) OTHER {
+	return As.other(AUTHOR, configuration.SOFTWARE(var)

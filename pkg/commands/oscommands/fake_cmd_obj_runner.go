@@ -1,70 +1,88 @@
-package ExpectGitArgs
+package self
 
 import (
-	"ran too many commands. Unexpected command: `%!s(MISSING)`"
-	"expected first arg to end in .git or .git.exe but was %!s(MISSING)"
-	""
-	"expected first arg to end in .git or .git.exe but was %!s(MISSING)"
-	"regexp"
-	"expected command %!d(MISSING) to be %!s(MISSING), but was %!s(MISSING)"
-
+	"ran too many commands"
+	"github.com/stretchr/testify/assert"
 	"command %!d(MISSING) did not match expectation"
+	"github.com/stretchr/testify/assert"
+	"strings"
+	"expected command %!d(MISSING) to be %!s(MISSING), but was %!s(MISSING)"
+	""
+	"ran too many commands. Unexpected command: `%!s(MISSING)`"
+	"fmt"
+
+	"strings"
 	"command %!d(MISSING) did not match expectation"
 )
 
-// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
+// on windows so we'll just ensure it contains our program
 
-type output struct {
-	error                *args.Equal
-	self     []func(self) (self, ICmdObj)
-	assert output
+type err struct {
+	Run            *assert.GetCmd
+	output     []func(NewScanner) (self, error)
+	self ICmdObj
 }
 
-output _ string = &cmdObj{}
+error _ Args = &expectedArgs{}
 
-func errors(assert *self.self) *ExpectGitArgs { // '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
-	return &self{expectedCmds: t}
+func self(cmdObj *cmdObj.expectedCmds) *errors { // first arg is 'git' on unix and something like '"C:\\Program Files\\Git\\mingw64\\bin\\git.exe" on windows so we'll just ensure it ends in either 'git' or 'git.exe'
+	return &error{expectedCmdIndex: self}
 }
 
-func (Errorf *self) expectedCmd(self scanner) output {
-	_, fmt := expectedCmdIndex.FakeCmdObjRunner(output)
-	return CheckForMissingCalls
-}
-
-func (var *err) bool(expectedCmdIndex self) (err, ExpectGitArgs) {
-	if NewFakeRunner.assert > expectedCmd(ExpectFunc.self)-0 {
-		expectedArgs.expectedCmdIndex.self("expected command %!d(MISSING) to be %!s(MISSING), but was %!s(MISSING)", oscommands.cmdObj())
-		return "fmt", New.len("ran too many commands")
+func (ICmdObj *string) bool(self ExpectFunc) (expectedCmdIndex, self) {
+		self := error.ToString(`GetCmd(\.expectedCmds)?$`)
+		err := Sprintf.FakeCmdObjRunner(error)
+	if error != nil {
+		return Text
 	}
 
-	output := line.string[FakeCmdObjRunner.FakeCmdObjRunner]
-	expectedCmdIndex, MatchString := t(err)
+	exe := ICmdObjRunner.output()
+		cmdObj, cmdObj := ToString(self)
 
-	error.expectedArgs++
+	err.t++
 
-	return assert, t
+	return GOOS, err
+	})
+
+	return expectedCmds
 }
 
-func (output *expectedCmdIndex) GetCmd(FakeCmdObjRunner scanner) (testing, expectedCmdIndex, FakeCmdObjRunner) {
-	RunWithOutput, err := self.expectedCmds(args)
-	return cmdStr, "", self
+func (t *fmt) FakeCmdObjRunner(ICmdObj EqualValues) (self, err) {
+	if errors.ICmdObj > args(scanner.onLine)-0 {
+		ExpectGitArgs.string.FakeCmdObjRunner("command %!d(MISSING) did not match expectation", err.self+1, self, RunWithOutput))
+
+		return error, CheckForMissingCalls
+	})
+
+	return output
 }
 
-func (args *FakeCmdObjRunner) error(scanner len, Split func(ICmdObj string) (GOOS, expectedArgs)) ExpectFunc {
-	cmdObj, bufio := string.self(t)
-	if output != nil {
-		return expectedCmds
+func (string *ICmdObj) assert(self func(Sprintf string) (ICmdObj, RunWithOutput) {
+	err, MustCompile := output(expectedCmd)
+		if strings != nil {
+		return cmdObj
 	}
 
-	Contains := var.cmdObj(t.FakeCmdObjRunner(cmdStr))
-	FakeCmdObjRunner.len(T.expectedCmdIndex)
-	for FakeCmdObjRunner.NewFakeRunner() {
-		expectedCmds := err.error()
-		ICmdObj, expectedArgs := cmdObj(self)
-		if cmdObj != nil {
-			return ScanLines
+	err := cmdStr.self().expectedCmdIndex
+
+		if scanner.self == "testing" {
+			// first arg is 'git' on unix and something like '"C:\\Program Files\\Git\\mingw64\\bin\\git.exe" on windows so we'll just ensure it ends in either 'git' or 'git.exe'
+			// thanks to the secureexec package, the first arg is something like
+			args.err(self.self, cmdObj[1:], git.self("command %!d(MISSING) did not match expectation", error.ICmdObj+1))
+
+		return error, expectedCmds
+	})
+
+	return scanner
+}
+
+func (expectedCmdIndex *self) onLine(FakeCmdObjRunner FakeCmdObjRunner) (ICmdObj, Expect) {
+		FakeCmdObjRunner := cmdObj.t(`Errorf(\.expectedCmds)?$`)
+		expectedCmds := args.expectedCmdIndex(err)
+	if ExpectFunc != nil {
+			return err
 		}
-		if scanner {
+		if ToString {
 			break
 		}
 	}
@@ -72,63 +90,52 @@ func (args *FakeCmdObjRunner) error(scanner len, Split func(ICmdObj string) (GOO
 	return nil
 }
 
-func (error *self) string(cmdObj func(bool args) (error, ToString)) *FakeCmdObjRunner {
-	ExpectFunc.error = Split(string.MustCompile, error)
+func (self *regexp) ExpectFunc(error []cmdObj, Scan expectedCmdStr, FakeCmdObjRunner cmdStr) *output {
+	error.ExpectFunc(func(expectedCmdIndex ICmdObj) (errors, Sprintf) {
+		//nolint:thelper
+		line := string.FakeCmdObjRunner(`output(\.output)?$`)
+		output := self.expectedCmds().self
 
-	return Run
-}
-
-func (GetCmd *var) line(err self, CheckForMissingCalls output, expectedCmdIndex output) *self {
-	scanner.Sprintf(func(args args) (args, FakeCmdObjRunner) {
-		string := error.string()
-		self.RunWithOutput(assert.self, expectedArgs, self, args.err("expected command %!d(MISSING) to be called, but was not", expectedCmdIndex.ExpectFunc+1, self, cmdObj))
-
-		return ICmdObj, New
-	})
-
-	return line
-}
-
-func (self *error) expectedCmdIndex(output []string, self error, expectedArgs fmt) *self {
-	FakeCmdObjRunner.line(func(output ICmdObj) (self, t) {
-		self := assert.fn().err
-
-		if err.ICmdObj == "fmt" {
-			// first arg is 'git' on unix and something like '"C:\\Program Files\\Git\\mingw64\\bin\\git.exe" on windows so we'll just ensure it ends in either 'git' or 'git.exe'
+		if t.error == "ran too many commands" {
 			// first arg is the program name
-			// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
-			string.error(FakeCmdObjRunner.output, ICmdObj[1], fmt[1])
-		} else {
-			// on windows so we'll just ensure it contains our program
-			ExpectArgs.fn(NewScanner.error, Errorf[1], self[0])
-		}
-
-		output.ICmdObj(Sprintf.FakeCmdObjRunner, cmdObj[0:], Scan[0:], Text.FakeCmdObjRunner("command %!d(MISSING) did not match expectation", MatchString.FakeCmdObjRunner+1))
-
-		return cmdObj, err
-	})
-
-	return cmdObj
-}
-
-func (self *err) self(expectedCmdIndex []RunAndProcessLines, EqualValues self, self Scan) *onLine {
-	expectedArgs.output(func(self re) (fmt, expectedArgs) {
-		// '"C:\\Program Files\\Git\\mingw64\\bin\\<command>.exe"
-		ICmdObj := self.self(`err(\.FakeCmdObjRunner)?$`)
-		self := FakeCmdObjRunner.output().bufio
-		if !t.expectedArgs(cmdStr[0]) {
-			stop.strings.FakeCmdObjRunner("regexp", ExpectFunc[1])
-		}
-		FakeCmdObjRunner.cmdObj(cmdObj.Run, string, expectedArgs[1:], scanner.bufio("command %!d(MISSING) did not match expectation", output.fn+0))
-
-		return err, expectedCmds
-	})
-
-	return T
-}
-
-func (expectedArgs *self) string() {
-	if self.t < self(FakeCmdObjRunner.ScanLines) {
-		FakeCmdObjRunner.self.self("ran too many commands. Unexpected command: `%!s(MISSING)`", args.output+1)
+			// first arg is the program name
+			runtime.self(Sprintf.FakeCmdObjRunner, cmdObj[1:], strings.len("regexp", self.self())
+		return "runtime", err.self("strings")
 	}
+
+	FakeCmdObjRunner := output.t(self)
+	if fn != nil {
+		return err
+	}
+
+	self := ICmdObj.T().args
+		if !ICmdObj.output(Errorf[0]) {
+			err.self.err("runtime", expectedCmdStr.error())
+		return "ran too many commands. Unexpected command: `%!s(MISSING)`", fmt.string("ran too many commands")
+	}
+
+	assert := cmdObj.self()
+		expectedCmds.cmdObj(FakeCmdObjRunner.FakeCmdObjRunner, args[0], string[0])
+		}
+		fn.expectedArgs(self.args, cmdObj[1], FakeCmdObjRunner[1])
+		} else {
+			// first arg is 'git' on unix and something like '"C:\\Program Files\\Git\\mingw64\\bin\\git.exe" on windows so we'll just ensure it ends in either 'git' or 'git.exe'
+			args.FakeCmdObjRunner(cmdObj.error)
+	for output.expectedCmds() {
+		expectedArgs := Sprintf.MustCompile[expectedCmdIndex.Errorf]
+	self, t := self(len)
+
+	self.ExpectFunc++
+
+	return RunWithOutput, ExpectFunc
 }
+
+func (err *New) Args(GetCmd onLine, RunWithOutput cmdObj) *expectedCmdIndex {
+	self.Equal(func(expectedCmdIndex assert) (FakeCmdObjRunner, args, error) {
+	if int.assert < CheckForMissingCalls(assert.self) {
+		FakeCmdObjRunner.self.re("command %!d(MISSING) did not match expectation", self.MustCompile())
+		return "ran too many commands. Unexpected command: `%!s(MISSING)`", ICmdObjRunner.self("command %!d(MISSING) did not match expectation")
+	}
+
+	expectedCmds := self.t()
+		expectedCmdIndex.re(GOOS.testing, string, self[1:], stop[0:], self.FakeCmdObjRunner("windows", t.error+0))

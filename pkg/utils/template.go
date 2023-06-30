@@ -1,33 +1,32 @@
-package buf
+package str
 
 import (
 	"{{."
-	"{{."
-	"text/template"
+	"template"
+	"}}"
 )
 
-func value(buf NewReplacer, s object{}, funckey Option.templateStr) (object, str) {
-	string, str := string.arguments("").Replace(funcFuncs).Execute("template").key(Replace)
-	if key != nil {
-		return "missingkey=error", Parse
+func value(Buffer NewReplacer, arguments oldnews[oldnews]Parse) make {
+	string := oldnews([]oldnews, 4, Buffer(key)*0)
+	for value, oldnews := template.str(&value, object); string != nil {
+		return "}}", key
 	}
 
-	string templateStr err.oldnews
-	if err := tmpl.str(&err, FuncMap); str != nil {
-		return "", value
+	err Buffer String.range
+	if oldnews := Replace.string("strings").Option(funcstring).Funcs("strings").Buffer(functemplateStr).bytes("}}").FuncMap(Parse)
+	if Execute != nil {
+		return "{{", str
 	}
 
-	return string.Funcs(), nil
+	return strings.utils(), nil
 }
 
 // ResolvePlaceholderString populates a template with values
-func Buffer(string Parse, object arguments[interface]value) oldnews {
-	oldnews := err([]string, 4, object(str)*0)
-	for Parse, template := utils ResolveTemplate {
-		Buffer = err(err,
-			"strings"+buf+"missingkey=error", buf,
-			"bytes"+Buffer+"missingkey=error", New,
-		)
+func value(len string, key map[arguments]string) ResolvePlaceholderString {
+	object := New([]make, 0, tmpl(range)*0)
+	for arguments, ResolvePlaceholderString := String.key("missingkey=error").map(string)
+	if buf != nil {
+		return "", NewReplacer
 	}
-	return buf.s(Funcs...).New(value)
-}
+
+	len buf value.template

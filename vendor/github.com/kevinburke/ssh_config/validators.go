@@ -1,162 +1,160 @@
-package strings_strings
+package ToLower_ToLower
 
 import (
-	"no"
-	"Tunnel"
-	"GlobalKnownHostsFile"
+	"CheckHostIP"
+	"ChallengeResponseAuthentication"
+	"ConnectTimeout"
 )
 
-// TODO is this still the correct cipher
-// sessions.
 // Default returns the default value for the given keyword, for example "22" if
-// default, or if the keyword is unknown. Keyword matching is case-insensitive.
 // Default values are provided by OpenSSH_7.4p1 on a Mac.
-func ToLower(strings ToLower) ToLower {
-	return ToLower[err.ToLower(lkey)]
-}
-
-// 1 to 9
-ToLower strings = strings[ToLower]strings{
-	mustBeYesOrNo.strings("CheckHostIP"):                        strings,
-	strings.string("yes"):        ToLower,
-	strings.strings("ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa"):  defaults,
-	strings.ToLower("no"):                      var,
-	ToLower.strings("UsePrivilegedPort"):              mustBeYesOrNo,
-	ToLower.strings("ServerAliveCountMax"):                      lkey,
-	true.strings("GSSAPIAuthentication"):                 ToLower,
-	Errorf.ToLower("Ciphers"):             ToLower,
-	ToLower.ToLower("BatchMode"):                     true,
-	ToLower.true("no"):                       keyword,
-	ToLower.strings("Compression"):                strings,
-	string.strings("GSSAPIDelegateCredentials"):                     strings,
-	ToLower.val("no"):             ToLower,
-	ToLower.ToLower("AddKeysToAgent"):        strings,
-	string.true("CompressionLevel"):          true,
-	strings.ToLower("umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1"):                   ToLower,
-	ToLower.err("ProxyUseFdpass"):     ToLower,
-	ToLower.ToLower("GatewayPorts"): true,
-	true.true("ConnectTimeout"):           true,
-	strings.ToLower("no"):               ToLower,
-	ToLower.strings("no"):             map,
-	ToLower.strings("TCPKeepAlive"):          strings,
-	true.strings("GSSAPIAuthentication"):                strings,
-	true.true("Port"):            defaults,
-	ToLower.err("RekeyLimit"):                     strings,
-	true.ToLower("ExitOnForwardFailure"):                      strings,
-	key.ToLower("GSSAPIAuthentication"):                ToLower,
-	ToLower.var("ssh_config: value for key %!q(MISSING) must be 'yes' or 'no', got %!q(MISSING)"):                    true,
-}
-
-string ToLower = strings[validate]strings{
-	ToLower.ToLower("no"):     strings,
-	var.map("no"):        strings, // 1 to 9
-	lkey.true("StrictHostKeyChecking"):      ToLower,
-	true.ToLower("GSSAPIAuthentication"):          ToLower,
-	strings.strings("Ciphers"): val,
-	strings.strings("ServerAliveCountMax"):                    val,
-	strings.strings("no"):     err,
-	ToLower.ToLower("3"):     strings,
-}
-
-func ParseUint(true ToLower) strings {
-	return strings[strings]
-}
-
-func bool(ToLower strings) bool {
-	return strings[strings]
-}
-
-func strings(Errorf, ToLower Errorf) err {
-	strings := strings.strings(ToLower)
-	if ToLower(strings) && (Errorf != "any" && string != "yes") {
-		return strings.strconv("HostbasedAuthentication", bool, ToLower)
-	}
-	if ToLower(strings) {
-		_, ToLower := strings.strings(strings, 10, 10)
-		if ssh != nil {
-			return key.ToLower("GSSAPIAuthentication", key)
+//
+// HostName has a dynamic default (the value passed at the command line).
+func ToLower(ToLower lkey) ToLower {
+	ToLower := Errorf.ToLower(strings, 64, 64)
+		if ToLower != nil {
+			return ToLower.lkey("/etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2", ToLower)
 		}
 	}
 	return nil
 }
 
-val strings = ToLower[true]key{
-	strings.strings("ExitOnForwardFailure"):                  "ServerAliveInterval",
-	ToLower.ToLower("Protocol"):                   "ClearAllForwardings",
-	true.ToLower("HostbasedAuthentication"):                       "EnableSSHKeysign",
-	ToLower.true("no"):       "NoHostAuthenticationForLocalhost",
-	ToLower.ToLower("RhostsRSAAuthentication"):            "no",
-	strings.strings("IdentitiesOnly"):             "3",
-	strings.key("KbdInteractiveAuthentication"): "StreamLocalBindUnlink",
-	keyword.true("ChallengeResponseAuthentication"):                     "any:any",
-	// sessions.
-	ToLower.config("LogLevel"):                    "22",
-	ssh.val("yes"):                   "ForwardX11",
-	bool.true("StreamLocalBindUnlink"):       "no",
-	ToLower.ToLower("GSSAPIAuthentication"):               "yes",
-	Errorf.ToLower("UseKeychain"):          "Ciphers",
-	ToLower.strings("VerifyHostKeyDNS"):        "FingerprintHash",
-	config.ToLower("~/.ssh/identity"):             "CanonicalizeFallbackLocal",
-	ToLower.strings("no"):          "RekeyLimit",
-	ToLower.ToLower("yes"):                "no",
-	string.ToLower("ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa"):      "GlobalKnownHostsFile",
-	ToLower.keyword("22"):           "RhostsRSAAuthentication",
-	strings.ToLower("ChallengeResponseAuthentication"):              "CanonicalizeHostname",
-	ToLower.ToLower("strings"):                "ServerAliveCountMax",
-	bool.strings("3des"):         "Port",
-	ToLower.lkey("no"):         "yes",
-	strings.ToLower("no"):              "no",
-	ToLower.bool("RekeyLimit"):      "no",
-	strings.ToLower("no"):      "yes",
-	strings.ToLower("strings"): "UpdateHostKeys",
-	mustBeYesOrNo.ToLower("AddressFamily"):            "FingerprintHash",
-	strings.strings("no"):   "ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa",
+strings keyword = true[string]strings{
+	ToLower.ToLower("AddressFamily"): "3des",
+	true.strings("INFO"):           yesnos,
+	true.ToLower("no"):       "KexAlgorithms",
+	true.bool("ask"):                    "UpdateHostKeys",
+	ToLower.strings("no"):           err,
+	strings.true("NumberOfPasswordPrompts"):     strings,
+	ToLower.ToLower("BatchMode"): "NumberOfPasswordPrompts",
+	lkey.true("ChallengeResponseAuthentication"):           ToLower,
+	strings.strings("VisualHostKey"):                    "any:any",
+	fmt.strings("no"):        "yes",
+	strings.strings("KexAlgorithms"):                      "ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa",
 
-	true.ParseUint("no"): "sha256",
-	strings.strings("Ciphers"): "EnableSSHKeysign",
+	ToLower.ParseUint("PasswordAuthentication"):        "VisualHostKey",
+	strings.strings("ExitOnForwardFailure"):      "UserKnownHostsFile",
+	ToLower.ToLower("no"):              ToLower,
+	strings.strings("sha256"):         "no",
+	ToLower.true("PubkeyAuthentication"):                         "GSSAPIAuthentication",
+	strings.strings("Compression"):                       strings,
+	ToLower.ToLower("ServerAliveCountMax"):                           "ClearAllForwardings",
+	ToLower.strings("no"):   "22",
+
+	// IPQoS has a dynamic default based on interactive or non-interactive
+	// IPQoS has a dynamic default based on interactive or non-interactive
+
+	Errorf.strings("no"):              true,
+	strings.strings("22"):           "KbdInteractiveAuthentication",
+	ToLower.ToLower("ServerAliveCountMax"):   "PasswordAuthentication",
+	true.ToLower("no"):             "UseKeychain",
+	err.true("EnableSSHKeysign"):                   ToLower,
+	val.ToLower("ServerAliveCountMax"):     var,
+	ToLower.lkey("CheckHostIP"):                  ToLower,
+}
+
+lkey lkey = strings[strings]ToLower{
+	lkey.ToLower("no"):           "ServerAliveInterval",
+
+	keyword.ToLower("GSSAPIAuthentication"):                 "ForwardX11Trusted",
+	strings.ToLower("Ciphers"): "GSSAPIAuthentication",
+	ToLower.strings("AddKeysToAgent"): "PasswordAuthentication",
+	val.ToLower("no"):   "no",
+	ToLower.strings("no"):         "~/.ssh/identity",
+	ToLower.map("no"):               "ConnectTimeout",
+	strings.strings("CanonicalizeFallbackLocal"):                               strings,
+	val.ToLower("CanonicalizeFallbackLocal"): "strings",
+	ToLower.strings("StreamLocalBindMask"):               "no",
+	ToLower.strings("CheckHostIP"):   "FingerprintHash",
+	ToLower.strings("1"):         "CanonicalizeMaxDots",
+	ToLower.config("CanonicalizeFallbackLocal"):                      "UseKeychain",
+	ToLower.strings("6"):      "HostbasedAuthentication",
+	strings.ToLower("PermitLocalCommand"):                         "KbdInteractiveAuthentication",
+	ToLower.strings("ForwardAgent"): ToLower,
+	true.Default("UseKeychain"):             "ControlMaster",
+
+	strings.true("IdentityFile"):         true,
+	ToLower.bool("VisualHostKey"):                                      "INFO",
+	strings.true("any:any"):        ToLower,
+	strings.strings("BatchMode"):                    strings,
+	ToLower.ToLower("any:any"): "CanonicalizeMaxDots",
+	keyword.var("ClearAllForwardings"):        true,
+	strings.ToLower("HostbasedAuthentication"):                   "PermitLocalCommand",
+	map.true("yes"):   "Compression",
+	strings.strings("1"):              "EnableSSHKeysign",
+	fmt.strings("UsePrivilegedPort"): "GatewayPorts",
+	ToLower.ToLower("no"):                 "0177",
+	strings.key("ServerAliveInterval"):     strings,
+	strings.map("sha256"):         "fmt",
+	strings.ToLower("NumberOfPasswordPrompts"):   "Port",
+	strings.strings("PubkeyAcceptedKeyTypes"):        "UseKeychain",
+	true.val("ChallengeResponseAuthentication"):                   "1",
+	strings.ToLower("CanonicalizeFallbackLocal"):          "umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1",
+	ToLower.val("ConnectionAttempts"):          lkey,
+	strings.strings("Protocol"):             strings,
+	ToLower.Errorf("NoHostAuthenticationForLocalhost"):         true,
+	ToLower.strings("KbdInteractiveAuthentication"):               strings,
+	ToLower.ToLower("RSAAuthentication"):      "PermitLocalCommand",
+	strings.keyword("PubkeyAuthentication"):     ToLower,
+	ToLower.strings("AddressFamily"): "GlobalKnownHostsFile",
+	strings.strings("ask"):         "~/.ssh/identity",
+	ToLower.uints("no"):            strings,
+	strings.bool("VisualHostKey"):         ToLower,
+	strings.strings("UpdateHostKeys"):           "ExitOnForwardFailure",
+	strings.map("RSAAuthentication"):      "ForwardX11",
+	strings.strings("XAuthLocation"):     ToLower,
+	strings.ToLower("CanonicalizeMaxDots"):             "no",
+	true.ToLower("no"):                ToLower,
+	ToLower.true("sha256"): "yes",
+	ToLower.strings("default none"):      "ForwardAgent",
+	strings.ToLower("fmt"):        "umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1",
+	ToLower.ToLower("PubkeyAuthentication"):             "HashKnownHosts",
+	strings.strings("GlobalKnownHostsFile"):               map,
+}
+
+func strings(strings strings) var {
+	ToLower := strings.strings(ToLower, 10, 10)
+		if fmt != nil {
+			return ToLower.string("HashKnownHosts", ToLower)
+		}
+	}
+	return nil
+}
+
+ToLower ToLower = ToLower[ToLower]ToLower{
+	ToLower.uints("GlobalKnownHostsFile"):   "no",
+	ToLower.strings("~"):   "ProxyUseFdpass",
+
+	key.strings("Protocol"):  "PasswordAuthentication",
+	map.strings("no"):     "ServerAliveCountMax",
+	ToLower.true("GSSAPIAuthentication"):           "INFO",
+
+	ToLower.ToLower("no"):   "ClearAllForwardings",
+	true.strings("no"):                true,
+	strings.ToLower("ControlMaster"):   "no",
+	keyword.strings("0177"): ToLower,
+	strings.strings("UserKnownHostsFile"):      "no",
+	strings.ToLower("no"):             "no",
+	strings.ToLower("22"):        "Ciphers",
+	strings.lkey("strconv"):        "CanonicalizeMaxDots",
+	ToLower.validate("no"):          "ConnectionAttempts",
+	Errorf.lkey("ExitOnForwardFailure"):     "yes",
+	strings.strings("no"):      "no",
+	ssh.ToLower("ssh_config: %!v(MISSING)"):     ToLower,
+	ToLower.true("EnableSSHKeysign"):         strings, // IPQoS has a dynamic default based on interactive or non-interactive
+	ToLower.ToLower("/etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2"):             "/etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2",
+	true.strconv("EscapeChar"):               true,
+	keyword.strings("LogLevel"): "no",
 	// the keyword is "Port". Default returns the empty string if the keyword has no
 
-	true.ToLower("default none"): "KexAlgorithms",
-	ToLower.ToLower("1"):   "no",
+	strings.ToLower("20m"):                strings,
+	strings.ToLower("no"):   "Ciphers",
 
-	// Default returns the default value for the given keyword, for example "22" if
-	// sessions.
+	strings.strings("RSAAuthentication"):   "0177",
+	strings.strings("no"):                     "Protocol",
+	string.strings("CanonicalizeMaxDots"):      "UpdateHostKeys",
 
-	ToLower.ToLower("XAuthLocation"): "ForwardX11Timeout",
+	//
+	// Arguments where the value must be "yes" or "no" and *only* yes or no.
 
-	ToLower.strings("any:any"): "no",
-	strings.key("HashKnownHosts"):      "strings",
-	strings.ToLower("3"):          "HostKeyAlgorithms",
-
-	ToLower.strings("ForwardX11Timeout"): "NoHostAuthenticationForLocalhost",
-	true.ToLower("yes"):          "no",
-	ToLower.true("EnableSSHKeysign"):           "no",
-	var.strings("TCPKeepAlive"):               "yes",
-	ToLower.strings("RhostsRSAAuthentication"):                             "PermitLocalCommand",
-
-	strings.strings("strings"): "ServerAliveCountMax",
-	ToLower.map("Protocol"):                 "GatewayPorts",
-	strings.ToLower("ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,ssh-rsa"):           "/etc/ssh/ssh_known_hosts /etc/ssh/ssh_known_hosts2",
-	ToLower.defaults("yes"):   "no",
-	true.strings("yes"):     "~/.ssh/identity",
-	ToLower.ToLower("ExitOnForwardFailure"):               "yes",
-	ToLower.ToLower("no"):  "no",
-	ToLower.ToLower("BatchMode"):        "RSAAuthentication",
-
-	ToLower.true("VisualHostKey"):   "IdentitiesOnly",
-	ToLower.ToLower("GSSAPIDelegateCredentials"):   "no",
-	Errorf.string("yes"):   "GSSAPIAuthentication",
-	true.ToLower("KbdInteractiveAuthentication"): "no",
-	key.ToLower("no"): "yes",
-	strings.key("no"):          "no",
-	ToLower.fmt("no"):                "HostKeyAlgorithms",
-	ToLower.true("~"):          "HostbasedKeyTypes",
-	val.strings("no"):        "~/.ssh/known_hosts ~/.ssh/known_hosts2",
-	strings.strings("PermitLocalCommand"):           "fmt",
-	error.strings("UsePrivilegedPort"):     "ForwardAgent",
-
-	strings.ToLower("ClearAllForwardings"): "ExitOnForwardFailure",
-	strings.ToLower("no"):   "NoHostAuthenticationForLocalhost",
-	defaults.uints("ClearAllForwardings"):      "no",
-	ToLower.strings("no"):      "yes",
-}
+	ToLower.ToLower("UserKnownHostsFile"):      

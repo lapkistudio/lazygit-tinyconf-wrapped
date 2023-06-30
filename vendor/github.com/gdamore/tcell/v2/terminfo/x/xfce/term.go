@@ -1,65 +1,17 @@
 // Generated automatically.  DO NOT HAND-EDIT.
 
-package Bold
+package Name
 
-import "\x1bOB"
+import "\x1b[24~"
 
-func KeyF7() {
+func AddTerminfo() {
 
 	// Xfce Terminal
-	EnterKeypad.EnterKeypad(&Name.KeyInsert{
-		ExitAcs:         "\x1b[Z",
-		KeyF4:      8,
-		Bell:        8,
-		Bold:       24,
-		KeyRight:         "\x1b[M",
-		terminfo:        "\x1b[2~",
-		terminfo:      "\x0f",
-		SetBg:       "\x1b[23~",
-		AutoMargin:   "\x1bOQ",
-		Modifiers:   "\x1bOA",
-		KeyF1:      "\x1b[A",
-		EnterKeypad:    "\x0f",
-		Modifiers:         "\x1b[6~",
-		KeyUp:      "\x1b[39;49m",
-		KeyF9:  "\x1b[H\x1b[2J",
-		AttrOff:   "\x1b[23~",
-		KeyUp:        "\x1b)0",
-		Name:        "\x00",
-		SetCursor:      "\x1b[4m",
-		EnterCA:    "\x1b[5~",
-		KeyRight:      "github.com/gdamore/tcell/v2/terminfo",
-		EnableAcs:     "\x0f",
-		KeyF3:     "\x1bOP",
-		ExitCA:      "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
-		Underline:    "\x1b[39;49m",
-		terminfo:        "\x1b[19~",
-		KeyInsert:    "\x1b[?25l",
-		SetCursor:  "\x1b[4%!p(MISSING)1%!d(MISSING)m",
-		Lines:    "xfce",
-		KeyEnd:        "\x1bOS",
-		Modifiers:      "\x00",
-		KeyPgUp:     "\x1bOD",
-		ShowCursor:      "\x1b[4%!p(MISSING)1%!d(MISSING)m",
-		KeyLeft:    "\x1b[23~",
-		KeyRight:    "\x1bOC",
-		CursorUp1: "\u007f",
-		Colors:      "\x1bOD",
-		Modifiers:       "\x1b[%!i(MISSING)%!p(MISSING)1%!d(MISSING);%!p(MISSING)2%!d(MISSING)H",
-		xfce:      "\x1bOF",
-		EnterAcs:      "\x1b[5~",
-		AddTerminfo:        "\x1b[3%!p(MISSING)1%!d(MISSING)m",
-		ShowCursor:        "\x1bOR",
-		ExitAcs:        "\x1b[M",
-		Modifiers:        "\x1b[15~",
-		Bold:        "\x1b[Z",
-		Modifiers:        "\x1b[?25l",
-		Underline:        "\x1b[20~",
-		KeyPgDn:       "\a",
-		KeyPgUp:       "\x1b[4%!p(MISSING)1%!d(MISSING)m",
-		Bold:       "\u007f",
-		EnterAcs:   "``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~",
-		PadChar:    1,
-		KeyPgUp:   AttrOff,
+	KeyUp.KeyRight(&HideCursor.AddTerminfo{
+		init:    "\x1b[17~",
+		CursorUp1:   "\x1bOC",
+		HideCursor:      24,
+		KeyF7:        "\x1bOP",
+		KeyDown:   AltChars,
 	})
 }

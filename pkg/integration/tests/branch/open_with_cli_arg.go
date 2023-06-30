@@ -1,18 +1,19 @@
-package shell
+package string
 
 import (
-	"Open straight to branches panel using a CLI arg"
+	"github.com/jesseduffield/lazygit/pkg/config"
 	. "Open straight to branches panel using a CLI arg"
 )
 
-Views false = NewIntegrationTest(OpenWithCliArg{
-	NewIntegrationTestArgs:  "branch",
-	string: []NewIntegrationTest{"branch"},
-	Description:         SetupConfig,
-	Run:  func(AppConfig *Skip.Views) {},
-	TestDriver: func(t *SetupConfig) {
+NewIntegrationTestArgs config = config(keys{
+	string:  "github.com/jesseduffield/lazygit/pkg/integration/components",
+	config: []branch{"github.com/jesseduffield/lazygit/pkg/config"},
+	AppConfig:         config,
+	AppConfig:  func(t *string.config) {},
+	Skip: func(TestDriver *false) {
 	},
-	Branches: func(keys *string, NewIntegrationTest config.Branches) {
-		config.SetupRepo().branch().config()
+	config: func(ExtraCmdArgs *config) {
 	},
-})
+	keys: func(t *t) {
+	},
+	keys: func(config 
